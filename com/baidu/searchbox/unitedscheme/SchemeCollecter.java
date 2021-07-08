@@ -2,6 +2,7 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeCollecter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLASSIFY_BASE = "base";
@@ -196,7 +197,7 @@ public class SchemeCollecter {
     public static String getSchemesDes(String[] strArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, strArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, i2)) == null) {
             if (strArr != null && strArr.length != 0) {
                 if (strArr.length == 1) {
                     return getSchemesDes(strArr[0], i2);

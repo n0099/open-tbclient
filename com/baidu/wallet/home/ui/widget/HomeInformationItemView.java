@@ -15,22 +15,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HomeInformationItemView extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24921a;
+    public NetImageView f25031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24922b;
+    public TextView f25032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24923c;
+    public TextView f25033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24924d;
+    public TextView f25034d;
     public View mLine;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,10 +59,10 @@ public class HomeInformationItemView extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_item_view"), this);
-            this.f24921a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
-            this.f24922b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
-            this.f24923c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
-            this.f24924d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
+            this.f25031a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
+            this.f25032b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
+            this.f25033c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
+            this.f25034d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
             this.mLine = findViewById(ResUtils.id(getContext(), "home_info_item_line"));
         }
     }
@@ -83,28 +83,28 @@ public class HomeInformationItemView extends BaseItemView {
             return;
         }
         a();
-        if (this.f24921a != null) {
+        if (this.f25031a != null) {
             String str = getData().value3;
             if (!TextUtils.isEmpty(str)) {
-                this.f24921a.setImageUrl(str);
+                this.f25031a.setImageUrl(str);
             }
         }
-        if (this.f24922b != null) {
+        if (this.f25032b != null) {
             String str2 = getData().name;
             if (!TextUtils.isEmpty(str2)) {
-                this.f24922b.setText(str2);
+                this.f25032b.setText(str2);
             }
         }
-        if (this.f24923c != null) {
+        if (this.f25033c != null) {
             String str3 = getData().value2;
             if (!TextUtils.isEmpty(str3)) {
-                this.f24923c.setText(str3);
+                this.f25033c.setText(str3);
             }
         }
-        if (this.f24924d != null) {
+        if (this.f25034d != null) {
             String str4 = getData().value1;
             if (!TextUtils.isEmpty(str4)) {
-                this.f24924d.setText(str4);
+                this.f25034d.setText(str4);
             }
         }
         if (TextUtils.isEmpty(getData().link_addr)) {

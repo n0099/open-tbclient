@@ -12,7 +12,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] ADDRESSES_OTHER;

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class v extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebSocketException f44566a;
+    public WebSocketException f41582a;
 
     public v(WebSocketException webSocketException) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class v extends r {
                 return;
             }
         }
-        this.f44566a = webSocketException;
+        this.f41582a = webSocketException;
     }
 }

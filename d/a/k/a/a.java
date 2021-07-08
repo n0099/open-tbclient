@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e[] f45838a;
+    public e[] f42721a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class a {
                 return;
             }
         }
-        this.f45838a = new e[]{new f(8, 0), new g(0, 1), new g(1, 1), new f(7, 1)};
+        this.f42721a = new e[]{new f(8, 0), new g(0, 1), new g(1, 1), new f(7, 1)};
     }
 
     public byte[] a(byte[] bArr) {
@@ -37,17 +37,17 @@ public class a {
             return (byte[]) invokeL.objValue;
         }
         d dVar = new d();
-        byte[] b2 = b.b(bArr, bArr.length + ((this.f45838a.length + 1) * d.f45839b));
+        byte[] b2 = b.b(bArr, bArr.length + ((this.f42721a.length + 1) * d.f42722b));
         b.a(b2, dVar.b(), bArr.length);
         int i2 = 0;
         while (true) {
-            e[] eVarArr = this.f45838a;
+            e[] eVarArr = this.f42721a;
             if (i2 >= eVarArr.length) {
-                return Arrays.copyOf(dVar.b(), d.f45839b);
+                return Arrays.copyOf(dVar.b(), d.f42722b);
             }
             e eVar = eVarArr[i2];
             i2++;
-            int length = bArr.length + (d.f45839b * i2);
+            int length = bArr.length + (d.f42722b * i2);
             dVar.a(eVar.b(b2, 0, length), eVar.a(), eVar.c(), eVar.d());
             b.a(b2, dVar.b(), length);
         }

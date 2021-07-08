@@ -2,6 +2,7 @@ package com.bun.miitmdid.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,31 +13,31 @@ import com.bun.miitmdid.a.a.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public C0303a f27462a;
+    public C0303a f27572a;
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class C0303a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.a f27463a;
+        public com.bun.miitmdid.a.a.a f27573a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.b f27464b;
+        public com.bun.miitmdid.a.a.b f27574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f27465c;
+        public c f27575c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f27466d;
+        public final /* synthetic */ a f27576d;
 
         public C0303a(a aVar) {
             Interceptable interceptable = $ic;
@@ -53,7 +54,7 @@ public class a implements b {
                     return;
                 }
             }
-            this.f27466d = aVar;
+            this.f27576d = aVar;
         }
     }
 
@@ -70,7 +71,7 @@ public class a implements b {
                 return;
             }
         }
-        this.f27462a = new C0303a(this);
+        this.f27572a = new C0303a(this);
     }
 
     public static a a(Context context) {
@@ -116,9 +117,9 @@ public class a implements b {
                 return false;
             }
             if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-                aVar.f27462a.f27463a = new com.bun.miitmdid.a.a.a();
+                aVar.f27572a.f27573a = new com.bun.miitmdid.a.a.a();
             }
-            return aVar.f27462a.f27463a != null;
+            return aVar.f27572a.f27573a != null;
         }
         return invokeLL.booleanValue;
     }
@@ -131,9 +132,9 @@ public class a implements b {
                 return false;
             }
             if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-                aVar.f27462a.f27465c = new c();
+                aVar.f27572a.f27575c = new c();
             }
-            return aVar.f27462a.f27465c != null;
+            return aVar.f27572a.f27575c != null;
         }
         return invokeLL.booleanValue;
     }
@@ -141,17 +142,17 @@ public class a implements b {
     public static boolean c(a aVar, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, aVar, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, jSONObject)) == null) {
             if (jSONObject == null || aVar == null) {
                 return false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
             com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
             if (optJSONObject != null) {
-                bVar.f27467a = optJSONObject.optString("appid");
-                aVar.f27462a.f27464b = bVar;
+                bVar.f27577a = optJSONObject.optString("appid");
+                aVar.f27572a.f27574b = bVar;
             }
-            return aVar.f27462a.f27464b != null;
+            return aVar.f27572a.f27574b != null;
         }
         return invokeLL.booleanValue;
     }
@@ -163,8 +164,8 @@ public class a implements b {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            C0303a c0303a = this.f27462a;
-            return (c0303a == null || (bVar = c0303a.f27464b) == null || (str = bVar.f27467a) == null) ? "" : str;
+            C0303a c0303a = this.f27572a;
+            return (c0303a == null || (bVar = c0303a.f27574b) == null || (str = bVar.f27577a) == null) ? "" : str;
         }
         return (String) invokeV.objValue;
     }

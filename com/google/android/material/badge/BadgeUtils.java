@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean USE_COMPAT_PARENT;
@@ -92,7 +93,7 @@ public class BadgeUtils {
     public static ParcelableSparseArray createParcelableBadgeStates(@NonNull SparseArray<BadgeDrawable> sparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, sparseArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray)) == null) {
             ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
             for (int i2 = 0; i2 < sparseArray.size(); i2++) {
                 int keyAt = sparseArray.keyAt(i2);

@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CallerThreadExecutor extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public static final CallerThreadExecutor sInstance;

@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -74,7 +75,7 @@ public class IMSettings {
     public static boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int i2 = mDebugMode;
             if (i2 != -1) {
                 return i2 == 1;

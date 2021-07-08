@@ -12,6 +12,6 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.FUNCTION})
 @Retention(RetentionPolicy.CLASS)
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public @interface PlatformDependent {
 }

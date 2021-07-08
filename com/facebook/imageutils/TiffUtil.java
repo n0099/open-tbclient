@@ -1,5 +1,6 @@
 package com.facebook.imageutils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TiffUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Class<?> TAG;
@@ -22,13 +23,13 @@ public class TiffUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.TiffUtil$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TiffHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class TiffUtil {
     public static int moveToTiffEntryWithTag(InputStream inputStream, int i2, boolean z, int i3) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{inputStream, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) != null) {
             return invokeCommon.intValue;
         }
         if (i2 < 14) {

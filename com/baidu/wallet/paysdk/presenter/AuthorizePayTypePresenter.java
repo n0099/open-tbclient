@@ -28,7 +28,7 @@ import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import com.baidu.wallet.util.StatHelper;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AuthorizePayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AuthorizePayTypePresenter";

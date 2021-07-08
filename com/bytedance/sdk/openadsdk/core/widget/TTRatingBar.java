@@ -15,37 +15,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.r;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTRatingBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30670a;
+    public int f30780a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30671b;
+    public int f30781b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30672c;
+    public int f30782c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f30673d;
+    public float f30783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f30674e;
+    public float f30784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f30675f;
+    public float f30785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f30676g;
+    public Drawable f30786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f30677h;
+    public Drawable f30787h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f30678i;
+    public Drawable f30788i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTRatingBar(Context context, AttributeSet attributeSet) {
@@ -66,16 +66,16 @@ public class TTRatingBar extends LinearLayout {
                 return;
             }
         }
-        this.f30670a = 5;
-        this.f30671b = 0;
-        this.f30672c = 0;
+        this.f30780a = 5;
+        this.f30781b = 0;
+        this.f30782c = 0;
         setOrientation(0);
-        this.f30676g = r.c(context, "tt_star_empty_bg");
-        this.f30677h = r.c(context, "tt_star_full_bg");
-        this.f30678i = r.c(context, "tt_star_empty_bg");
-        this.f30673d = q.d(context, 15.0f);
-        this.f30674e = q.d(context, 15.0f);
-        this.f30675f = q.d(context, 5.0f);
+        this.f30786g = r.c(context, "tt_star_empty_bg");
+        this.f30787h = r.c(context, "tt_star_full_bg");
+        this.f30788i = r.c(context, "tt_star_empty_bg");
+        this.f30783d = q.d(context, 15.0f);
+        this.f30784e = q.d(context, 15.0f);
+        this.f30785f = q.d(context, 5.0f);
     }
 
     private ImageView getStarImageView() {
@@ -83,8 +83,8 @@ public class TTRatingBar extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             ImageView imageView = new ImageView(getContext());
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f30673d), Math.round(this.f30674e)));
-            imageView.setPadding(0, 0, Math.round(this.f30675f), 0);
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(Math.round(this.f30783d), Math.round(this.f30784e)));
+            imageView.setPadding(0, 0, Math.round(this.f30785f), 0);
             return imageView;
         }
         return (ImageView) invokeV.objValue;
@@ -115,117 +115,117 @@ public class TTRatingBar extends LinearLayout {
     public Drawable getStarEmptyDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30676g : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30786g : (Drawable) invokeV.objValue;
     }
 
     public int getStarEmptyNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30672c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30782c : invokeV.intValue;
     }
 
     public Drawable getStarFillDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30677h : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30787h : (Drawable) invokeV.objValue;
     }
 
     public int getStarFillNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30670a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30780a : invokeV.intValue;
     }
 
     public Drawable getStarHalfDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30678i : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30788i : (Drawable) invokeV.objValue;
     }
 
     public int getStarHalfNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30671b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30781b : invokeV.intValue;
     }
 
     public float getStarImageHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30674e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30784e : invokeV.floatValue;
     }
 
     public float getStarImagePadding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30675f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30785f : invokeV.floatValue;
     }
 
     public float getStarImageWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30673d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30783d : invokeV.floatValue;
     }
 
     public void setStarEmptyDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
-            this.f30676g = drawable;
+            this.f30786g = drawable;
         }
     }
 
     public void setStarEmptyNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f30672c = i2;
+            this.f30782c = i2;
         }
     }
 
     public void setStarFillDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, drawable) == null) {
-            this.f30677h = drawable;
+            this.f30787h = drawable;
         }
     }
 
     public void setStarFillNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f30670a = i2;
+            this.f30780a = i2;
         }
     }
 
     public void setStarHalfDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
-            this.f30678i = drawable;
+            this.f30788i = drawable;
         }
     }
 
     public void setStarHalfNum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f30671b = i2;
+            this.f30781b = i2;
         }
     }
 
     public void setStarImageHeight(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f30674e = f2;
+            this.f30784e = f2;
         }
     }
 
     public void setStarImagePadding(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            this.f30675f = f2;
+            this.f30785f = f2;
         }
     }
 
     public void setStarImageWidth(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.f30673d = f2;
+            this.f30783d = f2;
         }
     }
 }

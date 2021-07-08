@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a;
+import d.a.t.a;
 /* loaded from: classes.dex */
 public class IMReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;

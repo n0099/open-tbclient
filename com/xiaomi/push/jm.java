@@ -1,16 +1,17 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class jm extends iv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43515a;
+    public int f40529a;
 
     public jm() {
         Interceptable interceptable = $ic;
@@ -25,7 +26,7 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f43515a = 0;
+        this.f40529a = 0;
     }
 
     public jm(int i2) {
@@ -43,8 +44,8 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f43515a = 0;
-        this.f43515a = i2;
+        this.f40529a = 0;
+        this.f40529a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,8 +66,8 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f43515a = 0;
-        this.f43515a = i2;
+        this.f40529a = 0;
+        this.f40529a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -87,8 +88,8 @@ public class jm extends iv {
                 return;
             }
         }
-        this.f43515a = 0;
-        this.f43515a = i2;
+        this.f40529a = 0;
+        this.f40529a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -99,16 +100,16 @@ public class jm extends iv {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
-        this.f43515a = 0;
+        this.f40529a = 0;
     }
 }

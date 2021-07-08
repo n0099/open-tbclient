@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c0 implements L0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ i0 f42547a;
+    public final /* synthetic */ i0 f39561a;
 
     public c0(i0 i0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c0 implements L0 {
                 return;
             }
         }
-        this.f42547a = i0Var;
+        this.f39561a = i0Var;
     }
 
     @Override // com.win.opensdk.L0
@@ -45,12 +45,12 @@ public class c0 implements L0 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             Info info = (Info) obj;
             try {
-                this.f42547a.f42581c = info;
-                if (this.f42547a.f42584f != null) {
+                this.f39561a.f39595c = info;
+                if (this.f39561a.f39598f != null) {
                     if (info == null || info.getType() != 11) {
-                        this.f42547a.f42584f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.f42547a.b()) {
-                        this.f42547a.f42584f.onLoaded();
+                        this.f39561a.f39598f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.f39561a.b()) {
+                        this.f39561a.f39598f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -62,7 +62,7 @@ public class c0 implements L0 {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f42547a.f42584f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f39561a.f39598f) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);

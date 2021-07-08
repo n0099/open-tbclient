@@ -27,22 +27,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends Resources {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, d.a.i.a.k.e<String, Integer>> f45693d;
+    public static HashMap<String, d.a.i.a.k.e<String, Integer>> f42540d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f45694a;
+    public Resources f42541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45695b;
+    public String f42542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f45696c;
+    public Resources f42543c;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class h extends Resources {
             }
         }
         String str = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
-        f45693d = new HashMap<>();
+        f42540d = new HashMap<>();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,7 +80,7 @@ public class h extends Resources {
                 return;
             }
         }
-        this.f45696c = resources;
+        this.f42543c = resources;
         new HashMap();
     }
 
@@ -88,18 +88,18 @@ public class h extends Resources {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (!TextUtils.isEmpty(this.f45695b) && !this.f45695b.equals("com.baidu.browser.theme.default")) {
+            if (!TextUtils.isEmpty(this.f42542b) && !this.f42542b.equals("com.baidu.browser.theme.default")) {
                 try {
-                    String resourceEntryName = this.f45696c.getResourceEntryName(i2);
-                    String resourceTypeName = this.f45696c.getResourceTypeName(i2);
-                    d.a.i.a.k.e<String, Integer> eVar = f45693d.get(resourceTypeName);
+                    String resourceEntryName = this.f42543c.getResourceEntryName(i2);
+                    String resourceTypeName = this.f42543c.getResourceTypeName(i2);
+                    d.a.i.a.k.e<String, Integer> eVar = f42540d.get(resourceTypeName);
                     if (eVar == null) {
                         eVar = new d.a.i.a.k.e<>(100);
-                        f45693d.put(resourceTypeName, eVar);
+                        f42540d.put(resourceTypeName, eVar);
                     }
                     Integer c2 = eVar.c(resourceEntryName);
                     if (c2 == null) {
-                        c2 = Integer.valueOf(this.f45694a.getIdentifier(resourceEntryName, resourceTypeName, this.f45695b));
+                        c2 = Integer.valueOf(this.f42541a.getIdentifier(resourceEntryName, resourceTypeName, this.f42542b));
                         if (c2.intValue() != 0) {
                             eVar.d(resourceEntryName, c2);
                         }
@@ -121,9 +121,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getAnimation(a2);
+                return this.f42541a.getAnimation(a2);
             }
-            return this.f45696c.getAnimation(i2);
+            return this.f42543c.getAnimation(i2);
         }
         return (XmlResourceParser) invokeI.objValue;
     }
@@ -132,7 +132,7 @@ public class h extends Resources {
     public boolean getBoolean(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f45696c.getBoolean(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f42543c.getBoolean(i2) : invokeI.booleanValue;
     }
 
     @Override // android.content.res.Resources
@@ -153,7 +153,7 @@ public class h extends Resources {
     public Configuration getConfiguration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f45696c.getConfiguration() : (Configuration) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42543c.getConfiguration() : (Configuration) invokeV.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -163,9 +163,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getDimension(a2);
+                return this.f42541a.getDimension(a2);
             }
-            return this.f45696c.getDimension(i2);
+            return this.f42543c.getDimension(i2);
         }
         return invokeI.floatValue;
     }
@@ -177,9 +177,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getDimensionPixelOffset(a2);
+                return this.f42541a.getDimensionPixelOffset(a2);
             }
-            return this.f45696c.getDimensionPixelOffset(i2);
+            return this.f42543c.getDimensionPixelOffset(i2);
         }
         return invokeI.intValue;
     }
@@ -191,9 +191,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getDimensionPixelSize(a2);
+                return this.f42541a.getDimensionPixelSize(a2);
             }
-            return this.f45696c.getDimensionPixelSize(i2);
+            return this.f42543c.getDimensionPixelSize(i2);
         }
         return invokeI.intValue;
     }
@@ -205,9 +205,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getDrawable(a2);
+                return this.f42541a.getDrawable(a2);
             }
-            return this.f45696c.getDrawable(i2);
+            return this.f42543c.getDrawable(i2);
         }
         return (Drawable) invokeI.objValue;
     }
@@ -220,9 +220,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i2, i3)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getDrawableForDensity(a2, i3);
+                return this.f42541a.getDrawableForDensity(a2, i3);
             }
-            return this.f45696c.getDrawableForDensity(i2, i3);
+            return this.f42543c.getDrawableForDensity(i2, i3);
         }
         return (Drawable) invokeII.objValue;
     }
@@ -234,9 +234,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048590, this, i2, i3, i4)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getFraction(a2, i3, i4);
+                return this.f42541a.getFraction(a2, i3, i4);
             }
-            return this.f45696c.getFraction(i2, i3, i4);
+            return this.f42543c.getFraction(i2, i3, i4);
         }
         return invokeIII.floatValue;
     }
@@ -248,9 +248,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getIntArray(a2);
+                return this.f42541a.getIntArray(a2);
             }
-            return this.f45696c.getIntArray(i2);
+            return this.f42543c.getIntArray(i2);
         }
         return (int[]) invokeI.objValue;
     }
@@ -262,9 +262,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getInteger(a2);
+                return this.f42541a.getInteger(a2);
             }
-            return this.f45696c.getInteger(i2);
+            return this.f42543c.getInteger(i2);
         }
         return invokeI.intValue;
     }
@@ -276,9 +276,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getLayout(a2);
+                return this.f42541a.getLayout(a2);
             }
-            return this.f45696c.getLayout(i2);
+            return this.f42543c.getLayout(i2);
         }
         return (XmlResourceParser) invokeI.objValue;
     }
@@ -290,9 +290,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getMovie(a2);
+                return this.f42541a.getMovie(a2);
             }
-            return this.f45696c.getMovie(i2);
+            return this.f42543c.getMovie(i2);
         }
         return (Movie) invokeI.objValue;
     }
@@ -304,9 +304,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i2, i3)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getQuantityString(a2, i3);
+                return this.f42541a.getQuantityString(a2, i3);
             }
-            return this.f45696c.getQuantityString(i2, i3);
+            return this.f42543c.getQuantityString(i2, i3);
         }
         return (String) invokeII.objValue;
     }
@@ -318,9 +318,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i2, i3)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getQuantityText(a2, i3);
+                return this.f42541a.getQuantityText(a2, i3);
             }
-            return this.f45696c.getQuantityText(i2, i3);
+            return this.f42543c.getQuantityText(i2, i3);
         }
         return (CharSequence) invokeII.objValue;
     }
@@ -329,28 +329,28 @@ public class h extends Resources {
     public String getResourceEntryName(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? this.f45696c.getResourceEntryName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? this.f42543c.getResourceEntryName(i2) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
     public String getResourceName(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? this.f45696c.getResourceName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? this.f42543c.getResourceName(i2) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
     public String getResourcePackageName(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) ? this.f45696c.getResourcePackageName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) ? this.f42543c.getResourcePackageName(i2) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
     public String getResourceTypeName(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? this.f45696c.getResourceTypeName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? this.f42543c.getResourceTypeName(i2) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -360,9 +360,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getString(a2);
+                return this.f42541a.getString(a2);
             }
-            return this.f45696c.getString(i2);
+            return this.f42543c.getString(i2);
         }
         return (String) invokeI.objValue;
     }
@@ -374,9 +374,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getStringArray(a2);
+                return this.f42541a.getStringArray(a2);
             }
-            return this.f45696c.getStringArray(i2);
+            return this.f42543c.getStringArray(i2);
         }
         return (String[]) invokeI.objValue;
     }
@@ -388,9 +388,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getText(a2);
+                return this.f42541a.getText(a2);
             }
-            return this.f45696c.getText(i2);
+            return this.f42543c.getText(i2);
         }
         return (CharSequence) invokeI.objValue;
     }
@@ -402,9 +402,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getTextArray(a2);
+                return this.f42541a.getTextArray(a2);
             }
-            return this.f45696c.getTextArray(i2);
+            return this.f42543c.getTextArray(i2);
         }
         return (CharSequence[]) invokeI.objValue;
     }
@@ -415,9 +415,9 @@ public class h extends Resources {
         if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), typedValue, Boolean.valueOf(z)}) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                this.f45694a.getValue(a2, typedValue, z);
+                this.f42541a.getValue(a2, typedValue, z);
             } else {
-                this.f45696c.getValue(i2, typedValue, z);
+                this.f42543c.getValue(i2, typedValue, z);
             }
         }
     }
@@ -429,9 +429,9 @@ public class h extends Resources {
         if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), typedValue, Boolean.valueOf(z)}) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                this.f45694a.getValueForDensity(a2, i3, typedValue, z);
+                this.f42541a.getValueForDensity(a2, i3, typedValue, z);
             } else {
-                this.f45696c.getValueForDensity(i2, i3, typedValue, z);
+                this.f42543c.getValueForDensity(i2, i3, typedValue, z);
             }
         }
     }
@@ -440,21 +440,21 @@ public class h extends Resources {
     public XmlResourceParser getXml(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? this.f45696c.getXml(i2) : (XmlResourceParser) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? this.f42543c.getXml(i2) : (XmlResourceParser) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainAttributes(AttributeSet attributeSet, int[] iArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, attributeSet, iArr)) == null) ? this.f45696c.obtainAttributes(attributeSet, iArr) : (TypedArray) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, attributeSet, iArr)) == null) ? this.f42543c.obtainAttributes(attributeSet, iArr) : (TypedArray) invokeLL.objValue;
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainTypedArray(int i2) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.f45696c.obtainTypedArray(i2) : (TypedArray) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.f42543c.obtainTypedArray(i2) : (TypedArray) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -464,7 +464,7 @@ public class h extends Resources {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
             int a2 = a(i2);
-            if (a2 != 0 && (resources = this.f45694a) != null) {
+            if (a2 != 0 && (resources = this.f42541a) != null) {
                 try {
                     InputStream openRawResource = resources.openRawResource(a2);
                     if (openRawResource != null) {
@@ -474,7 +474,7 @@ public class h extends Resources {
                     e2.printStackTrace();
                 }
             }
-            return this.f45696c.openRawResource(i2);
+            return this.f42543c.openRawResource(i2);
         }
         return (InputStream) invokeI.objValue;
     }
@@ -486,7 +486,7 @@ public class h extends Resources {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
             int a2 = a(i2);
-            if (a2 != 0 && (resources = this.f45694a) != null) {
+            if (a2 != 0 && (resources = this.f42541a) != null) {
                 try {
                     AssetFileDescriptor openRawResourceFd = resources.openRawResourceFd(a2);
                     if (openRawResourceFd != null) {
@@ -496,7 +496,7 @@ public class h extends Resources {
                     e2.printStackTrace();
                 }
             }
-            return this.f45696c.openRawResourceFd(i2);
+            return this.f42543c.openRawResourceFd(i2);
         }
         return (AssetFileDescriptor) invokeI.objValue;
     }
@@ -508,9 +508,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, theme)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getColor(a2);
+                return this.f42541a.getColor(a2);
             }
-            return this.f45696c.getColor(i2);
+            return this.f42543c.getColor(i2);
         }
         return invokeIL.intValue;
     }
@@ -522,9 +522,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, theme)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getColorStateList(a2);
+                return this.f42541a.getColorStateList(a2);
             }
-            return this.f45696c.getColorStateList(i2);
+            return this.f42543c.getColorStateList(i2);
         }
         return (ColorStateList) invokeIL.objValue;
     }
@@ -537,9 +537,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, theme)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getDrawable(a2, null);
+                return this.f42541a.getDrawable(a2, null);
             }
-            return this.f45696c.getDrawable(i2, theme);
+            return this.f42543c.getDrawable(i2, theme);
         }
         return (Drawable) invokeIL.objValue;
     }
@@ -551,9 +551,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i2, i3, objArr)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getQuantityString(a2, i3, objArr);
+                return this.f42541a.getQuantityString(a2, i3, objArr);
             }
-            return this.f45696c.getQuantityString(i2, i3, objArr);
+            return this.f42543c.getQuantityString(i2, i3, objArr);
         }
         return (String) invokeIIL.objValue;
     }
@@ -565,9 +565,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i2, objArr)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getString(a2, objArr);
+                return this.f42541a.getString(a2, objArr);
             }
-            return this.f45696c.getString(i2, objArr);
+            return this.f42543c.getString(i2, objArr);
         }
         return (String) invokeIL.objValue;
     }
@@ -579,9 +579,9 @@ public class h extends Resources {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i2, charSequence)) == null) {
             int a2 = a(i2);
             if (a2 != 0) {
-                return this.f45694a.getText(a2, charSequence);
+                return this.f42541a.getText(a2, charSequence);
             }
-            return this.f45696c.getText(i2, charSequence);
+            return this.f42543c.getText(i2, charSequence);
         }
         return (CharSequence) invokeIL.objValue;
     }
@@ -590,7 +590,7 @@ public class h extends Resources {
     public void getValue(String str, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048609, this, str, typedValue, z) == null) {
-            this.f45696c.getValue(str, typedValue, z);
+            this.f42543c.getValue(str, typedValue, z);
         }
     }
 
@@ -601,7 +601,7 @@ public class h extends Resources {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i2, typedValue)) == null) {
             int a2 = a(i2);
-            if (a2 != 0 && (resources = this.f45694a) != null) {
+            if (a2 != 0 && (resources = this.f42541a) != null) {
                 try {
                     InputStream openRawResource = resources.openRawResource(a2, typedValue);
                     if (openRawResource != null) {
@@ -611,7 +611,7 @@ public class h extends Resources {
                     e2.printStackTrace();
                 }
             }
-            return this.f45696c.openRawResource(i2, typedValue);
+            return this.f42543c.openRawResource(i2, typedValue);
         }
         return (InputStream) invokeIL.objValue;
     }

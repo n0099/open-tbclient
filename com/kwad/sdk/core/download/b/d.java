@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,11 +22,11 @@ public class d {
             if (adTemplate == null || context == null) {
                 return 0;
             }
-            int a2 = a(context, com.kwad.sdk.core.response.b.c.j(adTemplate).adConversionInfo.deeplinkUrl);
+            int a2 = a(context, com.kwad.sdk.core.response.b.c.i(adTemplate).adConversionInfo.deeplinkUrl);
             if (a2 == 1) {
-                com.kwad.sdk.core.report.b.a(adTemplate, i2);
+                com.kwad.sdk.core.report.a.a(adTemplate, i2);
             } else if (a2 == -1) {
-                com.kwad.sdk.core.report.b.b(adTemplate, i2);
+                com.kwad.sdk.core.report.a.b(adTemplate, i2);
             }
             return a2;
         }

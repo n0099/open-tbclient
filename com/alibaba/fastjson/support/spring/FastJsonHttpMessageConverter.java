@@ -90,7 +90,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
         public static Type getType(Type type, Class<?> cls) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, type, cls)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, type, cls)) == null) {
                 if (cls != null) {
                     ResolvableType forType = ResolvableType.forType(type);
                     if (type instanceof TypeVariable) {

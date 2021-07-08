@@ -1,5 +1,5 @@
 package com.sdk.base.api;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface CallBack<T> {
     void onFailed(int i2, int i3, String str, String str2);
 

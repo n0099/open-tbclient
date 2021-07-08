@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
 import com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase;
 import com.baidu.wallet.lightapp.business.LightappBrowserWebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappBrowserWebView f25638a;
+    public LightappBrowserWebView f25748a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f25639b;
+    public ViewGroup f25749b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25640c;
+    public boolean f25750c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LangbridgeSlideLayout(Context context) {
@@ -49,7 +49,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
                 return;
             }
         }
-        this.f25640c = true;
+        this.f25750c = true;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -71,7 +71,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LangbridgeSlideLayout f25641a;
+            public final /* synthetic */ LangbridgeSlideLayout f25751a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -91,7 +91,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
                         return;
                     }
                 }
-                this.f25641a = this;
+                this.f25751a = this;
             }
 
             @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
@@ -120,8 +120,8 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LightappBrowserWebView lightappBrowserWebView = this.f25638a;
-            return lightappBrowserWebView != null && lightappBrowserWebView.isTop && this.f25640c;
+            LightappBrowserWebView lightappBrowserWebView = this.f25748a;
+            return lightappBrowserWebView != null && lightappBrowserWebView.isTop && this.f25750c;
         }
         return invokeV.booleanValue;
     }
@@ -139,7 +139,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     public void setSupportPullDown(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f25640c = z;
+            this.f25750c = z;
             if (z) {
                 return;
             }
@@ -150,8 +150,8 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
     public void setTarget(LightappBrowserWebView lightappBrowserWebView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, lightappBrowserWebView) == null) {
-            this.f25638a = lightappBrowserWebView;
-            ViewGroup viewGroup = this.f25639b;
+            this.f25748a = lightappBrowserWebView;
+            ViewGroup viewGroup = this.f25749b;
             if (viewGroup == null || lightappBrowserWebView == null) {
                 return;
             }
@@ -173,7 +173,7 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, attributeSet)) == null) {
             FrameLayout frameLayout = new FrameLayout(context);
-            this.f25639b = frameLayout;
+            this.f25749b = frameLayout;
             return frameLayout;
         }
         return (ViewGroup) invokeLL.objValue;
@@ -198,6 +198,6 @@ public class LangbridgeSlideLayout extends PullToRefreshBase<ViewGroup> {
                 return;
             }
         }
-        this.f25640c = true;
+        this.f25750c = true;
     }
 }

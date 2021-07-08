@@ -1,6 +1,7 @@
 package com.baidu.sso.r;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,36 +12,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f10545a;
+    public static final a f10562a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f10546b;
+    public static final a f10563b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f10547c;
+    public static final a f10564c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f10548d;
+    public static final a f10565d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f10549e;
+    public static final a f10566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f10550f;
+    public static final a f10567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f10551g;
+    public static final a f10568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f10552h;
+    public static final a f10569h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f10553i;
+    public static final a f10570i;
     public static final a j;
     public static final a k;
     public static final a l;
@@ -61,20 +62,20 @@ public final class a {
                 return;
             }
         }
-        f10545a = new a("UNSUPPORT", 0, -1, "unsupport");
-        f10546b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        f10547c = new a("XIAOMI", 2, 1, "Xiaomi");
-        f10548d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f10549e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f10550f = new a("MOTO", 5, 4, "motorola");
-        f10551g = new a("LENOVO", 6, 5, "lenovo");
-        f10552h = new a("ASUS", 7, 6, "asus");
-        f10553i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
+        f10562a = new a("UNSUPPORT", 0, -1, "unsupport");
+        f10563b = new a("HUA_WEI", 1, 0, "HUAWEI");
+        f10564c = new a("XIAOMI", 2, 1, "Xiaomi");
+        f10565d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        f10566e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        f10567f = new a("MOTO", 5, 4, "motorola");
+        f10568g = new a("LENOVO", 6, 5, "lenovo");
+        f10569h = new a("ASUS", 7, 6, "asus");
+        f10570i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
         j = new a("MEIZU", 9, 8, "meizu");
         k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
         l = aVar;
-        m = new a[]{f10545a, f10546b, f10547c, f10548d, f10549e, f10550f, f10551g, f10552h, f10553i, j, k, aVar};
+        m = new a[]{f10562a, f10563b, f10564c, f10565d, f10566e, f10567f, f10568g, f10569h, f10570i, j, k, aVar};
     }
 
     public a(String str, int i2, int i3, String str2) {
@@ -104,14 +105,14 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f10545a;
+                return f10562a;
             }
             for (a aVar : values()) {
                 if (aVar.n.equalsIgnoreCase(str)) {
                     return aVar;
                 }
             }
-            return f10545a;
+            return f10562a;
         }
         return (a) invokeL.objValue;
     }
@@ -125,6 +126,6 @@ public final class a {
     public static a[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (a[]) m.clone() : (a[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (a[]) m.clone() : (a[]) invokeV.objValue;
     }
 }

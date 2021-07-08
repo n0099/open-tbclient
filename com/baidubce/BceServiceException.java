@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BceServiceException extends BceClientException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1483785729559154396L;
@@ -22,7 +22,7 @@ public class BceServiceException extends BceClientException {
     public int statusCode;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ErrorType {
         public static final /* synthetic */ ErrorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

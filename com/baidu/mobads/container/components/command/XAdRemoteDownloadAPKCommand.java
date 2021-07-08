@@ -3,6 +3,7 @@ package com.baidu.mobads.container.components.command;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.controller.XAdInstallController;
 import com.baidu.mobads.container.components.downloader.IDownloader;
@@ -29,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdRemoteDownloadAPKCommand {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdRemoteDownloadAPKCommand";
@@ -80,7 +81,7 @@ public class XAdRemoteDownloadAPKCommand {
     private String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
                 String appPackageName = this.mAdInstanceInfo.getAppPackageName();
                 RemoteXAdLogger remoteXAdLogger = this.mAdLogger;

@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class BehaviorSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorDisposable[] EMPTY;
@@ -38,7 +38,7 @@ public final class BehaviorSubject<T> extends Subject<T> {
     public final AtomicReference<Object> value;
     public final Lock writeLock;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class BehaviorDisposable<T> implements Disposable, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public final class BehaviorSubject<T> extends Subject<T> {
     public static <T> BehaviorSubject<T> createDefault(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, t)) == null) ? new BehaviorSubject<>(t) : (BehaviorSubject) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t)) == null) ? new BehaviorSubject<>(t) : (BehaviorSubject) invokeL.objValue;
     }
 
     public boolean add(BehaviorDisposable<T> behaviorDisposable) {

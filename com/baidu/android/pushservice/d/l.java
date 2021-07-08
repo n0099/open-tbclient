@@ -19,32 +19,32 @@ public class l {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f3042a;
+        public static final a f3045a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f3043b;
+        public static final a f3046b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f3044c;
+        public static final a f3047c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f3045d;
+        public static final a f3048d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f3046e;
+        public static final a f3049e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f3047f;
+        public static final a f3050f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f3048g;
+        public static final a f3051g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f3049i;
+        public static final /* synthetic */ a[] f3052i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f3050h;
+        public int f3053h;
 
         static {
             InterceptResult invokeClinit;
@@ -59,15 +59,15 @@ public class l {
                     return;
                 }
             }
-            f3042a = new a("MODEL_O", 0, 1);
-            f3043b = new a("MODEL_C", 1, 2);
-            f3044c = new a("MODEL_HW", 2, 3);
-            f3045d = new a("MODEL_XM", 3, 4);
-            f3046e = new a("MODEL_MZ", 4, 5);
-            f3047f = new a("MODEL_OP", 5, 6);
+            f3045a = new a("MODEL_O", 0, 1);
+            f3046b = new a("MODEL_C", 1, 2);
+            f3047c = new a("MODEL_HW", 2, 3);
+            f3048d = new a("MODEL_XM", 3, 4);
+            f3049e = new a("MODEL_MZ", 4, 5);
+            f3050f = new a("MODEL_OP", 5, 6);
             a aVar = new a("MODEL_VI", 6, 7);
-            f3048g = aVar;
-            f3049i = new a[]{f3042a, f3043b, f3044c, f3045d, f3046e, f3047f, aVar};
+            f3051g = aVar;
+            f3052i = new a[]{f3045a, f3046b, f3047c, f3048d, f3049e, f3050f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -88,14 +88,14 @@ public class l {
                     return;
                 }
             }
-            this.f3050h = i3;
+            this.f3053h = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f3050h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f3053h : invokeV.intValue;
         }
     }
 
@@ -104,22 +104,22 @@ public class l {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int a2 = a.f3042a.a();
+            int a2 = a.f3045a.a();
             int b2 = com.baidu.android.pushservice.b.d.a(context).b();
             if (com.baidu.android.pushservice.b.d.l(context)) {
-                aVar = a.f3044c;
+                aVar = a.f3047c;
             } else if (com.baidu.android.pushservice.b.d.k(context)) {
-                aVar = a.f3045d;
+                aVar = a.f3048d;
             } else if (com.baidu.android.pushservice.b.d.m(context)) {
-                aVar = a.f3047f;
+                aVar = a.f3050f;
             } else if (com.baidu.android.pushservice.b.d.n(context)) {
-                aVar = a.f3048g;
+                aVar = a.f3051g;
             } else if (com.baidu.android.pushservice.b.d.j(context)) {
-                aVar = a.f3046e;
+                aVar = a.f3049e;
             } else if (b2 != 2 && b2 != 4 && b2 != 3) {
                 return a2;
             } else {
-                aVar = a.f3043b;
+                aVar = a.f3046b;
             }
             return aVar.a();
         }

@@ -1,5 +1,6 @@
 package org.apache.http.params;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.ProtocolVersion;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class HttpProtocolParams implements CoreProtocolPNames {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public final class HttpProtocolParams implements CoreProtocolPNames {
     public static ProtocolVersion getVersion(HttpParams httpParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, httpParams)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpParams)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (ProtocolVersion) invokeL.objValue;

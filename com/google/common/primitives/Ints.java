@@ -21,12 +21,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Ints {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class IntArrayAsList extends AbstractList<Integer> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -245,7 +245,7 @@ public final class Ints {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class IntConverter extends Converter<String, Integer> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final IntConverter INSTANCE;
@@ -312,7 +312,7 @@ public final class Ints {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LexicographicalComparator implements Comparator<int[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -420,7 +420,7 @@ public final class Ints {
     public static int e(byte b2, byte b3, byte b4, byte b5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5)})) == null) ? (b2 << 24) | ((b3 & 255) << 16) | ((b4 & 255) << 8) | (b5 & 255) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5)})) == null) ? (b2 << 24) | ((b3 & 255) << 16) | ((b4 & 255) << 8) | (b5 & 255) : invokeCommon.intValue;
     }
 
     public static int f(int i2) {

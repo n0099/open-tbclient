@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
@@ -119,7 +120,7 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
 
     private void applySettings(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, map) == null) {
             for (String str : map.keySet()) {
                 char c2 = 65535;
                 switch (str.hashCode()) {

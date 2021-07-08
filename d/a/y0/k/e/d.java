@@ -1,5 +1,0 @@
-package d.a.y0.k.e;
-/* loaded from: classes9.dex */
-public interface d {
-    void a(c cVar);
-}

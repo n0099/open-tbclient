@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f45701a;
+    public static String f42555a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,10 +58,10 @@ public final class c {
         ActivityManager.RunningAppProcessInfo a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f45701a) && (a2 = a(context)) != null) {
-                f45701a = a2.processName;
+            if (TextUtils.isEmpty(f42555a) && (a2 = a(context)) != null) {
+                f42555a = a2.processName;
             }
-            return f45701a;
+            return f42555a;
         }
         return (String) invokeL.objValue;
     }

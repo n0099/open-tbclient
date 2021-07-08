@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28663a;
+    public int f28773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28664b;
+    public int f28774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28665c;
+    public int f28775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, byte[]> f28666d;
+    public LruCache<String, byte[]> f28776d;
 
     public c(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class c implements j {
                 return;
             }
         }
-        this.f28665c = i2;
-        this.f28663a = i3;
-        this.f28666d = new LruCache<String, byte[]>(this, i2) { // from class: com.bytedance.sdk.component.d.c.a.b.c.1
+        this.f28775c = i2;
+        this.f28773a = i3;
+        this.f28776d = new LruCache<String, byte[]>(this, i2) { // from class: com.bytedance.sdk.component.d.c.a.b.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f28667a;
+            public final /* synthetic */ c f28777a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -68,7 +68,7 @@ public class c implements j {
                         return;
                     }
                 }
-                this.f28667a = this;
+                this.f28777a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -92,7 +92,7 @@ public class c implements j {
             if (str == null || bArr == null) {
                 return false;
             }
-            this.f28666d.put(str, bArr);
+            this.f28776d.put(str, bArr);
             return true;
         }
         return invokeLL.booleanValue;
@@ -104,6 +104,6 @@ public class c implements j {
     public byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f28666d.get(str) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f28776d.get(str) : (byte[]) invokeL.objValue;
     }
 }

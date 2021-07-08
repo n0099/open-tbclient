@@ -15,13 +15,13 @@ import java.util.regex.Pattern;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f5182a;
+    public final /* synthetic */ b f5199a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c implements HostnameVerifier {
                 return;
             }
         }
-        this.f5182a = bVar;
+        this.f5199a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -49,7 +49,7 @@ public class c implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
             try {
                 Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                eVar = this.f5182a.f5178e;
+                eVar = this.f5199a.f5195e;
                 String v = eVar.b().v();
                 if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                     X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];

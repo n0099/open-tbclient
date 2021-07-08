@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,10 +23,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConnectivityManager f3483a;
+    public static ConnectivityManager f3486a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f3484b;
+    public static TelephonyManager f3487b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -87,7 +88,7 @@ public class g {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? k(context) != null ? k(context).getSimOperatorName() : "noPermission" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? k(context) != null ? k(context).getSimOperatorName() : "noPermission" : (String) invokeL.objValue;
     }
 
     public static String e(Context context) {
@@ -152,7 +153,7 @@ public class g {
                     case 14:
                     case 15:
                     case 17:
-                        str = com.baidu.apollon.statistics.g.f3983b;
+                        str = com.baidu.apollon.statistics.g.f3986b;
                         break;
                     case 13:
                     case 18:
@@ -231,12 +232,12 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                return f3483a;
+                return f3486a;
             }
-            if (f3483a == null) {
-                f3483a = (ConnectivityManager) context.getSystemService("connectivity");
+            if (f3486a == null) {
+                f3486a = (ConnectivityManager) context.getSystemService("connectivity");
             }
-            return f3483a;
+            return f3486a;
         }
         return (ConnectivityManager) invokeL.objValue;
     }
@@ -247,13 +248,13 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 if (context == null) {
-                    return f3484b;
+                    return f3487b;
                 }
-                if (f3484b == null) {
-                    f3484b = (TelephonyManager) context.getSystemService("phone");
+                if (f3487b == null) {
+                    f3487b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f3484b;
+            return f3487b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

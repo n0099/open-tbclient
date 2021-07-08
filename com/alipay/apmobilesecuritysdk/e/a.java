@@ -1,6 +1,7 @@
 package com.alipay.apmobilesecuritysdk.e;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.DeviceUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +55,9 @@ public final class a {
             synchronized (a.class) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("apdid", bVar.f1703a);
-                    jSONObject.put("deviceInfoHash", bVar.f1704b);
-                    jSONObject.put("timestamp", bVar.f1705c);
+                    jSONObject.put("apdid", bVar.f1704a);
+                    jSONObject.put("deviceInfoHash", bVar.f1705b);
+                    jSONObject.put("timestamp", bVar.f1706c);
                     String jSONObject2 = jSONObject.toString();
                     com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, jSONObject2);
                     com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", jSONObject2);
@@ -70,7 +71,7 @@ public final class a {
     public static synchronized b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (a.class) {
                 String a2 = com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx");
                 if (com.alipay.security.mobile.module.a.a.a(a2)) {

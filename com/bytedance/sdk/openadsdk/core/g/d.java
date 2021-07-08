@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,28 +33,28 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30094a = "d";
+    public static final String f30204a = "d";
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f30095e;
+    public static d f30205e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f30096f;
+    public static final Map<String, Integer> f30206f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f30097b;
+    public final Set<String> f30207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<WeakReference<e>> f30098c;
+    public final List<WeakReference<e>> f30208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<e> f30099d;
+    public final List<e> f30209d;
 
     static {
         InterceptResult invokeClinit;
@@ -69,13 +70,13 @@ public class d {
             }
         }
         HashMap hashMap = new HashMap();
-        f30096f = hashMap;
+        f30206f = hashMap;
         hashMap.put("android.permission.ACCESS_COARSE_LOCATION", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_location")));
-        f30096f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_location")));
-        f30096f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_read_phone_state")));
-        f30096f.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_external_storage")));
+        f30206f.put("android.permission.ACCESS_FINE_LOCATION", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_location")));
+        f30206f.put("android.permission.READ_PHONE_STATE", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_read_phone_state")));
+        f30206f.put(StorageUtils.EXTERNAL_STORAGE_PERMISSION, Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_external_storage")));
         if (Build.VERSION.SDK_INT >= 16) {
-            f30096f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_external_storage")));
+            f30206f.put("android.permission.READ_EXTERNAL_STORAGE", Integer.valueOf(r.b(o.a(), "tt_request_permission_descript_external_storage")));
         }
     }
 
@@ -92,9 +93,9 @@ public class d {
                 return;
             }
         }
-        this.f30097b = new HashSet(1);
-        this.f30098c = new ArrayList(1);
-        this.f30099d = new ArrayList(1);
+        this.f30207b = new HashSet(1);
+        this.f30208c = new ArrayList(1);
+        this.f30209d = new ArrayList(1);
         b();
     }
 
@@ -102,10 +103,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30095e == null) {
-                f30095e = new d();
+            if (f30205e == null) {
+                f30205e = new d();
             }
-            return f30095e;
+            return f30205e;
         }
         return (d) invokeV.objValue;
     }
@@ -123,9 +124,9 @@ public class d {
                     try {
                         str = (String) field.get("");
                     } catch (IllegalAccessException e2) {
-                        Log.e(f30094a, "Could not access field", e2);
+                        Log.e(f30204a, "Could not access field", e2);
                     }
-                    this.f30097b.add(str);
+                    this.f30207b.add(str);
                 }
             }
         }
@@ -145,7 +146,7 @@ public class d {
             if (packageManager != null && (packageInfo = packageManager.getPackageInfo(packageName, 4096)) != null && (strArr = packageInfo.requestedPermissions) != null && strArr.length != 0) {
                 for (int i2 = 0; i2 < strArr.length; i2++) {
                     if (!TextUtils.isEmpty(strArr[i2])) {
-                        this.f30097b.add(strArr[i2]);
+                        this.f30207b.add(strArr[i2]);
                     }
                 }
             }
@@ -155,14 +156,14 @@ public class d {
 
     private synchronized void a(@NonNull String[] strArr, @Nullable e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, strArr, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, strArr, eVar) == null) {
             synchronized (this) {
                 if (eVar == null) {
                     return;
                 }
                 eVar.a(strArr);
-                this.f30099d.add(eVar);
-                this.f30098c.add(new WeakReference<>(eVar));
+                this.f30209d.add(eVar);
+                this.f30208c.add(new WeakReference<>(eVar));
             }
         }
     }
@@ -171,14 +172,14 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, eVar) == null) {
             synchronized (this) {
-                Iterator<WeakReference<e>> it = this.f30098c.iterator();
+                Iterator<WeakReference<e>> it = this.f30208c.iterator();
                 while (it.hasNext()) {
                     WeakReference<e> next = it.next();
                     if (next.get() == eVar || next.get() == null) {
                         it.remove();
                     }
                 }
-                Iterator<e> it2 = this.f30099d.iterator();
+                Iterator<e> it2 = this.f30209d.iterator();
                 while (it2.hasNext()) {
                     if (it2.next() == eVar) {
                         it2.remove();
@@ -195,12 +196,12 @@ public class d {
             for (String str : strArr) {
                 if (eVar != null) {
                     try {
-                        if (!this.f30097b.contains(str)) {
-                            a2 = eVar.a(str, c.f30092c);
+                        if (!this.f30207b.contains(str)) {
+                            a2 = eVar.a(str, c.f30202c);
                         } else if (b.a(activity, str) != 0) {
-                            a2 = eVar.a(str, c.f30091b);
+                            a2 = eVar.a(str, c.f30201b);
                         } else {
-                            a2 = eVar.a(str, c.f30090a);
+                            a2 = eVar.a(str, c.f30200a);
                         }
                         if (a2) {
                             break;
@@ -221,14 +222,14 @@ public class d {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, this, activity, strArr, eVar)) == null) {
             ArrayList arrayList = new ArrayList(strArr.length);
             for (String str : strArr) {
-                if (this.f30097b.contains(str)) {
+                if (this.f30207b.contains(str)) {
                     if (!a(activity, str)) {
                         arrayList.add(str);
                     } else if (eVar != null) {
-                        eVar.a(str, c.f30090a);
+                        eVar.a(str, c.f30200a);
                     }
                 } else if (eVar != null) {
-                    eVar.a(str, c.f30092c);
+                    eVar.a(str, c.f30202c);
                 }
             }
             return arrayList;
@@ -246,12 +247,12 @@ public class d {
                     return false;
                 }
                 if (j.e()) {
-                    if (a.a(context, str) && (b.a(context, str) == 0 || !this.f30097b.contains(str))) {
+                    if (a.a(context, str) && (b.a(context, str) == 0 || !this.f30207b.contains(str))) {
                         z = true;
                     }
                     return z;
                 }
-                return (b.a(context, str) == 0 || !this.f30097b.contains(str)) ? true : true;
+                return (b.a(context, str) == 0 || !this.f30207b.contains(str)) ? true : true;
             }
         }
         return invokeLL.booleanValue;
@@ -312,7 +313,7 @@ public class d {
                 if (iArr.length < length) {
                     length = iArr.length;
                 }
-                Iterator<WeakReference<e>> it = this.f30098c.iterator();
+                Iterator<WeakReference<e>> it = this.f30208c.iterator();
                 while (it.hasNext()) {
                     e eVar = it.next().get();
                     while (i2 < length) {
@@ -321,7 +322,7 @@ public class d {
                         break;
                     }
                 }
-                Iterator<e> it2 = this.f30099d.iterator();
+                Iterator<e> it2 = this.f30209d.iterator();
                 while (it2.hasNext()) {
                     it2.next();
                     it2.remove();

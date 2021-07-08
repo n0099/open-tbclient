@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.f;
-import d.a.q0.a.k;
-import d.a.q0.a.v2.q0;
-/* loaded from: classes4.dex */
+import d.a.n0.a.f;
+import d.a.n0.a.k;
+import d.a.n0.a.v2.q0;
+/* loaded from: classes3.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,7 +34,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
     }
 
     public SwanAppErrorDialog() {

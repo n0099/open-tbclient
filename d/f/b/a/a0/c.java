@@ -10,31 +10,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.a0.t.q;
 import d.f.b.a.a0.t.v;
 import java.lang.reflect.Constructor;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c implements h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Constructor<? extends e> f72104g;
+    public static final Constructor<? extends e> f69207g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72105a;
+    public int f69208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72106b;
+    public int f69209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f72107c;
+    public int f69210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f72108d;
+    public int f69211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72109e;
+    public int f69212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72110f;
+    public int f69213f;
 
     static {
         Constructor<? extends e> constructor;
@@ -55,7 +55,7 @@ public final class c implements h {
         } catch (ClassNotFoundException | NoSuchMethodException unused) {
             constructor = null;
         }
-        f72104g = constructor;
+        f69207g = constructor;
     }
 
     public c() {
@@ -71,7 +71,7 @@ public final class c implements h {
                 return;
             }
         }
-        this.f72109e = 1;
+        this.f69212e = 1;
     }
 
     @Override // d.f.b.a.a0.h
@@ -81,21 +81,21 @@ public final class c implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                eVarArr = new e[f72104g == null ? 11 : 12];
-                eVarArr[0] = new d.f.b.a.a0.o.d(this.f72105a);
-                eVarArr[1] = new d.f.b.a.a0.q.e(this.f72107c);
-                eVarArr[2] = new d.f.b.a.a0.q.g(this.f72106b);
-                eVarArr[3] = new d.f.b.a.a0.p.b(this.f72108d);
+                eVarArr = new e[f69207g == null ? 11 : 12];
+                eVarArr[0] = new d.f.b.a.a0.o.d(this.f69208a);
+                eVarArr[1] = new d.f.b.a.a0.q.e(this.f69210c);
+                eVarArr[2] = new d.f.b.a.a0.q.g(this.f69209b);
+                eVarArr[3] = new d.f.b.a.a0.p.b(this.f69211d);
                 eVarArr[4] = new d.f.b.a.a0.t.c();
                 eVarArr[5] = new d.f.b.a.a0.t.a();
-                eVarArr[6] = new v(this.f72109e, this.f72110f);
+                eVarArr[6] = new v(this.f69212e, this.f69213f);
                 eVarArr[7] = new d.f.b.a.a0.n.b();
                 eVarArr[8] = new d.f.b.a.a0.r.c();
                 eVarArr[9] = new q();
                 eVarArr[10] = new d.f.b.a.a0.u.a();
-                if (f72104g != null) {
+                if (f69207g != null) {
                     try {
-                        eVarArr[11] = f72104g.newInstance(new Object[0]);
+                        eVarArr[11] = f69207g.newInstance(new Object[0]);
                     } catch (Exception e2) {
                         throw new IllegalStateException("Unexpected error creating FLAC extractor", e2);
                     }

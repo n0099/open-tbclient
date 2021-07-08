@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.r.q.b2;
+import d.a.o0.r.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ConcernList;
@@ -18,7 +18,7 @@ import tbclient.ConcernTab.ConcernTabResIdl;
 import tbclient.ConcernTab.DataRes;
 import tbclient.ThreadInfo;
 import tbclient.ThreadUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoAttentionSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

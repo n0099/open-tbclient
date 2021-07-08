@@ -38,8 +38,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.s0.g1.c.f;
-/* loaded from: classes5.dex */
+import d.a.p0.g1.c.f;
+/* loaded from: classes4.dex */
 public class HotTopicHeaderView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,19 +48,19 @@ public class HotTopicHeaderView extends LinearLayout {
     public ClickableSpan C;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17121e;
+    public int f17160e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f17122f;
+    public TbImageView f17161f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17123g;
+    public TextView f17162g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17124h;
+    public TextView f17163h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f17125i;
+    public TextView f17164i;
     public View j;
     public LinearLayout k;
     public LinearLayout l;
@@ -72,20 +72,20 @@ public class HotTopicHeaderView extends LinearLayout {
     public ImageView r;
     public View s;
     public boolean t;
-    public d.a.r0.b1.j.e u;
+    public d.a.o0.b1.j.e u;
     public int v;
     public String w;
     public int x;
     public int y;
     public f z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicHeaderView f17126e;
+        public final /* synthetic */ HotTopicHeaderView f17165e;
 
         public a(HotTopicHeaderView hotTopicHeaderView) {
             Interceptable interceptable = $ic;
@@ -102,26 +102,26 @@ public class HotTopicHeaderView extends LinearLayout {
                     return;
                 }
             }
-            this.f17126e = hotTopicHeaderView;
+            this.f17165e = hotTopicHeaderView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17126e.z == null || StringUtils.isNull(this.f17126e.z.r)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17165e.z == null || StringUtils.isNull(this.f17165e.z.r)) {
                 return;
             }
-            d.a.r0.l.a.l(this.f17126e.getContext(), this.f17126e.z.r);
+            d.a.o0.l.a.l(this.f17165e.getContext(), this.f17165e.z.r);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicHeaderView f17127e;
+        public final /* synthetic */ HotTopicHeaderView f17166e;
 
         public b(HotTopicHeaderView hotTopicHeaderView) {
             Interceptable interceptable = $ic;
@@ -138,30 +138,30 @@ public class HotTopicHeaderView extends LinearLayout {
                     return;
                 }
             }
-            this.f17127e = hotTopicHeaderView;
+            this.f17166e = hotTopicHeaderView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HotTopicHeaderView hotTopicHeaderView = this.f17127e;
-                hotTopicHeaderView.y = hotTopicHeaderView.f17123g.getMeasuredHeight();
-                this.f17127e.f17123g.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                HotTopicHeaderView hotTopicHeaderView = this.f17166e;
+                hotTopicHeaderView.y = hotTopicHeaderView.f17162g.getMeasuredHeight();
+                this.f17166e.f17162g.getViewTreeObserver().removeGlobalOnLayoutListener(this);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f17128e;
+        public final /* synthetic */ f f17167e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HotTopicHeaderView f17129f;
+        public final /* synthetic */ HotTopicHeaderView f17168f;
 
         public c(HotTopicHeaderView hotTopicHeaderView, f fVar) {
             Interceptable interceptable = $ic;
@@ -178,8 +178,8 @@ public class HotTopicHeaderView extends LinearLayout {
                     return;
                 }
             }
-            this.f17129f = hotTopicHeaderView;
-            this.f17128e = fVar;
+            this.f17168f = hotTopicHeaderView;
+            this.f17167e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -187,19 +187,19 @@ public class HotTopicHeaderView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hottopic", this.f17128e.n)));
-                TiebaStatic.log(new StatisticItem("c10813").param("obj_name", this.f17128e.f59675f));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotRanklistActivityConfig(view.getContext()).createNormalConfig("hottopic", this.f17167e.n)));
+                TiebaStatic.log(new StatisticItem("c10813").param("obj_name", this.f17167e.f56417f));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicHeaderView f17130e;
+        public final /* synthetic */ HotTopicHeaderView f17169e;
 
         public d(HotTopicHeaderView hotTopicHeaderView) {
             Interceptable interceptable = $ic;
@@ -216,7 +216,7 @@ public class HotTopicHeaderView extends LinearLayout {
                     return;
                 }
             }
-            this.f17130e = hotTopicHeaderView;
+            this.f17169e = hotTopicHeaderView;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -224,21 +224,21 @@ public class HotTopicHeaderView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) this.f17130e.w);
-                if (this.f17130e.w.length() > 500) {
+                spannableStringBuilder.append((CharSequence) this.f17169e.w);
+                if (this.f17169e.w.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
-                String str = this.f17130e.getResources().getString(R.string.hot_topic_coll) + GlideException.IndentedAppendable.INDENT;
+                String str = this.f17169e.getResources().getString(R.string.hot_topic_coll) + GlideException.IndentedAppendable.INDENT;
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
-                spannableString.setSpan(this.f17130e.C, spannableString.length() - str.length(), spannableString.length(), 33);
-                this.f17130e.f17125i.setText(spannableString);
-                this.f17130e.f17125i.setHeight(this.f17130e.v * this.f17130e.f17125i.getLineHeight());
-                int lineCount = this.f17130e.f17125i.getLineCount() * this.f17130e.f17125i.getLineHeight();
-                if (lineCount > this.f17130e.v * this.f17130e.f17125i.getLineHeight()) {
-                    this.f17130e.f17125i.scrollTo(0, lineCount - (this.f17130e.v * this.f17130e.f17125i.getLineHeight()));
+                spannableString.setSpan(this.f17169e.C, spannableString.length() - str.length(), spannableString.length(), 33);
+                this.f17169e.f17164i.setText(spannableString);
+                this.f17169e.f17164i.setHeight(this.f17169e.v * this.f17169e.f17164i.getLineHeight());
+                int lineCount = this.f17169e.f17164i.getLineCount() * this.f17169e.f17164i.getLineHeight();
+                if (lineCount > this.f17169e.v * this.f17169e.f17164i.getLineHeight()) {
+                    this.f17169e.f17164i.scrollTo(0, lineCount - (this.f17169e.v * this.f17169e.f17164i.getLineHeight()));
                 }
-                this.f17130e.f17125i.requestLayout();
+                this.f17169e.f17164i.requestLayout();
             }
         }
 
@@ -246,18 +246,18 @@ public class HotTopicHeaderView extends LinearLayout {
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(this.f17130e.getResources().getColor(R.color.CAM_X0304));
+                textPaint.setColor(this.f17169e.getResources().getColor(R.color.CAM_X0304));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicHeaderView f17131e;
+        public final /* synthetic */ HotTopicHeaderView f17170e;
 
         public e(HotTopicHeaderView hotTopicHeaderView) {
             Interceptable interceptable = $ic;
@@ -274,15 +274,15 @@ public class HotTopicHeaderView extends LinearLayout {
                     return;
                 }
             }
-            this.f17131e = hotTopicHeaderView;
+            this.f17170e = hotTopicHeaderView;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17131e.f17125i.setText(this.f17131e.w);
-                this.f17131e.j();
+                this.f17170e.f17164i.setText(this.f17170e.w);
+                this.f17170e.j();
             }
         }
 
@@ -290,7 +290,7 @@ public class HotTopicHeaderView extends LinearLayout {
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(this.f17131e.getResources().getColor(R.color.CAM_X0304));
+                textPaint.setColor(this.f17170e.getResources().getColor(R.color.CAM_X0304));
             }
         }
     }
@@ -313,7 +313,7 @@ public class HotTopicHeaderView extends LinearLayout {
                 return;
             }
         }
-        this.f17121e = 3;
+        this.f17160e = 3;
         this.t = false;
         this.w = "";
         this.x = 0;
@@ -329,7 +329,7 @@ public class HotTopicHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             f fVar = this.z;
-            boolean z = (fVar == null || StringUtils.isNull(fVar.f59678i)) ? false : true;
+            boolean z = (fVar == null || StringUtils.isNull(fVar.f56420i)) ? false : true;
             int i2 = this.y;
             View view = this.s;
             if (view != null) {
@@ -354,17 +354,17 @@ public class HotTopicHeaderView extends LinearLayout {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) this.w);
             String string = getResources().getString(R.string.hot_topic_detail);
-            SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.f17125i.getLayout().getLineEnd(2) - string.length()) - 2);
+            SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.f17164i.getLayout().getLineEnd(2) - string.length()) - 2);
             spannableStringBuilder2.append((CharSequence) "...  ");
             int length = spannableStringBuilder2.length();
             spannableStringBuilder2.append((CharSequence) string);
             SpannableString spannableString = new SpannableString(spannableStringBuilder2);
             spannableString.setSpan(this.B, length - 1, spannableString.length(), 33);
-            this.f17125i.setText(spannableString);
-            TextView textView = this.f17125i;
+            this.f17164i.setText(spannableString);
+            TextView textView = this.f17164i;
             textView.setHeight(textView.getLineHeight() * 3);
-            this.f17125i.scrollTo(0, 0);
-            this.f17125i.requestLayout();
+            this.f17164i.scrollTo(0, 0);
+            this.f17164i.requestLayout();
         }
     }
 
@@ -376,11 +376,11 @@ public class HotTopicHeaderView extends LinearLayout {
             LayoutInflater.from(context).inflate(R.layout.hot_topic_topicinfo_item, (ViewGroup) this, true);
             this.s = findViewById(R.id.hot_topic_info_place_holder);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.hot_topic_info_picture);
-            this.f17122f = tbImageView;
+            this.f17161f = tbImageView;
             tbImageView.setOnClickListener(this.A);
-            this.f17123g = (TextView) findViewById(R.id.hot_topic_info_title);
-            this.f17124h = (TextView) findViewById(R.id.hot_topic_info_threadcount);
-            this.f17125i = (TextView) findViewById(R.id.hot_topic_info_abstract);
+            this.f17162g = (TextView) findViewById(R.id.hot_topic_info_title);
+            this.f17163h = (TextView) findViewById(R.id.hot_topic_info_threadcount);
+            this.f17164i = (TextView) findViewById(R.id.hot_topic_info_abstract);
             View findViewById = findViewById(R.id.divider_line);
             this.j = findViewById;
             findViewById.setVisibility(8);
@@ -409,15 +409,15 @@ public class HotTopicHeaderView extends LinearLayout {
     public void m() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f17121e) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f17160e) {
             return;
         }
-        this.f17121e = skinType;
+        this.f17160e = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.p, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f17123g, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f17124h, R.color.CAM_X0301, 1);
-        SkinManager.setViewTextColor(this.f17125i, R.color.CAM_X0108, 1);
+        SkinManager.setViewTextColor(this.f17162g, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f17163h, R.color.CAM_X0301, 1);
+        SkinManager.setViewTextColor(this.f17164i, R.color.CAM_X0108, 1);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
         SkinManager.setBackgroundColor(this.q, R.color.CAM_X0205);
         SkinManager.setViewTextColor(this.n, R.color.CAM_X0105, 1);
@@ -433,7 +433,7 @@ public class HotTopicHeaderView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            d.a.r0.b1.j.e eVar = this.u;
+            d.a.o0.b1.j.e eVar = this.u;
             if (eVar != null) {
                 eVar.a(this, i2, i3, i4, i5);
             }
@@ -442,55 +442,55 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public void setData(f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) || fVar == null || StringUtils.isNull(fVar.f59675f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) || fVar == null || StringUtils.isNull(fVar.f56417f)) {
             return;
         }
         this.z = fVar;
         this.t = true;
-        this.f17122f.setDefaultBgResource(R.color.CAM_X0205);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17122f.getLayoutParams();
+        this.f17161f.setDefaultBgResource(R.color.CAM_X0205);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f17161f.getLayoutParams();
         layoutParams.height = this.x;
-        this.f17122f.setLayoutParams(layoutParams);
-        if (!StringUtils.isNull(fVar.f59678i) && StringUtils.isNull(fVar.m)) {
-            this.f17122f.M(fVar.f59678i, 10, false);
+        this.f17161f.setLayoutParams(layoutParams);
+        if (!StringUtils.isNull(fVar.f56420i) && StringUtils.isNull(fVar.m)) {
+            this.f17161f.M(fVar.f56420i, 10, false);
             this.s.setVisibility(8);
         } else {
-            this.f17122f.setVisibility(8);
+            this.f17161f.setVisibility(8);
             this.s.setVisibility(0);
         }
-        this.f17123g.setSingleLine();
-        String trim = fVar.f59675f.trim();
-        fVar.f59675f = trim;
+        this.f17162g.setSingleLine();
+        String trim = fVar.f56417f.trim();
+        fVar.f56417f = trim;
         if (!StringUtils.isNull(trim)) {
-            this.f17123g.setText(d.a.s0.g1.e.a.a(fVar.f59675f, 10));
+            this.f17162g.setText(d.a.p0.g1.e.a.a(fVar.f56417f, 10));
         } else {
-            this.f17123g.setText("");
+            this.f17162g.setText("");
         }
-        this.f17123g.getViewTreeObserver().addOnGlobalLayoutListener(new b(this));
-        this.f17124h.setText(TbadkCoreApplication.getInst().getString(R.string.hot_topic_info_threadCount).replace("%s", StringHelper.longNumFormatOver9999wan(fVar.f59677h)));
-        if (StringUtils.isNull(fVar.f59676g)) {
-            this.f17125i.setVisibility(8);
+        this.f17162g.getViewTreeObserver().addOnGlobalLayoutListener(new b(this));
+        this.f17163h.setText(TbadkCoreApplication.getInst().getString(R.string.hot_topic_info_threadCount).replace("%s", StringHelper.longNumFormatOver9999wan(fVar.f56419h)));
+        if (StringUtils.isNull(fVar.f56418g)) {
+            this.f17164i.setVisibility(8);
         } else {
-            if (k.byteLength(fVar.f59676g) > 500) {
-                this.w = StringHelper.cutChineseAndEnglishWithSuffix(fVar.f59676g, 500, "");
+            if (k.byteLength(fVar.f56418g) > 500) {
+                this.w = StringHelper.cutChineseAndEnglishWithSuffix(fVar.f56418g, 500, "");
             } else {
-                this.w = fVar.f59676g;
+                this.w = fVar.f56418g;
             }
-            this.f17125i.setText(this.w);
-            int lineCount = this.f17125i.getLineCount();
+            this.f17164i.setText(this.w);
+            int lineCount = this.f17164i.getLineCount();
             this.v = lineCount;
             if (lineCount > 3) {
-                this.f17125i.setMovementMethod(LinkMovementMethod.getInstance());
+                this.f17164i.setMovementMethod(LinkMovementMethod.getInstance());
                 j();
             }
-            this.f17125i.setVisibility(0);
-            this.f17125i.setHighlightColor(getResources().getColor(R.color.transparent));
+            this.f17164i.setVisibility(0);
+            this.f17164i.setHighlightColor(getResources().getColor(R.color.transparent));
         }
         long j = fVar.l;
         if (j > 0 && j <= 20) {
             this.k.setVisibility(0);
             TextView textView = this.n;
-            textView.setText(fVar.f59675f.trim() + getResources().getString(R.string.hot_topic_cur_rank) + fVar.l);
+            textView.setText(fVar.f56417f.trim() + getResources().getString(R.string.hot_topic_cur_rank) + fVar.l);
             this.l.setOnClickListener(new c(this, fVar));
             this.j.setVisibility(0);
         } else {
@@ -510,7 +510,7 @@ public class HotTopicHeaderView extends LinearLayout {
         imageView.setVisibility(z ? 0 : 8);
     }
 
-    public void setOnSizeChangeListener(d.a.r0.b1.j.e eVar) {
+    public void setOnSizeChangeListener(d.a.o0.b1.j.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
             this.u = eVar;
@@ -545,7 +545,7 @@ public class HotTopicHeaderView extends LinearLayout {
                 return;
             }
         }
-        this.f17121e = 3;
+        this.f17160e = 3;
         this.t = false;
         this.w = "";
         this.x = 0;
@@ -575,7 +575,7 @@ public class HotTopicHeaderView extends LinearLayout {
                 return;
             }
         }
-        this.f17121e = 3;
+        this.f17160e = 3;
         this.t = false;
         this.w = "";
         this.x = 0;

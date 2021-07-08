@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidu.webkit.internal.ABTestConstants;
-import d.a.y.c.b.a;
+import d.a.v.c.b.a;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class YYLiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_FROM_NPS_DOWNLOAD = "nps_download";
@@ -65,12 +65,12 @@ public class YYLiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static YYLiveNPSPluginManager instance;

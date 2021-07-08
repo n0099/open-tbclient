@@ -14,7 +14,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SubtitleSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "stpp";

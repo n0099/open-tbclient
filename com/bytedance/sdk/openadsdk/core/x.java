@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public w f30870a;
+    public w f30980a;
 
     public x(w wVar) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class x {
                 return;
             }
         }
-        this.f30870a = wVar;
+        this.f30980a = wVar;
     }
 
     public void a(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, wVar) == null) {
-            this.f30870a = wVar;
+            this.f30980a = wVar;
         }
     }
 
@@ -46,7 +46,7 @@ public class x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            w wVar = this.f30870a;
+            w wVar = this.f30980a;
             return wVar != null ? wVar.adInfo() : "";
         }
         return (String) invokeV.objValue;
@@ -57,7 +57,7 @@ public class x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            w wVar = this.f30870a;
+            w wVar = this.f30980a;
             return wVar != null ? wVar.appInfo() : "";
         }
         return (String) invokeV.objValue;
@@ -67,7 +67,7 @@ public class x {
     public void changeVideoState(String str) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (wVar = this.f30870a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (wVar = this.f30980a) == null) {
             return;
         }
         wVar.changeVideoState(str);
@@ -77,7 +77,7 @@ public class x {
     public void clickEvent(String str) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (wVar = this.f30870a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (wVar = this.f30980a) == null) {
             return;
         }
         wVar.clickEvent(str);
@@ -87,7 +87,7 @@ public class x {
     public void dynamicTrack(String str) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (wVar = this.f30870a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (wVar = this.f30980a) == null) {
             return;
         }
         wVar.dynamicTrack(str);
@@ -98,7 +98,7 @@ public class x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            w wVar = this.f30870a;
+            w wVar = this.f30980a;
             return wVar != null ? wVar.getCurrentVideoState() : "";
         }
         return (String) invokeV.objValue;
@@ -109,7 +109,7 @@ public class x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            w wVar = this.f30870a;
+            w wVar = this.f30980a;
             return wVar != null ? wVar.getTemplateInfo() : "";
         }
         return (String) invokeV.objValue;
@@ -119,7 +119,7 @@ public class x {
     public void muteVideo(String str) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (wVar = this.f30870a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (wVar = this.f30980a) == null) {
             return;
         }
         wVar.muteVideo(str);
@@ -129,7 +129,7 @@ public class x {
     public void renderDidFinish(String str) {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (wVar = this.f30870a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (wVar = this.f30980a) == null) {
             return;
         }
         wVar.renderDidFinish(str);
@@ -139,7 +139,7 @@ public class x {
     public void skipVideo() {
         w wVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (wVar = this.f30870a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (wVar = this.f30980a) == null) {
             return;
         }
         wVar.skipVideo();

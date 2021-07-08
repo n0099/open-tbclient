@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BeanRequestBase;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends BeanRequestBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25946a;
+    public String f26056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25947b;
+    public String f26057b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b extends BeanRequestBase {
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f25946a) || TextUtils.isEmpty(this.f25947b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f26056a) || TextUtils.isEmpty(this.f26057b)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.core.beans.BeanRequestBase

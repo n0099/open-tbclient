@@ -32,12 +32,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.NameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ServiceClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43529a;
+    public static long f40543a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ServiceClient f829a;
@@ -46,7 +46,7 @@ public class ServiceClient {
     public static String f830a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43530b;
+    public static String f40544b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -80,8 +80,8 @@ public class ServiceClient {
                 return;
             }
         }
-        f43530b = gn.a(5) + "-";
-        f43529a = 0L;
+        f40544b = gn.a(5) + "-";
+        f40543a = 0L;
     }
 
     public ServiceClient(Context context) {
@@ -264,7 +264,7 @@ public class ServiceClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (com.xiaomi.push.ab.f42817e) {
+            if (com.xiaomi.push.ab.f39831e) {
                 return false;
             }
             try {
@@ -333,7 +333,7 @@ public class ServiceClient {
                     bundleArr[i2] = gbVarArr[i2].a();
                 }
                 if (length > 0) {
-                    a2.setAction(az.f43614g);
+                    a2.setAction(az.f40628g);
                     a2.putExtra(az.D, f830a);
                     a2.putExtra("ext_packets", bundleArr);
                     a2.putExtra("ext_encrypt", z);
@@ -360,7 +360,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Intent a2 = a();
-            a2.setAction(az.f43616i);
+            a2.setAction(az.f40630i);
             return startServiceSafely(a2);
         }
         return invokeV.booleanValue;
@@ -371,7 +371,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             Intent a2 = a();
-            a2.setAction(az.f43616i);
+            a2.setAction(az.f40630i);
             a2.putExtra(az.s, str);
             return startServiceSafely(a2);
         }
@@ -383,7 +383,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             Intent a2 = a();
-            a2.setAction(az.f43616i);
+            a2.setAction(az.f40630i);
             a2.putExtra(az.s, str);
             a2.putExtra(az.p, str2);
             return startServiceSafely(a2);
@@ -421,7 +421,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, str4, str5, map, map2, Boolean.valueOf(z)})) == null) {
             Intent a2 = a();
-            a2.setAction(az.f43611d);
+            a2.setAction(az.f40625d);
             a(a2, str, str2, str3, str4, str5, z, map, map2);
             startServiceSafely(a2);
             return 0;
@@ -463,7 +463,7 @@ public class ServiceClient {
                 Bundle a3 = gaVar.a();
                 if (a3 != null) {
                     com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gaVar.a());
-                    a2.setAction(az.f43613f);
+                    a2.setAction(az.f40627f);
                     a2.putExtra(az.D, f830a);
                     a2.putExtra("ext_packet", a3);
                     return startServiceSafely(a2);
@@ -492,7 +492,7 @@ public class ServiceClient {
                 Bundle a4 = gbVar.a();
                 if (a4 != null) {
                     com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gbVar.a());
-                    a2.setAction(az.f43612e);
+                    a2.setAction(az.f40626e);
                     a2.putExtra(az.D, f830a);
                     a2.putExtra("ext_packet", a4);
                     a2.putExtra("ext_encrypt", z);
@@ -516,7 +516,7 @@ public class ServiceClient {
             }
             Intent a2 = a();
             if (bArr != null) {
-                a2.setAction(az.f43612e);
+                a2.setAction(az.f40626e);
                 a2.putExtra(az.D, f830a);
                 a2.putExtra("ext_raw_packet", bArr);
                 int indexOf = str.indexOf(TNCManager.TNC_PROBE_HEADER_SECEPTOR);
@@ -533,9 +533,9 @@ public class ServiceClient {
                 a2.putExtra(az.q, str4);
                 a2.putExtra(az.r, str3);
                 StringBuilder sb = new StringBuilder();
-                sb.append(f43530b);
-                long j = f43529a;
-                f43529a = 1 + j;
+                sb.append(f40544b);
+                long j = f40543a;
+                f40543a = 1 + j;
                 sb.append(j);
                 String sb2 = sb.toString();
                 a2.putExtra("ext_pkt_id", sb2);
@@ -557,7 +557,7 @@ public class ServiceClient {
                 Bundle a3 = geVar.a();
                 if (a3 != null) {
                     com.xiaomi.channel.commonutils.logger.b.c("SEND:" + geVar.a());
-                    a2.setAction(az.f43615h);
+                    a2.setAction(az.f40629h);
                     a2.putExtra(az.D, f830a);
                     a2.putExtra("ext_packet", a3);
                     return startServiceSafely(a2);

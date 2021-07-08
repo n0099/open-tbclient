@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.v;
-import d.a.s0.n1.o.j.c;
-/* loaded from: classes5.dex */
+import d.a.p0.h3.v;
+import d.a.p0.n1.o.j.c;
+/* loaded from: classes4.dex */
 public class MoreButton extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18313e;
+        public final /* synthetic */ TbPageContext f18353e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18314f;
+        public final /* synthetic */ c f18354f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MoreButton f18315g;
+        public final /* synthetic */ MoreButton f18355g;
 
         public a(MoreButton moreButton, TbPageContext tbPageContext, c cVar) {
             Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class MoreButton extends TextView {
                     return;
                 }
             }
-            this.f18315g = moreButton;
-            this.f18313e = tbPageContext;
-            this.f18314f = cVar;
+            this.f18355g = moreButton;
+            this.f18353e = tbPageContext;
+            this.f18354f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                v.c(this.f18313e, this.f18314f.d());
+                v.c(this.f18353e, this.f18354f.d());
             }
         }
     }

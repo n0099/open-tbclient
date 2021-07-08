@@ -108,7 +108,7 @@ public class OrientationManager extends OrientationEventListener {
     public static Orientation getGlobalOrientation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sGlobalOrientation : (Orientation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sGlobalOrientation : (Orientation) invokeV.objValue;
     }
 
     public static Orientation nearOrientation(int i2) {

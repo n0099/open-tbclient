@@ -13,7 +13,7 @@ import d.f.d.c.k1;
 import d.f.d.c.o1;
 import java.lang.reflect.Array;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     public final ImmutableMap<R, ImmutableMap<C, V>> rowMap;
     public final V[][] values;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Column extends ImmutableArrayMap<R, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ColumnMap extends ImmutableArrayMap<C, ImmutableMap<R, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,25 +138,25 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ImmutableArrayMap<K, V> extends ImmutableMap.IteratorBasedImmutableMap<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int size;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends AbstractIterator<Map.Entry<K, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f33064g;
+            public int f33174g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final int f33065h;
+            public final int f33175h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ ImmutableArrayMap f33066i;
+            public final /* synthetic */ ImmutableArrayMap f33176i;
 
             public a(ImmutableArrayMap immutableArrayMap) {
                 Interceptable interceptable = $ic;
@@ -173,9 +173,9 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
                         return;
                     }
                 }
-                this.f33066i = immutableArrayMap;
-                this.f33064g = -1;
-                this.f33065h = this.f33066i.keyToIndex().size();
+                this.f33176i = immutableArrayMap;
+                this.f33174g = -1;
+                this.f33175h = this.f33176i.keyToIndex().size();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -187,16 +187,16 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
                 if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
                     return (Map.Entry) invokeV.objValue;
                 }
-                int i2 = this.f33064g;
+                int i2 = this.f33174g;
                 while (true) {
-                    this.f33064g = i2 + 1;
-                    int i3 = this.f33064g;
-                    if (i3 < this.f33065h) {
-                        Object value = this.f33066i.getValue(i3);
+                    this.f33174g = i2 + 1;
+                    int i3 = this.f33174g;
+                    if (i3 < this.f33175h) {
+                        Object value = this.f33176i.getValue(i3);
                         if (value != null) {
-                            return Maps.l(this.f33066i.getKey(this.f33064g), value);
+                            return Maps.l(this.f33176i.getKey(this.f33174g), value);
                         }
-                        i2 = this.f33064g;
+                        i2 = this.f33174g;
                     } else {
                         return b();
                     }
@@ -274,7 +274,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Row extends ImmutableArrayMap<C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,7 +328,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class RowMap extends ImmutableArrayMap<R, ImmutableMap<C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,7 +385,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

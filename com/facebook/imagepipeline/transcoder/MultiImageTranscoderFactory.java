@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.transcoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.nativecode.NativeImageTranscoderFactory;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +86,7 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     private ImageTranscoder getSimpleImageTranscoder(ImageFormat imageFormat, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, this, imageFormat, z)) == null) ? new SimpleImageTranscoderFactory(this.mMaxBitmapSize).createImageTranscoder(imageFormat, z) : (ImageTranscoder) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, imageFormat, z)) == null) ? new SimpleImageTranscoderFactory(this.mMaxBitmapSize).createImageTranscoder(imageFormat, z) : (ImageTranscoder) invokeLZ.objValue;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoderFactory

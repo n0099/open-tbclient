@@ -11,13 +11,13 @@ import com.baidu.wallet.lightapp.business.datamodel.LangBridgeCfg;
 import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25464a;
+    public String f25574a;
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
@@ -33,7 +33,7 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f25464a));
+            arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f25574a));
             return arrayList;
         }
         return (List) invokeV.objValue;

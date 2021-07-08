@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SessionReportWrapperImpl implements SessionReportWrapper, SessionReport.AfterFlush, SessionReport.Processor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     public SessionReport sessionReport;
     public Set<String> sessions;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class OnTimer extends SharedTimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
 
     private synchronized void removeSession(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             synchronized (this) {
                 this.sessions.remove(str);
             }

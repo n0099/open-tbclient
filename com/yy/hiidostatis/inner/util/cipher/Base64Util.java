@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.inner.util.cipher;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class Base64Util {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] legalChars;
@@ -122,7 +123,7 @@ public class Base64Util {
     public static byte[] decode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 decode(str, byteArrayOutputStream);

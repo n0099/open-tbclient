@@ -11,37 +11,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f5893a;
+    public long f5910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5894b;
+    public int f5911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5895c;
+    public int f5912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5896d;
+    public String f5913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5897e;
+    public String f5914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f5898f;
+    public long f5915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f5899g;
+    public long f5916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5900h;
+    public long f5917h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f5901i;
+    public long f5918i;
     public long j;
     public long k;
     public long l;
@@ -67,13 +67,13 @@ public class b {
                 return;
             }
         }
-        this.f5898f = 0L;
-        this.f5899g = 0L;
-        this.f5900h = 0L;
+        this.f5915f = 0L;
+        this.f5916g = 0L;
+        this.f5917h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f5896d = "";
-        this.f5897e = "";
+        this.f5913d = "";
+        this.f5914e = "";
     }
 
     private ArrayList<String> c() {
@@ -81,7 +81,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(this.f5901i));
+            arrayList.add(String.valueOf(this.f5918i));
             arrayList.add(String.valueOf(this.j));
             arrayList.add(String.valueOf(this.k));
             arrayList.add(String.valueOf(this.l));
@@ -102,8 +102,8 @@ public class b {
             ArrayList arrayList = new ArrayList();
             if (d.t.equals(str)) {
                 ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(this.f5894b + "");
-                arrayList2.add(this.f5895c + "");
+                arrayList2.add(this.f5911b + "");
+                arrayList2.add(this.f5912c + "");
                 arrayList2.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
             } else if (d.r.equals(str)) {
@@ -112,10 +112,10 @@ public class b {
                 arrayList.add(b() + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-            } else if (d.f6007f.equals(str)) {
-                arrayList.add(((System.currentTimeMillis() - this.f5893a) / 1000) + "");
+            } else if (d.f6024f.equals(str)) {
+                arrayList.add(((System.currentTimeMillis() - this.f5910a) / 1000) + "");
                 arrayList.add(spno);
-                RimStatisticsUtil.onEventWithValues(d.f6007f, arrayList);
+                RimStatisticsUtil.onEventWithValues(d.f6024f, arrayList);
             } else if (d.u.equals(str)) {
                 if (this.o > 0) {
                     str2 = (this.n / this.o) + "";
@@ -135,17 +135,17 @@ public class b {
                     } else {
                         this.p.add("");
                     }
-                    this.p.add(this.f5894b + "*" + this.f5895c);
+                    this.p.add(this.f5911b + "*" + this.f5912c);
                     this.p.add(spno);
                     RimStatisticsUtil.onEventWithValues(str, this.p);
                 }
             } else if (d.l.equals(str)) {
-                arrayList.add(this.f5897e);
-                arrayList.add(this.f5896d);
+                arrayList.add(this.f5914e);
+                arrayList.add(this.f5913d);
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             } else if (d.o.equals(str)) {
-                arrayList.add((System.currentTimeMillis() - this.f5893a) + "");
+                arrayList.add((System.currentTimeMillis() - this.f5910a) + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             }
@@ -168,9 +168,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long j = this.f5900h;
+            long j = this.f5917h;
             if (j >= 2) {
-                return (this.f5899g - this.f5898f) / j;
+                return (this.f5916g - this.f5915f) / j;
             }
             return 0L;
         }
@@ -180,7 +180,7 @@ public class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f5896d += str;
+            this.f5913d += str;
         }
     }
 
@@ -188,40 +188,40 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, errCode) == null) {
             if (errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
-                this.f5897e += "0";
+                this.f5914e += "0";
             } else if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE) {
-                this.f5897e += "1";
+                this.f5914e += "1";
             } else if (errCode == FaceTracker.ErrCode.LIVENESS_NOT_SUCCEED) {
-                this.f5897e += "2";
+                this.f5914e += "2";
             } else if (errCode == FaceTracker.ErrCode.POOR_ILLUMINATION) {
-                this.f5897e += "3";
+                this.f5914e += "3";
             } else {
                 FaceTracker.ErrCode errCode2 = FaceTracker.ErrCode.NO_FACE_DETECTED;
                 if (errCode == errCode2) {
                     FaceTracker.ErrCode errCode3 = this.r;
                     if (errCode3 == null) {
-                        this.f5897e += "4";
+                        this.f5914e += "4";
                         this.s = 0;
                     } else if (errCode3 == errCode2) {
                         int i2 = this.s;
                         if (i2 == 3) {
-                            this.f5897e += "4";
+                            this.f5914e += "4";
                             this.s = 0;
                         } else {
                             this.s = i2 + 1;
                         }
                     } else {
-                        this.f5897e += "4";
+                        this.f5914e += "4";
                         this.s = 0;
                     }
                 } else if (errCode == FaceTracker.ErrCode.DATA_NOT_READY) {
-                    this.f5897e += "5";
+                    this.f5914e += "5";
                 } else if (errCode == FaceTracker.ErrCode.DATA_HIT_ONE) {
-                    this.f5897e += "6";
+                    this.f5914e += "6";
                 } else if (errCode == FaceTracker.ErrCode.DATA_HIT_LAST) {
-                    this.f5897e += "7";
+                    this.f5914e += "7";
                 } else if (errCode == FaceTracker.ErrCode.UNKNOW_TYPE) {
-                    this.f5897e += "8";
+                    this.f5914e += "8";
                 }
             }
             this.r = errCode;
@@ -243,24 +243,24 @@ public class b {
                 return;
             }
         }
-        this.f5898f = 0L;
-        this.f5899g = 0L;
-        this.f5900h = 0L;
+        this.f5915f = 0L;
+        this.f5916g = 0L;
+        this.f5917h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f5896d = "";
-        this.f5897e = "";
+        this.f5913d = "";
+        this.f5914e = "";
         this.t = livenessRecogDTO;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f5898f == 0) {
-                this.f5898f = System.currentTimeMillis();
+            if (this.f5915f == 0) {
+                this.f5915f = System.currentTimeMillis();
             }
-            this.f5899g = System.currentTimeMillis();
-            this.f5900h++;
+            this.f5916g = System.currentTimeMillis();
+            this.f5917h++;
         }
     }
 
@@ -276,7 +276,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, errCode) == null) {
             if (errCode == FaceTracker.ErrCode.PITCH_OUT_OF_RANGE) {
-                this.f5901i++;
+                this.f5918i++;
             } else if (errCode == FaceTracker.ErrCode.YAW_OUT_OF_RANGE) {
                 this.j++;
             } else if (errCode == FaceTracker.ErrCode.LIVENESS_NOT_SUCCEED) {

@@ -7,23 +7,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f41903a;
+    public volatile int f38917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f41904b;
+    public volatile boolean f38918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f41905c;
+    public h f38919c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i() {
-        this(c.f41883a, true, h.f41902a);
+        this(c.f38897a, true, h.f38916a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public abstract class i {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f41903a = i2;
+            this.f38917a = i2;
         }
     }
 
@@ -51,7 +51,7 @@ public abstract class i {
 
     public void b(int i2, Thread thread, long j, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.f41903a, i2)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) && d() && d.a.a(this.f38917a, i2)) {
             a(i2, thread, j, str, str2, th);
         }
     }
@@ -59,13 +59,13 @@ public abstract class i {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41904b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38918b : invokeV.booleanValue;
     }
 
     public h e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41905c : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38919c : (h) invokeV.objValue;
     }
 
     public i(int i2, boolean z, h hVar) {
@@ -83,9 +83,9 @@ public abstract class i {
                 return;
             }
         }
-        this.f41903a = c.f41883a;
-        this.f41904b = true;
-        this.f41905c = h.f41902a;
+        this.f38917a = c.f38897a;
+        this.f38918b = true;
+        this.f38919c = h.f38916a;
         a(i2);
         a(z);
         a(hVar);
@@ -94,14 +94,14 @@ public abstract class i {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f41904b = z;
+            this.f38918b = z;
         }
     }
 
     public void a(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-            this.f41905c = hVar;
+            this.f38919c = hVar;
         }
     }
 }

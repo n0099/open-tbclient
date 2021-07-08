@@ -22,7 +22,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
         int xOffset;
         int yOffset;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, canvas, animatedImageFrame) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas, animatedImageFrame) == null) {
             if (this.mDownscaleFrameToDrawableDimensions) {
                 float max = Math.max(animatedImageFrame.getWidth() / Math.min(animatedImageFrame.getWidth(), canvas.getWidth()), animatedImageFrame.getHeight() / Math.min(animatedImageFrame.getHeight(), canvas.getHeight()));
                 width = (int) (animatedImageFrame.getWidth() / max);

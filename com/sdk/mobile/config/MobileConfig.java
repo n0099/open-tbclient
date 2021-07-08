@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.f.c.a;
 import com.sdk.base.module.config.BaseConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MobileConfig implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String apk;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41281c;
+    public int f38295c;
     public String cm;
     public String n;
     public long r;
@@ -37,7 +37,7 @@ public class MobileConfig implements e {
         }
         this.apk = BaseConfig.apk;
         this.cm = BaseConfig.cm;
-        this.f41281c = 1;
+        this.f38295c = 1;
         this.v = "1.0";
         this.n = "ZzxOAuth";
         this.r = System.currentTimeMillis();

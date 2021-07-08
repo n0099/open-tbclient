@@ -6,11 +6,15 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Keep;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface IProgressRemoteView {
     @KsAdSdkDynamicApi
     @Keep
     RemoteViews build();
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setControlBtnPaused(boolean z);
 
     @KsAdSdkDynamicApi
     @Keep

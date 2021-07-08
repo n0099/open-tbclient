@@ -6,6 +6,7 @@ import android.webkit.WebMessage;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,14 +21,14 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Glue {
     public static /* synthetic */ Interceptable $ic;
     public static Field ImmutableField;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
@@ -161,7 +162,7 @@ public final class Glue {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +287,7 @@ public final class Glue {
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, layoutAlgorithm)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutAlgorithm)) == null) {
             int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {

@@ -3,6 +3,7 @@ package com.google.android.material.datepicker;
 import android.os.Build;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DateStrings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +104,7 @@ public class DateStrings {
     public static String getDateString(long j, @Nullable SimpleDateFormat simpleDateFormat) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65540, null, j, simpleDateFormat)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, simpleDateFormat)) == null) {
             Calendar todayCalendar = UtcDates.getTodayCalendar();
             Calendar utcCalendar = UtcDates.getUtcCalendar();
             utcCalendar.setTimeInMillis(j);

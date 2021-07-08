@@ -433,7 +433,7 @@ public final class PrintHelper {
         InterceptResult invokeCommon;
         float min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), rectF, Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), rectF, Integer.valueOf(i4)})) == null) {
             Matrix matrix = new Matrix();
             float f2 = i2;
             float width = rectF.width() / f2;

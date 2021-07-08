@@ -25,37 +25,37 @@ import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements com.bytedance.sdk.component.d.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Future<?> f28589a;
+    public Future<?> f28699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28590b;
+    public String f28700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.d.c.a.b f28591c;
+    public com.bytedance.sdk.component.d.c.a.b f28701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28592d;
+    public String f28702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28593e;
+    public String f28703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f28594f;
+    public g f28704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView.ScaleType f28595g;
+    public ImageView.ScaleType f28705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap.Config f28596h;
+    public Bitmap.Config f28706h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28597i;
+    public int f28707i;
     public int j;
     public p k;
     public WeakReference<ImageView> l;
@@ -68,16 +68,16 @@ public class a implements com.bytedance.sdk.component.d.d {
     public boolean s;
 
     /* renamed from: com.bytedance.sdk.component.d.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class C0321a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f28599a;
+        public final /* synthetic */ a f28709a;
 
         /* renamed from: b  reason: collision with root package name */
-        public g f28600b;
+        public g f28710b;
 
         public C0321a(a aVar, g gVar) {
             Interceptable interceptable = $ic;
@@ -94,28 +94,28 @@ public class a implements com.bytedance.sdk.component.d.d {
                     return;
                 }
             }
-            this.f28599a = aVar;
-            this.f28600b = gVar;
+            this.f28709a = aVar;
+            this.f28710b = gVar;
         }
 
         @Override // com.bytedance.sdk.component.d.g
         public void a(m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-                ImageView imageView = (ImageView) this.f28599a.l.get();
-                if (imageView != null && this.f28599a.k == p.f28729a && a(imageView)) {
-                    this.f28599a.r.post(new Runnable(this, imageView, (Bitmap) mVar.a()) { // from class: com.bytedance.sdk.component.d.c.a.a.1
+                ImageView imageView = (ImageView) this.f28709a.l.get();
+                if (imageView != null && this.f28709a.k == p.f28839a && a(imageView)) {
+                    this.f28709a.r.post(new Runnable(this, imageView, (Bitmap) mVar.a()) { // from class: com.bytedance.sdk.component.d.c.a.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ImageView f28601a;
+                        public final /* synthetic */ ImageView f28711a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Bitmap f28602b;
+                        public final /* synthetic */ Bitmap f28712b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ C0321a f28603c;
+                        public final /* synthetic */ C0321a f28713c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -132,30 +132,30 @@ public class a implements com.bytedance.sdk.component.d.d {
                                     return;
                                 }
                             }
-                            this.f28603c = this;
-                            this.f28601a = imageView;
-                            this.f28602b = r8;
+                            this.f28713c = this;
+                            this.f28711a = imageView;
+                            this.f28712b = r8;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f28601a.setImageBitmap(this.f28602b);
+                                this.f28711a.setImageBitmap(this.f28712b);
                             }
                         }
                     });
                 }
-                if (this.f28599a.p == n.f28711b) {
-                    this.f28599a.r.post(new Runnable(this, mVar) { // from class: com.bytedance.sdk.component.d.c.a.a.2
+                if (this.f28709a.p == n.f28821b) {
+                    this.f28709a.r.post(new Runnable(this, mVar) { // from class: com.bytedance.sdk.component.d.c.a.a.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ m f28604a;
+                        public final /* synthetic */ m f28714a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ C0321a f28605b;
+                        public final /* synthetic */ C0321a f28715b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -172,22 +172,22 @@ public class a implements com.bytedance.sdk.component.d.d {
                                     return;
                                 }
                             }
-                            this.f28605b = this;
-                            this.f28604a = mVar;
+                            this.f28715b = this;
+                            this.f28714a = mVar;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f28605b.f28600b == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f28715b.f28710b == null) {
                                 return;
                             }
-                            this.f28605b.f28600b.a(this.f28604a);
+                            this.f28715b.f28710b.a(this.f28714a);
                         }
                     });
                     return;
                 }
-                g gVar = this.f28600b;
+                g gVar = this.f28710b;
                 if (gVar != null) {
                     gVar.a(mVar);
                 }
@@ -198,29 +198,29 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeL;
             Object tag;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, imageView)) == null) ? (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f28599a.f28592d)) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, imageView)) == null) ? (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f28709a.f28702d)) ? false : true : invokeL.booleanValue;
         }
 
         @Override // com.bytedance.sdk.component.d.g
         public void a(int i2, String str, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, th) == null) {
-                if (this.f28599a.p == n.f28711b) {
-                    this.f28599a.r.post(new Runnable(this, i2, str, th) { // from class: com.bytedance.sdk.component.d.c.a.a.3
+                if (this.f28709a.p == n.f28821b) {
+                    this.f28709a.r.post(new Runnable(this, i2, str, th) { // from class: com.bytedance.sdk.component.d.c.a.a.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f28606a;
+                        public final /* synthetic */ int f28716a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f28607b;
+                        public final /* synthetic */ String f28717b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Throwable f28608c;
+                        public final /* synthetic */ Throwable f28718c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ C0321a f28609d;
+                        public final /* synthetic */ C0321a f28719d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -237,24 +237,24 @@ public class a implements com.bytedance.sdk.component.d.d {
                                     return;
                                 }
                             }
-                            this.f28609d = this;
-                            this.f28606a = i2;
-                            this.f28607b = str;
-                            this.f28608c = th;
+                            this.f28719d = this;
+                            this.f28716a = i2;
+                            this.f28717b = str;
+                            this.f28718c = th;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f28609d.f28600b == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f28719d.f28710b == null) {
                                 return;
                             }
-                            this.f28609d.f28600b.a(this.f28606a, this.f28607b, this.f28608c);
+                            this.f28719d.f28710b.a(this.f28716a, this.f28717b, this.f28718c);
                         }
                     });
                     return;
                 }
-                g gVar = this.f28600b;
+                g gVar = this.f28710b;
                 if (gVar != null) {
                     gVar.a(i2, str, th);
                 }
@@ -262,37 +262,37 @@ public class a implements com.bytedance.sdk.component.d.d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public g f28647a;
+        public g f28757a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f28648b;
+        public ImageView f28758b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.bytedance.sdk.component.d.c.a.b f28649c;
+        public com.bytedance.sdk.component.d.c.a.b f28759c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f28650d;
+        public String f28760d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28651e;
+        public String f28761e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView.ScaleType f28652f;
+        public ImageView.ScaleType f28762f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Bitmap.Config f28653g;
+        public Bitmap.Config f28763g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f28654h;
+        public int f28764h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f28655i;
+        public int f28765i;
         public p j;
         public n k;
         public k l;
@@ -317,7 +317,7 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f28650d = str;
+                this.f28760d = str;
                 return this;
             }
             return (e) invokeL.objValue;
@@ -327,7 +327,7 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f28651e = str;
+                this.f28761e = str;
                 return this;
             }
             return (e) invokeL.objValue;
@@ -338,7 +338,7 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f28654h = i2;
+                this.f28764h = i2;
                 return this;
             }
             return (e) invokeI.objValue;
@@ -349,7 +349,7 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f28655i = i2;
+                this.f28765i = i2;
                 return this;
             }
             return (e) invokeI.objValue;
@@ -371,7 +371,7 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar)) == null) {
-                this.f28647a = gVar;
+                this.f28757a = gVar;
                 return new a(this).m();
             }
             return (com.bytedance.sdk.component.d.d) invokeL.objValue;
@@ -382,7 +382,7 @@ public class a implements com.bytedance.sdk.component.d.d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageView)) == null) {
-                this.f28648b = imageView;
+                this.f28758b = imageView;
                 return new a(this).m();
             }
             return (com.bytedance.sdk.component.d.d) invokeL.objValue;
@@ -397,12 +397,12 @@ public class a implements com.bytedance.sdk.component.d.d {
             try {
                 ExecutorService g2 = com.bytedance.sdk.component.d.c.b.a().g();
                 if (g2 != null) {
-                    this.f28589a = g2.submit(new Runnable(this) { // from class: com.bytedance.sdk.component.d.c.a.1
+                    this.f28699a = g2.submit(new Runnable(this) { // from class: com.bytedance.sdk.component.d.c.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a f28598a;
+                        public final /* synthetic */ a f28708a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -419,7 +419,7 @@ public class a implements com.bytedance.sdk.component.d.d {
                                     return;
                                 }
                             }
-                            this.f28598a = this;
+                            this.f28708a = this;
                         }
 
                         @Override // java.lang.Runnable
@@ -427,26 +427,26 @@ public class a implements com.bytedance.sdk.component.d.d {
                             h hVar;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                while (!this.f28598a.m && (hVar = (h) this.f28598a.q.poll()) != null) {
+                                while (!this.f28708a.m && (hVar = (h) this.f28708a.q.poll()) != null) {
                                     try {
-                                        if (this.f28598a.o != null) {
-                                            this.f28598a.o.a(hVar.a(), this.f28598a);
+                                        if (this.f28708a.o != null) {
+                                            this.f28708a.o.a(hVar.a(), this.f28708a);
                                         }
-                                        hVar.a(this.f28598a);
-                                        if (this.f28598a.o != null) {
-                                            this.f28598a.o.b(hVar.a(), this.f28598a);
+                                        hVar.a(this.f28708a);
+                                        if (this.f28708a.o != null) {
+                                            this.f28708a.o.b(hVar.a(), this.f28708a);
                                         }
                                     } catch (Throwable th) {
-                                        this.f28598a.a(2000, th.getMessage(), th);
-                                        if (this.f28598a.o != null) {
-                                            this.f28598a.o.b("exception", this.f28598a);
+                                        this.f28708a.a(2000, th.getMessage(), th);
+                                        if (this.f28708a.o != null) {
+                                            this.f28708a.o.b("exception", this.f28708a);
                                             return;
                                         }
                                         return;
                                     }
                                 }
-                                if (this.f28598a.m) {
-                                    this.f28598a.a(1003, "canceled", null);
+                                if (this.f28708a.m) {
+                                    this.f28708a.a(1003, "canceled", null);
                                 }
                             }
                         }
@@ -498,25 +498,25 @@ public class a implements com.bytedance.sdk.component.d.d {
         this.q = new LinkedBlockingQueue();
         this.r = new Handler(Looper.getMainLooper());
         this.s = true;
-        this.f28590b = bVar.f28651e;
-        this.f28594f = new C0321a(this, bVar.f28647a);
-        this.l = new WeakReference<>(bVar.f28648b);
-        if (bVar.f28649c != null) {
-            bVar2 = bVar.f28649c;
+        this.f28700b = bVar.f28761e;
+        this.f28704f = new C0321a(this, bVar.f28757a);
+        this.l = new WeakReference<>(bVar.f28758b);
+        if (bVar.f28759c != null) {
+            bVar2 = bVar.f28759c;
         } else {
             bVar2 = com.bytedance.sdk.component.d.c.a.b.a();
         }
-        this.f28591c = bVar2;
-        this.f28595g = bVar.f28652f;
-        this.f28596h = bVar.f28653g;
-        this.f28597i = bVar.f28654h;
-        this.j = bVar.f28655i;
-        this.k = bVar.j == null ? p.f28729a : bVar.j;
-        this.p = bVar.k == null ? n.f28711b : bVar.k;
+        this.f28701c = bVar2;
+        this.f28705g = bVar.f28762f;
+        this.f28706h = bVar.f28763g;
+        this.f28707i = bVar.f28764h;
+        this.j = bVar.f28765i;
+        this.k = bVar.j == null ? p.f28839a : bVar.j;
+        this.p = bVar.k == null ? n.f28821b : bVar.k;
         this.o = bVar.l;
-        if (!TextUtils.isEmpty(bVar.f28650d)) {
-            b(bVar.f28650d);
-            a(bVar.f28650d);
+        if (!TextUtils.isEmpty(bVar.f28760d)) {
+            b(bVar.f28760d);
+            a(bVar.f28760d);
         }
         this.n = bVar.m;
         this.q.add(new com.bytedance.sdk.component.d.d.b());
@@ -525,43 +525,43 @@ public class a implements com.bytedance.sdk.component.d.d {
     public com.bytedance.sdk.component.d.c.a.b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28591c : (com.bytedance.sdk.component.d.c.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28701c : (com.bytedance.sdk.component.d.c.a.b) invokeV.objValue;
     }
 
     public g c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28594f : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28704f : (g) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28593e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28703e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28592d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28702d : (String) invokeV.objValue;
     }
 
     public ImageView.ScaleType f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28595g : (ImageView.ScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28705g : (ImageView.ScaleType) invokeV.objValue;
     }
 
     public Bitmap.Config g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28596h : (Bitmap.Config) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f28706h : (Bitmap.Config) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f28597i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f28707i : invokeV.intValue;
     }
 
     public int i() {
@@ -573,7 +573,7 @@ public class a implements com.bytedance.sdk.component.d.d {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28590b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28700b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
@@ -583,14 +583,14 @@ public class a implements com.bytedance.sdk.component.d.d {
             if (weakReference != null && weakReference.get() != null) {
                 this.l.get().setTag(1094453505, str);
             }
-            this.f28592d = str;
+            this.f28702d = str;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f28593e = str;
+            this.f28703e = str;
         }
     }
 

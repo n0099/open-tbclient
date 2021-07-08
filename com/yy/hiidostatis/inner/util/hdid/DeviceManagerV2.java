@@ -3,6 +3,7 @@ package com.yy.hiidostatis.inner.util.hdid;
 import android.app.Application;
 import android.content.Context;
 import android.provider.Settings;
+import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import java.io.FilenameFilter;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class DeviceManagerV2 {
     public static final /* synthetic */ DeviceManagerV2[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -115,7 +116,7 @@ public final class DeviceManagerV2 {
     private String getInnerPath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             try {
                 stringBuffer.append(context.getFilesDir().getAbsolutePath());

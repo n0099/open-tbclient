@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.base.widget.NetImageView;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,25 +17,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.ui.WebViewActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PromotionView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24230a;
+    public NetImageView f24340a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24231b;
+    public TextView f24341b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f24232c;
+    public ImageView f24342c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f24233d;
+    public View f24343d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f24234e;
+    public NetImageView f24344e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromotionView(Context context, AttributeSet attributeSet, int i2) {
@@ -60,23 +61,23 @@ public class PromotionView extends RelativeLayout {
 
     public void updatePromotionView(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) || this.f24233d == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) || this.f24343d == null) {
             return;
         }
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
             return;
         }
-        this.f24233d.setVisibility(0);
+        this.f24343d.setVisibility(0);
         if (!TextUtils.isEmpty(str4)) {
-            this.f24233d.setOnClickListener(new View.OnClickListener(this, str4) { // from class: com.baidu.wallet.base.widget.PromotionView.2
+            this.f24343d.setOnClickListener(new View.OnClickListener(this, str4) { // from class: com.baidu.wallet.base.widget.PromotionView.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f24236a;
+                public final /* synthetic */ String f24346a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PromotionView f24237b;
+                public final /* synthetic */ PromotionView f24347b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -93,55 +94,55 @@ public class PromotionView extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f24237b = this;
-                    this.f24236a = str4;
+                    this.f24347b = this;
+                    this.f24346a = str4;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        Intent intent = new Intent(this.f24237b.getContext(), WebViewActivity.class);
-                        intent.putExtra("jump_url", this.f24236a);
-                        this.f24237b.getContext().startActivity(intent);
+                        Intent intent = new Intent(this.f24347b.getContext(), WebViewActivity.class);
+                        intent.putExtra("jump_url", this.f24346a);
+                        this.f24347b.getContext().startActivity(intent);
                     }
                 }
             });
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f24234e.setImageUrl(str);
-            this.f24234e.setVisibility(0);
+            this.f24344e.setImageUrl(str);
+            this.f24344e.setVisibility(0);
             return;
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.f24230a.setVisibility(0);
-            this.f24230a.setImageUrl(str2);
+            this.f24340a.setVisibility(0);
+            this.f24340a.setImageUrl(str2);
         } else {
-            this.f24230a.setVisibility(8);
+            this.f24340a.setVisibility(8);
         }
         if (TextUtils.isEmpty(str3)) {
             return;
         }
-        this.f24231b.setText(str3);
-        this.f24231b.setVisibility(0);
+        this.f24341b.setText(str3);
+        this.f24341b.setVisibility(0);
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_promotion_view"), this);
-            this.f24233d = findViewById(ResUtils.id(getContext(), "wallet_promotion_all"));
-            this.f24234e = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_big_image"));
-            this.f24230a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_img"));
-            this.f24231b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_promotion_txt"));
+            this.f24343d = findViewById(ResUtils.id(getContext(), "wallet_promotion_all"));
+            this.f24344e = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_big_image"));
+            this.f24340a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_img"));
+            this.f24341b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_promotion_txt"));
             ImageView imageView = (ImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_image_del"));
-            this.f24232c = imageView;
+            this.f24342c = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.PromotionView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PromotionView f24235a;
+                public final /* synthetic */ PromotionView f24345a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -158,14 +159,14 @@ public class PromotionView extends RelativeLayout {
                             return;
                         }
                     }
-                    this.f24235a = this;
+                    this.f24345a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f24235a.f24233d.setVisibility(8);
+                        this.f24345a.f24343d.setVisibility(8);
                     }
                 }
             });

@@ -3,10 +3,11 @@ package com.bytedance.sdk.component.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +35,7 @@ public class n {
 
     public static void a(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(65540, null, z, str) == null) || z) {
+        if (!(interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) == null) || z) {
             return;
         }
         b(str);

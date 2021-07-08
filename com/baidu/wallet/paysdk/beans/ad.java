@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ad extends PayBaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25852a;
+    public String f25962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25853b;
+    public String f25963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25854c;
+    public String f25964c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(Context context) {
@@ -43,15 +43,15 @@ public class ad extends PayBaseBean<Object> {
                 return;
             }
         }
-        this.f25852a = "";
-        this.f25853b = "";
-        this.f25854c = "";
+        this.f25962a = "";
+        this.f25963b = "";
+        this.f25964c = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f25854c = str;
+            this.f25964c = str;
         }
     }
 
@@ -69,7 +69,7 @@ public class ad extends PayBaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("paymethod_list", this.f25854c));
+            arrayList.add(new RestNameValuePair("paymethod_list", this.f25964c));
             return arrayList;
         }
         return (List) invokeV.objValue;

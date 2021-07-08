@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +40,9 @@ public class e extends com.baidu.platform.base.e {
             if (!poiDetailSearchOption.isSearchByUids()) {
                 poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
             }
-            this.f9391a.a("uids", poiDetailSearchOption.getUids());
-            this.f9391a.a("output", "json");
-            this.f9391a.a("scope", "2");
+            this.f9408a.a("uids", poiDetailSearchOption.getUids());
+            this.f9408a.a("output", "json");
+            this.f9408a.a("scope", "2");
         }
     }
 

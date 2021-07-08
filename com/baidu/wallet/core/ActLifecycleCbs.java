@@ -24,34 +24,34 @@ import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24512a;
+    public static final String f24622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24513b = "#invoke_config_impact_js_result";
+    public static final String f24623b = "#invoke_config_impact_js_result";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f24514c;
+    public static int f24624c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<b> f24515d;
+    public ArrayList<b> f24625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f24516e;
+    public HandlerThread f24626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f24517f;
+    public Handler f24627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f24518g;
+    public Runnable f24628g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FROM {
         public static final /* synthetic */ FROM[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,24 +110,24 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         boolean onInvoke(Context context, FROM from);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f24522a;
+        public a f24632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f24523b;
+        public long f24633b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f24524c;
+        public long f24634c;
 
         public b(a aVar, long j) {
             Interceptable interceptable = $ic;
@@ -144,18 +144,18 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                     return;
                 }
             }
-            this.f24522a = aVar;
-            this.f24523b = j;
-            this.f24524c = System.currentTimeMillis();
+            this.f24632a = aVar;
+            this.f24633b = j;
+            this.f24634c = System.currentTimeMillis();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final ActLifecycleCbs f24525a;
+        public static final ActLifecycleCbs f24635a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -171,7 +171,7 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                     return;
                 }
             }
-            f24525a = new ActLifecycleCbs();
+            f24635a = new ActLifecycleCbs();
         }
 
         public c() {
@@ -202,8 +202,8 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        f24512a = ActLifecycleCbs.class.getName();
-        f24514c = 30000;
+        f24622a = ActLifecycleCbs.class.getName();
+        f24624c = 30000;
     }
 
     public ActLifecycleCbs() {
@@ -219,13 +219,13 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f24515d = new ArrayList<>();
+        this.f24625d = new ArrayList<>();
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f24517f.removeCallbacksAndMessages(null);
+            this.f24627f.removeCallbacksAndMessages(null);
         }
     }
 
@@ -287,7 +287,7 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public static ActLifecycleCbs a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f24525a : (ActLifecycleCbs) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f24635a : (ActLifecycleCbs) invokeV.objValue;
     }
 
     public void a(Application application) {
@@ -297,16 +297,16 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
         }
         application.registerActivityLifecycleCallbacks(this);
         HandlerThread handlerThread = new HandlerThread("poll");
-        this.f24516e = handlerThread;
+        this.f24626e = handlerThread;
         handlerThread.start();
-        this.f24517f = new Handler(this.f24516e.getLooper());
+        this.f24627f = new Handler(this.f24626e.getLooper());
         com.baidu.wallet.core.a.a(application);
         LocalRouter.getInstance(application).route(application, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data(SavedStateHandle.KEYS, new String[]{"common", "multi-webview"}), new RouterCallback(this) { // from class: com.baidu.wallet.core.ActLifecycleCbs.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ActLifecycleCbs f24519a;
+            public final /* synthetic */ ActLifecycleCbs f24629a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -323,7 +323,7 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                         return;
                     }
                 }
-                this.f24519a = this;
+                this.f24629a = this;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -331,7 +331,7 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) {
                     LogUtil.d("jsHook", "routercb resultCode = " + i2);
-                    PayStatisticsUtil.onEventWithValue(ActLifecycleCbs.f24513b, String.valueOf(i2));
+                    PayStatisticsUtil.onEventWithValue(ActLifecycleCbs.f24623b, String.valueOf(i2));
                 }
             }
         });
@@ -342,26 +342,26 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
         if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, j) == null) || aVar == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.f24515d.size(); i2++) {
-            b bVar = this.f24515d.get(i2);
-            if (bVar != null && aVar == bVar.f24522a) {
-                bVar.f24523b = j;
+        for (int i2 = 0; i2 < this.f24625d.size(); i2++) {
+            b bVar = this.f24625d.get(i2);
+            if (bVar != null && aVar == bVar.f24632a) {
+                bVar.f24633b = j;
                 return;
             }
         }
-        this.f24515d.add(new b(aVar, j));
+        this.f24625d.add(new b(aVar, j));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, FROM from) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, context, from) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, from) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f24515d != null) {
-                for (int i2 = 0; i2 < this.f24515d.size(); i2++) {
-                    b bVar = this.f24515d.get(i2);
-                    if (bVar != null && currentTimeMillis - bVar.f24524c >= bVar.f24523b && bVar.f24522a.onInvoke(context, from)) {
-                        bVar.f24524c = currentTimeMillis;
+            if (this.f24625d != null) {
+                for (int i2 = 0; i2 < this.f24625d.size(); i2++) {
+                    b bVar = this.f24625d.get(i2);
+                    if (bVar != null && currentTimeMillis - bVar.f24634c >= bVar.f24633b && bVar.f24632a.onInvoke(context, from)) {
+                        bVar.f24634c = currentTimeMillis;
                     }
                 }
             }
@@ -372,16 +372,16 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, activity) == null) {
-            if (this.f24518g == null) {
-                this.f24518g = new Runnable(this, activity) { // from class: com.baidu.wallet.core.ActLifecycleCbs.2
+            if (this.f24628g == null) {
+                this.f24628g = new Runnable(this, activity) { // from class: com.baidu.wallet.core.ActLifecycleCbs.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Activity f24520a;
+                    public final /* synthetic */ Activity f24630a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ActLifecycleCbs f24521b;
+                    public final /* synthetic */ ActLifecycleCbs f24631b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -398,8 +398,8 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                                 return;
                             }
                         }
-                        this.f24521b = this;
-                        this.f24520a = activity;
+                        this.f24631b = this;
+                        this.f24630a = activity;
                     }
 
                     @Override // java.lang.Runnable
@@ -407,13 +407,13 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             LogUtil.d("poll", "任务轮询30s一次");
-                            this.f24521b.a(this.f24520a, FROM.POLL);
-                            this.f24521b.a(this.f24520a);
+                            this.f24631b.a(this.f24630a, FROM.POLL);
+                            this.f24631b.a(this.f24630a);
                         }
                     }
                 };
             }
-            this.f24517f.postDelayed(this.f24518g, f24514c);
+            this.f24627f.postDelayed(this.f24628g, f24624c);
         }
     }
 }

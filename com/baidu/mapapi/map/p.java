@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class p extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f7172a;
+    public final /* synthetic */ SwipeDismissTouchListener f7189a;
 
     public p(SwipeDismissTouchListener swipeDismissTouchListener) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class p extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f7172a = swipeDismissTouchListener;
+        this.f7189a = swipeDismissTouchListener;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f7172a.a();
+            this.f7189a.a();
         }
     }
 }

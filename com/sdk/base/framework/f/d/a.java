@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.WebSettings;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -24,15 +25,15 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41220a = "com.sdk.base.framework.f.d.a";
+    public static final String f38234a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f41221b;
+    public static final Boolean f38235b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f41221b = Boolean.valueOf(f.f41195b);
+        f38235b = Boolean.valueOf(f.f38209b);
     }
 
     public a() {
@@ -112,7 +113,7 @@ public class a {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 for (String str2 : new URL(str).getHost().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) {
                     for (int i2 = 0; i2 < str2.length(); i2++) {
@@ -200,7 +201,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(f41220a, th.getMessage(), f41221b);
+                    c.b(f38234a, th.getMessage(), f38235b);
                 }
             }
             return null;

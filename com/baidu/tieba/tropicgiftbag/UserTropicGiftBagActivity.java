@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +40,13 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public TextView mTropicGreetings;
     public TbImageView mVipPic;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f21473e;
+        public final /* synthetic */ UserTropicGiftBagActivity f21519e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -62,21 +63,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f21473e = userTropicGiftBagActivity;
+            this.f21519e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f21473e.getPageContext();
-                if (view.getId() == this.f21473e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f21519e.getPageContext();
+                if (view.getId() == this.f21519e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f21473e.sendStatisticLog(2);
-                    this.f21473e.finish();
+                    this.f21519e.sendStatisticLog(2);
+                    this.f21519e.finish();
                 }
-                if (view.getId() == this.f21473e.mClose.getId()) {
-                    this.f21473e.finish();
+                if (view.getId() == this.f21519e.mClose.getId()) {
+                    this.f21519e.finish();
                 }
             }
         }
@@ -100,7 +101,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
 
     private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.tropic_gift_bag_layout);
             this.mRoundCornerLayout = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(l.g(this, R.dimen.tbds32));

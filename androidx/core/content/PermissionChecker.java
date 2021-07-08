@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.app.AppOpsManagerCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,6 +90,6 @@ public final class PermissionChecker {
     public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) ? checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName()) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName()) : invokeLL.intValue;
     }
 }

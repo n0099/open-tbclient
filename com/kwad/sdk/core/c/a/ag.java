@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.webview.jshandler.p;
+import com.kwad.sdk.live.mode.LiveInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ag implements com.kwad.sdk.core.c<p.a> {
+/* loaded from: classes6.dex */
+public class ag implements com.kwad.sdk.core.d<LiveInfo.CoverThumbnailUrl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,25 +28,31 @@ public class ag implements com.kwad.sdk.core.c<p.a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(p.a aVar) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(LiveInfo.CoverThumbnailUrl coverThumbnailUrl, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f36911a);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coverThumbnailUrl, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        coverThumbnailUrl.cdn = jSONObject.optString("cdn");
+        coverThumbnailUrl.url = jSONObject.optString("url");
+        coverThumbnailUrl.urlPattern = jSONObject.optString("urlPattern");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(p.a aVar, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(LiveInfo.CoverThumbnailUrl coverThumbnailUrl, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, aVar, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, coverThumbnailUrl, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "cdn", coverThumbnailUrl.cdn);
+            com.kwad.sdk.utils.q.a(jSONObject, "url", coverThumbnailUrl.url);
+            com.kwad.sdk.utils.q.a(jSONObject, "urlPattern", coverThumbnailUrl.urlPattern);
+            return jSONObject;
         }
-        aVar.f36911a = jSONObject.optInt("status");
+        return (JSONObject) invokeLL.objValue;
     }
 }

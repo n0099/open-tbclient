@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,35 +17,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.router.LocalRouter;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class NFCUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static NFCUtil f24639a;
+    public static NFCUtil f24749a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f24640b;
+    public NfcAdapter f24750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f24641c;
+    public PendingIntent f24751c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
     /* renamed from: com.baidu.wallet.core.utils.NFCUtil$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f24642a;
+        public static NFCUtil f24752a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,7 +61,7 @@ public final class NFCUtil {
                     return;
                 }
             }
-            f24642a = new NFCUtil(null);
+            f24752a = new NFCUtil(null);
         }
 
         public a() {
@@ -97,7 +98,7 @@ public final class NFCUtil {
     public static NFCUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? a.f24642a : (NFCUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f24752a : (NFCUtil) invokeV.objValue;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {

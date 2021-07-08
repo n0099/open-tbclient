@@ -15,16 +15,16 @@ import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
 import com.baidu.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24703a;
+    public String f24813a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24704b;
+    public String f24814b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> d(Context context) {
@@ -44,15 +44,15 @@ public class d extends BaseBean<Object> {
                 return;
             }
         }
-        this.f24703a = "";
-        this.f24704b = "";
+        this.f24813a = "";
+        this.f24814b = "";
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f24703a = str;
-            this.f24704b = str2;
+            this.f24813a = str;
+            this.f24814b = str2;
         }
     }
 
@@ -70,10 +70,10 @@ public class d extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f24703a)));
+            arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f24813a)));
             arrayList.add(new RestNameValuePair("cmd", "1067"));
             arrayList.add(new RestNameValuePair("callback", "phonePriceInfo_common"));
-            arrayList.add(new RestNameValuePair("device_token", this.f24704b));
+            arrayList.add(new RestNameValuePair("device_token", this.f24814b));
             return arrayList;
         }
         return (List) invokeV.objValue;

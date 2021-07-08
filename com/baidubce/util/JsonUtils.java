@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -46,13 +47,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
         public static /* synthetic */ Interceptable $ic;
@@ -137,7 +138,7 @@ public class JsonUtils {
 
     public static void loadFromString(String str, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, abstractBceResponse) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, abstractBceResponse) == null) {
             JSONObject jSONObject = new JSONObject(str);
             if (abstractBceResponse.getClass() == ListBucketsResponse.class) {
                 JSONObject jSONObject2 = new JSONObject(jSONObject.getString("owner"));

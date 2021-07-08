@@ -12,22 +12,22 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f71749a;
+    public boolean f68852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f71750b;
+    public boolean f68853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f71751c;
+    public boolean f68854c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f71752d;
+    public boolean f68855d;
 
     public s1(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public abstract class s1 {
                 return;
             }
         }
-        this.f71750b = z;
-        this.f71751c = z2;
-        this.f71752d = false;
+        this.f68853b = z;
+        this.f68854c = z2;
+        this.f68855d = false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:80:0x00e6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -111,7 +111,7 @@ public abstract class s1 {
                     e = e2;
                     try {
                         if (Build.VERSION.SDK_INT >= 23) {
-                            if (j1.k().f71687g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
+                            if (j1.k().f68790g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
                                 h0.b(e);
                             } else {
                                 throw new SecurityException(e);
@@ -183,8 +183,8 @@ public abstract class s1 {
                 return;
             }
         }
-        this.f71750b = z;
-        this.f71751c = z2;
-        this.f71752d = z3;
+        this.f68853b = z;
+        this.f68854c = z2;
+        this.f68855d = z3;
     }
 }

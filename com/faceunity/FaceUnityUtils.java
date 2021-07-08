@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.wrapper.faceunity;
-import d.a.s0.v3.k.f;
+import d.a.p0.v3.j.f;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FaceUnityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FILTER_VALUE = "normal";

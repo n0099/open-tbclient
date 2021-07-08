@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.e.a.h.a.f;
 import java.io.PrintStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f41361a;
+    public Throwable f38375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41362b;
+    public int f38376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41363c;
+    public int f38377c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -61,27 +61,27 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f41362b = -1;
-        this.f41363c = -1;
+        this.f38376b = -1;
+        this.f38377c = -1;
         if (fVar != null) {
-            this.f41362b = fVar.c();
-            this.f41363c = fVar.f();
+            this.f38376b = fVar.c();
+            this.f38377c = fVar.f();
         }
-        this.f41361a = th;
+        this.f38375a = th;
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f41361a == null) {
+            if (this.f38375a == null) {
                 super.printStackTrace();
                 return;
             }
             synchronized (System.err) {
                 PrintStream printStream = System.err;
                 printStream.println(super.getMessage() + "; nested exception is:");
-                this.f41361a.printStackTrace();
+                this.f38375a.printStackTrace();
             }
         }
     }

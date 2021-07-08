@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.k0.a.f.d;
-import d.a.k0.a.f.e;
+import d.a.h0.a.f.d;
+import d.a.h0.a.f.e;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
-public class GifAnimView extends View implements d.a.k0.a.f.a {
+/* loaded from: classes2.dex */
+public class GifAnimView extends View implements d.a.h0.a.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.k0.a.f.b f10106e;
+    public d.a.h0.a.f.b f10123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f10107f;
+    public Bitmap f10124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10108g;
+    public boolean f10125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f10109h;
+    public boolean f10126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10110i;
+    public int f10127i;
     public Rect j;
     public c k;
     public GifImageType l;
@@ -52,7 +52,7 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
     public Handler q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class GifImageType {
         public static final /* synthetic */ GifImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,13 +116,13 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GifAnimView f10111a;
+        public final /* synthetic */ GifAnimView f10128a;
 
         public a(GifAnimView gifAnimView) {
             Interceptable interceptable = $ic;
@@ -139,27 +139,27 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
                     return;
                 }
             }
-            this.f10111a = gifAnimView;
+            this.f10128a = gifAnimView;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f10111a.invalidate();
-                if (this.f10111a.o != null) {
-                    this.f10111a.o.callback();
+                this.f10128a.invalidate();
+                if (this.f10128a.o != null) {
+                    this.f10128a.o.callback();
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10112a;
+        public static final /* synthetic */ int[] f10129a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -176,29 +176,29 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
                 }
             }
             int[] iArr = new int[GifImageType.values().length];
-            f10112a = iArr;
+            f10129a = iArr;
             try {
                 iArr[GifImageType.WAIT_FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10112a[GifImageType.COVER.ordinal()] = 2;
+                f10129a[GifImageType.COVER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f10112a[GifImageType.SYNC_DECODER.ordinal()] = 3;
+                f10129a[GifImageType.SYNC_DECODER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GifAnimView f10113e;
+        public final /* synthetic */ GifAnimView f10130e;
 
         public c(GifAnimView gifAnimView) {
             Interceptable interceptable = $ic;
@@ -215,24 +215,24 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
                     return;
                 }
             }
-            this.f10113e = gifAnimView;
+            this.f10130e = gifAnimView;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10113e.f10106e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10130e.f10123e == null) {
                 return;
             }
-            while (this.f10113e.f10108g) {
-                if (!this.f10113e.f10109h) {
-                    d.a.k0.a.f.c i2 = this.f10113e.f10106e.i();
-                    this.f10113e.f10107f = i2.f46070a;
-                    long j = i2.f46071b;
-                    if (this.f10113e.q == null) {
+            while (this.f10130e.f10125g) {
+                if (!this.f10130e.f10126h) {
+                    d.a.h0.a.f.c i2 = this.f10130e.f10123e.i();
+                    this.f10130e.f10124f = i2.f42486a;
+                    long j = i2.f42487b;
+                    if (this.f10130e.q == null) {
                         return;
                     }
-                    this.f10113e.q.sendMessage(this.f10113e.q.obtainMessage());
+                    this.f10130e.q.sendMessage(this.f10130e.q.obtainMessage());
                     SystemClock.sleep(j);
                 } else {
                     SystemClock.sleep(500L);
@@ -263,11 +263,11 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
                 return;
             }
         }
-        this.f10106e = null;
-        this.f10107f = null;
-        this.f10108g = true;
-        this.f10109h = false;
-        this.f10110i = -1;
+        this.f10123e = null;
+        this.f10124f = null;
+        this.f10125g = true;
+        this.f10126h = false;
+        this.f10127i = -1;
         this.j = null;
         this.k = null;
         this.l = GifImageType.SYNC_DECODER;
@@ -279,25 +279,25 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
     private void setGifDecoderImage(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, bArr) == null) {
-            d.a.k0.a.f.b bVar = this.f10106e;
+            d.a.h0.a.f.b bVar = this.f10123e;
             if (bVar != null) {
                 bVar.c();
-                this.f10106e = null;
+                this.f10123e = null;
             }
-            d.a.k0.a.f.b bVar2 = new d.a.k0.a.f.b(bArr, this);
-            this.f10106e = bVar2;
+            d.a.h0.a.f.b bVar2 = new d.a.h0.a.f.b(bArr, this);
+            this.f10123e = bVar2;
             bVar2.start();
         }
     }
 
-    @Override // d.a.k0.a.f.a
+    @Override // d.a.h0.a.f.a
     public void a(boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z && this.f10106e != null) {
-            int i3 = b.f10112a[this.l.ordinal()];
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) && z && this.f10123e != null) {
+            int i3 = b.f10129a[this.l.ordinal()];
             if (i3 == 1) {
                 if (i2 == -1) {
-                    if (this.f10106e.e() > 1) {
+                    if (this.f10123e.e() > 1) {
                         new c(this, null).start();
                     } else {
                         h();
@@ -308,7 +308,7 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
                     return;
                 }
                 if (i2 == 1) {
-                    this.f10107f = this.f10106e.g();
+                    this.f10124f = this.f10123e.g();
                     h();
                 } else if (i2 == -1) {
                     h();
@@ -318,10 +318,10 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
                     cVar.start();
                 }
             } else if (i2 == 1) {
-                this.f10107f = this.f10106e.g();
+                this.f10124f = this.f10123e.g();
                 h();
             } else if (i2 == -1) {
-                if (this.f10106e.e() > 1) {
+                if (this.f10123e.e() > 1) {
                     if (this.k == null) {
                         c cVar2 = new c(this, null);
                         this.k = cVar2;
@@ -347,19 +347,19 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f10109h = false;
+            this.f10126h = false;
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f10109h = true;
-            this.f10108g = false;
-            d.a.k0.a.f.b bVar = this.f10106e;
+            this.f10126h = true;
+            this.f10125g = false;
+            d.a.h0.a.f.b bVar = this.f10123e;
             if (bVar != null) {
                 bVar.c();
-                this.f10106e = null;
+                this.f10123e = null;
             }
             if (this.n != null) {
                 this.n = null;
@@ -382,14 +382,14 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            d.a.k0.a.f.b bVar = this.f10106e;
+            d.a.h0.a.f.b bVar = this.f10123e;
             if (bVar == null) {
                 return;
             }
-            if (this.f10107f == null) {
-                this.f10107f = bVar.g();
+            if (this.f10124f == null) {
+                this.f10124f = bVar.g();
             }
-            if (this.f10107f == null) {
+            if (this.f10124f == null) {
                 return;
             }
             int saveCount = canvas.getSaveCount();
@@ -397,10 +397,10 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
             canvas.translate(getPaddingLeft(), getPaddingTop());
             Paint paint = new Paint();
             paint.setAlpha(this.p);
-            if (this.f10110i == -1) {
-                canvas.drawBitmap(this.f10107f, 0.0f, 0.0f, paint);
+            if (this.f10127i == -1) {
+                canvas.drawBitmap(this.f10124f, 0.0f, 0.0f, paint);
             } else {
-                canvas.drawBitmap(this.f10107f, (Rect) null, this.j, paint);
+                canvas.drawBitmap(this.f10124f, (Rect) null, this.j, paint);
             }
             canvas.restoreToCount(saveCount);
             e eVar = this.n;
@@ -421,13 +421,13 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
-            d.a.k0.a.f.b bVar = this.f10106e;
+            d.a.h0.a.f.b bVar = this.f10123e;
             int i5 = 1;
             if (bVar == null) {
                 i4 = 1;
             } else {
-                i5 = bVar.f46067g;
-                i4 = bVar.f46068h;
+                i5 = bVar.f42483g;
+                i4 = bVar.f42484h;
             }
             setMeasuredDimension(View.resolveSize(Math.max(i5 + paddingLeft + paddingRight, getSuggestedMinimumWidth()), i2), View.resolveSize(Math.max(i4 + paddingTop + paddingBottom, getSuggestedMinimumHeight()), i3));
         }
@@ -438,7 +438,7 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
-            this.f10109h = i2 != 0;
+            this.f10126h = i2 != 0;
         }
     }
 
@@ -459,7 +459,7 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
 
     public void setGifImageType(GifImageType gifImageType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, gifImageType) == null) && this.f10106e == null) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, gifImageType) == null) && this.f10123e == null) {
             this.l = gifImageType;
         }
     }
@@ -469,7 +469,7 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
         if (!(interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f10110i = i2;
+        this.f10127i = i2;
         Rect rect = new Rect();
         this.j = rect;
         rect.left = 0;
@@ -495,13 +495,13 @@ public class GifAnimView extends View implements d.a.k0.a.f.a {
     private void setGifDecoderImage(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, inputStream) == null) {
-            d.a.k0.a.f.b bVar = this.f10106e;
+            d.a.h0.a.f.b bVar = this.f10123e;
             if (bVar != null) {
                 bVar.c();
-                this.f10106e = null;
+                this.f10123e = null;
             }
-            d.a.k0.a.f.b bVar2 = new d.a.k0.a.f.b(inputStream, this);
-            this.f10106e = bVar2;
+            d.a.h0.a.f.b bVar2 = new d.a.h0.a.f.b(inputStream, this);
+            this.f10123e = bVar2;
             bVar2.start();
         }
     }

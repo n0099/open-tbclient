@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ecommerce.R;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ToastUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NONE_IMG = -1;
@@ -75,7 +76,7 @@ public class ToastUtil {
     public static void show(String str) {
         SapiConfiguration confignation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
             return;
         }
         Toast toast = mToast;

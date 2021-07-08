@@ -47,51 +47,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.r0.r.f0.f;
-import d.a.r0.r.f0.g;
-import d.a.s0.s.d.a;
+import d.a.o0.r.f0.f;
+import d.a.o0.r.f0.g;
+import d.a.p0.s.d.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class AddressListFragment extends BaseFragment implements a.InterfaceC1663a, f.g, AssortView.a {
+/* loaded from: classes4.dex */
+public class AddressListFragment extends BaseFragment implements a.InterfaceC1621a, f.g, AssortView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AddressListModel f13764e;
+    public AddressListModel f13803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f13765f;
+    public b f13804f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f13766g;
+    public c f13805g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f13767h;
+    public d f13806h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f13768i;
+    public e f13807i;
     public long j;
-    public d.a.r0.r.c k;
+    public d.a.o0.r.c k;
     public View l;
     public AssortView m;
     public LinearLayout n;
     public g o;
     public BdListView p;
-    public d.a.s0.s.c.a q;
+    public d.a.p0.s.c.a q;
     public TextView r;
     public ImageView s;
     public int t;
     public BaseFragmentActivity u;
     public final CustomMessageListener v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddressListFragment f13769a;
+        public final /* synthetic */ AddressListFragment f13808a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AddressListFragment addressListFragment, int i2) {
@@ -111,7 +111,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                     return;
                 }
             }
-            this.f13769a = addressListFragment;
+            this.f13808a = addressListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,18 +122,18 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                 if (j.z() && BdSocketLinkService.isAvailable()) {
                     return;
                 }
-                this.f13769a.p.A(0L);
+                this.f13808a.p.A(0L);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends d.a.c.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddressListFragment f13770a;
+        public final /* synthetic */ AddressListFragment f13809a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AddressListFragment addressListFragment) {
@@ -153,7 +153,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                     return;
                 }
             }
-            this.f13770a = addressListFragment;
+            this.f13809a = addressListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,38 +161,38 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-                this.f13770a.p.A(0L);
+                this.f13809a.p.A(0L);
                 if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                    d.a.s0.s.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                    d.a.p0.s.f.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
                     ArrayList arrayList = new ArrayList();
                     if (addressListData != null) {
-                        for (d.a.s0.s.f.e eVar : addressListData.a()) {
-                            List<d.a.r0.s.f.a> a2 = eVar.a();
+                        for (d.a.p0.s.f.e eVar : addressListData.a()) {
+                            List<d.a.o0.s.f.a> a2 = eVar.a();
                             if (a2.size() > 0) {
-                                d.a.r0.s.f.a aVar = new d.a.r0.s.f.a();
+                                d.a.o0.s.f.a aVar = new d.a.o0.s.f.a();
                                 aVar.k(eVar.b());
                                 arrayList.add(aVar);
                             }
-                            for (d.a.r0.s.f.a aVar2 : a2) {
+                            for (d.a.o0.s.f.a aVar2 : a2) {
                                 arrayList.add(aVar2);
                             }
                         }
                     }
-                    this.f13770a.f13764e.D(arrayList);
+                    this.f13809a.f13803e.D(arrayList);
                     return;
                 }
-                this.f13770a.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.f13770a.getResources().getString(R.string.neterror) : socketResponsedMessage.getErrorString(), false);
+                this.f13809a.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.f13809a.getResources().getString(R.string.neterror) : socketResponsedMessage.getErrorString(), false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddressListFragment f13771a;
+        public final /* synthetic */ AddressListFragment f13810a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(AddressListFragment addressListFragment) {
@@ -212,7 +212,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                     return;
                 }
             }
-            this.f13771a = addressListFragment;
+            this.f13810a = addressListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -220,25 +220,25 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                d.a.r0.r.d0.b j = d.a.r0.r.d0.b.j();
+                d.a.o0.r.d0.b j = d.a.o0.r.d0.b.j();
                 if (!j.g("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                    this.f13771a.p.A(0L);
+                    this.f13810a.p.A(0L);
                 }
                 if (customResponsedMessage == null || customResponsedMessage.getData() == null) {
                     return;
                 }
-                this.f13771a.f13764e.D((List) customResponsedMessage.getData());
+                this.f13810a.f13803e.D((List) customResponsedMessage.getData());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddressListFragment f13772a;
+        public final /* synthetic */ AddressListFragment f13811a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(AddressListFragment addressListFragment) {
@@ -258,7 +258,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                     return;
                 }
             }
-            this.f13772a = addressListFragment;
+            this.f13811a = addressListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -267,7 +267,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 if (customResponsedMessage.getError() != 0) {
-                    this.f13772a.showToast(customResponsedMessage.getErrorString());
+                    this.f13811a.showToast(customResponsedMessage.getErrorString());
                     return;
                 }
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
@@ -275,27 +275,27 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                     if (StringUtils.isNull(responseNewFriendUpdateUiMsg.getKey()) || StringUtils.isNull(responseNewFriendUpdateUiMsg.getName())) {
                         return;
                     }
-                    d.a.r0.s.f.a aVar = new d.a.r0.s.f.a();
+                    d.a.o0.s.f.a aVar = new d.a.o0.s.f.a();
                     aVar.k(responseNewFriendUpdateUiMsg.getKey());
                     aVar.m(responseNewFriendUpdateUiMsg.getQuanping());
                     aVar.n(responseNewFriendUpdateUiMsg.getFriendId());
                     aVar.o(responseNewFriendUpdateUiMsg.getName());
                     aVar.q(responseNewFriendUpdateUiMsg.getPortrait());
-                    this.f13772a.f13764e.w(aVar);
+                    this.f13811a.f13803e.w(aVar);
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
-                    this.f13772a.f13764e.y(responseNewFriendUpdateUiMsg.getFriendId());
+                    this.f13811a.f13803e.y(responseNewFriendUpdateUiMsg.getFriendId());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AddressListFragment f13773a;
+        public final /* synthetic */ AddressListFragment f13812a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(AddressListFragment addressListFragment) {
@@ -315,7 +315,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                     return;
                 }
             }
-            this.f13773a = addressListFragment;
+            this.f13812a = addressListFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -324,12 +324,12 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
                 if (customResponsedMessage.getError() != 0) {
-                    this.f13773a.showToast(customResponsedMessage.getErrorString());
+                    this.f13812a.showToast(customResponsedMessage.getErrorString());
                     return;
                 }
-                this.f13773a.t = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-                this.f13773a.q.f(this.f13773a.t);
-                this.f13773a.q.notifyDataSetChanged();
+                this.f13812a.t = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+                this.f13812a.q.f(this.f13812a.t);
+                this.f13812a.q.notifyDataSetChanged();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
             }
         }
@@ -358,27 +358,27 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         }
     }
 
-    public final void L0() {
+    public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f13764e.A();
+            this.f13803e.A();
         }
     }
 
-    public final void M0() {
+    public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestUnreadPointNum());
         }
     }
 
-    public final View N0(LayoutInflater layoutInflater) {
+    public final View O0(LayoutInflater layoutInflater) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, layoutInflater)) == null) {
             this.l = LayoutInflater.from(this.u.getPageContext().getPageActivity()).inflate(R.layout.addresslist_fragment, (ViewGroup) null);
             this.o = new g(this.u.getPageContext());
-            this.q = new d.a.s0.s.c.a(TbadkCoreApplication.getInst().getApplicationContext(), this.k);
+            this.q = new d.a.p0.s.c.a(TbadkCoreApplication.getInst().getApplicationContext(), this.k);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.u.getPageContext().getPageActivity()).inflate(R.layout.addresslist_search_layout, (ViewGroup) null, false);
             this.n = linearLayout;
             linearLayout.setOnClickListener(this);
@@ -401,7 +401,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         return (View) invokeL.objValue;
     }
 
-    public final void O0(List<d.a.r0.s.f.a> list) {
+    public final void P0(List<d.a.o0.s.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.q.e(list);
@@ -415,30 +415,30 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         }
     }
 
-    public final void P0() {
+    public final void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             b bVar = new b(this);
-            this.f13765f = bVar;
+            this.f13804f = bVar;
             registerListener(bVar);
             c cVar = new c(this);
-            this.f13766g = cVar;
+            this.f13805g = cVar;
             registerListener(cVar);
             d dVar = new d(this);
-            this.f13767h = dVar;
+            this.f13806h = dVar;
             registerListener(dVar);
             e eVar = new e(this);
-            this.f13768i = eVar;
+            this.f13807i = eVar;
             registerListener(eVar);
             registerListener(this.v);
         }
     }
 
-    @Override // d.a.s0.s.d.a.InterfaceC1663a
-    public void e(List<d.a.r0.s.f.a> list) {
+    @Override // d.a.p0.s.d.a.InterfaceC1621a
+    public void e(List<d.a.o0.s.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            O0(list);
+            P0(list);
         }
     }
 
@@ -447,8 +447,8 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.f13764e.C(this);
-            L0();
+            this.f13803e.C(this);
+            M0();
         }
     }
 
@@ -466,7 +466,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d.a.r0.r.c cVar = this.k;
+            d.a.o0.r.c cVar = this.k;
             if (cVar != null) {
                 cVar.k(i2 == 1);
                 this.k.j(this.l);
@@ -497,10 +497,10 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            P0();
+            Q0();
             this.j = 0L;
             AddressListModel addressListModel = new AddressListModel(getBaseFragmentActivity());
-            this.f13764e = addressListModel;
+            this.f13803e = addressListModel;
             addressListModel.setUniqueId(getUniqueId());
         }
     }
@@ -514,7 +514,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
             if (baseFragmentActivity != null) {
                 this.k = baseFragmentActivity.getLayoutMode();
             }
-            return N0(layoutInflater);
+            return O0(layoutInflater);
         }
         return (View) invokeLLL.objValue;
     }
@@ -524,7 +524,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            this.f13764e.E(this);
+            this.f13803e.E(this);
         }
     }
 
@@ -545,7 +545,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                 sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(getActivity(), 0, 1)));
                 TiebaStatic.log("contacts_mygp");
             } else {
-                d.a.r0.s.f.a item = this.q.getItem(i2);
+                d.a.o0.s.f.a item = this.q.getItem(i2);
                 if (item == null || item.e() <= 0) {
                     return;
                 }
@@ -558,7 +558,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         }
     }
 
-    @Override // d.a.r0.r.f0.f.g
+    @Override // d.a.o0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
@@ -566,7 +566,7 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
                 this.p.A(0L);
             } else if (l.D()) {
                 this.j = System.currentTimeMillis();
-                this.f13764e.B();
+                this.f13803e.B();
             } else {
                 this.p.A(0L);
                 showToast(R.string.no_network_guide);
@@ -579,9 +579,9 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onPrimary();
-            d.a.r0.r.d0.b j = d.a.r0.r.d0.b.j();
+            d.a.o0.r.d0.b j = d.a.o0.r.d0.b.j();
             if (j.g("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                d.a.r0.r.d0.b j2 = d.a.r0.r.d0.b.j();
+                d.a.o0.r.d0.b j2 = d.a.o0.r.d0.b.j();
                 j2.t("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
         }
@@ -592,16 +592,16 @@ public class AddressListFragment extends BaseFragment implements a.InterfaceC166
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onResume();
-            M0();
+            N0();
         }
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
     public void s0(String str) {
-        List<d.a.r0.s.f.a> z;
+        List<d.a.o0.s.f.a> z;
         int x;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (z = this.f13764e.z()) == null || z.size() == 0 || (x = this.f13764e.x(str)) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || (z = this.f13803e.z()) == null || z.size() == 0 || (x = this.f13803e.x(str)) < 0) {
             return;
         }
         this.p.setSelection(x + 5);

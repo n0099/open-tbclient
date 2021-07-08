@@ -1,5 +1,6 @@
 package rx.observables;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +16,12 @@ import h.k;
 import h.m.a;
 import h.r.c;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SubscriptionProducer<S, T> extends AtomicLong implements f, k, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3736864024352728072L;
@@ -95,7 +96,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
 
         private void nextIteration(SyncOnSubscribe<S, T> syncOnSubscribe) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, syncOnSubscribe) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, syncOnSubscribe) == null) {
                 this.state = syncOnSubscribe.a(this.state, this);
             }
         }

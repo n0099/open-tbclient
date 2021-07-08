@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -42,7 +43,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public final int timeout;
     public HttpURLConnection urlConnection;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +70,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }
@@ -131,7 +132,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static boolean isHttpOk(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? i2 / 100 == 2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 / 100 == 2 : invokeI.booleanValue;
     }
 
     public static boolean isHttpRedirect(int i2) {

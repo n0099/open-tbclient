@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f74610a;
+    public int[] f71662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f74611b;
+    public int[] f71663b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -53,13 +53,13 @@ public class e {
             int e5 = cVar.e();
             int e6 = cVar.e();
             e eVar = new e();
-            eVar.f74610a = cVar.f(e3);
+            eVar.f71662a = cVar.f(e3);
             if (e4 != 0) {
                 cVar.f(e4);
             }
             int i2 = (e6 == 0 ? e2 : e6) - e5;
             if (i2 % 4 == 0) {
-                eVar.f74611b = cVar.f(i2 / 4);
+                eVar.f71663b = cVar.f(i2 / 4);
                 if (e6 != 0) {
                     int i3 = e2 - e6;
                     if (i3 % 4 == 0) {
@@ -80,15 +80,15 @@ public class e {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 < 0 || (iArr = this.f74610a) == null || i2 >= iArr.length) {
+            if (i2 < 0 || (iArr = this.f71662a) == null || i2 >= iArr.length) {
                 return null;
             }
             int i3 = iArr[i2];
-            int a2 = a(this.f74611b, i3);
+            int a2 = a(this.f71663b, i3);
             StringBuilder sb = new StringBuilder(a2);
             while (a2 != 0) {
                 i3 += 2;
-                sb.append((char) a(this.f74611b, i3));
+                sb.append((char) a(this.f71663b, i3));
                 a2--;
             }
             return sb.toString();

@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.b.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public enum e {
     STRING,
     JSON_OBJECT,

@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.FunOpenIDSdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class q1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static q1 f42630b;
+    public static q1 f39644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42631c;
+    public static String f39645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42632d;
+    public static String f39646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f42633e;
+    public static String f39647e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42634a;
+    public Context f39648a;
 
     public q1(Context context) {
         Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class q1 {
                 return;
             }
         }
-        this.f42634a = context;
+        this.f39648a = context;
     }
 
     public static q1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f42630b == null) {
+            if (f39644b == null) {
                 synchronized (q1.class) {
-                    if (f42630b == null) {
-                        f42630b = new q1(context);
+                    if (f39644b == null) {
+                        f39644b = new q1(context);
                     }
                 }
             }
-            return f42630b;
+            return f39644b;
         }
         return (q1) invokeL.objValue;
     }
@@ -66,22 +66,22 @@ public class q1 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f42632d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f39646d : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(f42631c)) {
+            if (TextUtils.isEmpty(f39645c)) {
                 try {
-                    return s1.j(this.f42634a);
+                    return s1.j(this.f39648a);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return "";
                 }
             }
-            return f42631c;
+            return f39645c;
         }
         return (String) invokeV.objValue;
     }
@@ -89,7 +89,7 @@ public class q1 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f42633e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f39647e : (String) invokeV.objValue;
     }
 
     public void d() {
@@ -105,7 +105,7 @@ public class q1 {
             }
             if (z) {
                 try {
-                    FunOpenIDSdk.getOaid(this.f42634a, new p1(this));
+                    FunOpenIDSdk.getOaid(this.f39648a, new p1(this));
                 } catch (Exception unused2) {
                 }
             }

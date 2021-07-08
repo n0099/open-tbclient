@@ -1,5 +1,6 @@
 package com.baidu.webkit.internal.daemon;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZeusThreadPoolUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_COUNT;
@@ -30,7 +31,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
     public static volatile boolean sIsZeusLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +135,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
 
     public static void executeIgnoreZeus(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
             doExecute(runnable);
         }
     }

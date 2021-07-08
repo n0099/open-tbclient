@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e extends d.f.b.a.e0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long q;
     public final long r;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f73176a;
+        public static final /* synthetic */ int[] f70279a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,53 +41,53 @@ public final class e extends d.f.b.a.e0.b {
                 }
             }
             int[] iArr = new int[Layout.Alignment.values().length];
-            f73176a = iArr;
+            f70279a = iArr;
             try {
                 iArr[Layout.Alignment.ALIGN_NORMAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f73176a[Layout.Alignment.ALIGN_CENTER.ordinal()] = 2;
+                f70279a[Layout.Alignment.ALIGN_CENTER.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f73176a[Layout.Alignment.ALIGN_OPPOSITE.ordinal()] = 3;
+                f70279a[Layout.Alignment.ALIGN_OPPOSITE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f73177a;
+        public long f70280a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f73178b;
+        public long f70281b;
 
         /* renamed from: c  reason: collision with root package name */
-        public SpannableStringBuilder f73179c;
+        public SpannableStringBuilder f70282c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Layout.Alignment f73180d;
+        public Layout.Alignment f70283d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f73181e;
+        public float f70284e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f73182f;
+        public int f70285f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f73183g;
+        public int f70286g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f73184h;
+        public float f70287h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f73185i;
+        public int f70288i;
         public float j;
 
         public b() {
@@ -110,10 +110,10 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f73184h != Float.MIN_VALUE && this.f73185i == Integer.MIN_VALUE) {
+                if (this.f70287h != Float.MIN_VALUE && this.f70288i == Integer.MIN_VALUE) {
                     b();
                 }
-                return new e(this.f73177a, this.f73178b, this.f73179c, this.f73180d, this.f73181e, this.f73182f, this.f73183g, this.f73184h, this.f73185i, this.j);
+                return new e(this.f70280a, this.f70281b, this.f70282c, this.f70283d, this.f70284e, this.f70285f, this.f70286g, this.f70287h, this.f70288i, this.j);
             }
             return (e) invokeV.objValue;
         }
@@ -122,20 +122,20 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Layout.Alignment alignment = this.f73180d;
+                Layout.Alignment alignment = this.f70283d;
                 if (alignment == null) {
-                    this.f73185i = Integer.MIN_VALUE;
+                    this.f70288i = Integer.MIN_VALUE;
                 } else {
-                    int i2 = a.f73176a[alignment.ordinal()];
+                    int i2 = a.f70279a[alignment.ordinal()];
                     if (i2 == 1) {
-                        this.f73185i = 0;
+                        this.f70288i = 0;
                     } else if (i2 == 2) {
-                        this.f73185i = 1;
+                        this.f70288i = 1;
                     } else if (i2 != 3) {
-                        Log.w("WebvttCueBuilder", "Unrecognized alignment: " + this.f73180d);
-                        this.f73185i = 0;
+                        Log.w("WebvttCueBuilder", "Unrecognized alignment: " + this.f70283d);
+                        this.f70288i = 0;
                     } else {
-                        this.f73185i = 2;
+                        this.f70288i = 2;
                     }
                 }
                 return this;
@@ -146,15 +146,15 @@ public final class e extends d.f.b.a.e0.b {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f73177a = 0L;
-                this.f73178b = 0L;
-                this.f73179c = null;
-                this.f73180d = null;
-                this.f73181e = Float.MIN_VALUE;
-                this.f73182f = Integer.MIN_VALUE;
-                this.f73183g = Integer.MIN_VALUE;
-                this.f73184h = Float.MIN_VALUE;
-                this.f73185i = Integer.MIN_VALUE;
+                this.f70280a = 0L;
+                this.f70281b = 0L;
+                this.f70282c = null;
+                this.f70283d = null;
+                this.f70284e = Float.MIN_VALUE;
+                this.f70285f = Integer.MIN_VALUE;
+                this.f70286g = Integer.MIN_VALUE;
+                this.f70287h = Float.MIN_VALUE;
+                this.f70288i = Integer.MIN_VALUE;
                 this.j = Float.MIN_VALUE;
             }
         }
@@ -163,7 +163,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                this.f73178b = j;
+                this.f70281b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -173,7 +173,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-                this.f73181e = f2;
+                this.f70284e = f2;
                 return this;
             }
             return (b) invokeF.objValue;
@@ -183,7 +183,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f73183g = i2;
+                this.f70286g = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -193,7 +193,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f73182f = i2;
+                this.f70285f = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -203,7 +203,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f2)) == null) {
-                this.f73184h = f2;
+                this.f70287h = f2;
                 return this;
             }
             return (b) invokeF.objValue;
@@ -213,7 +213,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                this.f73185i = i2;
+                this.f70288i = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -223,7 +223,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-                this.f73177a = j;
+                this.f70280a = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -233,7 +233,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, spannableStringBuilder)) == null) {
-                this.f73179c = spannableStringBuilder;
+                this.f70282c = spannableStringBuilder;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -243,7 +243,7 @@ public final class e extends d.f.b.a.e0.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, alignment)) == null) {
-                this.f73180d = alignment;
+                this.f70283d = alignment;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -284,7 +284,7 @@ public final class e extends d.f.b.a.e0.b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73033h == Float.MIN_VALUE && this.k == Float.MIN_VALUE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70136h == Float.MIN_VALUE && this.k == Float.MIN_VALUE : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

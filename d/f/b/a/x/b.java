@@ -10,48 +10,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f73558e;
+    public static final b f70661e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f73559a;
+    public final int f70662a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f73560b;
+    public final int f70663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f73561c;
+    public final int f70664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AudioAttributes f73562d;
+    public AudioAttributes f70665d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: d.f.b.a.x.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2025b {
+    /* loaded from: classes8.dex */
+    public static final class C1994b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f73563a;
+        public int f70666a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f73564b;
+        public int f70667b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f73565c;
+        public int f70668c;
 
-        public C2025b() {
+        public C1994b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,15 +64,15 @@ public final class b {
                     return;
                 }
             }
-            this.f73563a = 0;
-            this.f73564b = 0;
-            this.f73565c = 1;
+            this.f70666a = 0;
+            this.f70667b = 0;
+            this.f70668c = 1;
         }
 
         public b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f73563a, this.f73564b, this.f73565c, null) : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f70666a, this.f70667b, this.f70668c, null) : (b) invokeV.objValue;
         }
     }
 
@@ -89,7 +89,7 @@ public final class b {
                 return;
             }
         }
-        f73558e = new C2025b().a();
+        f70661e = new C1994b().a();
     }
 
     public /* synthetic */ b(int i2, int i3, int i4, a aVar) {
@@ -101,10 +101,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f73562d == null) {
-                this.f73562d = new AudioAttributes.Builder().setContentType(this.f73559a).setFlags(this.f73560b).setUsage(this.f73561c).build();
+            if (this.f70665d == null) {
+                this.f70665d = new AudioAttributes.Builder().setContentType(this.f70662a).setFlags(this.f70663b).setUsage(this.f70664c).build();
             }
-            return this.f73562d;
+            return this.f70665d;
         }
         return (AudioAttributes) invokeV.objValue;
     }
@@ -120,7 +120,7 @@ public final class b {
                 return false;
             }
             b bVar = (b) obj;
-            return this.f73559a == bVar.f73559a && this.f73560b == bVar.f73560b && this.f73561c == bVar.f73561c;
+            return this.f70662a == bVar.f70662a && this.f70663b == bVar.f70663b && this.f70664c == bVar.f70664c;
         }
         return invokeL.booleanValue;
     }
@@ -128,7 +128,7 @@ public final class b {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f73559a) * 31) + this.f73560b) * 31) + this.f73561c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f70662a) * 31) + this.f70663b) * 31) + this.f70664c : invokeV.intValue;
     }
 
     public b(int i2, int i3, int i4) {
@@ -146,8 +146,8 @@ public final class b {
                 return;
             }
         }
-        this.f73559a = i2;
-        this.f73560b = i3;
-        this.f73561c = i4;
+        this.f70662a = i2;
+        this.f70663b = i3;
+        this.f70664c = i4;
     }
 }

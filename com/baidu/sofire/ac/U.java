@@ -51,7 +51,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class U implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_DAILY_ALARM = 6;
@@ -115,7 +115,7 @@ public class U implements Runnable {
     public JSONObject mWholeJson;
     public File tmpDir;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class UpgradeResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,19 +208,19 @@ public class U implements Runnable {
                 }
                 if (!sMonitorNetworkWhenUpgradeNoNet) {
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    MyReceiver myReceiver = com.baidu.sofire.utility.c.f10477g;
+                    MyReceiver myReceiver = com.baidu.sofire.utility.c.f10494g;
                     if (myReceiver == null) {
-                        com.baidu.sofire.utility.c.f10477g = new MyReceiver().a();
+                        com.baidu.sofire.utility.c.f10494g = new MyReceiver().a();
                     } else {
                         myReceiver.a();
                     }
-                    com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10477g, intentFilter);
+                    com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10494g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             }
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.sofire.h.a aVar = this.mPreferenceManager;
-            long j = aVar.f10393a.getLong("pu_ap_fd", 0L);
+            long j = aVar.f10410a.getLong("pu_ap_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
                 aVar.c();
@@ -503,12 +503,12 @@ public class U implements Runnable {
                         return;
                     }
                     IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                    if (com.baidu.sofire.utility.c.f10477g == null) {
-                        com.baidu.sofire.utility.c.f10477g = new MyReceiver().a();
+                    if (com.baidu.sofire.utility.c.f10494g == null) {
+                        com.baidu.sofire.utility.c.f10494g = new MyReceiver().a();
                     } else {
-                        com.baidu.sofire.utility.c.f10477g.a();
+                        com.baidu.sofire.utility.c.f10494g.a();
                     }
-                    com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10477g, intentFilter);
+                    com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10494g, intentFilter);
                     sMonitorNetworkWhenUpgradeNoNet = true;
                 }
             } catch (Throwable unused3) {
@@ -585,7 +585,7 @@ public class U implements Runnable {
             try {
                 try {
                     try {
-                        long j = this.mPreferenceManager.f10393a.getLong("slruct", 0L);
+                        long j = this.mPreferenceManager.f10410a.getLong("slruct", 0L);
                         long currentTimeMillis = System.currentTimeMillis();
                         int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                         if (i2 > 0 && currentTimeMillis - j > 86400000) {
@@ -778,9 +778,9 @@ public class U implements Runnable {
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 6);
                 PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
-                long currentTimeMillis = ((System.currentTimeMillis() + (a2.f10393a.getInt("appal_te", 24) * 3600000)) - TTAdConstant.AD_MAX_EVENT_TIME) + ((long) (Math.random() * 1200000.0d));
-                a2.f10394b.putLong("npuct", currentTimeMillis);
-                a2.f10394b.commit();
+                long currentTimeMillis = ((System.currentTimeMillis() + (a2.f10410a.getInt("appal_te", 24) * 3600000)) - TTAdConstant.AD_MAX_EVENT_TIME) + ((long) (Math.random() * 1200000.0d));
+                a2.f10411b.putLong("npuct", currentTimeMillis);
+                a2.f10411b.commit();
                 try {
                     alarmManager.cancel(service);
                 } catch (Throwable unused) {
@@ -801,11 +801,11 @@ public class U implements Runnable {
                     boolean z2 = "com.baidu.input_huawei".equals(this.context.getPackageName()) ? !this.mPreferenceManager.w() : false;
                     if (com.baidu.sofire.utility.c.f(this.context) && !z2) {
                         sLastCheckTime = System.currentTimeMillis();
-                        if (com.baidu.sofire.utility.c.f10477g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.utility.c.f10471a)) {
-                            this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.utility.c.f10477g);
+                        if (com.baidu.sofire.utility.c.f10494g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.utility.c.f10488a)) {
+                            this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.utility.c.f10494g);
                         }
                         sMonitorNetworkWhenUpgradeNoNet = false;
-                        com.baidu.sofire.utility.c.f10471a = false;
+                        com.baidu.sofire.utility.c.f10488a = false;
                         if (this.mFrom != 1) {
                             this.mWholeJson = com.baidu.sofire.utility.c.o(this.context);
                         }
@@ -816,16 +816,16 @@ public class U implements Runnable {
                                 sRetryPingTimesCount++;
                             }
                             IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                            if (com.baidu.sofire.utility.c.f10477g == null) {
-                                com.baidu.sofire.utility.c.f10477g = new MyReceiver().a();
+                            if (com.baidu.sofire.utility.c.f10494g == null) {
+                                com.baidu.sofire.utility.c.f10494g = new MyReceiver().a();
                             } else {
-                                com.baidu.sofire.utility.c.f10477g.a();
+                                com.baidu.sofire.utility.c.f10494g.a();
                             }
-                            com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10477g, intentFilter);
+                            com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10494g, intentFilter);
                             sMonitorNetworkWhenUpgradeNoNet = true;
                             if (this.mEndReason == 0) {
-                                if (com.baidu.sofire.utility.c.f10474d != 0) {
-                                    this.mEndReason = com.baidu.sofire.utility.c.f10474d;
+                                if (com.baidu.sofire.utility.c.f10491d != 0) {
+                                    this.mEndReason = com.baidu.sofire.utility.c.f10491d;
                                 } else {
                                     this.mEndReason = 4;
                                 }
@@ -836,8 +836,8 @@ public class U implements Runnable {
                         this.forHostAPP.a(this.mWholeJson);
                         this.loadedPluginDB.d();
                         com.baidu.sofire.h.a aVar = this.mPreferenceManager;
-                        aVar.f10394b.putInt("rtqe", this.mPreferenceManager.f10393a.getInt("rtqe", 0) + 1);
-                        aVar.f10394b.commit();
+                        aVar.f10411b.putInt("rtqe", this.mPreferenceManager.f10410a.getInt("rtqe", 0) + 1);
+                        aVar.f10411b.commit();
                         List<ApkInfo> a3 = this.loadedPluginDB.a();
                         ArrayList arrayList8 = new ArrayList();
                         ArrayList arrayList9 = new ArrayList();
@@ -882,16 +882,16 @@ public class U implements Runnable {
                                 boolean z3 = optJSONObject4.optInt(Config.OS) == 1;
                                 Iterator<String> it = keys;
                                 boolean z4 = optJSONObject4.optInt("d") == 1;
-                                int optInt2 = optJSONObject4.optInt(r.f7745a);
+                                int optInt2 = optJSONObject4.optInt(r.f7762a);
                                 if (z3) {
                                     arrayList = arrayList8;
                                     com.baidu.sofire.h.a aVar2 = this.mPreferenceManager;
                                     arrayList2 = arrayList9;
                                     arrayList3 = arrayList11;
                                     list = a3;
-                                    if (optInt2 > aVar2.f10393a.getInt("opi", 0)) {
-                                        aVar2.f10394b.putInt("opi", optInt2);
-                                        aVar2.f10394b.commit();
+                                    if (optInt2 > aVar2.f10410a.getInt("opi", 0)) {
+                                        aVar2.f10411b.putInt("opi", optInt2);
+                                        aVar2.f10411b.commit();
                                     }
                                 } else {
                                     list = a3;
@@ -1009,7 +1009,7 @@ public class U implements Runnable {
                                                                                     if (z) {
                                                                                         apkInfo.isNextLoad = true;
                                                                                     }
-                                                                                    if (c.f10308d != null && c.f10308d.contains(Integer.valueOf(apkInfo.key))) {
+                                                                                    if (c.f10325d != null && c.f10325d.contains(Integer.valueOf(apkInfo.key))) {
                                                                                         arrayList7 = arrayList3;
                                                                                         arrayList7.add(apkInfo);
                                                                                         arrayList6 = arrayList2;
@@ -1129,8 +1129,8 @@ public class U implements Runnable {
                         ArrayList arrayList14 = arrayList11;
                         ArrayList arrayList15 = arrayList8;
                         ArrayList arrayList16 = arrayList9;
-                        if (c.f10308d != null) {
-                            c.f10308d.clear();
+                        if (c.f10325d != null) {
+                            c.f10325d.clear();
                         }
                         for (ApkInfo apkInfo4 : list3) {
                             ArrayList arrayList17 = arrayList13;
@@ -1292,10 +1292,10 @@ public class U implements Runnable {
                     if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3) {
                         sMonitorNetworkWhenUpgradeNoNet = true;
                         IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
-                        if (com.baidu.sofire.utility.c.f10477g == null) {
-                            com.baidu.sofire.utility.c.f10477g = new MyReceiver().a();
+                        if (com.baidu.sofire.utility.c.f10494g == null) {
+                            com.baidu.sofire.utility.c.f10494g = new MyReceiver().a();
                         }
-                        com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10477g, intentFilter2);
+                        com.baidu.sofire.utility.c.a(this.context, com.baidu.sofire.utility.c.f10494g, intentFilter2);
                     }
                     if (this.mEndReason == 0) {
                         this.mEndReason = 3;

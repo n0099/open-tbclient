@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class g implements Comparable<g>, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28775a;
+    public int f28885a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28776b;
+    public String f28886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28777c;
+    public String f28887c;
 
     public g(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public abstract class g implements Comparable<g>, Runnable {
                 return;
             }
         }
-        this.f28775a = 0;
-        this.f28775a = i2 == 0 ? 5 : i2;
-        this.f28776b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
-        this.f28777c = str;
+        this.f28885a = 0;
+        this.f28885a = i2 == 0 ? 5 : i2;
+        this.f28886b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
+        this.f28887c = str;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28775a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28885a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28777c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28887c : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,9 +84,9 @@ public abstract class g implements Comparable<g>, Runnable {
                 return;
             }
         }
-        this.f28775a = 0;
-        this.f28775a = 5;
-        this.f28776b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
-        this.f28777c = str;
+        this.f28885a = 0;
+        this.f28885a = 5;
+        this.f28886b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
+        this.f28887c = str;
     }
 }

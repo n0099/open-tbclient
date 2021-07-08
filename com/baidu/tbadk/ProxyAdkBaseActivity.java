@@ -47,16 +47,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
 import d.a.c.e.p.l;
 import d.a.c.k.e.q;
-import d.a.r0.d0.g;
-import d.a.r0.d0.h;
-import d.a.r0.r.a;
-import d.a.r0.r.c;
-import d.a.r0.r.f0.d;
+import d.a.o0.d0.g;
+import d.a.o0.d0.h;
+import d.a.o0.r.a;
+import d.a.o0.r.c;
+import d.a.o0.r.f0.d;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
@@ -89,7 +89,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public h refreshView;
     public final CustomMessageListener skinTypeChangeListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class DelayRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public abstract class LoadDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class NetRefreshListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

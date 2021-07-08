@@ -1,7 +1,7 @@
 package d.l.a.a.a.c;
 
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface g {
     void a(String str, String str2, Map<String, Object> map, r rVar);
 

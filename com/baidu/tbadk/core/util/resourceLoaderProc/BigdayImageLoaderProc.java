@@ -21,7 +21,7 @@ import d.a.c.e.l.d;
 import d.a.c.e.l.e;
 import d.a.c.e.p.j;
 import d.a.c.k.d.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BigdayImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class BigdayImageLoaderProc implements e<a> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
             if (aVar.u()) {
-                d.a.r0.a0.c.k().d(str, aVar);
+                d.a.o0.a0.c.k().d(str, aVar);
             }
         }
     }
@@ -129,7 +129,7 @@ public class BigdayImageLoaderProc implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(cVar);
-                bVar.f44260a = diskCancelWorker;
+                bVar.f41276a = diskCancelWorker;
             }
             boolean H = j.H();
             if (d.a.c.e.a.d.g().a(cVar)) {
@@ -161,7 +161,7 @@ public class BigdayImageLoaderProc implements e<a> {
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? d.a.r0.a0.c.k().m(str) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? d.a.o0.a0.c.k().m(str) : (a) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -176,11 +176,11 @@ public class BigdayImageLoaderProc implements e<a> {
             }
             WebClient webClient = new WebClient();
             if (bVar != null) {
-                bVar.f44260a = webClient;
+                bVar.f41276a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
             boolean needCache = webClient.needCache();
-            if ((downloadImageBytes != null || webClient.getResponse().f44206a) && needCache && !webClient.isCrackPic) {
+            if ((downloadImageBytes != null || webClient.getResponse().f41222a) && needCache && !webClient.isCrackPic) {
                 c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(downloadImageBytes);
@@ -191,7 +191,7 @@ public class BigdayImageLoaderProc implements e<a> {
                 if (bVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                     diskCancelWorker.setOperate(cVar);
-                    bVar.f44260a = diskCancelWorker;
+                    bVar.f41276a = diskCancelWorker;
                 }
             }
             return null;

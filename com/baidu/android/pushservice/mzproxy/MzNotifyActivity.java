@@ -23,19 +23,19 @@ public class MzNotifyActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3584a;
+    public String f3587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3585b;
+    public String f3588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3586c;
+    public String f3589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3587d;
+    public String f3590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3588e;
+    public String f3591e;
 
     public MzNotifyActivity() {
         Interceptable interceptable = $ic;
@@ -85,37 +85,37 @@ public class MzNotifyActivity extends Activity {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                             if (!jSONObject2.isNull("Msgid")) {
-                                this.f3584a = jSONObject2.getString("Msgid");
+                                this.f3587a = jSONObject2.getString("Msgid");
                             }
                             if (!jSONObject2.isNull("msgBody")) {
-                                this.f3586c = jSONObject2.getString("msgBody");
+                                this.f3589c = jSONObject2.getString("msgBody");
                             }
                         }
-                        if (!TextUtils.isEmpty(this.f3586c)) {
-                            JSONObject jSONObject3 = new JSONObject(this.f3586c);
+                        if (!TextUtils.isEmpty(this.f3589c)) {
+                            JSONObject jSONObject3 = new JSONObject(this.f3589c);
                             if (!jSONObject3.isNull("custom_content")) {
-                                this.f3587d = jSONObject3.getString("custom_content");
+                                this.f3590d = jSONObject3.getString("custom_content");
                             }
                             if (!jSONObject3.isNull("pkg_content")) {
-                                this.f3588e = jSONObject3.getString("pkg_content");
+                                this.f3591e = jSONObject3.getString("pkg_content");
                             }
                             if (!jSONObject3.isNull("mzpri_signinfo")) {
-                                this.f3585b = jSONObject3.getString("mzpri_signinfo");
+                                this.f3588b = jSONObject3.getString("mzpri_signinfo");
                             }
                         }
                     }
-                    if (f.a(this, this.f3585b, (this.f3584a + this.f3587d).replaceAll("\\\\", ""))) {
-                        if (TextUtils.isEmpty(this.f3588e)) {
+                    if (f.a(this, this.f3588b, (this.f3587a + this.f3590d).replaceAll("\\\\", ""))) {
+                        if (TextUtils.isEmpty(this.f3591e)) {
                             parseUri = new Intent();
                             parseUri.setClassName(getPackageName(), a(this, getPackageName()));
                             parseUri.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         } else {
-                            parseUri = Intent.parseUri(this.f3588e, 0);
+                            parseUri = Intent.parseUri(this.f3591e, 0);
                             parseUri.setPackage(getPackageName());
                             parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         }
-                        if (!TextUtils.isEmpty(this.f3587d)) {
-                            JSONObject jSONObject4 = new JSONObject(this.f3587d);
+                        if (!TextUtils.isEmpty(this.f3590d)) {
+                            JSONObject jSONObject4 = new JSONObject(this.f3590d);
                             Iterator<String> keys = jSONObject4.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();

@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -36,18 +37,18 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f74527a;
+    public static e f71579a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static C2067c f74528b;
+    public static C2035c f71580b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,21 +103,21 @@ public class c {
     }
 
     /* renamed from: d.l.a.e.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C2067c implements a.b {
+    /* loaded from: classes8.dex */
+    public static class C2035c implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final g f74529e;
+        public final g f71581e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f74530f;
+        public final int f71582f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f74531g;
+        public JSONObject f71583g;
 
-        public C2067c(Context context, Intent intent, int i2, JSONObject jSONObject, d dVar) {
+        public C2035c(Context context, Intent intent, int i2, JSONObject jSONObject, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,23 +132,23 @@ public class c {
                     return;
                 }
             }
-            this.f74531g = jSONObject;
+            this.f71583g = jSONObject;
             int optInt = jSONObject.optInt("query_interval", 1000);
-            this.f74530f = optInt;
-            this.f74529e = new g(context, intent, i2, dVar, optInt);
+            this.f71582f = optInt;
+            this.f71581e = new g(context, intent, i2, dVar, optInt);
         }
 
         @Override // d.l.a.e.b.a.a.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f74529e.f74544g) {
+                if (!this.f71581e.f71596g) {
                     Message obtain = Message.obtain();
                     obtain.what = 2;
-                    this.f74529e.f74541d.sendMessage(obtain);
+                    this.f71581e.f71593d.sendMessage(obtain);
                 }
                 d.l.a.e.b.a.a.c().i(this);
-                C2067c unused = c.f74528b = null;
+                C2035c unused = c.f71580b = null;
             }
         }
 
@@ -155,46 +156,46 @@ public class c {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int optInt = this.f74531g.optInt("time_out_second", 20);
+                int optInt = this.f71583g.optInt("time_out_second", 20);
                 Message obtain = Message.obtain();
                 obtain.what = 1;
-                this.f74529e.f74541d.sendMessage(obtain);
+                this.f71581e.f71593d.sendMessage(obtain);
                 if (optInt <= 0 || optInt >= 60) {
                     return;
                 }
                 Message obtain2 = Message.obtain();
                 obtain2.what = 2;
-                this.f74529e.f74541d.sendMessageDelayed(obtain2, optInt * 1000);
+                this.f71581e.f71593d.sendMessageDelayed(obtain2, optInt * 1000);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         boolean a(@NonNull Context context);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface e {
         void a(DownloadInfo downloadInfo, d.l.a.e.a.b bVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class f implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f74532e;
+        public final Context f71584e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d f74533f;
+        public final d f71585f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Handler f74534g;
+        public final Handler f71586g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f74535h;
+        public final long f71587h;
 
         public f(Handler handler, Context context, d dVar, long j) {
             Interceptable interceptable = $ic;
@@ -211,10 +212,10 @@ public class c {
                     return;
                 }
             }
-            this.f74532e = context;
-            this.f74533f = dVar;
-            this.f74534g = handler;
-            this.f74535h = j;
+            this.f71584e = context;
+            this.f71585f = dVar;
+            this.f71586g = handler;
+            this.f71587h = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -224,16 +225,16 @@ public class c {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f74533f != null && this.f74535h > 0 && this.f74535h <= 10000) {
-                    Context context = this.f74532e;
-                    boolean a2 = context != null ? this.f74533f.a(context) : false;
+                if (this.f71585f != null && this.f71587h > 0 && this.f71587h <= 10000) {
+                    Context context = this.f71584e;
+                    boolean a2 = context != null ? this.f71585f.a(context) : false;
                     Message obtain = Message.obtain();
                     if (a2) {
                         obtain.what = 2;
-                        this.f74534g.sendMessage(obtain);
+                        this.f71586g.sendMessage(obtain);
                     } else {
                         obtain.what = 1;
-                        this.f74534g.sendMessageDelayed(obtain, this.f74535h);
+                        this.f71586g.sendMessageDelayed(obtain, this.f71587h);
                     }
                     return Boolean.FALSE;
                 }
@@ -243,37 +244,37 @@ public class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class g implements h.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: h  reason: collision with root package name */
-        public static int f74536h;
+        public static int f71588h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static int f74537i;
+        public static int f71589i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f74538a;
+        public final Context f71590a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Intent f74539b;
+        public final Intent f71591b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final d f74540c;
+        public final d f71592c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Handler f74541d;
+        public final Handler f71593d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f74542e;
+        public final long f71594e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Future<Boolean> f74543f;
+        public Future<Boolean> f71595f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f74544g;
+        public boolean f71596g;
 
         public g(Context context, Intent intent, int i2, d dVar, long j) {
             Interceptable interceptable = $ic;
@@ -290,13 +291,13 @@ public class c {
                     return;
                 }
             }
-            this.f74544g = false;
-            this.f74538a = context;
-            this.f74539b = intent;
-            f74537i = i2;
-            this.f74540c = dVar;
-            this.f74541d = new d.l.a.e.b.k.h(Looper.getMainLooper(), this);
-            this.f74542e = j;
+            this.f71596g = false;
+            this.f71590a = context;
+            this.f71591b = intent;
+            f71589i = i2;
+            this.f71592c = dVar;
+            this.f71593d = new d.l.a.e.b.k.h(Looper.getMainLooper(), this);
+            this.f71594e = j;
         }
 
         @Override // d.l.a.e.b.k.h.a
@@ -307,43 +308,43 @@ public class c {
             }
             int i2 = message.what;
             if (i2 == 1) {
-                long j = this.f74542e;
+                long j = this.f71594e;
                 if (j <= 0 || j > 10000) {
                     return;
                 }
-                f74536h = 1;
-                this.f74543f = d.l.a.e.b.g.e.A0().submit(new f(this.f74541d, this.f74538a, this.f74540c, this.f74542e));
+                f71588h = 1;
+                this.f71595f = d.l.a.e.b.g.e.A0().submit(new f(this.f71593d, this.f71590a, this.f71592c, this.f71594e));
             } else if (i2 == 2) {
-                f74536h = 2;
-                this.f74541d.removeMessages(2);
-                this.f74541d.removeMessages(1);
-                Future<Boolean> future = this.f74543f;
+                f71588h = 2;
+                this.f71593d.removeMessages(2);
+                this.f71593d.removeMessages(1);
+                Future<Boolean> future = this.f71595f;
                 if (future != null) {
                     future.cancel(true);
                 }
-                if (!this.f74544g && (Build.VERSION.SDK_INT < 29 || d.l.a.e.b.a.a.c().k())) {
-                    Intent intent = this.f74539b;
+                if (!this.f71596g && (Build.VERSION.SDK_INT < 29 || d.l.a.e.b.a.a.c().k())) {
+                    Intent intent = this.f71591b;
                     if (intent != null) {
-                        c.z(this.f74538a, intent);
+                        c.z(this.f71590a, intent);
                     } else {
-                        DownloadInfo f2 = d.l.a.e.b.g.a.H(this.f74538a).f(f74537i);
+                        DownloadInfo f2 = d.l.a.e.b.g.a.H(this.f71590a).f(f71589i);
                         if (f2 != null && f2.isDownloadOverStatus()) {
-                            d.l.a.e.a.d.D(this.f74538a, f74537i, false);
+                            d.l.a.e.a.d.D(this.f71590a, f71589i, false);
                         }
                     }
-                    this.f74544g = true;
+                    this.f71596g = true;
                 }
-                c.x(f74537i, this.f74539b == null, c.l(this.f74538a));
+                c.x(f71589i, this.f71591b == null, c.l(this.f71590a));
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class h {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f74545a;
+        public static final String f71597a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -386,7 +387,7 @@ public class c {
                 }
             }
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            f74545a = sb.toString();
+            f71597a = sb.toString();
         }
     }
 
@@ -414,7 +415,7 @@ public class c {
                 if (TextUtils.isEmpty(savePath)) {
                     return false;
                 }
-                bVar.f74525d = SchedulerSupport.CUSTOM;
+                bVar.f71577d = SchedulerSupport.CUSTOM;
                 d.l.a.e.a.a.a a2 = d.l.a.e.a.a.d.a(context, SchedulerSupport.CUSTOM, jSONObject, downloadInfo);
                 if (a2 != null && a2.a()) {
                     Intent b2 = a2.b();
@@ -423,16 +424,16 @@ public class c {
                     }
                     if (u(new File(savePath), downloadInfo, jSONObject)) {
                         if (z(context, b2)) {
-                            bVar.f74523b = 0;
+                            bVar.f71575b = 0;
                             return true;
                         }
-                        bVar.f74523b = 1;
+                        bVar.f71575b = 1;
                     } else {
-                        bVar.f74523b = 6;
+                        bVar.f71575b = 6;
                     }
                     return false;
                 }
-                bVar.f74523b = 3;
+                bVar.f71575b = 3;
             }
             return false;
         }
@@ -459,7 +460,7 @@ public class c {
 
     public static void D(int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, null, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, jSONObject) == null) {
             int i3 = 1;
             boolean z = jSONObject.optInt("show_unknown_source_on_startup") == 1;
             JSONObject jSONObject2 = new JSONObject();
@@ -524,11 +525,11 @@ public class c {
                             if (d.l.a.e.a.h.b.e(optJSONObject)) {
                                 String optString = optJSONObject.optString("type");
                                 if (!"plan_a".equals(optString) && !"plan_b".equals(optString) && !"plan_e".equals(optString) && !"plan_f".equals(optString)) {
-                                    if ("plan_d".equalsIgnoreCase(optString) || "plan_h".equalsIgnoreCase(optString) || ("plan_g".equalsIgnoreCase(optString) && (i2 = v(optJSONObject, aVar).f74523b) == 0)) {
+                                    if ("plan_d".equalsIgnoreCase(optString) || "plan_h".equalsIgnoreCase(optString) || ("plan_g".equalsIgnoreCase(optString) && (i2 = v(optJSONObject, aVar).f71575b) == 0)) {
                                         return 0;
                                     }
                                 } else {
-                                    i2 = b(optJSONObject, aVar).f74523b;
+                                    i2 = b(optJSONObject, aVar).f71575b;
                                     if (i2 == 0) {
                                         return 0;
                                     }
@@ -555,21 +556,21 @@ public class c {
                 return bVar;
             }
             String optString = jSONObject.optString("type");
-            bVar.f74522a = optString;
+            bVar.f71574a = optString;
             if ("plan_b".equals(optString)) {
-                bVar.f74526e = SchedulerSupport.CUSTOM;
+                bVar.f71578e = SchedulerSupport.CUSTOM;
                 if (d.l.a.e.a.a.d.b(d.l.a.e.b.g.e.n(), SchedulerSupport.CUSTOM, jSONObject, aVar)) {
-                    bVar.f74523b = 0;
+                    bVar.f71575b = 0;
                     return bVar;
                 }
                 i(bVar, 3);
             } else {
                 String optString2 = jSONObject.optString("device_plans");
-                bVar.f74526e = optString2;
+                bVar.f71578e = optString2;
                 if (!TextUtils.isEmpty(optString2)) {
                     for (String str : optString2.split(",")) {
                         if (d.l.a.e.a.a.d.b(d.l.a.e.b.g.e.n(), str, jSONObject, aVar)) {
-                            bVar.f74523b = 0;
+                            bVar.f71575b = 0;
                             return bVar;
                         }
                         i(bVar, 3);
@@ -587,16 +588,16 @@ public class c {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, jSONObject, str, context, aVar)) == null) {
             d.l.a.e.a.b bVar = new d.l.a.e.a.b();
             if (jSONObject != null && d.l.a.e.a.h.e.d()) {
-                bVar.f74522a = jSONObject.optString("type");
+                bVar.f71574a = jSONObject.optString("type");
                 if (aVar.b(NotificationStyle.BANNER_IMAGE_URL, 0) == 1) {
-                    bVar.f74523b = 0;
+                    bVar.f71575b = 0;
                     return bVar;
                 } else if (l(context)) {
-                    bVar.f74523b = 2;
+                    bVar.f71575b = 2;
                 } else if (d.l.a.e.a.h.b.a(str) != null) {
-                    bVar.f74523b = 0;
+                    bVar.f71575b = 0;
                 } else {
-                    bVar.f74523b = 9;
+                    bVar.f71575b = 9;
                 }
             }
             return bVar;
@@ -635,23 +636,23 @@ public class c {
     public static void h(Context context, Intent intent, int i2, JSONObject jSONObject, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{context, intent, Integer.valueOf(i2), jSONObject, dVar}) == null) {
-            if (f74528b != null) {
-                d.l.a.e.b.a.a.c().i(f74528b);
-                f74528b = null;
+            if (f71580b != null) {
+                d.l.a.e.b.a.a.c().i(f71580b);
+                f71580b = null;
             }
-            f74528b = new C2067c(context, intent, i2, jSONObject, dVar);
-            d.l.a.e.b.a.a.c().f(f74528b);
+            f71580b = new C2035c(context, intent, i2, jSONObject, dVar);
+            d.l.a.e.b.a.a.c().f(f71580b);
         }
     }
 
     public static void i(d.l.a.e.a.b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65551, null, bVar, i2) == null) {
-            int i3 = bVar.f74523b;
+            int i3 = bVar.f71575b;
             if (i3 != -1) {
-                bVar.f74523b = (i3 * 10) + i2;
+                bVar.f71575b = (i3 * 10) + i2;
             } else {
-                bVar.f74523b = i2;
+                bVar.f71575b = i2;
             }
         }
     }
@@ -659,14 +660,14 @@ public class c {
     public static void j(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, eVar) == null) {
-            f74527a = eVar;
+            f71579a = eVar;
         }
     }
 
     public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? g.f74536h == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? g.f71588h == 1 : invokeV.booleanValue;
     }
 
     public static boolean l(Context context) {
@@ -737,8 +738,8 @@ public class c {
                             return true;
                         } catch (Throwable th) {
                             if (bVar != null) {
-                                bVar.f74523b = 1;
-                                bVar.f74524c = "tryShowUnknownSourceDialog" + e(th);
+                                bVar.f71575b = 1;
+                                bVar.f71576c = "tryShowUnknownSourceDialog" + e(th);
                             }
                             return false;
                         }
@@ -791,7 +792,7 @@ public class c {
                 String optString = jSONObject.optString("type");
                 if (!TextUtils.isEmpty(optString)) {
                     d.l.a.e.b.j.a f2 = d.l.a.e.b.j.a.f(downloadInfo);
-                    bVar.f74522a = optString;
+                    bVar.f71574a = optString;
                     switch (optString.hashCode()) {
                         case -985763637:
                             if (optString.equals("plan_a")) {
@@ -857,14 +858,14 @@ public class c {
                         case 0:
                         case 1:
                             if (!downloadInfo.isSavePathRedirected()) {
-                                bVar.f74523b = downloadInfo.getAntiHijackErrorCode(-1);
+                                bVar.f71575b = downloadInfo.getAntiHijackErrorCode(-1);
                                 break;
                             }
                         case 2:
                             b2 = b(jSONObject, f2);
-                            if (b2.f74523b == 0) {
+                            if (b2.f71575b == 0) {
                                 if (optString.equals("plan_f") && TextUtils.isEmpty(downloadInfo.getDBJsonString("file_content_uri"))) {
-                                    bVar.f74523b = downloadInfo.getAntiHijackErrorCode(10);
+                                    bVar.f71575b = downloadInfo.getAntiHijackErrorCode(10);
                                     break;
                                 } else {
                                     s = s(context, downloadInfo, jSONObject, bVar);
@@ -876,9 +877,9 @@ public class c {
                             break;
                         case 3:
                             b2 = b(jSONObject, f2);
-                            if (b2.f74523b == 0) {
+                            if (b2.f71575b == 0) {
                                 if (!downloadInfo.isSavePathRedirected()) {
-                                    bVar.f74523b = downloadInfo.getAntiHijackErrorCode(-1);
+                                    bVar.f71575b = downloadInfo.getAntiHijackErrorCode(-1);
                                     break;
                                 } else {
                                     s = A(context, downloadInfo, jSONObject, bVar);
@@ -889,25 +890,25 @@ public class c {
                             bVar = b2;
                             break;
                         case 4:
-                            bVar.f74522a = "plan_d";
+                            bVar.f71574a = "plan_d";
                             if (!d.l.a.e.a.h.e.f()) {
-                                bVar.f74523b = 2;
+                                bVar.f71575b = 2;
                                 break;
                             } else {
                                 try {
                                     d.l.a.e.a.d.f(context, intent);
-                                    bVar.f74523b = 0;
+                                    bVar.f71575b = 0;
                                     z2 = true;
                                     break;
                                 } catch (Throwable th) {
-                                    bVar.f74523b = 4;
-                                    bVar.f74524c = th.toString();
+                                    bVar.f71575b = 4;
+                                    bVar.f71576c = th.toString();
                                     break;
                                 }
                             }
                         case 5:
                             b2 = v(jSONObject, f2);
-                            if (b2.f74523b == 0) {
+                            if (b2.f71575b == 0) {
                                 s = t(context, downloadInfo, jSONObject, bVar, f2);
                                 z2 = s;
                                 break;
@@ -917,25 +918,25 @@ public class c {
                         case 6:
                             String b3 = d.l.a.e.a.h.d.b(f2.t("bh"), f2.t("s"));
                             d.l.a.e.a.b c3 = c(jSONObject, b3, context, f2);
-                            if (c3.f74523b == 0) {
+                            if (c3.f71575b == 0) {
                                 String packageName = context.getPackageName();
                                 if (d.l.a.e.a.h.b.f(d.l.a.e.b.j.a.o(), context, b3)) {
                                     try {
                                         d.l.a.e.a.d.f(context, intent);
-                                        bVar.f74523b = 0;
+                                        bVar.f71575b = 0;
                                         z2 = true;
                                         break;
                                     } catch (Throwable th2) {
                                         try {
-                                            bVar.f74523b = 1;
-                                            bVar.f74524c = th2.toString();
+                                            bVar.f71575b = 1;
+                                            bVar.f71576c = th2.toString();
                                             break;
                                         } finally {
                                             d.l.a.e.a.h.b.f(d.l.a.e.b.j.a.o(), context, packageName);
                                         }
                                     }
                                 } else {
-                                    bVar.f74523b = 11;
+                                    bVar.f71575b = 11;
                                     break;
                                 }
                             } else {
@@ -957,9 +958,9 @@ public class c {
                     if (z2) {
                         downloadInfo.getTempCacheData().put("ah_attempt", bVar.b());
                     }
-                    if (f74527a != null) {
+                    if (f71579a != null) {
                         downloadInfo.getTempCacheData().put("intent", intent);
-                        f74527a.a(downloadInfo, bVar);
+                        f71579a.a(downloadInfo, bVar);
                     }
                 }
             }
@@ -995,7 +996,7 @@ public class c {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65561, null, context, downloadInfo, jSONObject, bVar)) == null) {
             if (context != null && jSONObject != null) {
                 String optString = jSONObject.optString("device_plans");
-                bVar.f74526e = optString;
+                bVar.f71578e = optString;
                 if (!TextUtils.isEmpty(optString)) {
                     String[] split = optString.split(",");
                     String savePath = downloadInfo.getSavePath();
@@ -1044,10 +1045,10 @@ public class c {
                         i2++;
                     }
                     if (!z) {
-                        bVar.f74524c = sb.toString();
+                        bVar.f71576c = sb.toString();
                     } else {
-                        bVar.f74525d = str;
-                        bVar.f74523b = 0;
+                        bVar.f71577d = str;
+                        bVar.f71575b = 0;
                     }
                     return z;
                 }
@@ -1063,7 +1064,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65562, null, context, downloadInfo, jSONObject, bVar, aVar)) == null) {
             String optString = jSONObject.optString("type");
-            bVar.f74522a = optString;
+            bVar.f71574a = optString;
             Intent b2 = d.l.a.e.a.a.d.a(context, "vbi", jSONObject, downloadInfo).b();
             StringBuilder sb = new StringBuilder();
             try {
@@ -1076,9 +1077,9 @@ public class c {
                 z = false;
             }
             if (!z) {
-                bVar.f74524c = sb.toString();
+                bVar.f71576c = sb.toString();
             } else {
-                bVar.f74523b = 0;
+                bVar.f71575b = 0;
             }
             return true;
         }
@@ -1123,10 +1124,10 @@ public class c {
             if (jSONObject == null) {
                 return bVar;
             }
-            bVar.f74522a = jSONObject.optString("type");
-            bVar.f74526e = "vbi";
+            bVar.f71574a = jSONObject.optString("type");
+            bVar.f71578e = "vbi";
             if (d.l.a.e.a.a.d.b(d.l.a.e.b.g.e.n(), "vbi", jSONObject, aVar)) {
-                bVar.f74523b = 0;
+                bVar.f71575b = 0;
             } else {
                 i(bVar, 3);
             }

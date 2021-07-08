@@ -1,6 +1,7 @@
 package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f32558a;
+    public static final char[] f32668a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +30,7 @@ public class s {
                 return;
             }
         }
-        f32558a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f32668a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(byte[] bArr) {
@@ -43,7 +44,7 @@ public class s {
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f32558a;
+                char[] cArr2 = f32668a;
                 cArr[i2] = cArr2[(b2 >>> 4) & 15];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];
@@ -56,7 +57,7 @@ public class s {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? c().replace("-", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c().replace("-", "") : (String) invokeV.objValue;
     }
 
     public static String c() {

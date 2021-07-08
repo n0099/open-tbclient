@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewDragHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_SETTLE_DURATION = 256;
@@ -67,7 +67,7 @@ public class ViewDragHelper {
     public int mTrackingEdges;
     public VelocityTracker mVelocityTracker;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1148,7 +1148,7 @@ public class ViewDragHelper {
     private float clampMag(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             float abs = Math.abs(f2);
             if (abs < f3) {
                 return 0.0f;

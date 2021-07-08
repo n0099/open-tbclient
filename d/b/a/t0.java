@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.a.v0;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class t0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public final class t0 implements v0 {
                 }
                 if (call.getInt("code", -1) == 0) {
                     v0.a aVar = new v0.a();
-                    aVar.f71764a = call.getString("id");
+                    aVar.f68867a = call.getString("id");
                     return aVar;
                 }
                 String string = call.getString("message");

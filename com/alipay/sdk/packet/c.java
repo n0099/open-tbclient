@@ -1,5 +1,6 @@
 package com.alipay.sdk.packet;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -18,10 +19,10 @@ public final class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1904a;
+    public boolean f1905a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1905b;
+    public String f1906b;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -38,8 +39,8 @@ public final class c {
                 return;
             }
         }
-        this.f1904a = z;
-        this.f1905b = n.a(24);
+        this.f1905a = z;
+        this.f1906b = n.a(24);
     }
 
     public static byte[] b(String str, byte[] bArr) {
@@ -65,8 +66,8 @@ public final class c {
                     z = false;
                 }
             }
-            if (this.f1904a) {
-                a2 = a(bytes, a(this.f1905b, com.alipay.sdk.cons.a.f1833c), a(this.f1905b, bytes2));
+            if (this.f1905a) {
+                a2 = a(bytes, a(this.f1906b, com.alipay.sdk.cons.a.f1834c), a(this.f1906b, bytes2));
             } else {
                 a2 = a(bytes, bytes2);
             }
@@ -107,8 +108,8 @@ public final class c {
                         if (a2 > 0) {
                             byte[] bArr4 = new byte[a2];
                             byteArrayInputStream.read(bArr4);
-                            if (this.f1904a) {
-                                bArr4 = b(this.f1905b, bArr4);
+                            if (this.f1905a) {
+                                bArr4 = b(this.f1906b, bArr4);
                             }
                             if (dVar.a()) {
                                 bArr4 = com.alipay.sdk.encrypt.c.b(bArr4);
@@ -173,7 +174,7 @@ public final class c {
     public static byte[] a(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, bArr)) == null) ? com.alipay.sdk.encrypt.e.a(str, bArr) : (byte[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) ? com.alipay.sdk.encrypt.e.a(str, bArr) : (byte[]) invokeLL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0054, code lost:

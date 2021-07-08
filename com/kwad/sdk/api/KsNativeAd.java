@@ -1,6 +1,7 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,18 +9,18 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface AdInteractionListener {
+        boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener);
+
         @KsAdSdkApi
         @Keep
         void onAdClicked(View view, KsNativeAd ksNativeAd);
@@ -31,28 +32,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface InteractionType {
-        public static final int DOWNLOAD = 1;
-        public static final int H5 = 2;
-        public static final int UNKNOWN = 0;
-    }
-
-    @KsAdSdkApi
-    @Keep
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
-    public @interface MaterialType {
-        public static final int GROUP_IMG = 3;
-        public static final int SINGLE_IMG = 2;
-        public static final int UNKNOWN = 0;
-        public static final int VIDEO = 1;
-    }
-
-    @KsAdSdkApi
-    @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface VideoPlayListener {
         @KsAdSdkApi
         @Keep
@@ -144,6 +124,10 @@ public interface KsNativeAd {
     @KsAdSdkApi
     @Keep
     String getPermissionInfo();
+
+    @KsAdSdkApi
+    @Keep
+    String getProductName();
 
     @NonNull
     @KsAdSdkApi

@@ -1,6 +1,7 @@
 package com.bytedance.sdk.component.adnet.core;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,19 +25,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements com.bytedance.sdk.component.adnet.face.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f27853a;
+    public static final boolean f27963a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final IHttpStack f27854b;
+    public final IHttpStack f27964b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f27855c;
+    public final b f27965c;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +52,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 return;
             }
         }
-        f27853a = o.f27929a;
+        f27963a = o.f28039a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -104,7 +105,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
             HttpResponse httpResponse = null;
             try {
                 try {
-                    performRequest = this.f27854b.performRequest(request, a(request.getCacheEntry()));
+                    performRequest = this.f27964b.performRequest(request, a(request.getCacheEntry()));
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -135,7 +136,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                                 }
                                 return iVar;
                             }
-                            i iVar2 = new i(304, cacheEntry.f27957b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(headers, cacheEntry));
+                            i iVar2 = new i(304, cacheEntry.f28067b, true, SystemClock.elapsedRealtime() - elapsedRealtime, a(headers, cacheEntry));
                             if (performRequest != null) {
                                 try {
                                     if (performRequest.getContent() != null) {
@@ -268,14 +269,14 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 return;
             }
         }
-        this.f27854b = iHttpStack;
-        this.f27855c = bVar;
+        this.f27964b = iHttpStack;
+        this.f27965c = bVar;
     }
 
     private void a(long j, Request<?> request, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j), request, bArr, Integer.valueOf(i2)}) == null) {
-            if (f27853a || j > 3000) {
+            if (f27963a || j > 3000) {
                 Object[] objArr = new Object[5];
                 objArr[0] = request;
                 objArr[1] = Long.valueOf(j);
@@ -305,16 +306,16 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
     private Map<String, String> a(a.C0316a c0316a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, c0316a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, c0316a)) == null) {
             if (c0316a == null) {
                 return Collections.emptyMap();
             }
             HashMap hashMap = new HashMap();
-            String str = c0316a.f27958c;
+            String str = c0316a.f28068c;
             if (str != null) {
                 hashMap.put("If-None-Match", str);
             }
-            long j = c0316a.f27960e;
+            long j = c0316a.f28070e;
             if (j > 0) {
                 hashMap.put("If-Modified-Since", com.bytedance.sdk.component.adnet.d.c.a(j));
             }
@@ -340,10 +341,10 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, inputStream, i2)) == null) {
-            c cVar = new c(this.f27855c, i2);
+            c cVar = new c(this.f27965c, i2);
             try {
                 if (inputStream != null) {
-                    byte[] a2 = this.f27855c.a(1024);
+                    byte[] a2 = this.f27965c.a(1024);
                     while (true) {
                         int read = inputStream.read(a2);
                         if (read == -1) {
@@ -359,7 +360,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                             o.a("Error occurred when closing InputStream", new Object[0]);
                         }
                     }
-                    this.f27855c.a(a2);
+                    this.f27965c.a(a2);
                     cVar.close();
                     return byteArray;
                 }
@@ -372,7 +373,7 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                         o.a("Error occurred when closing InputStream", new Object[0]);
                     }
                 }
-                this.f27855c.a((byte[]) null);
+                this.f27965c.a((byte[]) null);
                 cVar.close();
                 throw th;
             }
@@ -393,17 +394,17 @@ public class a implements com.bytedance.sdk.component.adnet.face.b {
                 }
             }
             if (c0316a != null) {
-                List<Header> list2 = c0316a.f27964i;
+                List<Header> list2 = c0316a.f28074i;
                 if (list2 != null) {
                     if (!list2.isEmpty()) {
-                        for (Header header2 : c0316a.f27964i) {
+                        for (Header header2 : c0316a.f28074i) {
                             if (!treeSet.contains(header2.getName())) {
                                 arrayList.add(header2);
                             }
                         }
                     }
-                } else if (!c0316a.f27963h.isEmpty()) {
-                    for (Map.Entry<String, String> entry : c0316a.f27963h.entrySet()) {
+                } else if (!c0316a.f28073h.isEmpty()) {
+                    for (Map.Entry<String, String> entry : c0316a.f28073h.entrySet()) {
                         if (!treeSet.contains(entry.getKey())) {
                             arrayList.add(new Header(entry.getKey(), entry.getValue()));
                         }

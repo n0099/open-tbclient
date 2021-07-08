@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f27135a;
+    public float f27245a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27136b;
+    public int f27246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InterfaceC0295a f27137c;
+    public InterfaceC0295a f27247c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0295a {
         void a();
 
@@ -43,7 +43,7 @@ public class a implements View.OnTouchListener {
                 return;
             }
         }
-        this.f27136b = 0;
+        this.f27246b = 0;
     }
 
     private float a(MotionEvent motionEvent) {
@@ -60,7 +60,7 @@ public class a implements View.OnTouchListener {
     private void b() {
         InterfaceC0295a interfaceC0295a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0295a = this.f27137c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0295a = this.f27247c) == null) {
             return;
         }
         interfaceC0295a.a(false);
@@ -71,28 +71,28 @@ public class a implements View.OnTouchListener {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-            InterfaceC0295a interfaceC0295a = this.f27137c;
+            InterfaceC0295a interfaceC0295a = this.f27247c;
             if (interfaceC0295a != null) {
                 interfaceC0295a.a();
             }
             int action = motionEvent.getAction() & 255;
             if (action == 0) {
-                this.f27136b = 1;
+                this.f27246b = 1;
             } else if (action == 1) {
-                this.f27136b = 0;
+                this.f27246b = 0;
             } else if (action != 2) {
                 if (action == 5) {
-                    this.f27135a = a(motionEvent);
-                    this.f27136b++;
+                    this.f27245a = a(motionEvent);
+                    this.f27246b++;
                 } else if (action == 6) {
-                    this.f27136b--;
+                    this.f27246b--;
                 }
-            } else if (this.f27136b >= 2) {
+            } else if (this.f27246b >= 2) {
                 float a2 = a(motionEvent);
-                if (a2 > this.f27135a) {
+                if (a2 > this.f27245a) {
                     a();
                 }
-                if (a2 < this.f27135a) {
+                if (a2 < this.f27245a) {
                     b();
                 }
             }
@@ -104,7 +104,7 @@ public class a implements View.OnTouchListener {
     private void a() {
         InterfaceC0295a interfaceC0295a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (interfaceC0295a = this.f27137c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (interfaceC0295a = this.f27247c) == null) {
             return;
         }
         interfaceC0295a.a(true);
@@ -113,7 +113,7 @@ public class a implements View.OnTouchListener {
     public void a(InterfaceC0295a interfaceC0295a) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0295a) == null) {
-            this.f27137c = interfaceC0295a;
+            this.f27247c = interfaceC0295a;
         }
     }
 }

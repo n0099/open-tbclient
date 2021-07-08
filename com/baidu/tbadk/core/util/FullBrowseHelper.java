@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -37,11 +38,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import d.a.c.a.j;
 import d.a.c.c.f.b;
-import d.a.r0.l.a;
-import d.a.r0.r.u.c;
+import d.a.o0.l.a;
+import d.a.o0.r.u.c;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FullBrowseHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCOUNT_PROTOCOL_END = 60;
@@ -50,12 +51,12 @@ public class FullBrowseHelper {
     public static final int PRIVICY_START = 47;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface IAcceptPrivacyConfirm {
         void onConfirm();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class NoLineClickableSpan extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class FullBrowseHelper {
 
     public static void registerBrowseModeRule() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, null) == null) && checkIsFullBrowseMode()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && checkIsFullBrowseMode()) {
             MessageManager.getInstance().addMessageRule(new b(0) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -304,7 +305,7 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(fVar.getPageActivity());
+            d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(fVar.getPageActivity());
             aVar.setContentView(inflate);
             aVar.setContentViewSize(8);
             aVar.setCanceledOnTouchOutside(false);
@@ -320,7 +321,7 @@ public class FullBrowseHelper {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IAcceptPrivacyConfirm val$acceptPrivacyConfirm;
-                public final /* synthetic */ d.a.r0.r.s.a val$mPrivateDialog;
+                public final /* synthetic */ d.a.o0.r.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -361,7 +362,7 @@ public class FullBrowseHelper {
             textView4.setOnClickListener(new View.OnClickListener(aVar) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ d.a.r0.r.s.a val$mPrivateDialog;
+                public final /* synthetic */ d.a.o0.r.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;

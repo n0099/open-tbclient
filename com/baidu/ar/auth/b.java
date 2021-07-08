@@ -3,6 +3,7 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.DuMixARConfig;
@@ -104,7 +105,7 @@ public class b implements k {
 
     private void a(IAuthCallback iAuthCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, iAuthCallback) == null) || this.bR == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, iAuthCallback) == null) || this.bR == null) {
             return;
         }
         this.bR.enqueue(new com.baidu.ar.ihttp.a(this, iAuthCallback) { // from class: com.baidu.ar.auth.b.1

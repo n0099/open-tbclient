@@ -1,6 +1,7 @@
 package com.baidu.pass.main.facesdk.utils;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isSuccess;
@@ -183,7 +184,7 @@ public class ZipUtils {
         FileOutputStream fileOutputStream;
         ?? r6;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
             return (File) invokeL.objValue;
         }
         File file = new File(str);

@@ -15,24 +15,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public CustomMessage f43882a;
+        public CustomMessage f40898a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CustomMessageTask f43883b;
+        public CustomMessageTask f40899b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f43884c;
+        public final /* synthetic */ b f40900c;
 
         public a(b bVar, CustomMessage customMessage, CustomMessageTask customMessageTask) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
                     return;
                 }
             }
-            this.f43884c = bVar;
-            this.f43882a = null;
-            this.f43883b = null;
+            this.f40900c = bVar;
+            this.f40898a = null;
+            this.f40899b = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
             setTag(customMessage.getTag());
@@ -60,8 +60,8 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
             if (customMessageTask.isImme()) {
                 setPriority(4);
             }
-            this.f43882a = customMessage;
-            this.f43883b = customMessageTask;
+            this.f40898a = customMessage;
+            this.f40899b = customMessageTask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,16 +71,16 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                CustomMessageTask customMessageTask = this.f43883b;
+                CustomMessageTask customMessageTask = this.f40899b;
                 if (customMessageTask == null) {
                     return null;
                 }
                 if (customMessageTask.getRunnable() == null) {
-                    BdLog.e("CustomTask :" + this.f43883b.getClass().getName() + "did not contain a runnable!!");
+                    BdLog.e("CustomTask :" + this.f40899b.getClass().getName() + "did not contain a runnable!!");
                     return null;
                 }
                 try {
-                    return this.f43883b.getRunnable().run(this.f43882a);
+                    return this.f40899b.getRunnable().run(this.f40898a);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                     return null;
@@ -92,7 +92,7 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
         public CustomMessage c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43882a : (CustomMessage) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40898a : (CustomMessage) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,11 +102,11 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null) {
-                    customResponsedMessage.setOrginalMessage(this.f43882a);
-                    this.f43884c.f43881a.dispatchResponsedMessage(customResponsedMessage);
+                    customResponsedMessage.setOrginalMessage(this.f40898a);
+                    this.f40900c.f40897a.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
-                BdLog.e("CustomTask :" + this.f43883b.getClass().getName() + "returns a NULL!!");
+                BdLog.e("CustomTask :" + this.f40899b.getClass().getName() + "returns a NULL!!");
             }
         }
     }
@@ -186,7 +186,7 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
                     BdLog.detailException(e2);
                 }
                 if (customResponsedMessage != null) {
-                    this.f43881a.dispatchResponsedMessage(customResponsedMessage);
+                    this.f40897a.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
                 new a(this, customMessage, customMessageTask).execute(new String[0]);
@@ -215,7 +215,7 @@ public class b extends d.a.c.c.e.a<CustomMessage<?>, CustomMessageTask> {
                 BdLog.detailException(e2);
             }
             if (customResponsedMessage != null) {
-                this.f43881a.dispatchResponsedMessage(customResponsedMessage);
+                this.f40897a.dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
             return;

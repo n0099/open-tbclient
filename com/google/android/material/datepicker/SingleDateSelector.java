@@ -32,7 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SingleDateSelector implements DateSelector<Long> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SingleDateSelector> CREATOR;
@@ -115,7 +115,7 @@ public class SingleDateSelector implements DateSelector<Long> {
     /* JADX INFO: Access modifiers changed from: private */
     public void clearSelection() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.selectedItem = null;
         }
     }

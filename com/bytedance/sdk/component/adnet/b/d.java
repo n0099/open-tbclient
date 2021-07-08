@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,51 +25,51 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f27755a;
+    public final ExecutorService f27865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f27756b;
+    public final l f27866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27757c;
+    public int f27867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f27758d;
+    public final b f27868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, a> f27759e;
+    public final Map<String, a> f27869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<String, a> f27760f;
+    public final Map<String, a> f27870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Handler f27761g;
+    public final Handler f27871g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Request<?> f27785a;
+        public final Request<?> f27895a;
 
         /* renamed from: b  reason: collision with root package name */
-        public m<Bitmap> f27786b;
+        public m<Bitmap> f27896b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bitmap f27787c;
+        public Bitmap f27897c;
 
         /* renamed from: d  reason: collision with root package name */
-        public VAdError f27788d;
+        public VAdError f27898d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<c> f27789e;
+        public final List<c> f27899e;
 
         public a(Request<?> request, c cVar) {
             Interceptable interceptable = $ic;
@@ -86,46 +87,46 @@ public class d {
                 }
             }
             List<c> synchronizedList = Collections.synchronizedList(new ArrayList());
-            this.f27789e = synchronizedList;
-            this.f27785a = request;
+            this.f27899e = synchronizedList;
+            this.f27895a = request;
             synchronizedList.add(cVar);
         }
 
         public m<Bitmap> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27786b : (m) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27896b : (m) invokeV.objValue;
         }
 
         public void a(VAdError vAdError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, vAdError) == null) {
-                this.f27788d = vAdError;
+                this.f27898d = vAdError;
             }
         }
 
         public VAdError a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27788d : (VAdError) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27898d : (VAdError) invokeV.objValue;
         }
 
         public void a(m<Bitmap> mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-                this.f27786b = mVar;
+                this.f27896b = mVar;
             }
         }
 
         public void a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                this.f27789e.add(cVar);
+                this.f27899e.add(cVar);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         String a(String str, int i2, int i3, ImageView.ScaleType scaleType);
 
@@ -136,28 +137,28 @@ public class d {
         Bitmap b(String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f27790a;
+        public final /* synthetic */ d f27900a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f27791b;
+        public Bitmap f27901b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final e f27792c;
+        public final e f27902c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f27793d;
+        public final String f27903d;
 
         /* renamed from: e  reason: collision with root package name */
-        public byte[] f27794e;
+        public byte[] f27904e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f27795f;
+        public final String f27905f;
 
         public c(d dVar, byte[] bArr, Bitmap bitmap, String str, String str2, e eVar) {
             Interceptable interceptable = $ic;
@@ -174,28 +175,28 @@ public class d {
                     return;
                 }
             }
-            this.f27790a = dVar;
-            this.f27794e = bArr;
-            this.f27791b = bitmap;
-            this.f27795f = str;
-            this.f27793d = str2;
-            this.f27792c = eVar;
+            this.f27900a = dVar;
+            this.f27904e = bArr;
+            this.f27901b = bitmap;
+            this.f27905f = str;
+            this.f27903d = str2;
+            this.f27902c = eVar;
         }
 
         public Bitmap a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27791b : (Bitmap) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27901b : (Bitmap) invokeV.objValue;
         }
     }
 
     /* renamed from: com.bytedance.sdk.component.adnet.b.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0314d {
         Bitmap a(byte[] bArr);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface e extends m.a<Bitmap> {
         void a();
 
@@ -221,28 +222,28 @@ public class d {
                 return;
             }
         }
-        this.f27755a = Executors.newCachedThreadPool();
-        this.f27757c = 50;
-        this.f27759e = Collections.synchronizedMap(new HashMap());
-        this.f27760f = Collections.synchronizedMap(new HashMap());
-        this.f27761g = new Handler(Looper.getMainLooper());
-        this.f27756b = lVar;
-        this.f27758d = bVar == null ? new com.bytedance.sdk.component.adnet.b.a() : bVar;
+        this.f27865a = Executors.newCachedThreadPool();
+        this.f27867c = 50;
+        this.f27869e = Collections.synchronizedMap(new HashMap());
+        this.f27870f = Collections.synchronizedMap(new HashMap());
+        this.f27871g = new Handler(Looper.getMainLooper());
+        this.f27866b = lVar;
+        this.f27868d = bVar == null ? new com.bytedance.sdk.component.adnet.b.a() : bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str, e eVar, InterfaceC0314d interfaceC0314d, int i2, int i3, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, eVar, interfaceC0314d, Integer.valueOf(i2), Integer.valueOf(i3), scaleType}) == null) {
-            this.f27761g.post(new Runnable(this, eVar) { // from class: com.bytedance.sdk.component.adnet.b.d.2
+            this.f27871g.post(new Runnable(this, eVar) { // from class: com.bytedance.sdk.component.adnet.b.d.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f27769a;
+                public final /* synthetic */ e f27879a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f27770b;
+                public final /* synthetic */ d f27880b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -259,48 +260,48 @@ public class d {
                             return;
                         }
                     }
-                    this.f27770b = this;
-                    this.f27769a = eVar;
+                    this.f27880b = this;
+                    this.f27879a = eVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27769a.a();
+                        this.f27879a.a();
                     }
                 }
             });
             String a2 = a(str, i2, i3, scaleType);
-            Bitmap b2 = this.f27758d.b(a2);
-            byte[] a3 = this.f27758d.a(a2);
+            Bitmap b2 = this.f27868d.b(a2);
+            byte[] a3 = this.f27868d.a(a2);
             if (b2 == null && a3.length <= 0) {
                 c cVar = new c(this, new byte[0], null, str, a2, eVar);
-                a aVar = this.f27759e.get(a2);
+                a aVar = this.f27869e.get(a2);
                 if (aVar == null) {
-                    aVar = this.f27760f.get(a2);
+                    aVar = this.f27870f.get(a2);
                 }
                 if (aVar != null) {
                     aVar.a(cVar);
                     return;
                 }
                 Request<Bitmap> a4 = a(str, i2, i3, scaleType, a2, interfaceC0314d, eVar);
-                this.f27756b.a(a4);
-                this.f27759e.put(a2, new a(a4, cVar));
+                this.f27866b.a(a4);
+                this.f27869e.put(a2, new a(a4, cVar));
                 return;
             }
-            this.f27761g.post(new Runnable(this, eVar, new c(this, this.f27758d.a(a2), b2, str, null, null)) { // from class: com.bytedance.sdk.component.adnet.b.d.3
+            this.f27871g.post(new Runnable(this, eVar, new c(this, this.f27868d.a(a2), b2, str, null, null)) { // from class: com.bytedance.sdk.component.adnet.b.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f27771a;
+                public final /* synthetic */ e f27881a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ c f27772b;
+                public final /* synthetic */ c f27882b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f27773c;
+                public final /* synthetic */ d f27883c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -317,17 +318,17 @@ public class d {
                             return;
                         }
                     }
-                    this.f27773c = this;
-                    this.f27771a = eVar;
-                    this.f27772b = r8;
+                    this.f27883c = this;
+                    this.f27881a = eVar;
+                    this.f27882b = r8;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27771a.a(this.f27772b, true);
-                        this.f27771a.b();
+                        this.f27881a.a(this.f27882b, true);
+                        this.f27881a.b();
                     }
                 }
             });
@@ -351,30 +352,30 @@ public class d {
     public void a(String str, e eVar, InterfaceC0314d interfaceC0314d, int i2, int i3, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, eVar, interfaceC0314d, Integer.valueOf(i2), Integer.valueOf(i3), scaleType}) == null) {
-            this.f27755a.execute(new Runnable(this, str, eVar, interfaceC0314d, i2, i3, scaleType) { // from class: com.bytedance.sdk.component.adnet.b.d.1
+            this.f27865a.execute(new Runnable(this, str, eVar, interfaceC0314d, i2, i3, scaleType) { // from class: com.bytedance.sdk.component.adnet.b.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f27762a;
+                public final /* synthetic */ String f27872a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f27763b;
+                public final /* synthetic */ e f27873b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ InterfaceC0314d f27764c;
+                public final /* synthetic */ InterfaceC0314d f27874c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f27765d;
+                public final /* synthetic */ int f27875d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ int f27766e;
+                public final /* synthetic */ int f27876e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ ImageView.ScaleType f27767f;
+                public final /* synthetic */ ImageView.ScaleType f27877f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ d f27768g;
+                public final /* synthetic */ d f27878g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -391,20 +392,20 @@ public class d {
                             return;
                         }
                     }
-                    this.f27768g = this;
-                    this.f27762a = str;
-                    this.f27763b = eVar;
-                    this.f27764c = interfaceC0314d;
-                    this.f27765d = i2;
-                    this.f27766e = i3;
-                    this.f27767f = scaleType;
+                    this.f27878g = this;
+                    this.f27872a = str;
+                    this.f27873b = eVar;
+                    this.f27874c = interfaceC0314d;
+                    this.f27875d = i2;
+                    this.f27876e = i3;
+                    this.f27877f = scaleType;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f27768g.b(this.f27762a, this.f27763b, this.f27764c, this.f27765d, this.f27766e, this.f27767f);
+                        this.f27878g.b(this.f27872a, this.f27873b, this.f27874c, this.f27875d, this.f27876e, this.f27877f);
                     }
                 }
             });
@@ -419,13 +420,13 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f27774a;
+            public final /* synthetic */ String f27884a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f27775b;
+            public final /* synthetic */ e f27885b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ d f27776c;
+            public final /* synthetic */ d f27886c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -442,24 +443,24 @@ public class d {
                         return;
                     }
                 }
-                this.f27776c = this;
-                this.f27774a = str2;
-                this.f27775b = eVar;
+                this.f27886c = this;
+                this.f27884a = str2;
+                this.f27885b = eVar;
             }
 
             @Override // com.bytedance.sdk.component.adnet.core.m.a
             public void a(m<Bitmap> mVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, mVar) == null) {
-                    this.f27776c.f27755a.execute(new Runnable(this, mVar) { // from class: com.bytedance.sdk.component.adnet.b.d.4.1
+                    this.f27886c.f27865a.execute(new Runnable(this, mVar) { // from class: com.bytedance.sdk.component.adnet.b.d.4.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ m f27777a;
+                        public final /* synthetic */ m f27887a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass4 f27778b;
+                        public final /* synthetic */ AnonymousClass4 f27888b;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -476,16 +477,16 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f27778b = this;
-                            this.f27777a = mVar;
+                            this.f27888b = this;
+                            this.f27887a = mVar;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                AnonymousClass4 anonymousClass4 = this.f27778b;
-                                anonymousClass4.f27776c.a(anonymousClass4.f27774a, this.f27777a, anonymousClass4.f27775b);
+                                AnonymousClass4 anonymousClass4 = this.f27888b;
+                                anonymousClass4.f27886c.a(anonymousClass4.f27884a, this.f27887a, anonymousClass4.f27885b);
                             }
                         }
                     });
@@ -496,15 +497,15 @@ public class d {
             public void b(m<Bitmap> mVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-                    this.f27776c.f27755a.execute(new Runnable(this, mVar) { // from class: com.bytedance.sdk.component.adnet.b.d.4.2
+                    this.f27886c.f27865a.execute(new Runnable(this, mVar) { // from class: com.bytedance.sdk.component.adnet.b.d.4.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ m f27779a;
+                        public final /* synthetic */ m f27889a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass4 f27780b;
+                        public final /* synthetic */ AnonymousClass4 f27890b;
 
                         {
                             Interceptable interceptable3 = $ic;
@@ -521,16 +522,16 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f27780b = this;
-                            this.f27779a = mVar;
+                            this.f27890b = this;
+                            this.f27889a = mVar;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                AnonymousClass4 anonymousClass4 = this.f27780b;
-                                anonymousClass4.f27776c.a(anonymousClass4.f27774a, this.f27779a);
+                                AnonymousClass4 anonymousClass4 = this.f27890b;
+                                anonymousClass4.f27886c.a(anonymousClass4.f27884a, this.f27889a);
                             }
                         }
                     });
@@ -541,10 +542,10 @@ public class d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ InterfaceC0314d f27781c;
+            public final /* synthetic */ InterfaceC0314d f27891c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ d f27782d;
+            public final /* synthetic */ d f27892d;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -565,8 +566,8 @@ public class d {
                         return;
                     }
                 }
-                this.f27782d = this;
-                this.f27781c = interfaceC0314d;
+                this.f27892d = this;
+                this.f27891c = interfaceC0314d;
             }
 
             @Override // com.bytedance.sdk.component.adnet.b.e
@@ -574,7 +575,7 @@ public class d {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, bArr)) == null) {
-                    InterfaceC0314d interfaceC0314d2 = this.f27781c;
+                    InterfaceC0314d interfaceC0314d2 = this.f27891c;
                     return interfaceC0314d2 != null ? interfaceC0314d2.a(bArr) : super.a(bArr);
                 }
                 return (Bitmap) invokeL.objValue;
@@ -585,11 +586,11 @@ public class d {
     public void a(String str, m<Bitmap> mVar, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, mVar, eVar) == null) {
-            a.C0316a c0316a = mVar.f27922b;
-            this.f27758d.a(str, mVar.f27921a, (c0316a == null || !eVar.a(c0316a.f27957b)) ? new byte[0] : mVar.f27922b.f27957b);
-            a remove = this.f27759e.remove(str);
+            a.C0316a c0316a = mVar.f28032b;
+            this.f27868d.a(str, mVar.f28031a, (c0316a == null || !eVar.a(c0316a.f28067b)) ? new byte[0] : mVar.f28032b.f28067b);
+            a remove = this.f27869e.remove(str);
             if (remove != null) {
-                remove.f27787c = mVar.f27921a;
+                remove.f27897c = mVar.f28031a;
                 remove.a(mVar);
                 a(str, remove);
             }
@@ -599,27 +600,27 @@ public class d {
     public void a(String str, m<Bitmap> mVar) {
         a remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, mVar) == null) || (remove = this.f27759e.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, mVar) == null) || (remove = this.f27869e.remove(str)) == null) {
             return;
         }
-        remove.a(mVar.f27923c);
+        remove.a(mVar.f28033c);
         remove.a(mVar);
         a(str, remove);
     }
 
     private void a(String str, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, str, aVar) == null) {
-            this.f27760f.put(str, aVar);
-            this.f27761g.postDelayed(new Runnable(this, str) { // from class: com.bytedance.sdk.component.adnet.b.d.6
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, aVar) == null) {
+            this.f27870f.put(str, aVar);
+            this.f27871g.postDelayed(new Runnable(this, str) { // from class: com.bytedance.sdk.component.adnet.b.d.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f27783a;
+                public final /* synthetic */ String f27893a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f27784b;
+                public final /* synthetic */ d f27894b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -636,33 +637,33 @@ public class d {
                             return;
                         }
                     }
-                    this.f27784b = this;
-                    this.f27783a = str;
+                    this.f27894b = this;
+                    this.f27893a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        a aVar2 = (a) this.f27784b.f27760f.get(this.f27783a);
+                        a aVar2 = (a) this.f27894b.f27870f.get(this.f27893a);
                         if (aVar2 != null) {
-                            for (c cVar : aVar2.f27789e) {
-                                if (cVar.f27792c != null) {
+                            for (c cVar : aVar2.f27899e) {
+                                if (cVar.f27902c != null) {
                                     if (aVar2.a() != null) {
-                                        cVar.f27792c.b(aVar2.b());
+                                        cVar.f27902c.b(aVar2.b());
                                     } else {
-                                        cVar.f27794e = aVar2.f27786b.f27922b.f27957b;
-                                        cVar.f27791b = aVar2.f27787c;
-                                        cVar.f27792c.a(cVar, false);
+                                        cVar.f27904e = aVar2.f27896b.f28032b.f28067b;
+                                        cVar.f27901b = aVar2.f27897c;
+                                        cVar.f27902c.a(cVar, false);
                                     }
-                                    cVar.f27792c.b();
+                                    cVar.f27902c.b();
                                 }
                             }
                         }
-                        this.f27784b.f27760f.remove(this.f27783a);
+                        this.f27894b.f27870f.remove(this.f27893a);
                     }
                 }
-            }, this.f27757c);
+            }, this.f27867c);
         }
     }
 
@@ -670,7 +671,7 @@ public class d {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), scaleType})) == null) {
-            String a2 = this.f27758d.a(str, i2, i3, scaleType);
+            String a2 = this.f27868d.a(str, i2, i3, scaleType);
             if (TextUtils.isEmpty(a2)) {
                 StringBuilder sb = new StringBuilder(str.length() + 12);
                 sb.append("#W");

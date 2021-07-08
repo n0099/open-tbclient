@@ -3,7 +3,7 @@ package com.baidu.rtc.player;
 import com.baidu.rtc.player.BRTCPlayer;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface BRTCPlayerEvents {
     public static final int BRTC_PLAYER_ERROR_CONNECTION = 10003;
     public static final int BRTC_PLAYER_ERROR_ICE_CHANNEL = 10001;
@@ -16,22 +16,24 @@ public interface BRTCPlayerEvents {
     public static final int BRTC_PLAYER_ERROR_REMOTE_SDP_REQUEST = 10006;
     public static final int BRTC_PLAYER_ERROR_REMOTE_SDP_SET = 10007;
     public static final int BRTC_PLAYER_ERROR_STREAMING_INTERRUPT = 10009;
+    public static final int BRTC_PLAYER_EVENT_BUFFERING_END = 1005;
+    public static final int BRTC_PLAYER_EVENT_BUFFERING_START = 1004;
     public static final int BRTC_PLAYER_EVENT_ICE_CONNECTED = 1001;
     public static final int BRTC_PLAYER_EVENT_PEER_CONNECTION_CLOSED = 1002;
     public static final int BRTC_PLAYER_EVENT_REMOTE_RENDER = 1000;
-    public static final int BRTC_PLAYER_EVENT_STREAMING_INFO_UPDATED = 1003;
+    public static final int BRTC_PLAYER_EVENT_STATS_UPDATED = 1003;
 
     void onError(int i2, String str);
 
     void onFirstFrameRendered();
 
-    void onInfoUpdated(int i2, String str);
+    void onInfoUpdated(int i2, Object obj);
 
     void onPlayerStateChanged(BRTCPlayer.PlayerState playerState);
 
     void onRemoteData(ByteBuffer byteBuffer);
 
-    void onRemoteStreamStats(Boolean bool, Boolean bool2, BigInteger bigInteger);
+    void onRemoteStreamStats(boolean z, boolean z2, BigInteger bigInteger);
 
     void onResolutionChanged(int i2, int i3);
 

@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.metadata.scte35;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.l;
 import d.f.b.a.i0.s;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class TimeSignalCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TimeSignalCommand> CREATOR;
@@ -20,7 +21,7 @@ public final class TimeSignalCommand extends SpliceCommand {
     public final long playbackPositionUs;
     public final long ptsTime;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<TimeSignalCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public final class TimeSignalCommand extends SpliceCommand {
     public static long parseSpliceTime(l lVar, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65540, null, lVar, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar, j)) == null) {
             long x = lVar.x();
             if ((128 & x) != 0) {
                 return 8589934591L & ((((x & 1) << 32) | lVar.z()) + j);

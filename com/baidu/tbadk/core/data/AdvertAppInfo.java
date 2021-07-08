@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
-import d.a.r0.r.k;
-import d.a.r0.r.q.b2;
-import d.a.r0.r.q.c;
-import d.a.r0.r.q.e;
-import d.a.r0.r.q.n0;
-import d.a.s0.n1.o.k.a;
-import d.a.s0.w2.x;
+import d.a.o0.r.k;
+import d.a.o0.r.q.b2;
+import d.a.o0.r.q.c;
+import d.a.o0.r.q.e;
+import d.a.o0.r.q.n0;
+import d.a.p0.n1.o.k.a;
+import d.a.p0.w2.x;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdvertAppInfo extends b2 implements n0 {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicBoolean e4;
@@ -68,7 +68,7 @@ public class AdvertAppInfo extends b2 implements n0 {
     public String c4;
     public String d4;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ILegoAdvert extends ICardInfo {
         boolean checkIsAppAdvert();
 
@@ -156,7 +156,6 @@ public class AdvertAppInfo extends b2 implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
             AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-            advertAppInfo.N3 = jSONObject.optInt("goods_style");
             JSONObject optJSONObject = jSONObject.optJSONObject("lego_card");
             advertAppInfo.O3 = optJSONObject.toString();
             advertAppInfo.A4(optJSONObject);
@@ -171,7 +170,7 @@ public class AdvertAppInfo extends b2 implements n0 {
             JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
             if (optJSONObject != null) {
                 this.M3 = optJSONObject.optInt("card_type");
-                this.N3 = optJSONObject.optInt("goods_style", this.N3);
+                this.N3 = optJSONObject.optInt("goods_style");
                 this.a4 = optJSONObject.optInt("url_type");
                 this.L3 = optJSONObject.optString("id");
                 this.S3 = optJSONObject.optString("ext_info");
@@ -204,14 +203,14 @@ public class AdvertAppInfo extends b2 implements n0 {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.r0.r.q.n0
+    @Override // d.a.o0.r.q.n0
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.P3 : invokeV.booleanValue;
     }
 
-    @Override // d.a.r0.r.q.n0
+    @Override // d.a.o0.r.q.n0
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,7 +224,7 @@ public class AdvertAppInfo extends b2 implements n0 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t4() ? this.T3.getDownloadId() : "" : (String) invokeV.objValue;
     }
 
-    @Override // d.a.r0.r.q.b2, com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
+    @Override // d.a.o0.r.q.b2, com.baidu.tieba.card.data.BaseCardInfo, d.a.c.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -281,7 +280,7 @@ public class AdvertAppInfo extends b2 implements n0 {
         return invokeV.intValue;
     }
 
-    @Override // d.a.r0.r.q.n0
+    @Override // d.a.o0.r.q.n0
     public AdvertAppInfo m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -299,7 +298,7 @@ public class AdvertAppInfo extends b2 implements n0 {
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             try {
                 jSONObject.putOpt("card_type", Integer.valueOf(this.M3));
-                ICardInfo j = d.a.s0.n1.o.b.j(jSONObject);
+                ICardInfo j = d.a.p0.n1.o.b.j(jSONObject);
                 if (j instanceof ILegoAdvert) {
                     ILegoAdvert iLegoAdvert = (ILegoAdvert) j;
                     this.T3 = iLegoAdvert;
@@ -316,7 +315,7 @@ public class AdvertAppInfo extends b2 implements n0 {
         }
     }
 
-    @Override // d.a.r0.r.q.n0
+    @Override // d.a.o0.r.q.n0
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {

@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ byte[] f4624a;
+    public final /* synthetic */ byte[] f4641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f4625b;
+    public final /* synthetic */ d f4642b;
 
     public e(d dVar, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class e extends Thread {
                 return;
             }
         }
-        this.f4625b = dVar;
-        this.f4624a = bArr;
+        this.f4642b = dVar;
+        this.f4641a = bArr;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -44,9 +44,9 @@ public class e extends Thread {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.run();
             try {
-                this.f4625b.a();
-                bVar = this.f4625b.f4623d;
-                bVar.a(this.f4624a);
+                this.f4642b.a();
+                bVar = this.f4642b.f4640d;
+                bVar.a(this.f4641a);
             } catch (Exception e2) {
                 LogUtil.logE(LogUtils.TAG, Log.getStackTraceString(e2));
             }

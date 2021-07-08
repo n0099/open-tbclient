@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v0.a;
-import d.a.s0.v0.b;
-import d.a.s0.w0.c;
-import d.a.s0.w0.d;
-/* loaded from: classes5.dex */
+import d.a.p0.v0.a;
+import d.a.p0.v0.b;
+import d.a.p0.w0.c;
+import d.a.p0.w0.d;
+/* loaded from: classes4.dex */
 public class FunAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<a.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class FunAdStatic {
                 return;
             }
         }
-        b.f68209a.set(new d());
+        b.f64991a.set(new d());
         a();
     }
 

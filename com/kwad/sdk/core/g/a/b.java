@@ -1,6 +1,9 @@
 package com.kwad.sdk.core.g.a;
 
 import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,25 +11,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.ah;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.ap;
+import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36119a;
+    public static JSONObject f34451a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36120b;
+    public String f34452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36121c;
+    public String f34453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36122d;
+    public String f34454d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f34455e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -42,17 +48,43 @@ public class b implements com.kwad.sdk.core.b {
         }
     }
 
-    public static b a() {
+    public static JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!a(f34451a)) {
+                f34451a = b().toJson();
+            }
+            return f34451a;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static boolean a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String optString2 = jSONObject.optString("name");
+            return !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString) && optString.equals(KsAdSDKImpl.get().getAppId()) && optString2.equals(KsAdSDKImpl.get().getAppName());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             b bVar = new b();
-            bVar.f36119a = KsAdSDKImpl.get().getAppId();
-            bVar.f36120b = KsAdSDKImpl.get().getAppName();
+            bVar.f34452b = KsAdSDKImpl.get().getAppId();
+            bVar.f34453c = KsAdSDKImpl.get().getAppName();
             Context context = KsAdSDKImpl.get().getContext();
             if (context != null) {
-                bVar.f36121c = context.getPackageName();
-                bVar.f36122d = ah.l(context);
+                bVar.f34454d = context.getPackageName();
+                bVar.f34455e = ap.p(context);
             }
             return bVar;
         }
@@ -60,15 +92,22 @@ public class b implements com.kwad.sdk.core.b {
     }
 
     @Override // com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f36119a);
-            o.a(jSONObject, "name", this.f36120b);
-            o.a(jSONObject, "packageName", this.f36121c);
-            o.a(jSONObject, "version", this.f36122d);
+            q.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f34452b);
+            q.a(jSONObject, "name", this.f34453c);
+            q.a(jSONObject, "packageName", this.f34454d);
+            q.a(jSONObject, "version", this.f34455e);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

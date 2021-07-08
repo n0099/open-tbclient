@@ -1,5 +1,6 @@
 package com.xiaomi.mipush.sdk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,24 +10,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<e, a> f42797a;
+    public static HashMap<e, a> f39811a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42798a;
+        public String f39812a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42799b;
+        public String f39813b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -43,8 +44,8 @@ public class l {
                     return;
                 }
             }
-            this.f42798a = str;
-            this.f42799b = str2;
+            this.f39812a = str;
+            this.f39813b = str2;
         }
     }
 
@@ -61,31 +62,31 @@ public class l {
                 return;
             }
         }
-        f42797a = new HashMap<>();
-        a(e.f42787a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f42788b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f42789c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f42790d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        f39811a = new HashMap<>();
+        a(e.f39801a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
+        a(e.f39802b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f39803c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f39804d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, eVar)) == null) {
-            int i2 = m.f42800a[eVar.ordinal()];
+            int i2 = m.f39814a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
                             return null;
                         }
-                        return at.f42776f;
+                        return at.f39790f;
                     }
-                    return at.f42775e;
+                    return at.f39789e;
                 }
-                return at.f42774d;
+                return at.f39788d;
             }
-            return at.f42773c;
+            return at.f39787c;
         }
         return (at) invokeL.objValue;
     }
@@ -94,7 +95,7 @@ public class l {
     public static a m134a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f42797a.get(eVar) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? f39811a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -106,9 +107,9 @@ public class l {
 
     public static void a(e eVar, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, eVar, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar, aVar) == null) || aVar == null) {
             return;
         }
-        f42797a.put(eVar, aVar);
+        f39811a.put(eVar, aVar);
     }
 }

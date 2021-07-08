@@ -2,6 +2,7 @@ package com.baidu.tieba.home;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.s.a;
+import d.a.o0.r.s.a;
 import tbclient.UserBfbInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOW_VERSION_ERRCODE = 260211;
@@ -26,15 +27,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback;
     public BfbInfoModel mModel;
-    public d.a.s0.c1.a mView;
+    public d.a.p0.c1.a mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements BfbInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f16385a;
+        public final /* synthetic */ CreateBarGuideActivity f16424a;
 
         public a(CreateBarGuideActivity createBarGuideActivity) {
             Interceptable interceptable = $ic;
@@ -51,40 +52,40 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f16385a = createBarGuideActivity;
+            this.f16424a = createBarGuideActivity;
         }
 
         @Override // com.baidu.tieba.home.BfbInfoModel.b
         public void a(int i2, String str, UserBfbInfo userBfbInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, userBfbInfo) == null) {
-                CreateBarGuideActivity createBarGuideActivity = this.f16385a;
+                CreateBarGuideActivity createBarGuideActivity = this.f16424a;
                 createBarGuideActivity.hideLoadingView(createBarGuideActivity.mView.d());
-                this.f16385a.mView.g();
+                this.f16424a.mView.g();
                 if (i2 == 0) {
-                    this.f16385a.mView.h(this.f16385a.forumName, userBfbInfo);
+                    this.f16424a.mView.h(this.f16424a.forumName, userBfbInfo);
                     return;
                 }
-                this.f16385a.showToast(str);
+                this.f16424a.showToast(str);
                 if (i2 == 260211) {
-                    this.f16385a.showUpdateDialog(null);
+                    this.f16424a.showUpdateDialog(null);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16386e;
+        public final /* synthetic */ d.a.o0.r.s.a f16425e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f16387f;
+        public final /* synthetic */ CreateBarGuideActivity f16426f;
 
-        public b(CreateBarGuideActivity createBarGuideActivity, d.a.r0.r.s.a aVar) {
+        public b(CreateBarGuideActivity createBarGuideActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,32 +100,32 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f16387f = createBarGuideActivity;
-            this.f16386e = aVar;
+            this.f16426f = createBarGuideActivity;
+            this.f16425e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16386e.dismiss();
-                this.f16387f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f16387f.getPageContext().getPageActivity())));
+                this.f16425e.dismiss();
+                this.f16426f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f16426f.getPageContext().getPageActivity())));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16388e;
+        public final /* synthetic */ d.a.o0.r.s.a f16427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f16389f;
+        public final /* synthetic */ CreateBarGuideActivity f16428f;
 
-        public c(CreateBarGuideActivity createBarGuideActivity, d.a.r0.r.s.a aVar) {
+        public c(CreateBarGuideActivity createBarGuideActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,15 +140,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f16389f = createBarGuideActivity;
-            this.f16388e = aVar;
+            this.f16428f = createBarGuideActivity;
+            this.f16427e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16388e.dismiss();
+                this.f16427e.dismiss();
             }
         }
     }
@@ -171,11 +172,11 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     /* JADX INFO: Access modifiers changed from: private */
     public void showUpdateDialog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             if (StringUtils.isNull(str)) {
                 str = getResources().getString(R.string.tips_version_low);
             }
-            d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(getActivity());
+            d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(getActivity());
             aVar.setTitle(str);
             aVar.setPositiveButton(R.string.confirm, new b(this, aVar));
             aVar.setNegativeButton(R.string.cancel, new c(this, aVar));
@@ -189,7 +190,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.changeSkinType(i2);
-            d.a.s0.c1.a aVar = this.mView;
+            d.a.p0.c1.a aVar = this.mView;
             if (aVar != null) {
                 aVar.f();
             }
@@ -209,7 +210,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.mModel = bfbInfoModel;
             bfbInfoModel.A(this.mCallback);
-            d.a.s0.c1.a aVar = new d.a.s0.c1.a(this);
+            d.a.p0.c1.a aVar = new d.a.p0.c1.a(this);
             this.mView = aVar;
             aVar.e();
             showLoadingView(this.mView.d());

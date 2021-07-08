@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.a;
-import d.a.s0.h3.h0.m;
+import d.a.p0.h3.h0.m;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumBroadcastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARMARS_BCAST_CONTENT = "content";

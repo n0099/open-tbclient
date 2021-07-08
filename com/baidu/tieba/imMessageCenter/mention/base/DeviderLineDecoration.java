@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17897a;
+    public int f17936a;
 
     public DeviderLineDecoration() {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        if (this.f17897a <= 0) {
-            this.f17897a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        if (this.f17936a <= 0) {
+            this.f17936a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
@@ -48,7 +48,7 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                     return;
                 }
             }
-            rect.set(0, 0, 0, this.f17897a);
+            rect.set(0, 0, 0, this.f17936a);
         }
     }
 }

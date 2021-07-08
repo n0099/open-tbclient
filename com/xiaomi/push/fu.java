@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class fu extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fs f43137a;
+    public final /* synthetic */ fs f40151a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Exception f414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f43138b;
+    public final /* synthetic */ int f40152b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fu(fs fsVar, int i2, int i3, Exception exc) {
@@ -40,8 +40,8 @@ public class fu extends XMPushService.i {
                 return;
             }
         }
-        this.f43137a = fsVar;
-        this.f43138b = i3;
+        this.f40151a = fsVar;
+        this.f40152b = i3;
         this.f414a = exc;
     }
 
@@ -50,7 +50,7 @@ public class fu extends XMPushService.i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "shutdown the connection. " + this.f43138b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f414a;
+            return "shutdown the connection. " + this.f40152b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f414a;
         }
         return (String) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class fu extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43137a.f43130b.a(this.f43138b, this.f414a);
+            this.f40151a.f40144b.a(this.f40152b, this.f414a);
         }
     }
 }

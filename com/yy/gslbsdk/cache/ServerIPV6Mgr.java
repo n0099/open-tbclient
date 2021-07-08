@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ServerIPV6Mgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SERVER_IP_CMC;
@@ -114,7 +114,7 @@ public class ServerIPV6Mgr {
     public static ServerIPV6Mgr getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (mServerIPMgr == null) {
                 mServerIPMgr = new ServerIPV6Mgr();
             }

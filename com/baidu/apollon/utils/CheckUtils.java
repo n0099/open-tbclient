@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,19 +23,19 @@ public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4037a = "CheckUtils";
+    public static final String f4040a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4038b = 3;
+    public static final int f4041b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4039c = 12;
+    public static final int f4042c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4040d = 4;
+    public static final int f4043d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f4041e;
+    public static long f4044e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -237,7 +238,7 @@ public final class CheckUtils {
     public static boolean isExternalStorageWriteable(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             boolean z = false;
             if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
@@ -273,13 +274,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - f4041e;
+            long j = currentTimeMillis - f4044e;
             LogUtil.logd("timeD=" + j);
             if (0 < j && j < 800) {
                 LogUtil.logd("点的太快了 timeD=" + j);
                 return true;
             }
-            f4041e = currentTimeMillis;
+            f4044e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

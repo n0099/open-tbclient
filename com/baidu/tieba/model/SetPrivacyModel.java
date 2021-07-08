@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SetPrivacyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId UNIQUE_ID_SET_PRIVACY_TASK;
@@ -24,34 +24,34 @@ public class SetPrivacyModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CardPersonDynamicThreadData f18642e;
+    public CardPersonDynamicThreadData f18682e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f18643f;
+    public b f18683f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18644g;
+    public boolean f18684g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NetWork f18645h;
+    public NetWork f18685h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f18646i;
+    public a f18686i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onError(String str);
 
         void onSuccess();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<CardPersonDynamicThreadData, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SetPrivacyModel f18647a;
+        public final /* synthetic */ SetPrivacyModel f18687a;
 
         public b(SetPrivacyModel setPrivacyModel) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class SetPrivacyModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18647a = setPrivacyModel;
+            this.f18687a = setPrivacyModel;
             setPriority(3);
         }
 
@@ -87,15 +87,15 @@ public class SetPrivacyModel extends BdBaseModel {
                     return null;
                 }
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                this.f18647a.f18645h = new NetWork(SetPrivacyModel.j);
-                this.f18647a.f18645h.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f18647a.f18645h.addPostData("user_id", currentAccount);
-                this.f18647a.f18645h.addPostData("forum_id", cardPersonDynamicThreadData.f14501e);
-                this.f18647a.f18645h.addPostData("thread_id", cardPersonDynamicThreadData.f14502f);
-                this.f18647a.f18645h.addPostData("post_id", cardPersonDynamicThreadData.f14503g);
-                this.f18647a.f18645h.addPostData("is_hide", String.valueOf(!cardPersonDynamicThreadData.q ? 1 : 0));
-                this.f18647a.f18645h.postNetData();
-                return Integer.valueOf(this.f18647a.f18645h.getNetContext().getResponse().isRequestSuccess() ? 1 : 0);
+                this.f18687a.f18685h = new NetWork(SetPrivacyModel.j);
+                this.f18687a.f18685h.getNetContext().getRequest().mIsNeedTbs = true;
+                this.f18687a.f18685h.addPostData("user_id", currentAccount);
+                this.f18687a.f18685h.addPostData("forum_id", cardPersonDynamicThreadData.f14540e);
+                this.f18687a.f18685h.addPostData("thread_id", cardPersonDynamicThreadData.f14541f);
+                this.f18687a.f18685h.addPostData("post_id", cardPersonDynamicThreadData.f14542g);
+                this.f18687a.f18685h.addPostData("is_hide", String.valueOf(!cardPersonDynamicThreadData.q ? 1 : 0));
+                this.f18687a.f18685h.postNetData();
+                return Integer.valueOf(this.f18687a.f18685h.getNetContext().getResponse().isRequestSuccess() ? 1 : 0);
             }
             return (Integer) invokeL.objValue;
         }
@@ -105,11 +105,11 @@ public class SetPrivacyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel();
-                if (this.f18647a.f18645h != null) {
-                    this.f18647a.f18645h.cancelNetConnect();
+                if (this.f18687a.f18685h != null) {
+                    this.f18687a.f18685h.cancelNetConnect();
                 }
-                this.f18647a.f18644g = false;
-                this.f18647a.f18643f = null;
+                this.f18687a.f18684g = false;
+                this.f18687a.f18683f = null;
             }
         }
 
@@ -118,7 +118,7 @@ public class SetPrivacyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 super.onPreExecute();
-                this.f18647a.f18644g = true;
+                this.f18687a.f18684g = true;
             }
         }
 
@@ -128,15 +128,15 @@ public class SetPrivacyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, num) == null) {
                 super.onPostExecute((b) num);
-                this.f18647a.f18644g = false;
-                this.f18647a.f18643f = null;
-                if (this.f18647a.f18646i == null || this.f18647a.f18645h == null) {
+                this.f18687a.f18684g = false;
+                this.f18687a.f18683f = null;
+                if (this.f18687a.f18686i == null || this.f18687a.f18685h == null) {
                     return;
                 }
                 if (num.intValue() == 1) {
-                    this.f18647a.f18646i.onSuccess();
+                    this.f18687a.f18686i.onSuccess();
                 } else if (num.intValue() == 0) {
-                    this.f18647a.f18646i.onError(this.f18647a.f18645h.getErrorString());
+                    this.f18687a.f18686i.onError(this.f18687a.f18685h.getErrorString());
                 }
             }
         }
@@ -177,19 +177,19 @@ public class SetPrivacyModel extends BdBaseModel {
                 return;
             }
         }
-        this.f18642e = cardPersonDynamicThreadData;
+        this.f18682e = cardPersonDynamicThreadData;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18644g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18684g : invokeV.booleanValue;
     }
 
     public void D(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f18646i = aVar;
+            this.f18686i = aVar;
         }
     }
 
@@ -198,13 +198,13 @@ public class SetPrivacyModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f18643f != null) {
+            if (this.f18683f != null) {
                 return false;
             }
             b bVar = new b(this);
-            this.f18643f = bVar;
+            this.f18683f = bVar;
             bVar.setTag(UNIQUE_ID_SET_PRIVACY_TASK);
-            this.f18643f.execute(this.f18642e);
+            this.f18683f.execute(this.f18682e);
             return true;
         }
         return invokeV.booleanValue;
@@ -215,7 +215,7 @@ public class SetPrivacyModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b bVar = this.f18643f;
+            b bVar = this.f18683f;
             if (bVar != null) {
                 bVar.cancel();
                 return true;

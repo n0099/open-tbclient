@@ -2658,7 +2658,7 @@ public final class IMPushPb {
         public static ActionType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (ActionType) Enum.valueOf(ActionType.class, str) : (ActionType) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ActionType) Enum.valueOf(ActionType.class, str) : (ActionType) invokeL.objValue;
         }
 
         public static ActionType[] values() {
@@ -15164,7 +15164,7 @@ public final class IMPushPb {
         public static OSType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (OSType) Enum.valueOf(OSType.class, str) : (OSType) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (OSType) Enum.valueOf(OSType.class, str) : (OSType) invokeL.objValue;
         }
 
         public static OSType[] values() {
@@ -15271,7 +15271,7 @@ public final class IMPushPb {
 
             private void maybeForceBuilderInitialization() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+                if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
                 }
             }
 

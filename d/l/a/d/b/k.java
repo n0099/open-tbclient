@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import d.l.a.a.a.f.e;
 import d.l.a.e.b.j.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-            if (eVar != null && d((int) eVar.f74082a)) {
-                eVar.f74085d = b((int) eVar.f74082a, eVar.f74085d, eVar.f74084c);
+            if (eVar != null && d((int) eVar.f71134a)) {
+                eVar.f71137d = b((int) eVar.f71134a, eVar.f71137d, eVar.f71136c);
             }
             return eVar;
         }

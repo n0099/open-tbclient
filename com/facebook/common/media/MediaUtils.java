@@ -1,5 +1,6 @@
 package com.facebook.common.media;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES;
@@ -82,7 +83,7 @@ public class MediaUtils {
     public static boolean isNonNativeSupportedMimeType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? ADDITIONAL_ALLOWED_MIME_TYPES.containsValue(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? ADDITIONAL_ALLOWED_MIME_TYPES.containsValue(str) : invokeL.booleanValue;
     }
 
     public static boolean isPhoto(@Nullable String str) {

@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.f2.b.a;
-import d.a.s0.f2.b.b;
-import d.a.s0.f2.b.c;
-import d.a.s0.f2.b.d;
-import d.a.s0.f2.b.e;
-import d.a.s0.f2.b.f;
-import d.a.s0.f2.b.g;
-/* loaded from: classes5.dex */
+import d.a.p0.f2.b.a;
+import d.a.p0.f2.b.b;
+import d.a.p0.f2.b.c;
+import d.a.p0.f2.b.d;
+import d.a.p0.f2.b.e;
+import d.a.p0.f2.b.f;
+import d.a.p0.f2.b.g;
+/* loaded from: classes4.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,10 +48,10 @@ public class OneKeyLoginActivity extends BaseActivity {
             this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
             c cVar = new c();
             this.oneKeyLoginData = cVar;
-            cVar.f59500a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-            this.oneKeyLoginData.f59501b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-            this.oneKeyLoginData.f59502c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-            this.oneKeyLoginData.f59503d = this.shareModelJSONStr;
+            cVar.f56242a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            this.oneKeyLoginData.f56243b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.oneKeyLoginData.f56244c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.oneKeyLoginData.f56245d = this.shareModelJSONStr;
         }
     }
 
@@ -93,7 +93,7 @@ public class OneKeyLoginActivity extends BaseActivity {
             this.view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);
             this.controller.i(false);
-            this.controller.k(d.a.r0.b.d.l());
+            this.controller.k(d.a.o0.b.d.v());
         }
     }
 }

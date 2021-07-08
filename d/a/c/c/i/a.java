@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f43963a;
+    public long f40979a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f43964b;
+    public long f40980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f43965c;
+    public long f40981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f43966d;
+    public long f40982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f43967e;
+    public long f40983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f43968f;
+    public long f40984f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f43969g;
+    public long f40985g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f43970h;
+    public long f40986h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43971i;
+    public int f40987i;
     public long j;
     public long k;
     public long l;
@@ -52,15 +52,15 @@ public class a {
                 return;
             }
         }
-        this.f43963a = 0L;
-        this.f43964b = 0L;
-        this.f43965c = 0L;
-        this.f43966d = 0L;
-        this.f43967e = 0L;
-        this.f43968f = 0L;
-        this.f43969g = 0L;
-        this.f43970h = 0L;
-        this.f43971i = 0;
+        this.f40979a = 0L;
+        this.f40980b = 0L;
+        this.f40981c = 0L;
+        this.f40982d = 0L;
+        this.f40983e = 0L;
+        this.f40984f = 0L;
+        this.f40985g = 0L;
+        this.f40986h = 0L;
+        this.f40987i = 0;
         this.j = 0L;
         this.k = 0L;
         this.l = 0L;

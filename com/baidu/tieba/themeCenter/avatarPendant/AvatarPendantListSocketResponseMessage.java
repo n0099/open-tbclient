@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.n3.d.a;
-import d.a.s0.n3.h.e;
+import d.a.p0.n3.d.a;
+import d.a.p0.n3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetPendantByCategory.DataRes;
 import tbclient.GetPendantByCategory.GetPendantByCategoryResIdl;
 import tbclient.GetPendantByCategory.ThemePendantInMain;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

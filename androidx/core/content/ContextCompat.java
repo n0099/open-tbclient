@@ -67,6 +67,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -82,6 +83,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class ContextCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -148,7 +150,7 @@ public class ContextCompat {
             SERVICES.put(AccountManager.class, "account");
             SERVICES.put(ActivityManager.class, "activity");
             SERVICES.put(AlarmManager.class, NotificationCompat.CATEGORY_ALARM);
-            SERVICES.put(AudioManager.class, "audio");
+            SERVICES.put(AudioManager.class, MediaStreamTrack.AUDIO_TRACK_KIND);
             SERVICES.put(ClipboardManager.class, "clipboard");
             SERVICES.put(ConnectivityManager.class, "connectivity");
             SERVICES.put(DevicePolicyManager.class, "device_policy");
@@ -282,7 +284,7 @@ public class ContextCompat {
     public static synchronized File createFilesDir(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
             synchronized (ContextCompat.class) {
                 if (file.exists() || file.mkdirs()) {
                     return file;

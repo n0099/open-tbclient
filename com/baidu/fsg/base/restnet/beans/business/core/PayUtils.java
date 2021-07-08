@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.armor.RimArmor;
@@ -31,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_SECRET = "";
@@ -46,7 +47,7 @@ public final class PayUtils {
     public static ArrayList<String> keys;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ParamComparator implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +133,7 @@ public final class PayUtils {
     public static String getAppSignatureSha1(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
                 return (packageInfo == null || packageInfo.signatures == null) ? "" : Crypto.sha1(packageInfo.signatures[0].toByteArray());
@@ -220,7 +221,7 @@ public final class PayUtils {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append(name);
-                        sb.append(a.f1889h);
+                        sb.append(a.f1890h);
                         sb.append(value);
                         if (i2 != arrayList.size() - 1) {
                             sb.append(Typography.amp);
@@ -281,7 +282,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(a.f1889h);
+                    sb.append(a.f1890h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

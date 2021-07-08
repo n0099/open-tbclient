@@ -10,30 +10,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f74851a;
+    public Object f71903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<b> f74852b;
+    public Queue<b> f71904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f74853c;
+    public a f71905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f74854d;
+    public Handler f71906d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends HandlerThread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f74855e;
+        public final /* synthetic */ g f71907e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, String str) {
@@ -53,7 +53,7 @@ public class g {
                     return;
                 }
             }
-            this.f74855e = gVar;
+            this.f71907e = gVar;
         }
 
         @Override // android.os.HandlerThread
@@ -62,27 +62,27 @@ public class g {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onLooperPrepared();
                 Looper looper = getLooper();
-                synchronized (this.f74855e.f74851a) {
-                    this.f74855e.f74854d = new Handler(looper);
+                synchronized (this.f71907e.f71903a) {
+                    this.f71907e.f71906d = new Handler(looper);
                 }
-                while (!this.f74855e.f74852b.isEmpty()) {
-                    b bVar = (b) this.f74855e.f74852b.poll();
-                    this.f74855e.f74854d.postDelayed(bVar.f74856a, bVar.f74857b);
+                while (!this.f71907e.f71904b.isEmpty()) {
+                    b bVar = (b) this.f71907e.f71904b.poll();
+                    this.f71907e.f71906d.postDelayed(bVar.f71908a, bVar.f71909b);
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Runnable f74856a;
+        public Runnable f71908a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f74857b;
+        public long f71909b;
 
         public b(g gVar, Runnable runnable, long j) {
             Interceptable interceptable = $ic;
@@ -99,8 +99,8 @@ public class g {
                     return;
                 }
             }
-            this.f74856a = runnable;
-            this.f74857b = j;
+            this.f71908a = runnable;
+            this.f71909b = j;
         }
     }
 
@@ -119,15 +119,15 @@ public class g {
                 return;
             }
         }
-        this.f74851a = new Object();
-        this.f74852b = new ConcurrentLinkedQueue();
-        this.f74853c = new a(this, str);
+        this.f71903a = new Object();
+        this.f71904b = new ConcurrentLinkedQueue();
+        this.f71905c = new a(this, str);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f74853c.start();
+            this.f71905c.start();
         }
     }
 
@@ -141,22 +141,22 @@ public class g {
     public void e(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j) == null) {
-            if (this.f74854d == null) {
-                synchronized (this.f74851a) {
-                    if (this.f74854d == null) {
-                        this.f74852b.add(new b(this, runnable, j));
+            if (this.f71906d == null) {
+                synchronized (this.f71903a) {
+                    if (this.f71906d == null) {
+                        this.f71904b.add(new b(this, runnable, j));
                         return;
                     }
                 }
             }
-            this.f74854d.postDelayed(runnable, j);
+            this.f71906d.postDelayed(runnable, j);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f74853c.quit();
+            this.f71905c.quit();
         }
     }
 }

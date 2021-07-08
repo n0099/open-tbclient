@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Supplier;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultBitmapMemoryCacheParamsSupplier implements Supplier<MemoryCacheParams> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_ENTRIES = 256;

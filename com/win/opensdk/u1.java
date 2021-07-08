@@ -12,22 +12,22 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class u1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BlockingQueue f42652b;
+    public static final BlockingQueue f39666b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f42653c;
+    public static final ThreadFactory f39667c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static u1 f42654d;
+    public static u1 f39668d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f42655a;
+    public ThreadPoolExecutor f39669a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,8 +42,8 @@ public class u1 {
                 return;
             }
         }
-        f42652b = new LinkedBlockingQueue(210);
-        f42653c = new t1();
+        f39666b = new LinkedBlockingQueue(210);
+        f39667c = new t1();
     }
 
     public u1() {
@@ -59,7 +59,7 @@ public class u1 {
                 return;
             }
         }
-        this.f42655a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f42652b, f42653c);
+        this.f39669a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, f39666b, f39667c);
     }
 
     public static synchronized u1 a() {
@@ -68,10 +68,10 @@ public class u1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (u1.class) {
-                if (f42654d == null) {
-                    f42654d = new u1();
+                if (f39668d == null) {
+                    f39668d = new u1();
                 }
-                u1Var = f42654d;
+                u1Var = f39668d;
             }
             return u1Var;
         }
@@ -81,7 +81,7 @@ public class u1 {
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            a().f42655a.execute(runnable);
+            a().f39669a.execute(runnable);
         }
     }
 }

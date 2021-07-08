@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
 import com.bytedance.sdk.openadsdk.ICommonPermissionListener;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f31427a;
+    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f31537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f31428b;
+    public static volatile d f31538b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class d extends a {
                 return;
             }
         }
-        f31427a = new HashMap<>();
+        f31537a = new HashMap<>();
     }
 
     public d() {
@@ -59,14 +59,14 @@ public class d extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31428b == null) {
+            if (f31538b == null) {
                 synchronized (d.class) {
-                    if (f31428b == null) {
-                        f31428b = new d();
+                    if (f31538b == null) {
+                        f31538b = new d();
                     }
                 }
             }
-            return f31428b;
+            return f31538b;
         }
         return (d) invokeV.objValue;
     }
@@ -76,7 +76,7 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             j.b("MultiProcess", "00000 CommonPermissionListenerManagerImpl broadcastDialogListener: 00000" + String.valueOf(str) + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            RemoteCallbackList<ICommonPermissionListener> remove = f31427a.remove(str);
+            RemoteCallbackList<ICommonPermissionListener> remove = f31537a.remove(str);
             if (remove == null) {
                 return;
             }
@@ -106,6 +106,6 @@ public class d extends a {
         j.b("MultiProcess", "CommonPermissionListenerManagerImpl registerPermissionListener");
         RemoteCallbackList<ICommonPermissionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonPermissionListener);
-        f31427a.put(str, remoteCallbackList);
+        f31537a.put(str, remoteCallbackList);
     }
 }

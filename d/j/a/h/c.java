@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final double f73987a;
+    public final double f71039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f73988b;
+    public final double f71040b;
 
     public c(double d2, double d3, double d4, double d5) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class c {
                 return;
             }
         }
-        this.f73987a = d4;
-        this.f73988b = d5;
+        this.f71039a = d4;
+        this.f71040b = d5;
     }
 
     public final double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73988b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71040b : invokeV.doubleValue;
     }
 
     public final double b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73987a : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71039a : invokeV.doubleValue;
     }
 }

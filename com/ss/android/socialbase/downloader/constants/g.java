@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f41460a;
+    public static final g f38474a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f41461b;
+    public static final g f38475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f41462c;
+    public static final g f38476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ g[] f41463d;
+    public static final /* synthetic */ g[] f38477d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class g {
                 return;
             }
         }
-        f41460a = new g("MAIN", 0);
-        f41461b = new g("SUB", 1);
+        f38474a = new g("MAIN", 0);
+        f38475b = new g("SUB", 1);
         g gVar = new g("NOTIFICATION", 2);
-        f41462c = gVar;
-        f41463d = new g[]{f41460a, f41461b, gVar};
+        f38476c = gVar;
+        f38477d = new g[]{f38474a, f38475b, gVar};
     }
 
     public g(String str, int i2) {
@@ -73,6 +73,6 @@ public final class g {
     public static g[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f41463d.clone() : (g[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (g[]) f38477d.clone() : (g[]) invokeV.objValue;
     }
 }

@@ -1,5 +1,7 @@
 package com.baidu.tbadk.core.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.SparseArray;
 import androidx.core.app.NotificationCompatJellybean;
 import com.baidu.adp.lib.util.BdLog;
@@ -7,21 +9,24 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.r.q.g;
+import d.a.o0.r.q.g;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes4.dex */
-public class AlaInfoData implements Serializable {
+/* loaded from: classes3.dex */
+public class AlaInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final Parcelable.Creator<AlaInfoData> CREATOR;
     public static final int FRS_STAGE_TYPE_AD = 0;
     public static final int FRS_STAGE_TYPE_COMMON = 1;
     public static final int LIVE_STATUS_LIVE_ON = 1;
@@ -31,7 +36,7 @@ public class AlaInfoData implements Serializable {
     public int audience_count;
     public String cover;
     public String description;
-    public SparseArray<String> dislikeInfo;
+    public transient SparseArray<String> dislikeInfo;
     public double distance;
     public int duration;
     public String forumUserLiveMsg;
@@ -42,14 +47,14 @@ public class AlaInfoData implements Serializable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public g label;
+    public transient g label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
     public long live_id;
     public int live_status;
     public int live_type;
-    public AlaChallengeInfoData mChallengeInfoData;
+    public transient AlaChallengeInfoData mChallengeInfoData;
     public String mCoverWide;
     public YyExtData mYyExtData;
     public String media_id;
@@ -66,31 +71,95 @@ public class AlaInfoData implements Serializable {
     public String rtmp_url;
     public int screen_direction;
     public String session_id;
-    public AlaShareInfoData share_info;
+    public transient AlaShareInfoData share_info;
     public String tag;
     public String thirdLiveType;
     public String thirdRoomId;
     public long thread_id;
-    public AlaUserInfoData user_info;
+    public transient AlaUserInfoData user_info;
+
+    /* loaded from: classes3.dex */
+    public static class a implements Parcelable.Creator<AlaInfoData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public AlaInfoData createFromParcel(Parcel parcel) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new AlaInfoData(parcel) : (AlaInfoData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: b */
+        public AlaInfoData[] newArray(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new AlaInfoData[i2] : (AlaInfoData[]) invokeI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1851477755, "Lcom/baidu/tbadk/core/data/AlaInfoData;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1851477755, "Lcom/baidu/tbadk/core/data/AlaInfoData;");
+                return;
+            }
+        }
+        CREATOR = new a();
+    }
 
     public AlaInfoData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public boolean isLegalYYLiveData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
             return (yyExtData == null || k.isEmpty(yyExtData.mSid) || k.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
@@ -99,7 +168,7 @@ public class AlaInfoData implements Serializable {
 
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e2) {
@@ -110,7 +179,7 @@ public class AlaInfoData implements Serializable {
 
     public void parserProtobuf(AlaLiveInfo alaLiveInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, alaLiveInfo) == null) || alaLiveInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, alaLiveInfo) == null) || alaLiveInfo == null) {
             return;
         }
         try {
@@ -182,9 +251,39 @@ public class AlaInfoData implements Serializable {
         }
     }
 
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+            parcel.writeLong(this.live_id);
+            parcel.writeInt(this.live_status);
+            parcel.writeParcelable(this.mYyExtData, i2);
+        }
+    }
+
+    public AlaInfoData(Parcel parcel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parcel};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.live_id = parcel.readLong();
+        this.live_status = parcel.readInt();
+        this.mYyExtData = (YyExtData) parcel.readParcelable(YyExtData.class.getClassLoader());
+    }
+
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {

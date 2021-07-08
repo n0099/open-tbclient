@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UploadedImageInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POST_BJH_FORMAT = "#(pic_bos,%s,%d,%d,%b)";

@@ -19,25 +19,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.s0.p0.y.d.b;
-/* loaded from: classes5.dex */
+import d.a.p0.p0.y.d.b;
+/* loaded from: classes4.dex */
 public class EmotionCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15043e;
+    public int f15082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f15044f;
+    public final HttpMessageListener f15083f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterModel f15045a;
+        public final /* synthetic */ EmotionCenterModel f15084a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionCenterModel emotionCenterModel, int i2) {
@@ -57,7 +57,7 @@ public class EmotionCenterModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f15045a = emotionCenterModel;
+            this.f15084a = emotionCenterModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class EmotionCenterModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                if (this.f15045a.f15043e == 1) {
+                if (this.f15084a.f15082e == 1) {
                     bVar.j0(emotionCenterResponseMessage.data);
                 } else {
                     bVar.U(emotionCenterResponseMessage.data);
@@ -101,12 +101,12 @@ public class EmotionCenterModel extends BdBaseModel {
                 return;
             }
         }
-        this.f15043e = 1;
-        this.f15044f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+        this.f15082e = 1;
+        this.f15083f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         registerTask();
-        this.f15044f.setTag(getUniqueId());
-        this.f15044f.setSelfListener(true);
-        registerListener(this.f15044f);
+        this.f15083f.setTag(getUniqueId());
+        this.f15083f.setSelfListener(true);
+        registerListener(this.f15083f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -143,8 +143,8 @@ public class EmotionCenterModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
-            int i2 = this.f15043e + 1;
-            this.f15043e = i2;
+            int i2 = this.f15082e + 1;
+            this.f15082e = i2;
             httpMessage.addParam(Config.PACKAGE_NAME, i2);
             httpMessage.addParam("rn", 10);
             httpMessage.setExtra(bVar);
@@ -155,7 +155,7 @@ public class EmotionCenterModel extends BdBaseModel {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f15043e = 1;
+            this.f15082e = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             httpMessage.addParam(Config.PACKAGE_NAME, 1);
             httpMessage.addParam("rn", 10);

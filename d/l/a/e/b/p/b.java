@@ -21,19 +21,19 @@ import d.l.a.e.b.g.k;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f75035c;
+    public static volatile b f72087c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Integer, Long> f75036a;
+    public final Map<Integer, Long> f72088a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<a> f75037b;
+    public final SparseArray<a> f72089b;
 
     static {
         InterceptResult invokeClinit;
@@ -63,23 +63,23 @@ public class b {
                 return;
             }
         }
-        this.f75036a = new HashMap();
+        this.f72088a = new HashMap();
         new HashSet();
-        this.f75037b = new SparseArray<>();
+        this.f72089b = new SparseArray<>();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f75035c == null) {
+            if (f72087c == null) {
                 synchronized (b.class) {
-                    if (f75035c == null) {
-                        f75035c = new b();
+                    if (f72087c == null) {
+                        f72087c = new b();
                     }
                 }
             }
-            return f75035c;
+            return f72087c;
         }
         return (b) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class b {
     public static boolean j(DownloadInfo downloadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, downloadInfo)) == null) ? downloadInfo.isDownloadOverStatus() && h(downloadInfo.getNotificationVisibility()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadInfo)) == null) ? downloadInfo.isDownloadOverStatus() && h(downloadInfo.getNotificationVisibility()) : invokeL.booleanValue;
     }
 
     public void b(int i2) {
@@ -113,13 +113,13 @@ public class b {
             return;
         }
         if (i3 == 4) {
-            synchronized (this.f75036a) {
-                Long l = this.f75036a.get(Integer.valueOf(i2));
+            synchronized (this.f72088a) {
+                Long l = this.f72088a.get(Integer.valueOf(i2));
                 long currentTimeMillis = System.currentTimeMillis();
                 if (l != null && Math.abs(currentTimeMillis - l.longValue()) < 1000) {
                     return;
                 }
-                this.f75036a.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
+                this.f72088a.put(Integer.valueOf(i2), Long.valueOf(currentTimeMillis));
             }
         }
         try {
@@ -152,8 +152,8 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
             return;
         }
-        synchronized (this.f75037b) {
-            this.f75037b.put(aVar.a(), aVar);
+        synchronized (this.f72089b) {
+            this.f72089b.put(aVar.a(), aVar);
         }
     }
 
@@ -162,8 +162,8 @@ public class b {
         SparseArray<a> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.f75037b) {
-                sparseArray = this.f75037b;
+            synchronized (this.f72089b) {
+                sparseArray = this.f72089b;
             }
             return sparseArray;
         }
@@ -201,10 +201,10 @@ public class b {
             if (i2 == 0) {
                 return null;
             }
-            synchronized (this.f75037b) {
-                aVar = this.f75037b.get(i2);
+            synchronized (this.f72089b) {
+                aVar = this.f72089b.get(i2);
                 if (aVar != null) {
-                    this.f75037b.remove(i2);
+                    this.f72089b.remove(i2);
                     d.l.a.e.b.c.a.b("removeNotificationId " + i2);
                 }
             }
@@ -221,8 +221,8 @@ public class b {
             if (i2 == 0) {
                 return null;
             }
-            synchronized (this.f75037b) {
-                aVar = this.f75037b.get(i2);
+            synchronized (this.f72089b) {
+                aVar = this.f72089b.get(i2);
             }
             return aVar;
         }

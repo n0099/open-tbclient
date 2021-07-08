@@ -14,7 +14,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Tls12SocketFactory extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] TLS_SUPPORT_VERSION;

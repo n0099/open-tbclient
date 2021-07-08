@@ -7,11 +7,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class e implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo> {
+/* loaded from: classes6.dex */
+public class e implements com.kwad.sdk.core.d<AdInfo.AdAggregateInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,35 +28,27 @@ public class e implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(AdInfo.AdMaterialInfo adMaterialInfo) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AdInfo.AdAggregateInfo adAggregateInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adMaterialInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "materialType", adMaterialInfo.materialType);
-            com.kwad.sdk.utils.o.a(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adAggregateInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        adAggregateInfo.adAggregateInfo = jSONObject.optInt("adAggregateInfo");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AdInfo.AdAggregateInfo adAggregateInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, adMaterialInfo, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        adMaterialInfo.materialType = jSONObject.optInt("materialType", new Integer("2").intValue());
-        adMaterialInfo.materialFeatureList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
-        if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = new AdInfo.AdMaterialInfo.MaterialFeature();
-                materialFeature.parseJson(optJSONArray.optJSONObject(i2));
-                adMaterialInfo.materialFeatureList.add(materialFeature);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, adAggregateInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
+            com.kwad.sdk.utils.q.a(jSONObject, "adAggregateInfo", adAggregateInfo.adAggregateInfo);
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f44419c;
+    public static d f41435c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile SparseArray<Bitmap> f44420a;
+    public volatile SparseArray<Bitmap> f41436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f44421b;
+    public Context f41437b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class d {
                 return;
             }
         }
-        this.f44420a = new SparseArray<>();
+        this.f41436a = new SparseArray<>();
         Bitmap.Config config = Bitmap.Config.RGB_565;
     }
 
@@ -67,10 +67,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (d.class) {
-                if (f44419c == null) {
-                    f44419c = new d();
+                if (f41435c == null) {
+                    f41435c = new d();
                 }
-                dVar = f44419c;
+                dVar = f41435c;
             }
             return dVar;
         }
@@ -92,7 +92,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f44420a.clear();
+                this.f41436a.clear();
             }
         }
     }
@@ -120,7 +120,7 @@ public class d {
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f44421b = context;
+            this.f41437b = context;
         }
     }
 

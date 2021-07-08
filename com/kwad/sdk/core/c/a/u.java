@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.InstallActivateReminderConfigItem;
+import com.kwad.sdk.core.g.a.h;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class u implements com.kwad.sdk.core.c<InstallActivateReminderConfigItem.InstallActivateReminderConfig> {
+/* loaded from: classes6.dex */
+public class u implements com.kwad.sdk.core.d<h.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,31 +28,33 @@ public class u implements com.kwad.sdk.core.c<InstallActivateReminderConfigItem.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(h.a aVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, installActivateReminderConfig)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "noticeTotalCount", installActivateReminderConfig.noticeTotalCount);
-            com.kwad.sdk.utils.o.a(jSONObject, "perAppNoticeCount", installActivateReminderConfig.perAppNoticeCount);
-            com.kwad.sdk.utils.o.a(jSONObject, "noticeAppearTime", installActivateReminderConfig.noticeAppearTime);
-            com.kwad.sdk.utils.o.a(jSONObject, "noticeContinueTime", installActivateReminderConfig.noticeContinueTime);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        aVar.f34485a = jSONObject.optInt("streamType");
+        aVar.f34486b = jSONObject.optInt("maxVolume");
+        aVar.f34487c = jSONObject.optInt("minVolume");
+        aVar.f34488d = jSONObject.optInt("currentVolume");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(InstallActivateReminderConfigItem.InstallActivateReminderConfig installActivateReminderConfig, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(h.a aVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, installActivateReminderConfig, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "streamType", aVar.f34485a);
+            com.kwad.sdk.utils.q.a(jSONObject, "maxVolume", aVar.f34486b);
+            com.kwad.sdk.utils.q.a(jSONObject, "minVolume", aVar.f34487c);
+            com.kwad.sdk.utils.q.a(jSONObject, "currentVolume", aVar.f34488d);
+            return jSONObject;
         }
-        installActivateReminderConfig.noticeTotalCount = jSONObject.optInt("noticeTotalCount", new Integer("3").intValue());
-        installActivateReminderConfig.perAppNoticeCount = jSONObject.optInt("perAppNoticeCount", new Integer("2").intValue());
-        installActivateReminderConfig.noticeAppearTime = jSONObject.optInt("noticeAppearTime", new Integer("15000").intValue());
-        installActivateReminderConfig.noticeContinueTime = jSONObject.optInt("noticeContinueTime", new Integer("15000").intValue());
+        return (JSONObject) invokeLL.objValue;
     }
 }

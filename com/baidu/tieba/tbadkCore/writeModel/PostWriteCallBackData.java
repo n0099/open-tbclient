@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.u1;
-import d.a.r0.t.a;
+import d.a.o0.r.q.u1;
+import d.a.o0.t.a;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PostWriteCallBackData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COPY_TW_ZHIBO_TAG = 3;

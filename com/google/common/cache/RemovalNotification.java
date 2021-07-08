@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.util.AbstractMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RemovalNotification<K, V> extends AbstractMap.SimpleImmutableEntry<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;

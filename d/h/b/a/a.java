@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f73913a;
+    public long f70965a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f73914b;
+    public String f70966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f73915c;
+    public String f70967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f73916d;
+    public int f70968d;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -38,40 +38,40 @@ public class a {
                 return;
             }
         }
-        this.f73915c = str;
+        this.f70967c = str;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f73916d = i2;
+            this.f70968d = i2;
         }
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f73913a = j;
+            this.f70965a = j;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f73914b = str;
+            this.f70966b = str;
         }
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73913a > System.currentTimeMillis() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70965a > System.currentTimeMillis() : invokeV.booleanValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f73913a = 0L;
+            this.f70965a = 0L;
         }
     }
 }

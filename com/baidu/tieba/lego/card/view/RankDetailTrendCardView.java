@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +37,16 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public HeadImageView y;
     public final int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18230e;
+        public final /* synthetic */ RankDetailTrendCard f18270e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCardView f18231f;
+        public final /* synthetic */ RankDetailTrendCardView f18271f;
 
         public a(RankDetailTrendCardView rankDetailTrendCardView, RankDetailTrendCard rankDetailTrendCard) {
             Interceptable interceptable = $ic;
@@ -63,31 +63,31 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     return;
                 }
             }
-            this.f18231f = rankDetailTrendCardView;
-            this.f18230e = rankDetailTrendCard;
+            this.f18271f = rankDetailTrendCardView;
+            this.f18270e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f18231f.getContext())) {
-                d.a.s0.n1.m.b a2 = d.a.s0.n1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f18230e;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f18271f.getContext())) {
+                d.a.p0.n1.m.b a2 = d.a.p0.n1.m.b.a();
+                RankDetailTrendCard rankDetailTrendCard = this.f18270e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18232e;
+        public final /* synthetic */ RankDetailTrendCard f18272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCardView f18233f;
+        public final /* synthetic */ RankDetailTrendCardView f18273f;
 
         public b(RankDetailTrendCardView rankDetailTrendCardView, RankDetailTrendCard rankDetailTrendCard) {
             Interceptable interceptable = $ic;
@@ -104,15 +104,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                     return;
                 }
             }
-            this.f18233f = rankDetailTrendCardView;
-            this.f18232e = rankDetailTrendCard;
+            this.f18273f = rankDetailTrendCardView;
+            this.f18272e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18233f.o(this.f18232e);
+                this.f18273f.o(this.f18272e);
             }
         }
     }
@@ -153,7 +153,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void v(RankDetailTrendCard rankDetailTrendCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i2) == null) {
-            d.a.r0.s0.a.a(this.m, getRootView());
+            d.a.o0.s0.a.a(this.m, getRootView());
             SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);

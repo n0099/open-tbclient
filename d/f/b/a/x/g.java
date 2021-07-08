@@ -23,13 +23,12 @@ import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.mediacodec.MediaCodecRenderer;
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.google.android.material.internal.ManufacturerUtils;
-import com.kwai.video.player.misc.IMediaFormat;
 import d.f.b.a.i0.v;
 import d.f.b.a.p;
 import d.f.b.a.x.d;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,19 +44,19 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     public long n0;
     public boolean o0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public final class b implements AudioSink.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f73598a;
+        public final /* synthetic */ g f70701a;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -74,15 +73,15 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
                     return;
                 }
             }
-            this.f73598a = gVar;
+            this.f70701a = gVar;
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.a
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f73598a.Z.b(i2);
-                this.f73598a.q0(i2);
+                this.f70701a.Z.b(i2);
+                this.f70701a.r0(i2);
             }
         }
 
@@ -90,8 +89,8 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
         public void b(int i2, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.f73598a.Z.c(i2, j, j2);
-                this.f73598a.s0(i2, j, j2);
+                this.f70701a.Z.c(i2, j, j2);
+                this.f70701a.t0(i2, j, j2);
             }
         }
 
@@ -99,8 +98,8 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f73598a.r0();
-                this.f73598a.o0 = true;
+                this.f70701a.s0();
+                this.f70701a.o0 = true;
             }
         }
 
@@ -130,23 +129,32 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
         }
     }
 
-    public static boolean p0(String str) {
+    public static boolean q0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? v.f73412a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f73414c) && (v.f73413b.startsWith("zeroflte") || v.f73413b.startsWith("herolte") || v.f73413b.startsWith("heroqlte")) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? v.f70515a < 24 && "OMX.SEC.aac.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f70517c) && (v.f70516b.startsWith("zeroflte") || v.f70516b.startsWith("herolte") || v.f70516b.startsWith("heroqlte")) : invokeL.booleanValue;
+    }
+
+    @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.a
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a0.pause();
+            super.A();
+        }
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public void M(d.f.b.a.b0.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) {
+    public void N(d.f.b.a.b0.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, aVar, mediaCodec, format, mediaCrypto) == null) {
-            this.c0 = p0(aVar.f72605a);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, mediaCodec, format, mediaCrypto) == null) {
+            this.c0 = q0(aVar.f69708a);
             if (this.b0) {
                 MediaFormat frameworkMediaFormatV16 = format.getFrameworkMediaFormatV16();
                 this.i0 = frameworkMediaFormatV16;
-                frameworkMediaFormatV16.setString(IMediaFormat.KEY_MIME, "audio/raw");
+                frameworkMediaFormatV16.setString("mime", "audio/raw");
                 mediaCodec.configure(this.i0, (Surface) null, mediaCrypto, 0);
-                this.i0.setString(IMediaFormat.KEY_MIME, format.sampleMimeType);
+                this.i0.setString("mime", format.sampleMimeType);
                 return;
             }
             mediaCodec.configure(format.getFrameworkMediaFormatV16(), (Surface) null, mediaCrypto, 0);
@@ -155,34 +163,34 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public d.f.b.a.b0.a S(d.f.b.a.b0.b bVar, Format format, boolean z) throws MediaCodecUtil.DecoderQueryException {
+    public d.f.b.a.b0.a T(d.f.b.a.b0.b bVar, Format format, boolean z) throws MediaCodecUtil.DecoderQueryException {
         InterceptResult invokeLLZ;
         d.f.b.a.b0.a b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, format, z)) == null) {
-            if (o0(format.sampleMimeType) && (b2 = bVar.b()) != null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, bVar, format, z)) == null) {
+            if (p0(format.sampleMimeType) && (b2 = bVar.b()) != null) {
                 this.b0 = true;
                 return b2;
             }
             this.b0 = false;
-            return super.S(bVar, format, z);
+            return super.T(bVar, format, z);
         }
         return (d.f.b.a.b0.a) invokeLLZ.objValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public void W(String str, long j, long j2) {
+    public void X(String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.Z.d(str, j, j2);
         }
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public void X(Format format) throws ExoPlaybackException {
+    public void Y(Format format) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, format) == null) {
-            super.X(format);
+        if (interceptable == null || interceptable.invokeL(1048580, this, format) == null) {
+            super.Y(format);
             this.Z.g(format);
             this.j0 = "audio/raw".equals(format.sampleMimeType) ? format.pcmEncoding : 2;
             this.k0 = format.channelCount;
@@ -197,13 +205,13 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public void Y(MediaCodec mediaCodec, MediaFormat mediaFormat) throws ExoPlaybackException {
+    public void Z(MediaCodec mediaCodec, MediaFormat mediaFormat) throws ExoPlaybackException {
         int[] iArr;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, mediaCodec, mediaFormat) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, mediaCodec, mediaFormat) == null) {
             boolean z = this.i0 != null;
-            String string = z ? this.i0.getString(IMediaFormat.KEY_MIME) : "audio/raw";
+            String string = z ? this.i0.getString("mime") : "audio/raw";
             if (z) {
                 mediaFormat = this.i0;
             }
@@ -220,7 +228,7 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
             try {
                 this.a0.h(string, integer, integer2, this.j0, 0, iArr, this.l0, this.m0);
             } catch (AudioSink.ConfigurationException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, t());
+                throw ExoPlaybackException.createForRenderer(e2, u());
             }
         }
     }
@@ -229,43 +237,14 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? super.b() && this.a0.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? super.b() && this.a0.b() : invokeV.booleanValue;
     }
 
     @Override // d.f.b.a.i0.h
     public p c(p pVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pVar)) == null) ? this.a0.c(pVar) : (p) invokeL.objValue;
-    }
-
-    @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public boolean c0(long j, long j2, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i2, int i3, long j3, boolean z) throws ExoPlaybackException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), mediaCodec, byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
-            if (this.b0 && (i3 & 2) != 0) {
-                mediaCodec.releaseOutputBuffer(i2, false);
-                return true;
-            } else if (z) {
-                mediaCodec.releaseOutputBuffer(i2, false);
-                this.X.f73647f++;
-                this.a0.m();
-                return true;
-            } else {
-                try {
-                    if (this.a0.f(byteBuffer, j3)) {
-                        mediaCodec.releaseOutputBuffer(i2, false);
-                        this.X.f73646e++;
-                        return true;
-                    }
-                    return false;
-                } catch (AudioSink.InitializationException | AudioSink.WriteException e2) {
-                    throw ExoPlaybackException.createForRenderer(e2, t());
-                }
-            }
-        }
-        return invokeCommon.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pVar)) == null) ? this.a0.c(pVar) : (p) invokeL.objValue;
     }
 
     @Override // d.f.b.a.i0.h
@@ -275,14 +254,43 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a0.d() : (p) invokeV.objValue;
     }
 
-    @Override // d.f.b.a.a, d.f.b.a.g.a
-    public void g(int i2, Object obj) throws ExoPlaybackException {
+    @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
+    public boolean d0(long j, long j2, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i2, int i3, long j3, boolean z) throws ExoPlaybackException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, obj) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), mediaCodec, byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
+            if (this.b0 && (i3 & 2) != 0) {
+                mediaCodec.releaseOutputBuffer(i2, false);
+                return true;
+            } else if (z) {
+                mediaCodec.releaseOutputBuffer(i2, false);
+                this.X.f70750f++;
+                this.a0.m();
+                return true;
+            } else {
+                try {
+                    if (this.a0.f(byteBuffer, j3)) {
+                        mediaCodec.releaseOutputBuffer(i2, false);
+                        this.X.f70749e++;
+                        return true;
+                    }
+                    return false;
+                } catch (AudioSink.InitializationException | AudioSink.WriteException e2) {
+                    throw ExoPlaybackException.createForRenderer(e2, u());
+                }
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // d.f.b.a.a, d.f.b.a.g.a
+    public void h(int i2, Object obj) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i2, obj) == null) {
             if (i2 == 2) {
                 this.a0.setVolume(((Float) obj).floatValue());
             } else if (i2 != 3) {
-                super.g(i2, obj);
+                super.h(i2, obj);
             } else {
                 this.a0.e((d.f.b.a.x.b) obj);
             }
@@ -290,13 +298,13 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public void g0() throws ExoPlaybackException {
+    public void h0() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             try {
                 this.a0.k();
             } catch (AudioSink.WriteException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, t());
+                throw ExoPlaybackException.createForRenderer(e2, u());
             }
         }
     }
@@ -305,23 +313,23 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     public boolean isReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a0.i() || super.isReady() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a0.i() || super.isReady() : invokeV.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public int k0(d.f.b.a.b0.b bVar, d.f.b.a.z.a<d.f.b.a.z.c> aVar, Format format) throws MediaCodecUtil.DecoderQueryException {
+    public int l0(d.f.b.a.b0.b bVar, d.f.b.a.z.a<d.f.b.a.z.c> aVar, Format format) throws MediaCodecUtil.DecoderQueryException {
         InterceptResult invokeLLL;
         boolean z;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, bVar, aVar, format)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, bVar, aVar, format)) == null) {
             String str = format.sampleMimeType;
             boolean z2 = false;
             if (d.f.b.a.i0.i.g(str)) {
-                int i4 = v.f73412a >= 21 ? 32 : 0;
-                boolean D = d.f.b.a.a.D(aVar, format.drmInitData);
-                if (D && o0(str) && bVar.b() != null) {
+                int i4 = v.f70515a >= 21 ? 32 : 0;
+                boolean E = d.f.b.a.a.E(aVar, format.drmInitData);
+                if (E && p0(str) && bVar.b() != null) {
                     return i4 | 8 | 4;
                 }
                 DrmInitData drmInitData = format.drmInitData;
@@ -336,8 +344,8 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
                 d.f.b.a.b0.a a2 = bVar.a(str, z);
                 if (a2 == null) {
                     return (!z || bVar.a(str, false) == null) ? 1 : 2;
-                } else if (D) {
-                    if (v.f73412a < 21 || (((i2 = format.sampleRate) == -1 || a2.h(i2)) && ((i3 = format.channelCount) == -1 || a2.g(i3)))) {
+                } else if (E) {
+                    if (v.f70515a < 21 || (((i2 = format.sampleRate) == -1 || a2.h(i2)) && ((i3 = format.channelCount) == -1 || a2.g(i3)))) {
                         z2 = true;
                     }
                     return i4 | 8 | (z2 ? 4 : 3);
@@ -351,23 +359,23 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // d.f.b.a.a, d.f.b.a.r
-    public d.f.b.a.i0.h l() {
+    public d.f.b.a.i0.h m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this : (d.f.b.a.i0.h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this : (d.f.b.a.i0.h) invokeV.objValue;
     }
 
-    public boolean o0(String str) {
+    public boolean p0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.a0.n(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? this.a0.n(str) : invokeL.booleanValue;
     }
 
     @Override // d.f.b.a.i0.h
-    public long p() {
+    public long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             long l = this.a0.l(b());
             if (l != Long.MIN_VALUE) {
                 if (!this.o0) {
@@ -381,38 +389,38 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
         return invokeV.longValue;
     }
 
-    public void q0(int i2) {
+    public void r0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
         }
     }
 
-    public void r0() {
+    public void s0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
         }
     }
 
-    public void s0(int i2, long j, long j2) {
+    public void t0(int i2, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.a
-    public void v() {
+    public void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             try {
                 this.a0.release();
                 try {
-                    super.v();
+                    super.w();
                 } finally {
                 }
             } catch (Throwable th) {
                 try {
-                    super.v();
+                    super.w();
                     throw th;
                 } finally {
                 }
@@ -421,12 +429,12 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.a
-    public void w(boolean z) throws ExoPlaybackException {
+    public void x(boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            super.w(z);
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            super.x(z);
             this.Z.f(this.X);
-            int i2 = s().f73517a;
+            int i2 = t().f70620a;
             if (i2 != 0) {
                 this.a0.g(i2);
             } else {
@@ -436,10 +444,10 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.a
-    public void x(long j, boolean z) throws ExoPlaybackException {
+    public void y(long j, boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            super.x(j, z);
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            super.y(j, z);
             this.a0.reset();
             this.n0 = j;
             this.o0 = true;
@@ -447,20 +455,11 @@ public class g extends MediaCodecRenderer implements d.f.b.a.i0.h {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.a
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            super.y();
-            this.a0.play();
-        }
-    }
-
-    @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, d.f.b.a.a
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.a0.pause();
             super.z();
+            this.a0.play();
         }
     }
 

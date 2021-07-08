@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Path f73977a;
+    public static final Path f71029a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,12 +27,12 @@ public final class e {
                 return;
             }
         }
-        f73977a = new Path();
+        f71029a = new Path();
     }
 
     public static final Path a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f73977a : (Path) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f71029a : (Path) invokeV.objValue;
     }
 }

@@ -2,6 +2,7 @@ package d.f.b.a.f0;
 
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,21 +16,21 @@ import d.f.b.a.f0.f;
 import d.f.b.a.s;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class e extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<Map<t, b>> f73244a;
+    public final SparseArray<Map<t, b>> f70347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseBooleanArray f73245b;
+    public final SparseBooleanArray f70348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f73246c;
+    public int f70349c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,24 +54,24 @@ public abstract class e extends h {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final f.a f73247a;
+        public final f.a f70350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73248b;
+        public final int f70351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f73249c;
+        public final int[] f70352c;
 
         public f a(t tVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.f73247a.a(tVar.a(this.f73248b), this.f73249c) : (f) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tVar)) == null) ? this.f70350a.a(tVar.a(this.f70351b), this.f70352c) : (f) invokeL.objValue;
         }
     }
 
@@ -87,9 +88,9 @@ public abstract class e extends h {
                 return;
             }
         }
-        this.f73244a = new SparseArray<>();
-        this.f73245b = new SparseBooleanArray();
-        this.f73246c = 0;
+        this.f70347a = new SparseArray<>();
+        this.f70348b = new SparseBooleanArray();
+        this.f70349c = 0;
     }
 
     public static int e(s[] sVarArr, d.f.b.a.d0.s sVar) throws ExoPlaybackException {
@@ -100,7 +101,7 @@ public abstract class e extends h {
             int i2 = 0;
             for (int i3 = 0; i3 < sVarArr.length; i3++) {
                 s sVar2 = sVarArr[i3];
-                for (int i4 = 0; i4 < sVar.f72748a; i4++) {
+                for (int i4 = 0; i4 < sVar.f69851a; i4++) {
                     int a2 = sVar2.a(sVar.a(i4)) & 7;
                     if (a2 > i2) {
                         if (a2 == 4) {
@@ -120,8 +121,8 @@ public abstract class e extends h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sVar, sVar2)) == null) {
-            int[] iArr = new int[sVar2.f72748a];
-            for (int i2 = 0; i2 < sVar2.f72748a; i2++) {
+            int[] iArr = new int[sVar2.f69851a];
+            for (int i2 = 0; i2 < sVar2.f69851a; i2++) {
                 iArr[i2] = sVar.a(sVar2.a(i2));
             }
             return iArr;
@@ -136,7 +137,7 @@ public abstract class e extends h {
             int length = sVarArr.length;
             int[] iArr = new int[length];
             for (int i2 = 0; i2 < length; i2++) {
-                iArr[i2] = sVarArr[i2].q();
+                iArr[i2] = sVarArr[i2].r();
             }
             return iArr;
         }
@@ -146,17 +147,17 @@ public abstract class e extends h {
     public static void i(s[] sVarArr, t[] tVarArr, int[][][] iArr, d.f.b.a.t[] tVarArr2, f[] fVarArr, int i2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{sVarArr, tVarArr, iArr, tVarArr2, fVarArr, Integer.valueOf(i2)}) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sVarArr, tVarArr, iArr, tVarArr2, fVarArr, Integer.valueOf(i2)}) == null) || i2 == 0) {
             return;
         }
         boolean z2 = false;
         int i3 = -1;
         int i4 = -1;
         for (int i5 = 0; i5 < sVarArr.length; i5++) {
-            int trackType = sVarArr[i5].getTrackType();
+            int e2 = sVarArr[i5].e();
             f fVar = fVarArr[i5];
-            if ((trackType == 1 || trackType == 2) && fVar != null && j(iArr[i5], tVarArr[i5], fVar)) {
-                if (trackType == 1) {
+            if ((e2 == 1 || e2 == 2) && fVar != null && j(iArr[i5], tVarArr[i5], fVar)) {
+                if (e2 == 1) {
                     if (i4 != -1) {
                         z = false;
                         break;
@@ -217,15 +218,15 @@ public abstract class e extends h {
             d.f.b.a.d0.s[][] sVarArr2 = new d.f.b.a.d0.s[length];
             int[][][] iArr2 = new int[sVarArr.length + 1][];
             for (int i2 = 0; i2 < length; i2++) {
-                int i3 = tVar.f72752a;
+                int i3 = tVar.f69855a;
                 sVarArr2[i2] = new d.f.b.a.d0.s[i3];
                 iArr2[i2] = new int[i3];
             }
             int[] g2 = g(sVarArr);
-            for (int i4 = 0; i4 < tVar.f72752a; i4++) {
+            for (int i4 = 0; i4 < tVar.f69855a; i4++) {
                 d.f.b.a.d0.s a2 = tVar.a(i4);
                 int e2 = e(sVarArr, a2);
-                int[] f2 = e2 == sVarArr.length ? new int[a2.f72748a] : f(sVarArr[e2], a2);
+                int[] f2 = e2 == sVarArr.length ? new int[a2.f69851a] : f(sVarArr[e2], a2);
                 int i5 = iArr[e2];
                 sVarArr2[e2][i5] = a2;
                 iArr2[e2][i5] = f2;
@@ -237,7 +238,7 @@ public abstract class e extends h {
                 int i7 = iArr[i6];
                 tVarArr[i6] = new t((d.f.b.a.d0.s[]) Arrays.copyOf(sVarArr2[i6], i7));
                 iArr2[i6] = (int[][]) Arrays.copyOf(iArr2[i6], i7);
-                iArr3[i6] = sVarArr[i6].getTrackType();
+                iArr3[i6] = sVarArr[i6].e();
             }
             t tVar2 = new t((d.f.b.a.d0.s[]) Arrays.copyOf(sVarArr2[sVarArr.length], iArr[sVarArr.length]));
             f[] k = k(sVarArr, tVarArr, iArr2);
@@ -246,12 +247,12 @@ public abstract class e extends h {
                 if (i8 >= sVarArr.length) {
                     break;
                 }
-                if (this.f73245b.get(i8)) {
+                if (this.f70348b.get(i8)) {
                     k[i8] = null;
                 } else {
                     t tVar3 = tVarArr[i8];
                     if (h(i8, tVar3)) {
-                        b bVar = this.f73244a.get(i8).get(tVar3);
+                        b bVar = this.f70347a.get(i8).get(tVar3);
                         k[i8] = bVar != null ? bVar.a(tVar3) : null;
                     }
                 }
@@ -261,9 +262,9 @@ public abstract class e extends h {
             a aVar = new a(iArr3, tVarArr, g2, iArr2, tVar2);
             d.f.b.a.t[] tVarArr2 = new d.f.b.a.t[sVarArr.length];
             for (int i9 = 0; i9 < sVarArr.length; i9++) {
-                tVarArr2[i9] = d2[i9] ? d.f.b.a.t.f73516b : null;
+                tVarArr2[i9] = d2[i9] ? d.f.b.a.t.f70619b : null;
             }
-            i(sVarArr, tVarArr, iArr2, tVarArr2, k, this.f73246c);
+            i(sVarArr, tVarArr, iArr2, tVarArr2, k, this.f70349c);
             return new i(tVar, d2, new g(k), aVar, tVarArr2);
         }
         return (i) invokeLL.objValue;
@@ -276,7 +277,7 @@ public abstract class e extends h {
             int length = fVarArr.length;
             boolean[] zArr = new boolean[length];
             for (int i2 = 0; i2 < length; i2++) {
-                zArr[i2] = !this.f73245b.get(i2) && (sVarArr[i2].getTrackType() == 5 || fVarArr[i2] != null);
+                zArr[i2] = !this.f70348b.get(i2) && (sVarArr[i2].e() == 5 || fVarArr[i2] != null);
             }
             return zArr;
         }
@@ -287,7 +288,7 @@ public abstract class e extends h {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, tVar)) == null) {
-            Map<t, b> map = this.f73244a.get(i2);
+            Map<t, b> map = this.f70347a.get(i2);
             return map != null && map.containsKey(tVar);
         }
         return invokeIL.booleanValue;

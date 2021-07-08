@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODING = "UTF-8";
@@ -99,7 +100,7 @@ public class AES {
     public static byte[] hexToBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null && str.length() >= 2) {
                 int length = str.length() / 2;
                 byte[] bArr = new byte[length];

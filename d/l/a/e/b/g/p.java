@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.ss.android.socialbase.downloader.downloader.DownloadService;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface p<T extends DownloadService> {
     IBinder a(Intent intent);
 

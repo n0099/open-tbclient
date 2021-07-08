@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ErrorBehaviour {
     public static final /* synthetic */ ErrorBehaviour[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +19,7 @@ public final class ErrorBehaviour {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f38668c;
+    public final int f35740c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public final class ErrorBehaviour {
                 return;
             }
         }
-        this.f38668c = i3;
+        this.f35740c = i3;
     }
 
     public static ErrorBehaviour valueOf(String str) {

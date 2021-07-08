@@ -45,9 +45,9 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(com.alipay.sdk.packet.e.f1908a, String.valueOf(z));
+            hashMap.put(com.alipay.sdk.packet.e.f1909a, String.valueOf(z));
             hashMap.put("content-type", "application/octet-stream");
-            hashMap.put(com.alipay.sdk.packet.e.f1914g, "CBC");
+            hashMap.put(com.alipay.sdk.packet.e.f1915g, "CBC");
             return hashMap;
         }
         return (Map) invokeZL.objValue;
@@ -69,7 +69,7 @@ public class d extends com.alipay.sdk.packet.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put(com.alipay.sdk.packet.e.f1916i, "/sdk/log");
+            hashMap.put(com.alipay.sdk.packet.e.f1917i, "/sdk/log");
             hashMap.put(com.alipay.sdk.packet.e.j, BuildConfig.VERSION_NAME);
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put(t, "1.0");

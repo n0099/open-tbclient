@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bv extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f42897a;
+    public final /* synthetic */ bu f39911a;
 
     public bv(bu buVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class bv extends ai.a {
                 return;
             }
         }
-        this.f42897a = buVar;
+        this.f39911a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -50,12 +50,12 @@ public class bv extends ai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-            ckVar = this.f42897a.f163a;
+            ckVar = this.f39911a.f163a;
             if (ckVar != null) {
-                ckVar2 = this.f42897a.f163a;
-                context = this.f42897a.f160a;
+                ckVar2 = this.f39911a.f163a;
+                context = this.f39911a.f160a;
                 ckVar2.a(context);
-                this.f42897a.b("upload_time");
+                this.f39911a.b("upload_time");
             }
         }
     }

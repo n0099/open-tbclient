@@ -5,12 +5,12 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface RewardAdInteractionListener {
         @KsAdSdkApi
         @Keep
@@ -40,6 +40,14 @@ public interface KsRewardVideoAd {
     @KsAdSdkApi
     @Keep
     int getECPM();
+
+    @KsAdSdkApi
+    @Keep
+    int getInteractionType();
+
+    @KsAdSdkApi
+    @Keep
+    int getMaterialType();
 
     @KsAdSdkApi
     @Keep

@@ -3,6 +3,7 @@ package com.yy.hiidostatis.defs.controller;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ import java.io.FilenameFilter;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class CrashController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXPIRES_DAY = 5;
@@ -47,7 +48,7 @@ public class CrashController {
     public Preference mPreference;
     public IStatisAPI mStatisAPI;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface OnCrashListener {
         void handler(JSONObject jSONObject);
     }
@@ -77,7 +78,7 @@ public class CrashController {
 
     private void clearInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             try {
                 this.mPreference.clearKey(this.mContext, str);
             } catch (Throwable th) {

@@ -212,7 +212,7 @@ public class NotificationCompat {
 
             private void checkContextualActionNullFields() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.mIsContextual && this.mIntent == null) {
+                if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mIsContextual && this.mIntent == null) {
                     throw new NullPointerException("Contextual Actions must contain a valid PendingIntent");
                 }
             }
@@ -1373,7 +1373,7 @@ public class NotificationCompat {
 
         private void setFlag(int i2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
                 if (z) {
                     Notification notification = this.mNotification;
                     notification.flags = i2 | notification.flags;
@@ -2633,7 +2633,7 @@ public class NotificationCompat {
         private Bitmap createColoredBitmap(IconCompat iconCompat, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, this, iconCompat, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iconCompat, i2, i3)) == null) {
                 Drawable loadDrawable = iconCompat.loadDrawable(this.mBuilder.mContext);
                 int intrinsicWidth = i3 == 0 ? loadDrawable.getIntrinsicWidth() : i3;
                 if (i3 == 0) {
@@ -3439,7 +3439,7 @@ public class NotificationCompat {
     public static boolean getAllowSystemGeneratedContextualActions(Notification notification) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, notification)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, notification)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return notification.getAllowSystemGeneratedContextualActions();
             }
@@ -4200,7 +4200,7 @@ public class NotificationCompat {
             InterceptResult invokeV;
             List<Message> list;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 for (int size = this.mMessages.size() - 1; size >= 0; size--) {
                     Message message = this.mMessages.get(size);
                     if (message.getPerson() != null && !TextUtils.isEmpty(message.getPerson().getName())) {
@@ -4570,7 +4570,7 @@ public class NotificationCompat {
                 InterceptResult invokeL;
                 Message messageFromBundle;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, parcelableArr)) == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcelableArr)) == null) {
                     ArrayList arrayList = new ArrayList(parcelableArr.length);
                     for (int i2 = 0; i2 < parcelableArr.length; i2++) {
                         if ((parcelableArr[i2] instanceof Bundle) && (messageFromBundle = getMessageFromBundle((Bundle) parcelableArr[i2])) != null) {

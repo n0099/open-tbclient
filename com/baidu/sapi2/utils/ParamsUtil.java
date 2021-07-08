@@ -1,6 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +201,7 @@ public class ParamsUtil implements NoProguard {
     public static String buildH5CommonParams(SapiConfiguration sapiConfiguration, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, sapiConfiguration, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, sapiConfiguration, z)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("clientfrom", "native");
             hashMap.put("tpl", sapiConfiguration.tpl);

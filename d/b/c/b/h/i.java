@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile HandlerThread f71900a;
+    public static volatile HandlerThread f69003a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Handler f71901b;
+    public static volatile Handler f69004b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,16 +53,16 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f71900a == null) {
+            if (f69003a == null) {
                 synchronized (i.class) {
-                    if (f71900a == null) {
-                        f71900a = new HandlerThread("default_npth_thread");
-                        f71900a.start();
-                        f71901b = new Handler(f71900a.getLooper());
+                    if (f69003a == null) {
+                        f69003a = new HandlerThread("default_npth_thread");
+                        f69003a.start();
+                        f69004b = new Handler(f69003a.getLooper());
                     }
                 }
             }
-            return f71900a;
+            return f69003a;
         }
         return (HandlerThread) invokeV.objValue;
     }
@@ -71,10 +71,10 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f71901b == null) {
+            if (f69004b == null) {
                 a();
             }
-            return f71901b;
+            return f69004b;
         }
         return (Handler) invokeV.objValue;
     }

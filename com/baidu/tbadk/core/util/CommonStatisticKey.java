@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -93,8 +93,12 @@ public class CommonStatisticKey {
     public static final String KEY_WRITE_WINDOW_ARTICLE_WORDS_ICON = "c12372";
     public static final String KEY_WRITE_WINDOW_LINK_ICON = "c12162";
     public static final String KEY_WRITE_WINDOW_PHOTO_WORDS_ICON = "c12373";
+    public static final String KEY_YY_ENTRANCE_IN_VIDEO_LIST_CLICK = "c14265";
+    public static final String KEY_YY_ENTRANCE_IN_VIDEO_LIST_SHOW = "c14206";
     public static final String KEY_YY_FRS_HEAD_SCULPTURE_CLICK = "c14140";
     public static final String KEY_YY_FRS_HEAD_SCULPTURE_SHOW = "c14139";
+    public static final String KEY_YY_PORTRAIT_IN_VIDEO_LIST_CLICK = "c14267";
+    public static final String KEY_YY_PORTRAIT_IN_VIDEO_LIST_SHOW = "c14268";
     public static final String MESSAGE_ENTER_ICON_CLICK = "c12924";
     public static final String MY_SERVICE_CK = "my_service_ck";
     public static final String NOTIFICATION_PERMISSION_DIALOG_CLICK = "c13673";
@@ -114,7 +118,7 @@ public class CommonStatisticKey {
     public static final String WINDOW_EXPOSURE = "c14075";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";

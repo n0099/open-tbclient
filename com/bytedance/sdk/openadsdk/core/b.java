@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.core;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
@@ -25,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class b {
             mVar.f(jSONObject.optInt("video_adaptation", 0));
             mVar.e(jSONObject.optInt("feed_video_opentype", 0));
             mVar.b(jSONObject.optJSONObject("session_params"));
-            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f29994e : 1));
+            mVar.c(jSONObject.optInt("render_control", nVar != null ? nVar.f30104e : 1));
             if (optJSONObject != null) {
                 com.bytedance.sdk.openadsdk.core.e.l lVar = new com.bytedance.sdk.openadsdk.core.e.l();
                 lVar.a(optJSONObject.optString("url"));
@@ -132,12 +133,12 @@ public class b {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("click_area");
             if (optJSONObject4 != null) {
                 com.bytedance.sdk.openadsdk.core.e.e eVar = new com.bytedance.sdk.openadsdk.core.e.e();
-                eVar.f29910a = optJSONObject4.optBoolean("click_upper_content_area", true);
-                eVar.f29911b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
-                eVar.f29912c = optJSONObject4.optBoolean("click_lower_content_area", true);
-                eVar.f29913d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
-                eVar.f29914e = optJSONObject4.optBoolean("click_button_area", true);
-                eVar.f29915f = optJSONObject4.optBoolean("click_video_area", true);
+                eVar.f30020a = optJSONObject4.optBoolean("click_upper_content_area", true);
+                eVar.f30021b = optJSONObject4.optBoolean("click_upper_non_content_area", true);
+                eVar.f30022c = optJSONObject4.optBoolean("click_lower_content_area", true);
+                eVar.f30023d = optJSONObject4.optBoolean("click_lower_non_content_area", true);
+                eVar.f30024e = optJSONObject4.optBoolean("click_button_area", true);
+                eVar.f30025f = optJSONObject4.optBoolean("click_video_area", true);
                 mVar.a(eVar);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("adslot");
@@ -442,7 +443,7 @@ public class b {
     public static boolean a(com.bytedance.sdk.openadsdk.core.e.m mVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, mVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mVar)) == null) {
             boolean z = mVar != null;
             if (TextUtils.isEmpty(mVar.ak()) || mVar.ak().length() <= 1 || !a(mVar.an())) {
                 return false;

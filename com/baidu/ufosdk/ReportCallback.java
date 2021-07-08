@@ -1,5 +1,5 @@
 package com.baidu.ufosdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface ReportCallback {
     void getReportContent(String str, String str2);
 

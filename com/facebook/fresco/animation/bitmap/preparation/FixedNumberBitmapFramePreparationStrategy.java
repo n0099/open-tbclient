@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePreparationStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAMES_TO_PREPARE = 3;

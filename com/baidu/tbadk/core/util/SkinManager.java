@@ -28,6 +28,7 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -48,19 +49,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.b;
 import d.a.c.e.p.l;
-import d.a.r0.r.u.a;
-import d.a.s0.h3.c;
+import d.a.o0.r.u.a;
+import d.a.p0.h3.c;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SkinManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_COVER_COLOR = 1275068416;
     public static final String PLUGIN_NIGHT_RESOURCE = "com.baidu.tieba.pluginResource";
     public static final int PRIOROTY_BEFORE_CHANGE_SKIN = -1;
     public static final float RESOURCE_ALPHA_DISABLE;
+    public static final float RESOURCE_ALPHA_OVERLAP_SHOW;
     public static final float RESOURCE_ALPHA_PRESS;
     public static final int SKIN_TYPE_DARK = 4;
     public static final int SKIN_TYPE_NIGHT = 1;
@@ -86,7 +88,7 @@ public class SkinManager {
     public static int sPacknameLength;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class ViewType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUTTON = 3;
@@ -156,6 +158,7 @@ public class SkinManager {
                 }
             }
         });
+        RESOURCE_ALPHA_OVERLAP_SHOW = a.a(R.string.A_X05);
         RESOURCE_ALPHA_PRESS = a.a(R.string.A_X07);
         RESOURCE_ALPHA_DISABLE = a.a(R.string.A_X09);
         TYPE_ERROR = "skinType not support";
@@ -795,7 +798,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            d.a.r0.r.z.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
+            d.a.o0.r.z.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i2);
                 if (StringUtils.isNull(resourceName)) {
@@ -1095,8 +1098,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (d.a.r0.r.d0.b.j().g("key_is_dark_mode_notify_shown", false)) {
-                boolean g2 = d.a.r0.r.d0.b.j().g("key_is_follow_system_mode", false);
+            } else if (d.a.o0.r.d0.b.j().g("key_is_dark_mode_notify_shown", false)) {
+                boolean g2 = d.a.o0.r.d0.b.j().g("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b2);
                 }
@@ -1108,8 +1111,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i2);
             } else {
-                d.a.r0.r.d0.b.j().t("key_is_dark_mode_notify_shown", true);
-                d.a.r0.r.d0.b.j().t("key_is_follow_system_mode", true);
+                d.a.o0.r.d0.b.j().t("key_is_dark_mode_notify_shown", true);
+                d.a.o0.r.d0.b.j().t("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -1822,7 +1825,7 @@ public class SkinManager {
     public static ColorStateList createColorStateList(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? createColorStateList(i2, i3, TbadkCoreApplication.getInst().getSkinType()) : (ColorStateList) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? createColorStateList(i2, i3, TbadkCoreApplication.getInst().getSkinType()) : (ColorStateList) invokeII.objValue;
     }
 
     public static int getColor(Resources resources, int i2) {

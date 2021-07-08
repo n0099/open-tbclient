@@ -15,20 +15,20 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.FuseToMaybe;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class MaybeIgnoreElementCompletable<T> extends Completable implements FuseToMaybe<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<T> source;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IgnoreMaybeObserver<T> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f75988d;
+        public Disposable f73022d;
 
         public IgnoreMaybeObserver(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f75988d.dispose();
-                this.f75988d = DisposableHelper.DISPOSED;
+                this.f73022d.dispose();
+                this.f73022d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -61,14 +61,14 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75988d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73022d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f75988d = DisposableHelper.DISPOSED;
+                this.f73022d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
         }
@@ -77,7 +77,7 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f75988d = DisposableHelper.DISPOSED;
+                this.f73022d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -85,8 +85,8 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f75988d, disposable)) {
-                this.f75988d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73022d, disposable)) {
+                this.f73022d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -95,7 +95,7 @@ public final class MaybeIgnoreElementCompletable<T> extends Completable implemen
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f75988d = DisposableHelper.DISPOSED;
+                this.f73022d = DisposableHelper.DISPOSED;
                 this.actual.onComplete();
             }
         }

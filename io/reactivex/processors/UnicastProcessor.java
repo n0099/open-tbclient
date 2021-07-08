@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public final AtomicLong requested;
     public final BasicIntQueueSubscription<T> wip;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class UnicastQueueSubscription extends BasicIntQueueSubscription<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4896760517184205454L;
@@ -429,7 +429,7 @@ public final class UnicastProcessor<T> extends FlowableProcessor<T> {
     public static <T> UnicastProcessor<T> create(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? new UnicastProcessor<>(i2) : (UnicastProcessor) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new UnicastProcessor<>(i2) : (UnicastProcessor) invokeI.objValue;
     }
 
     public UnicastProcessor(int i2, Runnable runnable, boolean z) {

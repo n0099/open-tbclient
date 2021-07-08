@@ -41,26 +41,26 @@ public class bv implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = this.f1417a;
-            while (aVar.f46112g && aVar.f46107b != null && !Thread.interrupted()) {
-                if (aVar.f46108c) {
-                    AudioRecord audioRecord = aVar.f46107b;
-                    byte[] bArr = aVar.f46106a;
+            while (aVar.f42886g && aVar.f42881b != null && !Thread.interrupted()) {
+                if (aVar.f42882c) {
+                    AudioRecord audioRecord = aVar.f42881b;
+                    byte[] bArr = aVar.f42880a;
                     int read = audioRecord.read(bArr, 0, bArr.length);
-                    if (read <= 0 || (aVar.f46111f && read != aVar.f46106a.length)) {
+                    if (read <= 0 || (aVar.f42885f && read != aVar.f42880a.length)) {
                         Log.w("AudioCaptureDevice", "[AudioRecord] warning, no data to read or wrong data size.");
                     } else {
-                        if (aVar.f46109d) {
-                            Arrays.fill(aVar.f46106a, (byte) 0);
+                        if (aVar.f42883d) {
+                            Arrays.fill(aVar.f42880a, (byte) 0);
                         }
-                        if (aVar.f46113h != null) {
+                        if (aVar.f42887h != null) {
                             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
                             bufferInfo.size = read;
                             bufferInfo.offset = 0;
-                            bufferInfo.presentationTimeUs = (System.nanoTime() - aVar.f46110e) / 1000;
+                            bufferInfo.presentationTimeUs = (System.nanoTime() - aVar.f42884e) / 1000;
                             ByteBuffer allocate = ByteBuffer.allocate(read);
-                            allocate.put(aVar.f46106a, 0, read);
+                            allocate.put(aVar.f42880a, 0, read);
                             allocate.flip();
-                            aVar.f46113h.a(allocate, bufferInfo);
+                            aVar.f42887h.a(allocate, bufferInfo);
                         }
                     }
                 } else {

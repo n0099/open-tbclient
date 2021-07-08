@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.e;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompatJellybean;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31071a;
+    public final String f31181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f31072b;
+    public final JSONObject f31182b;
 
     public a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -39,8 +40,8 @@ public class a implements i {
                 return;
             }
         }
-        this.f31071a = str;
-        this.f31072b = jSONObject;
+        this.f31181a = str;
+        this.f31182b = jSONObject;
     }
 
     public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
@@ -52,7 +53,7 @@ public class a implements i {
     public static JSONObject b(Context context, String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, context, str, str2, str3, jSONObject)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3, jSONObject)) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("event_ts", System.currentTimeMillis());
@@ -112,13 +113,13 @@ public class a implements i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f31071a) || this.f31072b == null) {
+            if (TextUtils.isEmpty(this.f31181a) || this.f31182b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f31071a);
-                jSONObject.put("event", this.f31072b);
+                jSONObject.put("localId", this.f31181a);
+                jSONObject.put("event", this.f31182b);
             } catch (Throwable unused) {
             }
             return jSONObject.toString();
@@ -158,6 +159,6 @@ public class a implements i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31071a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31181a : (String) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package d.l.a.c;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,39 +12,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f74127a;
+    public static final char[] f71179a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f74128a;
+        public int f71180a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f74129b;
+        public int f71181b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f74130c;
+        public int f71182c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f74131d;
+        public long f71183d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f74132e;
+        public String f71184e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -77,7 +78,7 @@ public class c {
                 return;
             }
         }
-        f74127a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f71179a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static int a(String str, File file) {
@@ -95,22 +96,22 @@ public class c {
                         try {
                             b b2 = b(str);
                             if (b2 != null) {
-                                if (b2.f74128a > 1) {
+                                if (b2.f71180a > 1) {
                                     return 3;
                                 }
-                                i2 = b2.f74130c;
-                                j = b2.f74131d;
+                                i2 = b2.f71182c;
+                                j = b2.f71183d;
                             }
                             b bVar = null;
                             String k = k(file, i2, j);
                             if (k != null && k.length() != 0) {
-                                if (b2 != null && (b2.f74128a != 1 || b2.f74129b != 1)) {
-                                    if (b2.f74132e != null) {
+                                if (b2 != null && (b2.f71180a != 1 || b2.f71181b != 1)) {
+                                    if (b2.f71184e != null) {
                                         try {
                                             bVar = b(k);
                                         } catch (Throwable unused) {
                                         }
-                                        if (bVar != null && b2.f74130c == bVar.f74130c && b2.f74131d == bVar.f74131d && b2.f74132e.equals(bVar.f74132e)) {
+                                        if (bVar != null && b2.f71182c == bVar.f71182c && b2.f71183d == bVar.f71183d && b2.f71184e.equals(bVar.f71184e)) {
                                             return 0;
                                         }
                                     }
@@ -140,15 +141,15 @@ public class c {
                 String[] split = str.split(";");
                 String[] split2 = split[0].split(":");
                 b bVar = new b(null);
-                bVar.f74128a = Integer.parseInt(split2[1]);
-                if (bVar.f74128a > 1) {
+                bVar.f71180a = Integer.parseInt(split2[1]);
+                if (bVar.f71180a > 1) {
                     return bVar;
                 }
-                bVar.f74129b = Integer.parseInt(split2[2]);
+                bVar.f71181b = Integer.parseInt(split2[2]);
                 String[] split3 = split2[3].split("g");
-                bVar.f74130c = (int) j(split3[0]);
-                bVar.f74131d = j(split3[1]);
-                bVar.f74132e = split[1];
+                bVar.f71182c = (int) j(split3[0]);
+                bVar.f71183d = j(split3[1]);
+                bVar.f71184e = split[1];
                 return bVar;
             }
             return null;
@@ -168,7 +169,7 @@ public class c {
     public static String d(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65540, null, j)) == null) ? Long.toHexString((j << 4) + 31) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? Long.toHexString((j << 4) + 31) : (String) invokeJ.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -280,7 +281,7 @@ public class c {
                 for (int i4 = 0; i4 < length; i4++) {
                     int i5 = bArr[i4 + 0] & 255;
                     int i6 = i3 + 1;
-                    char[] cArr2 = f74127a;
+                    char[] cArr2 = f71179a;
                     cArr[i3] = cArr2[i5 >> 4];
                     i3 = i6 + 1;
                     cArr[i6] = cArr2[i5 & 15];

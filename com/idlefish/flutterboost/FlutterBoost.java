@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
 import d.a.c.h.j.g.d;
-import d.a.s0.m3.a;
+import d.a.p0.m3.a;
 import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.android.FlutterView;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlutterBoost {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sInit;
@@ -57,14 +57,14 @@ public class FlutterBoost {
     public FlutterViewContainerManager mManager;
     public Platform mPlatform;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
         void onEngineCreated();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ConfigBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static int ANY_ACTIVITY_CREATED = 1;
@@ -309,7 +309,7 @@ public class FlutterBoost {
                 a.getInstance().setFlutterPath("createEngine1");
             }
             if (this.mEngine == null) {
-                synchronized (d.a.c.h.k.a.f44743a) {
+                synchronized (d.a.c.h.k.a.f41759a) {
                     PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                     try {
                         if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {

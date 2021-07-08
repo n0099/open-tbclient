@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
@@ -195,7 +196,7 @@ public class q {
     public static boolean E(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? "RLIAN00".equalsIgnoreCase(Build.MODEL) || "RLIN29".equalsIgnoreCase(Build.MODEL) || "TAH-AN00".equalsIgnoreCase(Build.MODEL) || "TAHN29".equalsIgnoreCase(Build.MODEL) || "TAH-AN00m".equalsIgnoreCase(Build.MODEL) || "RLI-N29".equalsIgnoreCase(Build.MODEL) || "TAH-N29".equalsIgnoreCase(Build.MODEL) || "RHA-AN00m".equalsIgnoreCase(Build.MODEL) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? "RLIAN00".equalsIgnoreCase(Build.MODEL) || "RLIN29".equalsIgnoreCase(Build.MODEL) || "TAH-AN00".equalsIgnoreCase(Build.MODEL) || "TAHN29".equalsIgnoreCase(Build.MODEL) || "TAH-AN00m".equalsIgnoreCase(Build.MODEL) || "RLI-N29".equalsIgnoreCase(Build.MODEL) || "TAH-N29".equalsIgnoreCase(Build.MODEL) || "RHA-AN00m".equalsIgnoreCase(Build.MODEL) : invokeL.booleanValue;
     }
 
     public static long[] gC() {

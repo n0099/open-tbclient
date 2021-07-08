@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class m implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public OrmObject f44026a;
+    public OrmObject f41042a;
 
     public m(OrmObject ormObject) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class m implements h {
                 return;
             }
         }
-        this.f44026a = ormObject;
+        this.f41042a = ormObject;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -56,14 +56,14 @@ public class m implements h {
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f44026a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f41042a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f44026a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f41042a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -91,6 +91,6 @@ public class m implements h {
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? OrmObject.jsonWithObject(this.f44026a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) ? OrmObject.jsonWithObject(this.f41042a) : invokeL.objValue;
     }
 }

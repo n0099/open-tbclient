@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     public static WebPImage create(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             StaticWebpNativeLoader.ensure();
             Preconditions.checkNotNull(bArr);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);

@@ -18,7 +18,7 @@ import com.xiaomi.push.im;
 import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class bp {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, hfVar, z)) == null) {
-            switch (bq.f43640a[hfVar.ordinal()]) {
+            switch (bq.f40654a[hfVar.ordinal()]) {
                 case 1:
                     return new ig();
                 case 2:

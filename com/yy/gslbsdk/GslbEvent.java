@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.util.GlobalTools;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class GslbEvent {
     public static final /* synthetic */ GslbEvent[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +19,7 @@ public final class GslbEvent {
     public transient /* synthetic */ FieldHolder $fh;
     public GslbEventListener listener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface GslbEventListener {
         void onMessage(String str);
     }

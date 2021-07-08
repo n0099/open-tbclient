@@ -17,7 +17,7 @@ import org.webrtc.NativeLibrary;
 import org.webrtc.PeerConnection;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PeerConnectionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PeerConnectionFactory";
@@ -36,13 +36,13 @@ public class PeerConnectionFactory {
     public long nativeFactory;
 
     /* renamed from: org.webrtc.PeerConnectionFactory$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class InitializationOptions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class PeerConnectionFactory {
         public final NativeLibraryLoader nativeLibraryLoader;
         public final String nativeLibraryName;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +333,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADAPTER_TYPE_ANY = 32;
@@ -442,7 +442,7 @@ public class PeerConnectionFactory {
 
     private void checkInitializeHasBeenCalled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (!NativeLibrary.isLoaded() || ContextUtils.getApplicationContext() == null) {
                 throw new IllegalStateException("PeerConnectionFactory.initialize was not called before creating a PeerConnectionFactory.");
             }

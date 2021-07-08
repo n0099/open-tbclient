@@ -25,7 +25,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FrescoFrameCache implements BitmapFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -103,7 +103,7 @@ public class FrescoFrameCache implements BitmapFrameCache {
     public static int getBitmapSizeBytes(@Nullable CloseableReference<CloseableImage> closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, closeableReference)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, closeableReference)) == null) {
             if (CloseableReference.isValid(closeableReference)) {
                 return getBitmapSizeBytes(closeableReference.get());
             }

@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoContainerLayout f19767a;
+    public VideoContainerLayout f19807a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f19768b;
+    public VideoPbViewModel f19808b;
 
     public VideoZoomBehavior() {
         Interceptable interceptable = $ic;
@@ -106,26 +106,26 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             boolean topAndBottomOffset = super.setTopAndBottomOffset(i2);
-            if (topAndBottomOffset && (videoContainerLayout = this.f19767a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
-                int maxHeight = this.f19767a.getMaxHeight() + i2;
+            if (topAndBottomOffset && (videoContainerLayout = this.f19807a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
+                int maxHeight = this.f19807a.getMaxHeight() + i2;
                 if (layoutParams.height != maxHeight) {
                     layoutParams.height = maxHeight;
-                    this.f19767a.setLayoutParams(layoutParams);
+                    this.f19807a.setLayoutParams(layoutParams);
                 }
-                if (this.f19768b == null && (this.f19767a.getContext() instanceof PbActivity)) {
-                    this.f19768b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f19767a.getContext()).get(VideoPbViewModel.class);
+                if (this.f19808b == null && (this.f19807a.getContext() instanceof PbActivity)) {
+                    this.f19808b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f19807a.getContext()).get(VideoPbViewModel.class);
                 }
-                VideoPbViewModel videoPbViewModel = this.f19768b;
+                VideoPbViewModel videoPbViewModel = this.f19808b;
                 if (videoPbViewModel != null) {
                     if (i2 > -5) {
                         MutableLiveData<Boolean> e2 = videoPbViewModel.e();
                         if (e2 == null || e2.getValue() == null || !e2.getValue().booleanValue()) {
-                            this.f19768b.t(true);
+                            this.f19808b.t(true);
                         }
                     } else {
                         MutableLiveData<Boolean> e3 = videoPbViewModel.e();
                         if (e3 == null || e3.getValue() == null || e3.getValue().booleanValue()) {
-                            this.f19768b.t(false);
+                            this.f19808b.t(false);
                         }
                     }
                 }
@@ -162,7 +162,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, coordinatorLayout, appBarLayout, i2)) == null) {
-            this.f19767a = a(appBarLayout);
+            this.f19807a = a(appBarLayout);
             return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
         }
         return invokeLLI.booleanValue;
@@ -185,7 +185,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{coordinatorLayout, appBarLayout, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             VideoContainerLayout a2 = a(appBarLayout);
-            this.f19767a = a2;
+            this.f19807a = a2;
             return (a2 == null || (i2 & 2) == 0) ? false : true;
         }
         return invokeCommon.booleanValue;

@@ -2,6 +2,7 @@ package com.baidu.util;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LogUtil f23616a;
+    public static LogUtil f23726a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f23617c;
+    public static Boolean f23727c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f23618b;
+    public Context f23728b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +38,7 @@ public class LogUtil {
                 return;
             }
         }
-        f23617c = Boolean.FALSE;
+        f23727c = Boolean.FALSE;
     }
 
     public LogUtil(Context context) {
@@ -55,7 +56,7 @@ public class LogUtil {
                 return;
             }
         }
-        this.f23618b = context;
+        this.f23728b = context;
     }
 
     public static synchronized LogUtil getInstance(Context context) {
@@ -64,10 +65,10 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (LogUtil.class) {
-                if (f23616a == null) {
-                    f23616a = new LogUtil(context);
+                if (f23726a == null) {
+                    f23726a = new LogUtil(context);
                 }
-                logUtil = f23616a;
+                logUtil = f23726a;
             }
             return logUtil;
         }
@@ -76,42 +77,42 @@ public class LogUtil {
 
     public static void logD(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f23617c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f23727c.booleanValue()) {
             Log.d(str, str2);
         }
     }
 
     public static void logE(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) && f23617c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f23727c.booleanValue()) {
             Log.e(str, str2);
         }
     }
 
     public static void logI(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f23617c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f23727c.booleanValue()) {
             Log.i(str, str2);
         }
     }
 
     public static void syso(Boolean bool) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bool) == null) && f23617c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bool) == null) && f23727c.booleanValue()) {
             System.out.println(String.valueOf(bool));
         }
     }
 
     public static void syso(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, obj) == null) && f23617c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, obj) == null) && f23727c.booleanValue()) {
             System.out.println(String.valueOf(obj));
         }
     }
 
     public static void syso(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f23617c.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && f23727c.booleanValue()) {
             System.out.println(str);
         }
     }
@@ -119,7 +120,7 @@ public class LogUtil {
     public void setSysoLog(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            f23617c = Boolean.valueOf(z);
+            f23727c = Boolean.valueOf(z);
         }
     }
 }

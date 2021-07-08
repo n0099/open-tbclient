@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f20083e;
+    public PersonChangeData f20123e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonChangeModel(PersonChangeData personChangeData) {
@@ -35,10 +35,10 @@ public class PersonChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f20083e = null;
-        this.f20083e = personChangeData;
+        this.f20123e = null;
+        this.f20123e = personChangeData;
         if (personChangeData == null) {
-            this.f20083e = new PersonChangeData();
+            this.f20123e = new PersonChangeData();
         }
     }
 
@@ -65,6 +65,6 @@ public class PersonChangeModel extends BdBaseModel {
     public PersonChangeData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20083e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20123e : (PersonChangeData) invokeV.objValue;
     }
 }

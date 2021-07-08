@@ -17,25 +17,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XfordView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f6226a;
+    public Bitmap f6243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6227b;
+    public Paint f6244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f6228c;
+    public Rect f6245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f6229d;
+    public Rect f6246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Xfermode f6230e;
+    public Xfermode f6247e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public XfordView(Context context) {
@@ -55,24 +55,24 @@ public class XfordView extends ImageView {
                 return;
             }
         }
-        this.f6226a = null;
-        this.f6227b = null;
+        this.f6243a = null;
+        this.f6244b = null;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (this.f6227b == null) {
+            if (this.f6244b == null) {
                 Paint paint = new Paint();
-                this.f6227b = paint;
+                this.f6244b = paint;
                 paint.setColor(1711276032);
             }
-            if (this.f6226a == null) {
-                this.f6226a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
+            if (this.f6243a == null) {
+                this.f6243a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
             }
-            if (this.f6230e == null) {
-                this.f6230e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+            if (this.f6247e == null) {
+                this.f6247e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
             }
         }
     }
@@ -82,15 +82,15 @@ public class XfordView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onDetachedFromWindow();
-            Bitmap bitmap = this.f6226a;
+            Bitmap bitmap = this.f6243a;
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f6226a.recycle();
-                this.f6226a = null;
+                this.f6243a.recycle();
+                this.f6243a = null;
             }
             System.gc();
-            this.f6230e = null;
-            this.f6228c = null;
-            this.f6229d = null;
+            this.f6247e = null;
+            this.f6245c = null;
+            this.f6246d = null;
         }
     }
 
@@ -104,16 +104,16 @@ public class XfordView extends ImageView {
             int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_width);
             int width = (getWidth() - dimensionPixelSize2) / 2;
             int height = (getHeight() - dimensionPixelSize) / 2;
-            if (this.f6229d == null) {
-                this.f6229d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+            if (this.f6246d == null) {
+                this.f6246d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
             }
-            if (this.f6228c == null) {
-                this.f6228c = new Rect(0, 0, this.f6226a.getWidth(), this.f6226a.getHeight());
+            if (this.f6245c == null) {
+                this.f6245c = new Rect(0, 0, this.f6243a.getWidth(), this.f6243a.getHeight());
             }
-            canvas.drawBitmap(this.f6226a, this.f6228c, this.f6229d, this.f6227b);
-            this.f6227b.setXfermode(this.f6230e);
-            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6227b);
-            this.f6227b.setXfermode(null);
+            canvas.drawBitmap(this.f6243a, this.f6245c, this.f6246d, this.f6244b);
+            this.f6244b.setXfermode(this.f6247e);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f6244b);
+            this.f6244b.setXfermode(null);
             canvas.restoreToCount(saveLayer);
         }
     }
@@ -121,10 +121,10 @@ public class XfordView extends ImageView {
     public void setBgPaintColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f6227b == null) {
-                this.f6227b = new Paint();
+            if (this.f6244b == null) {
+                this.f6244b = new Paint();
             }
-            this.f6227b.setColor(i2);
+            this.f6244b.setColor(i2);
         }
     }
 
@@ -147,8 +147,8 @@ public class XfordView extends ImageView {
                 return;
             }
         }
-        this.f6226a = null;
-        this.f6227b = null;
+        this.f6243a = null;
+        this.f6244b = null;
         a();
     }
 }

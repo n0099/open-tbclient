@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.defs.monitor;
 
 import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ScreenMonitor {
     public static final /* synthetic */ ScreenMonitor[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -93,7 +94,7 @@ public final class ScreenMonitor {
     public static ScreenMonitor valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (ScreenMonitor) Enum.valueOf(ScreenMonitor.class, str) : (ScreenMonitor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ScreenMonitor) Enum.valueOf(ScreenMonitor.class, str) : (ScreenMonitor) invokeL.objValue;
     }
 
     public static ScreenMonitor[] values() {

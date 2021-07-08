@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.i;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28658a;
+    public int f28768a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28659b;
+    public int f28769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28660c;
+    public int f28770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LruCache<String, Bitmap> f28661d;
+    public LruCache<String, Bitmap> f28771d;
 
     public b(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class b implements i {
                 return;
             }
         }
-        this.f28660c = i2;
-        this.f28658a = i3;
-        this.f28661d = new LruCache<String, Bitmap>(this, i2) { // from class: com.bytedance.sdk.component.d.c.a.b.b.1
+        this.f28770c = i2;
+        this.f28768a = i3;
+        this.f28771d = new LruCache<String, Bitmap>(this, i2) { // from class: com.bytedance.sdk.component.d.c.a.b.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f28662a;
+            public final /* synthetic */ b f28772a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -69,7 +69,7 @@ public class b implements i {
                         return;
                     }
                 }
-                this.f28662a = this;
+                this.f28772a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public class b implements i {
             if (str == null || bitmap == null) {
                 return false;
             }
-            this.f28661d.put(str, bitmap);
+            this.f28771d.put(str, bitmap);
             return true;
         }
         return invokeLL.booleanValue;
@@ -105,7 +105,7 @@ public class b implements i {
     public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f28661d.get(str) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f28771d.get(str) : (Bitmap) invokeL.objValue;
     }
 
     public static int a(Bitmap bitmap) {

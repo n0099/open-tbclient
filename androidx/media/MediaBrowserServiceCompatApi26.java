@@ -8,6 +8,7 @@ import android.service.media.MediaBrowserService;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.Log;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompatApi23;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -181,7 +182,7 @@ public class MediaBrowserServiceCompatApi26 {
 
     public static void notifyChildrenChanged(Object obj, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, obj, str, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, bundle) == null) {
             ((MediaBrowserService) obj).notifyChildrenChanged(str, bundle);
         }
     }

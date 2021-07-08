@@ -7,6 +7,7 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.utils.Log;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FingerprintHelper extends FingerprintManager.AuthenticationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_CANCLE = -2;
@@ -101,7 +102,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void showFirstVerifyDialog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
             this.fingerprintDialog.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
                 public static /* synthetic */ Interceptable $ic;

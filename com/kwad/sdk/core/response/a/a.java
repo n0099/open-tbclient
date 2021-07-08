@@ -8,12 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.c.a.v;
+import com.kwad.sdk.core.c.a.be;
+import com.kwad.sdk.core.d;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<d<a>> mHolders;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,6 +33,24 @@ public class a implements b {
         }
     }
 
+    private List<d<a>> getHolders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (this.mHolders == null) {
+                this.mHolders = new ArrayList();
+                for (Class<?> cls = getClass(); cls != null && a.class.isAssignableFrom(cls); cls = cls.getSuperclass()) {
+                    d<a> a2 = be.a(cls);
+                    if (a2 != null) {
+                        this.mHolders.add(0, a2);
+                    }
+                }
+            }
+            return this.mHolders;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -41,10 +63,14 @@ public class a implements b {
         }
     }
 
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            v.a(this).a(this, jSONObject);
+            List<d<a>> holders = getHolders();
+            for (int size = holders.size() - 1; size >= 0; size--) {
+                holders.get(size).a(this, jSONObject);
+            }
             afterParseJson(jSONObject);
         }
     }
@@ -54,9 +80,13 @@ public class a implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject a2 = v.a(this).a(this);
-            afterToJson(a2);
-            return a2;
+            List<d<a>> holders = getHolders();
+            JSONObject jSONObject = new JSONObject();
+            for (int size = holders.size() - 1; size >= 0; size--) {
+                holders.get(size).b(this, jSONObject);
+            }
+            afterToJson(jSONObject);
+            return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
     }

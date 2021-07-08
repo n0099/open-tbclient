@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m0 {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
@@ -24,31 +24,31 @@ public class m0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f45776a;
+    public boolean f42668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45777b;
+    public int f42669b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45778c;
+    public int f42670c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45779d;
+    public int f42671d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45780e;
+    public int f42672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45781f;
+    public int f42673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45782g;
+    public int f42674g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45783h;
+    public int f42675h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45784i;
+    public int f42676i;
     public boolean j;
 
     static {
@@ -86,15 +86,15 @@ public class m0 {
                 return;
             }
         }
-        this.f45776a = false;
-        this.f45777b = n;
-        this.f45778c = p;
-        this.f45779d = k;
-        this.f45780e = 0;
-        this.f45781f = l;
-        this.f45782g = m;
-        this.f45783h = R.color.CAM_X0205;
-        this.f45784i = q;
+        this.f42668a = false;
+        this.f42669b = n;
+        this.f42670c = p;
+        this.f42671d = k;
+        this.f42672e = 0;
+        this.f42673f = l;
+        this.f42674g = m;
+        this.f42675h = R.color.CAM_X0205;
+        this.f42676i = q;
     }
 
     public boolean a() {
@@ -106,49 +106,49 @@ public class m0 {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f45783h = i2;
+            this.f42675h = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f45780e = i2;
+            this.f42672e = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f45784i = i2;
+            this.f42676i = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f45781f = i2;
+            this.f42673f = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f45782g = i2;
+            this.f42674g = i2;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f45777b = i2;
+            this.f42669b = i2;
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f45779d = i2;
+            this.f42671d = i2;
         }
     }
 

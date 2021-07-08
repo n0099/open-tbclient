@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f44043a;
+    public Object f41059a;
 
     public a(Object obj) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements h {
         if (obj == null || !obj.getClass().isArray()) {
             return;
         }
-        this.f44043a = obj;
+        this.f41059a = obj;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
@@ -39,7 +39,7 @@ public class a implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            Object obj = this.f44043a;
+            Object obj = this.f41059a;
             if (obj != null) {
                 return d.a.c.e.b.b.a.e.b.b(obj, cVar);
             }

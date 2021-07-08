@@ -94,7 +94,7 @@ public class ViewInfoStore {
 
         public static void recycle(InfoRecord infoRecord) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, null, infoRecord) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, infoRecord) == null) {
                 infoRecord.flags = 0;
                 infoRecord.preInfo = null;
                 infoRecord.postInfo = null;

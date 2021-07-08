@@ -3,6 +3,7 @@ package com.baidu.searchbox.net.update.v2;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -30,7 +31,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -55,7 +56,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public int mVersionFilterCount;
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -158,7 +159,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     private boolean isNeedVersionVerify(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, jSONObject)) == null) ? jSONObject != null && TextUtils.equals(jSONObject.optString("version_asc"), "1") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) ? jSONObject != null && TextUtils.equals(jSONObject.optString("version_asc"), "1") : invokeL.booleanValue;
     }
 
     /* JADX WARN: Type inference failed for: r1v3, types: [T, java.lang.Object] */

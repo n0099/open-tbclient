@@ -25,6 +25,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -55,7 +56,8 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes8.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes6.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -158,7 +160,7 @@ public class ArdUtil {
     public static long getAvailInternalStorgeSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
                 return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
@@ -802,7 +804,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
                 if (ringerMode == 0) {
                     str = NotificationCompat.GROUP_KEY_SILENT;
@@ -973,7 +975,7 @@ public class ArdUtil {
             return invokeV.longValue;
         }
         try {
-            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f7745a);
+            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f7762a);
             try {
                 Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
                 String str = "";
@@ -1114,7 +1116,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, context, i2)) == null) {
             try {
-                return ((AudioManager) context.getSystemService("audio")).getStreamVolume(i2);
+                return ((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).getStreamVolume(i2);
             } catch (Throwable th) {
                 L.debug("ArdUtil", "getVolume exception . %s", th);
                 return -1;
@@ -1171,7 +1173,7 @@ public class ArdUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
             try {
                 if (checkPermissions(context, "android.permission.MODIFY_AUDIO_SETTINGS")) {
-                    return ((AudioManager) context.getSystemService("audio")).isWiredHeadsetOn();
+                    return ((AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).isWiredHeadsetOn();
                 }
             } catch (Throwable th) {
                 L.debug("ArdUtil", "isHeadphone exception . %s", th);

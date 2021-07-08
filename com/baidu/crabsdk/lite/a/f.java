@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Intent f4704a;
+    public static Intent f4721a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,9 +61,9 @@ public final class f {
 
     public static void b(String str, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, context) == null) && f4704a == null && context != null) {
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, context) == null) && f4721a == null && context != null) {
             try {
-                f4704a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+                f4721a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
                 com.baidu.crabsdk.lite.b.a.c(str, "Battery Broadcast Regist Success");
             } catch (Exception e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "Register Battery Error!", e2);
@@ -75,12 +75,12 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Intent intent = f4704a;
+            Intent intent = f4721a;
             if (intent == null) {
                 return "N/A";
             }
             try {
-                float intExtra = (intent.getIntExtra("level", 0) * 100.0f) / f4704a.getIntExtra("scale", 100);
+                float intExtra = (intent.getIntExtra("level", 0) * 100.0f) / f4721a.getIntExtra("scale", 100);
                 return ((int) intExtra) + "%";
             } catch (Exception e2) {
                 com.baidu.crabsdk.lite.b.a.e(str, "Get Battery Error!", e2);

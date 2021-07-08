@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.text.DecimalFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final DecimalFormat DF;

@@ -33,16 +33,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import d.a.q0.o.a.a.i;
-import d.a.q0.o.a.a.k;
-import d.a.q0.o.a.a.l;
-import d.a.q0.o.a.a.m;
-import d.a.q0.o.a.a.q;
-import d.a.q0.o.a.c.c;
-import d.a.q0.o.a.c.f;
+import d.a.n0.o.a.a.i;
+import d.a.n0.o.a.a.k;
+import d.a.n0.o.a.a.l;
+import d.a.n0.o.a.a.m;
+import d.a.n0.o.a.a.q;
+import d.a.n0.o.a.c.c;
+import d.a.n0.o.a.c.f;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
     public static /* synthetic */ Interceptable $ic;
     public static final f<String, Class<?>> i0;
@@ -79,19 +79,19 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public SharedElementCallback c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12055e;
+    public int f12072e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12056f;
+    public View f12073f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12057g;
+    public int f12074g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bundle f12058h;
+    public Bundle f12075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<Parcelable> f12059i;
+    public SparseArray<Parcelable> f12076i;
     public int j;
     public String k;
     public Bundle l;
@@ -110,7 +110,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public m y;
     public Fragment z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class InstantiationException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,13 +137,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Fragment f12060a;
+        public final /* synthetic */ Fragment f12077a;
 
         public a(Fragment fragment) {
             Interceptable interceptable = $ic;
@@ -160,16 +160,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                     return;
                 }
             }
-            this.f12060a = fragment;
+            this.f12077a = fragment;
         }
 
-        @Override // d.a.q0.o.a.a.i
+        @Override // d.a.n0.o.a.a.i
         @Nullable
         public View a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                View view = this.f12060a.M;
+                View view = this.f12077a.M;
                 if (view != null) {
                     return view.findViewById(i2);
                 }
@@ -178,11 +178,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             return (View) invokeI.objValue;
         }
 
-        @Override // d.a.q0.o.a.a.i
+        @Override // d.a.n0.o.a.a.i
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12060a.M != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12077a.M != null : invokeV.booleanValue;
         }
     }
 
@@ -216,7 +216,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 return;
             }
         }
-        this.f12055e = 0;
+        this.f12072e = 0;
         this.j = -1;
         this.n = -1;
         this.I = true;
@@ -268,7 +268,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public static boolean s0(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
                 Class<?> cls = i0.get(str);
                 if (cls == null) {
@@ -807,7 +807,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.println(this.C);
             printWriter.print(str);
             printWriter.print("mState=");
-            printWriter.print(this.f12055e);
+            printWriter.print(this.f12072e);
             printWriter.print(" mIndex=");
             printWriter.print(this.j);
             printWriter.print(" mWho=");
@@ -861,15 +861,15 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 printWriter.print("mArguments=");
                 printWriter.println(this.l);
             }
-            if (this.f12058h != null) {
+            if (this.f12075h != null) {
                 printWriter.print(str);
                 printWriter.print("mSavedFragmentState=");
-                printWriter.println(this.f12058h);
+                printWriter.println(this.f12075h);
             }
-            if (this.f12059i != null) {
+            if (this.f12076i != null) {
                 printWriter.print(str);
                 printWriter.print("mSavedViewState=");
-                printWriter.println(this.f12059i);
+                printWriter.println(this.f12076i);
             }
             if (this.m != null) {
                 printWriter.print(str);
@@ -898,13 +898,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 printWriter.print("mInnerView=");
                 printWriter.println(this.M);
             }
-            if (this.f12056f != null) {
+            if (this.f12073f != null) {
                 printWriter.print(str);
                 printWriter.print("mAnimatingAway=");
-                printWriter.println(this.f12056f);
+                printWriter.println(this.f12073f);
                 printWriter.print(str);
                 printWriter.print("mStateAfterAnimating=");
-                printWriter.println(this.f12057g);
+                printWriter.println(this.f12074g);
             }
             if (this.Q != null) {
                 printWriter.print(str);
@@ -971,10 +971,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final void i1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, bundle) == null) {
-            SparseArray<Parcelable> sparseArray = this.f12059i;
+            SparseArray<Parcelable> sparseArray = this.f12076i;
             if (sparseArray != null) {
                 this.N.restoreHierarchyState(sparseArray);
-                this.f12059i = null;
+                this.f12076i = null;
             }
             this.J = false;
             O0(bundle);
@@ -1066,7 +1066,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void m1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
-            if (!this.P && z && this.f12055e < 4) {
+            if (!this.P && z && this.f12072e < 4) {
                 this.w.W(this);
             }
             this.P = z;
@@ -1172,7 +1172,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             if (this.y == null) {
                 k0();
-                int i2 = this.f12055e;
+                int i2 = this.f12072e;
                 if (i2 >= 5) {
                     this.y.A();
                 } else if (i2 >= 4) {
@@ -1270,7 +1270,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             p();
             m mVar = this.y;
             mVar.J();
-            d.a.q0.o.a.d.a.a(p, mVar);
+            d.a.n0.o.a.d.a.a(p, mVar);
             return p;
         }
         return (LayoutInflater) invokeL.objValue;
@@ -1344,14 +1344,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (Animation) invokeCommon.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
         public final Bundle mState;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

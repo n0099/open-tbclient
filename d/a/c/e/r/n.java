@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.SocketException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SocketException f44560a;
+    public SocketException f41576a;
 
     public n(SocketException socketException) {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class n extends r {
                 return;
             }
         }
-        this.f44560a = socketException;
+        this.f41576a = socketException;
     }
 }

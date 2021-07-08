@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.w;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface l {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void c(l lVar, w wVar, @Nullable Object obj);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f72709a;
+        public final int f69812a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f72710b;
+        public final int f69813b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f72711c;
+        public final int f69814c;
 
         static {
             InterceptResult invokeClinit;
@@ -72,13 +72,13 @@ public interface l {
         public b a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f72709a == i2 ? this : new b(i2, this.f72710b, this.f72711c) : (b) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69812a == i2 ? this : new b(i2, this.f69813b, this.f69814c) : (b) invokeI.objValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72710b != -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69813b != -1 : invokeV.booleanValue;
         }
 
         public boolean equals(Object obj) {
@@ -92,7 +92,7 @@ public interface l {
                     return false;
                 }
                 b bVar = (b) obj;
-                return this.f72709a == bVar.f72709a && this.f72710b == bVar.f72710b && this.f72711c == bVar.f72711c;
+                return this.f69812a == bVar.f69812a && this.f69813b == bVar.f69813b && this.f69814c == bVar.f69814c;
             }
             return invokeL.booleanValue;
         }
@@ -100,7 +100,7 @@ public interface l {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((527 + this.f72709a) * 31) + this.f72710b) * 31) + this.f72711c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ((((527 + this.f69812a) * 31) + this.f69813b) * 31) + this.f69814c : invokeV.intValue;
         }
 
         public b(int i2, int i3, int i4) {
@@ -118,9 +118,9 @@ public interface l {
                     return;
                 }
             }
-            this.f72709a = i2;
-            this.f72710b = i3;
-            this.f72711c = i4;
+            this.f69812a = i2;
+            this.f69813b = i3;
+            this.f69814c = i4;
         }
     }
 

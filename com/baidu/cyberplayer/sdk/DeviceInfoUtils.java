@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,15 +21,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4792a;
+    public static String f4809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4793b;
+    public static String f4810b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -91,7 +92,7 @@ public class DeviceInfoUtils {
     public static String[] getBatteryInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             String[] strArr = new String[7];
             if (registerReceiver != null) {
@@ -306,7 +307,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            String str2 = f4792a;
+            String str2 = f4809a;
             if (str2 != null) {
                 return str2;
             }
@@ -323,7 +324,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f4792a = str;
+                f4809a = str;
             }
             return str;
         }
@@ -385,7 +386,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f4793b;
+            String str2 = f4810b;
             if (str2 != null) {
                 return str2;
             }
@@ -402,7 +403,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f4793b = str;
+                f4810b = str;
             }
             return str;
         }

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.http.response;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ResponseException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCELED = "Canceled";
@@ -52,7 +53,7 @@ public class ResponseException {
     public static boolean isTimeoutException(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, exc)) == null) ? exc != null && (exc instanceof SocketTimeoutException) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) ? exc != null && (exc instanceof SocketTimeoutException) : invokeL.booleanValue;
     }
 
     public static IOException wrapNoNetworkExceptionWithDetail(Exception exc) {

@@ -1,5 +1,6 @@
 package okio;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] MAP;
@@ -132,7 +133,7 @@ public final class Base64 {
     public static String encode(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
             byte[] bArr3 = new byte[((bArr.length + 2) / 3) * 4];
             int length = bArr.length - (bArr.length % 3);
             int i2 = 0;

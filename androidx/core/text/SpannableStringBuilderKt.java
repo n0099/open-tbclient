@@ -11,6 +11,7 @@ import android.text.style.SubscriptSpan;
 import android.text.style.SuperscriptSpan;
 import android.text.style.UnderlineSpan;
 import androidx.annotation.ColorInt;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,7 +170,7 @@ public final class SpannableStringBuilderKt {
     public static final SpannableStringBuilder inSpans(SpannableStringBuilder spannableStringBuilder, Object obj, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, spannableStringBuilder, obj, function1)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, obj, function1)) == null) {
             int length = spannableStringBuilder.length();
             function1.invoke(spannableStringBuilder);
             spannableStringBuilder.setSpan(obj, length, spannableStringBuilder.length(), 17);

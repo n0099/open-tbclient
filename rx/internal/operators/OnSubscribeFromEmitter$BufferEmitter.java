@@ -12,7 +12,7 @@ import h.o.d.j.f0;
 import h.o.d.j.z;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2427151001689639875L;

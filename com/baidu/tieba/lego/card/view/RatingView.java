@@ -18,30 +18,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RatingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18240e;
+    public Context f18280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f18241f;
+    public a f18281f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18242a;
+        public String f18282a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18243b;
+        public String f18283b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Double f18244c;
+        public Double f18284c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -83,37 +83,37 @@ public class RatingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             removeAllViews();
-            a aVar = this.f18241f;
+            a aVar = this.f18281f;
             if (aVar == null) {
                 return;
             }
-            if (!TextUtils.isEmpty(aVar.f18242a)) {
+            if (!TextUtils.isEmpty(aVar.f18282a)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                TextView textView = new TextView(this.f18240e);
-                textView.setText(this.f18241f.f18242a);
-                textView.setTextSize(0, l.g(this.f18240e, R.dimen.fontsize24));
+                TextView textView = new TextView(this.f18280e);
+                textView.setText(this.f18281f.f18282a);
+                textView.setTextSize(0, l.g(this.f18280e, R.dimen.fontsize24));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView.setPadding(0, 0, l.g(this.f18240e, R.dimen.ds30), 0);
+                textView.setPadding(0, 0, l.g(this.f18280e, R.dimen.ds30), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.f18241f.f18243b)) {
+            if (!TextUtils.isEmpty(this.f18281f.f18283b)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                TextView textView2 = new TextView(this.f18240e);
-                textView2.setText(this.f18241f.f18243b);
-                textView2.setTextSize(0, l.g(this.f18240e, R.dimen.fontsize24));
+                TextView textView2 = new TextView(this.f18280e);
+                textView2.setText(this.f18281f.f18283b);
+                textView2.setTextSize(0, l.g(this.f18280e, R.dimen.fontsize24));
                 textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                textView2.setPadding(0, 0, l.g(this.f18240e, R.dimen.ds6), 0);
+                textView2.setPadding(0, 0, l.g(this.f18280e, R.dimen.ds6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            Double d2 = this.f18241f.f18244c;
+            Double d2 = this.f18281f.f18284c;
             if (d2 == null || Double.isNaN(d2.doubleValue())) {
                 return;
             }
-            Integer valueOf = Integer.valueOf(this.f18241f.f18244c.intValue());
+            Integer valueOf = Integer.valueOf(this.f18281f.f18284c.intValue());
             if (valueOf.intValue() > 10) {
                 valueOf = 10;
             }
@@ -139,9 +139,9 @@ public class RatingView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-            ImageView imageView = new ImageView(this.f18240e);
+            ImageView imageView = new ImageView(this.f18280e);
             imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            imageView.setPadding(0, 0, l.g(this.f18240e, R.dimen.ds4), 0);
+            imageView.setPadding(0, 0, l.g(this.f18280e, R.dimen.ds4), 0);
             imageView.setImageDrawable(drawable);
             return imageView;
         }
@@ -161,20 +161,20 @@ public class RatingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             a aVar = new a();
-            aVar.f18243b = "";
+            aVar.f18283b = "";
             if (!TextUtils.isEmpty(str)) {
                 Matcher matcher = Pattern.compile("(.*)\\{(.+)\\}").matcher(str);
                 if (matcher.find()) {
                     try {
                         if (!TextUtils.isEmpty(matcher.group(1))) {
-                            aVar.f18243b = matcher.group(1);
+                            aVar.f18283b = matcher.group(1);
                         }
-                        aVar.f18244c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                        aVar.f18284c = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                     } catch (NumberFormatException unused) {
-                        aVar.f18243b = str;
+                        aVar.f18283b = str;
                     }
                 } else {
-                    aVar.f18243b = str;
+                    aVar.f18283b = str;
                 }
             }
             return aVar;
@@ -186,8 +186,8 @@ public class RatingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             a d2 = d(str2);
-            this.f18241f = d2;
-            d2.f18242a = str;
+            this.f18281f = d2;
+            d2.f18282a = str;
             a();
         }
     }
@@ -211,7 +211,7 @@ public class RatingView extends LinearLayout {
                 return;
             }
         }
-        this.f18240e = context;
+        this.f18280e = context;
         c();
     }
 }

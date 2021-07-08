@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.downloadnew;
 import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.a.g;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import com.bytedance.sdk.openadsdk.r.o;
 import d.l.a.d.b.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +39,7 @@ public class a {
     public static com.bytedance.sdk.openadsdk.downloadnew.core.b b(Context context, m mVar, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, mVar, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, mVar, str)) == null) {
             if (o.k(context)) {
                 return new c(context, mVar, str);
             }
@@ -61,7 +62,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ExitInstallListener f30984a;
+            public final /* synthetic */ ExitInstallListener f31094a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -78,14 +79,14 @@ public class a {
                         return;
                     }
                 }
-                this.f30984a = exitInstallListener;
+                this.f31094a = exitInstallListener;
             }
 
             @Override // d.l.a.d.b.a.a.b
             public void a() {
                 ExitInstallListener exitInstallListener2;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f30984a) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (exitInstallListener2 = this.f31094a) == null) {
                     return;
                 }
                 exitInstallListener2.onExitInstall();

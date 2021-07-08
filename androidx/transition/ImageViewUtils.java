@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +116,7 @@ public class ImageViewUtils {
     @SuppressLint({"NewApi"})
     public static void hiddenAnimateTransform(@NonNull ImageView imageView, @Nullable Matrix matrix) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, imageView, matrix) == null) && sTryHiddenAnimateTransform) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageView, matrix) == null) && sTryHiddenAnimateTransform) {
             try {
                 imageView.animateTransform(matrix);
             } catch (NoSuchMethodError unused) {

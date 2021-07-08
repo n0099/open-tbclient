@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.l.a.a.a.d.b;
 import d.l.a.a.a.d.c;
 import d.l.a.a.a.d.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface a {
     void a(@NonNull DownloadInfo downloadInfo);
 

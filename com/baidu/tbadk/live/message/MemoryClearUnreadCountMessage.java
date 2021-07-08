@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13086a;
+        public String f13103a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13087b;
+        public int f13104b;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class MemoryClearUnreadCountMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f13086a = str;
-            this.f13087b = i2;
+            this.f13103a = str;
+            this.f13104b = i2;
         }
     }
 

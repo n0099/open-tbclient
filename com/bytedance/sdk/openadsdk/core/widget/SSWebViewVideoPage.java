@@ -18,22 +18,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SSWebViewVideoPage extends SSWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30649a;
+    public boolean f30759a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f30650b;
+    public float f30760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30651c;
+    public boolean f30761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewParent f30652d;
+    public ViewParent f30762d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SSWebViewVideoPage(Context context) {
@@ -53,21 +53,21 @@ public class SSWebViewVideoPage extends SSWebView {
                 return;
             }
         }
-        this.f30649a = true;
-        this.f30650b = -1.0f;
-        this.f30651c = false;
+        this.f30759a = true;
+        this.f30760b = -1.0f;
+        this.f30761c = false;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (((ScrollView) this.f30652d).getScrollY() == 0) {
+            if (((ScrollView) this.f30762d).getScrollY() == 0) {
                 if (z) {
                     a();
                 } else {
                     b();
                 }
-            } else if (!this.f30649a) {
+            } else if (!this.f30759a) {
                 a();
             } else if (z) {
                 b();
@@ -79,11 +79,11 @@ public class SSWebViewVideoPage extends SSWebView {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30651c) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30761c) {
             return;
         }
-        this.f30652d.requestDisallowInterceptTouchEvent(false);
-        this.f30651c = true;
+        this.f30762d.requestDisallowInterceptTouchEvent(false);
+        this.f30761c = true;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -92,9 +92,9 @@ public class SSWebViewVideoPage extends SSWebView {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             super.onOverScrolled(i2, i3, z, z2);
             if (i3 == 0 && z2) {
-                this.f30649a = true;
+                this.f30759a = true;
             } else {
-                this.f30649a = false;
+                this.f30759a = false;
             }
         }
     }
@@ -104,26 +104,26 @@ public class SSWebViewVideoPage extends SSWebView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.f30652d == null) {
-                this.f30652d = a(this);
+            if (this.f30762d == null) {
+                this.f30762d = a(this);
             }
             if (motionEvent.getAction() == 0) {
-                this.f30650b = motionEvent.getY();
+                this.f30760b = motionEvent.getY();
             } else if (motionEvent.getAction() == 2) {
-                float y = motionEvent.getY() - this.f30650b;
+                float y = motionEvent.getY() - this.f30760b;
                 int i2 = (y > 0.0f ? 1 : (y == 0.0f ? 0 : -1));
                 if (i2 > 0) {
                     a(true);
                 } else if (i2 != 0 && y < 0.0f) {
                     a(false);
                 }
-                this.f30650b = motionEvent.getY();
+                this.f30760b = motionEvent.getY();
             } else if (motionEvent.getAction() == 1) {
                 a();
-                this.f30651c = false;
+                this.f30761c = false;
             } else if (motionEvent.getAction() == 3) {
                 a();
-                this.f30651c = false;
+                this.f30761c = false;
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -149,18 +149,18 @@ public class SSWebViewVideoPage extends SSWebView {
                 return;
             }
         }
-        this.f30649a = true;
-        this.f30650b = -1.0f;
-        this.f30651c = false;
+        this.f30759a = true;
+        this.f30760b = -1.0f;
+        this.f30761c = false;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30651c) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30761c) {
             return;
         }
-        this.f30652d.requestDisallowInterceptTouchEvent(true);
-        this.f30651c = true;
+        this.f30762d.requestDisallowInterceptTouchEvent(true);
+        this.f30761c = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,9 +182,9 @@ public class SSWebViewVideoPage extends SSWebView {
                 return;
             }
         }
-        this.f30649a = true;
-        this.f30650b = -1.0f;
-        this.f30651c = false;
+        this.f30759a = true;
+        this.f30760b = -1.0f;
+        this.f30761c = false;
     }
 
     private ViewParent a(View view) {

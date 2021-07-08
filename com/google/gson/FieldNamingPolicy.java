@@ -1,5 +1,6 @@
 package com.google.gson;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class FieldNamingPolicy implements FieldNamingStrategy {
     public static final /* synthetic */ FieldNamingPolicy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -266,7 +267,7 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
     public static String separateCamelCase(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             StringBuilder sb = new StringBuilder();
             int length = str.length();
             for (int i2 = 0; i2 < length; i2++) {

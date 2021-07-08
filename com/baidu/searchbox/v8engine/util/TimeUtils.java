@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.util;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
@@ -277,7 +278,7 @@ public class TimeUtils {
 
     public static void formatDuration(long j, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65540, null, j, printWriter) == null) {
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, printWriter) == null) {
             formatDuration(j, printWriter, 0);
         }
     }

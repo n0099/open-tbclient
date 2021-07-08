@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class a implements b {
                             if (e instanceof SSLHandshakeException) {
                                 aVar.a("isNeedToGetCert", true);
                             }
-                            aVar.a().f32522a.add(e);
+                            aVar.a().f32632a.add(e);
                             i3 = e instanceof EOFException ? 200050 : 102102;
                             a(outputStream);
                             a(inputStream);
@@ -203,7 +203,7 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    aVar.a().f32522a.add(e);
+                                    aVar.a().f32632a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
@@ -272,7 +272,7 @@ public class a implements b {
                         com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb222.toString());
                         if (e instanceof SSLHandshakeException) {
                         }
-                        aVar.a().f32522a.add(e);
+                        aVar.a().f32632a.add(e);
                         if (e instanceof EOFException) {
                         }
                         a(outputStream);

@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnknownFieldMap {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, List<FieldValue>> fieldMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +68,7 @@ public final class UnknownFieldMap {
         public static VarintFieldValue varint(int i2, Long l) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, l)) == null) ? new VarintFieldValue(i2, l) : (VarintFieldValue) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, l)) == null) ? new VarintFieldValue(i2, l) : (VarintFieldValue) invokeIL.objValue;
         }
 
         public ByteString getAsBytes() {
@@ -114,7 +115,7 @@ public final class UnknownFieldMap {
         public abstract void write(int i2, WireOutput wireOutput) throws IOException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Fixed32FieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +170,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Fixed64FieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +225,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LengthDelimitedFieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +279,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnknownFieldType {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ UnknownFieldType[] ENUM$VALUES;
@@ -358,7 +359,7 @@ public final class UnknownFieldMap {
         public static UnknownFieldType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
                 UnknownFieldType[] unknownFieldTypeArr = ENUM$VALUES;
                 int length = unknownFieldTypeArr.length;
                 UnknownFieldType[] unknownFieldTypeArr2 = new UnknownFieldType[length];
@@ -369,7 +370,7 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class VarintFieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -500,7 +501,7 @@ public final class UnknownFieldMap {
     private Map<Integer, List<FieldValue>> ensureFieldMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.fieldMap == null) {
                 this.fieldMap = new TreeMap();
             }

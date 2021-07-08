@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -17,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
-import d.a.q0.a.s1.d;
-import d.a.q0.a.v2.n0;
-import d.a.q0.a.v2.q0;
-import d.a.q0.a.v2.v;
+import d.a.n0.a.k;
+import d.a.n0.a.s1.d;
+import d.a.n0.a.v2.n0;
+import d.a.n0.a.v2.q0;
+import d.a.n0.a.v2.v;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanAppLauncherActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -32,13 +33,13 @@ public class SwanAppLauncherActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
     public Object mPermissionDialog;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements d.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f10571a;
+        public final /* synthetic */ SwanAppLauncherActivity f10588a;
 
         public a(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -55,17 +56,17 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f10571a = swanAppLauncherActivity;
+            this.f10588a = swanAppLauncherActivity;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f10572e;
+        public final /* synthetic */ SwanAppLauncherActivity f10589e;
 
         public b(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -82,14 +83,14 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f10572e = swanAppLauncherActivity;
+            this.f10589e = swanAppLauncherActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10572e.finish();
+                this.f10589e.finish();
             }
         }
     }
@@ -107,7 +108,7 @@ public class SwanAppLauncherActivity extends Activity {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
     }
 
     public SwanAppLauncherActivity() {
@@ -129,14 +130,14 @@ public class SwanAppLauncherActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             SwanLauncher.j().m(getIntent().getExtras());
-            d.a.q0.a.a2.d.i().post(new b(this));
+            d.a.n0.a.a2.d.i().post(new b(this));
         }
     }
 
     @Deprecated
-    public static void startSwanApp(Context context, d.a.q0.a.f1.e.b bVar, String str) {
+    public static void startSwanApp(Context context, d.a.n0.a.f1.e.b bVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, context, bVar, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar, str) == null) {
             SwanLauncher.j().n(bVar, null);
         }
     }
@@ -145,7 +146,7 @@ public class SwanAppLauncherActivity extends Activity {
     public d getPermissionDialogIOC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f50612a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f47310a : (d) invokeV.objValue;
     }
 
     @Override // android.app.Activity

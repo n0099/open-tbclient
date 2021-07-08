@@ -26,38 +26,38 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010!\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\u0018\u0000 H2\u00020\u0001:\u0001HB\u0013\u0012\n\u00102\u001a\u0006\u0012\u0002\b\u000301¢\u0006\u0004\bF\u0010GJ\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u001b\u0010\u0005\u001a\u00020\u00042\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u0007¢\u0006\u0004\b\u0005\u0010\bJ\r\u0010\t\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\nJ\r\u0010\u000b\u001a\u00020\u0004¢\u0006\u0004\b\u000b\u0010\nJ\r\u0010\f\u001a\u00020\u0004¢\u0006\u0004\b\f\u0010\nJ\u0015\u0010\u000f\u001a\u00020\u00042\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\r\u0010\u0011\u001a\u00020\u0004¢\u0006\u0004\b\u0011\u0010\nR\u001f\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00130\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0016\u0010\u0017R\u001f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\r0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0015\u001a\u0004\b\u0019\u0010\u0017R*\u0010\u001c\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R*\u0010\"\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010\u001d\u001a\u0004\b#\u0010\u001f\"\u0004\b$\u0010!R\u001f\u0010&\u001a\b\u0012\u0004\u0012\u00020%0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b&\u0010\u0015\u001a\u0004\b'\u0010\u0017R\u001f\u0010(\u001a\b\u0012\u0004\u0012\u00020%0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b(\u0010\u0015\u001a\u0004\b(\u0010\u0017R\u001f\u0010)\u001a\b\u0012\u0004\u0012\u00020\u001a0\u00128\u0006@\u0006¢\u0006\f\n\u0004\b)\u0010\u0015\u001a\u0004\b*\u0010\u0017R\u001d\u00100\u001a\u00020+8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/R\u001d\u00102\u001a\u0006\u0012\u0002\b\u0003018\u0006@\u0006¢\u0006\f\n\u0004\b2\u00103\u001a\u0004\b4\u00105R*\u00106\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b6\u0010\u001d\u001a\u0004\b7\u0010\u001f\"\u0004\b8\u0010!R%\u0010:\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u0002090\u00128\u0006@\u0006¢\u0006\f\n\u0004\b:\u0010\u0015\u001a\u0004\b;\u0010\u0017R.\u0010=\u001a\u0004\u0018\u00010<2\b\u0010\u001b\u001a\u0004\u0018\u00010<8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\b=\u0010>\u001a\u0004\b?\u0010@\"\u0004\bA\u0010BR*\u0010C\u001a\u00020\u001a2\u0006\u0010\u001b\u001a\u00020\u001a8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\bC\u0010\u001d\u001a\u0004\bD\u0010\u001f\"\u0004\bE\u0010!¨\u0006I"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "Landroidx/lifecycle/ViewModel;", "Lcom/baidu/tieba/card/data/BaseCardInfo;", "data", "", "addData", "(Lcom/baidu/tieba/card/data/BaseCardInfo;)V", "", "(Ljava/util/List;)V", "loadData", "()V", "playLastVideo", "playNextVideo", "", "position", "playVideoAtPosition", "(I)V", "resumePlayVideo", "Landroidx/lifecycle/MutableLiveData;", "Landroid/content/res/Configuration;", "configuration", "Landroidx/lifecycle/MutableLiveData;", "getConfiguration", "()Landroidx/lifecycle/MutableLiveData;", "curPlayingVideoPos", "getCurPlayingVideoPos", "", "value", "from", "Ljava/lang/String;", "getFrom", "()Ljava/lang/String;", "setFrom", "(Ljava/lang/String;)V", "fromTid", "getFromTid", "setFromTid", "", "hasMore", "getHasMore", "isLoading", "loadErrorMsg", "getLoadErrorMsg", "Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;", "model$delegate", "Lkotlin/Lazy;", "getModel", "()Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;", "model", "Lcom/baidu/tbadk/TbPageContext;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "stType", "getStType", "setStType", "", "videoDataList", "getVideoDataList", "Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;", "videoThreadInfo", "Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;", "getVideoThreadInfo", "()Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;", "setVideoThreadInfo", "(Lcom/baidu/tieba/play/monitor/VideoSerializeVideoThreadInfo;)V", "yuelaouLocate", "getYuelaouLocate", "setYuelaouLocate", "<init>", "(Lcom/baidu/tbadk/TbPageContext;)V", "Companion", "frsExtra_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class VideoMiddlePageViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ KProperty[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final MutableLiveData<List<BaseCardInfo>> f16101a;
+    public final MutableLiveData<List<BaseCardInfo>> f16140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final MutableLiveData<Boolean> f16102b;
+    public final MutableLiveData<Boolean> f16141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final MutableLiveData<Boolean> f16103c;
+    public final MutableLiveData<Boolean> f16142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final MutableLiveData<String> f16104d;
+    public final MutableLiveData<String> f16143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final MutableLiveData<Integer> f16105e;
+    public final MutableLiveData<Integer> f16144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final MutableLiveData<Configuration> f16106f;
+    public final MutableLiveData<Configuration> f16145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Lazy f16107g;
+    public final Lazy f16146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16108h;
+    public String f16147h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f16109i;
+    public String f16148i;
     public final TbPageContext<?> j;
 
     static {
@@ -92,29 +92,29 @@ public final class VideoMiddlePageViewModel extends ViewModel {
             }
         }
         this.j = tbPageContext;
-        this.f16101a = new MutableLiveData<>();
-        this.f16102b = new MutableLiveData<>();
-        this.f16103c = new MutableLiveData<>();
-        this.f16104d = new MutableLiveData<>();
-        this.f16105e = new MutableLiveData<>();
-        this.f16106f = new MutableLiveData<>();
-        this.f16107g = LazyKt__LazyJVMKt.lazy(new VideoMiddlePageViewModel$model$2(this));
-        this.f16108h = "";
-        this.f16109i = "";
-        this.f16102b.setValue(Boolean.FALSE);
-        this.f16103c.setValue(Boolean.FALSE);
-        this.f16101a.setValue(new ArrayList());
-        this.f16105e.setValue(0);
+        this.f16140a = new MutableLiveData<>();
+        this.f16141b = new MutableLiveData<>();
+        this.f16142c = new MutableLiveData<>();
+        this.f16143d = new MutableLiveData<>();
+        this.f16144e = new MutableLiveData<>();
+        this.f16145f = new MutableLiveData<>();
+        this.f16146g = LazyKt__LazyJVMKt.lazy(new VideoMiddlePageViewModel$model$2(this));
+        this.f16147h = "";
+        this.f16148i = "";
+        this.f16141b.setValue(Boolean.FALSE);
+        this.f16142c.setValue(Boolean.FALSE);
+        this.f16140a.setValue(new ArrayList());
+        this.f16144e.setValue(0);
     }
 
     public final void a(List<? extends BaseCardInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            List<BaseCardInfo> value = this.f16101a.getValue();
+            List<BaseCardInfo> value = this.f16140a.getValue();
             if (value != null) {
                 value.addAll(list);
             }
-            MutableLiveData<List<BaseCardInfo>> mutableLiveData = this.f16101a;
+            MutableLiveData<List<BaseCardInfo>> mutableLiveData = this.f16140a;
             mutableLiveData.setValue(mutableLiveData.getValue());
         }
     }
@@ -122,44 +122,44 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final MutableLiveData<Configuration> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16106f : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16145f : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<Integer> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16105e : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16144e : (MutableLiveData) invokeV.objValue;
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16109i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16148i : (String) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16108h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16147h : (String) invokeV.objValue;
     }
 
     public final MutableLiveData<Boolean> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16103c : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f16142c : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16104d : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f16143d : (MutableLiveData) invokeV.objValue;
     }
 
     public final VideoMiddleModel h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Lazy lazy = this.f16107g;
+            Lazy lazy = this.f16146g;
             KProperty kProperty = k[0];
             return (VideoMiddleModel) lazy.getValue();
         }
@@ -175,20 +175,20 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final MutableLiveData<List<BaseCardInfo>> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16101a : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16140a : (MutableLiveData) invokeV.objValue;
     }
 
     public final MutableLiveData<Boolean> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16102b : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16141b : (MutableLiveData) invokeV.objValue;
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && Intrinsics.areEqual(this.f16102b.getValue(), Boolean.FALSE)) {
-            this.f16102b.setValue(Boolean.TRUE);
-            h().setFrom(this.f16109i);
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && Intrinsics.areEqual(this.f16141b.getValue(), Boolean.FALSE)) {
+            this.f16141b.setValue(Boolean.TRUE);
+            h().setFrom(this.f16148i);
             h().LoadData();
         }
     }
@@ -196,13 +196,13 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            List<BaseCardInfo> value = this.f16101a.getValue();
+            List<BaseCardInfo> value = this.f16140a.getValue();
             Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-            Integer value2 = this.f16105e.getValue();
+            Integer value2 = this.f16144e.getValue();
             if (valueOf == null || valueOf.intValue() <= 0 || value2 == null || value2.intValue() <= 0) {
                 return;
             }
-            MutableLiveData<Integer> mutableLiveData = this.f16105e;
+            MutableLiveData<Integer> mutableLiveData = this.f16144e;
             Integer value3 = mutableLiveData.getValue();
             mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() - 1) : null);
         }
@@ -211,13 +211,13 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            List<BaseCardInfo> value = this.f16101a.getValue();
+            List<BaseCardInfo> value = this.f16140a.getValue();
             Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-            Integer value2 = this.f16105e.getValue();
+            Integer value2 = this.f16144e.getValue();
             if (valueOf == null || valueOf.intValue() <= 0 || value2 == null || value2.intValue() >= valueOf.intValue() - 1) {
                 return;
             }
-            MutableLiveData<Integer> mutableLiveData = this.f16105e;
+            MutableLiveData<Integer> mutableLiveData = this.f16144e;
             Integer value3 = mutableLiveData.getValue();
             mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() + 1) : null);
             if ((valueOf.intValue() - 1) - value2.intValue() <= 3) {
@@ -229,13 +229,13 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            List<BaseCardInfo> value = this.f16101a.getValue();
+            List<BaseCardInfo> value = this.f16140a.getValue();
             Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-            Integer value2 = this.f16105e.getValue();
+            Integer value2 = this.f16144e.getValue();
             if (valueOf == null || valueOf.intValue() <= 0 || Intrinsics.compare(i2, valueOf.intValue()) >= 0) {
                 return;
             }
-            this.f16105e.setValue(Integer.valueOf(i2));
+            this.f16144e.setValue(Integer.valueOf(i2));
             if (value2 == null || (valueOf.intValue() - 1) - value2.intValue() > 3) {
                 return;
             }
@@ -246,7 +246,7 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Integer value = this.f16105e.getValue();
+            Integer value = this.f16144e.getValue();
             if (value == null) {
                 value = 0;
             }
@@ -257,7 +257,7 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f16109i = str;
+            this.f16148i = str;
             h().setFrom(str);
         }
     }
@@ -265,7 +265,7 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f16108h = str;
+            this.f16147h = str;
             h().B(str);
         }
     }

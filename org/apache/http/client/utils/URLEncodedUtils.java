@@ -1,5 +1,6 @@
 package org.apache.http.client.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class URLEncodedUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -65,7 +66,7 @@ public class URLEncodedUtils {
     public static List<NameValuePair> parse(HttpEntity httpEntity) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, httpEntity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpEntity)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (List) invokeL.objValue;

@@ -1,6 +1,7 @@
 package com.sdk.base.framework.f.i;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,18 +15,18 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41236a = "com.sdk.base.framework.f.i.a";
+    public static final String f38250a = "com.sdk.base.framework.f.i.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f41237b;
+    public static boolean f38251b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41238c;
+    public static String f38252c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,8 +42,8 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f41237b = f.f41195b;
-        f41238c = "a6Hy5Hb8IfX46D1f";
+        f38251b = f.f38209b;
+        f38252c = "a6Hy5Hb8IfX46D1f";
     }
 
     public a() {
@@ -83,10 +84,10 @@ public class a extends com.sdk.base.framework.f.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b2 = com.sdk.base.framework.f.b.a.b(context, f.f41194a);
+            String b2 = com.sdk.base.framework.f.b.a.b(context, f.f38208a);
             if (com.sdk.base.framework.a.a.c.a(b2).booleanValue()) {
                 String a2 = a(16);
-                com.sdk.base.framework.f.b.a.b(context, f.f41194a, a2);
+                com.sdk.base.framework.f.b.a.b(context, f.f38208a, a2);
                 return a2;
             }
             return b2;
@@ -97,7 +98,7 @@ public class a extends com.sdk.base.framework.f.a {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) ? b(str, str2, f41238c) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f38252c) : (String) invokeLL.objValue;
     }
 
     public static String a(String str, String str2, String str3) {
@@ -108,13 +109,13 @@ public class a extends com.sdk.base.framework.f.a {
                 try {
                     if (str.length() != 0 && str.trim().length() != 0) {
                         if (str2 == null) {
-                            com.sdk.base.framework.f.a.a(f41236a, "EncryptCbcIv", "encrypt key is null", f41237b);
+                            com.sdk.base.framework.f.a.a(f38250a, "EncryptCbcIv", "encrypt key is null", f38251b);
                             return null;
                         } else if (str2.length() != 16) {
-                            com.sdk.base.framework.f.a.a(f41236a, "EncryptCbcIv", "encrypt key length error", f41237b);
+                            com.sdk.base.framework.f.a.a(f38250a, "EncryptCbcIv", "encrypt key length error", f38251b);
                             return null;
                         } else if (str3.length() != 16) {
-                            com.sdk.base.framework.f.a.a(f41236a, "EncryptCbcIv", "ivStr length error", f41237b);
+                            com.sdk.base.framework.f.a.a(f38250a, "EncryptCbcIv", "ivStr length error", f38251b);
                             return null;
                         } else {
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -123,11 +124,11 @@ public class a extends com.sdk.base.framework.f.a {
                         }
                     }
                 } catch (Exception e2) {
-                    com.sdk.base.framework.f.a.a(f41236a, "EncryptCbcIv", e2.getMessage(), f41237b);
+                    com.sdk.base.framework.f.a.a(f38250a, "EncryptCbcIv", e2.getMessage(), f38251b);
                     return null;
                 }
             }
-            com.sdk.base.framework.f.a.a(f41236a, "EncryptCbcIv", "encrypt content is null", f41237b);
+            com.sdk.base.framework.f.a.a(f38250a, "EncryptCbcIv", "encrypt content is null", f38251b);
             return null;
         }
         return (String) invokeLLL.objValue;

@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class f {
             try {
                 com.baidu.sofire.h.a a4 = com.baidu.sofire.h.a.a(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j = a4.f10393a.getLong("pu_cl_fd", 0L);
+                long j = a4.f10410a.getLong("pu_cl_fd", 0L);
                 if (j == 0) {
                     j = System.currentTimeMillis();
                     a4.f();
@@ -101,10 +101,10 @@ public final class f {
                         hashMap.put("0", Integer.valueOf(a4.h()));
                         hashMap.put("1", Integer.valueOf(a4.i() + 1));
                     }
-                    a4.f10394b.putInt("mo_fa_pu_cl", 0);
-                    a4.f10394b.commit();
-                    a4.f10394b.putInt("wi_fa_pu_cl", 0);
-                    a4.f10394b.commit();
+                    a4.f10411b.putInt("mo_fa_pu_cl", 0);
+                    a4.f10411b.commit();
+                    a4.f10411b.putInt("wi_fa_pu_cl", 0);
+                    a4.f10411b.commit();
                     a4.f();
                     c.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (c.e(context)) {

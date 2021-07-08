@@ -1,6 +1,7 @@
 package com.baidu.ala.refresh;
 
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +37,7 @@ public class AlaSquareRefreshManager {
         InterceptResult invokeI;
         long[] jArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) ? i2 >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? i2 >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i2 : invokeI.booleanValue;
     }
 
     private void createPageRefreshRunnables() {

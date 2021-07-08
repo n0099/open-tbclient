@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.charset.Charset;
 import kotlin.UShort;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f28026a;
+    public static final Charset f28136a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +30,7 @@ public final class u {
                 return;
             }
         }
-        f28026a = Charset.forName("UTF-8");
+        f28136a = Charset.forName("UTF-8");
     }
 
     public static int a(int i2) {
@@ -66,7 +67,7 @@ public final class u {
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, th) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
             b(th);
         }
     }

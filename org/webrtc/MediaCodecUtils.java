@@ -2,6 +2,7 @@ package org.webrtc;
 
 import android.media.MediaCodecInfo;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
@@ -32,7 +33,7 @@ public class MediaCodecUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.MediaCodecUtils$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
@@ -134,7 +135,7 @@ public class MediaCodecUtils {
     public static int[] getTextureColorFormats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.VERSION.SDK_INT >= 18 ? new int[]{2130708361} : new int[0] : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 18 ? new int[]{2130708361} : new int[0] : (int[]) invokeV.objValue;
     }
 
     @Nullable

@@ -17,27 +17,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-/* loaded from: classes8.dex */
+import d.a.o0.r.q.b2;
+/* loaded from: classes7.dex */
 public class k0 extends c implements p<b2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f45758i;
+    public TbPageContext f42650i;
     public TbImageView j;
     public boolean k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f45759e;
+        public final /* synthetic */ ThemeCardInUserData f42651e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k0 f45760f;
+        public final /* synthetic */ k0 f42652f;
 
         public a(k0 k0Var, ThemeCardInUserData themeCardInUserData) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class k0 extends c implements p<b2> {
                     return;
                 }
             }
-            this.f45760f = k0Var;
-            this.f45759e = themeCardInUserData;
+            this.f42652f = k0Var;
+            this.f42651e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f45760f.f45758i.getPageActivity(), this.f45759e.getCardId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f42652f.f42650i.getPageActivity(), this.f42651e.getCardId())));
             }
         }
     }
@@ -83,7 +83,7 @@ public class k0 extends c implements p<b2> {
             }
         }
         this.k = true;
-        this.f45758i = tbPageContext;
+        this.f42650i = tbPageContext;
         h(-1);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), d.a.c.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
@@ -105,7 +105,7 @@ public class k0 extends c implements p<b2> {
         if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !b2Var.S1) {
             if (this.k && (this.j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f45758i.getPageActivity(), R.dimen.tbds106);
+                layoutParams.rightMargin = d.a.c.e.p.l.g(this.f42650i.getPageActivity(), R.dimen.tbds106);
                 this.j.setLayoutParams(layoutParams);
             }
             this.j.setVisibility(0);

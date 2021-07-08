@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,33 +19,33 @@ import com.baidu.turbonet.net.TurbonetEngine;
 import java.util.ArrayList;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CronetLibraryLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f22953a;
+    public static final Object f23063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f22954b;
+    public static final HandlerThread f23064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f22955c;
+    public static volatile boolean f23065c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f22956d;
+    public static boolean f23066d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<Runnable> f22957e;
+    public static List<Runnable> f23067e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f22958e;
+        public final /* synthetic */ Context f23068e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -61,14 +62,14 @@ public class CronetLibraryLoader {
                     return;
                 }
             }
-            this.f22958e = context;
+            this.f23068e = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CronetLibraryLoader.b(this.f22958e);
+                CronetLibraryLoader.b(this.f23068e);
             }
         }
     }
@@ -86,11 +87,11 @@ public class CronetLibraryLoader {
                 return;
             }
         }
-        f22953a = new Object();
-        f22954b = new HandlerThread("TurboNetInit");
-        f22955c = false;
-        f22956d = false;
-        f22957e = new ArrayList();
+        f23063a = new Object();
+        f23064b = new HandlerThread("TurboNetInit");
+        f23065c = false;
+        f23066d = false;
+        f23067e = new ArrayList();
     }
 
     public CronetLibraryLoader() {
@@ -110,18 +111,18 @@ public class CronetLibraryLoader {
     public static void a(Context context, TurbonetEngine.Builder builder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, builder) == null) {
-            synchronized (f22953a) {
-                if (f22955c) {
+            synchronized (f23063a) {
+                if (f23065c) {
                     return;
                 }
-                f22955c = true;
+                f23065c = true;
                 ContextUtils.b(context.getApplicationContext());
                 builder.n();
                 ContextUtils.c();
-                d.a.t0.a.a.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
+                d.a.q0.a.a.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.b(context.getApplicationContext());
-                if (!f22954b.isAlive()) {
-                    f22954b.start();
+                if (!f23064b.isAlive()) {
+                    f23064b.start();
                 }
                 e(new a(context));
             }
@@ -130,24 +131,24 @@ public class CronetLibraryLoader {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f22956d) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || f23066d) {
             return;
         }
         NetworkChangeNotifier.init(context);
         NetworkChangeNotifier.n();
         nativeCronetInitOnInitThread();
-        for (Runnable runnable : f22957e) {
+        for (Runnable runnable : f23067e) {
             runnable.run();
         }
-        f22957e.clear();
-        f22956d = true;
+        f23067e.clear();
+        f23066d = true;
     }
 
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (f22956d) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f23066d) {
                 return nativeGetTurboNetHandler();
             }
             return 0L;
@@ -158,7 +159,7 @@ public class CronetLibraryLoader {
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f22954b.getLooper() == Looper.myLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f23064b.getLooper() == Looper.myLooper() : invokeV.booleanValue;
     }
 
     public static void e(Runnable runnable) {
@@ -167,7 +168,7 @@ public class CronetLibraryLoader {
             if (d()) {
                 runnable.run();
             } else {
-                new Handler(f22954b.getLooper()).post(runnable);
+                new Handler(f23064b.getLooper()).post(runnable);
             }
         }
     }

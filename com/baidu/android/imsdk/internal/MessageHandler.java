@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.SSLCertificateSocketFactory;
 import android.net.SSLSessionCache;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.utils.BigEndianDataIutputStream;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -140,7 +141,7 @@ public class MessageHandler extends IMessageHandler {
         InterceptResult invokeLI;
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2)) == null) {
             SSLSessionCache sSLSessionCache = new SSLSessionCache(this.mContext);
             if (Constants.URL_SOCKET_SERVER.equals(str)) {
                 try {

@@ -12,37 +12,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ao {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8666a;
+    public String f8683a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8667b;
+    public String f8684b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8668c;
+    public String f8685c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f8669d;
+    public long f8686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f8670e;
+    public long f8687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f8671f;
+    public float f8688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f8672g;
+    public float f8689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f8673h;
+    public float f8690h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f8674i;
+    public float f8691i;
     public String j;
     public boolean k;
     public String l;
@@ -62,15 +62,15 @@ public class ao {
                 return;
             }
         }
-        this.f8666a = str;
-        this.f8667b = str2;
-        this.f8668c = str3;
-        this.f8669d = j;
-        this.f8670e = j2;
-        this.f8671f = f2;
-        this.f8672g = f3;
-        this.f8673h = f4;
-        this.f8674i = f5;
+        this.f8683a = str;
+        this.f8684b = str2;
+        this.f8685c = str3;
+        this.f8686d = j;
+        this.f8687e = j2;
+        this.f8688f = f2;
+        this.f8689g = f3;
+        this.f8690h = f4;
+        this.f8691i = f5;
         this.j = str4;
         this.k = z;
         this.l = str5;
@@ -79,7 +79,7 @@ public class ao {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8666a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8683a : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -98,9 +98,9 @@ public class ao {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("n", str);
-                jSONObject.put("t", this.f8667b);
-                jSONObject.put("d", this.f8669d);
-                long j2 = this.f8670e - j;
+                jSONObject.put("t", this.f8684b);
+                jSONObject.put("d", this.f8686d);
+                long j2 = this.f8687e - j;
                 if (j2 <= 0) {
                     j2 = 0;
                 }
@@ -110,10 +110,10 @@ public class ao {
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
                 decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-                jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8671f));
-                jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8672g));
-                jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8673h));
-                jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.f8674i));
+                jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f8688f));
+                jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.f8689g));
+                jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.f8690h));
+                jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.f8691i));
                 jSONObject.put("h5", 0);
                 jSONObject.put("sign", this.l);
                 return jSONObject;

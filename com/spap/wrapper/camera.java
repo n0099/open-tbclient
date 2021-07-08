@@ -2,6 +2,7 @@ package com.spap.wrapper;
 
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int back_id = -1;
@@ -82,7 +83,7 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
 
     public static final void scan_cameras() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, null) == null) && cam_scanned == 0) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && cam_scanned == 0) {
             cam_scanned = 1;
             int numberOfCameras = Camera.getNumberOfCameras();
             for (int i2 = 0; i2 < numberOfCameras; i2++) {

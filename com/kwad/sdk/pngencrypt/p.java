@@ -5,37 +5,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f38800a;
+    public final k f35872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f38801b;
+    public final e f35873b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38802c;
+    public final boolean f35874c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38803d;
+    public int f35875d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38804e;
+    public int f35876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38805f;
+    public int f35877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38806g;
+    public int f35878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38807h;
+    public int f35879h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38808i;
+    public int f35880i;
     public int j;
     public int k;
     public int l;
@@ -59,41 +59,41 @@ public class p {
                 return;
             }
         }
-        this.f38800a = kVar;
-        this.f38801b = eVar;
-        this.f38802c = eVar != null;
+        this.f35872a = kVar;
+        this.f35873b = eVar;
+        this.f35874c = eVar != null;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f38807h = i2;
-            if (!this.f38802c) {
+            this.f35879h = i2;
+            if (!this.f35874c) {
                 this.n = 1;
-                this.f38803d = 1;
-                this.f38804e = 1;
-                this.f38805f = 0;
-                this.f38806g = 0;
+                this.f35875d = 1;
+                this.f35876e = 1;
+                this.f35877f = 0;
+                this.f35878g = 0;
                 this.j = i2;
-                this.f38808i = i2;
-                k kVar = this.f38800a;
-                this.k = kVar.f38778b;
-                this.l = kVar.f38777a;
+                this.f35880i = i2;
+                k kVar = this.f35872a;
+                this.k = kVar.f35850b;
+                this.l = kVar.f35849a;
                 this.m = kVar.k;
                 return;
             }
-            this.n = this.f38801b.d();
-            e eVar = this.f38801b;
-            this.f38804e = eVar.f38766c;
-            this.f38803d = eVar.f38765b;
-            this.f38806g = eVar.f38768e;
-            this.f38805f = eVar.f38767d;
-            this.f38808i = eVar.c();
-            this.j = this.f38801b.b();
-            this.k = this.f38801b.e();
-            int f2 = this.f38801b.f();
+            this.n = this.f35873b.d();
+            e eVar = this.f35873b;
+            this.f35876e = eVar.f35838c;
+            this.f35875d = eVar.f35837b;
+            this.f35878g = eVar.f35840e;
+            this.f35877f = eVar.f35839d;
+            this.f35880i = eVar.c();
+            this.j = this.f35873b.b();
+            this.k = this.f35873b.e();
+            int f2 = this.f35873b.f();
             this.l = f2;
-            this.m = ((this.f38800a.f38785i * f2) + 7) / 8;
+            this.m = ((this.f35872a.f35857i * f2) + 7) / 8;
         }
     }
 

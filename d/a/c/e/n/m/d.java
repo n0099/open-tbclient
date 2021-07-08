@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends d.a.c.e.a.f.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f44381c;
+        public final /* synthetic */ d.a.c.e.n.h.a f41397c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f44382d;
+        public final /* synthetic */ boolean f41398d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, String str2, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar, boolean z) {
@@ -43,8 +43,8 @@ public class d {
                     return;
                 }
             }
-            this.f44381c = aVar;
-            this.f44382d = z;
+            this.f41397c = aVar;
+            this.f41398d = z;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -53,31 +53,31 @@ public class d {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f44381c.G(getFileInfo().length());
-                    if (this.f44382d || this.f44381c.t() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
-                        d.c(this.f44381c, false, false, false);
+                    this.f41397c.G(getFileInfo().length());
+                    if (this.f41398d || this.f41397c.t() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                        d.c(this.f41397c, false, false, false);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends DiskFileOperate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f44383a;
+        public final /* synthetic */ d.a.c.e.n.h.a f41399a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f44384b;
+        public final /* synthetic */ boolean f41400b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f44385c;
+        public final /* synthetic */ boolean f41401c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f44386d;
+        public final /* synthetic */ boolean f41402d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, String str2, String str3, String str4, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar, boolean z, boolean z2, boolean z3) {
@@ -98,10 +98,10 @@ public class d {
                     return;
                 }
             }
-            this.f44383a = aVar;
-            this.f44384b = z;
-            this.f44385c = z2;
-            this.f44386d = z3;
+            this.f41399a = aVar;
+            this.f41400b = z;
+            this.f41401c = z2;
+            this.f41402d = z3;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -110,23 +110,23 @@ public class d {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f44383a.G(0L);
-                    d.a.c.e.n.l.b.m().r(this.f44383a, this.f44384b, this.f44385c, this.f44386d);
-                } else if (this.f44383a.t() < 307200 || this.f44383a.o() == "stat") {
+                    this.f41399a.G(0L);
+                    d.a.c.e.n.l.b.m().r(this.f41399a, this.f41400b, this.f41401c, this.f41402d);
+                } else if (this.f41399a.t() < 307200 || this.f41399a.o() == "stat") {
                 } else {
-                    d.a(BdStatisticsManager.getInstance().getWriteDir(), this.f44383a.r(), this.f44383a);
+                    d.a(BdStatisticsManager.getInstance().getWriteDir(), this.f41399a.r(), this.f41399a);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class c extends d.a.c.e.a.f.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f44387c;
+        public final /* synthetic */ d.a.c.e.n.h.a f41403c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar) {
@@ -147,7 +147,7 @@ public class d {
                     return;
                 }
             }
-            this.f44387c = aVar;
+            this.f41403c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -156,7 +156,7 @@ public class d {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f44387c.G(getFileInfo().length());
+                    this.f41403c.G(getFileInfo().length());
                 }
             }
         }

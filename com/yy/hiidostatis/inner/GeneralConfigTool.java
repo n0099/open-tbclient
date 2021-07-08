@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class GeneralConfigTool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CODE = "code";
@@ -124,7 +125,7 @@ public class GeneralConfigTool {
     private String assblyUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             String str2 = this.URL_CONFIG_SERVER;
             if (str != null) {
                 return str2 + str;

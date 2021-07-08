@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.utils.t;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.utils.w;
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39783a = "plugin.signature";
+    public static String f36991a = "plugin.signature";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +43,9 @@ public class b {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
             } catch (PackageManager.NameNotFoundException e2) {
-                String str = f39783a;
+                String str = f36991a;
                 com.kwai.sodler.lib.a.e(str, "Can not get signature, error = " + e2.getLocalizedMessage());
-                com.kwai.sodler.lib.a.a(f39783a, e2);
+                com.kwai.sodler.lib.a.a(f36991a, e2);
                 return null;
             }
         }
@@ -59,11 +59,11 @@ public class b {
             try {
                 Signature[] a2 = a(context);
                 if (a2 != null && a2.length >= 1) {
-                    return t.a(a2[0].toByteArray());
+                    return w.a(a2[0].toByteArray());
                 }
                 return "";
             } catch (Exception e2) {
-                com.kwai.sodler.lib.a.a(f39783a, e2);
+                com.kwai.sodler.lib.a.a(f36991a, e2);
                 return "";
             }
         }

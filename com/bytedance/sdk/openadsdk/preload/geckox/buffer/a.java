@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.buffer;
 
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
     int a(byte[] bArr, int i2, int i3) throws IOException;
 

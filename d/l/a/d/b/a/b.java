@@ -13,7 +13,7 @@ import d.l.a.d.b.l;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class b {
             while (it.hasNext()) {
                 c.b next = it.next();
                 if (next != null) {
-                    jSONObject.put(String.valueOf(next.f74195b), next.b());
+                    jSONObject.put(String.valueOf(next.f71247b), next.b());
                 }
             }
         } catch (Exception e2) {

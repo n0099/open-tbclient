@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f42517a;
+    public IBinder f39531a;
 
     public a(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a implements c {
                 return;
             }
         }
-        this.f42517a = iBinder;
+        this.f39531a = iBinder;
     }
 
     public String a() {
@@ -43,7 +43,7 @@ public class a implements c {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                this.f42517a.transact(1, obtain, obtain2, 0);
+                this.f39531a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -58,7 +58,7 @@ public class a implements c {
     public IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42517a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39531a : (IBinder) invokeV.objValue;
     }
 
     public boolean b() {
@@ -69,7 +69,7 @@ public class a implements c {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                this.f42517a.transact(2, obtain, obtain2, 0);
+                this.f39531a.transact(2, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readInt() != 0;
             } finally {

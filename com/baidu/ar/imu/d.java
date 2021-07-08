@@ -2,6 +2,7 @@ package com.baidu.ar.imu;
 
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.representation.Quaternion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -101,7 +102,7 @@ public class d extends j {
 
     public static void getQuaternionFromVector(float[] fArr, float[] fArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, fArr, fArr2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr, fArr2) == null) {
             if (fArr2.length >= 4) {
                 fArr[0] = fArr2[3];
             } else {

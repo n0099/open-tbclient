@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class FormBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType CONTENT_TYPE;
@@ -24,7 +24,7 @@ public final class FormBody extends RequestBody {
     public final List<String> encodedNames;
     public final List<String> encodedValues;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

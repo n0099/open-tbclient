@@ -15,32 +15,32 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.e;
-import d.a.g0.f;
-import d.a.g0.g;
-import d.a.g0.k.d.b;
-/* loaded from: classes3.dex */
+import d.a.d0.e;
+import d.a.d0.f;
+import d.a.d0.g;
+import d.a.d0.k.d.b;
+/* loaded from: classes2.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9451e;
+    public ImageView f9468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9452f;
+    public TextView f9469f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9453g;
+    public TextView f9470g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f9454h;
+    public ImageView f9471h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InterfaceC0138a f9455i;
+    public InterfaceC0138a f9472i;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface InterfaceC0138a {
         void a();
     }
@@ -74,37 +74,37 @@ public class a extends RelativeLayout implements View.OnClickListener {
             String icon = oVar.getIcon();
             int P = oVar.P();
             int N = oVar.N();
-            b.c().b(this.f9451e, icon);
-            this.f9452f.setText(displayName);
+            b.c().b(this.f9468e, icon);
+            this.f9469f.setText(displayName);
             if (P == 1) {
-                this.f9454h.setImageResource(e.channel_checked);
+                this.f9471h.setImageResource(e.channel_checked);
             } else {
-                this.f9454h.setImageResource(e.unchecked);
+                this.f9471h.setImageResource(e.unchecked);
             }
             if (1 == N) {
-                this.f9455i = interfaceC0138a;
+                this.f9472i = interfaceC0138a;
             } else {
-                this.f9451e.setAlpha(0.4f);
-                this.f9452f.setAlpha(0.4f);
-                this.f9453g.setAlpha(0.4f);
-                this.f9454h.setVisibility(8);
+                this.f9468e.setAlpha(0.4f);
+                this.f9469f.setAlpha(0.4f);
+                this.f9470g.setAlpha(0.4f);
+                this.f9471h.setVisibility(8);
             }
             if (!TextUtils.isEmpty(S)) {
                 String M = oVar.M();
                 if (!TextUtils.isEmpty(M)) {
                     try {
-                        this.f9453g.setTextColor(Color.parseColor(M));
+                        this.f9470g.setTextColor(Color.parseColor(M));
                     } catch (Exception unused) {
                     }
                 }
-                this.f9453g.setText(S);
+                this.f9470g.setText(S);
                 return;
             }
-            this.f9453g.setVisibility(8);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9452f.getLayoutParams();
+            this.f9470g.setVisibility(8);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f9469f.getLayoutParams();
             layoutParams.addRule(15);
             layoutParams.topMargin = 0;
-            this.f9452f.setLayoutParams(layoutParams);
+            this.f9469f.setLayoutParams(layoutParams);
         }
     }
 
@@ -112,10 +112,10 @@ public class a extends RelativeLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(g.view_channel_list_item, (ViewGroup) this, true);
-            this.f9451e = (ImageView) findViewById(f.channel_icon_view);
-            this.f9452f = (TextView) findViewById(f.channel_name_view);
-            this.f9453g = (TextView) findViewById(f.channel_desc_view);
-            this.f9454h = (ImageView) findViewById(f.channel_select_view);
+            this.f9468e = (ImageView) findViewById(f.channel_icon_view);
+            this.f9469f = (TextView) findViewById(f.channel_name_view);
+            this.f9470g = (TextView) findViewById(f.channel_desc_view);
+            this.f9471h = (ImageView) findViewById(f.channel_select_view);
             setOnClickListener(this);
         }
     }
@@ -124,7 +124,7 @@ public class a extends RelativeLayout implements View.OnClickListener {
     public void onClick(View view) {
         InterfaceC0138a interfaceC0138a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC0138a = this.f9455i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (interfaceC0138a = this.f9472i) == null) {
             return;
         }
         interfaceC0138a.a();

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class C0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ D0 f42316a;
+    public final /* synthetic */ D0 f39330a;
 
     public C0(D0 d0) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class C0 implements Runnable {
                 return;
             }
         }
-        this.f42316a = d0;
+        this.f39330a = d0;
     }
 
     @Override // java.lang.Runnable
@@ -38,9 +38,9 @@ public class C0 implements Runnable {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap a2 = M0.a(this.f42316a.f42329a);
+            HashMap a2 = M0.a(this.f39330a.f39343a);
             try {
-                str = this.f42316a.a() + M0.a(a2);
+                str = this.f39330a.a() + M0.a(a2);
             } catch (UnsupportedEncodingException unused) {
                 str = "";
             }

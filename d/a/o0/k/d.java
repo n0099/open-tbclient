@@ -1,102 +1,63 @@
 package d.a.o0.k;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
-public class d implements ThreadFactory {
+/* loaded from: classes7.dex */
+public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final AtomicInteger f46424h;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f46425e;
+    /* renamed from: a  reason: collision with root package name */
+    public ViewGroup f52055a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f46426f;
+    /* renamed from: b  reason: collision with root package name */
+    public a f52056b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f46427g;
+    /* renamed from: c  reason: collision with root package name */
+    public b f52057c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-799540028, "Ld/a/o0/k/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-799540028, "Ld/a/o0/k/d;");
-                return;
-            }
-        }
-        f46424h = new AtomicInteger(1);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d() {
-        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
+    public a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread thread = new Thread(runnable, this.f46426f + this.f46425e.getAndIncrement());
-            if (thread.isDaemon()) {
-                thread.setDaemon(false);
-            }
-            int i2 = this.f46427g;
-            if (i2 != 5) {
-                thread.setPriority(i2);
-            } else {
-                thread.setPriority(5);
-            }
-            return thread;
-        }
-        return (Thread) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52056b : (a) invokeV.objValue;
     }
 
-    public d(int i2) {
+    public ViewGroup b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52055a : (ViewGroup) invokeV.objValue;
+    }
+
+    public void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f52056b = aVar;
         }
-        this.f46425e = new AtomicInteger(1);
-        this.f46426f = "sso-" + f46424h.getAndIncrement() + "-thread-";
-        this.f46427g = i2;
+    }
+
+    public void d(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
+            this.f52055a = viewGroup;
+        }
     }
 }

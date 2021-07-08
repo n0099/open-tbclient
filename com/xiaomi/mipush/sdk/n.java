@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.bh;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42801a = -1;
+    public static int f39815a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +39,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f42757f : af.f42752a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f39771f : af.f39766a;
             } catch (Exception unused) {
-                return af.f42757f;
+                return af.f39771f;
             }
         }
         return (af) invokeL.objValue;
@@ -71,26 +72,26 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             Object a2 = bh.a(bh.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
-            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f2102g);
+            Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f2103g);
             if (a3 == null || !(a3 instanceof Integer)) {
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-                f42801a = 0;
+                f39815a = 0;
                 return false;
             }
             int intValue = ((Integer) Integer.class.cast(a3)).intValue();
             if (a2 != null) {
                 if (a2 instanceof Integer) {
-                    f42801a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+                    f39815a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
                 } else {
-                    f42801a = 0;
+                    f39815a = 0;
                     com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
                 }
             }
             StringBuilder sb = new StringBuilder();
             sb.append("is google service can be used");
-            sb.append(f42801a > 0);
+            sb.append(f39815a > 0);
             com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
-            return f42801a > 0;
+            return f39815a > 0;
         }
         return invokeL.booleanValue;
     }
@@ -98,7 +99,7 @@ public class n {
     public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             boolean z = false;
             Object a2 = bh.a("com.xiaomi.assemble.control.COSPushManager", "isSupportPush", context);
             if (a2 != null && (a2 instanceof Boolean)) {

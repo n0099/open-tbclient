@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15192a;
+    public int f15231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f15193b;
+    public RelativeLayout f15232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f15194c;
+    public View f15233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15195d;
+    public TextView f15234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f15196e;
+    public ImageView f15235e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ComplaintBarlordViewHolder(View view) {
@@ -48,10 +48,10 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15192a = 3;
-        this.f15193b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
-        this.f15194c = view.findViewById(R.id.info_complaint_diver_top);
-        this.f15195d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.f15196e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.f15231a = 3;
+        this.f15232b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.f15233c = view.findViewById(R.id.info_complaint_diver_top);
+        this.f15234d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
+        this.f15235e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

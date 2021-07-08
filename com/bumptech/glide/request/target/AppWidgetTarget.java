@@ -7,13 +7,14 @@ import android.graphics.Bitmap;
 import android.widget.RemoteViews;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AppWidgetTarget extends SimpleTarget<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +56,7 @@ public class AppWidgetTarget extends SimpleTarget<Bitmap> {
 
     private void update() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this.context);
             ComponentName componentName = this.componentName;
             if (componentName != null) {

@@ -2,6 +2,7 @@ package com.qq.e.comm.services;
 
 import android.content.Context;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobstat.Config;
@@ -34,16 +35,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f41059a;
+    public static final a f38073a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Boolean f41060b;
+    public volatile Boolean f38074b;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +59,7 @@ public class a {
                 return;
             }
         }
-        f41059a = new a();
+        f38073a = new a();
     }
 
     public a() {
@@ -74,13 +75,13 @@ public class a {
                 return;
             }
         }
-        this.f41060b = Boolean.FALSE;
+        this.f38074b = Boolean.FALSE;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f41059a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38073a : (a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0009 */
@@ -136,7 +137,7 @@ public class a {
 
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, th) == null) {
             if (GDTADManager.getInstance() == null || !GDTADManager.getInstance().isInitialized()) {
                 GDTLogger.w("Report Not Work while  ADManager  not Inited");
                 return;
@@ -163,11 +164,11 @@ public class a {
 
     public final void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f41060b.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f38074b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f41060b.booleanValue()) {
+            if (this.f38074b.booleanValue()) {
                 return;
             }
             String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
@@ -177,13 +178,13 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public /* synthetic */ PM f41061a;
+                public /* synthetic */ PM f38075a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public /* synthetic */ long f41062b;
+                public /* synthetic */ long f38076b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public /* synthetic */ a f41063c;
+                public /* synthetic */ a f38077c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -200,9 +201,9 @@ public class a {
                             return;
                         }
                     }
-                    this.f41063c = this;
-                    this.f41061a = pm;
-                    this.f41062b = r8;
+                    this.f38077c = this;
+                    this.f38075a = pm;
+                    this.f38076b = r8;
                 }
 
                 @Override // com.qq.e.comm.net.NetworkCallBack
@@ -210,7 +211,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, exc) == null) {
                         GDTLogger.e("ActivateError", exc);
-                        RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", -1, (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1));
+                        RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", -1, (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1));
                     }
                 }
 
@@ -227,12 +228,12 @@ public class a {
                                 } catch (JSONException e2) {
                                     GDTLogger.e("Parse Active or launch response exception", e2);
                                     retCodeService = RetCodeService.getInstance();
-                                    retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1);
+                                    retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1);
                                 }
                             } catch (IOException e3) {
                                 GDTLogger.e("ActivateError", e3);
                                 retCodeService = RetCodeService.getInstance();
-                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1);
+                                retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1);
                             }
                             if (response.getStatusCode() == 200) {
                                 String stringContent = response.getStringContent();
@@ -240,27 +241,27 @@ public class a {
                                 if (StringUtil.isEmpty(stringContent)) {
                                     GDTLogger.report("SDK Server response empty string,maybe zip or tea format error");
                                     retCodeService = RetCodeService.getInstance();
-                                    retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1);
+                                    retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1);
                                     retCodeService.send(retCodeInfo);
                                 }
                                 JSONObject jSONObject = new JSONObject(stringContent);
                                 int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
                                 if (i2 == 0) {
-                                    if (this.f41061a != null) {
+                                    if (this.f38075a != null) {
                                         try {
-                                            this.f41061a.getPOFactory().config(1, stringContent);
+                                            this.f38075a.getPOFactory().config(1, stringContent);
                                         } catch (c e4) {
                                             e4.printStackTrace();
                                         }
                                         if (jSONObject.has("sig")) {
                                             JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
                                             if (jSONObject2.has("jar") && jSONObject2.has("url")) {
-                                                this.f41061a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
+                                                this.f38075a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
                                             }
                                         }
                                     }
                                     retCodeService = RetCodeService.getInstance();
-                                    retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1);
+                                    retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1);
                                     retCodeService.send(retCodeInfo);
                                 }
                                 str = "Response Error,retCode=" + i2;
@@ -269,16 +270,16 @@ public class a {
                             }
                             GDTLogger.e(str);
                             retCodeService = RetCodeService.getInstance();
-                            retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1);
+                            retCodeInfo = new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1);
                             retCodeService.send(retCodeInfo);
                         } catch (Throwable th) {
-                            RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f41062b), 0, 0, 1));
+                            RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", "launch", "", response.getStatusCode(), (int) (System.currentTimeMillis() - this.f38076b), 0, 0, 1));
                             throw th;
                         }
                     }
                 }
             });
-            this.f41060b = Boolean.TRUE;
+            this.f38074b = Boolean.TRUE;
         }
     }
 }

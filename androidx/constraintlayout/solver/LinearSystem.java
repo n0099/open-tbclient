@@ -142,7 +142,7 @@ public class LinearSystem {
 
     private final void addRow(ArrayRow arrayRow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, arrayRow) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, arrayRow) == null) {
             ArrayRow[] arrayRowArr = this.mRows;
             int i2 = this.mNumRows;
             if (arrayRowArr[i2] != null) {

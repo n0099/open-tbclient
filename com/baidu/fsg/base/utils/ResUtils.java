@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,37 +22,37 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ResUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5397a = "id";
+    public static final String f5414a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5398b = "string";
+    public static final String f5415b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5399c = "layout";
+    public static final String f5416c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5400d = "style";
+    public static final String f5417d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5401e = "drawable";
+    public static final String f5418e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5402f = "color";
+    public static final String f5419f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5403g = "array";
+    public static final String f5420g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5404h = "attr";
+    public static final String f5421h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5405i = "dimen";
+    public static final String f5422i = "dimen";
     public static final String j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
@@ -392,7 +393,7 @@ public final class ResUtils {
     public static String a(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, bArr, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, z)) == null) {
             if (bArr == null) {
                 return "";
             }

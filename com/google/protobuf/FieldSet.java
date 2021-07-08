@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     public static /* synthetic */ Interceptable $ic;
     public static final FieldSet DEFAULT_INSTANCE;
@@ -31,7 +31,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public boolean isImmutable;
 
     /* renamed from: com.google.protobuf.FieldSet$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$FieldType;
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
@@ -166,7 +166,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
         Internal.EnumLiteMap<?> getEnumType();
 
@@ -232,7 +232,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public static int computeElementSize(WireFormat.FieldType fieldType, int i2, Object obj) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65540, null, fieldType, i2, obj)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, fieldType, i2, obj)) == null) {
             int computeTagSize = CodedOutputStream.computeTagSize(i2);
             if (fieldType == WireFormat.FieldType.GROUP) {
                 computeTagSize *= 2;

@@ -24,7 +24,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import com.kwai.video.player.KsMediaMeta;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import d.b.c.b.l;
 import d.b.c.b.m;
@@ -34,19 +33,19 @@ import java.util.Map;
 import java.util.TimeZone;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f71846c;
+    public static final String[] f68949c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71847a;
+    public Context f68950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f71848b;
+    public JSONObject f68951b;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +60,7 @@ public final class b {
                 return;
             }
         }
-        f71846c = new String[]{"version_code", "manifest_version_code", "aid", "update_version_code"};
+        f68949c = new String[]{"version_code", "manifest_version_code", "aid", "update_version_code"};
     }
 
     public b(Context context) {
@@ -79,8 +78,8 @@ public final class b {
                 return;
             }
         }
-        this.f71848b = new JSONObject();
-        this.f71847a = context;
+        this.f68951b = new JSONObject();
+        this.f68950a = context;
     }
 
     public static b a(Context context) {
@@ -104,7 +103,7 @@ public final class b {
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71848b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68951b : (JSONObject) invokeV.objValue;
     }
 
     public JSONObject c(String str) {
@@ -112,11 +111,11 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                this.f71848b.put("device_id", str);
+                this.f68951b.put("device_id", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return this.f71848b;
+            return this.f68951b;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -127,30 +126,30 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
             if (map == null) {
-                return this.f71848b;
+                return this.f68951b;
             }
             for (Map.Entry<String, Object> entry : map.entrySet()) {
-                if (!this.f71848b.has(entry.getKey())) {
-                    this.f71848b.put(entry.getKey(), entry.getValue());
+                if (!this.f68951b.has(entry.getKey())) {
+                    this.f68951b.put(entry.getKey(), entry.getValue());
                 }
             }
-            for (String str : f71846c) {
+            for (String str : f68949c) {
                 if (map.containsKey(str)) {
                     try {
-                        this.f71848b.put(str, Integer.parseInt((String) map.get(str)));
+                        this.f68951b.put(str, Integer.parseInt((String) map.get(str)));
                     } catch (Exception unused) {
-                        this.f71848b.put(str, map.get(str));
+                        this.f68951b.put(str, map.get(str));
                     }
                 }
             }
             if (map.containsKey("version_code") && !map.containsKey("manifest_version_code")) {
-                this.f71848b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
+                this.f68951b.put("manifest_version_code", Integer.parseInt((String) map.get("version_code")));
             }
             if (map.containsKey(CommonUrlParamManager.PARAM_IID)) {
-                this.f71848b.put("udid", map.get(CommonUrlParamManager.PARAM_IID));
-                this.f71848b.remove(CommonUrlParamManager.PARAM_IID);
+                this.f68951b.put("udid", map.get(CommonUrlParamManager.PARAM_IID));
+                this.f68951b.remove(CommonUrlParamManager.PARAM_IID);
             }
-            return this.f71848b;
+            return this.f68951b;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -161,9 +160,9 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             try {
-                PackageInfo packageInfo = this.f71847a.getPackageManager().getPackageInfo(this.f71847a.getPackageName(), 0);
+                PackageInfo packageInfo = this.f68950a.getPackageManager().getPackageInfo(this.f68950a.getPackageName(), 0);
                 if (packageInfo.applicationInfo != null && (i2 = packageInfo.applicationInfo.labelRes) > 0) {
-                    jSONObject.put("display_name", this.f71847a.getString(i2));
+                    jSONObject.put("display_name", this.f68950a.getString(i2));
                 }
                 jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 120);
                 jSONObject.put(HttpConstants.SDK_VERSION_NAME, "0.0.1-alpha.0");
@@ -210,12 +209,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
                 if (!TextUtils.isEmpty(str)) {
-                    this.f71848b.put("user_id", str);
+                    this.f68951b.put("user_id", str);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return this.f71848b;
+            return this.f68951b;
         }
         return (JSONObject) invokeL.objValue;
     }
@@ -258,7 +257,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
             try {
-                DisplayMetrics displayMetrics = this.f71847a.getResources().getDisplayMetrics();
+                DisplayMetrics displayMetrics = this.f68950a.getResources().getDisplayMetrics();
                 int i2 = displayMetrics.densityDpi;
                 String str = i2 != 120 ? i2 != 240 ? i2 != 320 ? "mdpi" : "xhdpi" : "hdpi" : "ldpi";
                 jSONObject.put("density_dpi", i2);
@@ -273,9 +272,9 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             try {
-                String language = this.f71847a.getResources().getConfiguration().locale.getLanguage();
+                String language = this.f68950a.getResources().getConfiguration().locale.getLanguage();
                 if (!TextUtils.isEmpty(language)) {
-                    jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, language);
+                    jSONObject.put("language", language);
                 }
                 String country = Locale.getDefault().getCountry();
                 if (!TextUtils.isEmpty(country)) {
@@ -327,7 +326,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
             try {
-                jSONObject.put("access", l.j.a(this.f71847a));
+                jSONObject.put("access", l.j.a(this.f68950a));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -338,7 +337,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
             try {
-                TelephonyManager telephonyManager = (TelephonyManager) this.f71847a.getSystemService("phone");
+                TelephonyManager telephonyManager = (TelephonyManager) this.f68950a.getSystemService("phone");
                 if (telephonyManager != null) {
                     String networkOperatorName = telephonyManager.getNetworkOperatorName();
                     if (!TextUtils.isEmpty(networkOperatorName)) {

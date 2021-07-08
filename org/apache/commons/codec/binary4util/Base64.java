@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -16,7 +17,7 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.math.BigInteger;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Base64 extends BaseNCodec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_ENCODED_BYTE = 6;
@@ -499,14 +500,14 @@ public class Base64 extends BaseNCodec {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Integer.valueOf(i2), bArr, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

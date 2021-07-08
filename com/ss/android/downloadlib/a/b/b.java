@@ -10,31 +10,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<b> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41290a;
+    public int f38304a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41291b;
+    public int f38305b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f41292c;
+    public String f38306c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f41293d;
+    public int f38307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41294e;
+    public String f38308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41295f;
+    public String f38309f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,9 +101,9 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f41292c = "";
-        this.f41294e = "";
-        this.f41295f = "";
+        this.f38306c = "";
+        this.f38308e = "";
+        this.f38309f = "";
     }
 
     @Override // android.os.Parcelable
@@ -125,12 +125,12 @@ public class b implements Parcelable {
             }
             if (obj != null && b.class == obj.getClass()) {
                 b bVar = (b) obj;
-                if (this.f41290a == bVar.f41290a && this.f41291b == bVar.f41291b) {
-                    String str = this.f41292c;
+                if (this.f38304a == bVar.f38304a && this.f38305b == bVar.f38305b) {
+                    String str = this.f38306c;
                     if (str != null) {
-                        return str.equals(bVar.f41292c);
+                        return str.equals(bVar.f38306c);
                     }
-                    if (bVar.f41292c == null) {
+                    if (bVar.f38306c == null) {
                         return true;
                     }
                 }
@@ -144,8 +144,8 @@ public class b implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = ((this.f41290a * 31) + this.f41291b) * 31;
-            String str = this.f41292c;
+            int i2 = ((this.f38304a * 31) + this.f38305b) * 31;
+            String str = this.f38306c;
             return i2 + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -161,12 +161,12 @@ public class b implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeInt(this.f41290a);
-            parcel.writeInt(this.f41291b);
-            parcel.writeString(this.f41292c);
-            parcel.writeString(this.f41294e);
-            parcel.writeString(this.f41295f);
-            parcel.writeInt(this.f41293d);
+            parcel.writeInt(this.f38304a);
+            parcel.writeInt(this.f38305b);
+            parcel.writeString(this.f38306c);
+            parcel.writeString(this.f38308e);
+            parcel.writeString(this.f38309f);
+            parcel.writeInt(this.f38307d);
         }
     }
 
@@ -185,14 +185,14 @@ public class b implements Parcelable {
                 return;
             }
         }
-        this.f41292c = "";
-        this.f41294e = "";
-        this.f41295f = "";
-        this.f41290a = parcel.readInt();
-        this.f41291b = parcel.readInt();
-        this.f41292c = parcel.readString();
-        this.f41294e = parcel.readString();
-        this.f41295f = parcel.readString();
-        this.f41293d = parcel.readInt();
+        this.f38306c = "";
+        this.f38308e = "";
+        this.f38309f = "";
+        this.f38304a = parcel.readInt();
+        this.f38305b = parcel.readInt();
+        this.f38306c = parcel.readString();
+        this.f38308e = parcel.readString();
+        this.f38309f = parcel.readString();
+        this.f38307d = parcel.readInt();
     }
 }

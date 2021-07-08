@@ -7,7 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,6 +42,21 @@ public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
         this.screatString = str3;
     }
 
+    public static ResponsedSelectLocation parseJsonString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new ResponsedSelectLocation(jSONObject.optBoolean("isShowLocation"), jSONObject.optString("name"), jSONObject.optString("address"), jSONObject.optString("screatString"));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (ResponsedSelectLocation) invokeL.objValue;
+    }
+
     public String getAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,5 +79,24 @@ public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isShowLocation : invokeV.booleanValue;
+    }
+
+    public String toJsonString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.name);
+                jSONObject.put("address", this.address);
+                jSONObject.put("isShowLocation", this.isShowLocation);
+                jSONObject.put("screatString", this.screatString);
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

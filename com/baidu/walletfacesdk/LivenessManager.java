@@ -17,14 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LivenessManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String mPassProductId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface IvoiceListener {
         public static final int RESULT_FAIL = 1;
         public static final int RESULT_SUCC = 0;
@@ -74,10 +74,10 @@ public class LivenessManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IvoiceListener f27264a;
+                public final /* synthetic */ IvoiceListener f27374a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f27265b;
+                public final /* synthetic */ LivenessManager f27375b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,8 +94,8 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f27265b = this;
-                    this.f27264a = ivoiceListener;
+                    this.f27375b = this;
+                    this.f27374a = ivoiceListener;
                 }
 
                 @Override // com.baidu.fsg.api.RimServiceCallback
@@ -104,11 +104,11 @@ public class LivenessManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, map2) == null) {
                         if (i2 == 0) {
-                            IvoiceListener ivoiceListener3 = this.f27264a;
+                            IvoiceListener ivoiceListener3 = this.f27374a;
                             if (ivoiceListener3 != null) {
-                                ivoiceListener3.onResult(0, 0, "ok", this.f27265b.toJSONObject(map2));
+                                ivoiceListener3.onResult(0, 0, "ok", this.f27375b.toJSONObject(map2));
                             }
-                        } else if (map2 == null || (ivoiceListener2 = this.f27264a) == null) {
+                        } else if (map2 == null || (ivoiceListener2 = this.f27374a) == null) {
                         } else {
                             ivoiceListener2.onResult(1, ((Integer) map2.get(BaiduRimConstants.RETCODE_KEY)).intValue(), (String) map2.get("retMsg"), null);
                         }
@@ -119,10 +119,10 @@ public class LivenessManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IvoiceListener f27266a;
+                public final /* synthetic */ IvoiceListener f27376a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessManager f27267b;
+                public final /* synthetic */ LivenessManager f27377b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -139,8 +139,8 @@ public class LivenessManager {
                             return;
                         }
                     }
-                    this.f27267b = this;
-                    this.f27266a = ivoiceListener;
+                    this.f27377b = this;
+                    this.f27376a = ivoiceListener;
                 }
 
                 @Override // com.baidu.sapi2.openbduss.PASSMethodCallTransfer.DynamicCallbak
@@ -160,7 +160,7 @@ public class LivenessManager {
                             i3 = 10003;
                             str2 = "内部错误";
                         }
-                        this.f27266a.onResult(1, i3, str2, null);
+                        this.f27376a.onResult(1, i3, str2, null);
                     }
                 }
             }, Context.class, Map.class, RimServiceCallback.class);

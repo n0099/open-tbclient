@@ -10,7 +10,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MetricsHttpEncryptUtil extends AbstractStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RSA_PUB_KEY = "MCwwDQYJKoZIhvcNAQEBBQADGwAwGAIRAMRSvSVZEbyQwtFwNtNiZKkCAwEAAQ==";

@@ -1,5 +1,6 @@
 package com.google.common.base;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -16,7 +17,7 @@ import d.f.d.a.n;
 import java.io.Serializable;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class CaseFormat {
     public static final /* synthetic */ CaseFormat[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +30,7 @@ public abstract class CaseFormat {
     public final b wordBoundary;
     public final String wordSeparator;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StringConverter extends Converter<String, String> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -339,7 +340,7 @@ public abstract class CaseFormat {
     public static String firstCharOnlyToUpper(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str.isEmpty()) {
                 return str;
             }

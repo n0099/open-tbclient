@@ -1,6 +1,7 @@
 package com.baidu.tieba.yunpush;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,22 +19,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.d0.b;
-/* loaded from: classes5.dex */
+import d.a.o0.r.d0.b;
+/* loaded from: classes4.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f22888a;
+    public static CustomMessageListener f22998a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class RunnableC0246a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -106,8 +107,8 @@ public class PushStatic {
                 return;
             }
         }
-        f22888a = new a(0);
-        MessageManager.getInstance().registerListener(2007015, f22888a);
+        f22998a = new a(0);
+        MessageManager.getInstance().registerListener(2007015, f22998a);
     }
 
     public PushStatic() {
@@ -133,7 +134,7 @@ public class PushStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             f(TbadkCoreApplication.getInst());
         }
     }
@@ -159,7 +160,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, d.a.s0.b4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, d.a.p0.b4.a.a(context, Constants.API_KEY));
         }
     }
 

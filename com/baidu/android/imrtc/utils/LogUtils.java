@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -87,7 +88,7 @@ public class LogUtils {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65540, null, str, str2, th) == null) && RtcConstants.LOG_DEBUG) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && RtcConstants.LOG_DEBUG) {
             String str3 = TAG;
             Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
         }

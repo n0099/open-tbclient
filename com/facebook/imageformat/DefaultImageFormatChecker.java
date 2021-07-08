@@ -1,5 +1,6 @@
 package com.facebook.imageformat;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.webp.WebpSupportStatus;
 import com.facebook.imageformat.ImageFormat;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] BMP_HEADER;
@@ -124,7 +125,7 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
     public static boolean isGifHeader(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
             if (i2 < 6) {
                 return false;
             }

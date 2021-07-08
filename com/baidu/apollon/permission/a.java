@@ -3,6 +3,7 @@ package com.baidu.apollon.permission;
 import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,16 +17,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3806a = 0;
+    public static final int f3809a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3807b = 1;
+    public static final int f3810b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3808c = 3;
+    public static final int f3811c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f3809d;
+    public static final b f3812d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.apollon.permission.a$1  reason: invalid class name */
@@ -150,9 +151,9 @@ public final class a {
             }
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            f3809d = new C0063a(null);
+            f3812d = new C0063a(null);
         } else {
-            f3809d = new b(null);
+            f3812d = new b(null);
         }
     }
 
@@ -173,18 +174,18 @@ public final class a {
     public static String a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? f3809d.a(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f3812d.a(str) : (String) invokeL.objValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f3809d.a(context, str, i2, str2) : invokeLLIL.intValue;
+        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f3812d.a(context, str, i2, str2) : invokeLLIL.intValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f3809d.a(context, str, str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f3812d.a(context, str, str2) : invokeLLL.intValue;
     }
 }

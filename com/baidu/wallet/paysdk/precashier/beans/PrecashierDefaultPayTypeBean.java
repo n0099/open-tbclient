@@ -17,13 +17,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26089a;
+    public String f26199a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrecashierDefaultPayTypeBean(Context context) {
@@ -89,11 +89,11 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f26089a == null) {
+            if (this.f26199a == null) {
                 return arrayList;
             }
             try {
-                a(arrayList, new JSONObject(this.f26089a));
+                a(arrayList, new JSONObject(this.f26199a));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -137,6 +137,6 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f26089a = str;
+        this.f26199a = str;
     }
 }

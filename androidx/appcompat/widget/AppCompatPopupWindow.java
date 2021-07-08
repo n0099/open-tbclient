@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.R;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.PopupWindowCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -78,7 +79,7 @@ public class AppCompatPopupWindow extends PopupWindow {
 
     private void setSupportOverlapAnchor(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             if (COMPAT_OVERLAP_ANCHOR) {
                 this.mOverlapAnchor = z;
             } else {

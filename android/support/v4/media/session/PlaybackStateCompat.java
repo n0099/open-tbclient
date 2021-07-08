@@ -415,7 +415,7 @@ public final class PlaybackStateCompat implements Parcelable {
     public static int toKeyCode(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65540, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
             if (j == 4) {
                 return 126;
             }

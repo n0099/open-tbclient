@@ -25,6 +25,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.DragAndDropPermissionsCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -218,7 +219,7 @@ public class ActivityCompat extends ContextCompat {
     public static Uri getReferrer(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
             if (Build.VERSION.SDK_INT >= 22) {
                 return activity.getReferrer();
             }

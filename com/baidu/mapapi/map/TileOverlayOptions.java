@@ -14,39 +14,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class TileOverlayOptions {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Bundle f7118c = null;
+    public static Bundle f7135c = null;
     public static final String j = "TileOverlayOptions";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7119a;
+    public int f7136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TileProvider f7120b;
+    public TileProvider f7137b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7121d;
+    public int f7138d;
     public int datasource;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7122e;
+    public int f7139e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7123f;
+    public int f7140f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7124g;
+    public int f7141g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7125h;
+    public int f7142h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7126i;
+    public int f7143i;
     public String urlString;
 
     static {
@@ -77,27 +77,27 @@ public final class TileOverlayOptions {
                 return;
             }
         }
-        this.f7119a = CyberPlayerManager.StorageQuotaWarning;
-        this.f7121d = 20;
-        this.f7122e = 3;
-        this.f7123f = 15786414;
-        this.f7124g = -20037726;
-        this.f7125h = -15786414;
-        this.f7126i = 20037726;
+        this.f7136a = CyberPlayerManager.StorageQuotaWarning;
+        this.f7138d = 20;
+        this.f7139e = 3;
+        this.f7140f = 15786414;
+        this.f7141g = -20037726;
+        this.f7142h = -15786414;
+        this.f7143i = 20037726;
         Bundle bundle = new Bundle();
-        f7118c = bundle;
-        bundle.putInt("rectr", this.f7123f);
-        f7118c.putInt("rectb", this.f7124g);
-        f7118c.putInt("rectl", this.f7125h);
-        f7118c.putInt("rectt", this.f7126i);
+        f7135c = bundle;
+        bundle.putInt("rectr", this.f7140f);
+        f7135c.putInt("rectb", this.f7141g);
+        f7135c.putInt("rectl", this.f7142h);
+        f7135c.putInt("rectt", this.f7143i);
     }
 
     private TileOverlayOptions a(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i2, i3)) == null) {
-            this.f7121d = i2;
-            this.f7122e = i3;
+            this.f7138d = i2;
+            this.f7139e = i3;
             return this;
         }
         return (TileOverlayOptions) invokeII.objValue;
@@ -107,12 +107,12 @@ public final class TileOverlayOptions {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f7118c.putString("url", this.urlString);
-            f7118c.putInt("datasource", this.datasource);
-            f7118c.putInt("maxDisplay", this.f7121d);
-            f7118c.putInt("minDisplay", this.f7122e);
-            f7118c.putInt("sdktiletmpmax", this.f7119a);
-            return f7118c;
+            f7135c.putString("url", this.urlString);
+            f7135c.putInt("datasource", this.datasource);
+            f7135c.putInt("maxDisplay", this.f7138d);
+            f7135c.putInt("minDisplay", this.f7139e);
+            f7135c.putInt("sdktiletmpmax", this.f7136a);
+            return f7135c;
         }
         return (Bundle) invokeV.objValue;
     }
@@ -120,14 +120,14 @@ public final class TileOverlayOptions {
     public TileOverlay a(BaiduMap baiduMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap)) == null) ? new TileOverlay(baiduMap, this.f7120b) : (TileOverlay) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baiduMap)) == null) ? new TileOverlay(baiduMap, this.f7137b) : (TileOverlay) invokeL.objValue;
     }
 
     public TileOverlayOptions setMaxTileTmp(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f7119a = i2;
+            this.f7136a = i2;
             return this;
         }
         return (TileOverlayOptions) invokeI.objValue;
@@ -147,10 +147,10 @@ public final class TileOverlayOptions {
                 if (latitudeE6 <= latitudeE62 || longitudeE62 <= longitudeE6) {
                     Log.e(j, "BDMapSDKException: bounds is illegal, use default bounds");
                 } else {
-                    f7118c.putInt("rectr", (int) longitudeE62);
-                    f7118c.putInt("rectb", (int) latitudeE62);
-                    f7118c.putInt("rectl", (int) longitudeE6);
-                    f7118c.putInt("rectt", (int) latitudeE6);
+                    f7135c.putInt("rectr", (int) longitudeE62);
+                    f7135c.putInt("rectb", (int) latitudeE62);
+                    f7135c.putInt("rectl", (int) longitudeE6);
+                    f7135c.putInt("rectt", (int) latitudeE6);
                 }
                 return this;
             }
@@ -177,7 +177,7 @@ public final class TileOverlayOptions {
                     return null;
                 }
                 this.datasource = 0;
-                this.f7120b = tileProvider;
+                this.f7137b = tileProvider;
                 maxDisLevel = tileProvider.getMaxDisLevel();
                 int minDisLevel = tileProvider.getMinDisLevel();
                 if (maxDisLevel <= 21) {
@@ -194,7 +194,7 @@ public final class TileOverlayOptions {
                 return null;
             }
             this.urlString = tileUrl;
-            this.f7120b = tileProvider;
+            this.f7137b = tileProvider;
             maxDisLevel = tileProvider.getMaxDisLevel();
             int minDisLevel2 = tileProvider.getMinDisLevel();
             if (maxDisLevel <= 21 || minDisLevel2 < 3) {

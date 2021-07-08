@@ -1,5 +1,6 @@
 package com.google.zxing.aztec.detector;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +22,7 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] EXPECTED_CORNER_BITS;
@@ -33,7 +34,7 @@ public final class Detector {
     public int nbLayers;
     public int shift;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Point {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +131,7 @@ public final class Detector {
     public static ResultPoint[] expandSquare(ResultPoint[] resultPointArr, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{resultPointArr, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resultPointArr, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             float f4 = f3 / (f2 * 2.0f);
             float x = resultPointArr[0].getX() - resultPointArr[2].getX();
             float y = resultPointArr[0].getY() - resultPointArr[2].getY();

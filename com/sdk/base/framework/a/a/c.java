@@ -2,6 +2,7 @@ package com.sdk.base.framework.a.a;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,22 +13,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f41080a;
+    public final LinkedHashMap<K, V> f38094a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41081b;
+    public int f38095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f41082c;
+    public int f38096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f41083d;
+    public b<K, Long> f38097d;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -47,9 +48,9 @@ public class c<K, V> {
         if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f41082c = i2;
-        this.f41080a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f41083d = new b<>(0, 0.75f);
+        this.f38096c = i2;
+        this.f38094a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f38097d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -98,18 +99,18 @@ public class c<K, V> {
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f41081b <= i2 || this.f41080a.isEmpty()) {
+                    if (this.f38095b <= i2 || this.f38094a.isEmpty()) {
                         break;
                     }
-                    Map.Entry<K, V> next = this.f41080a.entrySet().iterator().next();
+                    Map.Entry<K, V> next = this.f38094a.entrySet().iterator().next();
                     K key = next.getKey();
                     V value = next.getValue();
-                    this.f41080a.remove(key);
-                    this.f41083d.remove(key);
-                    this.f41081b -= b(key, value);
+                    this.f38094a.remove(key);
+                    this.f38097d.remove(key);
+                    this.f38095b -= b(key, value);
                 }
             }
         }
@@ -136,9 +137,9 @@ public class c<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, k, v)) == null) {
             int a2 = a((c<K, V>) k, (K) v);
             if (a2 <= 0) {
-                this.f41081b = 0;
-                for (Map.Entry<K, V> entry : this.f41080a.entrySet()) {
-                    this.f41081b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+                this.f38095b = 0;
+                for (Map.Entry<K, V> entry : this.f38094a.entrySet()) {
+                    this.f38095b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
                 }
             }
             return a2;
@@ -174,10 +175,10 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    remove = this.f41080a.remove(k);
-                    this.f41083d.remove(k);
+                    remove = this.f38094a.remove(k);
+                    this.f38097d.remove(k);
                     if (remove != null) {
-                        this.f41081b -= b(k, remove);
+                        this.f38095b -= b(k, remove);
                     }
                 }
                 return remove;
@@ -217,11 +218,11 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    if (!this.f41083d.containsKey(k)) {
+                    if (!this.f38097d.containsKey(k)) {
                         b((c<K, V>) k);
                         return null;
                     }
-                    V v = this.f41080a.get(k);
+                    V v = this.f38094a.get(k);
                     if (v != null) {
                         return v;
                     }
@@ -242,14 +243,14 @@ public class c<K, V> {
                 throw new NullPointerException("key == null || value == null");
             }
             synchronized (this) {
-                this.f41081b += b(k, v);
-                put = this.f41080a.put(k, v);
-                this.f41083d.put(k, Long.valueOf(j));
+                this.f38095b += b(k, v);
+                put = this.f38094a.put(k, v);
+                this.f38097d.put(k, Long.valueOf(j));
                 if (put != null) {
-                    this.f41081b -= b(k, put);
+                    this.f38095b -= b(k, put);
                 }
             }
-            a(this.f41082c);
+            a(this.f38096c);
             return put;
         }
         return (V) invokeCommon.objValue;

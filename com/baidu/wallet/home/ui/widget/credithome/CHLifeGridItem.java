@@ -16,22 +16,22 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CHLifeGridItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25028a;
+    public NetImageView f25138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25029b;
+    public MaskTextView f25139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f25030c;
+    public NetImageView f25140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25031d;
+    public MaskTextView f25141d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHLifeGridItem(Context context) {
@@ -58,10 +58,10 @@ public class CHLifeGridItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_item_view"), this);
-            this.f25028a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_icon"));
-            this.f25029b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_title"));
-            this.f25030c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_star"));
-            this.f25031d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_corner"));
+            this.f25138a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_icon"));
+            this.f25139b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_title"));
+            this.f25140c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_life_item_star"));
+            this.f25141d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_life_item_corner"));
         }
     }
 
@@ -71,8 +71,8 @@ public class CHLifeGridItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean isShowRedDot = isShowRedDot();
-            this.f25030c.setVisibility(isShowRedDot ? 0 : 8);
-            this.f25030c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+            this.f25140c.setVisibility(isShowRedDot ? 0 : 8);
+            this.f25140c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
             return isShowRedDot;
         }
         return invokeV.booleanValue;
@@ -83,14 +83,14 @@ public class CHLifeGridItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f25029b.setMaskText(getData().name);
-        setNetImageViewUrl(this.f25028a, getData().getPicAddr());
+        this.f25139b.setMaskText(getData().name);
+        setNetImageViewUrl(this.f25138a, getData().getPicAddr());
         if (!handlePoint() && !TextUtils.isEmpty(getData().desc)) {
-            this.f25031d.setVisibility(0);
-            this.f25031d.setMaskText(getData().desc);
+            this.f25141d.setVisibility(0);
+            this.f25141d.setMaskText(getData().desc);
             return;
         }
-        this.f25031d.setVisibility(8);
+        this.f25141d.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

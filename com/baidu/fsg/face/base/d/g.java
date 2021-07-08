@@ -2,6 +2,7 @@ package com.baidu.fsg.face.base.d;
 
 import android.content.Context;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,24 +15,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5631a = false;
+    public static boolean f5648a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5632b = "SapiBioFileUtils";
+    public static final String f5649b = "SapiBioFileUtils";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5633c = "liveness_video.mp4";
+    public static final String f5650c = "liveness_video.mp4";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5634d = "liveness_action_video.mp4";
+    public static final String f5651d = "liveness_action_video.mp4";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5635e = "BI0_VIDEO";
+    public static final String f5652e = "BI0_VIDEO";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +48,7 @@ public class g {
                 return;
             }
         }
-        f5631a = ApollonConstants.VIDEO_DEBUG;
+        f5648a = ApollonConstants.VIDEO_DEBUG;
     }
 
     public g() {
@@ -67,15 +68,15 @@ public class g {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getDir(f5635e, 0).getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getDir(f5652e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            String a2 = f5631a ? a() : a(context);
-            return a2 + File.separator + f5633c;
+            String a2 = f5648a ? a() : a(context);
+            return a2 + File.separator + f5650c;
         }
         return (String) invokeL.objValue;
     }
@@ -84,8 +85,8 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            String a2 = f5631a ? a() : a(context);
-            return a2 + File.separator + f5634d;
+            String a2 = f5648a ? a() : a(context);
+            return a2 + File.separator + f5651d;
         }
         return (String) invokeL.objValue;
     }
@@ -93,7 +94,7 @@ public class g {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? context.getDir(f5635e, 0).getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? context.getDir(f5652e, 0).getAbsolutePath() : (String) invokeL.objValue;
     }
 
     public static String a() {
@@ -126,7 +127,7 @@ public class g {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             if (!str2.startsWith(".")) {
                 str2 = "." + str2;
             }

@@ -44,7 +44,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HiidoSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile String HIIDO_HOST = "mlog.bigda.com";
@@ -63,12 +63,12 @@ public class HiidoSDK {
     public Options mOptions;
     public volatile boolean userAgreed;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BEHAVIOR_SEND_THRESHOLD_DEFAULT = 10;
@@ -554,7 +554,7 @@ public class HiidoSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class PageActionReportOption {
         public static final /* synthetic */ PageActionReportOption[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -664,7 +664,7 @@ public class HiidoSDK {
     public static HiidoSDK instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? instance : (HiidoSDK) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? instance : (HiidoSDK) invokeV.objValue;
     }
 
     public static void setHiidoHost(String str, List<String> list) {

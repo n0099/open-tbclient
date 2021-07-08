@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.l;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f71839a;
+    public final String f68942a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class a<T> {
                 return;
             }
         }
-        this.f71839a = str;
+        this.f68942a = str;
     }
 
     public abstract ContentValues a(T t);
@@ -46,7 +46,7 @@ public abstract class a<T> {
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("CREATE TABLE ");
-                sb.append(this.f71839a);
+                sb.append(this.f68942a);
                 sb.append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
                 HashMap<String, String> b2 = b();
                 if (b2 != null) {
@@ -72,7 +72,7 @@ public abstract class a<T> {
             return;
         }
         try {
-            sQLiteDatabase.insert(this.f71839a, null, a(t));
+            sQLiteDatabase.insert(this.f68942a, null, a(t));
         } catch (Exception e2) {
             l.k.c(e2);
         }

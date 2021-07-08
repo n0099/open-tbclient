@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CSJNativeAdLargeVideoView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f32582f;
+    public FrameLayout f32692f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeVideoView(Context context) {
@@ -101,14 +101,14 @@ public final class CSJNativeAdLargeVideoView extends b {
                     TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
                     int adViewHeight = tTFeedAd.getAdViewHeight();
                     int adViewWidth = tTFeedAd.getAdViewWidth();
-                    ViewGroup.LayoutParams layoutParams = this.f32582f.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = this.f32692f.getLayoutParams();
                     layoutParams.width = adViewWidth;
                     layoutParams.height = adViewHeight;
-                    this.f32582f.setLayoutParams(layoutParams);
-                    this.f32582f.requestLayout();
+                    this.f32692f.setLayoutParams(layoutParams);
+                    this.f32692f.requestLayout();
                 }
-                this.f32582f.removeAllViews();
-                this.f32582f.addView(adView);
+                this.f32692f.removeAllViews();
+                this.f32692f.addView(adView);
             }
         }
     }
@@ -118,7 +118,7 @@ public final class CSJNativeAdLargeVideoView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32582f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f32692f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 
@@ -127,11 +127,11 @@ public final class CSJNativeAdLargeVideoView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32582f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32692f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f32582f.setLayoutParams(layoutParams);
+            this.f32692f.setLayoutParams(layoutParams);
         }
     }
 }

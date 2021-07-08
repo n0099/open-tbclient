@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a extends AsyncHttpClient.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ HttpClient.ProtoResultCallback f6844a;
+    public final /* synthetic */ HttpClient.ProtoResultCallback f6861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f6845b;
+    public final /* synthetic */ String f6862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ AsyncHttpClient f6846c;
+    public final /* synthetic */ AsyncHttpClient f6863c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, String str) {
@@ -38,9 +38,9 @@ public class a extends AsyncHttpClient.a {
                 return;
             }
         }
-        this.f6846c = asyncHttpClient;
-        this.f6844a = protoResultCallback;
-        this.f6845b = str;
+        this.f6863c = asyncHttpClient;
+        this.f6861a = protoResultCallback;
+        this.f6862b = str;
     }
 
     @Override // com.baidu.mapapi.http.AsyncHttpClient.a
@@ -49,12 +49,12 @@ public class a extends AsyncHttpClient.a {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HttpClient httpClient = new HttpClient("GET", this.f6844a);
-            i2 = this.f6846c.f6834a;
+            HttpClient httpClient = new HttpClient("GET", this.f6861a);
+            i2 = this.f6863c.f6851a;
             httpClient.setMaxTimeOut(i2);
-            i3 = this.f6846c.f6835b;
+            i3 = this.f6863c.f6852b;
             httpClient.setReadTimeOut(i3);
-            httpClient.request(this.f6845b);
+            httpClient.request(this.f6862b);
         }
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WholeDisplayGridView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12652e;
+    public boolean f12669e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WholeDisplayGridView(Context context, AttributeSet attributeSet, int i2) {
@@ -37,7 +37,7 @@ public class WholeDisplayGridView extends BdGridView {
                 return;
             }
         }
-        this.f12652e = false;
+        this.f12669e = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,7 +45,7 @@ public class WholeDisplayGridView extends BdGridView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 2 && this.f12652e) {
+            if (motionEvent.getAction() == 2 && this.f12669e) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -64,7 +64,7 @@ public class WholeDisplayGridView extends BdGridView {
     public void setForbidMove(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f12652e = z;
+            this.f12669e = z;
         }
     }
 
@@ -87,7 +87,7 @@ public class WholeDisplayGridView extends BdGridView {
                 return;
             }
         }
-        this.f12652e = false;
+        this.f12669e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,6 +108,6 @@ public class WholeDisplayGridView extends BdGridView {
                 return;
             }
         }
-        this.f12652e = false;
+        this.f12669e = false;
     }
 }

@@ -20,52 +20,52 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44156a;
+    public long f41172a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44157b;
+    public long f41173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44158c;
+    public long f41174c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f44159d;
+    public boolean f41175d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f44160e;
+    public boolean f41176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44161f;
+    public boolean f41177f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44162g;
+    public int f41178g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f44163h;
+    public Address f41179h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<SoftReference<c>> f44164i;
+    public ArrayList<SoftReference<c>> f41180i;
     public ArrayList<d.a.c.e.i.b> j;
     public Handler k;
     public d l;
 
     /* renamed from: d.a.c.e.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0588a implements d {
+    /* loaded from: classes6.dex */
+    public class C0549a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44165a;
+        public final /* synthetic */ a f41181a;
 
-        public C0588a(a aVar) {
+        public C0549a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,19 +80,19 @@ public class a {
                     return;
                 }
             }
-            this.f44165a = aVar;
+            this.f41181a = aVar;
         }
 
         @Override // d.a.c.e.i.a.d
         public void a(int i2, String str, Address address, long j, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, address, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-                a aVar = this.f44165a;
-                aVar.f44157b = j;
-                aVar.f44163h = address;
-                this.f44165a.f44159d = z;
-                this.f44165a.f44162g = i2;
-                this.f44165a.s();
+                a aVar = this.f41181a;
+                aVar.f41173b = j;
+                aVar.f41179h = address;
+                this.f41181a.f41175d = z;
+                this.f41181a.f41178g = i2;
+                this.f41181a.s();
                 if (i2 != 1) {
                     if (i2 != 2) {
                         if (i2 != 3) {
@@ -108,18 +108,18 @@ public class a {
                 } else if (StringUtils.isNull(str)) {
                     str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
                 }
-                this.f44165a.g(i2, str, address);
+                this.f41181a.g(i2, str, address);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f44166e;
+        public final /* synthetic */ a f41182e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class a {
                     return;
                 }
             }
-            this.f44166e = aVar;
+            this.f41182e = aVar;
         }
 
         @Override // android.os.Handler.Callback
@@ -148,8 +148,8 @@ public class a {
                 if (message.what != 0) {
                     return false;
                 }
-                this.f44166e.s();
-                int i2 = this.f44166e.f44162g;
+                this.f41182e.s();
+                int i2 = this.f41182e.f41178g;
                 if (i2 == 1) {
                     string = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
                 } else if (i2 == 2) {
@@ -161,20 +161,20 @@ public class a {
                 } else {
                     string = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
                 }
-                a aVar = this.f44166e;
-                aVar.g(aVar.f44162g, string, null);
+                a aVar = this.f41182e;
+                aVar.g(aVar.f41178g, string, null);
                 return false;
             }
             return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void onLocationGeted(int i2, String str, Address address);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         void a(int i2, String str, Address address, long j, boolean z);
     }
@@ -207,18 +207,18 @@ public class a {
                 return;
             }
         }
-        this.f44156a = 10000L;
-        this.f44157b = 0L;
-        this.f44158c = 300000L;
-        this.f44159d = false;
-        this.f44160e = false;
-        this.f44161f = false;
-        this.f44162g = 4;
-        this.f44163h = null;
-        this.f44164i = null;
+        this.f41172a = 10000L;
+        this.f41173b = 0L;
+        this.f41174c = 300000L;
+        this.f41175d = false;
+        this.f41176e = false;
+        this.f41177f = false;
+        this.f41178g = 4;
+        this.f41179h = null;
+        this.f41180i = null;
         this.j = new ArrayList<>();
         this.k = null;
-        this.l = new C0588a(this);
+        this.l = new C0549a(this);
     }
 
     public static a l() {
@@ -244,16 +244,16 @@ public class a {
             if (this.k.hasMessages(0)) {
                 this.k.removeMessages(0);
             }
-            ArrayList<SoftReference<c>> arrayList = this.f44164i;
+            ArrayList<SoftReference<c>> arrayList = this.f41180i;
             if (arrayList != null) {
                 synchronized (arrayList) {
-                    for (int i3 = 0; i3 < this.f44164i.size(); i3++) {
-                        SoftReference<c> softReference = this.f44164i.get(i3);
+                    for (int i3 = 0; i3 < this.f41180i.size(); i3++) {
+                        SoftReference<c> softReference = this.f41180i.get(i3);
                         if (softReference != null && (cVar = softReference.get()) != null) {
                             cVar.onLocationGeted(i2, str, address);
                         }
                     }
-                    this.f44164i.clear();
+                    this.f41180i.clear();
                 }
             }
         }
@@ -275,19 +275,19 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (System.currentTimeMillis() - this.f44157b > this.f44158c) {
-                this.f44163h = null;
+            if (System.currentTimeMillis() - this.f41173b > this.f41174c) {
+                this.f41179h = null;
             }
-            if (this.f44163h != null && !z && ((z2 && this.f44159d) || !z2)) {
-                return this.f44163h;
+            if (this.f41179h != null && !z && ((z2 && this.f41175d) || !z2)) {
+                return this.f41179h;
             }
-            this.f44163h = null;
-            boolean z3 = this.f44161f;
+            this.f41179h = null;
+            boolean z3 = this.f41177f;
             if (!z3) {
                 r(z2);
                 return null;
             }
-            if (z3 && z2 && !this.f44160e) {
+            if (z3 && z2 && !this.f41176e) {
                 s();
                 r(z2);
             }
@@ -302,24 +302,24 @@ public class a {
         c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), cVar})) == null) {
-            if (System.currentTimeMillis() - this.f44157b > this.f44158c) {
-                this.f44163h = null;
+            if (System.currentTimeMillis() - this.f41173b > this.f41174c) {
+                this.f41179h = null;
             }
-            if (this.f44163h != null && !z && ((z2 && this.f44159d) || !z2)) {
+            if (this.f41179h != null && !z && ((z2 && this.f41175d) || !z2)) {
                 if (cVar != null) {
-                    cVar.onLocationGeted(0, "", this.f44163h);
+                    cVar.onLocationGeted(0, "", this.f41179h);
                 }
-                return this.f44163h;
+                return this.f41179h;
             }
             if (cVar != null) {
-                synchronized (this.f44164i) {
+                synchronized (this.f41180i) {
                     int i2 = 0;
                     while (true) {
-                        if (i2 >= this.f44164i.size()) {
+                        if (i2 >= this.f41180i.size()) {
                             z3 = false;
                             break;
                         }
-                        SoftReference<c> softReference = this.f44164i.get(i2);
+                        SoftReference<c> softReference = this.f41180i.get(i2);
                         if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
                             z3 = true;
                             break;
@@ -327,17 +327,17 @@ public class a {
                         i2++;
                     }
                     if (!z3) {
-                        if (this.f44164i.size() >= 100) {
-                            this.f44164i.remove(0);
+                        if (this.f41180i.size() >= 100) {
+                            this.f41180i.remove(0);
                         }
-                        this.f44164i.add(new SoftReference<>(cVar));
+                        this.f41180i.add(new SoftReference<>(cVar));
                     }
                 }
-                boolean z4 = this.f44161f;
+                boolean z4 = this.f41177f;
                 if (!z4) {
                     r(z2);
                     return null;
-                } else if (z4 && z2 && !this.f44160e) {
+                } else if (z4 && z2 && !this.f41176e) {
                     s();
                     r(z2);
                     return null;
@@ -351,7 +351,7 @@ public class a {
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f44156a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41172a : invokeV.longValue;
     }
 
     public final void n() {
@@ -364,7 +364,7 @@ public class a {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f44164i = new ArrayList<>();
+            this.f41180i = new ArrayList<>();
             n();
         }
     }
@@ -386,13 +386,13 @@ public class a {
         c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            synchronized (this.f44164i) {
+            synchronized (this.f41180i) {
                 int i2 = 0;
                 while (true) {
-                    if (i2 < this.f44164i.size()) {
-                        SoftReference<c> softReference = this.f44164i.get(i2);
+                    if (i2 < this.f41180i.size()) {
+                        SoftReference<c> softReference = this.f41180i.get(i2);
                         if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
-                            this.f44164i.remove(softReference);
+                            this.f41180i.remove(softReference);
                             break;
                         }
                         i2++;
@@ -410,9 +410,9 @@ public class a {
             if (this.k.hasMessages(0)) {
                 this.k.removeMessages(0);
             }
-            this.f44162g = 4;
-            this.f44160e = z;
-            this.f44161f = true;
+            this.f41178g = 4;
+            this.f41176e = z;
+            this.f41177f = true;
             ArrayList<d.a.c.e.i.b> arrayList = this.j;
             if (arrayList != null && !arrayList.isEmpty()) {
                 Iterator<d.a.c.e.i.b> it = this.j.iterator();
@@ -427,10 +427,10 @@ public class a {
                     }
                 }
                 Handler handler = this.k;
-                handler.sendMessageDelayed(handler.obtainMessage(0), this.f44156a);
+                handler.sendMessageDelayed(handler.obtainMessage(0), this.f41172a);
                 return;
             }
-            this.f44162g = 6;
+            this.f41178g = 6;
             Handler handler2 = this.k;
             handler2.sendMessage(handler2.obtainMessage(0));
         }
@@ -442,7 +442,7 @@ public class a {
             if (this.k.hasMessages(0)) {
                 this.k.removeMessages(0);
             }
-            this.f44161f = false;
+            this.f41177f = false;
             Iterator<d.a.c.e.i.b> it = this.j.iterator();
             while (it.hasNext()) {
                 d.a.c.e.i.b next = it.next();

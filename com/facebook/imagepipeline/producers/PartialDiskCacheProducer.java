@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import c.d;
 import c.e;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -45,7 +46,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PartialDiskCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int READ_SIZE = 16384;
@@ -97,7 +98,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
             EncodedImage encodedImage;
             Throwable th;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(65540, this, pooledByteBufferOutputStream) != null) {
+            if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pooledByteBufferOutputStream) != null) {
                 return;
             }
             CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
@@ -207,7 +208,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             if (producerListener.requiresExtraMap(str)) {
                 if (z) {
                     return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i2));

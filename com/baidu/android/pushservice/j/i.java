@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.i.a.b;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -69,7 +70,7 @@ public class i {
                 edit.putString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str4);
                 edit.putString("user_id", str5);
                 edit.putBoolean("bind_status", true);
-                m.f3487a = 1;
+                m.f3490a = 1;
                 edit.putLong("version_code", m.c(context, context.getPackageName()));
                 edit.apply();
             } catch (Exception e2) {
@@ -81,7 +82,7 @@ public class i {
     public static boolean a(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
                 edit.putString(str, str2);

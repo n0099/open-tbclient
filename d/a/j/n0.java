@@ -17,22 +17,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.v0.a;
 import java.util.List;
-/* loaded from: classes8.dex */
-public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class n0 extends d.a.j.a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int j;
     public int k;
     public ThreadCommentAndPraiseInfoLayout l;
-    public d.a.r0.r.q.a m;
+    public d.a.o0.r.q.a m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n0 f45789e;
+        public final /* synthetic */ n0 f42681e;
 
         public a(n0 n0Var) {
             Interceptable interceptable = $ic;
@@ -49,26 +49,26 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45789e = n0Var;
+            this.f42681e = n0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45789e.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42681e.d() == null) {
                 return;
             }
-            this.f45789e.d().a(view, this.f45789e.m);
+            this.f42681e.d().a(view, this.f42681e.m);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n0 f45790a;
+        public final /* synthetic */ n0 f42682a;
 
         public b(n0 n0Var) {
             Interceptable interceptable = $ic;
@@ -85,25 +85,25 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45790a = n0Var;
+            this.f42682a = n0Var;
         }
 
         @Override // d.a.j.v0.a.b
-        public boolean a(a.C0645a c0645a) {
+        public boolean a(a.C0611a c0611a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0645a)) == null) {
-                if (c0645a.c() instanceof Boolean) {
-                    if (!((Boolean) c0645a.c()).booleanValue()) {
-                        if ((this.f45790a.j & 128) <= 0) {
-                            this.f45790a.j &= -5;
-                            this.f45790a.j |= 64;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0611a)) == null) {
+                if (c0611a.c() instanceof Boolean) {
+                    if (!((Boolean) c0611a.c()).booleanValue()) {
+                        if ((this.f42682a.j & 128) <= 0) {
+                            this.f42682a.j &= -5;
+                            this.f42682a.j |= 64;
                         }
                     } else {
-                        n0 n0Var = this.f45790a;
+                        n0 n0Var = this.f42682a;
                         n0Var.j = n0Var.k;
                     }
-                    this.f45790a.l.setShowFlag(this.f45790a.j);
+                    this.f42682a.l.setShowFlag(this.f42682a.j);
                     return false;
                 }
                 return false;
@@ -196,7 +196,7 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f45734e.m(4, new b(this));
+            this.f42626e.m(4, new b(this));
         }
     }
 
@@ -213,7 +213,7 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             boolean z = false;
             k(this.l, 0);
-            d.a.j.a f2 = this.f45734e.f();
+            d.a.j.a f2 = this.f42626e.f();
             if (f2 == null) {
                 return;
             }
@@ -231,7 +231,7 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
                 }
             }
             if (z) {
-                List<h> h2 = this.f45734e.h();
+                List<h> h2 = this.f42626e.h();
                 if (ListUtils.isEmpty(h2)) {
                     return;
                 }
@@ -247,7 +247,7 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: u */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.m = aVar;
@@ -256,7 +256,7 @@ public class n0 extends d.a.j.a<d.a.r0.r.q.a> {
         }
     }
 
-    public void v(d.a.r0.r.q.f fVar) {
+    public void v(d.a.o0.r.q.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) {
             this.l.setAgreeStatisticData(fVar);

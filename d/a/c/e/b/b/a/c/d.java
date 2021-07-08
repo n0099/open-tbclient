@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f44036a;
+    public a f41052a;
 
     public d(Intent intent) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class d implements c {
                 return;
             }
         }
-        this.f44036a = new a(intent.getExtras());
+        this.f41052a = new a(intent.getExtras());
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44036a.a() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41052a.a() : (Set) invokeV.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            this.f44036a.b(str, obj);
+            this.f41052a.b(str, obj);
         }
     }
 
@@ -54,6 +54,6 @@ public class d implements c {
     public Object c(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) ? this.f44036a.c(str, type) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) ? this.f41052a.c(str, type) : invokeLL.objValue;
     }
 }

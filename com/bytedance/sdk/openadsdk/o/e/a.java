@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.o.i;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i.b> f31604a;
+    public List<i.b> f31714a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f31605b;
+    public f f31715b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public abstract class a {
         List<i.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str != null && (list = this.f31604a) != null && list.size() > 0) {
-                for (i.b bVar : this.f31604a) {
-                    if (str.equals(bVar.f31688a)) {
+            if (str != null && (list = this.f31714a) != null && list.size() > 0) {
+                for (i.b bVar : this.f31714a) {
+                    if (str.equals(bVar.f31798a)) {
                         return bVar;
                     }
                 }
@@ -159,6 +159,6 @@ public abstract class a {
     public f g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31605b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31715b : (f) invokeV.objValue;
     }
 }

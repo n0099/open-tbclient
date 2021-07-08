@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.view.Surface;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.PeerConnectionClient;
@@ -34,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
@@ -92,7 +93,7 @@ public class MediaCodecVideoDecoder {
     public TextureListener textureListener;
     public int width;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class DecodedOutputBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +181,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class DecodedTextureBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +258,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class DecoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +285,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class HwDecoderFactory implements VideoDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -425,17 +426,17 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecVideoDecoderErrorCallback {
         void onMediaCodecVideoDecoderCriticalError(int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecVideoDecoderObserver {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class TextureListener implements VideoSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -555,7 +556,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class TimeStamps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -585,7 +586,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -651,7 +652,7 @@ public class MediaCodecVideoDecoder {
         public static VideoCodecType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (VideoCodecType[]) $VALUES.clone() : (VideoCodecType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (VideoCodecType[]) $VALUES.clone() : (VideoCodecType[]) invokeV.objValue;
         }
     }
 

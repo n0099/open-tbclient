@@ -12,21 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.r0.r.q.a l;
+    public d.a.o0.r.q.a l;
     public ForumEnterLayout m;
     public final View.OnClickListener n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f45757e;
+        public final /* synthetic */ k f42649e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -43,16 +43,16 @@ public class k extends h {
                     return;
                 }
             }
-            this.f45757e = kVar;
+            this.f42649e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45757e.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42649e.d() == null) {
                 return;
             }
-            this.f45757e.d().a(view, this.f45757e.l);
+            this.f42649e.d().a(view, this.f42649e.l);
         }
     }
 
@@ -76,7 +76,7 @@ public class k extends h {
         }
         this.n = new a(this);
         int g2 = d.a.c.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = d.a.c.e.p.l.g(context, d.a.r0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        int g3 = d.a.c.e.p.l.g(context, d.a.o0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         r(g2);
         q(g3);
         ForumEnterLayout forumEnterLayout = new ForumEnterLayout(context);
@@ -102,14 +102,14 @@ public class k extends h {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (d.a.r0.b.d.V()) {
-                int g2 = d.a.c.e.p.l.g(this.f45735f, R.dimen.M_H_X003);
-                int g3 = d.a.c.e.p.l.g(this.f45735f, d.a.r0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+            if (d.a.o0.b.d.f0()) {
+                int g2 = d.a.c.e.p.l.g(this.f42627f, R.dimen.M_H_X003);
+                int g3 = d.a.c.e.p.l.g(this.f42627f, d.a.o0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 r(g2);
                 q(g3);
                 return;
             }
-            int g4 = d.a.c.e.p.l.g(this.f45735f, R.dimen.tbds10);
+            int g4 = d.a.c.e.p.l.g(this.f42627f, R.dimen.tbds10);
             r(g4);
             q(0);
             v(this.m, g4, 0);
@@ -119,11 +119,11 @@ public class k extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: u */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f45734e.i());
+            this.m.setSourceForPb(this.f42626e.i());
             this.m.setData(aVar);
         }
     }

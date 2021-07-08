@@ -10,16 +10,16 @@ import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.ArrayList;
 import tv.athena.revenue.http.HttpDataSenderAdapter;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a implements IDataSenderAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IDataSenderAdapter f75716a;
+    public IDataSenderAdapter f72750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IDataSenderAdapter f75717b;
+    public IDataSenderAdapter f72751b;
 
     public a(IDataSenderAdapter iDataSenderAdapter) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a implements IDataSenderAdapter {
             }
         }
         RLog.debug("DataSenderAdapter", "DataSenderAdapter construct");
-        this.f75716a = iDataSenderAdapter;
+        this.f72750a = iDataSenderAdapter;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
@@ -45,10 +45,10 @@ public class a implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataSenderConfig) == null) {
             RLog.debug("DataSenderAdapter", "DataSenderAdapter init");
-            IDataSenderAdapter iDataSenderAdapter = this.f75716a;
+            IDataSenderAdapter iDataSenderAdapter = this.f72750a;
             if (iDataSenderAdapter == null) {
                 HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
-                this.f75717b = httpDataSenderAdapter;
+                this.f72751b = httpDataSenderAdapter;
                 httpDataSenderAdapter.init(dataSenderConfig);
                 return;
             }
@@ -60,12 +60,12 @@ public class a implements IDataSenderAdapter {
     public void sendData(int i2, int i3, String str, ArrayList<Integer> arrayList, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, arrayList, bArr}) == null) {
-            IDataSenderAdapter iDataSenderAdapter = this.f75716a;
+            IDataSenderAdapter iDataSenderAdapter = this.f72750a;
             if (iDataSenderAdapter != null) {
                 iDataSenderAdapter.sendData(i2, i3, str, arrayList, bArr);
                 return;
             }
-            IDataSenderAdapter iDataSenderAdapter2 = this.f75717b;
+            IDataSenderAdapter iDataSenderAdapter2 = this.f72751b;
             if (iDataSenderAdapter2 != null) {
                 iDataSenderAdapter2.sendData(i2, i3, str, arrayList, bArr);
             } else {

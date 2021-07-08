@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.v0.a;
-/* loaded from: classes8.dex */
-public class q0 extends d.a.j.a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class q0 extends d.a.j.a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,17 +29,17 @@ public class q0 extends d.a.j.a<d.a.r0.r.q.a> {
     public TextView k;
     public TextView l;
     public OriginalThreadCardView m;
-    public d.a.r0.r.q.a n;
+    public d.a.o0.r.q.a n;
     public boolean o;
     public OriginalThreadCardView.b p;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements OriginalThreadCardView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q0 f45794a;
+        public final /* synthetic */ q0 f42686a;
 
         public a(q0 q0Var) {
             Interceptable interceptable = $ic;
@@ -56,22 +56,22 @@ public class q0 extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45794a = q0Var;
+            this.f42686a = q0Var;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f45794a.n == null || this.f45794a.n.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.f42686a.n == null || this.f42686a.n.getThreadData() == null) {
                 return;
             }
-            if (this.f45794a.d() != null) {
-                this.f45794a.d().a(this.f45794a.m, this.f45794a.n);
+            if (this.f42686a.d() != null) {
+                this.f42686a.d().a(this.f42686a.m, this.f42686a.n);
             }
-            String c0 = this.f45794a.n.getThreadData().c0();
-            d.a.s0.a0.m.a(c0);
-            this.f45794a.s(c0);
-            this.f45794a.f45734e.o(new a.C0645a(1));
+            String c0 = this.f42686a.n.getThreadData().c0();
+            d.a.p0.a0.m.a(c0);
+            this.f42686a.s(c0);
+            this.f42686a.f42626e.o(new a.C0611a(1));
         }
     }
 
@@ -128,7 +128,7 @@ public class q0 extends d.a.j.a<d.a.r0.r.q.a> {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
             super.l(b0Var);
@@ -146,7 +146,7 @@ public class q0 extends d.a.j.a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: r */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
@@ -160,9 +160,9 @@ public class q0 extends d.a.j.a<d.a.r0.r.q.a> {
     public final void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            d.a.s0.a0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            d.a.s0.a0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.m.setReadState(d.a.s0.a0.m.k(str));
+            d.a.p0.a0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            d.a.p0.a0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.m.setReadState(d.a.p0.a0.m.k(str));
         }
     }
 

@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.ubc;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDVideoPlayerUbcHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static float sPlayerCurrentSpreed = 1.0f;
@@ -93,7 +94,7 @@ public class BDVideoPlayerUbcHelper {
     public static String getUbcContent(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable JSONObject jSONObject, @Nullable String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, bDVideoPlayerUbcContent, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bDVideoPlayerUbcContent, jSONObject, str)) == null) {
             if (jSONObject == null) {
                 try {
                     jSONObject = new JSONObject();

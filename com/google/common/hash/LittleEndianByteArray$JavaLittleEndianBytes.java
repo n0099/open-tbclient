@@ -1,5 +1,6 @@
 package com.google.common.hash;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Longs;
 import d.f.d.d.h;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class LittleEndianByteArray$JavaLittleEndianBytes {
     public static final /* synthetic */ LittleEndianByteArray$JavaLittleEndianBytes[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -107,7 +108,7 @@ public abstract class LittleEndianByteArray$JavaLittleEndianBytes {
     public static LittleEndianByteArray$JavaLittleEndianBytes[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (LittleEndianByteArray$JavaLittleEndianBytes[]) $VALUES.clone() : (LittleEndianByteArray$JavaLittleEndianBytes[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LittleEndianByteArray$JavaLittleEndianBytes[]) $VALUES.clone() : (LittleEndianByteArray$JavaLittleEndianBytes[]) invokeV.objValue;
     }
 
     public abstract /* synthetic */ long getLongLittleEndian(byte[] bArr, int i2);

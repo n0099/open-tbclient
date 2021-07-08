@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
@@ -18,7 +19,7 @@ import com.google.zxing.NotFoundException;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import com.tencent.connect.common.Constants;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FieldParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Object[][] FOUR_DIGIT_DATA_LENGTH;
@@ -148,7 +149,7 @@ public final class FieldParser {
     public static String processVariableAI(int i2, int i3, String str) throws NotFoundException {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65540, null, i2, i3, str)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, str)) == null) {
             String substring = str.substring(0, i2);
             int i4 = i3 + i2;
             if (str.length() < i4) {

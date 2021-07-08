@@ -11,18 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class TipsConfigItem extends a<TipConfigData> {
+/* loaded from: classes6.dex */
+public class TipsConfigItem extends b<TipConfigData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TipConfigData implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BOTTOM = "bottom";
@@ -85,6 +84,7 @@ public class TipsConfigItem extends a<TipConfigData> {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tipShowSwitch == 0 : invokeV.booleanValue;
         }
 
+        @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
@@ -122,8 +122,8 @@ public class TipsConfigItem extends a<TipConfigData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                o.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
-                o.a(jSONObject, "tipInfo", this.tipInfo);
+                com.kwad.sdk.utils.q.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
+                com.kwad.sdk.utils.q.a(jSONObject, "tipInfo", this.tipInfo);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -149,35 +149,35 @@ public class TipsConfigItem extends a<TipConfigData> {
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            editor.putInt("tipsSwitch", b().getTipShowSwitch());
-            editor.putString("tipsInfo", b().getTipInfoData() != null ? b().getTipInfoData() : "");
+            editor.putInt("tipsSwitch", a().getTipShowSwitch());
+            editor.putString("tipsInfo", a().getTipInfoData() != null ? a().getTipInfoData() : "");
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            TipConfigData b2 = b();
-            if (b2 == null) {
-                b2 = new TipConfigData();
+            TipConfigData a2 = a();
+            if (a2 == null) {
+                a2 = new TipConfigData();
             }
-            b2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-            b2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-            a((TipsConfigItem) b2);
+            a2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+            a2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+            a((TipsConfigItem) a2);
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(a())) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject(b())) == null) {
                 a((TipsConfigItem) c());
                 return;
             }

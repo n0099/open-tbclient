@@ -1,6 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import com.xiaomi.push.ic;
 import com.xiaomi.push.id;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +23,7 @@ public class ar {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aqVar, hlVar)) == null) {
-            return aqVar.f898a.getInt(a(hlVar), as.f43583a[hlVar.ordinal()] != 1 ? 0 : 1);
+            return aqVar.f898a.getInt(a(hlVar), as.f40597a[hlVar.ordinal()] != 1 ? 0 : 1);
         }
         return invokeLL.intValue;
     }
@@ -51,7 +52,7 @@ public class ar {
                     if (z && hqVar.f515a) {
                         arrayList.add(new Pair(Integer.valueOf(a2), null));
                     } else {
-                        int i2 = as.f43584b[a3.ordinal()];
+                        int i2 = as.f40598b[a3.ordinal()];
                         arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m393a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m392a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
                     }
                 }
@@ -70,7 +71,7 @@ public class ar {
 
     public static void a(aq aqVar, ic icVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, aqVar, icVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aqVar, icVar) == null) {
             aqVar.b(a(icVar.a(), true));
             aqVar.b();
         }

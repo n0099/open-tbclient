@@ -1,5 +1,6 @@
 package com.baidu.ar.ihttp;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.h.i;
@@ -87,7 +88,7 @@ public final class Downloader {
     public static int getNetFileSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? HttpFactory.newRequest().setUrl(str).setMethod("HEAD").execute().getContentLength() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? HttpFactory.newRequest().setUrl(str).setMethod("HEAD").execute().getContentLength() : invokeL.intValue;
     }
 
     public int download(String str, IProgressCallback iProgressCallback) {
@@ -125,7 +126,7 @@ public final class Downloader {
                 public final /* synthetic */ ICallbackWith rw;
 
                 /* renamed from: rx  reason: collision with root package name */
-                public final /* synthetic */ Downloader f4224rx;
+                public final /* synthetic */ Downloader f4227rx;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -142,7 +143,7 @@ public final class Downloader {
                             return;
                         }
                     }
-                    this.f4224rx = this;
+                    this.f4227rx = this;
                     this.ru = str;
                     this.rv = iProgressCallback;
                     this.rw = iCallbackWith2;
@@ -161,10 +162,10 @@ public final class Downloader {
                 public void a(IHttpResponse iHttpResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) == null) {
-                        this.f4224rx.rt = iHttpResponse.getContentLength();
+                        this.f4227rx.rt = iHttpResponse.getContentLength();
                         try {
-                            this.f4224rx.download(this.ru, this.rv);
-                            this.bT.run(Integer.valueOf(this.f4224rx.rt));
+                            this.f4227rx.download(this.ru, this.rv);
+                            this.bT.run(Integer.valueOf(this.f4227rx.rt));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             this.rw.run(e2);

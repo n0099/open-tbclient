@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MultiProcessFlag {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40704a;
+    public static boolean f37718a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f40705b;
+    public static boolean f37719b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public MultiProcessFlag() {
@@ -34,18 +34,18 @@ public class MultiProcessFlag {
     public static boolean isMultiProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f40704a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f37718a : invokeV.booleanValue;
     }
 
     public static void setMultiProcess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            if (f40705b) {
+            if (f37719b) {
                 GDTLogger.w("MultiProcessFlag has already be setted,reset will not take any effect");
                 return;
             }
-            f40705b = true;
-            f40704a = z;
+            f37719b = true;
+            f37718a = z;
         }
     }
 }

@@ -7,34 +7,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f30551a;
+        public static final a f30661a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f30552b;
+        public static final a f30662b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f30553c;
+        public static final a f30663c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f30554d;
+        public static final a f30664d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f30555e;
+        public static final a f30665e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f30556f;
+        public static final a f30666f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f30557g;
+        public static final /* synthetic */ a[] f30667g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,14 +50,14 @@ public interface b {
                     return;
                 }
             }
-            f30551a = new a("hideCloseBtn", 0);
-            f30552b = new a("alwayShowBackBtn", 1);
-            f30553c = new a("alwayShowMediaView", 2);
-            f30554d = new a("fixedSize", 3);
-            f30555e = new a("hideBackBtn", 4);
+            f30661a = new a("hideCloseBtn", 0);
+            f30662b = new a("alwayShowBackBtn", 1);
+            f30663c = new a("alwayShowMediaView", 2);
+            f30664d = new a("fixedSize", 3);
+            f30665e = new a("hideBackBtn", 4);
             a aVar = new a("hideTopMoreBtn", 5);
-            f30556f = aVar;
-            f30557g = new a[]{f30551a, f30552b, f30553c, f30554d, f30555e, aVar};
+            f30666f = aVar;
+            f30667g = new a[]{f30661a, f30662b, f30663c, f30664d, f30665e, aVar};
         }
 
         public a(String str, int i2) {
@@ -88,7 +88,7 @@ public interface b {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f30557g.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f30667g.clone() : (a[]) invokeV.objValue;
         }
     }
 }

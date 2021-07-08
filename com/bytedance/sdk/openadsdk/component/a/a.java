@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f29160a;
+    public Bitmap f29270a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f29161b;
+    public m f29271b;
 
     public a(Bitmap bitmap, m mVar) {
         Interceptable interceptable = $ic;
@@ -34,19 +34,19 @@ public class a {
                 return;
             }
         }
-        this.f29160a = bitmap;
-        this.f29161b = mVar;
+        this.f29270a = bitmap;
+        this.f29271b = mVar;
     }
 
     public Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29160a : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29270a : (Bitmap) invokeV.objValue;
     }
 
     public m b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29161b : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29271b : (m) invokeV.objValue;
     }
 }

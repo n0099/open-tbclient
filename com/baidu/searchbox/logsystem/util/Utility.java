@@ -17,6 +17,7 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.DeviceUtil;
@@ -49,7 +50,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -138,7 +139,7 @@ public class Utility {
     public static String getMemoryStats(@NonNull Debug.MemoryInfo memoryInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, memoryInfo)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, memoryInfo)) != null) {
             return (String) invokeL.objValue;
         }
         Iterator<Map.Entry<String, String>> it = memoryInfo.getMemoryStats().entrySet().iterator();
@@ -150,7 +151,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f1889h);
+            sb.append(a.f1890h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append('}');

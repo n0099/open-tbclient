@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.e;
 import d.a.c.e.p.l;
-import d.a.r0.b1.m.f;
-import d.a.s0.h3.h0.m;
+import d.a.o0.b1.m.f;
+import d.a.p0.h3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UrlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PARAM = "default_param";
@@ -51,22 +51,22 @@ public class UrlManager {
     public final List<UrlDealListener> mListeners;
     public UrlWebDealListener mWebListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface UrlDealListener {
         int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface UrlSchemaHandler {
         void deal(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface UrlWebDealListener {
         void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface UrlWebDialogCancelListener {
         void onCancel();
     }
@@ -109,7 +109,7 @@ public class UrlManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void addListenerInner(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, urlDealListener) == null) || this.mListeners.contains(urlDealListener)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, urlDealListener) == null) || this.mListeners.contains(urlDealListener)) {
             return;
         }
         this.mListeners.add(urlDealListener);

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ListDataSource<T> extends AbstractDataSource<List<CloseableReference<T>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public int mFinishedDataSources;
 
     /* renamed from: com.facebook.imagepipeline.datasource.ListDataSource$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class InternalDataSubscriber implements DataSubscriber<CloseableReference<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

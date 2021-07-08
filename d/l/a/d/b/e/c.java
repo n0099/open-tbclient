@@ -1,12 +1,13 @@
 package d.l.a.d.b.e;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import d.l.a.d.b.c;
 import d.l.a.d.e;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public class c {
             if (v.x()) {
                 return;
             }
-            v.f74226c.a(str);
+            v.f71278c.a(str);
             e.c.a().v("lp_app_dialog_click", v);
         }
     }
@@ -58,7 +59,7 @@ public class c {
 
     public static void e(String str, JSONObject jSONObject, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{str, jSONObject, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, jSONObject, Long.valueOf(j)}) == null) {
             e.c.a().w(str, jSONObject, c.g.e().v(j));
         }
     }

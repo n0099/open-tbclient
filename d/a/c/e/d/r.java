@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class r extends c<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,8 +39,8 @@ public class r extends c<String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d.a.c.a.k.b bVar = this.f44075a;
-            bVar.d("DROP TABLE IF EXISTS " + this.f44076b);
+            d.a.c.a.k.b bVar = this.f41091a;
+            bVar.d("DROP TABLE IF EXISTS " + this.f41092b);
             return true;
         }
         return invokeL.booleanValue;
@@ -66,18 +66,18 @@ public class r extends c<String> {
         }
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f44076b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f41092b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     d.a.c.e.m.a.a(rawQuery);
                     return null;
                 }
                 g<String> gVar = new g<>();
-                gVar.f44089a = rawQuery.getString(0);
-                gVar.f44092d = rawQuery.getLong(1);
-                gVar.f44093e = rawQuery.getLong(2);
-                gVar.f44094f = rawQuery.getLong(3);
-                gVar.f44090b = rawQuery.getString(4);
+                gVar.f41105a = rawQuery.getString(0);
+                gVar.f41108d = rawQuery.getLong(1);
+                gVar.f41109e = rawQuery.getLong(2);
+                gVar.f41110f = rawQuery.getLong(3);
+                gVar.f41106b = rawQuery.getString(4);
                 d.a.c.e.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -108,7 +108,7 @@ public class r extends c<String> {
                 hashCode *= -1;
             }
             String str2 = "cache_kv_t" + hashCode;
-            this.f44075a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+            this.f41091a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
             return str2;
         }
         return (String) invokeL.objValue;
@@ -120,11 +120,11 @@ public class r extends c<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", gVar.f44089a);
-            contentValues.put("m_value", gVar.f44090b);
-            contentValues.put("saveTime", Long.valueOf(gVar.f44092d));
-            contentValues.put("lastHitTime", Long.valueOf(gVar.f44093e));
-            contentValues.put("timeToExpire", Long.valueOf(gVar.f44094f));
+            contentValues.put("m_key", gVar.f41105a);
+            contentValues.put("m_value", gVar.f41106b);
+            contentValues.put("saveTime", Long.valueOf(gVar.f41108d));
+            contentValues.put("lastHitTime", Long.valueOf(gVar.f41109e));
+            contentValues.put("timeToExpire", Long.valueOf(gVar.f41110f));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -135,7 +135,7 @@ public class r extends c<String> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.f44076b, new String[0]);
+            return sQLiteDatabase.rawQuery("select * from " + this.f41092b, new String[0]);
         }
         return (Cursor) invokeLL.objValue;
     }

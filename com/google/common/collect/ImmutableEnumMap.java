@@ -14,13 +14,13 @@ import java.io.Serializable;
 import java.lang.Enum;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.IteratorBasedImmutableMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient EnumMap<K, V> delegate;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EnumSerializedForm<K extends Enum<K>, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -52,7 +52,7 @@ public final class ImmutableEnumMap<K extends Enum<K>, V> extends ImmutableMap.I
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

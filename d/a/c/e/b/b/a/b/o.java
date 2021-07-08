@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class o implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<?> f44028a;
+    public Set<?> f41044a;
 
     public o(Set<?> set) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class o implements h {
                 return;
             }
         }
-        this.f44028a = set;
+        this.f41044a = set;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -58,14 +58,14 @@ public class o implements h {
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f44028a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f41044a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f44028a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f41044a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -75,7 +75,7 @@ public class o implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
             Type[] b2 = cVar.b();
             ArrayList arrayList = new ArrayList();
-            for (Object obj : this.f44028a) {
+            for (Object obj : this.f41044a) {
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {
                         Object f2 = d.a.c.e.b.b.a.e.f.a(obj).f(new d.a.c.e.b.b.a.e.c(b2[0]));
@@ -109,7 +109,7 @@ public class o implements h {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             Type[] b2 = cVar.b();
             JSONArray jSONArray = new JSONArray();
-            for (Object obj : this.f44028a) {
+            for (Object obj : this.f41044a) {
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {
                         Object f2 = d.a.c.e.b.b.a.e.f.a(obj).f(new d.a.c.e.b.b.a.e.c(b2[0]));

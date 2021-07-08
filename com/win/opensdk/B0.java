@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class B0 implements r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ C0 f42311a;
+    public final /* synthetic */ C0 f39325a;
 
     public B0(C0 c0) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class B0 implements r0 {
                 return;
             }
         }
-        this.f42311a = c0;
+        this.f39325a = c0;
     }
 
     @Override // com.win.opensdk.r0
@@ -42,11 +42,11 @@ public class B0 implements r0 {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            D0 d0 = this.f42311a.f42316a;
+            D0 d0 = this.f39325a.f39330a;
             long currentTimeMillis = System.currentTimeMillis();
-            D0 d02 = this.f42311a.f42316a;
-            d0.f42331c = currentTimeMillis - d02.f42330b;
-            x0.a(d02.f42329a).a(i2, this.f42311a.f42316a.f42331c).a();
+            D0 d02 = this.f39325a.f39330a;
+            d0.f39345c = currentTimeMillis - d02.f39344b;
+            x0.a(d02.f39343a).a(i2, this.f39325a.f39330a.f39345c).a();
         }
     }
 
@@ -55,11 +55,11 @@ public class B0 implements r0 {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            D0 d0 = this.f42311a.f42316a;
+            D0 d0 = this.f39325a.f39330a;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.f42311a.f42316a.f42330b;
-            d0.f42331c = currentTimeMillis - j;
-            this.f42311a.f42316a.a((R0) obj);
+            j = this.f39325a.f39330a.f39344b;
+            d0.f39345c = currentTimeMillis - j;
+            this.f39325a.f39330a.a((R0) obj);
         }
     }
 }

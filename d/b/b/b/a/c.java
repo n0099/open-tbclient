@@ -29,18 +29,18 @@ import ms.bd.c.c0;
 import ms.bd.c.o1;
 import ms.bd.c.p1;
 import ms.bd.c.q1;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bytedance.mobsec.metasec.ml.b f71799a;
+        public com.bytedance.mobsec.metasec.ml.b f68902a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public final class c {
                     return;
                 }
             }
-            this.f71799a = null;
+            this.f68902a = null;
         }
 
         @Override // ms.bd.c.b.a
@@ -64,11 +64,11 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
                 Context c2 = ms.bd.c.a.a().c();
-                if (this.f71799a == null) {
+                if (this.f68902a == null) {
                     synchronized (this) {
-                        if (this.f71799a == null) {
+                        if (this.f68902a == null) {
                             com.bytedance.mobsec.metasec.ml.b bVar = new com.bytedance.mobsec.metasec.ml.b(c2);
-                            this.f71799a = bVar;
+                            this.f68902a = bVar;
                             bVar.a();
                         }
                     }
@@ -80,7 +80,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,29 +115,29 @@ public final class c {
                 if (Build.VERSION.SDK_INT >= 17) {
                     defaultDisplay.getRealSize(point);
                 } else if (Build.VERSION.SDK_INT < 13) {
-                    p1.f76093a = defaultDisplay.getWidth();
+                    p1.f73127a = defaultDisplay.getWidth();
                     height = defaultDisplay.getHeight();
-                    p1.f76094b = height;
-                    return p1.f76093a + "*" + p1.f76094b;
+                    p1.f73128b = height;
+                    return p1.f73127a + "*" + p1.f73128b;
                 } else {
                     defaultDisplay.getSize(point);
                 }
-                p1.f76093a = point.x;
+                p1.f73127a = point.x;
                 height = point.y;
-                p1.f76094b = height;
-                return p1.f76093a + "*" + p1.f76094b;
+                p1.f73128b = height;
+                return p1.f73127a + "*" + p1.f73128b;
             }
             return invokeCommon.objValue;
         }
     }
 
     /* renamed from: d.b.b.b.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1992c extends b.a {
+    /* loaded from: classes8.dex */
+    public static class C1961c extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1992c() {
+        public C1961c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +182,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class d extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +242,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class e extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +285,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class f extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,7 +328,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class g extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,7 +355,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class h extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -382,7 +382,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class i extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +473,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class j extends b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -541,7 +541,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             ms.bd.c.b.a((int) RouterCallback.CODE_ERROR, new b());
-            ms.bd.c.b.a((int) RouterCallback.CODE_NOT_FOUND, new C1992c());
+            ms.bd.c.b.a((int) RouterCallback.CODE_NOT_FOUND, new C1961c());
             ms.bd.c.b.a((int) RouterCallback.CODE_INVALID, new d());
             ms.bd.c.b.a((int) RouterCallback.CODE_ROUTER_NOT_REGISTER, new e());
             ms.bd.c.b.a((int) RouterCallback.CODE_NOT_IMPLEMENT, new f());

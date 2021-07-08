@@ -3,6 +3,7 @@ package com.tencent.mm.sdk.b;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,18 +11,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int level = 6;
-    public static InterfaceC0561a n;
-    public static InterfaceC0561a o;
+    public static InterfaceC0522a n;
+    public static InterfaceC0522a o;
     public static final String p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0561a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0522a {
         int b();
 
         void d(String str, String str2);
@@ -73,9 +74,9 @@ public final class a {
     }
 
     public static void a(String str, String str2, Object... objArr) {
-        InterfaceC0561a interfaceC0561a;
+        InterfaceC0522a interfaceC0522a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) || (interfaceC0561a = o) == null || interfaceC0561a.b() > 4) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) || (interfaceC0522a = o) == null || interfaceC0522a.b() > 4) {
             return;
         }
         if (objArr != null) {
@@ -84,42 +85,42 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0561a interfaceC0561a2 = o;
+        InterfaceC0522a interfaceC0522a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0561a2.f(str, str2);
+        interfaceC0522a2.f(str, str2);
     }
 
     public static void b(String str, String str2) {
-        InterfaceC0561a interfaceC0561a;
+        InterfaceC0522a interfaceC0522a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) || (interfaceC0561a = o) == null || interfaceC0561a.b() > 2) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || (interfaceC0522a = o) == null || interfaceC0522a.b() > 2) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0561a interfaceC0561a2 = o;
+        InterfaceC0522a interfaceC0522a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0561a2.d(str, str2);
+        interfaceC0522a2.d(str, str2);
     }
 
     public static void c(String str, String str2) {
-        InterfaceC0561a interfaceC0561a;
+        InterfaceC0522a interfaceC0522a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || (interfaceC0561a = o) == null || interfaceC0561a.b() > 1) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || (interfaceC0522a = o) == null || interfaceC0522a.b() > 1) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0561a interfaceC0561a2 = o;
+        InterfaceC0522a interfaceC0522a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0561a2.e(str, str2);
+        interfaceC0522a2.e(str, str2);
     }
 }

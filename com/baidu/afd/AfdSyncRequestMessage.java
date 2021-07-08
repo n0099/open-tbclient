@@ -4,6 +4,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -129,7 +130,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     public static JSONObject create(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(Config.APP_KEY, str);

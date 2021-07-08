@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivityView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,12 +80,12 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
             MsgActivityView b2 = msgViewHolder.b();
-            b2.s(i2);
-            b2.I(chatMessage);
-            b2.q(this.n);
-            b2.r(this.o);
-            b2.k(this.p);
-            b2.o(chatMessage.getCacheData().getLastMsgTime());
+            b2.r(i2);
+            b2.H(chatMessage);
+            b2.p(this.n);
+            b2.q(this.o);
+            b2.j(this.p);
+            b2.n(chatMessage.getCacheData().getLastMsgTime());
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
             return view;

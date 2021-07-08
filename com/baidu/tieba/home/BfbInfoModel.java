@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import tbclient.UserBfbInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f16372e;
+    public b f16411e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f16373f;
+    public d.a.c.c.g.a f16412f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BfbInfoModel f16374a;
+        public final /* synthetic */ BfbInfoModel f16413a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BfbInfoModel bfbInfoModel, int i2, int i3) {
@@ -51,7 +51,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                     return;
                 }
             }
-            this.f16374a = bfbInfoModel;
+            this.f16413a = bfbInfoModel;
         }
 
         @Override // d.a.c.c.g.a
@@ -64,8 +64,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             if (z || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                 UserBfbInfo userBfbInfo = null;
                 if (responsedMessage.getError() != 0) {
-                    if (this.f16374a.f16372e != null) {
-                        this.f16374a.f16372e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                    if (this.f16413a.f16411e != null) {
+                        this.f16413a.f16411e.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                         return;
                     }
                     return;
@@ -75,14 +75,14 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                     userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                 }
-                if (this.f16374a.f16372e != null) {
-                    this.f16374a.f16372e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                if (this.f16413a.f16411e != null) {
+                    this.f16413a.f16411e.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i2, String str, UserBfbInfo userBfbInfo);
     }
@@ -105,7 +105,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                 return;
             }
         }
-        this.f16373f = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
+        this.f16412f = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
         z();
         y();
     }
@@ -113,7 +113,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f16372e = bVar;
+            this.f16411e = bVar;
         }
     }
 
@@ -141,7 +141,7 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f16373f);
+            MessageManager.getInstance().unRegisterListener(this.f16412f);
             MessageManager.getInstance().unRegisterTask(309366);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);
         }
@@ -150,15 +150,15 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerListener(this.f16373f);
+            registerListener(this.f16412f);
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d.a.s0.h3.d0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-            d.a.s0.h3.d0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+            d.a.p0.h3.d0.a.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+            d.a.p0.h3.d0.a.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.a.a.c;
@@ -142,7 +143,7 @@ public class a implements ARPMessage.MessageHandler {
 
     private void a(HashMap<String, Object> hashMap, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65540, this, hashMap, i2) == null) || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, hashMap, i2) == null) || hashMap == null) {
             return;
         }
         com.baidu.ar.arplay.a.a.a aVar = new com.baidu.ar.arplay.a.a.a();

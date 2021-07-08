@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b0;
-import d.a.r0.r.q.d0;
-import d.a.r0.r.q.d2;
-import d.a.r0.r.q.e2;
-import d.a.r0.r.q.g0;
-import d.a.r0.r.q.g2;
-import d.a.r0.r.q.l;
-import d.a.r0.r.q.m0;
-import d.a.r0.r.q.m2;
+import d.a.o0.r.q.b0;
+import d.a.o0.r.q.d0;
+import d.a.o0.r.q.d2;
+import d.a.o0.r.q.e2;
+import d.a.o0.r.q.g0;
+import d.a.o0.r.q.g2;
+import d.a.o0.r.q.l;
+import d.a.o0.r.q.m0;
+import d.a.o0.r.q.n2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ import tbclient.FrsPage.TipInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumData implements Serializable, PreLoadImageProvider, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;
@@ -122,7 +122,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public String topic_special_icon_right;
     public int user_level;
     public String warning_msg;
-    public m2 yuleData;
+    public n2 yuleData;
 
     static {
         InterceptResult invokeClinit;
@@ -187,7 +187,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.news_info = new g2();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new d0();
-        this.yuleData = new m2();
+        this.yuleData = new n2();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;
@@ -530,10 +530,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.warning_msg : (String) invokeV.objValue;
     }
 
-    public m2 getYuleData() {
+    public n2 getYuleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (m2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (n2) invokeV.objValue;
     }
 
     public String getfShareImage() {
@@ -954,10 +954,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         }
     }
 
-    public void setYuleData(m2 m2Var) {
+    public void setYuleData(n2 n2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048674, this, m2Var) == null) {
-            this.yuleData = m2Var;
+        if (interceptable == null || interceptable.invokeL(1048674, this, n2Var) == null) {
+            this.yuleData = n2Var;
         }
     }
 

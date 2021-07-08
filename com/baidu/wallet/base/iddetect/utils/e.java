@@ -3,7 +3,7 @@ package com.baidu.wallet.base.iddetect.utils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class e {
                     }
                     if ((i8 & 1) == 0) {
                         int i12 = i7 + 1;
-                        i10 = (bArr[i7] & 255) + com.alipay.sdk.encrypt.a.f1888g;
+                        i10 = (bArr[i7] & 255) + com.alipay.sdk.encrypt.a.f1889g;
                         i7 = i12 + 1;
-                        i9 = (bArr[i12] & 255) + com.alipay.sdk.encrypt.a.f1888g;
+                        i9 = (bArr[i12] & 255) + com.alipay.sdk.encrypt.a.f1889g;
                     }
                     int i13 = i11 * 1192;
                     int i14 = (i10 * 1634) + i13;

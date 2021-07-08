@@ -4,25 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30332a;
+    public int f30442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30333b;
+    public int f30443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f30334c;
+    public float f30444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30335d;
+    public int f30445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30336e;
+    public int f30446e;
 
     public i(int i2, float f2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class i {
                 return;
             }
         }
-        this.f30332a = 1;
-        this.f30333b = -1;
-        this.f30334c = 1.0f;
-        this.f30335d = 600;
-        this.f30336e = 150;
-        this.f30332a = i2;
-        this.f30334c = f2;
-        this.f30335d = i3;
-        this.f30336e = i4;
+        this.f30442a = 1;
+        this.f30443b = -1;
+        this.f30444c = 1.0f;
+        this.f30445d = 600;
+        this.f30446e = 150;
+        this.f30442a = i2;
+        this.f30444c = f2;
+        this.f30445d = i3;
+        this.f30446e = i4;
     }
 }

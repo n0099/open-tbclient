@@ -16,6 +16,7 @@ import android.view.accessibility.AccessibilityRecord;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class AccessibilityViewEmbedder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityBridge";
@@ -42,13 +43,13 @@ public final class AccessibilityViewEmbedder {
     public final View rootAccessibilityView;
 
     /* renamed from: io.flutter.view.AccessibilityViewEmbedder$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ReflectionAccessors {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,7 +302,7 @@ public final class AccessibilityViewEmbedder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ViewAndId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,7 +430,7 @@ public final class AccessibilityViewEmbedder {
 
     private void copyAccessibilityFields(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, accessibilityNodeInfo, accessibilityNodeInfo2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, accessibilityNodeInfo, accessibilityNodeInfo2) == null) {
             accessibilityNodeInfo2.setAccessibilityFocused(accessibilityNodeInfo.isAccessibilityFocused());
             accessibilityNodeInfo2.setCheckable(accessibilityNodeInfo.isCheckable());
             accessibilityNodeInfo2.setChecked(accessibilityNodeInfo.isChecked());

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.e.l.d;
 import d.a.c.k.d.a;
-import d.a.r0.a0.c;
+import d.a.o0.a0.c;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {

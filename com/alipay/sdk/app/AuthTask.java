@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.data.a;
 import com.alipay.sdk.util.e;
 import com.alipay.sdk.util.l;
@@ -25,14 +26,14 @@ public class AuthTask {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f1750a;
+    public static final Object f1751a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f1751b;
+    public Activity f1752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f1752c;
+    public com.alipay.sdk.widget.a f1753c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +48,7 @@ public class AuthTask {
                 return;
             }
         }
-        f1750a = com.alipay.sdk.util.e.class;
+        f1751a = com.alipay.sdk.util.e.class;
     }
 
     public AuthTask(Activity activity) {
@@ -65,16 +66,16 @@ public class AuthTask {
                 return;
             }
         }
-        this.f1751b = activity;
-        com.alipay.sdk.sys.b.a().a(this.f1751b, com.alipay.sdk.data.c.b());
+        this.f1752b = activity;
+        com.alipay.sdk.sys.b.a().a(this.f1752b, com.alipay.sdk.data.c.b());
         com.alipay.sdk.app.statistic.a.a(activity);
-        this.f1752c = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2015c);
+        this.f1753c = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2016c);
     }
 
     private void b() {
         com.alipay.sdk.widget.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (aVar = this.f1752c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || (aVar = this.f1753c) == null) {
             return;
         }
         aVar.b();
@@ -84,7 +85,7 @@ public class AuthTask {
     public void c() {
         com.alipay.sdk.widget.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (aVar = this.f1752c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (aVar = this.f1753c) == null) {
             return;
         }
         aVar.c();
@@ -100,19 +101,19 @@ public class AuthTask {
                 if (z) {
                     b();
                 }
-                com.alipay.sdk.sys.b.a().a(this.f1751b, com.alipay.sdk.data.c.b());
+                com.alipay.sdk.sys.b.a().a(this.f1752b, com.alipay.sdk.data.c.b());
                 c2 = j.c();
                 i.a("");
                 try {
-                    c2 = a(this.f1751b, str);
-                    com.alipay.sdk.data.a.g().a(this.f1751b);
+                    c2 = a(this.f1752b, str);
+                    com.alipay.sdk.data.a.g().a(this.f1752b);
                     c();
-                    activity = this.f1751b;
+                    activity = this.f1752b;
                 } catch (Exception e2) {
                     com.alipay.sdk.util.c.a(e2);
-                    com.alipay.sdk.data.a.g().a(this.f1751b);
+                    com.alipay.sdk.data.a.g().a(this.f1752b);
                     c();
-                    activity = this.f1751b;
+                    activity = this.f1752b;
                 }
                 com.alipay.sdk.app.statistic.a.b(activity, str);
             }
@@ -144,14 +145,14 @@ public class AuthTask {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, activity, str)) == null) {
-            String a2 = new com.alipay.sdk.sys.a(this.f1751b).a(str);
+            String a2 = new com.alipay.sdk.sys.a(this.f1752b).a(str);
             List<a.C0016a> f2 = com.alipay.sdk.data.a.g().f();
             if (!com.alipay.sdk.data.a.g().q || f2 == null) {
-                f2 = i.f1803a;
+                f2 = i.f1804a;
             }
-            if (n.b(this.f1751b, f2)) {
+            if (n.b(this.f1752b, f2)) {
                 String a3 = new com.alipay.sdk.util.e(activity, a()).a(a2);
-                if (!TextUtils.equals(a3, com.alipay.sdk.util.e.f1966a) && !TextUtils.equals(a3, com.alipay.sdk.util.e.f1967b)) {
+                if (!TextUtils.equals(a3, com.alipay.sdk.util.e.f1967a) && !TextUtils.equals(a3, com.alipay.sdk.util.e.f1968b)) {
                     return TextUtils.isEmpty(a3) ? j.c() : a3;
                 }
                 com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.O, "");
@@ -173,10 +174,10 @@ public class AuthTask {
             b();
             try {
                 try {
-                    List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(new com.alipay.sdk.packet.impl.a().a(activity, str).c().optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f1852d));
+                    List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(new com.alipay.sdk.packet.impl.a().a(activity, str).c().optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f1853d));
                     c();
                     for (int i2 = 0; i2 < a2.size(); i2++) {
-                        if (a2.get(i2).b() == com.alipay.sdk.protocol.a.f1918b) {
+                        if (a2.get(i2).b() == com.alipay.sdk.protocol.a.f1919b) {
                             return a(a2.get(i2));
                         }
                     }
@@ -184,7 +185,7 @@ public class AuthTask {
                     c();
                 }
             } catch (IOException e2) {
-                k b2 = k.b(k.f1812d.a());
+                k b2 = k.b(k.f1813d.a());
                 com.alipay.sdk.app.statistic.a.a("net", e2);
                 c();
                 kVar = b2;
@@ -194,7 +195,7 @@ public class AuthTask {
             c();
             kVar = null;
             if (kVar == null) {
-                kVar = k.b(k.f1810b.a());
+                kVar = k.b(k.f1811b.a());
             }
             return j.a(kVar.a(), kVar.b(), "");
         }
@@ -204,16 +205,16 @@ public class AuthTask {
     private String a(com.alipay.sdk.protocol.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, bVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar)) == null) {
             String[] c2 = bVar.c();
             Bundle bundle = new Bundle();
             bundle.putString("url", c2[0]);
-            Intent intent = new Intent(this.f1751b, H5AuthActivity.class);
+            Intent intent = new Intent(this.f1752b, H5AuthActivity.class);
             intent.putExtras(bundle);
-            this.f1751b.startActivity(intent);
-            synchronized (f1750a) {
+            this.f1752b.startActivity(intent);
+            synchronized (f1751a) {
                 try {
-                    f1750a.wait();
+                    f1751a.wait();
                 } catch (InterruptedException unused) {
                     return j.c();
                 }

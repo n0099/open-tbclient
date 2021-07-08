@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EngineResource<Z> implements Resource<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class EngineResource<Z> implements Resource<Z> {
     public ResourceListener listener;
     public final Resource<Z> resource;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ResourceListener {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }

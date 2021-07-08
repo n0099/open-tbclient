@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class n implements r.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f5330a;
+    public final /* synthetic */ String f5347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ h[] f5331b;
+    public final /* synthetic */ h[] f5348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ l f5332c;
+    public final /* synthetic */ l f5349c;
 
     public n(l lVar, String str, h[] hVarArr) {
         Interceptable interceptable = $ic;
@@ -36,20 +36,20 @@ public class n implements r.a {
                 return;
             }
         }
-        this.f5332c = lVar;
-        this.f5330a = str;
-        this.f5331b = hVarArr;
+        this.f5349c = lVar;
+        this.f5347a = str;
+        this.f5348b = hVarArr;
     }
 
     @Override // com.baidu.fsg.base.statistics.r.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogUtil.d(l.f5324a, "====send-success==");
-            if (b.o.equals(this.f5330a)) {
-                f.a().a(this.f5330a);
+            LogUtil.d(l.f5341a, "====send-success==");
+            if (b.o.equals(this.f5347a)) {
+                f.a().a(this.f5347a);
             } else {
-                i.a(RimStatisticsUtil.getAppContext()).a(this.f5331b);
+                i.a(RimStatisticsUtil.getAppContext()).a(this.f5348b);
             }
         }
     }
@@ -58,7 +58,7 @@ public class n implements r.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogUtil.d(l.f5324a, "====send-fail=====");
+            LogUtil.d(l.f5341a, "====send-fail=====");
         }
     }
 }

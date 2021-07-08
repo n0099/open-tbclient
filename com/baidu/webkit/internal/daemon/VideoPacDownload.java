@@ -23,7 +23,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "VideoPacDownload";
@@ -94,7 +94,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     public static void tryToDownLoadAsync(Context context) {
         String pacUrl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             if (!WebKitFactory.getNeedDownloadCloudResource()) {
                 Log.w(LOG_TAG, " tryToDownLoadAsync  return");
                 restoreLastData();

@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u0.n1.a;
-import d.a.s0.u0.n1.b;
-import d.a.s0.u0.n1.d;
-/* loaded from: classes5.dex */
+import d.a.p0.u0.n1.a;
+import d.a.p0.u0.n1.b;
+import d.a.p0.u0.n1.d;
+/* loaded from: classes4.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            this.mEvaluationView.i(i2, i3, intent);
+            this.mEvaluationView.h(i2, i3, intent);
         }
     }
 
@@ -51,7 +51,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mEvaluationView.j();
+            this.mEvaluationView.i();
         }
     }
 
@@ -82,7 +82,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mEvaluationView.k();
+            this.mEvaluationView.j();
             super.onDestroy();
         }
     }
@@ -93,7 +93,7 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                this.mEvaluationView.m();
+                this.mEvaluationView.l();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);

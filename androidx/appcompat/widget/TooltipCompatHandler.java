@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -146,7 +147,7 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
 
     public static void setPendingHandler(TooltipCompatHandler tooltipCompatHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, tooltipCompatHandler) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tooltipCompatHandler) == null) {
             TooltipCompatHandler tooltipCompatHandler2 = sPendingHandler;
             if (tooltipCompatHandler2 != null) {
                 tooltipCompatHandler2.cancelPendingShow();

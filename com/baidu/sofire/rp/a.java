@@ -9,7 +9,7 @@ import com.baidu.sofire.utility.s;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class a {
         String str = "";
         try {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            if (!TextUtils.isEmpty(a2.f10395c.getString("rpiiem", ""))) {
-                a2.f10396d.putString("rpiiem", "");
-                a2.f10396d.commit();
+            if (!TextUtils.isEmpty(a2.f10412c.getString("rpiiem", ""))) {
+                a2.f10413d.putString("rpiiem", "");
+                a2.f10413d.commit();
             }
             String n = a2.n();
             try {
@@ -33,11 +33,11 @@ public final class a {
                     n = s.h(context);
                     if (!TextUtils.isEmpty(n)) {
                         if (TextUtils.isEmpty(n)) {
-                            a2.f10396d.putString("rpiiemn", "");
-                            a2.f10396d.commit();
+                            a2.f10413d.putString("rpiiemn", "");
+                            a2.f10413d.commit();
                         } else {
-                            a2.f10396d.putString("rpiiemn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
-                            a2.f10396d.commit();
+                            a2.f10413d.putString("rpiiemn", new String(Base64.encode(g.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
+                            a2.f10413d.commit();
                         }
                     }
                 }
@@ -58,12 +58,12 @@ public final class a {
             String str = "";
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                str = a2.f10395c.getString("rpandid", "");
+                str = a2.f10412c.getString("rpandid", "");
                 if (TextUtils.isEmpty(str)) {
                     str = s.i(context);
                     if (!TextUtils.isEmpty(str)) {
-                        a2.f10396d.putString("rpandid", str);
-                        a2.f10396d.commit();
+                        a2.f10413d.putString("rpandid", str);
+                        a2.f10413d.commit();
                     }
                 }
             } catch (Throwable unused) {

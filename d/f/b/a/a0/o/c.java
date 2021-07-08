@@ -2,7 +2,7 @@ package d.f.b.a.a0.o;
 
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface c {
     void a(int i2) throws ParserException;
 

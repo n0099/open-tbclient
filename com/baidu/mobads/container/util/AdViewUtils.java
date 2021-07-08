@@ -5,12 +5,13 @@ import android.graphics.Rect;
 import android.os.PowerManager;
 import android.util.DisplayMetrics;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AdViewUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHOW_STATE_LOWER_THAN_MIN_SHOWPERCENT = 3;
@@ -93,7 +94,7 @@ public class AdViewUtils {
     public static boolean isAdViewShown(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, view)) == null) ? view != null && view.isShown() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? view != null && view.isShown() : invokeL.booleanValue;
     }
 
     public static boolean isAdViewTooSmall(View view) {

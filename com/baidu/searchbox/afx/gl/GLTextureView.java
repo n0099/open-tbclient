@@ -30,7 +30,7 @@ import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import org.webrtc.EglBase10;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener, View.OnLayoutChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -61,13 +61,13 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public final WeakReference<GLTextureView> mThisWeakRef;
 
     /* renamed from: com.baidu.searchbox.afx.gl.GLTextureView$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public abstract class BaseConfigChooser implements EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public abstract EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class ComponentSizeChooser extends BaseConfigChooser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,26 +260,26 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface EGLConfigChooser {
         EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface EGLContextFactory {
         EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface EGLWindowSurfaceFactory {
         EGLSurface createWindowSurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
         void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EglHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         private void throwEglException(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
                 throwEglException(str, this.mEgl.eglGetError());
             }
         }
@@ -472,7 +472,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class GLThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -719,7 +719,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         private void stopEglContextLocked() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.mHaveEglContext) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mHaveEglContext) {
                 this.mEglHelper.finish();
                 this.mHaveEglContext = false;
                 GLTextureView.sGLThreadManager.releaseEglContextLocked(this);
@@ -926,7 +926,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class GLThreadManager {
         public static /* synthetic */ Interceptable $ic = null;
         public static String TAG = "GLThreadManager";
@@ -1074,12 +1074,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface GLWrapper {
         GL wrap(GL gl);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class LogWriter extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1143,7 +1143,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
@@ -1152,7 +1152,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class SimpleEGLConfigChooser extends ComponentSizeChooser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1452,7 +1452,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DefaultContextFactory implements EGLContextFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

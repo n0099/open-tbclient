@@ -1,5 +1,6 @@
 package io.reactivex.internal.schedulers;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +20,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SchedulerPoolFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<ScheduledThreadPoolExecutor, Object> POOLS;
@@ -30,7 +31,7 @@ public final class SchedulerPoolFactory {
     public static final AtomicReference<ScheduledExecutorService> PURGE_THREAD;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class PurgeProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +74,7 @@ public final class SchedulerPoolFactory {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ScheduledTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +173,7 @@ public final class SchedulerPoolFactory {
 
     public static void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             tryStart(PURGE_ENABLED);
         }
     }

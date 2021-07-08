@@ -3,6 +3,7 @@ package com.airbnb.lottie.parser;
 import android.graphics.Color;
 import android.graphics.PointF;
 import androidx.annotation.ColorInt;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -121,7 +122,7 @@ public class JsonUtils {
     public static PointF jsonObjectToPoint(JsonReader jsonReader, float f2) throws IOException {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65540, null, jsonReader, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, jsonReader, f2)) == null) {
             jsonReader.beginObject();
             float f3 = 0.0f;
             float f4 = 0.0f;

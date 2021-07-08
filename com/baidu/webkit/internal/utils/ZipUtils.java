@@ -1,6 +1,7 @@
 package com.baidu.webkit.internal.utils;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,20 +20,20 @@ import java.util.Stack;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZipUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static ZipUtils singleton;
     public transient /* synthetic */ FieldHolder $fh;
     public ZipEntry nextEntry;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends ZipInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZipUtils f27355a;
+        public final /* synthetic */ ZipUtils f27465a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ZipUtils zipUtils, InputStream inputStream) {
@@ -52,7 +53,7 @@ public class ZipUtils implements INoProGuard {
                     return;
                 }
             }
-            this.f27355a = zipUtils;
+            this.f27465a = zipUtils;
         }
 
         @Override // java.util.zip.ZipInputStream, java.util.zip.InflaterInputStream, java.io.FilterInputStream, java.io.InputStream
@@ -156,7 +157,7 @@ public class ZipUtils implements INoProGuard {
 
     private void safeClose(ZipInputStream zipInputStream) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, zipInputStream) == null) || zipInputStream == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, zipInputStream) == null) || zipInputStream == null) {
             return;
         }
         try {

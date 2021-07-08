@@ -1,5 +1,6 @@
 package com.baidu.down.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpUrlHelperUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -233,7 +234,7 @@ public class HttpUrlHelperUtil {
     public static int delimiterOffset(String str, int i2, int i3, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Character.valueOf(c2)})) == null) {
             while (i2 < i3) {
                 if (str.charAt(i2) == c2) {
                     return i2;

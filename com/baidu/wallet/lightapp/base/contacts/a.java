@@ -1,6 +1,7 @@
 package com.baidu.wallet.lightapp.base.contacts;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +13,12 @@ import com.baidu.wallet.core.ContactManager;
 import com.baidu.wallet.core.utils.contacts.ContractInfo;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25263a = "a";
+    public static final String f25373a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,6 +65,6 @@ public class a {
     public static List<ContractInfo> c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? ContactManager.getIContactsImpl().loadAllPhone(context) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? ContactManager.getIContactsImpl().loadAllPhone(context) : (List) invokeL.objValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanAppCores extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SwanAppCores> CREATOR;
@@ -21,7 +21,7 @@ public class SwanAppCores extends SwanAppIPCData {
     public ExtensionCore mExtensionCore;
     public SwanCoreVersion mSwanCoreVersion;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SwanAppCores> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

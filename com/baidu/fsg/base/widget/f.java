@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f implements View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f5524a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5541a;
 
     public f(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class f implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f5524a = safeKeyBoardPopupWindow;
+        this.f5541a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnFocusChangeListener

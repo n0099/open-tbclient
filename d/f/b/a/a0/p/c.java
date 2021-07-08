@@ -12,19 +12,19 @@ import d.f.b.a.a0.j;
 import d.f.b.a.a0.p.b;
 import d.f.b.a.i0.l;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long[] f72195a;
+    public final long[] f69298a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long[] f72196b;
+    public final long[] f69299b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f72197c;
+    public final long f69300c;
 
     public c(long[] jArr, long[] jArr2, long j) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class c implements b.a {
                 return;
             }
         }
-        this.f72195a = jArr;
-        this.f72196b = jArr2;
-        this.f72197c = j;
+        this.f69298a = jArr;
+        this.f69299b = jArr2;
+        this.f69300c = j;
     }
 
     public static c a(j jVar, l lVar, long j, long j2) {
@@ -56,14 +56,14 @@ public final class c implements b.a {
             if (i2 <= 0) {
                 return null;
             }
-            int i3 = jVar.f72120d;
+            int i3 = jVar.f69223d;
             long F = v.F(i2, 1000000 * (i3 >= 32000 ? MP3TrackImpl.SAMPLES_PER_FRAME : PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE), i3);
             int D = lVar.D();
             int D2 = lVar.D();
             int D3 = lVar.D();
             int i4 = 2;
             lVar.K(2);
-            long j3 = j + jVar.f72119c;
+            long j3 = j + jVar.f69222c;
             int i5 = D + 1;
             long[] jArr = new long[i5];
             long[] jArr2 = new long[i5];
@@ -113,20 +113,20 @@ public final class c implements b.a {
     public long c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.f72196b[v.e(this.f72195a, j, true, true)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.f69299b[v.e(this.f69298a, j, true, true)] : invokeJ.longValue;
     }
 
     @Override // d.f.b.a.a0.p.b.a
     public long g(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.f72195a[v.e(this.f72196b, j, true, true)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.f69298a[v.e(this.f69299b, j, true, true)] : invokeJ.longValue;
     }
 
     @Override // d.f.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72197c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69300c : invokeV.longValue;
     }
 }

@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SSWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30807a;
+    public boolean f30917a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SSWebView(Context context) {
@@ -58,7 +58,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f30807a = false;
+        this.f30917a = false;
         b(a(context));
     }
 
@@ -346,7 +346,7 @@ public class SSWebView extends WebView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, motionEvent)) == null) {
             try {
                 boolean onTouchEvent = super.onTouchEvent(motionEvent);
-                if (motionEvent.getActionMasked() == 0 && this.f30807a && (a2 = a(this)) != null) {
+                if (motionEvent.getActionMasked() == 0 && this.f30917a && (a2 = a(this)) != null) {
                     a2.requestDisallowInterceptTouchEvent(true);
                 }
                 return onTouchEvent;
@@ -405,7 +405,7 @@ public class SSWebView extends WebView {
     public void setIsPreventTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f30807a = z;
+            this.f30917a = z;
         }
     }
 
@@ -478,7 +478,7 @@ public class SSWebView extends WebView {
     private ViewParent a(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view)) == null) {
             ViewParent parent = view.getParent();
             return ((parent instanceof ViewPager) || (parent instanceof AbsListView) || (parent instanceof ScrollView) || (parent instanceof HorizontalScrollView) || (parent instanceof ScrollingView) || !(parent instanceof View)) ? parent : a((View) parent);
         }
@@ -516,7 +516,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f30807a = false;
+        this.f30917a = false;
         b(a(context));
     }
 
@@ -548,7 +548,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f30807a = false;
+        this.f30917a = false;
         b(a(context));
     }
 

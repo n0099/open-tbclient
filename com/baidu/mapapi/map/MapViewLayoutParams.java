@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALIGN_BOTTOM = 16;
@@ -23,51 +23,51 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f6997a;
+    public LatLng f7014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f6998b;
+    public Point f7015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ELayoutMode f6999c;
+    public ELayoutMode f7016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f7000d;
+    public float f7017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f7001e;
+    public float f7018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7002f;
+    public int f7019f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7003a;
+        public int f7020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f7004b;
+        public int f7021b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LatLng f7005c;
+        public LatLng f7022c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Point f7006d;
+        public Point f7023d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ELayoutMode f7007e;
+        public ELayoutMode f7024e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f7008f;
+        public int f7025f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f7009g;
+        public int f7026g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f7010h;
+        public int f7027h;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
                     return;
                 }
             }
-            this.f7007e = ELayoutMode.absoluteMode;
-            this.f7008f = 4;
-            this.f7009g = 16;
+            this.f7024e = ELayoutMode.absoluteMode;
+            this.f7025f = 4;
+            this.f7026g = 16;
         }
 
         public Builder align(int i2, int i3) {
@@ -92,10 +92,10 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
                 if (i2 == 1 || i2 == 2 || i2 == 4) {
-                    this.f7008f = i2;
+                    this.f7025f = i2;
                 }
                 if (i3 == 8 || i3 == 16 || i3 == 32) {
-                    this.f7009g = i3;
+                    this.f7026g = i3;
                 }
                 return this;
             }
@@ -106,15 +106,15 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ELayoutMode eLayoutMode = this.f7007e;
+                ELayoutMode eLayoutMode = this.f7024e;
                 boolean z = true;
-                if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.f7006d != null : this.f7005c != null) {
+                if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.f7023d != null : this.f7022c != null) {
                     z = false;
                 }
                 if (z) {
                     throw new IllegalStateException("BDMapSDKException: if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
                 }
-                return new MapViewLayoutParams(this.f7003a, this.f7004b, this.f7005c, this.f7006d, this.f7007e, this.f7008f, this.f7009g, this.f7010h);
+                return new MapViewLayoutParams(this.f7020a, this.f7021b, this.f7022c, this.f7023d, this.f7024e, this.f7025f, this.f7026g, this.f7027h);
             }
             return (MapViewLayoutParams) invokeV.objValue;
         }
@@ -123,7 +123,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f7004b = i2;
+                this.f7021b = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -133,7 +133,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eLayoutMode)) == null) {
-                this.f7007e = eLayoutMode;
+                this.f7024e = eLayoutMode;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -143,7 +143,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, point)) == null) {
-                this.f7006d = point;
+                this.f7023d = point;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -153,7 +153,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, latLng)) == null) {
-                this.f7005c = latLng;
+                this.f7022c = latLng;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -163,7 +163,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f7003a = i2;
+                this.f7020a = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -173,7 +173,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f7010h = i2;
+                this.f7027h = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -181,7 +181,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ELayoutMode {
         public static final /* synthetic */ ELayoutMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -259,23 +259,23 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
                 return;
             }
         }
-        this.f6997a = latLng;
-        this.f6998b = point;
-        this.f6999c = eLayoutMode;
+        this.f7014a = latLng;
+        this.f7015b = point;
+        this.f7016c = eLayoutMode;
         if (i4 == 1) {
-            this.f7000d = 0.0f;
+            this.f7017d = 0.0f;
         } else if (i4 != 2) {
-            this.f7000d = 0.5f;
+            this.f7017d = 0.5f;
         } else {
-            this.f7000d = 1.0f;
+            this.f7017d = 1.0f;
         }
         if (i5 == 8) {
-            this.f7001e = 0.0f;
+            this.f7018e = 0.0f;
         } else if (i5 == 16 || i5 != 32) {
-            this.f7001e = 1.0f;
+            this.f7018e = 1.0f;
         } else {
-            this.f7001e = 0.5f;
+            this.f7018e = 0.5f;
         }
-        this.f7002f = i6;
+        this.f7019f = i6;
     }
 }

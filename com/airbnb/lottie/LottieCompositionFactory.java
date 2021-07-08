@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.model.LottieCompositionCache;
 import com.airbnb.lottie.network.NetworkCache;
 import com.airbnb.lottie.network.NetworkFetcher;
@@ -187,7 +188,7 @@ public class LottieCompositionFactory {
 
     public static void clearCache(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             taskCache.clear();
             LottieCompositionCache.getInstance().clear();
             new NetworkCache(context).clear();

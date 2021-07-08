@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
@@ -35,13 +36,13 @@ import com.google.protobuf.CodedInputStream;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class PayCallBackManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isClientDead;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PayStateModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -243,7 +244,7 @@ public final class PayCallBackManager implements NoProguard {
 
     public static void callBackClientCancel(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getHasPwd(), StatHelper.getPayType(), StatHelper.getPayWay());
             HashMap hashMap = new HashMap();
             hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());

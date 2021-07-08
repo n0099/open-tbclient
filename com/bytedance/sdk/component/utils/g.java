@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g extends TouchDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28785a;
+    public View f28895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f28786b;
+    public Rect f28896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f28787c;
+    public Rect f28897c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28788d;
+    public boolean f28898d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28789e;
+    public int f28899e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Rect rect, View view) {
@@ -49,13 +49,13 @@ public class g extends TouchDelegate {
                 return;
             }
         }
-        this.f28786b = rect;
-        this.f28789e = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
+        this.f28896b = rect;
+        this.f28899e = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
         Rect rect2 = new Rect(rect);
-        this.f28787c = rect2;
-        int i4 = this.f28789e;
+        this.f28897c = rect2;
+        int i4 = this.f28899e;
         rect2.inset(-i4, -i4);
-        this.f28785a = view;
+        this.f28895a = view;
     }
 
     @Override // android.view.TouchDelegate
@@ -70,37 +70,37 @@ public class g extends TouchDelegate {
             boolean z2 = true;
             if (action != 0) {
                 if (action == 1 || action == 2) {
-                    boolean z3 = this.f28788d;
+                    boolean z3 = this.f28898d;
                     if (z3) {
-                        z = this.f28787c.contains(x, y);
+                        z = this.f28897c.contains(x, y);
                         z2 = z3;
                     } else {
                         z2 = z3;
                     }
                 } else {
                     if (action == 3) {
-                        boolean z4 = this.f28788d;
-                        this.f28788d = false;
+                        boolean z4 = this.f28898d;
+                        this.f28898d = false;
                         z2 = z4;
                     }
                     z = true;
                     z2 = false;
                 }
                 z = true;
-            } else if (this.f28786b.contains(x, y)) {
-                this.f28788d = true;
+            } else if (this.f28896b.contains(x, y)) {
+                this.f28898d = true;
                 z = true;
             } else {
-                this.f28788d = false;
+                this.f28898d = false;
                 z = true;
                 z2 = false;
             }
             if (z2) {
-                View view = this.f28785a;
+                View view = this.f28895a;
                 if (z) {
                     motionEvent.setLocation(view.getWidth() / 2, view.getHeight() / 2);
                 } else {
-                    float f2 = -(this.f28789e * 2);
+                    float f2 = -(this.f28899e * 2);
                     motionEvent.setLocation(f2, f2);
                 }
                 if (view.getVisibility() == 0) {

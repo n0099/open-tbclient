@@ -12,12 +12,12 @@ import com.bytedance.sdk.component.b.b.k;
 import com.bytedance.sdk.component.b.b.s;
 import java.net.Socket;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f28036a;
+    public static a f28146a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

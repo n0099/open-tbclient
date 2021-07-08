@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f15199a;
+    public View f15238a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsEmpertyItemViewHolder(View view) {
@@ -34,7 +34,7 @@ public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15199a = view;
+        this.f15238a = view;
     }
 
     public void b(int i2) {
@@ -42,16 +42,16 @@ public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == 0) {
             return;
         }
-        SkinManager.setBackgroundResource(this.f15199a, i2);
+        SkinManager.setBackgroundResource(this.f15238a, i2);
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (i2 < 0) {
-                this.f15199a.setMinimumHeight(0);
+                this.f15238a.setMinimumHeight(0);
             } else {
-                this.f15199a.setMinimumHeight(i2);
+                this.f15238a.setMinimumHeight(i2);
             }
         }
     }

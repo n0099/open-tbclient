@@ -19,23 +19,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.r0.r.q.g1;
-/* loaded from: classes5.dex */
+import d.a.o0.r.q.g1;
+/* loaded from: classes4.dex */
 public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f20102g;
+    public static final String f20142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f20103h;
+    public static TbHttpMessageTask f20143h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g1 f20104e;
+    public g1 f20144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20105f;
+    public String f20145f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f20102g = str;
+        f20142g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f20103h = tbHttpMessageTask;
+        f20143h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f20103h);
+        MessageManager.getInstance().registerTask(f20143h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,13 +76,13 @@ public class PersonFriendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f20104e = new g1();
+        this.f20144e = new g1();
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f20105f = str;
+            this.f20145f = str;
         }
     }
 
@@ -109,7 +109,7 @@ public class PersonFriendModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20105f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20145f : (String) invokeV.objValue;
     }
 
     public void setSex(int i2) {
@@ -121,7 +121,7 @@ public class PersonFriendModel extends BdBaseModel {
     public g1 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20104e : (g1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20144e : (g1) invokeV.objValue;
     }
 
     public void x() {
@@ -149,7 +149,7 @@ public class PersonFriendModel extends BdBaseModel {
     public void z(g1 g1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g1Var) == null) {
-            this.f20104e = g1Var;
+            this.f20144e = g1Var;
         }
     }
 }

@@ -24,34 +24,34 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class c<M extends Message<?>, T extends MessageTask, R extends f<?, ?>, N extends ResponsedMessage<?>> implements d.a.c.c.b<M, T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static d.a.c.c.g.b<Message<?>> f43954h;
+    public static d.a.c.c.g.b<Message<?>> f40970h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageManager f43955a;
+    public MessageManager f40971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<T> f43956b;
+    public final SparseArray<T> f40972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<N> f43957c;
+    public final SparseArray<N> f40973c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<LinkedList<MessageListener<N>>> f43958d;
+    public final SparseArray<LinkedList<MessageListener<N>>> f40974d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.c.c.j.d f43959e;
+    public d.a.c.c.j.d f40975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43960f;
+    public boolean f40976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseIntArray f43961g;
+    public final SparseIntArray f40977g;
 
     static {
         InterceptResult invokeClinit;
@@ -83,27 +83,27 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 return;
             }
         }
-        this.f43955a = null;
-        this.f43956b = new SparseArray<>();
-        this.f43957c = new SparseArray<>();
-        this.f43958d = new SparseArray<>();
-        this.f43959e = null;
-        this.f43960f = false;
-        this.f43961g = new SparseIntArray();
-        this.f43955a = messageManager;
+        this.f40971a = null;
+        this.f40972b = new SparseArray<>();
+        this.f40973c = new SparseArray<>();
+        this.f40974d = new SparseArray<>();
+        this.f40975e = null;
+        this.f40976f = false;
+        this.f40977g = new SparseIntArray();
+        this.f40971a = messageManager;
     }
 
     public static void p(d.a.c.c.g.b<Message<?>> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            f43954h = bVar;
+            f40970h = bVar;
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43960f = true;
+            this.f40976f = true;
         }
     }
 
@@ -128,12 +128,12 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             }
             if (t != null) {
                 M l = l(m, t);
-                if (this.f43959e != null) {
+                if (this.f40975e != null) {
                     if (t.getTimeOut() == null) {
-                        t.setTimeOut(this.f43959e.b());
+                        t.setTimeOut(this.f40975e.b());
                     }
                     if (t.getRetry() == 0) {
-                        t.setRetry(this.f43959e.a());
+                        t.setRetry(this.f40975e.a());
                     }
                 }
                 if (l != null) {
@@ -143,7 +143,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 BdLog.d("message is trapped:" + cmd);
                 return false;
             }
-            d.a.c.c.g.b<Message<?>> bVar = f43954h;
+            d.a.c.c.g.b<Message<?>> bVar = f40970h;
             if (bVar != null) {
                 bVar.a(m);
             }
@@ -164,19 +164,19 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             int cmd = n.getCmd();
             Message<?> orginalMessage = n.getOrginalMessage();
             BdUniqueId tag = orginalMessage != null ? orginalMessage.getTag() : null;
-            if (this.f43957c.indexOfKey(cmd) >= 0) {
-                this.f43957c.put(cmd, n);
+            if (this.f40973c.indexOfKey(cmd) >= 0) {
+                this.f40973c.put(cmd, n);
             }
-            LinkedList<MessageListener<N>> linkedList = this.f43958d.get(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.f40974d.get(cmd);
             if (linkedList == null) {
                 return;
             }
-            this.f43960f = false;
+            this.f40976f = false;
             k(cmd);
             try {
                 try {
                     Iterator<MessageListener<N>> it = linkedList.iterator();
-                    while (it.hasNext() && !this.f43960f) {
+                    while (it.hasNext() && !this.f40976f) {
                         MessageListener<N> next = it.next();
                         if (next != null && (!next.isSelfListener() || next.getTag() == tag)) {
                             try {
@@ -201,7 +201,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             synchronized (this) {
-                t = this.f43956b.get(i2);
+                t = this.f40972b.get(i2);
             }
             return t;
         }
@@ -215,9 +215,9 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList<>();
-                int size = this.f43956b.size();
+                int size = this.f40972b.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    arrayList.add(this.f43956b.valueAt(i2));
+                    arrayList.add(this.f40972b.valueAt(i2));
                 }
             }
             return arrayList;
@@ -231,7 +231,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             synchronized (this) {
-                z = this.f43961g.get(i2, 0) != 0;
+                z = this.f40977g.get(i2, 0) != 0;
             }
             return z;
         }
@@ -242,7 +242,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             synchronized (this) {
-                this.f43961g.put(i2, this.f43961g.get(i2, 0) + 1);
+                this.f40977g.put(i2, this.f40977g.get(i2, 0) + 1);
             }
         }
     }
@@ -264,13 +264,13 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             }
             FrameHelper.g(i2);
             b(i2);
-            LinkedList<MessageListener<N>> linkedList = this.f43958d.get(i2);
+            LinkedList<MessageListener<N>> linkedList = this.f40974d.get(i2);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.f43958d.put(i2, linkedList);
+                this.f40974d.put(i2, linkedList);
             }
             FrameHelper.f(linkedList, messageListener);
-            N n = this.f43957c.get(i2);
+            N n = this.f40973c.get(i2);
             if (n != null) {
                 messageListener.onMessage(n);
             }
@@ -279,10 +279,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
 
     public void n(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || this.f43957c.indexOfKey(i2) >= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || this.f40973c.indexOfKey(i2) >= 0) {
             return;
         }
-        this.f43957c.put(i2, null);
+        this.f40973c.put(i2, null);
     }
 
     public synchronized void o(T t) {
@@ -294,7 +294,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 }
                 int cmd = t.getCmd();
                 FrameHelper.g(cmd);
-                this.f43956b.put(cmd, t);
+                this.f40972b.put(cmd, t);
             }
         }
     }
@@ -303,11 +303,11 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             synchronized (this) {
-                int i3 = this.f43961g.get(i2, 0);
+                int i3 = this.f40977g.get(i2, 0);
                 if (i3 <= 1) {
-                    this.f43961g.delete(i2);
+                    this.f40977g.delete(i2);
                 } else {
-                    this.f43961g.put(i2, i3 - 1);
+                    this.f40977g.put(i2, i3 - 1);
                 }
             }
         }
@@ -320,10 +320,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             if (bdUniqueId == null) {
                 return;
             }
-            int size = this.f43958d.size();
+            int size = this.f40974d.size();
             for (int i2 = 0; i2 < size; i2++) {
-                int keyAt = this.f43958d.keyAt(i2);
-                Iterator<MessageListener<N>> it = this.f43958d.valueAt(i2).iterator();
+                int keyAt = this.f40974d.keyAt(i2);
+                Iterator<MessageListener<N>> it = this.f40974d.valueAt(i2).iterator();
                 while (it.hasNext()) {
                     MessageListener<N> next = it.next();
                     if (next != null && next.getTag() == bdUniqueId) {
@@ -344,10 +344,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             }
             int cmd = messageListener.getCmd();
             if (cmd == 0) {
-                int size = this.f43958d.size();
+                int size = this.f40974d.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    LinkedList<MessageListener<N>> valueAt = this.f43958d.valueAt(i2);
-                    int keyAt = this.f43958d.keyAt(i2);
+                    LinkedList<MessageListener<N>> valueAt = this.f40974d.valueAt(i2);
+                    int keyAt = this.f40974d.keyAt(i2);
                     if (valueAt.contains(messageListener)) {
                         b(keyAt);
                         valueAt.remove(messageListener);
@@ -356,7 +356,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 return;
             }
             b(cmd);
-            LinkedList<MessageListener<N>> linkedList = this.f43958d.get(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.f40974d.get(cmd);
             if (linkedList != null) {
                 linkedList.remove(messageListener);
             }
@@ -366,7 +366,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f43957c.remove(i2);
+            this.f40973c.remove(i2);
         }
     }
 
@@ -374,7 +374,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             synchronized (this) {
-                this.f43956b.remove(i2);
+                this.f40972b.remove(i2);
             }
         }
     }

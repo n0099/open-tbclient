@@ -2,6 +2,7 @@ package com.kwad.sdk.core.b;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,18 +14,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(String str) {
         InterceptResult invokeL;
-        String n;
+        String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             Context context = KsAdSDKImpl.get().getContext();
-            return (context == null || (n = d.n.a.a.b.n(context, str)) == null) ? "" : n;
+            return (context == null || (c2 = d.n.a.a.b.c(context, str)) == null) ? "" : c2;
         }
         return (String) invokeL.objValue;
     }
@@ -70,7 +71,7 @@ public final class f {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? TextUtils.isEmpty(str) || str.startsWith("__") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? TextUtils.isEmpty(str) || str.startsWith("__") : invokeL.booleanValue;
     }
 
     public static String c(String str) {

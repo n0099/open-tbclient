@@ -13,11 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoItemModel implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<VideoItemModel> CREATOR;
     public static final int TYPE_FUNAD = 2;
+    public static final int TYPE_LOADING = 99999;
     public static final int TYPE_NOATTENTION = 4;
     public static final int TYPE_NOLOGIN = 3;
     public static final int TYPE_VIDEO = 1;
@@ -26,7 +27,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public final int mHashCode;
     public final VideoItemData videoItemData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<VideoItemModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,22 +151,28 @@ public class VideoItemModel implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.dataType == 2 : invokeV.booleanValue;
     }
 
+    public boolean isLoadingType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dataType == 99999 : invokeV.booleanValue;
+    }
+
     public boolean isNoAttentionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dataType == 4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.dataType == 4 : invokeV.booleanValue;
     }
 
     public boolean isNoLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.dataType == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.dataType == 3 : invokeV.booleanValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
             parcel.writeParcelable(this.videoItemData, i2);
             parcel.writeInt(this.dataType);
             parcel.writeInt(this.mHashCode);

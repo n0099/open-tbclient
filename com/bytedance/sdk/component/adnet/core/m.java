@@ -10,36 +10,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.err.VAdError;
 import com.bytedance.sdk.component.adnet.face.a;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class m<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f27921a;
+    public final T f28031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.C0316a f27922b;
+    public final a.C0316a f28032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VAdError f27923c;
+    public final VAdError f28033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27924d;
+    public boolean f28034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f27925e;
+    public long f28035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f27926f;
+    public long f28036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, Object> f27927g;
+    public Map<String, Object> f28037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f27928h;
+    public long f28038h;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a<T> {
         void a(m<T> mVar);
 
@@ -61,15 +61,15 @@ public class m<T> {
                 return;
             }
         }
-        this.f27924d = false;
-        this.f27925e = 0L;
-        this.f27926f = 0L;
-        this.f27928h = 0L;
-        this.f27921a = t;
-        this.f27922b = c0316a;
-        this.f27923c = null;
+        this.f28034d = false;
+        this.f28035e = 0L;
+        this.f28036f = 0L;
+        this.f28038h = 0L;
+        this.f28031a = t;
+        this.f28032b = c0316a;
+        this.f28033c = null;
         if (c0316a != null) {
-            this.f27928h = c0316a.f27956a;
+            this.f28038h = c0316a.f28066a;
         }
     }
 
@@ -83,7 +83,7 @@ public class m<T> {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            this.f27926f = j;
+            this.f28036f = j;
             return this;
         }
         return (m) invokeJ.objValue;
@@ -98,14 +98,14 @@ public class m<T> {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27923c == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28033c == null : invokeV.booleanValue;
     }
 
     public m a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.f27925e = j;
+            this.f28035e = j;
             return this;
         }
         return (m) invokeJ.objValue;
@@ -117,8 +117,8 @@ public class m<T> {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            a.C0316a c0316a = this.f27922b;
-            return (c0316a == null || (map = c0316a.f27963h) == null || (str3 = map.get(str)) == null) ? str2 : str3;
+            a.C0316a c0316a = this.f28032b;
+            return (c0316a == null || (map = c0316a.f28073h) == null || (str3 = map.get(str)) == null) ? str2 : str3;
         }
         return (String) invokeLL.objValue;
     }
@@ -138,22 +138,22 @@ public class m<T> {
                 return;
             }
         }
-        this.f27924d = false;
-        this.f27925e = 0L;
-        this.f27926f = 0L;
-        this.f27928h = 0L;
-        this.f27921a = null;
-        this.f27922b = null;
-        this.f27923c = vAdError;
+        this.f28034d = false;
+        this.f28035e = 0L;
+        this.f28036f = 0L;
+        this.f28038h = 0L;
+        this.f28031a = null;
+        this.f28032b = null;
+        this.f28033c = vAdError;
         if (0 != 0 || vAdError == null) {
             return;
         }
         i iVar = vAdError.networkResponse;
         if (iVar != null) {
-            this.f27928h = iVar.f27904a;
+            this.f28038h = iVar.f28014a;
         } else {
-            this.f27928h = vAdError.getErrorCode();
+            this.f28038h = vAdError.getErrorCode();
         }
-        com.bytedance.sdk.component.adnet.d.d.b("Response", "Response error code = " + this.f27928h);
+        com.bytedance.sdk.component.adnet.d.d.b("Response", "Response error code = " + this.f28038h);
     }
 }

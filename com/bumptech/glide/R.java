@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class attr {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int coordinatorLayoutStyle = 0x7f04016d;
@@ -26,13 +26,13 @@ public final class R {
         public static final int fontStyle = 0x7f04020a;
         public static final int fontWeight = 0x7f04020c;
         public static final int keylines = 0x7f0402e1;
-        public static final int layout_anchor = 0x7f040336;
-        public static final int layout_anchorGravity = 0x7f040337;
-        public static final int layout_behavior = 0x7f040338;
-        public static final int layout_dodgeInsetEdges = 0x7f04033d;
-        public static final int layout_insetEdge = 0x7f040340;
-        public static final int layout_keyline = 0x7f040341;
-        public static final int statusBarBackground = 0x7f040519;
+        public static final int layout_anchor = 0x7f040316;
+        public static final int layout_anchorGravity = 0x7f040317;
+        public static final int layout_behavior = 0x7f040318;
+        public static final int layout_dodgeInsetEdges = 0x7f04031d;
+        public static final int layout_insetEdge = 0x7f040320;
+        public static final int layout_keyline = 0x7f040321;
+        public static final int statusBarBackground = 0x7f0404fd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -50,7 +50,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class bool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int abc_action_bar_embed_tabs = 0x7f050000;
@@ -71,13 +71,13 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action_color_filter = 0x7f060727;
-        public static final int notification_icon_bg_color = 0x7f060728;
-        public static final int ripple_material_light = 0x7f060828;
-        public static final int secondary_text_default_material_light = 0x7f060962;
+        public static final int notification_action_color_filter = 0x7f060725;
+        public static final int notification_icon_bg_color = 0x7f060726;
+        public static final int ripple_material_light = 0x7f060826;
+        public static final int secondary_text_default_material_light = 0x7f060960;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -95,7 +95,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int compat_button_inset_horizontal_material = 0x7f0701b6;
@@ -103,21 +103,21 @@ public final class R {
         public static final int compat_button_padding_horizontal_material = 0x7f0701b8;
         public static final int compat_button_padding_vertical_material = 0x7f0701b9;
         public static final int compat_control_corner_material = 0x7f0701ba;
-        public static final int notification_action_icon_size = 0x7f070492;
-        public static final int notification_action_text_size = 0x7f070493;
-        public static final int notification_big_circle_margin = 0x7f070495;
-        public static final int notification_content_margin_start = 0x7f070496;
-        public static final int notification_large_icon_height = 0x7f070497;
-        public static final int notification_large_icon_width = 0x7f070498;
-        public static final int notification_main_column_padding_top = 0x7f070499;
-        public static final int notification_media_narrow_margin = 0x7f07049a;
-        public static final int notification_right_icon_size = 0x7f07049b;
-        public static final int notification_right_side_padding_top = 0x7f07049c;
-        public static final int notification_small_icon_background_padding = 0x7f07049d;
-        public static final int notification_small_icon_size_as_large = 0x7f0704ae;
-        public static final int notification_subtext_size = 0x7f0704af;
-        public static final int notification_top_pad = 0x7f0704b0;
-        public static final int notification_top_pad_large_text = 0x7f0704b1;
+        public static final int notification_action_icon_size = 0x7f07048c;
+        public static final int notification_action_text_size = 0x7f07048d;
+        public static final int notification_big_circle_margin = 0x7f07048f;
+        public static final int notification_content_margin_start = 0x7f070490;
+        public static final int notification_large_icon_height = 0x7f070491;
+        public static final int notification_large_icon_width = 0x7f070492;
+        public static final int notification_main_column_padding_top = 0x7f070493;
+        public static final int notification_media_narrow_margin = 0x7f070494;
+        public static final int notification_right_icon_size = 0x7f070495;
+        public static final int notification_right_side_padding_top = 0x7f070496;
+        public static final int notification_small_icon_background_padding = 0x7f070497;
+        public static final int notification_small_icon_size_as_large = 0x7f070498;
+        public static final int notification_subtext_size = 0x7f070499;
+        public static final int notification_top_pad = 0x7f07049a;
+        public static final int notification_top_pad_large_text = 0x7f07049b;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -135,21 +135,21 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action_background = 0x7f0814b2;
-        public static final int notification_bg = 0x7f0814b3;
-        public static final int notification_bg_low = 0x7f0814b4;
-        public static final int notification_bg_low_normal = 0x7f0814b5;
-        public static final int notification_bg_low_pressed = 0x7f0814b6;
-        public static final int notification_bg_normal = 0x7f0814b7;
-        public static final int notification_bg_normal_pressed = 0x7f0814b8;
-        public static final int notification_icon_background = 0x7f0814b9;
-        public static final int notification_template_icon_bg = 0x7f0814ba;
-        public static final int notification_template_icon_low_bg = 0x7f0814bb;
-        public static final int notification_tile_bg = 0x7f0814bc;
-        public static final int notify_panel_notification_icon_bg = 0x7f0814be;
+        public static final int notification_action_background = 0x7f08142e;
+        public static final int notification_bg = 0x7f08142f;
+        public static final int notification_bg_low = 0x7f081430;
+        public static final int notification_bg_low_normal = 0x7f081431;
+        public static final int notification_bg_low_pressed = 0x7f081432;
+        public static final int notification_bg_normal = 0x7f081433;
+        public static final int notification_bg_normal_pressed = 0x7f081434;
+        public static final int notification_icon_background = 0x7f081435;
+        public static final int notification_template_icon_bg = 0x7f081436;
+        public static final int notification_template_icon_low_bg = 0x7f081437;
+        public static final int notification_tile_bg = 0x7f081438;
+        public static final int notify_panel_notification_icon_bg = 0x7f08143a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -167,7 +167,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int action_container = 0x7f09005f;
@@ -175,35 +175,35 @@ public final class R {
         public static final int action_image = 0x7f090063;
         public static final int action_text = 0x7f09006a;
         public static final int actions = 0x7f09006c;
-        public static final int async = 0x7f0902a9;
-        public static final int blocking = 0x7f090456;
-        public static final int bottom = 0x7f090468;
-        public static final int chronometer = 0x7f090784;
-        public static final int end = 0x7f090aaf;
-        public static final int forever = 0x7f090c0f;
-        public static final int glide_custom_view_target_tag = 0x7f090eb1;
-        public static final int icon = 0x7f09102d;
-        public static final int icon_group = 0x7f091041;
-        public static final int info = 0x7f09112a;
-        public static final int italic = 0x7f091178;
-        public static final int left = 0x7f0914a0;
-        public static final int line1 = 0x7f0914e8;
-        public static final int line3 = 0x7f0914ea;
-        public static final int none = 0x7f0917e3;
-        public static final int normal = 0x7f0917ec;
-        public static final int notification_background = 0x7f0917fc;
-        public static final int notification_main_column = 0x7f0917fe;
-        public static final int notification_main_column_container = 0x7f0917ff;
-        public static final int right = 0x7f091d3d;
-        public static final int right_icon = 0x7f091d51;
-        public static final int right_side = 0x7f091d57;
-        public static final int start = 0x7f092094;
-        public static final int tag_transition_group = 0x7f09218b;
-        public static final int text = 0x7f09220a;
-        public static final int text2 = 0x7f09220b;
-        public static final int time = 0x7f0922e6;
-        public static final int title = 0x7f09231a;
-        public static final int top = 0x7f0923ae;
+        public static final int async = 0x7f0902aa;
+        public static final int blocking = 0x7f090457;
+        public static final int bottom = 0x7f090469;
+        public static final int chronometer = 0x7f090788;
+        public static final int end = 0x7f090ab5;
+        public static final int forever = 0x7f090c14;
+        public static final int glide_custom_view_target_tag = 0x7f090eb6;
+        public static final int icon = 0x7f091032;
+        public static final int icon_group = 0x7f091046;
+        public static final int info = 0x7f091130;
+        public static final int italic = 0x7f09117e;
+        public static final int left = 0x7f0913af;
+        public static final int line1 = 0x7f0913f7;
+        public static final int line3 = 0x7f0913f9;
+        public static final int none = 0x7f0916f2;
+        public static final int normal = 0x7f0916fb;
+        public static final int notification_background = 0x7f09170b;
+        public static final int notification_main_column = 0x7f09170d;
+        public static final int notification_main_column_container = 0x7f09170e;
+        public static final int right = 0x7f091c4d;
+        public static final int right_icon = 0x7f091c61;
+        public static final int right_side = 0x7f091c67;
+        public static final int start = 0x7f091fac;
+        public static final int tag_transition_group = 0x7f0920a4;
+        public static final int text = 0x7f092123;
+        public static final int text2 = 0x7f092124;
+        public static final int time = 0x7f0921ff;
+        public static final int title = 0x7f092233;
+        public static final int top = 0x7f0922c7;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -221,10 +221,10 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class integer {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int status_bar_notification_info_maxnum = 0x7f0a001f;
+        public static final int status_bar_notification_info_maxnum = 0x7f0a001e;
         public transient /* synthetic */ FieldHolder $fh;
 
         public integer() {
@@ -242,15 +242,15 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action = 0x7f0c05c5;
-        public static final int notification_action_tombstone = 0x7f0c05c6;
-        public static final int notification_template_custom_big = 0x7f0c05ce;
-        public static final int notification_template_icon_group = 0x7f0c05cf;
-        public static final int notification_template_part_chronometer = 0x7f0c05d3;
-        public static final int notification_template_part_time = 0x7f0c05d4;
+        public static final int notification_action = 0x7f0c0578;
+        public static final int notification_action_tombstone = 0x7f0c0579;
+        public static final int notification_template_custom_big = 0x7f0c0581;
+        public static final int notification_template_icon_group = 0x7f0c0582;
+        public static final int notification_template_part_chronometer = 0x7f0c0586;
+        public static final int notification_template_part_time = 0x7f0c0587;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -268,10 +268,10 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1315;
+        public static final int status_bar_notification_info_overflow = 0x7f0f12d5;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -289,7 +289,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TextAppearance_Compat_Notification = 0x7f1001e0;
@@ -317,7 +317,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class styleable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] CoordinatorLayout;

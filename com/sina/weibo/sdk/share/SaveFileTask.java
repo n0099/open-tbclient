@@ -15,7 +15,7 @@ import com.sina.weibo.sdk.api.StoryMessage;
 import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

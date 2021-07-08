@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class n extends k {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f44575e;
+            Matrix matrix = this.f41591e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
@@ -47,12 +47,12 @@ public class n extends k {
                 }
             }
             if (dVar.e()) {
-                Bitmap bitmap = dVar.f44583a.getBitmap();
+                Bitmap bitmap = dVar.f41599a.getBitmap();
                 this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.v, this.f44576f, this.f44572b);
+                canvas.drawBitmap(bitmap, this.v, this.f41592f, this.f41588b);
             } else {
                 this.v.set(0, 0, dVar.b(), dVar.a());
-                dVar.f44584b.g(canvas, this.v, this.f44576f, this.f44572b);
+                dVar.f41600b.g(canvas, this.v, this.f41592f, this.f41588b);
             }
             canvas.restore();
         }

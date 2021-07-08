@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.k.r.c;
-/* loaded from: classes4.dex */
+import d.a.n0.k.r.c;
+/* loaded from: classes3.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c<View> f12038a;
+    public c<View> f12055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f12039b;
+    public SparseArray<View> f12056b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void recycle();
     }
@@ -41,13 +41,13 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.f12038a = new c<>(5);
-        this.f12039b = new SparseArray<>();
+        this.f12055a = new c<>(5);
+        this.f12056b = new SparseArray<>();
     }
 
-    public abstract void a(View view, int i2);
+    public abstract void b(View view, int i2);
 
-    public abstract View b(ViewGroup viewGroup, int i2);
+    public abstract View c(ViewGroup viewGroup, int i2);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
@@ -58,8 +58,8 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 ((a) view).recycle();
             }
             viewGroup.removeView(view);
-            this.f12038a.b(view);
-            this.f12039b.remove(i2);
+            this.f12055a.b(view);
+            this.f12056b.remove(i2);
         }
     }
 
@@ -78,13 +78,13 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
-            View a2 = this.f12038a.a();
+            View a2 = this.f12055a.a();
             if (a2 == null) {
-                a2 = b(viewGroup, i2);
+                a2 = c(viewGroup, i2);
             }
-            this.f12039b.put(i2, a2);
+            this.f12056b.put(i2, a2);
             viewGroup.addView(a2);
-            a(a2, i2);
+            b(a2, i2);
             return a2;
         }
         return invokeLI.objValue;

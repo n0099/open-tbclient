@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ImageView.ScaleType f28679a;
+    public static final ImageView.ScaleType f28789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Bitmap.Config f28680b;
+    public static final Bitmap.Config f28790b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Bitmap.Config f28681c;
+    public final Bitmap.Config f28791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f28682d;
+    public final int f28792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f28683e;
+    public final int f28793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final ImageView.ScaleType f28684f;
+    public final ImageView.ScaleType f28794f;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +46,8 @@ public class a {
                 return;
             }
         }
-        f28679a = ImageView.ScaleType.CENTER_INSIDE;
-        f28680b = Bitmap.Config.ARGB_4444;
+        f28789a = ImageView.ScaleType.CENTER_INSIDE;
+        f28790b = Bitmap.Config.ARGB_4444;
     }
 
     public a(int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
@@ -65,10 +65,10 @@ public class a {
                 return;
             }
         }
-        this.f28681c = config;
-        this.f28682d = i2;
-        this.f28683e = i3;
-        this.f28684f = scaleType;
+        this.f28791c = config;
+        this.f28792d = i2;
+        this.f28793e = i3;
+        this.f28794f = scaleType;
     }
 
     public static int a(int i2, int i3, int i4, int i5) {
@@ -120,16 +120,16 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            if (this.f28682d == 0 && this.f28683e == 0) {
-                options.inPreferredConfig = this.f28681c;
+            if (this.f28792d == 0 && this.f28793e == 0) {
+                options.inPreferredConfig = this.f28791c;
                 return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             }
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i2 = options.outWidth;
             int i3 = options.outHeight;
-            int a2 = a(this.f28682d, this.f28683e, i2, i3, this.f28684f);
-            int a3 = a(this.f28683e, this.f28682d, i3, i2, this.f28684f);
+            int a2 = a(this.f28792d, this.f28793e, i2, i3, this.f28794f);
+            int a3 = a(this.f28793e, this.f28792d, i3, i2, this.f28794f);
             options.inJustDecodeBounds = false;
             options.inSampleSize = a(i2, i3, a2, a3);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);

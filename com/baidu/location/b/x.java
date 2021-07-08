@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f6665a;
+    public static Object f6682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static x f6666b;
+    public static x f6683b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f6667c;
+    public HandlerThread f6684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f6668d;
+    public Handler f6685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6669e;
+    public boolean f6686e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class x {
                 return;
             }
         }
-        f6665a = new Object();
+        f6682a = new Object();
     }
 
     public x() {
@@ -62,7 +62,7 @@ public class x {
                 return;
             }
         }
-        this.f6669e = false;
+        this.f6686e = false;
     }
 
     public static x a() {
@@ -70,11 +70,11 @@ public class x {
         x xVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (f6665a) {
-                if (f6666b == null) {
-                    f6666b = new x();
+            synchronized (f6682a) {
+                if (f6683b == null) {
+                    f6683b = new x();
                 }
-                xVar = f6666b;
+                xVar = f6683b;
             }
             return xVar;
         }
@@ -83,10 +83,10 @@ public class x {
 
     public void a(Location location, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, location, i2) == null) && this.f6669e && location != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, location, i2) == null) && this.f6686e && location != null) {
             try {
-                if (this.f6668d != null) {
-                    Message obtainMessage = this.f6668d.obtainMessage(1);
+                if (this.f6685d != null) {
+                    Message obtainMessage = this.f6685d.obtainMessage(1);
                     Bundle bundle = new Bundle();
                     bundle.putParcelable("loc", new Location(location));
                     bundle.putInt("satnum", i2);
@@ -101,10 +101,10 @@ public class x {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f6669e) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f6686e) {
             try {
-                if (this.f6668d != null) {
-                    this.f6668d.obtainMessage(3).sendToTarget();
+                if (this.f6685d != null) {
+                    this.f6685d.obtainMessage(3).sendToTarget();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -114,10 +114,10 @@ public class x {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f6669e) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f6686e) {
             try {
-                if (this.f6668d != null) {
-                    this.f6668d.obtainMessage(2).sendToTarget();
+                if (this.f6685d != null) {
+                    this.f6685d.obtainMessage(2).sendToTarget();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -127,10 +127,10 @@ public class x {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f6669e) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f6686e) {
             try {
-                if (this.f6668d != null) {
-                    this.f6668d.obtainMessage(7).sendToTarget();
+                if (this.f6685d != null) {
+                    this.f6685d.obtainMessage(7).sendToTarget();
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -140,28 +140,28 @@ public class x {
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f6669e) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f6686e) {
             return;
         }
-        this.f6669e = true;
-        if (this.f6667c == null) {
+        this.f6686e = true;
+        if (this.f6684c == null) {
             HandlerThread handlerThread = new HandlerThread("LocUploadThreadManager");
-            this.f6667c = handlerThread;
+            this.f6684c = handlerThread;
             handlerThread.start();
-            if (this.f6667c != null) {
-                this.f6668d = new y(this, this.f6667c.getLooper());
+            if (this.f6684c != null) {
+                this.f6685d = new y(this, this.f6684c.getLooper());
             }
         }
         try {
-            if (this.f6668d != null) {
-                this.f6668d.obtainMessage(5).sendToTarget();
+            if (this.f6685d != null) {
+                this.f6685d.obtainMessage(5).sendToTarget();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
-            if (this.f6668d != null) {
-                this.f6668d.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
+            if (this.f6685d != null) {
+                this.f6685d.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
             }
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -170,26 +170,26 @@ public class x {
 
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f6669e) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f6686e) {
             d.a().b();
             try {
-                if (this.f6668d != null) {
-                    this.f6668d.removeCallbacksAndMessages(null);
+                if (this.f6685d != null) {
+                    this.f6685d.removeCallbacksAndMessages(null);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            this.f6668d = null;
+            this.f6685d = null;
             try {
-                if (this.f6667c != null) {
-                    this.f6667c.quit();
-                    this.f6667c.interrupt();
+                if (this.f6684c != null) {
+                    this.f6684c.quit();
+                    this.f6684c.interrupt();
                 }
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            this.f6667c = null;
-            this.f6669e = false;
+            this.f6684c = null;
+            this.f6686e = false;
         }
     }
 }

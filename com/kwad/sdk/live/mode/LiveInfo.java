@@ -1,21 +1,14 @@
 package com.kwad.sdk.live.mode;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class LiveInfo implements b, Serializable {
+/* loaded from: classes6.dex */
+public class LiveInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6382708726460249425L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,8 +21,8 @@ public class LiveInfo implements b, Serializable {
     public String playInfo;
     public User user;
 
-    /* loaded from: classes7.dex */
-    public static class CoverThumbnailUrl implements b, Serializable {
+    /* loaded from: classes6.dex */
+    public static class CoverThumbnailUrl extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9411857293708312L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,34 +43,10 @@ public class LiveInfo implements b, Serializable {
                 }
             }
         }
-
-        public void parseJson(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.cdn = jSONObject.optString("cdn");
-            this.url = jSONObject.optString("url");
-            this.urlPattern = jSONObject.optString("urlPattern");
-        }
-
-        @Override // com.kwad.sdk.core.b
-        public JSONObject toJson() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                o.a(jSONObject, "cdn", this.cdn);
-                o.a(jSONObject, "url", this.url);
-                o.a(jSONObject, "urlPattern", this.urlPattern);
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
     }
 
-    /* loaded from: classes7.dex */
-    public static class User implements b, Serializable {
+    /* loaded from: classes6.dex */
+    public static class User extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8394855164198099170L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +54,8 @@ public class LiveInfo implements b, Serializable {
         public long user_id;
         public String user_name;
 
-        /* loaded from: classes7.dex */
-        public static class HeadUrl implements b, Serializable {
+        /* loaded from: classes6.dex */
+        public static class HeadUrl extends com.kwad.sdk.core.response.a.a implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7710129978455547652L;
             public transient /* synthetic */ FieldHolder $fh;
@@ -106,28 +75,6 @@ public class LiveInfo implements b, Serializable {
                     }
                 }
             }
-
-            public void parseJson(@Nullable JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                    return;
-                }
-                this.cdn = jSONObject.optString("cdn");
-                this.url = jSONObject.optString("url");
-            }
-
-            @Override // com.kwad.sdk.core.b
-            public JSONObject toJson() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    o.a(jSONObject, "cdn", this.cdn);
-                    o.a(jSONObject, "url", this.url);
-                    return jSONObject;
-                }
-                return (JSONObject) invokeV.objValue;
-            }
         }
 
         public User() {
@@ -144,40 +91,6 @@ public class LiveInfo implements b, Serializable {
                 }
             }
             this.headurls = new ArrayList();
-        }
-
-        public void parseJson(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("headurls");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject != null) {
-                        HeadUrl headUrl = new HeadUrl();
-                        headUrl.parseJson(optJSONObject);
-                        this.headurls.add(headUrl);
-                    }
-                }
-            }
-            this.user_id = jSONObject.optLong("user_id");
-            this.user_name = jSONObject.optString("user_name");
-        }
-
-        @Override // com.kwad.sdk.core.b
-        public JSONObject toJson() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                o.a(jSONObject, "headurls", this.headurls);
-                o.a(jSONObject, "user_id", this.user_id);
-                o.a(jSONObject, "user_name", this.user_name);
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
         }
     }
 
@@ -196,47 +109,5 @@ public class LiveInfo implements b, Serializable {
         }
         this.user = new User();
         this.cover_thumbnail_urls = new ArrayList();
-    }
-
-    public void parseJson(@Nullable JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.liveStreamId = jSONObject.optString("liveStreamId");
-        this.user.parseJson(jSONObject.optJSONObject("user"));
-        this.playInfo = jSONObject.optString("playInfo");
-        this.audienceCount = jSONObject.optString("audienceCount");
-        this.caption = jSONObject.optString("caption");
-        JSONArray optJSONArray = jSONObject.optJSONArray("cover_thumbnail_urls");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                if (optJSONObject != null) {
-                    CoverThumbnailUrl coverThumbnailUrl = new CoverThumbnailUrl();
-                    coverThumbnailUrl.parseJson(optJSONObject);
-                    this.cover_thumbnail_urls.add(coverThumbnailUrl);
-                }
-            }
-        }
-        this.exp_tag = jSONObject.optString("exp_tag");
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "liveStreamId", this.liveStreamId);
-            o.a(jSONObject, "user", this.user);
-            o.a(jSONObject, "playInfo", this.playInfo);
-            o.a(jSONObject, "audienceCount", this.audienceCount);
-            o.a(jSONObject, "caption", this.caption);
-            o.a(jSONObject, "cover_thumbnail_urls", this.cover_thumbnail_urls);
-            o.a(jSONObject, "exp_tag", this.exp_tag);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

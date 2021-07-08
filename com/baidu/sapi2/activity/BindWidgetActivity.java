@@ -3,6 +3,7 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -16,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.f;
+import d.a.b0.a.f;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -47,7 +48,7 @@ public class BindWidgetActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BindWidgetActivity f9737a;
+            public final /* synthetic */ BindWidgetActivity f9754a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -64,7 +65,7 @@ public class BindWidgetActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f9737a = this;
+                this.f9754a = this;
             }
 
             @Override // com.baidu.sapi2.result.WebBindWidgetResult
@@ -72,7 +73,7 @@ public class BindWidgetActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.loginSuc();
-                    this.f9737a.onClose();
+                    this.f9754a.onClose();
                 }
             }
         };
@@ -80,7 +81,7 @@ public class BindWidgetActivity extends BaseActivity {
 
     private void finishActivity() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (CoreViewRouter.getInstance().getWebBindWidgetCallback() != null) {
                 CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.v);
             }
@@ -182,7 +183,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f9738a;
+                public final /* synthetic */ BindWidgetActivity f9755a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -199,14 +200,14 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9738a = this;
+                    this.f9755a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9738a.a();
+                        this.f9755a.a();
                     }
                 }
             });
@@ -215,7 +216,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f9739a;
+                public final /* synthetic */ BindWidgetActivity f9756a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,14 +233,14 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9739a = this;
+                    this.f9756a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9739a.onClose();
+                        this.f9756a.onClose();
                     }
                 }
             });
@@ -248,7 +249,7 @@ public class BindWidgetActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BindWidgetActivity f9740a;
+                public final /* synthetic */ BindWidgetActivity f9757a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -265,7 +266,7 @@ public class BindWidgetActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9740a = this;
+                    this.f9757a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.BindWidgetCallback
@@ -274,15 +275,15 @@ public class BindWidgetActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         SapiAccountManager.getInstance().getSapiConfiguration().presetPhoneNumber = str;
                         if (CoreViewRouter.getInstance().getWebBindWidgetDTO().handleLogin && CoreViewRouter.getInstance().getWebBindWidgetCallback() != null) {
-                            this.f9740a.v.setResultCode(-10001);
-                            this.f9740a.v.setResultMsg("请登录");
-                            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.f9740a.v);
+                            this.f9757a.v.setResultCode(-10001);
+                            this.f9757a.v.setResultMsg("请登录");
+                            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.f9757a.v);
                             return;
                         }
-                        Intent intent = new Intent(this.f9740a, LoginActivity.class);
+                        Intent intent = new Intent(this.f9757a, LoginActivity.class);
                         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_SMS);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                        this.f9740a.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
+                        this.f9757a.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
                     }
                 }
             });

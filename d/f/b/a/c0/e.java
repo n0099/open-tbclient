@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataDecoderException;
 import d.f.b.a.l;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e extends d.f.b.a.a implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(d dVar, Looper looper) {
-        this(dVar, looper, b.f72612a);
+        this(dVar, looper, b.f69715a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,14 +54,14 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
     }
 
     @Override // d.f.b.a.a
-    public void A(Format[] formatArr, long j) throws ExoPlaybackException {
+    public void B(Format[] formatArr, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, formatArr, j) == null) {
             this.v = this.m.b(formatArr[0]);
         }
     }
 
-    public final void E() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Arrays.fill(this.r, (Object) null);
@@ -70,19 +70,19 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
         }
     }
 
-    public final void F(Metadata metadata) {
+    public final void G(Metadata metadata) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, metadata) == null) {
             Handler handler = this.o;
             if (handler != null) {
                 handler.obtainMessage(0, metadata).sendToTarget();
             } else {
-                G(metadata);
+                H(metadata);
             }
         }
     }
 
-    public final void G(Metadata metadata) {
+    public final void H(Metadata metadata) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, metadata) == null) {
             this.n.g(metadata);
@@ -95,7 +95,7 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, format)) == null) {
             if (this.m.a(format)) {
-                return d.f.b.a.a.D(null, format.drmInitData) ? 4 : 2;
+                return d.f.b.a.a.E(null, format.drmInitData) ? 4 : 2;
             }
             return 0;
         }
@@ -115,7 +115,7 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, message)) == null) {
             if (message.what == 0) {
-                G((Metadata) message.obj);
+                H((Metadata) message.obj);
                 return true;
             }
             throw new IllegalStateException();
@@ -134,25 +134,25 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
     }
 
     @Override // d.f.b.a.r
-    public void j(long j, long j2) throws ExoPlaybackException {
+    public void k(long j, long j2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             if (!this.w && this.u < 5) {
                 this.q.f();
-                if (B(this.p, this.q, false) == -4) {
+                if (C(this.p, this.q, false) == -4) {
                     if (this.q.j()) {
                         this.w = true;
                     } else if (!this.q.i()) {
                         c cVar = this.q;
-                        cVar.j = this.p.f73492a.subsampleOffsetUs;
+                        cVar.j = this.p.f70595a.subsampleOffsetUs;
                         cVar.o();
                         try {
                             int i2 = (this.t + this.u) % 5;
                             this.r[i2] = this.v.a(this.q);
-                            this.s[i2] = this.q.f73653h;
+                            this.s[i2] = this.q.f70756h;
                             this.u++;
                         } catch (MetadataDecoderException e2) {
-                            throw ExoPlaybackException.createForRenderer(e2, t());
+                            throw ExoPlaybackException.createForRenderer(e2, u());
                         }
                     }
                 }
@@ -161,7 +161,7 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
                 long[] jArr = this.s;
                 int i3 = this.t;
                 if (jArr[i3] <= j) {
-                    F(this.r[i3]);
+                    G(this.r[i3]);
                     Metadata[] metadataArr = this.r;
                     int i4 = this.t;
                     metadataArr[i4] = null;
@@ -173,19 +173,19 @@ public final class e extends d.f.b.a.a implements Handler.Callback {
     }
 
     @Override // d.f.b.a.a
-    public void v() {
+    public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            E();
+            F();
             this.v = null;
         }
     }
 
     @Override // d.f.b.a.a
-    public void x(long j, boolean z) {
+    public void y(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            E();
+            F();
             this.w = false;
         }
     }

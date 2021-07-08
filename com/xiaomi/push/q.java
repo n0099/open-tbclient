@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class q implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f43526a;
+    public final /* synthetic */ p f40540a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f43527b;
+    public final /* synthetic */ String f40541b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f43528c;
+    public final /* synthetic */ String f40542c;
 
     public q(p pVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class q implements Runnable {
                 return;
             }
         }
-        this.f43526a = pVar;
+        this.f40540a = pVar;
         this.f828a = str;
-        this.f43527b = str2;
-        this.f43528c = str3;
+        this.f40541b = str2;
+        this.f40542c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -49,9 +49,9 @@ public class q implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f43526a.f821a;
+            context = this.f40540a.f821a;
             SharedPreferences.Editor edit = context.getSharedPreferences(this.f828a, 4).edit();
-            edit.putString(this.f43527b, this.f43528c);
+            edit.putString(this.f40541b, this.f40542c);
             edit.commit();
         }
     }

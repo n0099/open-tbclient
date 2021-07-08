@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class UPCEANReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] END_PATTERN;
@@ -141,7 +142,7 @@ public abstract class UPCEANReader extends OneDReader {
     public static int[] findGuardPattern(BitArray bitArray, int i2, boolean z, int[] iArr) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{bitArray, Integer.valueOf(i2), Boolean.valueOf(z), iArr})) == null) ? findGuardPattern(bitArray, i2, z, iArr, new int[iArr.length]) : (int[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitArray, Integer.valueOf(i2), Boolean.valueOf(z), iArr})) == null) ? findGuardPattern(bitArray, i2, z, iArr, new int[iArr.length]) : (int[]) invokeCommon.objValue;
     }
 
     public static int[] findStartGuardPattern(BitArray bitArray) throws NotFoundException {

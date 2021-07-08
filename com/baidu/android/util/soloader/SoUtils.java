@@ -3,6 +3,7 @@ package com.baidu.android.util.soloader;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -132,7 +133,7 @@ public final class SoUtils implements NoProGuard {
     public static String getSimpleName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String substring = (split == null || split.length != 2) ? str : split[0].substring(3);

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,33 +17,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SystemMessageHandler extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f22917a;
+    public long f23027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f22918b;
+    public long f23028b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f22919a;
+        public static final c f23029a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class C0247a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public Method f22920a;
+            public Method f23030a;
 
             public C0247a() {
                 Interceptable interceptable = $ic;
@@ -58,13 +59,13 @@ public class SystemMessageHandler extends Handler {
                     }
                 }
                 try {
-                    this.f22920a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
+                    this.f23030a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e2) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e2);
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e2);
                 } catch (NoSuchMethodException e3) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e3);
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e3);
                 } catch (RuntimeException e4) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e4);
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e4);
                 }
             }
 
@@ -72,28 +73,28 @@ public class SystemMessageHandler extends Handler {
             public void a(Message message, boolean z) {
                 Method method;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLZ(1048576, this, message, z) == null) || (method = this.f22920a) == null) {
+                if (!(interceptable == null || interceptable.invokeLZ(1048576, this, message, z) == null) || (method = this.f23030a) == null) {
                     return;
                 }
                 try {
                     method.invoke(message, Boolean.valueOf(z));
                 } catch (IllegalAccessException unused) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
-                    this.f22920a = null;
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
+                    this.f23030a = null;
                 } catch (IllegalArgumentException unused2) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
-                    this.f22920a = null;
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
+                    this.f23030a = null;
                 } catch (RuntimeException unused3) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
-                    this.f22920a = null;
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
+                    this.f23030a = null;
                 } catch (InvocationTargetException unused4) {
-                    d.a.t0.a.a.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
-                    this.f22920a = null;
+                    d.a.q0.a.a.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
+                    this.f23030a = null;
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class b implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +123,7 @@ public class SystemMessageHandler extends Handler {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public interface c {
             void a(Message message, boolean z);
         }
@@ -141,16 +142,16 @@ public class SystemMessageHandler extends Handler {
                 }
             }
             if (Build.VERSION.SDK_INT >= 22) {
-                f22919a = new b();
+                f23029a = new b();
             } else {
-                f22919a = new C0247a();
+                f23029a = new C0247a();
             }
         }
 
         public static void a(Message message, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(65537, null, message, z) == null) {
-                f22919a.a(message, z);
+                f23029a.a(message, z);
             }
         }
     }
@@ -170,9 +171,9 @@ public class SystemMessageHandler extends Handler {
                 return;
             }
         }
-        this.f22917a = 0L;
-        this.f22918b = 0L;
-        this.f22917a = j;
+        this.f23027a = 0L;
+        this.f23028b = 0L;
+        this.f23027a = j;
     }
 
     @CalledByNative
@@ -196,11 +197,11 @@ public class SystemMessageHandler extends Handler {
     @CalledByNative
     private void scheduleDelayedWork(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            if (this.f22918b != 0) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            if (this.f23028b != 0) {
                 removeMessages(2);
             }
-            this.f22918b = j;
+            this.f23028b = j;
             sendMessageDelayed(a(2), j2);
         }
     }
@@ -230,9 +231,9 @@ public class SystemMessageHandler extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
             if (message.what == 2) {
-                this.f22918b = 0L;
+                this.f23028b = 0L;
             }
-            nativeDoRunLoopOnce(this.f22917a, this.f22918b);
+            nativeDoRunLoopOnce(this.f23027a, this.f23028b);
         }
     }
 }

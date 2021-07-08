@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.defs.obj;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.defs.interf.IAct;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class Act implements IAct {
     public static final /* synthetic */ Act[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -1051,7 +1052,7 @@ public class Act implements IAct {
     public static Act[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Act[]) $VALUES.clone() : (Act[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Act[]) $VALUES.clone() : (Act[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,18 +21,18 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f31511a;
+    public static volatile f f31621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Context> f31512b;
+    public static WeakReference<Context> f31622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<a> f31513c;
+    public static List<a> f31623c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,12 +49,12 @@ public class f implements a {
             }
         }
         List<a> synchronizedList = Collections.synchronizedList(new ArrayList());
-        f31513c = synchronizedList;
+        f31623c = synchronizedList;
         synchronizedList.add(new com.bytedance.sdk.openadsdk.multipro.d.c());
-        f31513c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
-        f31513c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
-        f31513c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
-        for (a aVar : f31513c) {
+        f31623c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
+        f31623c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
+        f31623c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
+        for (a aVar : f31623c) {
             aVar.b();
         }
     }
@@ -77,16 +78,16 @@ public class f implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (context != null) {
-                f31512b = new WeakReference<>(context.getApplicationContext());
+                f31622b = new WeakReference<>(context.getApplicationContext());
             }
-            if (f31511a == null) {
+            if (f31621a == null) {
                 synchronized (f.class) {
-                    if (f31511a == null) {
-                        f31511a = new f();
+                    if (f31621a == null) {
+                        f31621a = new f();
                     }
                 }
             }
-            return f31511a;
+            return f31621a;
         }
         return (f) invokeL.objValue;
     }
@@ -94,7 +95,7 @@ public class f implements a {
     private boolean c(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -112,7 +113,7 @@ public class f implements a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            for (a aVar : f31513c) {
+            for (a aVar : f31623c) {
                 aVar.a(context);
             }
         }
@@ -184,7 +185,7 @@ public class f implements a {
                 j.b("TTProviderManager", "uri is error3");
                 return null;
             }
-            for (a aVar : f31513c) {
+            for (a aVar : f31623c) {
                 if (str.equals(aVar.a())) {
                     return aVar;
                 }

@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f10214a;
+    public static final Charset f10231a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public final class j {
                 return;
             }
         }
-        f10214a = Charset.forName("UTF-8");
+        f10231a = Charset.forName("UTF-8");
     }
 
     public static void a(long j, long j2, long j3) {

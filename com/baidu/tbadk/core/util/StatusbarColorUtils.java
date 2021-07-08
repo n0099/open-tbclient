@@ -5,6 +5,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class StatusbarColorUtils {
     public static /* synthetic */ Interceptable $ic;
     public static int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -112,7 +113,7 @@ public class StatusbarColorUtils {
 
     public static void setStatusBarColor(Window window, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, null, window, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i2) == null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
             Field field = mStatusBarColorFiled;
             if (field != null) {

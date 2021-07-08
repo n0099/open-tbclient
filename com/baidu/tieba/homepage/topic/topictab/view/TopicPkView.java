@@ -37,8 +37,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.e1.k.b.c.b;
-/* loaded from: classes5.dex */
+import d.a.p0.e1.k.b.c.b;
+/* loaded from: classes4.dex */
 public class TopicPkView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,19 +70,19 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public ValueAnimator.AnimatorUpdateListener c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16926e;
+    public int f16965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.s0.e1.k.b.c.b f16927f;
+    public d.a.p0.e1.k.b.c.b f16966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16928g;
+    public TextView f16967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16929h;
+    public TextView f16968h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f16930i;
+    public FrameLayout f16969i;
     public FrameLayout j;
     public TbImageView k;
     public TbImageView l;
@@ -101,13 +101,13 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public int y;
     public int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicPkView f16931e;
+        public final /* synthetic */ TopicPkView f16970e;
 
         public a(TopicPkView topicPkView) {
             Interceptable interceptable = $ic;
@@ -124,25 +124,25 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     return;
                 }
             }
-            this.f16931e = topicPkView;
+            this.f16970e = topicPkView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16931e.requestLayout();
+                this.f16970e.requestLayout();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicPkView f16932e;
+        public final /* synthetic */ TopicPkView f16971e;
 
         public b(TopicPkView topicPkView) {
             Interceptable interceptable = $ic;
@@ -159,26 +159,26 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     return;
                 }
             }
-            this.f16932e = topicPkView;
+            this.f16971e = topicPkView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f16932e.O.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.f16932e.O.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16971e.O.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f16971e.O.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicPkView f16933e;
+        public final /* synthetic */ TopicPkView f16972e;
 
         public c(TopicPkView topicPkView) {
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     return;
                 }
             }
-            this.f16933e = topicPkView;
+            this.f16972e = topicPkView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -207,38 +207,38 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     float f2 = 1.0f - floatValue;
                     double d2 = f2;
                     float f3 = 2.0f * floatValue * f2;
-                    double pow = (Math.pow(d2, 2.0d) * this.f16933e.R) + ((this.f16933e.x - 45) * f3);
+                    double pow = (Math.pow(d2, 2.0d) * this.f16972e.R) + ((this.f16972e.x - 45) * f3);
                     double d3 = floatValue;
-                    double pow2 = (Math.pow(d2, 2.0d) * this.f16933e.S) + (f3 * 70.0f) + (Math.pow(d3, 2.0d) * 60.0d);
-                    this.f16933e.t.setX((float) (pow + (Math.pow(d3, 2.0d) * (this.f16933e.f16930i.getX() + (this.f16933e.x / 2)))));
-                    this.f16933e.t.setY((float) pow2);
+                    double pow2 = (Math.pow(d2, 2.0d) * this.f16972e.S) + (f3 * 70.0f) + (Math.pow(d3, 2.0d) * 60.0d);
+                    this.f16972e.t.setX((float) (pow + (Math.pow(d3, 2.0d) * (this.f16972e.f16969i.getX() + (this.f16972e.x / 2)))));
+                    this.f16972e.t.setY((float) pow2);
                 } else {
                     floatValue -= 1.0f;
                     float f4 = 1.0f - floatValue;
                     double d4 = f4;
                     float f5 = 2.0f * floatValue * f4;
-                    double pow3 = (Math.pow(d4, 2.0d) * (this.f16933e.f16930i.getX() + (this.f16933e.x / 2))) + (45.0f * f5);
+                    double pow3 = (Math.pow(d4, 2.0d) * (this.f16972e.f16969i.getX() + (this.f16972e.x / 2))) + (45.0f * f5);
                     double d5 = floatValue;
                     double pow4 = (Math.pow(d4, 2.0d) * 60.0d) + (f5 * 50.0f) + (Math.pow(d5, 2.0d) * 40.0d);
-                    this.f16933e.t.setX((float) (pow3 + (Math.pow(d5, 2.0d) * (this.f16933e.f16930i.getX() + (this.f16933e.x / 2)))));
-                    this.f16933e.t.setY((float) pow4);
+                    this.f16972e.t.setX((float) (pow3 + (Math.pow(d5, 2.0d) * (this.f16972e.f16969i.getX() + (this.f16972e.x / 2)))));
+                    this.f16972e.t.setY((float) pow4);
                 }
                 if (floatValue == 1.0f) {
-                    this.f16933e.t.setVisibility(4);
-                    this.f16933e.t.setX(this.f16933e.T);
-                    this.f16933e.t.setY(this.f16933e.U);
+                    this.f16972e.t.setVisibility(4);
+                    this.f16972e.t.setX(this.f16972e.T);
+                    this.f16972e.t.setY(this.f16972e.U);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicPkView f16934e;
+        public final /* synthetic */ TopicPkView f16973e;
 
         public d(TopicPkView topicPkView) {
             Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     return;
                 }
             }
-            this.f16934e = topicPkView;
+            this.f16973e = topicPkView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -267,41 +267,41 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     float f2 = 1.0f - floatValue;
                     double d2 = f2;
                     float f3 = 2.0f * floatValue * f2;
-                    double pow = (Math.pow(d2, 2.0d) * this.f16934e.R) + (((this.f16934e.v - this.f16934e.x) + 45) * f3);
+                    double pow = (Math.pow(d2, 2.0d) * this.f16973e.R) + (((this.f16973e.v - this.f16973e.x) + 45) * f3);
                     double d3 = floatValue;
-                    double pow2 = (Math.pow(d2, 2.0d) * this.f16934e.S) + (f3 * 70.0f) + (Math.pow(d3, 2.0d) * 60.0d);
-                    this.f16934e.u.setX((float) (pow + (Math.pow(d3, 2.0d) * (this.f16934e.v - (this.f16934e.x / 2)))));
-                    this.f16934e.u.setY((float) pow2);
+                    double pow2 = (Math.pow(d2, 2.0d) * this.f16973e.S) + (f3 * 70.0f) + (Math.pow(d3, 2.0d) * 60.0d);
+                    this.f16973e.u.setX((float) (pow + (Math.pow(d3, 2.0d) * (this.f16973e.v - (this.f16973e.x / 2)))));
+                    this.f16973e.u.setY((float) pow2);
                 } else {
                     floatValue -= 1.0f;
                     float f4 = 1.0f - floatValue;
                     double d4 = f4;
                     float f5 = 2.0f * floatValue * f4;
-                    double pow3 = (Math.pow(d4, 2.0d) * (this.f16934e.v - (this.f16934e.x / 2))) + ((this.f16934e.v - 45) * f5);
+                    double pow3 = (Math.pow(d4, 2.0d) * (this.f16973e.v - (this.f16973e.x / 2))) + ((this.f16973e.v - 45) * f5);
                     double d5 = floatValue;
                     double pow4 = (Math.pow(d4, 2.0d) * 60.0d) + (f5 * 50.0f) + (Math.pow(d5, 2.0d) * 40.0d);
-                    this.f16934e.u.setX((float) (pow3 + (Math.pow(d5, 2.0d) * (this.f16934e.v - 120))));
-                    this.f16934e.u.setY((float) pow4);
+                    this.f16973e.u.setX((float) (pow3 + (Math.pow(d5, 2.0d) * (this.f16973e.v - 120))));
+                    this.f16973e.u.setY((float) pow4);
                 }
                 if (floatValue == 1.0f) {
-                    this.f16934e.u.setVisibility(4);
-                    this.f16934e.u.setX(this.f16934e.T);
-                    this.f16934e.u.setY(this.f16934e.U);
+                    this.f16973e.u.setVisibility(4);
+                    this.f16973e.u.setX(this.f16973e.T);
+                    this.f16973e.u.setY(this.f16973e.U);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class e implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f16935e;
+        public View f16974e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f16936f;
+        public View f16975f;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -328,7 +328,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         public void onAnimationEnd(Animator animator) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (view = this.f16936f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || (view = this.f16975f) == null) {
                 return;
             }
             view.setVisibility(8);
@@ -345,7 +345,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         public void onAnimationStart(Animator animator) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (view = this.f16935e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || (view = this.f16974e) == null) {
                 return;
             }
             view.setVisibility(0);
@@ -356,7 +356,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(int i2);
     }
@@ -379,7 +379,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 return;
             }
         }
-        this.f16926e = 3;
+        this.f16965e = 3;
         this.M = R.color.CAM_X0101;
         this.a0 = new a(this);
         this.c0 = new c(this);
@@ -389,7 +389,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f16927f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f16966f == null) {
             return;
         }
         m(canvas);
@@ -400,20 +400,20 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                this.f16928g.setVisibility(0);
-                this.f16928g.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
-                this.f16927f.f59067d.f59072c = TbadkCoreApplication.getCurrentAccountNameShow();
-                b.a aVar = this.f16927f.f59067d;
-                aVar.f59074e = true;
+                this.f16967g.setVisibility(0);
+                this.f16967g.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
+                this.f16966f.f55812d.f55817c = TbadkCoreApplication.getCurrentAccountNameShow();
+                b.a aVar = this.f16966f.f55812d;
+                aVar.f55819e = true;
                 TextView textView = this.o;
-                long j = aVar.f59070a + 1;
-                aVar.f59070a = j;
+                long j = aVar.f55815a + 1;
+                aVar.f55815a = j;
                 textView.setText(String.valueOf(j));
                 this.t.setVisibility(0);
                 TbImageView tbImageView = this.m;
                 this.O = tbImageView;
-                this.P.f16935e = tbImageView;
-                this.P.f16936f = this.k;
+                this.P.f16974e = tbImageView;
+                this.P.f16975f = this.k;
                 this.t.setVisibility(0);
                 this.N.start();
                 this.R = this.t.getX();
@@ -426,15 +426,15 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 this.Q.start();
                 return;
             }
-            if (StringHelper.equals(this.f16927f.f59067d.f59072c, TbadkCoreApplication.getCurrentAccountNameShow())) {
-                this.f16928g.setVisibility(4);
+            if (StringHelper.equals(this.f16966f.f55812d.f55817c, TbadkCoreApplication.getCurrentAccountNameShow())) {
+                this.f16967g.setVisibility(4);
             }
-            b.a aVar2 = this.f16927f.f59067d;
-            if (aVar2.f59074e) {
-                aVar2.f59074e = false;
+            b.a aVar2 = this.f16966f.f55812d;
+            if (aVar2.f55819e) {
+                aVar2.f55819e = false;
                 TextView textView2 = this.o;
-                long j2 = aVar2.f59070a - 1;
-                aVar2.f59070a = j2;
+                long j2 = aVar2.f55815a - 1;
+                aVar2.f55815a = j2;
                 textView2.setText(String.valueOf(j2));
             }
             this.k.setVisibility(0);
@@ -446,21 +446,21 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f16929h.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
-                this.f16929h.setVisibility(0);
-                this.f16927f.f59068e.f59072c = TbadkCoreApplication.getCurrentAccountNameShow();
+                this.f16968h.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
+                this.f16968h.setVisibility(0);
+                this.f16966f.f55813e.f55817c = TbadkCoreApplication.getCurrentAccountNameShow();
                 this.u.setVisibility(0);
-                b.a aVar = this.f16927f.f59068e;
-                aVar.f59074e = true;
+                b.a aVar = this.f16966f.f55813e;
+                aVar.f55819e = true;
                 TextView textView = this.p;
-                long j = aVar.f59070a + 1;
-                aVar.f59070a = j;
+                long j = aVar.f55815a + 1;
+                aVar.f55815a = j;
                 textView.setText(String.valueOf(j));
                 this.R = this.u.getX() - (this.K / 2.0f);
                 TbImageView tbImageView = this.n;
                 this.O = tbImageView;
-                this.P.f16935e = tbImageView;
-                this.P.f16936f = this.l;
+                this.P.f16974e = tbImageView;
+                this.P.f16975f = this.l;
                 this.t.setVisibility(0);
                 this.N.start();
                 this.R = this.u.getX() - (this.K / 2);
@@ -473,15 +473,15 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 this.Q.start();
                 return;
             }
-            if (StringHelper.equals(this.f16927f.f59068e.f59072c, TbadkCoreApplication.getCurrentAccountNameShow())) {
-                this.f16929h.setVisibility(4);
+            if (StringHelper.equals(this.f16966f.f55813e.f55817c, TbadkCoreApplication.getCurrentAccountNameShow())) {
+                this.f16968h.setVisibility(4);
             }
-            b.a aVar2 = this.f16927f.f59068e;
-            if (aVar2.f59074e) {
-                aVar2.f59074e = false;
+            b.a aVar2 = this.f16966f.f55813e;
+            if (aVar2.f55819e) {
+                aVar2.f55819e = false;
                 TextView textView2 = this.p;
-                long j2 = aVar2.f59070a - 1;
-                aVar2.f59070a = j2;
+                long j2 = aVar2.f55815a - 1;
+                aVar2.f55815a = j2;
                 textView2.setText(String.valueOf(j2));
             }
             this.u.setVisibility(4);
@@ -493,7 +493,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public final void m(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            float y = this.f16930i.getY() + ((this.y - this.I) / 2);
+            float y = this.f16969i.getY() + ((this.y - this.I) / 2);
             this.L.setShader(new LinearGradient(this.x / 2, y, this.J, y, SkinManager.getColor(R.color.topic_pk_agree_bar_start_color), SkinManager.getColor(R.color.topic_pk_agree_bar_end_color), Shader.TileMode.REPEAT));
             canvas.drawRect(this.x / 2, y, this.J, y + this.I, this.L);
             this.L.setShader(new LinearGradient(this.J, y, this.v - (this.x / 2), y, SkinManager.getColor(R.color.topic_pk_disagree_bar_start_color), SkinManager.getColor(R.color.topic_pk_disagree_bar_end_color), Shader.TileMode.REPEAT));
@@ -506,8 +506,8 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         b.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d.a.s0.e1.k.b.c.b bVar = this.f16927f;
-            return (bVar == null || (aVar = bVar.f59067d) == null || !aVar.f59074e) ? false : true;
+            d.a.p0.e1.k.b.c.b bVar = this.f16966f;
+            return (bVar == null || (aVar = bVar.f55812d) == null || !aVar.f55819e) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -517,8 +517,8 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         b.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d.a.s0.e1.k.b.c.b bVar = this.f16927f;
-            return (bVar == null || (aVar = bVar.f59068e) == null || !aVar.f59074e) ? false : true;
+            d.a.p0.e1.k.b.c.b bVar = this.f16966f;
+            return (bVar == null || (aVar = bVar.f55813e) == null || !aVar.f55819e) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -538,7 +538,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 LoginActivityConfig loginActivityConfig = new LoginActivityConfig(getContext());
-                loginActivityConfig.getIntent().putExtra("locate_type", this.f16927f.f59069f != 3 ? 16 : 0);
+                loginActivityConfig.getIntent().putExtra("locate_type", this.f16966f.f55814f != 3 ? 16 : 0);
                 TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, loginActivityConfig));
                 return;
             }
@@ -568,7 +568,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     } else {
                         i2 = o() ? 2 : 0;
                     }
-                    if (view == this.f16930i) {
+                    if (view == this.f16969i) {
                         k(1 != i2);
                         l(false);
                         i3 = 1;
@@ -578,18 +578,18 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                     } else {
                         i3 = 0;
                     }
-                    TiebaStatic.log(new StatisticItem("c13352").param("obj_type", i3).param("topic_id", this.f16927f.f59064a).param("obj_source", this.f16927f.f59069f));
+                    TiebaStatic.log(new StatisticItem("c13352").param("obj_type", i3).param("topic_id", this.f16966f.f55809a).param("obj_source", this.f16966f.f55814f));
                     f fVar = this.b0;
                     if (fVar != null) {
                         fVar.a(i3 == i2 ? 0 : i3);
                     }
                     RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-                    requestBlessMessage.setPkId(Long.valueOf(this.f16927f.f59065b));
-                    requestBlessMessage.setTopicId(Long.valueOf(this.f16927f.f59064a));
+                    requestBlessMessage.setPkId(Long.valueOf(this.f16966f.f55810b));
+                    requestBlessMessage.setTopicId(Long.valueOf(this.f16966f.f55809a));
                     requestBlessMessage.setPkIndex(i3);
                     requestBlessMessage.setClickType(i2 == 0 ? 0 : 1);
                     requestBlessMessage.setPkType(0);
-                    requestBlessMessage.setUserPkId(this.f16927f.f59066c);
+                    requestBlessMessage.setUserPkId(this.f16966f.f55811c);
                     MessageManager.getInstance().sendMessage(requestBlessMessage);
                 }
             }
@@ -618,11 +618,11 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (this.f16927f == null) {
+            if (this.f16966f == null) {
                 return;
             }
-            this.x = this.f16930i.getWidth();
-            this.y = this.f16930i.getHeight();
+            this.x = this.f16969i.getWidth();
+            this.y = this.f16969i.getHeight();
             this.z = this.k.getWidth();
             this.A = this.o.getWidth();
             this.B = this.p.getWidth();
@@ -633,15 +633,15 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             this.G = this.q.getHeight();
             this.H = ((this.v - (this.x * 2)) - this.A) - this.B;
             this.K = this.t.getWidth();
-            d.a.s0.e1.k.b.c.b bVar = this.f16927f;
-            if (bVar.f59067d.f59070a == 0 && bVar.f59068e.f59070a == 0) {
+            d.a.p0.e1.k.b.c.b bVar = this.f16966f;
+            if (bVar.f55812d.f55815a == 0 && bVar.f55813e.f55815a == 0) {
                 this.J = (int) ((this.H * 0.5d) + this.A + this.x);
             } else {
-                d.a.s0.e1.k.b.c.b bVar2 = this.f16927f;
-                long j = bVar2.f59067d.f59070a;
-                this.J = (int) (((((float) j) / ((float) (j + bVar2.f59068e.f59070a))) * this.H) + this.A + this.x);
+                d.a.p0.e1.k.b.c.b bVar2 = this.f16966f;
+                long j = bVar2.f55812d.f55815a;
+                this.J = (int) (((((float) j) / ((float) (j + bVar2.f55813e.f55815a))) * this.H) + this.A + this.x);
             }
-            float y = this.f16930i.getY() - ((this.G - this.y) / 2);
+            float y = this.f16969i.getY() - ((this.G - this.y) / 2);
             if (this.J + (this.F / 2) >= this.p.getLeft()) {
                 this.J = (this.p.getLeft() - 10) - (this.F / 2);
                 int i6 = (int) y;
@@ -685,7 +685,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 postDelayed(this.a0, 300L);
             }
             int i14 = (this.x - this.K) / 2;
-            this.t.layout(((int) this.f16930i.getX()) + i14, ((int) this.f16930i.getY()) + i14, ((int) this.f16930i.getX()) + i14 + this.K, ((int) this.f16930i.getY()) + i14 + this.K);
+            this.t.layout(((int) this.f16969i.getX()) + i14, ((int) this.f16969i.getY()) + i14, ((int) this.f16969i.getX()) + i14 + this.K, ((int) this.f16969i.getY()) + i14 + this.K);
             this.u.layout(((int) this.j.getX()) + i14, ((int) this.j.getY()) + i14, ((int) this.j.getX()) + i14 + this.K, ((int) this.j.getY()) + i14 + this.K);
         }
     }
@@ -704,9 +704,9 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.topic_pk_view_layout, (ViewGroup) this, true);
-            this.f16928g = (TextView) findViewById(R.id.topic_pk_view_agree_user);
-            this.f16929h = (TextView) findViewById(R.id.topic_pk_view_disagree_user);
-            this.f16930i = (FrameLayout) findViewById(R.id.topic_pk_view_agree_btn);
+            this.f16967g = (TextView) findViewById(R.id.topic_pk_view_agree_user);
+            this.f16968h = (TextView) findViewById(R.id.topic_pk_view_disagree_user);
+            this.f16969i = (FrameLayout) findViewById(R.id.topic_pk_view_agree_btn);
             this.j = (FrameLayout) findViewById(R.id.topic_pk_view_disagree_btn);
             this.k = (TbImageView) findViewById(R.id.topic_pk_view_agree_img);
             this.l = (TbImageView) findViewById(R.id.topic_pk_view_disagree_img);
@@ -723,7 +723,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             this.l.setDefaultBgResource(R.drawable.btn_topic_disagree_white_n);
             this.m.setDefaultBgResource(R.drawable.btn_topic_agree_white_h);
             this.n.setDefaultBgResource(R.drawable.btn_topic_disagree_white_h);
-            this.f16930i.setOnClickListener(this);
+            this.f16969i.setOnClickListener(this);
             this.j.setOnClickListener(this);
             this.w = l.g(context, R.dimen.tbds340);
             this.I = l.g(context, R.dimen.tbds62);
@@ -739,18 +739,18 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            SkinManager.setViewTextColor(this.f16928g, this.M);
-            SkinManager.setViewTextColor(this.f16929h, this.M);
+            SkinManager.setViewTextColor(this.f16967g, this.M);
+            SkinManager.setViewTextColor(this.f16968h, this.M);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == this.f16926e) {
+            if (skinType == this.f16965e) {
                 return;
             }
-            this.f16926e = skinType;
+            this.f16965e = skinType;
             this.k.setIsNight(skinType == 1);
-            this.l.setIsNight(this.f16926e == 1);
-            this.m.setIsNight(this.f16926e == 1);
-            this.n.setIsNight(this.f16926e == 1);
-            SkinManager.setBackgroundResource(this.f16930i, R.drawable.btn_topic_agree_bg_red);
+            this.l.setIsNight(this.f16965e == 1);
+            this.m.setIsNight(this.f16965e == 1);
+            this.n.setIsNight(this.f16965e == 1);
+            SkinManager.setBackgroundResource(this.f16969i, R.drawable.btn_topic_agree_bg_red);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_topic_disagree_bg_blue);
             SkinManager.setImageResource(this.t, R.drawable.pic_topic_addone);
             SkinManager.setImageResource(this.u, R.drawable.pic_topic_addone);
@@ -762,14 +762,14 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    public void setData(d.a.s0.e1.k.b.c.b bVar) {
+    public void setData(d.a.p0.e1.k.b.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            if (bVar != null && bVar.f59067d != null && bVar.f59068e != null) {
+            if (bVar != null && bVar.f55812d != null && bVar.f55813e != null) {
                 setVisibility(0);
-                this.f16927f = bVar;
-                this.o.setText(String.valueOf(bVar.f59067d.f59070a));
-                this.p.setText(String.valueOf(bVar.f59068e.f59070a));
+                this.f16966f = bVar;
+                this.o.setText(String.valueOf(bVar.f55812d.f55815a));
+                this.p.setText(String.valueOf(bVar.f55813e.f55815a));
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 this.V = layoutParams;
                 layoutParams.addRule(12);
@@ -779,37 +779,37 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 this.W.addRule(11);
                 this.r.setLayoutParams(this.V);
                 this.s.setLayoutParams(this.W);
-                if (bVar.f59069f == 3) {
-                    this.r.setText(StringUtils.isNull(bVar.f59067d.f59071b) ? getResources().getString(R.string.topic_pk_desc_agree_default) : bVar.f59067d.f59071b);
-                    this.s.setText(StringUtils.isNull(bVar.f59068e.f59071b) ? getResources().getString(R.string.topic_pk_desc_disagree_default) : bVar.f59068e.f59071b);
-                    if (StringUtils.isNull(bVar.f59067d.f59072c)) {
-                        this.f16928g.setVisibility(4);
+                if (bVar.f55814f == 3) {
+                    this.r.setText(StringUtils.isNull(bVar.f55812d.f55816b) ? getResources().getString(R.string.topic_pk_desc_agree_default) : bVar.f55812d.f55816b);
+                    this.s.setText(StringUtils.isNull(bVar.f55813e.f55816b) ? getResources().getString(R.string.topic_pk_desc_disagree_default) : bVar.f55813e.f55816b);
+                    if (StringUtils.isNull(bVar.f55812d.f55817c)) {
+                        this.f16967g.setVisibility(4);
                     } else {
-                        this.f16928g.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f59067d.f59072c));
+                        this.f16967g.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f55812d.f55817c));
                     }
-                    if (StringUtils.isNull(bVar.f59068e.f59072c)) {
-                        this.f16929h.setVisibility(4);
+                    if (StringUtils.isNull(bVar.f55813e.f55817c)) {
+                        this.f16968h.setVisibility(4);
                     } else {
-                        this.f16929h.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f59068e.f59072c));
+                        this.f16968h.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f55813e.f55817c));
                     }
                 } else {
-                    this.r.setText(bVar.f59067d.f59071b);
-                    this.s.setText(bVar.f59068e.f59071b);
-                    this.f16928g.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f59067d.f59072c));
-                    this.f16929h.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f59068e.f59072c));
+                    this.r.setText(bVar.f55812d.f55816b);
+                    this.s.setText(bVar.f55813e.f55816b);
+                    this.f16967g.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f55812d.f55817c));
+                    this.f16968h.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.f55813e.f55817c));
                 }
-                this.k.M(bVar.f59067d.f59073d, 10, false);
-                this.l.M(bVar.f59068e.f59073d, 10, false);
-                this.m.M(bVar.f59067d.f59076g, 10, false);
-                this.n.M(bVar.f59068e.f59076g, 10, false);
-                if (bVar.f59067d.f59074e) {
+                this.k.M(bVar.f55812d.f55818d, 10, false);
+                this.l.M(bVar.f55813e.f55818d, 10, false);
+                this.m.M(bVar.f55812d.f55821g, 10, false);
+                this.n.M(bVar.f55813e.f55821g, 10, false);
+                if (bVar.f55812d.f55819e) {
                     this.k.setVisibility(4);
                     this.m.setVisibility(0);
                 } else {
                     this.k.setVisibility(0);
                     this.m.setVisibility(4);
                 }
-                if (bVar.f59068e.f59074e) {
+                if (bVar.f55813e.f55819e) {
                     this.l.setVisibility(4);
                     this.n.setVisibility(0);
                 } else {
@@ -857,7 +857,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 return;
             }
         }
-        this.f16926e = 3;
+        this.f16965e = 3;
         this.M = R.color.CAM_X0101;
         this.a0 = new a(this);
         this.c0 = new c(this);
@@ -883,7 +883,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 return;
             }
         }
-        this.f16926e = 3;
+        this.f16965e = 3;
         this.M = R.color.CAM_X0101;
         this.a0 = new a(this);
         this.c0 = new c(this);

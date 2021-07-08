@@ -12,20 +12,20 @@ import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JdkPattern extends e implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pattern pattern;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Matcher f32896a;
+        public final Matcher f33006a;
 
         public a(Matcher matcher) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public final class JdkPattern extends e implements Serializable {
                 }
             }
             n.p(matcher);
-            this.f32896a = matcher;
+            this.f33006a = matcher;
         }
 
         @Override // d.f.d.a.d
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32896a.find() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33006a.find() : invokeV.booleanValue;
         }
     }
 

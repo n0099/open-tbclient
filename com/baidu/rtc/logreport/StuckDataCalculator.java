@@ -2,12 +2,13 @@ package com.baidu.rtc.logreport;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StuckDataCalculator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,7 @@ public class StuckDataCalculator {
     public void reportStuckData() {
         SLIReportInterface sLIReportInterface;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             long j = this.frameStartTime;
             if (currentTimeMillis - j > this.stuckInterval && (sLIReportInterface = this.mStuckEvent) != null) {

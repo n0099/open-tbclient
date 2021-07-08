@@ -2,7 +2,7 @@ package com.baidu.wallet.base.widget.pulltorefresh.ui;
 
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ILoadingLayout {
     void setLastUpdatedLabel(CharSequence charSequence);
 

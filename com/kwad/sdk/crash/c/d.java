@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.model.message.JavaExceptionMessage;
 import java.lang.Thread;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f36960a;
+    public volatile boolean f35330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f36961b;
+    public Thread.UncaughtExceptionHandler f35331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36962c;
+    public Context f35332c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -36,26 +36,26 @@ public class d implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f36960a = false;
-        this.f36961b = Thread.getDefaultUncaughtExceptionHandler();
-        this.f36962c = context;
+        this.f35330a = false;
+        this.f35331b = Thread.getDefaultUncaughtExceptionHandler();
+        this.f35332c = context;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
-            if (this.f36960a) {
+            if (this.f35330a) {
                 com.kwad.sdk.core.d.a.a("ExceptionCollector", "SDK捕获 uncaughtException 正在处理 ex=" + th.getMessage());
-                this.f36961b.uncaughtException(thread, th);
+                this.f35331b.uncaughtException(thread, th);
                 return;
             }
-            this.f36960a = true;
+            this.f35330a = true;
             com.kwad.sdk.core.d.a.a("ExceptionCollector", "thread=" + thread + " ex=" + th.getMessage());
             if (th != null && com.kwad.sdk.crash.b.a.a(th)) {
-                c.d().a(th, new JavaExceptionMessage(), this.f36962c);
+                c.d().a(th, new JavaExceptionMessage(), this.f35332c);
             }
-            this.f36961b.uncaughtException(thread, th);
+            this.f35331b.uncaughtException(thread, th);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CustomToast2 {
     public static /* synthetic */ Interceptable $ic;
     public static Handler mHandler;
@@ -115,7 +116,7 @@ public class CustomToast2 {
 
     public static void showToast(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65540, null, context, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, i3) == null) {
             showToast(context, context.getResources().getString(i2), i3);
         }
     }

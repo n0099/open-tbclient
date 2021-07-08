@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c0.b.a.e;
-import d.a.c0.b.a.k.c;
-import d.a.y0.t.h;
-/* loaded from: classes6.dex */
+import d.a.v0.t.h;
+import d.a.z.b.a.e;
+import d.a.z.b.a.k.c;
+/* loaded from: classes5.dex */
 public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

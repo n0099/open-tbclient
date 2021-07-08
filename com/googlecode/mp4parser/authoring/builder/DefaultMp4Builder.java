@@ -57,7 +57,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class DefaultMp4Builder implements Mp4Builder {
     public HashMap<Track, long[]> track2SampleSizes;
 
     /* renamed from: com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -516,7 +516,7 @@ public class DefaultMp4Builder implements Mp4Builder {
     public static long sum(long[] jArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jArr)) == null) {
             long j = 0;
             for (long j2 : jArr) {
                 j += j2;
@@ -526,7 +526,7 @@ public class DefaultMp4Builder implements Mp4Builder {
         return invokeL.longValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class InterleaveChunkMdat implements Box {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

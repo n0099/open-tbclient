@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Call;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OkHttpDownloader extends OkHttpRequest implements Downloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

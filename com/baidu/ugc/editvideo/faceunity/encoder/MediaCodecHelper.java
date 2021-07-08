@@ -7,18 +7,18 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 @RequiresApi(api = 16)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MediaCodecHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT_USEC = 10000;
@@ -78,7 +78,7 @@ public class MediaCodecHelper {
     public static int getAndSelectVideoTrackIndex(MediaExtractor mediaExtractor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, mediaExtractor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaExtractor)) == null) {
             for (int i2 = 0; i2 < mediaExtractor.getTrackCount(); i2++) {
                 if (isVideoFormat(mediaExtractor.getTrackFormat(i2))) {
                     mediaExtractor.selectTrack(i2);
@@ -93,7 +93,7 @@ public class MediaCodecHelper {
     public static String getMimeTypeFor(MediaFormat mediaFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, mediaFormat)) == null) ? mediaFormat.getString(IMediaFormat.KEY_MIME) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, mediaFormat)) == null) ? mediaFormat.getString("mime") : (String) invokeL.objValue;
     }
 
     public static boolean isAudioFormat(MediaFormat mediaFormat) {

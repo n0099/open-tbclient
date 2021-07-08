@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Throwable> f31959a;
+    public List<Throwable> f32069a;
 
     public a(List<Throwable> list) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class a extends Exception {
                 return;
             }
         }
-        this.f31959a = list;
+        this.f32069a = list;
         if (list == null || list.isEmpty()) {
             return;
         }

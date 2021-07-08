@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FILE_COUNT = 300;
@@ -27,13 +27,13 @@ public class ClearTempService extends BdBaseService {
     public volatile boolean interrupted;
     public Thread thread;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ClearTempService f20642a;
+        public final /* synthetic */ ClearTempService f20688a;
 
         public a(ClearTempService clearTempService) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class ClearTempService extends BdBaseService {
                     return;
                 }
             }
-            this.f20642a = clearTempService;
+            this.f20688a = clearTempService;
         }
 
         @Override // android.os.Handler
@@ -58,19 +58,19 @@ public class ClearTempService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
-                this.f20642a.stopSelf();
-                this.f20642a.thread = null;
+                this.f20688a.stopSelf();
+                this.f20688a.thread = null;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClearTempService f20643e;
+        public final /* synthetic */ ClearTempService f20689e;
 
         public b(ClearTempService clearTempService) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class ClearTempService extends BdBaseService {
                     return;
                 }
             }
-            this.f20643e = clearTempService;
+            this.f20689e = clearTempService;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -100,14 +100,14 @@ public class ClearTempService extends BdBaseService {
                     File file2 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share");
                     File file3 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/voice");
                     File file4 = new File(FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
-                    this.f20643e.deleteCache(file, false);
-                    this.f20643e.deleteDir(file2);
-                    this.f20643e.deleteDir(file3);
-                    this.f20643e.deleteDir(file4);
+                    this.f20689e.deleteCache(file, false);
+                    this.f20689e.deleteDir(file2);
+                    this.f20689e.deleteDir(file3);
+                    this.f20689e.deleteDir(file4);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                this.f20643e.handler.sendMessage(this.f20643e.handler.obtainMessage());
+                this.f20689e.handler.sendMessage(this.f20689e.handler.obtainMessage());
             }
         }
     }

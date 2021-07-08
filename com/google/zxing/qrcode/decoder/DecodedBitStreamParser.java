@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHANUMERIC_CHARS;
@@ -183,7 +184,7 @@ public final class DecodedBitStreamParser {
     public static void decodeByteSegment(BitSource bitSource, StringBuilder sb, int i2, CharacterSetECI characterSetECI, Collection<byte[]> collection, Map<DecodeHintType, ?> map) throws FormatException {
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{bitSource, sb, Integer.valueOf(i2), characterSetECI, collection, map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitSource, sb, Integer.valueOf(i2), characterSetECI, collection, map}) == null) {
             if ((i2 << 3) <= bitSource.available()) {
                 byte[] bArr = new byte[i2];
                 for (int i3 = 0; i3 < i2; i3++) {

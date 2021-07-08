@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.e.c.g;
 import d.a.c.c.f.k;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f43962i;
+    public g f40978i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(MessageManager messageManager) {
@@ -41,36 +41,36 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
                 return;
             }
         }
-        this.f43962i = null;
-        this.f43962i = new g(messageManager);
-        this.f43959e = d.a.c.c.j.c.c();
+        this.f40978i = null;
+        this.f40978i = new g(messageManager);
+        this.f40975e = d.a.c.c.j.c.c();
     }
 
     @Override // d.a.c.c.b
     public LinkedList<SocketMessage> e(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f43962i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f40978i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            this.f43962i.h(i2, bdUniqueId);
+            this.f40978i.h(i2, bdUniqueId);
         }
     }
 
     public LinkedList<SocketMessage> v(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f43962i.n(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f40978i.n(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     public g w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43962i : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40978i : (g) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,13 +79,13 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     public SocketMessage l(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) ? this.f43955a.getController().m(socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) ? this.f40971a.getController().m(socketMessage, socketMessageTask) : (SocketMessage) invokeLL.objValue;
     }
 
     public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.f43962i.C(bdUniqueId);
+            this.f40978i.C(bdUniqueId);
         }
     }
 
@@ -95,7 +95,7 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, socketMessage, socketMessageTask) == null) {
-            this.f43962i.f(socketMessage, socketMessageTask);
+            this.f40978i.f(socketMessage, socketMessageTask);
         }
     }
 }

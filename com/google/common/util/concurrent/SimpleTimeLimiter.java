@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SimpleTimeLimiter implements TimeLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public final class SimpleTimeLimiter implements TimeLimiter {
 
     public static void checkPositiveTimeout(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
             n.h(j > 0, "timeout must be positive: %s", j);
         }
     }

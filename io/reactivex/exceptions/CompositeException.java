@@ -1,5 +1,6 @@
 package io.reactivex.exceptions;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CompositeException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3026362227162912146L;
@@ -26,7 +27,7 @@ public final class CompositeException extends RuntimeException {
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
@@ -55,7 +56,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +78,7 @@ public final class CompositeException extends RuntimeException {
         public abstract void println(Object obj);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class WrappedPrintStream extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +111,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class WrappedPrintWriter extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -350,7 +351,7 @@ public final class CompositeException extends RuntimeException {
     private void printStackTrace(PrintStreamOrWriter printStreamOrWriter) {
         StackTraceElement[] stackTrace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, printStreamOrWriter) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, printStreamOrWriter) == null) {
             StringBuilder sb = new StringBuilder(128);
             sb.append(this);
             sb.append('\n');

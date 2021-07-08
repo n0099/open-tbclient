@@ -1,5 +1,6 @@
 package d.f.d.c;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,24 +15,24 @@ import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Field f73754a;
+        public final Field f70857a;
 
         public /* synthetic */ b(Field field, a aVar) {
             this(field);
@@ -41,7 +42,7 @@ public final class d1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, t, i2) == null) {
                 try {
-                    this.f73754a.set(t, Integer.valueOf(i2));
+                    this.f70857a.set(t, Integer.valueOf(i2));
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 }
@@ -52,7 +53,7 @@ public final class d1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, obj) == null) {
                 try {
-                    this.f73754a.set(t, obj);
+                    this.f70857a.set(t, obj);
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 }
@@ -74,7 +75,7 @@ public final class d1 {
                     return;
                 }
             }
-            this.f73754a = field;
+            this.f70857a = field;
             field.setAccessible(true);
         }
     }
@@ -121,7 +122,7 @@ public final class d1 {
     /* JADX WARN: Multi-variable type inference failed */
     public static <K, V> void e(q0<K, V> q0Var, ObjectInputStream objectInputStream, int i2) throws IOException, ClassNotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65540, null, q0Var, objectInputStream, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, q0Var, objectInputStream, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
                 Collection collection = q0Var.get(objectInputStream.readObject());
                 int readInt = objectInputStream.readInt();

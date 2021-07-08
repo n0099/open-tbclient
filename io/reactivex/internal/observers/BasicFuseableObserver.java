@@ -13,7 +13,7 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueDisposable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

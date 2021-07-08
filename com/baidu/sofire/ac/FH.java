@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.view.SurfaceHolder;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.b.a;
 import com.baidu.sofire.b.b;
@@ -23,7 +24,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FH {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
@@ -73,17 +74,17 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f10280b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f10297b) == null) {
             return;
         }
         try {
-            aVar.f10254f = true;
-            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f10253e, Boolean.TRUE, "");
+            aVar.f10271f = true;
+            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f10270e, Boolean.TRUE, "");
             aVar.a(-6);
         } catch (Throwable unused) {
             c.a();
         }
-        a2.f10280b = null;
+        a2.f10297b = null;
     }
 
     public static String gd(Context context) {
@@ -99,7 +100,7 @@ public class FH {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
             try {
-                if (com.baidu.sofire.core.c.f10306b != null && t.a(com.baidu.sofire.core.c.f10306b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+                if (com.baidu.sofire.core.c.f10323b != null && t.a(com.baidu.sofire.core.c.f10323b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                     for (ApkInfo apkInfo : b2) {
                         if (apkInfo.key == i2) {
                             return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -171,8 +172,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if ("callSync".equals(optString)) {
-                        if (com.baidu.sofire.core.c.f10306b == null && context != null) {
-                            com.baidu.sofire.core.c.f10306b = context.getApplicationContext();
+                        if (com.baidu.sofire.core.c.f10323b == null && context != null) {
+                            com.baidu.sofire.core.c.f10323b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -242,7 +243,7 @@ public class FH {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) {
-            Context context = com.baidu.sofire.core.c.f10306b;
+            Context context = com.baidu.sofire.core.c.f10323b;
             if (context == null || !t.a(context)) {
                 return false;
             }
@@ -377,8 +378,8 @@ public class FH {
                             if (cls.equals(Context.class)) {
                                 if (context != null) {
                                     objArr[i4] = context;
-                                } else if (com.baidu.sofire.core.c.f10306b != null) {
-                                    objArr[i4] = com.baidu.sofire.core.c.f10306b;
+                                } else if (com.baidu.sofire.core.c.f10323b != null) {
+                                    objArr[i4] = com.baidu.sofire.core.c.f10323b;
                                 } else {
                                     throw new IllegalArgumentException("method request context");
                                 }
@@ -515,7 +516,7 @@ public class FH {
     public static void setFaceLicenseId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65568, null, str) == null) {
-            b.f10277c = str;
+            b.f10294c = str;
         }
     }
 
@@ -523,11 +524,11 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65569, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f10280b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65569, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f10297b) == null) {
             return;
         }
         try {
-            if (aVar.f10249a && !aVar.f10254f) {
+            if (aVar.f10266a && !aVar.f10271f) {
                 if (aVar.p != null) {
                     aVar.p.setLivenessStrategySoundEnable(z);
                 }
@@ -544,12 +545,12 @@ public class FH {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceCompareInfo, Boolean.valueOf(z)})) == null) {
             b a2 = b.a(activity.getApplicationContext());
-            if (a2.f10280b != null) {
+            if (a2.f10297b != null) {
                 a2.a(activity, faceProcessCallback, -1);
                 return false;
             }
             a aVar = new a(a2, activity, surfaceHolder, faceProcessCallback, i2, faceCompareInfo, 2, z);
-            a2.f10280b = aVar;
+            a2.f10297b = aVar;
             aVar.a();
             return true;
         }
@@ -562,16 +563,16 @@ public class FH {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceVerifyInfo, Boolean.valueOf(z)})) == null) {
             b a2 = b.a(activity.getApplicationContext());
-            if (com.baidu.sofire.core.c.a() != null && (context = com.baidu.sofire.core.c.f10306b) != null) {
+            if (com.baidu.sofire.core.c.a() != null && (context = com.baidu.sofire.core.c.f10323b) != null) {
                 if (!t.a(context)) {
                     a2.a(activity, faceProcessCallback, -14);
                     return false;
-                } else if (a2.f10280b != null) {
+                } else if (a2.f10297b != null) {
                     a2.a(activity, faceProcessCallback, -1);
                     return false;
                 } else {
                     a aVar = new a(a2, activity, surfaceHolder, faceProcessCallback, i2, faceVerifyInfo, 1, z);
-                    a2.f10280b = aVar;
+                    a2.f10297b = aVar;
                     aVar.a();
                     return true;
                 }
@@ -615,6 +616,6 @@ public class FH {
     public static boolean call(int i2, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Integer.valueOf(i2), str, callback, clsArr, objArr})) == null) ? d.a(i2, str, callback, clsArr, objArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), str, callback, clsArr, objArr})) == null) ? d.a(i2, str, callback, clsArr, objArr) : invokeCommon.booleanValue;
     }
 }

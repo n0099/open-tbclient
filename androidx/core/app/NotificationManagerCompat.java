@@ -270,7 +270,7 @@ public final class NotificationManagerCompat {
         private void handleRetryListenerQueue(ComponentName componentName) {
             ListenerRecord listenerRecord;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65540, this, componentName) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, componentName) == null) || (listenerRecord = this.mRecordMap.get(componentName)) == null) {
                 return;
             }
             processListenerQueue(listenerRecord);
@@ -533,7 +533,7 @@ public final class NotificationManagerCompat {
 
     private void pushSideChannelQueue(Task task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, task) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, task) == null) {
             synchronized (sLock) {
                 if (sSideChannelManager == null) {
                     sSideChannelManager = new SideChannelManager(this.mContext.getApplicationContext());

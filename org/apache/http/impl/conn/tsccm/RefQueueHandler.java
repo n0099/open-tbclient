@@ -2,7 +2,7 @@ package org.apache.http.impl.conn.tsccm;
 
 import java.lang.ref.Reference;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface RefQueueHandler {
     void handleReference(Reference<?> reference);
 }

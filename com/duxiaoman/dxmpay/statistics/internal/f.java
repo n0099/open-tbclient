@@ -23,12 +23,12 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f32572a;
+    public static final List<String> f32682a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class f {
                 return;
             }
         }
-        f32572a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+        f32682a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,7 +76,7 @@ public class f {
             String trim = str == null ? RomUtils.UNKNOWN : str.trim();
             try {
                 if (!TextUtils.isEmpty(trim)) {
-                    for (String str2 : f32572a) {
+                    for (String str2 : f32682a) {
                         if (str2.equalsIgnoreCase(trim)) {
                             return str2;
                         }

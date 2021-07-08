@@ -12,13 +12,13 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f44017a;
+    public Bundle f41033a;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class c implements h {
                 return;
             }
         }
-        this.f44017a = bundle;
+        this.f41033a = bundle;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -59,21 +59,21 @@ public class c implements h {
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f44017a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f41033a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f44017a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f41033a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object d(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? this.f44017a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? this.f41033a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -89,10 +89,10 @@ public class c implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
             Type[] b2 = cVar.b();
-            Set<String> keySet = this.f44017a.keySet();
+            Set<String> keySet = this.f41033a.keySet();
             JSONObject jSONObject = new JSONObject();
             for (String str : keySet) {
-                Object obj = this.f44017a.get(str);
+                Object obj = this.f41033a.get(str);
                 if (b2 != null && b2.length >= 2) {
                     try {
                         jSONObject.put(str, d.a.c.e.b.b.a.e.f.a(obj).f(new d.a.c.e.b.b.a.e.c(b2[1])));

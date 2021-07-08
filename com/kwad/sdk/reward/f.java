@@ -1,65 +1,154 @@
 package com.kwad.sdk.reward;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.core.diskcache.b.c;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.t;
-import java.io.File;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.utils.an;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adTemplate)) == null) {
-            if (b(adTemplate)) {
-                return true;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f36222a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f36223b;
+
+        public a(String str) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            String a2 = com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate));
-            String a3 = t.a(a2);
-            long currentTimeMillis = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.b("VideoCacheHelper", "start cache video key:" + a3 + "--url:" + a2);
-            c.a aVar = new c.a();
-            boolean a4 = com.kwad.sdk.core.diskcache.b.a.a().a(a2, aVar);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.b("VideoCacheHelper", "finish cache video key:" + a3 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a4);
-            if (a4) {
-                com.kwad.sdk.core.report.e.d(adTemplate, 1);
-            } else {
-                com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f36003a);
+            this.f36223b = "-";
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                this.f36222a = false;
+                this.f36223b = "数据解析失败";
+                jSONObject = null;
             }
-            return a4;
+            a(jSONObject);
         }
-        return invokeL.booleanValue;
+
+        public void a(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.f36222a = jSONObject.optBoolean("isValid");
+            this.f36223b = jSONObject.toString();
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36222a : invokeV.booleanValue;
+        }
     }
 
-    public static boolean a(@NonNull String str, String str2, c.a aVar) {
-        InterceptResult invokeLLL;
+    public static void a(AdTemplate adTemplate, AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, aVar)) == null) {
-            String a2 = t.a(str2);
-            long currentTimeMillis = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.b("VideoCacheHelper", "start cache video key:" + a2 + "--url:" + str);
-            boolean a3 = com.kwad.sdk.core.diskcache.b.a.a().a(str, str2, aVar);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.b("VideoCacheHelper", "finish cache video key:" + a2 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a3);
-            return a3;
-        }
-        return invokeLLL.booleanValue;
-    }
+        if (interceptable == null || interceptable.invokeLL(65536, null, adTemplate, adInfo) == null) {
+            String ae = com.kwad.sdk.core.response.b.a.ae(adInfo);
+            com.kwad.sdk.core.d.a.a("ServerCallbackHandle", "handleRewardVerify callbackUrl: " + ae);
+            if (an.a(ae)) {
+                return;
+            }
+            com.kwad.sdk.utils.g.a(new Runnable(ae, adTemplate) { // from class: com.kwad.sdk.reward.f.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean b(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.j(adTemplate)));
-            return b2 != null && b2.exists();
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ String f36220a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ AdTemplate f36221b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {ae, adTemplate};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f36220a = ae;
+                    this.f36221b = adTemplate;
+                }
+
+                private void a() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
+                        com.kwad.sdk.core.report.d.b(this.f36221b, 0, "success");
+                    }
+                }
+
+                private void a(String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(65538, this, str) == null) {
+                        com.kwad.sdk.core.report.d.b(this.f36221b, 1, str);
+                    }
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    String str;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            com.kwad.sdk.core.network.c doGet = KsAdSDKImpl.get().getProxyForHttp().doGet(this.f36220a, null);
+                            if (doGet == null) {
+                                str = "Network Error: url invalid";
+                            } else if (doGet.f34670a == 200) {
+                                a aVar = new a(doGet.f34671b);
+                                if (aVar.a()) {
+                                    a();
+                                    return;
+                                }
+                                str = aVar.f36223b;
+                            } else {
+                                str = "Network Error: " + doGet.f34671b;
+                            }
+                            a(str);
+                        } catch (Throwable th) {
+                            a("Request Error: " + th.getMessage());
+                        }
+                    }
+                }
+            });
         }
-        return invokeL.booleanValue;
     }
 }

@@ -23,7 +23,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadUrlConnection implements DownloadConnection, DownloadConnection.Connected {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadUrlConnection";
@@ -33,7 +33,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     public IRedirectHandler redirectHandler;
     public URL url;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RedirectHandler implements IRedirectHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,14 +202,14 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {uRLConnection};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((URLConnection) objArr2[0], (IRedirectHandler) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

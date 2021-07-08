@@ -18,21 +18,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.v0.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout l;
-    public d.a.r0.r.q.a m;
+    public d.a.o0.r.q.a m;
     public StatisticItem n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f45785e;
+        public final /* synthetic */ n f42677e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -49,29 +49,29 @@ public class n extends h {
                     return;
                 }
             }
-            this.f45785e = nVar;
+            this.f42677e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45785e.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42677e.d() == null) {
                 return;
             }
-            this.f45785e.d().a(view, this.f45785e.m);
+            this.f42677e.d().a(view, this.f42677e.m);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f45786e;
+        public final /* synthetic */ View.OnClickListener f42678e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f45787f;
+        public final /* synthetic */ n f42679f;
 
         public b(n nVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -88,32 +88,32 @@ public class n extends h {
                     return;
                 }
             }
-            this.f45787f = nVar;
-            this.f45786e = onClickListener;
+            this.f42679f = nVar;
+            this.f42678e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f45787f.f45735f);
-                String n1 = this.f45787f.m.getThreadData().n1();
-                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(n1, this.f45787f.m.getThreadData().p1().E() + "", 1, "other");
-                createNormalCfg.setStartFrom(this.f45787f.f45734e.i());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f42679f.f42627f);
+                String n1 = this.f42679f.m.getThreadData().n1();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(n1, this.f42679f.m.getThreadData().p1().E() + "", 1, "other");
+                createNormalCfg.setStartFrom(this.f42679f.f42626e.i());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                this.f45787f.f45734e.o(new a.C0645a(1));
-                this.f45786e.onClick(view);
+                this.f42679f.f42626e.o(new a.C0611a(1));
+                this.f42678e.onClick(view);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f45788a;
+        public final /* synthetic */ n f42680a;
 
         public c(n nVar) {
             Interceptable interceptable = $ic;
@@ -130,15 +130,15 @@ public class n extends h {
                     return;
                 }
             }
-            this.f45788a = nVar;
+            this.f42680a = nVar;
         }
 
         @Override // d.a.j.v0.a.b
-        public boolean a(a.C0645a c0645a) {
+        public boolean a(a.C0611a c0611a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0645a)) == null) {
-                d.a.s0.a0.m.l(this.f45788a.l.getGodReplyContent(), this.f45788a.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0611a)) == null) {
+                d.a.p0.a0.m.l(this.f42680a.l.getGodReplyContent(), this.f42680a.m.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -189,7 +189,7 @@ public class n extends h {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.l.l();
+            this.l.k();
         }
     }
 
@@ -206,14 +206,14 @@ public class n extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: v */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.m = aVar;
             PostData p1 = aVar.getThreadData().p1();
             if (this.n != null && p1 != null && p1.t() != null && p1.t().getUserId() != null) {
                 this.n.param("tid", aVar.getThreadData().A).param("post_id", p1.E()).param("uid", p1.t().getUserId());
-                d.a.s0.a0.t.b().a(this.n);
+                d.a.p0.a0.t.b().a(this.n);
             }
             this.l.setData(aVar.getThreadData());
         }

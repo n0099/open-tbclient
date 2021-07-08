@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72748a;
+    public final int f69851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Format[] f72749b;
+    public final Format[] f69852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f72750c;
+    public int f69853c;
 
     public s(Format... formatArr) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public final class s {
             }
         }
         d.f.b.a.i0.a.f(formatArr.length > 0);
-        this.f72749b = formatArr;
-        this.f72748a = formatArr.length;
+        this.f69852b = formatArr;
+        this.f69851a = formatArr.length;
     }
 
     public Format a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f72749b[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69852b[i2] : (Format) invokeI.objValue;
     }
 
     public int b(Format format) {
@@ -56,7 +56,7 @@ public final class s {
         }
         int i2 = 0;
         while (true) {
-            Format[] formatArr = this.f72749b;
+            Format[] formatArr = this.f69852b;
             if (i2 >= formatArr.length) {
                 return -1;
             }
@@ -78,7 +78,7 @@ public final class s {
                 return false;
             }
             s sVar = (s) obj;
-            return this.f72748a == sVar.f72748a && Arrays.equals(this.f72749b, sVar.f72749b);
+            return this.f69851a == sVar.f69851a && Arrays.equals(this.f69852b, sVar.f69852b);
         }
         return invokeL.booleanValue;
     }
@@ -87,10 +87,10 @@ public final class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f72750c == 0) {
-                this.f72750c = 527 + Arrays.hashCode(this.f72749b);
+            if (this.f69853c == 0) {
+                this.f69853c = 527 + Arrays.hashCode(this.f69852b);
             }
-            return this.f72750c;
+            return this.f69853c;
         }
         return invokeV.intValue;
     }

@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-import d.a.r0.r.d0.b;
-/* loaded from: classes4.dex */
+import d.a.o0.r.d0.b;
+/* loaded from: classes3.dex */
 public class SplashDealyTimeoutSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "ad_screen_delay_switch";

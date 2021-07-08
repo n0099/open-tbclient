@@ -3,6 +3,7 @@ package com.baidu.android.imsdk;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatuser.Utility;
 import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -169,7 +170,7 @@ public class GetChatObjectInfoForRecordManager {
     public static Object newInstance(Context context, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, context, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, i3)) == null) {
             String str = classFinder.get(new Pair(Integer.valueOf(i2), Integer.valueOf(i3)));
             String str2 = TAG;
             LogUtils.i(str2, "className : " + str);

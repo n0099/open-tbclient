@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.n.b;
 import h.n.c;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Actions {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f76142a;
+    public static final a f73176a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NotImplemented implements b<Throwable> {
         public static final /* synthetic */ NotImplemented[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public final class Actions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements h.n.a, b<T0>, c<T0, T1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,13 +140,13 @@ public final class Actions {
                 return;
             }
         }
-        f76142a = new a();
+        f73176a = new a();
     }
 
     public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> a<T0, T1, T2, T3, T4, T5, T6, T7, T8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f76142a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f73176a : (a) invokeV.objValue;
     }
 
     public static b<Throwable> b() {

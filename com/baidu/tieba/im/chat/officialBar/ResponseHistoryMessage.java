@@ -17,29 +17,29 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> msg;
     public int msgCount;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17394a;
+        public String f17433a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17395b;
+        public int f17434b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17396c;
+        public String f17435c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17397d;
+        public int f17436d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -104,10 +104,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.f17394a = k.getDateStringMouth(date);
-                        aVar.f17395b = msgInfo.type.intValue();
-                        aVar.f17396c = msgInfo.content;
-                        aVar.f17397d = msgInfo.id.intValue();
+                        aVar.f17433a = k.getDateStringMouth(date);
+                        aVar.f17434b = msgInfo.type.intValue();
+                        aVar.f17435c = msgInfo.content;
+                        aVar.f17436d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -115,7 +115,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            l<byte[]> d2 = d.a.r0.r.r.a.f().d("tb.im_official_history");
+            l<byte[]> d2 = d.a.o0.r.r.a.f().d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

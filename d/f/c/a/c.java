@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f73669e;
+    public final Context f70772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final m f73670f;
+    public final m f70773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f73671g;
+    public volatile boolean f70774g;
 
     public c(Context context, m mVar) {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public final class c extends Thread {
                 return;
             }
         }
-        this.f73669e = context;
-        this.f73670f = mVar;
+        this.f70772e = context;
+        this.f70773f = mVar;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f73671g = true;
+            this.f70774g = true;
         }
     }
 
@@ -50,9 +50,9 @@ public final class c extends Thread {
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.f73671g) {
-                if (f.d().h(this.f73669e)) {
-                    this.f73670f.a(com.google.ar.core.p.f32882c);
+            while (!this.f70774g) {
+                if (f.d().h(this.f70772e)) {
+                    this.f70773f.a(com.google.ar.core.p.f32992c);
                     return;
                 }
                 try {

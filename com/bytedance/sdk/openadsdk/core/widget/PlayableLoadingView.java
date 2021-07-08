@@ -18,19 +18,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.r;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PlayableLoadingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f30639a;
+    public ProgressBar f30749a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f30640b;
+    public TextView f30750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f30641c;
+    public TextView f30751c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlayableLoadingView(@NonNull Context context) {
@@ -60,9 +60,9 @@ public class PlayableLoadingView extends FrameLayout {
             setClickable(true);
             setVisibility(8);
             LayoutInflater.from(context).inflate(r.f(context, "tt_playable_loading_layout"), (ViewGroup) this, true);
-            this.f30639a = (ProgressBar) findViewById(r.e(context, "tt_playable_pb_view"));
-            this.f30640b = (TextView) findViewById(r.e(context, "tt_playable_progress_tip"));
-            this.f30641c = (TextView) findViewById(r.e(context, "tt_playable_play"));
+            this.f30749a = (ProgressBar) findViewById(r.e(context, "tt_playable_pb_view"));
+            this.f30750b = (TextView) findViewById(r.e(context, "tt_playable_progress_tip"));
+            this.f30751c = (TextView) findViewById(r.e(context, "tt_playable_play"));
         }
     }
 
@@ -76,7 +76,7 @@ public class PlayableLoadingView extends FrameLayout {
     public TextView getPlayView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30641c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30751c : (TextView) invokeV.objValue;
     }
 
     public void setProgress(int i2) {
@@ -88,11 +88,11 @@ public class PlayableLoadingView extends FrameLayout {
             if (i2 > 100) {
                 i2 = 100;
             }
-            ProgressBar progressBar = this.f30639a;
+            ProgressBar progressBar = this.f30749a;
             if (progressBar != null) {
                 progressBar.setProgress(i2);
             }
-            TextView textView = this.f30640b;
+            TextView textView = this.f30750b;
             if (textView != null) {
                 textView.setText(String.format(Locale.getDefault(), "%d%%", Integer.valueOf(i2)));
             }

@@ -1,6 +1,7 @@
 package com.baidu.mobads.sdk.internal;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DECODING_TABLE;
@@ -128,7 +129,7 @@ public class Base64 {
     private boolean isValidBase64Byte(byte b2) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65540, this, b2)) == null) {
+        if (interceptable == null || (invokeB = interceptable.invokeB(InputDeviceCompat.SOURCE_TRACKBALL, this, b2)) == null) {
             if (b2 == 36) {
                 return true;
             }

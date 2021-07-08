@@ -2,12 +2,13 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class dw {
 
     public static void c(Context context, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(65540, null, context, str, i2, str2) == null) || context == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2, str2) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {

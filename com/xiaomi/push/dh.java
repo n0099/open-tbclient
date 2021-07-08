@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dh implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42963a;
+    public Context f39977a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42964b;
+    public String f39978b;
 
     public dh(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             }
         }
         this.f237a = "";
-        this.f42963a = context;
+        this.f39977a = context;
         this.f237a = str;
     }
 
@@ -51,7 +51,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             hnVar.a(str);
             hnVar.a(System.currentTimeMillis());
             hnVar.a(hh.s);
-            dq.a(this.f42963a, hnVar);
+            dq.a(this.f39977a, hnVar);
         }
     }
 
@@ -77,14 +77,14 @@ public class dh implements Application.ActivityLifecycleCallbacks {
             if (TextUtils.isEmpty(this.f237a) || TextUtils.isEmpty(localClassName)) {
                 return;
             }
-            this.f42964b = "";
-            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f42964b, localClassName)) {
+            this.f39978b = "";
+            if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f39978b, localClassName)) {
                 this.f237a = "";
                 return;
             }
-            a(this.f42963a.getPackageName() + "|" + localClassName + ":" + this.f237a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+            a(this.f39977a.getPackageName() + "|" + localClassName + ":" + this.f237a + "," + String.valueOf(System.currentTimeMillis() / 1000));
             this.f237a = "";
-            this.f42964b = "";
+            this.f39978b = "";
         }
     }
 
@@ -92,8 +92,8 @@ public class dh implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (TextUtils.isEmpty(this.f42964b)) {
-                this.f42964b = activity.getLocalClassName();
+            if (TextUtils.isEmpty(this.f39978b)) {
+                this.f39978b = activity.getLocalClassName();
             }
             this.f237a = String.valueOf(System.currentTimeMillis() / 1000);
         }

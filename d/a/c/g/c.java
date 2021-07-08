@@ -1,6 +1,7 @@
 package d.a.c.g;
 
 import android.app.Application;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.main.manager.Configurations;
@@ -16,22 +17,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f44606b;
+    public static boolean f41622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f44607c;
+    public static boolean f41623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f44608d;
+    public static c f41624d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile d.a.c.i.a f44609a;
+    public volatile d.a.c.i.a f41625a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +47,7 @@ public class c {
                 return;
             }
         }
-        f44608d = new c();
+        f41624d = new c();
     }
 
     public c() {
@@ -65,25 +66,25 @@ public class c {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f44607c && d.a.c.i.a.m()) {
-            f44607c = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f41623c && d.a.c.i.a.m()) {
+            f41623c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f44606b) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f41622b) {
             return;
         }
-        f44606b = true;
+        f41622b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f44608d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f41624d : (c) invokeV.objValue;
     }
 
     public static void j() {
@@ -98,7 +99,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             i();
-            return this.f44609a.l();
+            return this.f41625a.l();
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -114,7 +115,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             i();
-            return this.f44609a;
+            return this.f41625a;
         }
         return (d.a.c.i.a) invokeV.objValue;
     }
@@ -147,8 +148,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                if (this.f44609a == null) {
-                    this.f44609a = new d.a.c.i.a();
+                if (this.f41625a == null) {
+                    this.f41625a = new d.a.c.i.a();
                 }
             }
         }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Queue;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class i0<E> extends y<E> implements Queue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -12,18 +12,18 @@ import com.bytedance.sdk.openadsdk.preload.a.d.c;
 import com.bytedance.sdk.openadsdk.preload.a.p;
 import com.bytedance.sdk.openadsdk.preload.a.v;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends v<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.c.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32063a;
+        public static final /* synthetic */ int[] f32173a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,17 +40,17 @@ public class a extends v<Boolean> {
                 }
             }
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f32063a = iArr;
+            f32173a = iArr;
             try {
-                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f31917h.ordinal()] = 1;
+                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f32027h.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32063a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i.ordinal()] = 2;
+                f32173a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32028i.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f32063a[com.bytedance.sdk.openadsdk.preload.a.d.b.f31916g.ordinal()] = 3;
+                f32173a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32026g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -91,7 +91,7 @@ public class a extends v<Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-            int i2 = AnonymousClass1.f32063a[f2.ordinal()];
+            int i2 = AnonymousClass1.f32173a[f2.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
                     aVar.j();

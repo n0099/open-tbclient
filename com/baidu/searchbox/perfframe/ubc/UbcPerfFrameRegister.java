@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import d.a.j0.b.a.a;
+import d.a.g0.b.a.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UbcPerfFrameRegister";

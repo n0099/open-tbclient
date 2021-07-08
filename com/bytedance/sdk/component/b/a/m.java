@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class m implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f28004a;
+    public final c f28114a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final r f28005b;
+    public final r f28115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28006c;
+    public boolean f28116c;
 
     public m(r rVar) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class m implements d {
                 return;
             }
         }
-        this.f28004a = new c();
+        this.f28114a = new c();
         if (rVar != null) {
-            this.f28005b = rVar;
+            this.f28115b = rVar;
             return;
         }
         throw new NullPointerException("sink == null");
@@ -51,15 +51,15 @@ public final class m implements d {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28005b.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28115b.a() : (t) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.r
     public void a_(c cVar, long j) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, j) == null) {
-            if (!this.f28006c) {
-                this.f28004a.a_(cVar, j);
+            if (!this.f28116c) {
+                this.f28114a.a_(cVar, j);
                 u();
                 return;
             }
@@ -72,8 +72,8 @@ public final class m implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.b(str);
+            if (!this.f28116c) {
+                this.f28114a.b(str);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -85,31 +85,31 @@ public final class m implements d {
     public c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28004a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28114a : (c) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.r, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f28006c) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f28116c) {
             return;
         }
         Throwable th = null;
         try {
-            if (this.f28004a.f27979b > 0) {
-                this.f28005b.a_(this.f28004a, this.f28004a.f27979b);
+            if (this.f28114a.f28089b > 0) {
+                this.f28115b.a_(this.f28114a, this.f28114a.f28089b);
             }
         } catch (Throwable th2) {
             th = th2;
         }
         try {
-            this.f28005b.close();
+            this.f28115b.close();
         } catch (Throwable th3) {
             if (th == null) {
                 th = th3;
             }
         }
-        this.f28006c = true;
+        this.f28116c = true;
         if (th != null) {
             u.a(th);
         }
@@ -119,13 +119,13 @@ public final class m implements d {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!this.f28006c) {
-                c cVar = this.f28004a;
-                long j = cVar.f27979b;
+            if (!this.f28116c) {
+                c cVar = this.f28114a;
+                long j = cVar.f28089b;
                 if (j > 0) {
-                    this.f28005b.a_(cVar, j);
+                    this.f28115b.a_(cVar, j);
                 }
-                this.f28005b.flush();
+                this.f28115b.flush();
                 return;
             }
             throw new IllegalStateException("closed");
@@ -137,8 +137,8 @@ public final class m implements d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.g(i2);
+            if (!this.f28116c) {
+                this.f28114a.g(i2);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -151,8 +151,8 @@ public final class m implements d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.h(i2);
+            if (!this.f28116c) {
+                this.f28114a.h(i2);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -165,8 +165,8 @@ public final class m implements d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.i(i2);
+            if (!this.f28116c) {
+                this.f28114a.i(i2);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -178,7 +178,7 @@ public final class m implements d {
     public boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !this.f28006c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !this.f28116c : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.component.b.a.d
@@ -186,8 +186,8 @@ public final class m implements d {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.k(j);
+            if (!this.f28116c) {
+                this.f28114a.k(j);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -200,8 +200,8 @@ public final class m implements d {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.l(j);
+            if (!this.f28116c) {
+                this.f28114a.l(j);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -213,7 +213,7 @@ public final class m implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "buffer(" + this.f28005b + SmallTailInfo.EMOTION_SUFFIX;
+            return "buffer(" + this.f28115b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -223,10 +223,10 @@ public final class m implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (!this.f28006c) {
-                long g2 = this.f28004a.g();
+            if (!this.f28116c) {
+                long g2 = this.f28114a.g();
                 if (g2 > 0) {
-                    this.f28005b.a_(this.f28004a, g2);
+                    this.f28115b.a_(this.f28114a, g2);
                 }
                 return this;
             }
@@ -240,8 +240,8 @@ public final class m implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, byteBuffer)) == null) {
-            if (!this.f28006c) {
-                int write = this.f28004a.write(byteBuffer);
+            if (!this.f28116c) {
+                int write = this.f28114a.write(byteBuffer);
                 u();
                 return write;
             }
@@ -255,8 +255,8 @@ public final class m implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.c(bArr);
+            if (!this.f28116c) {
+                this.f28114a.c(bArr);
                 return u();
             }
             throw new IllegalStateException("closed");
@@ -269,8 +269,8 @@ public final class m implements d {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i2, i3)) == null) {
-            if (!this.f28006c) {
-                this.f28004a.c(bArr, i2, i3);
+            if (!this.f28116c) {
+                this.f28114a.c(bArr, i2, i3);
                 return u();
             }
             throw new IllegalStateException("closed");

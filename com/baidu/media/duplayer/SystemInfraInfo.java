@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SystemInfraInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8066a;
+    public boolean f8083a;
     @Keep
     public long mBuildDateUTC;
     @Keep
@@ -56,7 +56,7 @@ public class SystemInfraInfo {
         this.mMaxCpuFreq = 0L;
         this.mBuildDateUTC = 0L;
         this.mPmSizeAvailable = 0L;
-        this.f8066a = false;
+        this.f8083a = false;
         this.mVmSize = -1L;
         this.mVmPeak = -1L;
         this.mVmSizeInSmaps = -1L;
@@ -142,11 +142,11 @@ public class SystemInfraInfo {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f8066a) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f8083a) {
             return;
         }
         nativeGetConstInfo();
         CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
-        this.f8066a = true;
+        this.f8083a = true;
     }
 }

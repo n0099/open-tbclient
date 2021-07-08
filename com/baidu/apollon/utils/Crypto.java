@@ -2,6 +2,7 @@ package com.baidu.apollon.utils;
 
 import android.os.Build;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,25 +25,25 @@ public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f4050a = 16;
+    public static final int f4053a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4051b = 8;
+    public static final int f4054b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f4052c = 128;
+    public static final int f4055c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f4053d = 64;
+    public static final int f4056d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f4054e = 8;
+    public static final int f4057e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f4055f = 1000;
+    public static final int f4058f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f4056g;
+    public static SecureRandom f4059g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,7 +59,7 @@ public class Crypto {
                 return;
             }
         }
-        f4056g = new SecureRandom();
+        f4059g = new SecureRandom();
     }
 
     public Crypto() {
@@ -78,9 +79,9 @@ public class Crypto {
     public static byte[] a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f4056g.nextBytes(bArr);
+            f4059g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;

@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.f;
+import d.a.n0.a.f;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SELECTION_PADDING = 22;
@@ -31,7 +31,7 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     public View mSearchView;
     public String mSelection;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void doSelectionCopy(String str);
 

@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f7494a;
+    public final /* synthetic */ Context f7511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f7495b;
+    public final /* synthetic */ int f7512b;
 
     public f(Context context, int i2) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class f implements Runnable {
                 return;
             }
         }
-        this.f7494a = context;
-        this.f7495b = i2;
+        this.f7511a = context;
+        this.f7512b = i2;
     }
 
     @Override // java.lang.Runnable
@@ -43,8 +43,8 @@ public final class f implements Runnable {
             long currentTimeMillis = System.currentTimeMillis();
             do {
                 if (System.currentTimeMillis() - currentTimeMillis > 3000) {
-                    b.a(this.f7494a);
-                    b.a(this.f7495b, this.f7494a);
+                    b.a(this.f7511a);
+                    b.a(this.f7512b, this.f7511a);
                 }
                 thread = b.v;
             } while (!thread.isInterrupted());

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -35,7 +36,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d.l.a.e.b.e.b A;
@@ -65,31 +66,31 @@ public class e {
     public static volatile boolean Y;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Context f74711a;
+    public static volatile Context f71763a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f74712b;
+    public static volatile k f71764b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile l f74713c;
+    public static volatile l f71765c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile j f74714d;
+    public static volatile j f71766d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d.l.a.e.b.f.i f74715e;
+    public static volatile d.l.a.e.b.f.i f71767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile d.l.a.e.b.m.a f74716f;
+    public static volatile d.l.a.e.b.m.a f71768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile p f74717g;
+    public static volatile p f71769g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile p f74718h;
+    public static volatile p f71770h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile d f74719i;
+    public static volatile d f71771i;
     public static volatile d.l.a.e.b.o.a j;
     public static volatile d.l.a.e.b.o.j k;
     public static volatile d.l.a.e.b.o.a l;
@@ -109,7 +110,7 @@ public class e {
     public static volatile q z;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +140,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements d.l.a.e.b.o.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +167,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class c implements d.l.a.e.b.e.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,10 +201,10 @@ public class e {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface d {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public interface a {
             void a();
         }
@@ -324,7 +325,7 @@ public class e {
     public static d.l.a.e.b.o.k B(boolean z2, int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i2), str, list})) == null) ? A(z2, i2, str, null, list, 0, false, null) : (d.l.a.e.b.o.k) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i2), str, list})) == null) ? A(z2, i2, str, null, list, 0, false, null) : (d.l.a.e.b.o.k) invokeCommon.objValue;
     }
 
     public static ExecutorService B0() {
@@ -338,9 +339,9 @@ public class e {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
             synchronized (e.class) {
                 if (context != null) {
-                    if (f74711a == null) {
-                        f74711a = context.getApplicationContext();
-                        d.l.a.e.b.a.a.c().e(f74711a);
+                    if (f71763a == null) {
+                        f71763a = context.getApplicationContext();
+                        d.l.a.e.b.a.a.c().e(f71763a);
                     }
                 }
             }
@@ -359,14 +360,14 @@ public class e {
             synchronized (R) {
                 for (d.l.a.e.b.f.p pVar : R) {
                     if (pVar != null) {
-                        if (dVar == com.ss.android.socialbase.downloader.constants.d.f41453b) {
+                        if (dVar == com.ss.android.socialbase.downloader.constants.d.f38467b) {
                             pVar.a();
-                        } else if (dVar == com.ss.android.socialbase.downloader.constants.d.f41454c) {
+                        } else if (dVar == com.ss.android.socialbase.downloader.constants.d.f38468c) {
                             pVar.b();
                         }
                     }
                 }
-                if (dVar == com.ss.android.socialbase.downloader.constants.d.f41454c) {
+                if (dVar == com.ss.android.socialbase.downloader.constants.d.f38468c) {
                     R.clear();
                 }
             }
@@ -461,7 +462,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65552, null, iVar) == null) || iVar == null) {
             return;
         }
-        f74715e = iVar;
+        f71767e = iVar;
     }
 
     public static OkHttpClient H0() {
@@ -533,23 +534,23 @@ public class e {
                 }
                 boolean z2 = D;
                 k0(bVar);
-                if (f74712b == null) {
-                    f74712b = new d.l.a.e.b.m.d();
+                if (f71764b == null) {
+                    f71764b = new d.l.a.e.b.m.d();
                 }
-                if (f74717g == null) {
-                    f74717g = new d.l.a.e.b.m.h();
+                if (f71769g == null) {
+                    f71769g = new d.l.a.e.b.m.h();
                 }
-                if (f74718h == null && f74719i != null) {
-                    f74718h = f74719i.a();
+                if (f71770h == null && f71771i != null) {
+                    f71770h = f71771i.a();
                 }
-                if (f74713c == null) {
-                    f74713c = new d.l.a.e.b.m.i();
+                if (f71765c == null) {
+                    f71765c = new d.l.a.e.b.m.i();
                 }
-                if (f74716f == null) {
-                    f74716f = new d.l.a.e.b.m.e();
+                if (f71768f == null) {
+                    f71768f = new d.l.a.e.b.m.e();
                 }
-                if (f74714d == null) {
-                    f74714d = new d.l.a.e.b.m.c();
+                if (f71766d == null) {
+                    f71766d = new d.l.a.e.b.m.c();
                 }
                 if (w == null) {
                     w = new d.l.a.e.b.m.b();
@@ -600,7 +601,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, null, dVar) == null) {
             d.l.a.e.b.c.a.c("wjd", "setIndependentServiceCreator::creator=" + dVar);
-            f74719i = dVar;
+            f71771i = dVar;
         }
     }
 
@@ -629,14 +630,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            if (f74712b == null) {
+            if (f71764b == null) {
                 synchronized (e.class) {
-                    if (f74712b == null) {
-                        f74712b = new d.l.a.e.b.m.d();
+                    if (f71764b == null) {
+                        f71764b = new d.l.a.e.b.m.d();
                     }
                 }
             }
-            return f74712b;
+            return f71764b;
         }
         return (k) invokeV.objValue;
     }
@@ -646,21 +647,21 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65564, null, jVar) == null) || jVar == null) {
             return;
         }
-        f74714d = jVar;
+        f71766d = jVar;
     }
 
     public static p N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
-            if (f74717g == null) {
+            if (f71769g == null) {
                 synchronized (e.class) {
-                    if (f74717g == null) {
-                        f74717g = new d.l.a.e.b.m.h();
+                    if (f71769g == null) {
+                        f71769g = new d.l.a.e.b.m.h();
                     }
                 }
             }
-            return f74717g;
+            return f71769g;
         }
         return (p) invokeV.objValue;
     }
@@ -670,21 +671,21 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65566, null, kVar) == null) || kVar == null) {
             return;
         }
-        f74712b = kVar;
+        f71764b = kVar;
     }
 
     public static p O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (f74718h == null) {
+            if (f71770h == null) {
                 synchronized (e.class) {
-                    if (f74718h == null) {
-                        f74718h = f74719i.a();
+                    if (f71770h == null) {
+                        f71770h = f71771i.a();
                     }
                 }
             }
-            return f74718h;
+            return f71770h;
         }
         return (p) invokeV.objValue;
     }
@@ -694,7 +695,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65568, null, lVar) == null) || lVar == null) {
             return;
         }
-        f74713c = lVar;
+        f71765c = lVar;
     }
 
     public static synchronized void Q(m mVar) {
@@ -703,8 +704,8 @@ public class e {
             synchronized (e.class) {
                 if (mVar != null) {
                     n = mVar;
-                    if (f74712b instanceof d.l.a.e.b.m.d) {
-                        ((d.l.a.e.b.m.d) f74712b).m();
+                    if (f71764b instanceof d.l.a.e.b.m.d) {
+                        ((d.l.a.e.b.m.d) f71764b).m();
                     }
                 }
             }
@@ -807,14 +808,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
-            if (f74713c == null) {
+            if (f71765c == null) {
                 synchronized (e.class) {
-                    if (f74713c == null) {
-                        f74713c = new d.l.a.e.b.m.i();
+                    if (f71765c == null) {
+                        f71765c = new d.l.a.e.b.m.i();
                     }
                 }
             }
-            return f74713c;
+            return f71765c;
         }
         return (l) invokeV.objValue;
     }
@@ -868,14 +869,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
-            if (f74716f == null) {
+            if (f71768f == null) {
                 synchronized (e.class) {
-                    if (f74716f == null) {
-                        f74716f = new d.l.a.e.b.m.e();
+                    if (f71768f == null) {
+                        f71768f = new d.l.a.e.b.m.e();
                     }
                 }
             }
-            return f74716f;
+            return f71768f;
         }
         return (d.l.a.e.b.m.a) invokeV.objValue;
     }
@@ -920,7 +921,7 @@ public class e {
             if (B != null && B.a() != null) {
                 return B.a();
             }
-            return d.l.a.e.b.d.c.f74690g;
+            return d.l.a.e.b.d.c.f71742g;
         }
         return (JSONObject) invokeV.objValue;
     }
@@ -936,9 +937,9 @@ public class e {
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65589, null) == null) && TextUtils.isEmpty(d.l.a.e.b.d.c.f74686c)) {
-            d.l.a.e.b.d.c.f74686c = RomUtils.MANUFACTURER_OPPO;
-            d.l.a.e.b.d.c.f74685b = d.l.a.e.b.d.c.f74686c.toUpperCase();
+        if ((interceptable == null || interceptable.invokeV(65589, null) == null) && TextUtils.isEmpty(d.l.a.e.b.d.c.f71738c)) {
+            d.l.a.e.b.d.c.f71738c = RomUtils.MANUFACTURER_OPPO;
+            d.l.a.e.b.d.c.f71737b = d.l.a.e.b.d.c.f71738c.toUpperCase();
         }
     }
 
@@ -1002,14 +1003,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65595, null)) == null) {
-            if (f74714d == null) {
+            if (f71766d == null) {
                 synchronized (e.class) {
-                    if (f74714d == null) {
-                        f74714d = new d.l.a.e.b.m.c();
+                    if (f71766d == null) {
+                        f71766d = new d.l.a.e.b.m.c();
                     }
                 }
             }
-            return f74714d;
+            return f71766d;
         }
         return (j) invokeV.objValue;
     }
@@ -1025,7 +1026,7 @@ public class e {
     public static d.l.a.e.b.f.i j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? f74715e : (d.l.a.e.b.f.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? f71767e : (d.l.a.e.b.f.i) invokeV.objValue;
     }
 
     public static void j0(boolean z2) {
@@ -1206,7 +1207,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) {
             synchronized (e.class) {
-                context = f74711a;
+                context = f71763a;
             }
             return context;
         }
@@ -1298,9 +1299,9 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(65615, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("supportMultiProc::=");
-            sb.append(f74719i != null);
+            sb.append(f71771i != null);
             d.l.a.e.b.c.a.c("wjd", sb.toString());
-            return f74719i != null;
+            return f71771i != null;
         }
         return invokeV.booleanValue;
     }
@@ -1316,7 +1317,7 @@ public class e {
     public static d t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) ? f74719i : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) ? f71771i : (d) invokeV.objValue;
     }
 
     public static d.l.a.e.b.e.b t0() {
@@ -1337,7 +1338,7 @@ public class e {
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                f74711a.registerReceiver(x, intentFilter);
+                f71763a.registerReceiver(x, intentFilter);
                 J = true;
             } catch (Throwable th) {
                 th.printStackTrace();

@@ -62,6 +62,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class MediaSessionCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -2009,7 +2010,7 @@ public class MediaSessionCompat {
             if (componentName != null) {
                 this.mContext = context;
                 this.mPackageName = context.getPackageName();
-                this.mAudioManager = (AudioManager) context.getSystemService("audio");
+                this.mAudioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 this.mTag = str;
                 this.mMediaButtonReceiverComponentName = componentName;
                 this.mMediaButtonReceiverIntent = pendingIntent;
@@ -2065,7 +2066,7 @@ public class MediaSessionCompat {
 
         private void sendMetadata(MediaMetadataCompat mediaMetadataCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, mediaMetadataCompat) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mediaMetadataCompat) == null) {
                 for (int beginBroadcast = this.mControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                     try {
                         this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onMetadataChanged(mediaMetadataCompat);
@@ -2793,7 +2794,7 @@ public class MediaSessionCompat {
         public static QueueItem fromQueueItem(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
                 if (obj == null || Build.VERSION.SDK_INT < 21) {
                     return null;
                 }
@@ -3020,7 +3021,7 @@ public class MediaSessionCompat {
         public static Token fromBundle(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bundle)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
                 if (bundle == null) {
                     return null;
                 }
@@ -3644,14 +3645,14 @@ public class MediaSessionCompat {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, bundle};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (ComponentName) objArr2[2], (PendingIntent) objArr2[3], (Bundle) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

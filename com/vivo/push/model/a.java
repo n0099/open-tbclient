@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42168a;
+    public String f39182a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42169b;
+    public String f39183b;
 
     public a(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class a {
                 return;
             }
         }
-        this.f42168a = str;
-        this.f42169b = str2;
+        this.f39182a = str;
+        this.f39183b = str2;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42168a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39182a : (String) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42169b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39183b : (String) invokeV.objValue;
     }
 
     public final boolean equals(Object obj) {
@@ -57,12 +57,12 @@ public final class a {
             }
             if (obj != null && a.class == obj.getClass()) {
                 a aVar = (a) obj;
-                String str = this.f42168a;
+                String str = this.f39182a;
                 if (str == null) {
-                    if (aVar.f42168a != null) {
+                    if (aVar.f39182a != null) {
                         return false;
                     }
-                } else if (!str.equals(aVar.f42168a)) {
+                } else if (!str.equals(aVar.f39182a)) {
                     return false;
                 }
                 return true;
@@ -76,7 +76,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.f42168a;
+            String str = this.f39182a;
             return (str == null ? 0 : str.hashCode()) + 31;
         }
         return invokeV.intValue;
@@ -86,7 +86,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ConfigItem{mKey='" + this.f42168a + "', mValue='" + this.f42169b + "'}";
+            return "ConfigItem{mKey='" + this.f39182a + "', mValue='" + this.f39183b + "'}";
         }
         return (String) invokeV.objValue;
     }

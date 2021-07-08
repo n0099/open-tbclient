@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f32099a;
+    public File f32209a;
 
     public a(File file) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f32099a = file;
+        this.f32209a = file;
     }
 
     public abstract InputStream a(File file, String str) throws IOException;
@@ -40,7 +40,7 @@ public abstract class a {
     public final InputStream a(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? a(this.f32099a, str) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? a(this.f32209a, str) : (InputStream) invokeL.objValue;
     }
 
     public abstract boolean b(File file, String str) throws IOException;
@@ -48,6 +48,6 @@ public abstract class a {
     public final boolean b(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? b(this.f32099a, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? b(this.f32209a, str) : invokeL.booleanValue;
     }
 }

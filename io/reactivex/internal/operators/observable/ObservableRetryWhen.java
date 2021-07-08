@@ -22,13 +22,13 @@ import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super Observable<Throwable>, ? extends ObservableSource<?>> handler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class RepeatWhenObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 802743776666017014L;
@@ -37,14 +37,14 @@ public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReference<Disposable> f76017d;
+        public final AtomicReference<Disposable> f73051d;
         public final AtomicThrowable error;
         public final RepeatWhenObserver<T>.InnerRepeatObserver inner;
         public final Subject<Throwable> signaller;
         public final ObservableSource<T> source;
         public final AtomicInteger wip;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public final class InnerRepeatObserver extends AtomicReference<Disposable> implements Observer<Object> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 3254781284376480842L;
@@ -123,14 +123,14 @@ public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream
             this.wip = new AtomicInteger();
             this.error = new AtomicThrowable();
             this.inner = new InnerRepeatObserver(this);
-            this.f76017d = new AtomicReference<>();
+            this.f73051d = new AtomicReference<>();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DisposableHelper.dispose(this.f76017d);
+                DisposableHelper.dispose(this.f73051d);
                 DisposableHelper.dispose(this.inner);
             }
         }
@@ -138,7 +138,7 @@ public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream
         public void innerComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                DisposableHelper.dispose(this.f76017d);
+                DisposableHelper.dispose(this.f73051d);
                 HalfSerializer.onComplete(this.actual, this, this.error);
             }
         }
@@ -146,7 +146,7 @@ public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream
         public void innerError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                DisposableHelper.dispose(this.f76017d);
+                DisposableHelper.dispose(this.f73051d);
                 HalfSerializer.onError(this.actual, th, this, this.error);
             }
         }
@@ -162,7 +162,7 @@ public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.f76017d.get()) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.f73051d.get()) : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -195,7 +195,7 @@ public final class ObservableRetryWhen<T> extends AbstractObservableWithUpstream
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
-                DisposableHelper.replace(this.f76017d, disposable);
+                DisposableHelper.replace(this.f73051d, disposable);
             }
         }
 

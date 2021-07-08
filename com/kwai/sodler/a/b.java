@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.download.e;
-import com.kwai.sodler.lib.a.b;
 import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.a.g;
 import com.kwai.sodler.lib.ext.PluginError;
@@ -22,12 +21,12 @@ import com.kwai.sodler.lib.j;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f39748a;
+    public static boolean f36956a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +48,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             synchronized (b.class) {
-                if (f39748a) {
+                if (f36956a) {
                     return;
                 }
                 j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
@@ -102,24 +101,16 @@ public class b {
                         }
                     }
                 });
-                f39748a = true;
+                f36956a = true;
             }
         }
     }
 
-    public static void a(b.a aVar) {
+    public static void a(String str, com.kwai.sodler.lib.b.b bVar, com.kwai.sodler.lib.ext.b bVar2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, aVar) == null) || aVar == null) {
-            return;
-        }
-        j.a().f().a(aVar);
-    }
-
-    public static void a(String str, com.kwai.sodler.lib.ext.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, bVar) == null) {
-            h hVar = new h(null, str);
-            hVar.a(bVar);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, bVar, bVar2) == null) {
+            h hVar = new h(bVar, str);
+            hVar.a(bVar2);
             j.a().a(hVar, 16);
         }
     }

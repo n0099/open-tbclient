@@ -3,6 +3,7 @@ package com.baidu.ar.gesture;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.media.session.MediaSessionCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
@@ -74,7 +75,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
     public int c(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
             return invokeCommon.intValue;
         }
         if (i2 == -90) {
@@ -151,7 +152,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                     float f2 = this.qr.getFloat("det_thresh", 0.25f);
                     float f3 = this.qr.getFloat("first_cls_thresh", 0.75f);
                     float f4 = this.qr.getFloat("second_cls_thresh", 0.5f);
-                    return aVar.f4226tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1);
+                    return aVar.f4229tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1);
                 }
                 return invokeL2.intValue;
             }

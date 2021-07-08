@@ -52,7 +52,7 @@ import org.aspectj.lang.reflect.NoSuchPointcutException;
 import org.aspectj.lang.reflect.PerClause;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.Pointcut;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AjTypeImpl<T> implements AjType<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ajcMagic = "ajc$";
@@ -135,7 +135,7 @@ public class AjTypeImpl<T> implements AjType<T> {
     private Advice asAdvice(Method method) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, method)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, method)) == null) {
             if (method.getAnnotations().length == 0) {
                 return null;
             }

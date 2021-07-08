@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.adnet.core;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,28 +12,28 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f27904a;
+    public final int f28014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f27905b;
+    public final byte[] f28015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f27906c;
+    public final Map<String, String> f28016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Header> f27907d;
+    public final List<Header> f28017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f27908e;
+    public final boolean f28018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f27909f;
+    public final long f28019f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
@@ -133,22 +134,22 @@ public class i {
                 return;
             }
         }
-        this.f27904a = i2;
-        this.f27905b = bArr;
-        this.f27906c = map;
+        this.f28014a = i2;
+        this.f28015b = bArr;
+        this.f28016c = map;
         if (list == null) {
-            this.f27907d = null;
+            this.f28017d = null;
         } else {
-            this.f27907d = Collections.unmodifiableList(list);
+            this.f28017d = Collections.unmodifiableList(list);
         }
-        this.f27908e = z;
-        this.f27909f = j;
+        this.f28018e = z;
+        this.f28019f = j;
     }
 
     public static List<Header> a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
             if (map == null) {
                 return null;
             }

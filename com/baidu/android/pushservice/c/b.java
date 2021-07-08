@@ -13,31 +13,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2891a;
+    public long f2894a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2892b;
+    public long f2895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2893c;
+    public String f2896c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2894d;
+    public String f2897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2895e;
+    public String f2898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2896f;
+    public String f2899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2897g;
+    public String f2900g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2898h;
+    public String f2901h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2899i;
+    public String f2902i;
     public String j;
 
     public b() {
@@ -53,15 +53,15 @@ public class b {
                 return;
             }
         }
-        this.f2891a = 0L;
-        this.f2892b = 0L;
-        this.f2893c = "";
-        this.f2894d = "";
-        this.f2895e = "";
-        this.f2896f = "";
-        this.f2897g = "";
-        this.f2898h = "";
-        this.f2899i = "";
+        this.f2894a = 0L;
+        this.f2895b = 0L;
+        this.f2896c = "";
+        this.f2897d = "";
+        this.f2898e = "";
+        this.f2899f = "";
+        this.f2900g = "";
+        this.f2901h = "";
+        this.f2902i = "";
         this.j = "";
     }
 
@@ -70,21 +70,21 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            long j = this.f2891a;
+            long j = this.f2894a;
             if (j > -1) {
                 jSONObject.put("push_priority", j);
             }
-            long j2 = this.f2892b;
+            long j2 = this.f2895b;
             if (j2 > -1) {
                 jSONObject.put("push_version", j2);
             }
-            jSONObject.put("push_channelid", this.f2893c);
-            jSONObject.put("push_newchannelid", this.f2894d);
-            jSONObject.put("push_curpkgname", this.f2895e);
-            jSONObject.put("push_webappbindinfo", this.f2896f);
-            jSONObject.put("push_lightappbindinfo", this.f2897g);
-            jSONObject.put("push_sdkclientbindinfo", this.f2898h);
-            jSONObject.put("push_clientsbindinfo", this.f2899i);
+            jSONObject.put("push_channelid", this.f2896c);
+            jSONObject.put("push_newchannelid", this.f2897d);
+            jSONObject.put("push_curpkgname", this.f2898e);
+            jSONObject.put("push_webappbindinfo", this.f2899f);
+            jSONObject.put("push_lightappbindinfo", this.f2900g);
+            jSONObject.put("push_sdkclientbindinfo", this.f2901h);
+            jSONObject.put("push_clientsbindinfo", this.f2902i);
             jSONObject.put("push_selfbindinfo", this.j);
             return jSONObject;
         }

@@ -12,13 +12,13 @@ import com.qq.e.comm.a;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class LiteAbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f40672a;
+    public T f37686a;
 
     public LiteAbstractAD() {
         Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public abstract class LiteAbstractAD<T> {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f40673a;
+                    public final /* synthetic */ Context f37687a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f40674b;
+                    public final /* synthetic */ String f37688b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f40675c;
+                    public final /* synthetic */ String f37689c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ LiteAbstractAD f40676d;
+                    public final /* synthetic */ LiteAbstractAD f37690d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -73,10 +73,10 @@ public abstract class LiteAbstractAD<T> {
                                 return;
                             }
                         }
-                        this.f40676d = this;
-                        this.f40673a = context;
-                        this.f40674b = str;
-                        this.f40675c = str2;
+                        this.f37690d = this;
+                        this.f37687a = context;
+                        this.f37688b = str;
+                        this.f37689c = str2;
                     }
 
                     @Override // java.lang.Runnable
@@ -85,17 +85,17 @@ public abstract class LiteAbstractAD<T> {
                         int i2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (GDTADManager.getInstance().initWith(this.f40673a, this.f40674b)) {
+                            if (GDTADManager.getInstance().initWith(this.f37687a, this.f37688b)) {
                                 try {
                                     new Handler(Looper.getMainLooper()).post(new Runnable(this, GDTADManager.getInstance().getPM().getPOFactory()) { // from class: com.qq.e.ads.LiteAbstractAD.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
 
                                         /* renamed from: a  reason: collision with root package name */
-                                        public /* synthetic */ POFactory f40677a;
+                                        public /* synthetic */ POFactory f37691a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public /* synthetic */ AnonymousClass1 f40678b;
+                                        public /* synthetic */ AnonymousClass1 f37692b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -112,8 +112,8 @@ public abstract class LiteAbstractAD<T> {
                                                     return;
                                                 }
                                             }
-                                            this.f40678b = this;
-                                            this.f40677a = r7;
+                                            this.f37692b = this;
+                                            this.f37691a = r7;
                                         }
 
                                         /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.qq.e.ads.LiteAbstractAD */
@@ -123,15 +123,15 @@ public abstract class LiteAbstractAD<T> {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                                 try {
-                                                    if (this.f40677a == null) {
-                                                        this.f40678b.f40676d.a(200102);
+                                                    if (this.f37691a == null) {
+                                                        this.f37692b.f37690d.a(200102);
                                                         return;
                                                     }
-                                                    this.f40678b.f40676d.f40672a = this.f40678b.f40676d.a(this.f40678b.f40673a, this.f40677a, this.f40678b.f40674b, this.f40678b.f40675c);
-                                                    this.f40678b.f40676d.a((LiteAbstractAD) this.f40678b.f40676d.f40672a);
+                                                    this.f37692b.f37690d.f37686a = this.f37692b.f37690d.a(this.f37692b.f37687a, this.f37691a, this.f37692b.f37688b, this.f37692b.f37689c);
+                                                    this.f37692b.f37690d.a((LiteAbstractAD) this.f37692b.f37690d.f37686a);
                                                 } catch (Throwable th) {
                                                     GDTLogger.e("Exception while init Core", th);
-                                                    this.f40678b.f40676d.a(2001);
+                                                    this.f37692b.f37690d.a(2001);
                                                 }
                                             }
                                         }
@@ -139,12 +139,12 @@ public abstract class LiteAbstractAD<T> {
                                     return;
                                 } catch (Throwable th) {
                                     GDTLogger.e("Exception while init plugin", th);
-                                    liteAbstractAD = this.f40676d;
+                                    liteAbstractAD = this.f37690d;
                                     i2 = 200102;
                                 }
                             } else {
                                 GDTLogger.e("Fail to init ADManager");
-                                liteAbstractAD = this.f40676d;
+                                liteAbstractAD = this.f37690d;
                                 i2 = 200101;
                             }
                             liteAbstractAD.a(i2);

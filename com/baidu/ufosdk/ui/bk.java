@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class bk implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23365a;
+    public final /* synthetic */ FeedbackInputActivity f23475a;
 
     public bk(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class bk implements Runnable {
                 return;
             }
         }
-        this.f23365a = feedbackInputActivity;
+        this.f23475a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -39,22 +39,22 @@ public final class bk implements Runnable {
         String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SharedPreferences.Editor edit = this.f23365a.getSharedPreferences("UfoSharePreference", 0).edit();
-            str = this.f23365a.aA;
+            SharedPreferences.Editor edit = this.f23475a.getSharedPreferences("UfoSharePreference", 0).edit();
+            str = this.f23475a.aA;
             if (str != null) {
-                str3 = this.f23365a.aA;
+                str3 = this.f23475a.aA;
                 if (str3.trim().length() > 0) {
-                    str4 = this.f23365a.aA;
+                    str4 = this.f23475a.aA;
                     str2 = com.baidu.ufosdk.f.k.a(str4);
                     edit.putString("cryptContactData", str2);
                     edit.commit();
-                    FeedbackInputActivity.j(this.f23365a);
+                    FeedbackInputActivity.j(this.f23475a);
                 }
             }
             str2 = "";
             edit.putString("cryptContactData", str2);
             edit.commit();
-            FeedbackInputActivity.j(this.f23365a);
+            FeedbackInputActivity.j(this.f23475a);
         }
     }
 }

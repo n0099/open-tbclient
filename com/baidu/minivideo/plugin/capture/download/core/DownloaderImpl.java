@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectListener, DownloadTask.OnDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     private ThreadRecord getSingleThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? new ThreadRecord(0, this.mTag, this.mRequest.getUri(), 0L) : (ThreadRecord) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? new ThreadRecord(0, this.mTag, this.mRequest.getUri(), 0L) : (ThreadRecord) invokeV.objValue;
     }
 
     private void init() {

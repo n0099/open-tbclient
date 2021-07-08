@@ -8,7 +8,7 @@ import com.baidu.webkit.internal.utils.UtilsBlink;
 import io.flutter.plugin.common.StandardMessageCodec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

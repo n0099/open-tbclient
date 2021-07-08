@@ -24,8 +24,8 @@ import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
 import com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
-import d.a.y0.t.r;
-import d.a.y0.t.u;
+import d.a.v0.t.r;
+import d.a.v0.t.u;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -33,7 +33,8 @@ import java.util.List;
 import java.util.Map;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes5.dex */
 public class GLMediaPreviewView extends MediaPreviewView implements EffectChangeObserver, MediaTrackChangeObserver, OnDrawUpdateTextureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     public MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface ScaleType {
         public static final int FILL_PARENT = 0;
         public static final int FIT_PARENT = 1;
@@ -312,7 +313,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            ((AudioManager) getContext().getSystemService("audio")).abandonAudioFocus(null);
+            ((AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).abandonAudioFocus(null);
             queueEvent(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

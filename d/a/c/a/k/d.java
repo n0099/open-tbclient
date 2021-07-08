@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.k.a;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0582a callback;
+    public a.InterfaceC0543a callback;
     public SQLiteDatabase database;
     public final String dbFileFullPath;
     public int mVersion;
@@ -42,12 +42,12 @@ public abstract class d implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        a.InterfaceC0582a interfaceC0582a;
+        a.InterfaceC0543a interfaceC0543a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0582a = this.callback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0543a = this.callback) == null) {
             return;
         }
-        interfaceC0582a.a(sQLiteDatabase);
+        interfaceC0543a.a(sQLiteDatabase);
     }
 
     private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
@@ -148,10 +148,10 @@ public abstract class d implements a {
     }
 
     @Override // d.a.c.a.k.a
-    public void setOnCreateCallback(a.InterfaceC0582a interfaceC0582a) {
+    public void setOnCreateCallback(a.InterfaceC0543a interfaceC0543a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0582a) == null) {
-            this.callback = interfaceC0582a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0543a) == null) {
+            this.callback = interfaceC0543a;
         }
     }
 }

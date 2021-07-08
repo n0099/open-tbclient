@@ -14,34 +14,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f30840a;
+        public static final a f30950a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f30841b;
+        public static final a f30951b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f30842c;
+        public static final a f30952c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f30843d;
+        public static final a f30953d;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f30844f;
+        public static final /* synthetic */ a[] f30954f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f30845e;
+        public String f30955e;
 
         static {
             InterceptResult invokeClinit;
@@ -56,12 +56,12 @@ public class e {
                     return;
                 }
             }
-            f30840a = new a("HTML", 0, SapiWebView.DATA_MIME_TYPE);
-            f30841b = new a("CSS", 1, "text/css");
-            f30842c = new a("JS", 2, "application/x-javascript");
+            f30950a = new a("HTML", 0, SapiWebView.DATA_MIME_TYPE);
+            f30951b = new a("CSS", 1, "text/css");
+            f30952c = new a("JS", 2, "application/x-javascript");
             a aVar = new a("IMAGE", 3, BdUploadHandler.IMAGE_MIME_TYPE);
-            f30843d = aVar;
-            f30844f = new a[]{f30840a, f30841b, f30842c, aVar};
+            f30953d = aVar;
+            f30954f = new a[]{f30950a, f30951b, f30952c, aVar};
         }
 
         public a(String str, int i2, String str2) {
@@ -82,7 +82,7 @@ public class e {
                     return;
                 }
             }
-            this.f30845e = str2;
+            this.f30955e = str2;
         }
 
         public static a valueOf(String str) {
@@ -94,13 +94,13 @@ public class e {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f30844f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f30954f.clone() : (a[]) invokeV.objValue;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30845e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30955e : (String) invokeV.objValue;
         }
     }
 
@@ -109,7 +109,7 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            a aVar2 = a.f30843d;
+            a aVar2 = a.f30953d;
             if (TextUtils.isEmpty(str)) {
                 return aVar2;
             }
@@ -117,17 +117,17 @@ public class e {
                 String path = Uri.parse(str).getPath();
                 if (path != null) {
                     if (path.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        aVar = a.f30841b;
+                        aVar = a.f30951b;
                     } else if (path.endsWith(".js")) {
-                        aVar = a.f30842c;
+                        aVar = a.f30952c;
                     } else {
                         if (!path.endsWith(".jpg") && !path.endsWith(".gif") && !path.endsWith(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !path.endsWith(".jpeg") && !path.endsWith(".webp") && !path.endsWith(".bmp") && !path.endsWith(".ico")) {
                             if (!path.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                 return aVar2;
                             }
-                            aVar = a.f30840a;
+                            aVar = a.f30950a;
                         }
-                        aVar = a.f30843d;
+                        aVar = a.f30953d;
                     }
                     return aVar;
                 }

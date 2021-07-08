@@ -126,7 +126,7 @@ public final class BidiFormatter {
             char charAt;
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 do {
                     int i2 = this.charIndex;
                     if (i2 >= this.length) {
@@ -457,7 +457,7 @@ public final class BidiFormatter {
     public static BidiFormatter getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new Builder().build() : (BidiFormatter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new Builder().build() : (BidiFormatter) invokeV.objValue;
     }
 
     public static boolean isRtlLocale(Locale locale) {
@@ -554,7 +554,7 @@ public final class BidiFormatter {
 
         private void initialize(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
                 this.mIsRtlContext = z;
                 this.mTextDirectionHeuristicCompat = BidiFormatter.DEFAULT_TEXT_DIRECTION_HEURISTIC;
                 this.mFlags = 2;

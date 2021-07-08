@@ -1,6 +1,7 @@
 package com.heytap.openid.sdk;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.sdk.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,8 +31,8 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            b.f33469b = c.b.f33476a.a(b.a(context));
-            b.f33468a = true;
+            b.f33579b = c.b.f33586a.a(b.a(context));
+            b.f33578a = true;
         }
     }
 
@@ -39,8 +40,8 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b.f33468a) {
-                return b.f33469b;
+            if (b.f33578a) {
+                return b.f33579b;
             }
             throw new RuntimeException("SDK Need Init First!");
         }
@@ -51,8 +52,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (b.f33468a) {
-                return c.b.f33476a.a(b.a(context), "OUID");
+            if (b.f33578a) {
+                return c.b.f33586a.a(b.a(context), "OUID");
             }
             throw new RuntimeException("SDK Need Init First!");
         }
@@ -62,9 +63,9 @@ public class a {
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
-            if (b.f33468a) {
-                return c.b.f33476a.a(b.a(context), "DUID");
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (b.f33578a) {
+                return c.b.f33586a.a(b.a(context), "DUID");
             }
             throw new RuntimeException("SDK Need Init First!");
         }
@@ -75,8 +76,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (b.f33468a) {
-                return c.b.f33476a.a(b.a(context), "AUID");
+            if (b.f33578a) {
+                return c.b.f33586a.a(b.a(context), "AUID");
             }
             throw new RuntimeException("SDK Need Init First!");
         }

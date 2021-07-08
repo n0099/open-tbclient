@@ -10,36 +10,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f32268a;
+    public static final c f32378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f32269b;
+    public static final c f32379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f32270c;
+    public static final c f32380c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f32271d;
+    public static final c f32381d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f32272e;
+    public static final c f32382e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f32273f;
+    public static final c f32383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f32274g;
+    public static final c f32384g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f32275h;
+    public static final c f32385h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f32276i;
+    public static final c f32386i;
     public static final /* synthetic */ c[] k;
     public transient /* synthetic */ FieldHolder $fh;
     public String j;
@@ -57,17 +57,17 @@ public final class c {
                 return;
             }
         }
-        f32268a = new c("LAUNCH", 0, "launch");
-        f32269b = new c(Constant.TYPE_JAVA, 1, "java");
-        f32270c = new c(Constant.TYPE_NATIVE, 2, "native");
-        f32271d = new c("ANR", 3, "anr");
-        f32272e = new c("BLOCK", 4, BreakpointSQLiteHelper.BLOCK_TABLE_NAME);
-        f32273f = new c("ENSURE", 5, "ensure");
-        f32274g = new c("DART", 6, "dart");
-        f32275h = new c("CUSTOM_JAVA", 7, "custom_java");
+        f32378a = new c("LAUNCH", 0, "launch");
+        f32379b = new c(Constant.TYPE_JAVA, 1, "java");
+        f32380c = new c(Constant.TYPE_NATIVE, 2, "native");
+        f32381d = new c("ANR", 3, "anr");
+        f32382e = new c("BLOCK", 4, BreakpointSQLiteHelper.BLOCK_TABLE_NAME);
+        f32383f = new c("ENSURE", 5, "ensure");
+        f32384g = new c("DART", 6, "dart");
+        f32385h = new c("CUSTOM_JAVA", 7, "custom_java");
         c cVar = new c("ALL", 8, "all");
-        f32276i = cVar;
-        k = new c[]{f32268a, f32269b, f32270c, f32271d, f32272e, f32273f, f32274g, f32275h, cVar};
+        f32386i = cVar;
+        k = new c[]{f32378a, f32379b, f32380c, f32381d, f32382e, f32383f, f32384g, f32385h, cVar};
     }
 
     public c(String str, int i2, String str2) {

@@ -1,14 +1,14 @@
 package com.baidu.wallet.base.nopassauth;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24005a = 0;
+    public static final int f24115a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f24006b = 1;
+    public static final int f24116b = 1;
 
     int a();
 

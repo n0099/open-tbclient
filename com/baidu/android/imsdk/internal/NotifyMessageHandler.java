@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.Type;
@@ -168,7 +169,7 @@ public abstract class NotifyMessageHandler {
 
     public static void handleMediaNotifyMessage(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, jSONObject) == null) {
             ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
         }
     }

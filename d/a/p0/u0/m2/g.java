@@ -1,0 +1,155 @@
+package d.a.p0.u0.m2;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.widget.LinearGradientView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import d.a.c.e.p.l;
+/* loaded from: classes8.dex */
+public class g {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f63264a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RelativeLayout f63265b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearGradientView f63266c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public BarImageView f63267d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f63268e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public FrsHeaderBannerView f63269f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout f63270g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f63271h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public View f63272i;
+    public TbImageView j;
+    public ImageView k;
+    public ImageView l;
+    public ImageView m;
+    public ImageView n;
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Context f63273e;
+
+        public a(g gVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f63273e = context;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                Context context = this.f63273e;
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
+            }
+        }
+    }
+
+    public g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (context == null) {
+            return;
+        }
+        View inflate = LayoutInflater.from(context).inflate(R.layout.frs_fake_view, (ViewGroup) null);
+        this.f63264a = inflate;
+        this.f63265b = (RelativeLayout) inflate.findViewById(R.id.head_top_bg_container);
+        this.f63266c = (LinearGradientView) this.f63264a.findViewById(R.id.head_top_gradient_bg);
+        TbImageView tbImageView = (TbImageView) this.f63264a.findViewById(R.id.head_top_bg_mask);
+        this.j = tbImageView;
+        tbImageView.setDefaultBgResource(R.color.transparent);
+        this.j.setDefaultResource(R.drawable.pic_frs_head_default);
+        this.f63267d = (BarImageView) this.f63264a.findViewById(R.id.frs_image);
+        TextView textView = (TextView) this.f63264a.findViewById(R.id.forum_name);
+        this.f63268e = textView;
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
+        this.f63269f = (FrsHeaderBannerView) this.f63264a.findViewById(R.id.frs_header_banner);
+        this.f63270g = (LinearLayout) this.f63264a.findViewById(R.id.fake_content_layout);
+        this.f63271h = (ImageView) this.f63264a.findViewById(R.id.fake_content_img);
+        this.f63272i = this.f63264a.findViewById(R.id.header_round_corner_layout);
+        this.k = (ImageView) this.f63264a.findViewById(R.id.fake_return_icon);
+        this.l = (ImageView) this.f63264a.findViewById(R.id.fake_share_icon);
+        this.m = (ImageView) this.f63264a.findViewById(R.id.fake_information_icon);
+        this.n = (ImageView) this.f63264a.findViewById(R.id.fake_search_icon);
+        this.k.setOnClickListener(new a(this, context));
+        this.f63267d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f63267d.setContentDescription(context.getResources().getString(R.string.bar_header));
+        this.f63267d.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+        this.f63267d.setShowOval(true);
+        this.f63267d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.f63267d.setStrokeColorResId(R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f63264a, R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.f63272i, R.drawable.white_bg_frs_header_round_corner);
+        SkinManager.setBackgroundResource(this.f63271h, R.color.CAM_X0201);
+        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f63271h, R.drawable.bg_pure_loadingskeleton_svg, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+    }
+}

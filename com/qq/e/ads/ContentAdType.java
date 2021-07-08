@@ -1,5 +1,6 @@
 package com.qq.e.ads;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ContentAdType {
     public static /* synthetic */ Interceptable $ic;
     public static final ContentAdType AD;
     public static final ContentAdType INFORMATION;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ContentAdType[] f40671a;
+    public static final /* synthetic */ ContentAdType[] f37685a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +35,7 @@ public final class ContentAdType {
         AD = new ContentAdType("AD", 0);
         ContentAdType contentAdType = new ContentAdType("INFORMATION", 1);
         INFORMATION = contentAdType;
-        f40671a = new ContentAdType[]{AD, contentAdType};
+        f37685a = new ContentAdType[]{AD, contentAdType};
     }
 
     public ContentAdType(String str, int i2) {
@@ -80,6 +81,6 @@ public final class ContentAdType {
     public static ContentAdType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ContentAdType[]) f40671a.clone() : (ContentAdType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ContentAdType[]) f37685a.clone() : (ContentAdType[]) invokeV.objValue;
     }
 }

@@ -20,19 +20,19 @@ import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class aj extends PayBaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f25862a;
+    public BindFastRequest f25972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f25863b;
+    public PayRequest f25973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25864c;
+    public boolean f25974c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> aj(Context context) {
@@ -52,14 +52,14 @@ public class aj extends PayBaseBean<Object> {
                 return;
             }
         }
-        this.f25864c = false;
-        this.f25863b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f25974c = false;
+        this.f25973b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f25864c = z;
+            this.f25974c = z;
         }
     }
 
@@ -77,33 +77,33 @@ public class aj extends PayBaseBean<Object> {
         CardData.BondCard bondCard;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f25862a != null) {
+            if (this.f25972a != null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25862a.getmPhone())));
-                arrayList.add(new RestNameValuePair("vcode", this.f25862a.mSmsVCode));
-                if (!this.f25864c) {
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25972a.getmPhone())));
+                arrayList.add(new RestNameValuePair("vcode", this.f25972a.mSmsVCode));
+                if (!this.f25974c) {
                     arrayList.add(new RestNameValuePair("source_flag", "3"));
-                    BindFastRequest bindFastRequest = this.f25862a;
+                    BindFastRequest bindFastRequest = this.f25972a;
                     if (bindFastRequest != null) {
                         arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
                     }
-                    arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25862a.getServiceType()));
+                    arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f25972a.getServiceType()));
                 }
-                arrayList.add(new RestNameValuePair("bind_without_pay", this.f25862a.getWithoutPay()));
-                if (!TextUtils.isEmpty(this.f25862a.getSubBankCode())) {
-                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f25862a.getSubBankCode()));
+                arrayList.add(new RestNameValuePair("bind_without_pay", this.f25972a.getWithoutPay()));
+                if (!TextUtils.isEmpty(this.f25972a.getSubBankCode())) {
+                    arrayList.add(new RestNameValuePair("sub_bank_code", this.f25972a.getSubBankCode()));
                 }
-                PayRequest payRequest = this.f25863b;
+                PayRequest payRequest = this.f25973b;
                 if (payRequest != null) {
                     arrayList.add(new RestNameValuePair("order_no", payRequest.mOrderNo));
-                    arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25863b.mSpNO));
-                    arrayList.add(new RestNameValuePair("total_amount", this.f25863b.getOrderPrice()));
+                    arrayList.add(new RestNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, this.f25973b.mSpNO));
+                    arrayList.add(new RestNameValuePair("total_amount", this.f25973b.getOrderPrice()));
                 }
-                PayRequest payRequest2 = this.f25863b;
+                PayRequest payRequest2 = this.f25973b;
                 if (payRequest2 != null && (bondCard = payRequest2.mBondCard) != null && !TextUtils.isEmpty(bondCard.account_no)) {
-                    arrayList.add(new RestNameValuePair("card_no", SafePay.getInstance().encryptProxy(this.f25863b.mBondCard.account_no)));
+                    arrayList.add(new RestNameValuePair("card_no", SafePay.getInstance().encryptProxy(this.f25973b.mBondCard.account_no)));
                 }
-                arrayList.add(new RestNameValuePair("session_id", this.f25862a.getSessionId()));
+                arrayList.add(new RestNameValuePair("session_id", this.f25972a.getSessionId()));
                 return arrayList;
             }
             throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
@@ -128,7 +128,7 @@ public class aj extends PayBaseBean<Object> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(DomainConfig.getInstance().getAppPayHost());
-            sb.append(this.f25864c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
+            sb.append(this.f25974c ? BeanConstants.API_SIGN_CONTRACT_VERIFY_SMS : BeanConstants.API_VERIFY_SMS);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -137,7 +137,7 @@ public class aj extends PayBaseBean<Object> {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
-            this.f25862a = bindFastRequest;
+            this.f25972a = bindFastRequest;
         }
     }
 }

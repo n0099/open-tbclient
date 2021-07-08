@@ -2,7 +2,7 @@ package okio;
 
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface Source extends Closeable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     void close() throws IOException;

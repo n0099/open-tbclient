@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -27,19 +28,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.s0.q3.e;
-import d.a.s0.x1.k;
-import d.a.s0.x1.l;
+import d.a.p0.q3.e;
+import d.a.p0.x1.k;
+import d.a.p0.x1.l;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VideoPlatformStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f13661a;
+    public static CustomMessageListener f13678a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,12 +71,12 @@ public class VideoPlatformStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 e.h().o();
-                d.a.s0.q3.b.d().k();
+                d.a.p0.q3.b.d().k();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<k> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,9 +117,9 @@ public class VideoPlatformStatic {
                 return;
             }
         }
-        f13661a = new a(2007015);
+        f13678a = new a(2007015);
         f();
-        MessageManager.getInstance().registerListener(f13661a);
+        MessageManager.getInstance().registerListener(f13678a);
         e();
     }
 
@@ -160,7 +161,7 @@ public class VideoPlatformStatic {
     public static JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("appVer", TbConfig.getVersion());
@@ -192,7 +193,7 @@ public class VideoPlatformStatic {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3983b : (j.v() || j.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3986b : (j.v() || j.z()) ? "4G" : "NONE" : (String) invokeV.objValue;
     }
 
     public static void e() {

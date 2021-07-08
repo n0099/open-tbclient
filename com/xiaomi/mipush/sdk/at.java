@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class at {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final at f42771a;
+    public static final at f39785a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ at[] f77a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final at f42772b;
+    public static final at f39786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final at f42773c;
+    public static final at f39787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final at f42774d;
+    public static final at f39788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final at f42775e;
+    public static final at f39789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final at f42776f;
+    public static final at f39790f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,14 +47,14 @@ public final class at {
                 return;
             }
         }
-        f42771a = new at("DISABLE_PUSH", 0);
-        f42772b = new at("ENABLE_PUSH", 1);
-        f42773c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f42774d = new at("UPLOAD_FCM_TOKEN", 3);
-        f42775e = new at("UPLOAD_COS_TOKEN", 4);
+        f39785a = new at("DISABLE_PUSH", 0);
+        f39786b = new at("ENABLE_PUSH", 1);
+        f39787c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        f39788d = new at("UPLOAD_FCM_TOKEN", 3);
+        f39789e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f42776f = atVar;
-        f77a = new at[]{f42771a, f42772b, f42773c, f42774d, f42775e, atVar};
+        f39790f = atVar;
+        f77a = new at[]{f39785a, f39786b, f39787c, f39788d, f39789e, atVar};
     }
 
     public at(String str, int i2) {

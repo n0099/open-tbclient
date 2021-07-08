@@ -11,13 +11,13 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f46502e;
+    public MethodChannel f53766e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_performance_report_plugin");
-            this.f46502e = methodChannel;
+            this.f53766e = methodChannel;
             methodChannel.setMethodCallHandler(this);
         }
     }
@@ -53,7 +53,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flutterPluginBinding) == null) {
-            this.f46502e.setMethodCallHandler(null);
+            this.f53766e.setMethodCallHandler(null);
         }
     }
 
@@ -62,7 +62,7 @@ public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, methodCall, result) == null) {
             HashMap<String, Object> hashMap = (HashMap) methodCall.arguments;
-            a.InterfaceC0678a a2 = a.b().a();
+            a.InterfaceC1246a a2 = a.b().a();
             String str = "uploadFpsData";
             if (!methodCall.method.equals("uploadFpsData")) {
                 if (methodCall.method.equals("uploadOpenPageData")) {

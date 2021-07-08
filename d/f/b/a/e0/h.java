@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class h extends d.f.b.a.y.e implements Comparable<h> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class h extends d.f.b.a.y.e implements Comparable<h> {
             if (j() != hVar.j()) {
                 return j() ? 1 : -1;
             }
-            int i2 = ((this.f73653h - hVar.f73653h) > 0L ? 1 : ((this.f73653h - hVar.f73653h) == 0L ? 0 : -1));
+            int i2 = ((this.f70756h - hVar.f70756h) > 0L ? 1 : ((this.f70756h - hVar.f70756h) == 0L ? 0 : -1));
             if (i2 == 0) {
                 return 0;
             }

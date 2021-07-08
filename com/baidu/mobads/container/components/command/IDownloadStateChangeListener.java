@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.components.command;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IDownloadStateChangeListener {
     void onDownloadStateChange();
 }

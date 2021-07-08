@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HttpDnsService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDnsService";
@@ -42,7 +42,7 @@ public class HttpDnsService {
     public DegradationFilter mDegradationFilter;
     public AtomicBoolean mInit;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface DegradationFilter {
         boolean shouldDegradeHttpDNS(String str);
     }
@@ -96,7 +96,7 @@ public class HttpDnsService {
         InterceptResult invokeLLLL;
         HttpDnsService service;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, context, str, iTaskExecutor, str2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, iTaskExecutor, str2)) == null) {
             synchronized (HttpDnsService.class) {
                 service = getService(context, str, iTaskExecutor, str2, false);
             }

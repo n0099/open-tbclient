@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
-import d.a.j0.b.a.a;
+import d.a.g0.b.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UBCIPCManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23153a = "UBCIPCManager";
+    public static final String f23263a = "UBCIPCManager";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,7 +70,7 @@ public class UBCIPCManager {
                     }
                     flow.addEvent(str, str2);
                     if (AppConfig.isDebug()) {
-                        String str3 = UBCIPCManager.f23153a;
+                        String str3 = UBCIPCManager.f23263a;
                         Log.d(str3, " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle());
                     }
                 }
@@ -101,7 +101,7 @@ public class UBCIPCManager {
                     }
                     flow.end();
                     if (AppConfig.isDebug()) {
-                        String str = UBCIPCManager.f23153a;
+                        String str = UBCIPCManager.f23263a;
                         Log.d(str, " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
                     }
                 }
@@ -164,7 +164,7 @@ public class UBCIPCManager {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i2)) == null) {
                         Flow beginFlow = UBC.beginFlow(str, str2, i2);
                         if (AppConfig.isDebug() && beginFlow != null) {
-                            String str3 = UBCIPCManager.f23153a;
+                            String str3 = UBCIPCManager.f23263a;
                             Log.d(str3, " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;

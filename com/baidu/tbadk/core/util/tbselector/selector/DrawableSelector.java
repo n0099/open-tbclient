@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.c;
+import d.a.p0.h3.c;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DrawableSelector extends AbsDrawableSelector implements ISelector<StateListDrawable, View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BL_TR = "BL_TR";
@@ -81,11 +81,11 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public int width;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface GradientOrientation {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public @interface Shape {
     }
 

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.BaseActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LoadingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_LOGIN_LOADING = 256;

@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, a> f45697a;
+    public static HashMap<String, a> f42544a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public final class b {
                 return;
             }
         }
-        f45697a = new HashMap<>();
+        f42544a = new HashMap<>();
     }
 
     public static synchronized a a(String str) {
@@ -49,13 +49,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
             synchronized (b.class) {
-                if (!f45697a.containsKey(str) || (aVar = f45697a.get(str)) == null) {
+                if (!f42544a.containsKey(str) || (aVar = f42544a.get(str)) == null) {
                     a aVar2 = new a(str, i2);
                     try {
                         aVar2.start();
                     } catch (Exception unused) {
                     }
-                    f45697a.put(str, aVar2);
+                    f42544a.put(str, aVar2);
                     return aVar2;
                 }
                 return aVar;
@@ -70,7 +70,7 @@ public final class b {
             synchronized (b.class) {
                 if (aVar != null) {
                     aVar.a();
-                    f45697a.values().remove(aVar);
+                    f42544a.values().remove(aVar);
                 }
             }
         }

@@ -17,8 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.NativeErrorCode;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,19 +39,19 @@ public class ai {
             agVar.setBackgroundColor(-16745729);
             agVar.setGravity(17);
             agVar.setText("连接中");
-            agVar.setTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE, "baidu_mtj_edit_txtview");
+            agVar.setTag(-5000, "baidu_mtj_edit_txtview");
             viewGroup.post(new Runnable(viewGroup, activity, agVar) { // from class: com.baidu.mobstat.ai.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f8615a;
+                public final /* synthetic */ View f8632a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f8616b;
+                public final /* synthetic */ Activity f8633b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TextView f8617c;
+                public final /* synthetic */ TextView f8634c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -69,22 +68,22 @@ public class ai {
                             return;
                         }
                     }
-                    this.f8615a = viewGroup;
-                    this.f8616b = activity;
-                    this.f8617c = agVar;
+                    this.f8632a = viewGroup;
+                    this.f8633b = activity;
+                    this.f8634c = agVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int width = this.f8615a.getWidth();
-                        int height = this.f8615a.getHeight();
-                        int c2 = ah.c(this.f8616b, 55.0f);
+                        int width = this.f8632a.getWidth();
+                        int height = this.f8632a.getHeight();
+                        int c2 = ah.c(this.f8633b, 55.0f);
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
                         layoutParams.leftMargin = (width - c2) / 6;
                         layoutParams.topMargin = ((height - c2) * 5) / 6;
-                        this.f8617c.setLayoutParams(layoutParams);
+                        this.f8634c.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -97,7 +96,7 @@ public class ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) {
-            Object tag = view.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE);
+            Object tag = view.getTag(-5000);
             return tag != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview");
         }
         return invokeL.booleanValue;
@@ -219,22 +218,22 @@ public class ai {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public int f8618a;
+                public int f8635a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f8619b;
+                public int f8636b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public int f8620c;
+                public int f8637c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public int f8621d;
+                public int f8638d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ View f8622e;
+                public final /* synthetic */ View f8639e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Activity f8623f;
+                public final /* synthetic */ Activity f8640f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -251,12 +250,12 @@ public class ai {
                             return;
                         }
                     }
-                    this.f8622e = r6;
-                    this.f8623f = activity;
-                    this.f8618a = 0;
-                    this.f8619b = 0;
-                    this.f8620c = 0;
-                    this.f8621d = 0;
+                    this.f8639e = r6;
+                    this.f8640f = activity;
+                    this.f8635a = 0;
+                    this.f8636b = 0;
+                    this.f8637c = 0;
+                    this.f8638d = 0;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -268,16 +267,16 @@ public class ai {
                         int rawY = (int) motionEvent.getRawY();
                         int action = motionEvent.getAction();
                         if (action == 0) {
-                            this.f8618a = rawX;
-                            this.f8619b = rawY;
-                            this.f8620c = rawX - view.getLeft();
-                            this.f8621d = rawY - view.getTop();
+                            this.f8635a = rawX;
+                            this.f8636b = rawY;
+                            this.f8637c = rawX - view.getLeft();
+                            this.f8638d = rawY - view.getTop();
                         } else if (action != 1) {
                             if (action == 2) {
-                                int i2 = rawX - this.f8620c;
-                                int i3 = rawY - this.f8621d;
+                                int i2 = rawX - this.f8637c;
+                                int i3 = rawY - this.f8638d;
                                 Rect rect = new Rect();
-                                this.f8622e.getLocalVisibleRect(rect);
+                                this.f8639e.getLocalVisibleRect(rect);
                                 if (rect.contains(new Rect(i2, i3, view.getWidth() + i2, view.getHeight() + i3))) {
                                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
                                     marginLayoutParams.leftMargin = i2;
@@ -285,8 +284,8 @@ public class ai {
                                     view.setLayoutParams(marginLayoutParams);
                                 }
                             }
-                        } else if (ai.b(this.f8618a, (int) motionEvent.getRawX(), this.f8619b, (int) motionEvent.getRawY())) {
-                            ai.b((Context) this.f8623f);
+                        } else if (ai.b(this.f8635a, (int) motionEvent.getRawX(), this.f8636b, (int) motionEvent.getRawY())) {
+                            ai.b((Context) this.f8640f);
                         }
                         return true;
                     }
@@ -306,7 +305,7 @@ public class ai {
             }
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 View childAt = viewGroup.getChildAt(i2);
-                if (childAt != null && (tag = childAt.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
+                if (childAt != null && (tag = childAt.getTag(-5000)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
                     return childAt;
                 }
             }

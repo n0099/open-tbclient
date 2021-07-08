@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -23,7 +24,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.WritableByteChannel;
 @DoNotParseDetail
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class IsoFile extends BasicContainer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -68,7 +69,7 @@ public class IsoFile extends BasicContainer implements Closeable {
     public static String bytesToFourCC(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             byte[] bArr2 = new byte[4];
             if (bArr != null) {
                 System.arraycopy(bArr, 0, bArr2, 0, Math.min(bArr.length, 4));

@@ -23,7 +23,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Dev {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INSTALLATION = "INSTALLATION";
@@ -109,7 +109,7 @@ public class Dev {
             RandomAccessFile randomAccessFile3 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f7745a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7762a);
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -146,7 +146,7 @@ public class Dev {
     private void writeInstallationFile(Context context, String str) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str) == null) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {

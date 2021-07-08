@@ -9,6 +9,7 @@ import android.os.IInterface;
 import android.os.Looper;
 import android.os.Parcel;
 import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,20 +22,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class GAIDClient {
     public static /* synthetic */ Interceptable $ic;
     public static AdInfo mAdInfo;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.yy.hiidostatis.inner.util.hdid.GAIDClient$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class AdInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +74,7 @@ public class GAIDClient {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class AdvertisingInterface implements IInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +226,7 @@ public class GAIDClient {
     public static String getGAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             AdInfo adInfo = mAdInfo;
             if (adInfo != null) {
                 return adInfo.getId();
@@ -282,7 +283,7 @@ public class GAIDClient {
         return (AdInfo) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class AdvertisingConnection implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

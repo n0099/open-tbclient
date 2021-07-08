@@ -3,6 +3,7 @@ package cn.com.chinatelecom.gateway.lib.c;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,10 +20,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1587a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String f1588a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1588b = "";
+    public static String f1589b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,16 +74,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f1588b)) {
+            if (TextUtils.isEmpty(f1589b)) {
                 String b2 = b(context);
-                f1588b = b2;
+                f1589b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f1588b = c2;
+                    f1589b = c2;
                     a(context, c2);
                 }
             }
-            return f1588b;
+            return f1589b;
         }
         return (String) invokeL.objValue;
     }
@@ -90,7 +91,7 @@ public class c {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
             try {
                 byte[] bytes = str.getBytes();

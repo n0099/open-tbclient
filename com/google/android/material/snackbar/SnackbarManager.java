@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SnackbarManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LONG_DURATION_MS = 2750;
@@ -31,14 +31,14 @@ public class SnackbarManager {
     @Nullable
     public SnackbarRecord nextSnackbar;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback {
         void dismiss(int i2);
 
         void show();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SnackbarRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class SnackbarManager {
     private boolean isNextSnackbarLocked(Callback callback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, callback)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, callback)) == null) {
             SnackbarRecord snackbarRecord = this.nextSnackbar;
             return snackbarRecord != null && snackbarRecord.isSnackbar(callback);
         }

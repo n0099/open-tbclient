@@ -46,7 +46,7 @@ import com.google.ar.core.InstallActivity;
 import com.google.zxing.common.BitMatrix;
 import com.sina.weibo.sdk.constant.WBConstants;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BitMatrixParser {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] BITNR;

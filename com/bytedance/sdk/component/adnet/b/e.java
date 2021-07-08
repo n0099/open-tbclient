@@ -17,24 +17,24 @@ import com.bytedance.sdk.component.adnet.core.Request;
 import com.bytedance.sdk.component.adnet.core.i;
 import com.bytedance.sdk.component.adnet.core.m;
 import com.bytedance.sdk.component.adnet.core.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends Request<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Object f27796f;
+    public static final Object f27906f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f27797c;
+    public final Object f27907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.InterfaceC0314d f27798d;
+    public final d.InterfaceC0314d f27908d;
     @Nullable
     @GuardedBy("mLock")
 
     /* renamed from: e  reason: collision with root package name */
-    public m.a<Bitmap> f27799e;
+    public m.a<Bitmap> f27909e;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +49,7 @@ public class e extends Request<Bitmap> {
                 return;
             }
         }
-        f27796f = new Object();
+        f27906f = new Object();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,10 +71,10 @@ public class e extends Request<Bitmap> {
                 return;
             }
         }
-        this.f27797c = new Object();
+        this.f27907c = new Object();
         setRetryPolicy(new com.bytedance.sdk.component.adnet.core.e(1000, 2, 2.0f));
-        this.f27799e = aVar;
-        this.f27798d = new com.bytedance.sdk.component.adnet.d.a(i2, i3, scaleType, config);
+        this.f27909e = aVar;
+        this.f27908d = new com.bytedance.sdk.component.adnet.d.a(i2, i3, scaleType, config);
         setShouldCache(false);
     }
 
@@ -82,7 +82,7 @@ public class e extends Request<Bitmap> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, iVar)) == null) {
-            Bitmap a2 = a(iVar.f27905b);
+            Bitmap a2 = a(iVar.f28015b);
             if (a2 == null) {
                 return m.a(new com.bytedance.sdk.component.adnet.err.e(iVar));
             }
@@ -97,12 +97,12 @@ public class e extends Request<Bitmap> {
         m<Bitmap> b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar)) == null) {
-            synchronized (f27796f) {
+            synchronized (f27906f) {
                 try {
                     try {
                         b2 = b(iVar);
                     } catch (OutOfMemoryError e2) {
-                        o.c("Caught OOM for %d byte image, url=%s", Integer.valueOf(iVar.f27905b.length), getUrl());
+                        o.c("Caught OOM for %d byte image, url=%s", Integer.valueOf(iVar.f28015b.length), getUrl());
                         return m.a(new com.bytedance.sdk.component.adnet.err.e(e2, 612));
                     }
                 } catch (Throwable th) {
@@ -119,8 +119,8 @@ public class e extends Request<Bitmap> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.cancel();
-            synchronized (this.f27797c) {
-                this.f27799e = null;
+            synchronized (this.f27907c) {
+                this.f27909e = null;
             }
         }
     }
@@ -129,13 +129,13 @@ public class e extends Request<Bitmap> {
     public Request.b getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Request.b.f27848a : (Request.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Request.b.f27958a : (Request.b) invokeV.objValue;
     }
 
     public Bitmap a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f27798d.a(bArr) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.f27908d.a(bArr) : (Bitmap) invokeL.objValue;
     }
 
     @Override // com.bytedance.sdk.component.adnet.core.Request
@@ -143,8 +143,8 @@ public class e extends Request<Bitmap> {
         m.a<Bitmap> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
-            synchronized (this.f27797c) {
-                aVar = this.f27799e;
+            synchronized (this.f27907c) {
+                aVar = this.f27909e;
             }
             if (aVar != null) {
                 aVar.a(mVar);

@@ -1,5 +1,6 @@
 package com.alipay.sdk.app;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +118,7 @@ public class EnvUtils {
 
     public static void setEnv(EnvEnum envEnum) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, envEnum) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, envEnum) == null) {
             mEnv = envEnum;
         }
     }

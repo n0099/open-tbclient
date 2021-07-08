@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +41,13 @@ public class EmotionView extends TbImageView {
     public EmotionPreview y0;
     public int z0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends d.a.c.e.l.c<d.a.c.k.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f14819a;
+        public final /* synthetic */ EmotionView f14858a;
 
         public a(EmotionView emotionView) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f14819a = emotionView;
+            this.f14858a = emotionView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,8 +74,8 @@ public class EmotionView extends TbImageView {
             if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                 return;
             }
-            this.f14819a.L = aVar.t();
-            View findViewWithTag = this.f14819a.findViewWithTag(str);
+            this.f14858a.L = aVar.t();
+            View findViewWithTag = this.f14858a.findViewWithTag(str);
             if (findViewWithTag == null || !(findViewWithTag instanceof TbImageView) || str == null) {
                 return;
             }
@@ -85,13 +85,13 @@ public class EmotionView extends TbImageView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f14820e;
+        public final /* synthetic */ EmotionView f14859e;
 
         public b(EmotionView emotionView) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f14820e = emotionView;
+            this.f14859e = emotionView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -118,28 +118,28 @@ public class EmotionView extends TbImageView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f14820e.D0 = true;
-                    this.f14820e.F0 = motionEvent.getRawX();
-                    this.f14820e.G0 = motionEvent.getRawY();
-                    EmotionView emotionView = this.f14820e;
+                    this.f14859e.D0 = true;
+                    this.f14859e.F0 = motionEvent.getRawX();
+                    this.f14859e.G0 = motionEvent.getRawY();
+                    EmotionView emotionView = this.f14859e;
                     emotionView.H0 = emotionView.F0;
-                    EmotionView emotionView2 = this.f14820e;
+                    EmotionView emotionView2 = this.f14859e;
                     emotionView2.I0 = emotionView2.G0;
-                    this.f14820e.C0 = System.currentTimeMillis();
-                    if (this.f14820e.p0()) {
-                        EmotionView emotionView3 = this.f14820e;
+                    this.f14859e.C0 = System.currentTimeMillis();
+                    if (this.f14859e.p0()) {
+                        EmotionView emotionView3 = this.f14859e;
                         emotionView3.postDelayed(new d(emotionView3, emotionView3.C0), 500L);
                     }
                 } else if (action == 1) {
-                    this.f14820e.D0 = false;
-                    if (this.f14820e.E0) {
-                        this.f14820e.x0();
-                    } else if (this.f14820e.J0 != null && this.f14820e.m0()) {
-                        this.f14820e.J0.onClick(this.f14820e);
+                    this.f14859e.D0 = false;
+                    if (this.f14859e.E0) {
+                        this.f14859e.x0();
+                    } else if (this.f14859e.J0 != null && this.f14859e.m0()) {
+                        this.f14859e.J0.onClick(this.f14859e);
                     }
                 } else if (action == 3) {
-                    this.f14820e.D0 = false;
-                    this.f14820e.x0();
+                    this.f14859e.D0 = false;
+                    this.f14859e.x0();
                 }
                 return true;
             }
@@ -147,7 +147,7 @@ public class EmotionView extends TbImageView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void b();
 
@@ -158,16 +158,16 @@ public class EmotionView extends TbImageView {
         boolean e();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f14821e;
+        public long f14860e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f14822f;
+        public final /* synthetic */ EmotionView f14861f;
 
         public d(EmotionView emotionView, long j) {
             Interceptable interceptable = $ic;
@@ -184,15 +184,15 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f14822f = emotionView;
-            this.f14821e = j;
+            this.f14861f = emotionView;
+            this.f14860e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f14822f.D0 && this.f14821e == this.f14822f.C0 && this.f14822f.s0()) {
-                this.f14822f.w0();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f14861f.D0 && this.f14860e == this.f14861f.C0 && this.f14861f.s0()) {
+                this.f14861f.w0();
             }
         }
     }

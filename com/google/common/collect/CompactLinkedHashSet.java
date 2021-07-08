@@ -12,7 +12,7 @@ import d.f.d.c.u0;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENDPOINT = -2;
@@ -232,7 +232,7 @@ public class CompactLinkedHashSet<E> extends CompactHashSet<E> {
     public static <E> CompactLinkedHashSet<E> create(E... eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, eArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eArr)) == null) {
             CompactLinkedHashSet<E> createWithExpectedSize = createWithExpectedSize(eArr.length);
             Collections.addAll(createWithExpectedSize, eArr);
             return createWithExpectedSize;

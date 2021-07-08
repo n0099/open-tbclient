@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class InputAwareWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InputAwareWebView";
@@ -25,7 +25,7 @@ public final class InputAwareWebView extends WebView {
     public ThreadedInputConnectionProxyAdapterView proxyAdapterView;
     public View threadedInputConnectionProxyView;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i2, int i3, int i4, int i5);
     }
@@ -81,7 +81,7 @@ public final class InputAwareWebView extends WebView {
 
     private void setInputConnectionTarget(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) {
             if (this.containerView == null) {
                 Log.e(TAG, "Can't set the input connection target because there is no containerView to use as a handler.");
                 return;

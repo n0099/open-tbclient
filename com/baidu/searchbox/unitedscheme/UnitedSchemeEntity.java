@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeEntity implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final String UNITED_SCHEME;

@@ -2,26 +2,27 @@ package d.l.a.e.b.c;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f74676a = 4;
+    public static int f71728a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2073a f74677b;
+    public static AbstractC2041a f71729b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.l.a.e.b.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static abstract class AbstractC2073a {
+    /* loaded from: classes8.dex */
+    public static abstract class AbstractC2041a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +57,7 @@ public class a {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f74676a = i2;
+            f71728a = i2;
         }
     }
 
@@ -72,27 +73,27 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f74676a <= 2) {
+        if (f71728a <= 2) {
             Log.v(str, str2);
         }
-        AbstractC2073a abstractC2073a = f74677b;
-        if (abstractC2073a != null) {
-            abstractC2073a.a(f(str), str2);
+        AbstractC2041a abstractC2041a = f71729b;
+        if (abstractC2041a != null) {
+            abstractC2041a.a(f(str), str2);
         }
     }
 
     public static void d(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
             if (str2 == null && th == null) {
                 return;
             }
-            if (f74676a <= 6) {
+            if (f71728a <= 6) {
                 Log.e(f(str), str2, th);
             }
-            AbstractC2073a abstractC2073a = f74677b;
-            if (abstractC2073a != null) {
-                abstractC2073a.b(f(str), str2, th);
+            AbstractC2041a abstractC2041a = f71729b;
+            if (abstractC2041a != null) {
+                abstractC2041a.b(f(str), str2, th);
             }
         }
     }
@@ -100,7 +101,7 @@ public class a {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f74676a <= 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71728a <= 3 : invokeV.booleanValue;
     }
 
     public static String f(String str) {
@@ -120,12 +121,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f74676a <= 3) {
+        if (f71728a <= 3) {
             Log.d(f(str), str2);
         }
-        AbstractC2073a abstractC2073a = f74677b;
-        if (abstractC2073a != null) {
-            abstractC2073a.c(f(str), str2);
+        AbstractC2041a abstractC2041a = f71729b;
+        if (abstractC2041a != null) {
+            abstractC2041a.c(f(str), str2);
         }
     }
 
@@ -141,12 +142,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f74676a <= 4) {
+        if (f71728a <= 4) {
             Log.i(f(str), str2);
         }
-        AbstractC2073a abstractC2073a = f74677b;
-        if (abstractC2073a != null) {
-            abstractC2073a.d(f(str), str2);
+        AbstractC2041a abstractC2041a = f71729b;
+        if (abstractC2041a != null) {
+            abstractC2041a.d(f(str), str2);
         }
     }
 
@@ -155,12 +156,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f74676a <= 5) {
+        if (f71728a <= 5) {
             Log.w(f(str), str2);
         }
-        AbstractC2073a abstractC2073a = f74677b;
-        if (abstractC2073a != null) {
-            abstractC2073a.f(f(str), str2);
+        AbstractC2041a abstractC2041a = f71729b;
+        if (abstractC2041a != null) {
+            abstractC2041a.f(f(str), str2);
         }
     }
 
@@ -169,12 +170,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || str2 == null) {
             return;
         }
-        if (f74676a <= 6) {
+        if (f71728a <= 6) {
             Log.e(f(str), str2);
         }
-        AbstractC2073a abstractC2073a = f74677b;
-        if (abstractC2073a != null) {
-            abstractC2073a.e(f(str), str2);
+        AbstractC2041a abstractC2041a = f71729b;
+        if (abstractC2041a != null) {
+            abstractC2041a.e(f(str), str2);
         }
     }
 }

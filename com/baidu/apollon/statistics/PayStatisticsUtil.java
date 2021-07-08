@@ -2,6 +2,7 @@ package com.baidu.apollon.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.StatService;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -19,17 +20,17 @@ public final class PayStatisticsUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f3945d;
+    public static Context f3948d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public StatisticsSettings f3946a;
+    public StatisticsSettings f3949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3947b;
+    public boolean f3950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SyncHttpImpl f3948c;
+    public SyncHttpImpl f3951c;
 
     /* renamed from: com.baidu.apollon.statistics.PayStatisticsUtil$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -128,7 +129,7 @@ public final class PayStatisticsUtil {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayStatisticsUtil f3949a;
+        public static PayStatisticsUtil f3952a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -144,7 +145,7 @@ public final class PayStatisticsUtil {
                     return;
                 }
             }
-            f3949a = new PayStatisticsUtil(null);
+            f3952a = new PayStatisticsUtil(null);
         }
 
         public a() {
@@ -169,17 +170,17 @@ public final class PayStatisticsUtil {
     public static Context c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3945d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3948d : (Context) invokeV.objValue;
     }
 
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            if (f3945d == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            if (f3948d == null) {
                 return true;
             }
-            StatisticsSettings statisticsSettings = this.f3946a;
+            StatisticsSettings statisticsSettings = this.f3949a;
             if (statisticsSettings != null) {
                 return !statisticsSettings.isEnabled();
             }
@@ -191,7 +192,7 @@ public final class PayStatisticsUtil {
     public static PayStatisticsUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f3949a : (PayStatisticsUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f3952a : (PayStatisticsUtil) invokeV.objValue;
     }
 
     public static void initData(Context context) {
@@ -210,12 +211,12 @@ public final class PayStatisticsUtil {
                 return;
             }
             PayStatisticsUtil payStatisticsUtil = getInstance();
-            payStatisticsUtil.f3946a = statisticsSettings;
+            payStatisticsUtil.f3949a = statisticsSettings;
             try {
-                if (payStatisticsUtil.f3947b) {
+                if (payStatisticsUtil.f3950b) {
                     return;
                 }
-                payStatisticsUtil.f3947b = true;
+                payStatisticsUtil.f3950b = true;
                 d.a().b();
             } catch (Exception unused) {
             }
@@ -329,20 +330,20 @@ public final class PayStatisticsUtil {
     public static void setHttpImpl(SyncHttpImpl syncHttpImpl) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, null, syncHttpImpl) == null) {
-            getInstance().f3948c = syncHttpImpl;
+            getInstance().f3951c = syncHttpImpl;
         }
     }
 
     public StatisticsSettings a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3946a : (StatisticsSettings) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3949a : (StatisticsSettings) invokeV.objValue;
     }
 
     public SyncHttpImpl b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3948c : (SyncHttpImpl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3951c : (SyncHttpImpl) invokeV.objValue;
     }
 
     public PayStatisticsUtil() {
@@ -363,10 +364,10 @@ public final class PayStatisticsUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f3945d == null && context != null) {
-                f3945d = context.getApplicationContext();
+            if (f3948d == null && context != null) {
+                f3948d = context.getApplicationContext();
             }
-            return f3945d != null;
+            return f3948d != null;
         }
         return invokeL.booleanValue;
     }

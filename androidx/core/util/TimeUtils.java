@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -205,7 +206,7 @@ public final class TimeUtils {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static void formatDuration(long j, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65540, null, j, printWriter) == null) {
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, printWriter) == null) {
             formatDuration(j, printWriter, 0);
         }
     }

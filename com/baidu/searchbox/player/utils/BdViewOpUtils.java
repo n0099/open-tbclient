@@ -9,13 +9,14 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdViewOpUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BdViewOpUtils";
@@ -210,7 +211,7 @@ public class BdViewOpUtils {
 
     public static void fixFullScreen4Notch(Dialog dialog, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65540, null, dialog, z) == null) || dialog == null || Build.VERSION.SDK_INT < 28) {
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, dialog, z) == null) || dialog == null || Build.VERSION.SDK_INT < 28) {
             return;
         }
         Window window = dialog.getWindow();

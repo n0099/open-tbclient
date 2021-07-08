@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.d.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,19 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.m;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l<T> extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f28698a;
+    public T f28808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.component.d.b.d f28699b;
+    public com.bytedance.sdk.component.d.b.d f28809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28700c;
+    public boolean f28810c;
 
     public l(T t) {
         Interceptable interceptable = $ic;
@@ -39,14 +40,14 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28698a = t;
+        this.f28808a = t;
     }
 
     private Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            com.bytedance.sdk.component.d.b.d dVar = this.f28699b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            com.bytedance.sdk.component.d.b.d dVar = this.f28809b;
             if (dVar != null) {
                 return dVar.d();
             }
@@ -96,8 +97,8 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28698a = t;
-        this.f28699b = dVar;
+        this.f28808a = t;
+        this.f28809b = dVar;
     }
 
     private void b(com.bytedance.sdk.component.d.c.a aVar) {
@@ -106,7 +107,7 @@ public class l<T> extends a {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, aVar) == null) || (c2 = aVar.c()) == null) {
             return;
         }
-        c2.a(new m().a(aVar, this.f28698a, b(), this.f28700c));
+        c2.a(new m().a(aVar, this.f28808a, b(), this.f28810c));
     }
 
     public l(T t, boolean z) {
@@ -124,8 +125,8 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28698a = t;
-        this.f28700c = z;
+        this.f28808a = t;
+        this.f28810c = z;
     }
 
     public l(T t, com.bytedance.sdk.component.d.b.d dVar, boolean z) {
@@ -143,8 +144,8 @@ public class l<T> extends a {
                 return;
             }
         }
-        this.f28698a = t;
-        this.f28699b = dVar;
-        this.f28700c = z;
+        this.f28808a = t;
+        this.f28809b = dVar;
+        this.f28810c = z;
     }
 }

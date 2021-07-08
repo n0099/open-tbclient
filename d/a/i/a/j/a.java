@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f45698b;
+    public static a f42552b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> f45699a;
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> f42553a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f45698b = new a();
+        f42552b = new a();
     }
 
     public a() {
@@ -51,25 +51,25 @@ public class a {
                 return;
             }
         }
-        this.f45699a = new HashMap();
+        this.f42553a = new HashMap();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f45698b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42552b : (a) invokeV.objValue;
     }
 
     public void a(int i2, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, onRequestPermissionsResultCallback) == null) || this.f45699a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, onRequestPermissionsResultCallback) == null) || this.f42553a == null) {
             return;
         }
         synchronized (a.class) {
-            if (this.f45699a.containsKey(Integer.valueOf(i2))) {
-                this.f45699a.remove(Integer.valueOf(i2));
+            if (this.f42553a.containsKey(Integer.valueOf(i2))) {
+                this.f42553a.remove(Integer.valueOf(i2));
             }
-            this.f45699a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
+            this.f42553a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
         }
     }
 
@@ -77,11 +77,11 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.f45699a;
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.f42553a;
             if (map == null || !map.containsKey(Integer.valueOf(i2))) {
                 return null;
             }
-            return this.f45699a.get(Integer.valueOf(i2));
+            return this.f42553a.get(Integer.valueOf(i2));
         }
         return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
     }
@@ -90,8 +90,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             synchronized (a.class) {
-                if (this.f45699a != null && this.f45699a.containsKey(Integer.valueOf(i2))) {
-                    this.f45699a.remove(Integer.valueOf(i2));
+                if (this.f42553a != null && this.f42553a.containsKey(Integer.valueOf(i2))) {
+                    this.f42553a.remove(Integer.valueOf(i2));
                 }
             }
         }

@@ -7,7 +7,6 @@ import android.graphics.Bitmap;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
@@ -23,6 +22,7 @@ import com.kwad.sdk.core.imageloader.core.assist.ContentLengthInputStream;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.network.k;
+import com.kwad.sdk.core.network.l;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -33,12 +33,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BaseImageDownloader implements ImageDownloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%";
     public static final int BUFFER_SIZE = 32768;
-    public static final String CONTENT_CONTACTS_URI_PREFIX = "content://com.android.contacts/";
     public static final int DEFAULT_HTTP_CONNECT_TIMEOUT = 5000;
     public static final int DEFAULT_HTTP_READ_TIMEOUT = 20000;
     public static final String ERROR_UNSUPPORTED_SCHEME = "UIL doesn't support scheme(protocol) by default [%s]. You should implement this support yourself (BaseImageDownloader.getStreamFromOtherSource(...))";
@@ -49,7 +48,7 @@ public class BaseImageDownloader implements ImageDownloader {
     public final int readTimeout;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
         public static /* synthetic */ Interceptable $ic;
@@ -171,7 +170,7 @@ public class BaseImageDownloader implements ImageDownloader {
     private boolean isVideoFileUri(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(str));
             return mimeTypeFromExtension != null && mimeTypeFromExtension.startsWith(FileUtils.VIDEO_FILE_START);
         }
@@ -183,6 +182,7 @@ public class BaseImageDownloader implements ImageDownloader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(Uri.encode(str, ALLOWED_URI_CHARS)).openConnection();
+            l.a(httpURLConnection);
             httpURLConnection.setRequestProperty("User-Agent", k.a());
             httpURLConnection.setConnectTimeout(this.connectTimeout);
             httpURLConnection.setReadTimeout(this.readTimeout);
@@ -191,22 +191,11 @@ public class BaseImageDownloader implements ImageDownloader {
         return (HttpURLConnection) invokeLL.objValue;
     }
 
-    @TargetApi(14)
-    public InputStream getContactPhotoStream(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            ContentResolver contentResolver = this.context.getContentResolver();
-            return Build.VERSION.SDK_INT >= 14 ? ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri, true) : ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, uri);
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
     @Override // com.kwad.sdk.core.imageloader.core.download.ImageDownloader
     public InputStream getStream(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
             switch (AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme[ImageDownloader.Scheme.ofUri(str).ordinal()]) {
                 case 1:
                 case 2:
@@ -229,26 +218,22 @@ public class BaseImageDownloader implements ImageDownloader {
     public InputStream getStreamFromAssets(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) ? this.context.getAssets().open(ImageDownloader.Scheme.ASSETS.crop(str)) : (InputStream) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) ? this.context.getAssets().open(ImageDownloader.Scheme.ASSETS.crop(str)) : (InputStream) invokeLL.objValue;
     }
 
     public InputStream getStreamFromContent(String str, Object obj) {
         InterceptResult invokeLL;
+        Bitmap thumbnail;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             ContentResolver contentResolver = this.context.getContentResolver();
             Uri parse = Uri.parse(str);
-            if (isVideoContentUri(parse)) {
-                Bitmap thumbnail = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, Long.valueOf(parse.getLastPathSegment()).longValue(), 1, null);
-                if (thumbnail != null) {
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    thumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
-                    return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                }
-            } else if (str.startsWith(CONTENT_CONTACTS_URI_PREFIX)) {
-                return getContactPhotoStream(parse);
+            if (!isVideoContentUri(parse) || (thumbnail = MediaStore.Video.Thumbnails.getThumbnail(contentResolver, Long.valueOf(parse.getLastPathSegment()).longValue(), 1, null)) == null) {
+                return contentResolver.openInputStream(parse);
             }
-            return contentResolver.openInputStream(parse);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            thumbnail.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
         }
         return (InputStream) invokeLL.objValue;
     }
@@ -256,13 +241,13 @@ public class BaseImageDownloader implements ImageDownloader {
     public InputStream getStreamFromDrawable(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, obj)) == null) ? this.context.getResources().openRawResource(Integer.parseInt(ImageDownloader.Scheme.DRAWABLE.crop(str))) : (InputStream) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, obj)) == null) ? this.context.getResources().openRawResource(Integer.parseInt(ImageDownloader.Scheme.DRAWABLE.crop(str))) : (InputStream) invokeLL.objValue;
     }
 
     public InputStream getStreamFromFile(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, obj)) == null) {
             String crop = ImageDownloader.Scheme.FILE.crop(str);
             return isVideoFileUri(str) ? getVideoThumbnailStream(crop) : new ContentLengthInputStream(new BufferedInputStream(new FileInputStream(crop), 32768), (int) new File(crop).length());
         }
@@ -272,7 +257,7 @@ public class BaseImageDownloader implements ImageDownloader {
     public InputStream getStreamFromNetwork(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, obj)) == null) {
             HttpURLConnection createConnection = createConnection(str, obj);
             for (int i2 = 0; createConnection.getResponseCode() / 100 == 3 && i2 < 5; i2++) {
                 createConnection = createConnection(createConnection.getHeaderField("Location"), obj);
@@ -295,7 +280,7 @@ public class BaseImageDownloader implements ImageDownloader {
     public InputStream getStreamFromOtherSource(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, obj)) == null) {
             throw new UnsupportedOperationException(String.format(ERROR_UNSUPPORTED_SCHEME, str));
         }
         return (InputStream) invokeLL.objValue;
@@ -304,6 +289,6 @@ public class BaseImageDownloader implements ImageDownloader {
     public boolean shouldBeProcessed(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, httpURLConnection)) == null) ? httpURLConnection.getResponseCode() == 200 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, httpURLConnection)) == null) ? httpURLConnection.getResponseCode() == 200 : invokeL.booleanValue;
     }
 }

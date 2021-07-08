@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.s;
 import com.bytedance.sdk.openadsdk.preload.a.v;
 import com.bytedance.sdk.openadsdk.preload.a.w;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class d implements w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f31720a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f31830a;
 
     public d(com.bytedance.sdk.openadsdk.preload.a.b.c cVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class d implements w {
                 return;
             }
         }
-        this.f31720a = cVar;
+        this.f31830a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -44,7 +44,7 @@ public final class d implements w {
             if (bVar == null) {
                 return null;
             }
-            return (v<T>) a(this.f31720a, fVar, aVar, bVar);
+            return (v<T>) a(this.f31830a, fVar, aVar, bVar);
         }
         return (v) invokeLL.objValue;
     }

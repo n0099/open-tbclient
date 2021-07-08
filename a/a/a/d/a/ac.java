@@ -32,10 +32,10 @@ public class ac implements bv {
     public void a(Context context, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, file) == null) {
-            Object b2 = a.b(context.getClassLoader(), "pathList");
-            Object b3 = a.b(b2, "nativeLibraryDirectories");
+            Object b2 = shuoy.b(context.getClassLoader(), "pathList");
+            Object b3 = shuoy.b(b2, "nativeLibraryDirectories");
             if (b3 instanceof File[]) {
-                a.a(b2, "nativeLibraryDirectories", a.a(File.class, (File[]) b3, file));
+                shuoy.a(b2, "nativeLibraryDirectories", shuoy.a(File.class, (File[]) b3, file));
             } else {
                 ((ArrayList) b3).add(file);
             }
@@ -47,8 +47,8 @@ public class ac implements bv {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, file)) == null) {
-            Object b2 = a.b(a.b(context.getClassLoader(), "pathList"), "nativeLibraryDirectories");
-            return b2 instanceof File[] ? a.a((File[]) b2, file) : ((ArrayList) b2).contains(file);
+            Object b2 = shuoy.b(shuoy.b(context.getClassLoader(), "pathList"), "nativeLibraryDirectories");
+            return b2 instanceof File[] ? shuoy.a((File[]) b2, file) : ((ArrayList) b2).contains(file);
         }
         return invokeLL.booleanValue;
     }

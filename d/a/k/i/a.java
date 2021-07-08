@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45973a;
+    public String f42856a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45974b;
+    public boolean f42857b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45975c;
+    public boolean f42858c;
 
     public a(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public class a {
                 return;
             }
         }
-        this.f45973a = str;
-        this.f45974b = z;
-        this.f45975c = z2;
+        this.f42856a = str;
+        this.f42857b = z;
+        this.f42858c = z2;
     }
 
     public static int a(int i2) {
@@ -95,14 +95,14 @@ public class a {
                     if (i7 >= i2) {
                         break;
                     }
-                    char charAt = this.f45973a.charAt(iArr[i7]);
-                    if (this.f45975c) {
+                    char charAt = this.f42856a.charAt(iArr[i7]);
+                    if (this.f42858c) {
                         charAt = Character.toLowerCase(charAt);
                     }
                     byteArrayOutputStream.write(charAt);
                     i7++;
                 }
-                if (this.f45974b) {
+                if (this.f42857b) {
                     while (i2 < 8) {
                         byteArrayOutputStream.write(61);
                         i2++;

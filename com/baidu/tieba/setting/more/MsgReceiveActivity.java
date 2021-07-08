@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.s.d.d;
-import d.a.s0.z2.c.f;
+import d.a.o0.s.d.d;
+import d.a.p0.z2.c.f;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,13 +25,13 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public OfficialAccountPushModel mOfficialPushModel;
     public f mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements MsgRemindModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f20742a;
+        public final /* synthetic */ MsgReceiveActivity f20788a;
 
         public a(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
             }
-            this.f20742a = msgReceiveActivity;
+            this.f20788a = msgReceiveActivity;
         }
 
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.e
@@ -60,43 +60,43 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                         return;
                     }
                     if (z2) {
-                        this.f20742a.mView.k().h();
-                        this.f20742a.mView.q(false);
-                        this.f20742a.mView.s(false);
+                        this.f20788a.mView.j().h();
+                        this.f20788a.mView.p(false);
+                        this.f20788a.mView.r(false);
                         return;
                     }
-                    this.f20742a.mView.k().k();
-                    this.f20742a.mView.q(true);
-                    this.f20742a.mView.s(true);
+                    this.f20788a.mView.j().k();
+                    this.f20788a.mView.p(true);
+                    this.f20788a.mView.r(true);
                 } else if (i2 == 9) {
                     if (z) {
                         return;
                     }
                     if (z2) {
-                        this.f20742a.mView.m().h();
+                        this.f20788a.mView.l().h();
                     } else {
-                        this.f20742a.mView.m().k();
+                        this.f20788a.mView.l().k();
                     }
                 } else if (i2 == 7) {
                     if (z) {
                         d.d().P(z2);
                     } else if (z2) {
-                        this.f20742a.mView.i().h();
+                        this.f20788a.mView.h().h();
                     } else {
-                        this.f20742a.mView.i().k();
+                        this.f20788a.mView.h().k();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements OfficialAccountPushModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MsgReceiveActivity f20743a;
+        public final /* synthetic */ MsgReceiveActivity f20789a;
 
         public b(MsgReceiveActivity msgReceiveActivity) {
             Interceptable interceptable = $ic;
@@ -113,14 +113,14 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     return;
                 }
             }
-            this.f20743a = msgReceiveActivity;
+            this.f20789a = msgReceiveActivity;
         }
 
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.b
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f20743a.mView != null) {
-                this.f20743a.mView.r(arrayList);
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, arrayList, i2, str) == null) && i2 == OfficialAccountPushModel.NET_SUCCESS && this.f20789a.mView != null) {
+                this.f20789a.mView.q(arrayList);
             }
         }
     }
@@ -146,23 +146,23 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) {
-            if (view == this.mView.k()) {
+            if (view == this.mView.j()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(8, true, this.mMsgRemindModelCallback);
-                    this.mView.q(true);
-                    this.mView.s(true);
+                    this.mView.p(true);
+                    this.mView.r(true);
                     return;
                 }
                 this.mModel.z(8, false, this.mMsgRemindModelCallback);
-                this.mView.q(false);
-                this.mView.s(false);
-            } else if (view == this.mView.m()) {
+                this.mView.p(false);
+                this.mView.r(false);
+            } else if (view == this.mView.l()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.mModel.z(9, true, this.mMsgRemindModelCallback);
                 } else {
                     this.mModel.z(9, false, this.mMsgRemindModelCallback);
                 }
-            } else if (view == this.mView.i()) {
+            } else if (view == this.mView.h()) {
                 this.mModel.z(7, switchState == BdSwitchView.SwitchState.OFF, this.mMsgRemindModelCallback);
             }
         }
@@ -182,7 +182,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             super.onClick(view);
-            if (view == this.mView.h()) {
+            if (view == this.mView.g()) {
                 finish();
             }
         }
@@ -195,7 +195,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
             super.onCreate(bundle);
             f fVar = new f(this);
             this.mView = fVar;
-            fVar.n();
+            fVar.m();
             this.mModel = new MsgRemindModel(this);
         }
     }

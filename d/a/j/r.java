@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-/* loaded from: classes8.dex */
+import d.a.o0.r.q.b2;
+/* loaded from: classes7.dex */
 public class r extends t0 {
     public static /* synthetic */ Interceptable $ic;
     public static final int F;
@@ -71,13 +71,13 @@ public class r extends t0 {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f45735f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f42627f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
             this.j = inflate;
             this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
             this.E = (TextView) this.j.findViewById(R.id.video_seg_abstract);
             this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
             this.C = (InterviewLiveLayout) this.j.findViewById(R.id.frame_interview_no_video);
-            d.a.s0.n2.q.a q = q();
+            d.a.p0.n2.q.a q = q();
             this.n = q;
             q.E().setBackgroundResource(R.color.transparent);
         }
@@ -98,7 +98,7 @@ public class r extends t0 {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, b0Var) == null) {
             this.C.setSubClickListener(b0Var);
@@ -118,21 +118,21 @@ public class r extends t0 {
     }
 
     @Override // d.a.j.t0
-    public d.a.s0.n2.q.a q() {
+    public d.a.p0.n2.q.a q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            d.a.s0.n2.q.b bVar = new d.a.s0.n2.q.b(this.f45735f, this.m);
+            d.a.p0.n2.q.b bVar = new d.a.p0.n2.q.b(this.f42627f, this.m);
             bVar.setStageType("2003");
             return bVar;
         }
-        return (d.a.s0.n2.q.a) invokeV.objValue;
+        return (d.a.p0.n2.q.a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.t0, d.a.j.p
     /* renamed from: r */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.l = aVar;

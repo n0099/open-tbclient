@@ -195,7 +195,7 @@ public class VersionedParcelStream extends VersionedParcel {
 
     private void writeObject(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj) == null) {
             if (obj == null) {
                 writeInt(0);
             } else if (obj instanceof Bundle) {

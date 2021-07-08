@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EngineManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIFF_FILE_SUBFIX = ".diff";
@@ -103,7 +103,7 @@ public class EngineManager implements INoProGuard {
     public static EngineManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (TAG) {
                 if (sInstance == null) {
                     sInstance = new EngineManager();

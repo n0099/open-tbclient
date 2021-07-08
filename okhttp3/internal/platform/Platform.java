@@ -32,7 +32,7 @@ import okhttp3.internal.tls.BasicTrustRootIndex;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 import okio.Buffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Platform {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INFO = 4;
@@ -111,7 +111,7 @@ public class Platform {
         InterceptResult invokeV;
         Platform buildIfSupported;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             Platform buildIfSupported2 = AndroidPlatform.buildIfSupported();
             if (buildIfSupported2 != null) {
                 return buildIfSupported2;

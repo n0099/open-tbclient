@@ -1,5 +1,6 @@
 package okio;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AsyncTimeout extends Timeout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long IDLE_TIMEOUT_MILLIS;
@@ -28,7 +29,7 @@ public class AsyncTimeout extends Timeout {
     public AsyncTimeout next;
     public long timeoutAt;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Watchdog extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +158,7 @@ public class AsyncTimeout extends Timeout {
     private long remainingNanos(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65540, this, j)) == null) ? this.timeoutAt - j : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) ? this.timeoutAt - j : invokeJ.longValue;
     }
 
     public static synchronized void scheduleTimeout(AsyncTimeout asyncTimeout, long j, boolean z) {

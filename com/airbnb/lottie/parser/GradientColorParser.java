@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +62,7 @@ public class GradientColorParser implements ValueParser<GradientColor> {
         }
     }
 
-    @IntRange(from = 0, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
+    @IntRange(from = 0, to = 255)
     private int getOpacityAtPosition(double d2, double[] dArr, double[] dArr2) {
         InterceptResult invokeCommon;
         double d3;

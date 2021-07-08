@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
 import com.baidu.android.imsdk.internal.Constants;
@@ -499,7 +500,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
         public static SyncQueueItem obtainMessage(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65540, null, i2, i3, obj)) == null) ? obtainMessage(i2, i3, 0, 0, 0, 0, obj) : (SyncQueueItem) invokeIIL.objValue;
+            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, obj)) == null) ? obtainMessage(i2, i3, 0, 0, 0, 0, obj) : (SyncQueueItem) invokeIIL.objValue;
         }
     }
 }

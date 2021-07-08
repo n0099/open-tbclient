@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.download.DownloadParams;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f33547a;
+    public f f33657a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f33548a;
+        public static final e f33658a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class e {
                     return;
                 }
             }
-            f33548a = new e();
+            f33658a = new e();
         }
     }
 
@@ -59,15 +59,15 @@ public class e {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f33548a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f33658a : (e) invokeV.objValue;
     }
 
     public synchronized void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             synchronized (this) {
-                if (this.f33547a != null) {
-                    this.f33547a.a(i2);
+                if (this.f33657a != null) {
+                    this.f33657a.a(i2);
                 }
             }
         }
@@ -79,8 +79,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f33547a != null) {
-                    this.f33547a.a(downloadTask);
+                } else if (this.f33657a != null) {
+                    this.f33657a.a(downloadTask);
                 }
             }
         }
@@ -92,8 +92,8 @@ public class e {
             synchronized (this) {
                 if (downloadTask.isCanceled()) {
                     a(downloadTask.getId());
-                } else if (this.f33547a != null) {
-                    this.f33547a.a(downloadTask, z);
+                } else if (this.f33657a != null) {
+                    this.f33657a.a(downloadTask, z);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class e {
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f33547a = fVar;
+            this.f33657a = fVar;
         }
     }
 
@@ -110,8 +110,21 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, downloadTask) == null) {
             synchronized (this) {
-                if (this.f33547a != null) {
-                    this.f33547a.b(downloadTask);
+                if (downloadTask.isCanceled()) {
+                    a(downloadTask.getId());
+                } else if (this.f33657a != null) {
+                    this.f33657a.b(downloadTask);
+                }
+            }
+        }
+    }
+
+    public synchronized void c(DownloadTask downloadTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, downloadTask) == null) {
+            synchronized (this) {
+                if (this.f33657a != null) {
+                    this.f33657a.c(downloadTask);
                 }
                 Object tag = downloadTask.getTag();
                 if (tag instanceof DownloadParams) {

@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class h implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f6048f = 24;
+    public static final int f6065f = 24;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f6049g = 1;
+    public static final int f6066g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f6050h = 1048576;
+    public static final int f6067h = 1048576;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f6051i;
+    public volatile boolean f6068i;
     public b j;
     public volatile boolean k;
     public ExecutorService l;
@@ -69,7 +69,7 @@ public abstract class h implements c {
     @Override // com.baidu.fsg.face.liveness.video.c
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6051i && !this.p) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f6068i && !this.p) {
             b();
             d();
         }

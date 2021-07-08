@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.preload.SplashPreloadManager;
+import com.kwad.sdk.core.report.ReportAction;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class aa implements com.kwad.sdk.core.c<SplashPreloadManager.PreLoadPara> {
+/* loaded from: classes6.dex */
+public class aa implements com.kwad.sdk.core.d<ReportAction.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +28,29 @@ public class aa implements com.kwad.sdk.core.c<SplashPreloadManager.PreLoadPara>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(SplashPreloadManager.PreLoadPara preLoadPara) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(ReportAction.a aVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, preLoadPara)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "spreadTime", preLoadPara.spreadTime);
-            com.kwad.sdk.utils.o.a(jSONObject, "isValidReturned", preLoadPara.isValidReturned);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        aVar.f34839a = jSONObject.optInt("posIdWidth");
+        aVar.f34840b = jSONObject.optInt("posIdHeight");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(SplashPreloadManager.PreLoadPara preLoadPara, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(ReportAction.a aVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, preLoadPara, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "posIdWidth", aVar.f34839a);
+            com.kwad.sdk.utils.q.a(jSONObject, "posIdHeight", aVar.f34840b);
+            return jSONObject;
         }
-        preLoadPara.spreadTime = jSONObject.optLong("spreadTime");
-        preLoadPara.isValidReturned = jSONObject.optInt("isValidReturned");
+        return (JSONObject) invokeLL.objValue;
     }
 }

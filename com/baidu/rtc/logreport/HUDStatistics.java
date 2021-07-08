@@ -1,5 +1,6 @@
 package com.baidu.rtc.logreport;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.webrtc.StatsReport;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HUDStatistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_STATES_STREAMING_ALL = 31;
@@ -35,6 +36,7 @@ public class HUDStatistics {
     public String mActualEncBitrate;
     public String mAudioCurrentDelay;
     public String mAudioExpandRate;
+    public int mAudioJitterBufferMs;
     public String mAudioRecvBitrate;
     public RTCBitrateTracker mAudioRecvBitrateTracker;
     public String mAudioRecvCodec;
@@ -56,6 +58,7 @@ public class HUDStatistics {
     public int mOldFrameEncoded;
     public int mOldVideoQPSum;
     public String mRemoteCandType;
+    public String mRemoteIp;
     public String mTargetEncBitrate;
     public String mTransPortType;
     public String mVideoDecodFps;
@@ -159,10 +162,14 @@ public class HUDStatistics {
 
     private void parseAudioRecvStatsReport(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, map) == null) {
             try {
                 this.mAudioRecvBitrateTracker.updataBitrateWidhCurrentByteCount(Integer.parseInt(map.get("bytesReceived")));
                 this.mAudioRecvBitrate = this.mAudioRecvBitrateTracker.bitRateString();
+                String str = map.get("googJitterBufferMs");
+                if (!TextUtils.isEmpty(str)) {
+                    this.mAudioJitterBufferMs = Integer.valueOf(str).intValue();
+                }
             } catch (NumberFormatException e2) {
                 Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e2);
             }
@@ -215,10 +222,12 @@ public class HUDStatistics {
             this.mLocalCandType = map.get("googLocalCandidateType");
             this.mRemoteCandType = map.get("googRemoteCandidateType");
             this.mTransPortType = map.get("googTransportType");
-            if (!map.containsKey("googLocalAddress") || (str2 = map.get("googLocalAddress").split(":")[0]) == null) {
-                return;
+            if (map.containsKey("googLocalAddress") && (str2 = map.get("googLocalAddress").split(":")[0]) != null) {
+                ErrorInfoReport.getInstance().setClientIp(str2);
             }
-            ErrorInfoReport.getInstance().setClientIp(str2);
+            if (map.containsKey("googRemoteAddress")) {
+                this.mRemoteIp = map.get("googRemoteAddress").split(":")[0];
+            }
         }
     }
 
@@ -456,6 +465,8 @@ public class HUDStatistics {
                 sb.append(this.mConnSendBitrate);
                 sb.append("  |  (r)");
                 sb.append(this.mConnRecvBitrate);
+                sb.append(" | remote ->");
+                sb.append(this.mRemoteIp);
                 sb.append("\n");
             }
             if ((i2 & 8) != 0) {
@@ -531,6 +542,9 @@ public class HUDStatistics {
                 sb.append(this.mAudioCurrentDelay);
                 sb.append("ms | (expandrate)");
                 sb.append(this.mAudioExpandRate);
+                sb.append("| (buffer)");
+                sb.append(this.mAudioJitterBufferMs);
+                sb.append("ms");
                 sb.append("\n");
             }
             return sb.toString();

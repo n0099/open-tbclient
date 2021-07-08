@@ -11,15 +11,15 @@ import com.bytedance.sdk.component.b.b.w;
 import com.bytedance.sdk.component.video.a.c.a;
 import com.bytedance.sdk.component.video.d.c;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, com.bytedance.sdk.component.video.a.c.a> f28822a;
+    public static final ConcurrentHashMap<String, com.bytedance.sdk.component.video.a.c.a> f28932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w f28823b;
+    public static w f28933b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class a {
                 return;
             }
         }
-        f28822a = new ConcurrentHashMap<>();
-        f28823b = null;
+        f28932a = new ConcurrentHashMap<>();
+        f28933b = null;
     }
 
     public static synchronized void a(Context context, com.bytedance.sdk.component.video.b.a aVar, a.InterfaceC0325a interfaceC0325a) {
@@ -46,10 +46,10 @@ public class a {
                 if (aVar != null) {
                     if (aVar.a()) {
                         if (Build.VERSION.SDK_INT >= 23) {
-                            com.bytedance.sdk.component.video.a.c.a aVar2 = f28822a.get(aVar.c());
+                            com.bytedance.sdk.component.video.a.c.a aVar2 = f28932a.get(aVar.c());
                             if (aVar2 == null) {
                                 aVar2 = new com.bytedance.sdk.component.video.a.c.a(context, aVar);
-                                f28822a.put(aVar.c(), aVar2);
+                                f28932a.put(aVar.c(), aVar2);
                                 c.b("VideoFileManager", "preloadVideo:  cache size = ", Long.valueOf(aVar.e()), aVar.c());
                             }
                             aVar2.a(interfaceC0325a);
@@ -68,7 +68,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
             synchronized (a.class) {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    com.bytedance.sdk.component.video.a.c.a remove = f28822a.remove(aVar.c());
+                    com.bytedance.sdk.component.video.a.c.a remove = f28932a.remove(aVar.c());
                     if (remove != null) {
                         remove.a(true);
                     }

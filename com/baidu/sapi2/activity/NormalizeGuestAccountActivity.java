@@ -2,6 +2,7 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.CoreViewRouter;
@@ -21,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.f;
+import d.a.b0.a.f;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -50,7 +51,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NormalizeGuestAccountActivity f9820a;
+            public final /* synthetic */ NormalizeGuestAccountActivity f9837a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,7 +68,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f9820a = this;
+                this.f9837a = this;
             }
 
             @Override // com.baidu.sapi2.result.NormalizeGuestAccountResult
@@ -75,7 +76,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.finishActivity();
-                    this.f9820a.finish();
+                    this.f9837a.finish();
                     CoreViewRouter.getInstance().release();
                 }
             }
@@ -167,7 +168,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NormalizeGuestAccountActivity f9821a;
+                public final /* synthetic */ NormalizeGuestAccountActivity f9838a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -184,14 +185,14 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9821a = this;
+                    this.f9838a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9821a.a();
+                        this.f9838a.a();
                     }
                 }
             });
@@ -200,7 +201,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NormalizeGuestAccountActivity f9822a;
+                public final /* synthetic */ NormalizeGuestAccountActivity f9839a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -217,14 +218,14 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9822a = this;
+                    this.f9839a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9822a.onClose();
+                        this.f9839a.onClose();
                     }
                 }
             });
@@ -243,7 +244,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NormalizeGuestAccountActivity f9823a;
+                public final /* synthetic */ NormalizeGuestAccountActivity f9840a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -260,16 +261,16 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9823a = this;
+                    this.f9840a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
                 public void onFailure(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.f9823a.t.setResultCode(i2);
-                        this.f9823a.t.setResultMsg(str2);
-                        this.f9823a.b();
+                        this.f9840a.t.setResultCode(i2);
+                        this.f9840a.t.setResultMsg(str2);
+                        this.f9840a.b();
                     }
                 }
 
@@ -277,11 +278,11 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 public void onSuccess(boolean z, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str2) == null) {
-                        this.f9823a.t.isAccountMerge = z;
-                        this.f9823a.t.setNormalizeWay(str2);
-                        this.f9823a.t.setResultCode(0);
-                        this.f9823a.t.setResultMsg("成功");
-                        this.f9823a.c();
+                        this.f9840a.t.isAccountMerge = z;
+                        this.f9840a.t.setNormalizeWay(str2);
+                        this.f9840a.t.setResultCode(0);
+                        this.f9840a.t.setResultMsg("成功");
+                        this.f9840a.c();
                         new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
                     }
                 }
@@ -307,7 +308,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (CoreViewRouter.getInstance().getNormalizeGuestAccountCallback() != null) {
                 CoreViewRouter.getInstance().getNormalizeGuestAccountCallback().onFailure(this.t);
             }

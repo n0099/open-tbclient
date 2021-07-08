@@ -1,6 +1,7 @@
 package d.l.a.e.b.g;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f74693c;
+    public static volatile a f71745c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +31,7 @@ public class a extends d {
             }
         }
         e.L(new v());
-        f74693c = null;
+        f71745c = null;
     }
 
     public a() {
@@ -51,28 +52,28 @@ public class a extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f74693c == null) {
+            if (f71745c == null) {
                 synchronized (a.class) {
-                    if (f74693c == null) {
+                    if (f71745c == null) {
                         e.C(context);
-                        f74693c = new a();
+                        f71745c = new a();
                     }
                 }
             }
-            return f74693c;
+            return f71745c;
         }
         return (a) invokeL.objValue;
     }
 
     public static synchronized void I(b bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65540, null, bVar, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, z) == null) {
             synchronized (a.class) {
                 if (bVar == null) {
                     return;
                 }
-                if (f74693c == null) {
-                    f74693c = bVar.b();
+                if (f71745c == null) {
+                    f71745c = bVar.b();
                 } else if (!e.r()) {
                     e.K(bVar);
                 } else if (z) {

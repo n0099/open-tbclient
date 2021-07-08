@@ -1,6 +1,7 @@
 package com.baidu.mapapi.common;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapsdkplatform.comapi.util.h;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -12,30 +13,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class EnvironmentUtilities {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6818a;
+    public static String f6835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6819b;
+    public static String f6836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f6820c;
+    public static String f6837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6821d;
+    public static int f6838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6822e;
+    public static int f6839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6823f;
+    public static int f6840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f6824g;
+    public static h f6841g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,14 +71,14 @@ public class EnvironmentUtilities {
     public static String getAppCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6819b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6836b : (String) invokeV.objValue;
     }
 
     public static String getAppSDCardPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = f6818a + "/BaiduMapSDKNew";
+            String str = f6835a + "/BaiduMapSDKNew";
             if (str.length() != 0) {
                 File file = new File(str);
                 if (!file.exists()) {
@@ -92,61 +93,61 @@ public class EnvironmentUtilities {
     public static String getAppSecondCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? f6820c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f6837c : (String) invokeV.objValue;
     }
 
     public static int getDomTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f6822e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f6839e : invokeV.intValue;
     }
 
     public static int getItsTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f6823f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f6840f : invokeV.intValue;
     }
 
     public static int getMapTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f6821d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f6838d : invokeV.intValue;
     }
 
     public static String getSDCardPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f6818a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f6835a : (String) invokeV.objValue;
     }
 
     public static void initAppDirectory(Context context) {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            if (f6824g == null) {
+            if (f6841g == null) {
                 h a2 = h.a();
-                f6824g = a2;
+                f6841g = a2;
                 a2.a(context);
             }
-            String str = f6818a;
+            String str = f6835a;
             if (str == null || str.length() <= 0) {
-                f6818a = f6824g.b().a();
-                c2 = f6824g.b().c();
+                f6835a = f6841g.b().a();
+                c2 = f6841g.b().c();
             } else {
-                c2 = f6818a + File.separator + "BaiduMapSDKNew" + File.separator + SapiOptions.KEY_CACHE;
+                c2 = f6835a + File.separator + "BaiduMapSDKNew" + File.separator + SapiOptions.KEY_CACHE;
             }
-            f6819b = c2;
-            f6820c = f6824g.b().d();
-            f6821d = 20971520;
-            f6822e = 52428800;
-            f6823f = 5242880;
+            f6836b = c2;
+            f6837c = f6841g.b().d();
+            f6838d = 20971520;
+            f6839e = 52428800;
+            f6840f = 5242880;
         }
     }
 
     public static void setSDCardPath(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f6818a = str;
+            f6835a = str;
         }
     }
 }

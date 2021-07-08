@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AdJumpProxy {
     boolean handleAdWebViewJump(Context context, String str, AdTemplate adTemplate, Bundle bundle);
 

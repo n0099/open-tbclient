@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.g;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Functions$IdentityFunction implements g<Object, Object> {
     public static final /* synthetic */ Functions$IdentityFunction[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

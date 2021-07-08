@@ -3,6 +3,7 @@ package androidx.recyclerview.widget;
 import android.annotation.SuppressLint;
 import androidx.annotation.Nullable;
 import androidx.core.os.TraceCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -314,7 +315,7 @@ public final class GapWorker implements Runnable {
 
     private void flushTasksWithDeadline(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             for (int i2 = 0; i2 < this.mTasks.size(); i2++) {
                 Task task = this.mTasks.get(i2);
                 if (task.view == null) {

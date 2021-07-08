@@ -171,7 +171,7 @@ public class e {
 
     private void a(a aVar, String str, String str2, int i2, MediaPlayer.OnCompletionListener onCompletionListener, boolean z, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{aVar, str, str2, Integer.valueOf(i2), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{aVar, str, str2, Integer.valueOf(i2), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j)}) == null) {
             try {
                 if (this.dE.containsKey(str)) {
                     b bVar = this.dE.get(str);

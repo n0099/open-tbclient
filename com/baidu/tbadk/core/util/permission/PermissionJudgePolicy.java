@@ -12,6 +12,7 @@ import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.IPermissionPolicy;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
@@ -28,13 +29,13 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.a.c.a.f;
 import d.a.c.a.j;
-import d.a.r0.r.s.a;
+import d.a.o0.r.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PermissionJudgePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_REQUEST_CODE = -1;
@@ -53,7 +54,7 @@ public class PermissionJudgePolicy {
     public ArrayList<String> requestPermissionList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class EXTRA_DIALOG_REFUSE_POLICY {
         public static final /* synthetic */ EXTRA_DIALOG_REFUSE_POLICY[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,22 +113,22 @@ public class PermissionJudgePolicy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface IExtraDialogCloseCallback {
         void onClose();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ISystemPermissionDialogShowCallBack {
         void onShow();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -434,7 +435,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // d.a.r0.r.s.a.e
+                @Override // d.a.o0.r.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -474,7 +475,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // d.a.r0.r.s.a.e
+                @Override // d.a.o0.r.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -587,6 +588,8 @@ public class PermissionJudgePolicy {
                     ((BaseFragmentActivity) activity).setCurrentPermissionJudgePolicy(this);
                 } else if (activity instanceof BaseActivity) {
                     ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
+                } else if (activity instanceof IPermissionPolicy) {
+                    ((IPermissionPolicy) activity).setCurrentPermissionJudgePolicy(this);
                 }
                 this.mNeedExtraDialogPermissionList = getNeedExtraDialogPermissionList();
                 if (getPageContext(activity) != null && !ListUtils.isEmpty(this.mNeedExtraDialogPermissionList)) {

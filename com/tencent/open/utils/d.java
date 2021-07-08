@@ -10,12 +10,12 @@ import com.yy.hiidostatis.inner.util.cipher.Coder;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f41991a;
+    public static byte[] f39005a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class d {
                 return;
             }
         }
-        f41991a = new byte[]{1, 2, 3, 4, 5, 6, 7, 8};
+        f39005a = new byte[]{1, 2, 3, 4, 5, 6, 7, 8};
     }
 
     public static String a(String str, String str2) {
@@ -39,7 +39,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f41991a);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f39005a);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), Coder.KEY_DES);
                 Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
@@ -58,7 +58,7 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
                 byte[] decode = Base64.decode(str, 0);
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f41991a);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f39005a);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), Coder.KEY_DES);
                 Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);

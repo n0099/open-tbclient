@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmotionResourceProvider implements IResourceProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,7 +37,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     public File mEmotionSoundFile;
     public File mResourcePath;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_UNZIP_DIR_NAME = "emotion_unzip";

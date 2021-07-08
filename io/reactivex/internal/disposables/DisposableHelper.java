@@ -1,5 +1,6 @@
 package io.reactivex.internal.disposables;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class DisposableHelper implements Disposable {
     public static final /* synthetic */ DisposableHelper[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -88,7 +89,7 @@ public final class DisposableHelper implements Disposable {
         Disposable disposable2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, atomicReference, disposable)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference, disposable)) == null) {
             do {
                 disposable2 = atomicReference.get();
                 if (disposable2 == DISPOSED) {

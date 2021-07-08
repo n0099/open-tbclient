@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f46210e;
+    public final /* synthetic */ String f43200e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ Context f46211f;
+    public final /* synthetic */ Context f43201f;
 
     public a(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class a implements Runnable {
                 return;
             }
         }
-        this.f46210e = str;
-        this.f46211f = context;
+        this.f43200e = str;
+        this.f43201f = context;
     }
 
     @Override // java.lang.Runnable
@@ -41,7 +41,7 @@ public final class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                e.d(this.f46210e, this.f46211f);
+                e.d(this.f43200e, this.f43201f);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

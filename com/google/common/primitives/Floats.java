@@ -19,12 +19,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Floats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FloatArrayAsList extends AbstractList<Float> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -241,7 +241,7 @@ public final class Floats {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FloatConverter extends Converter<String, Float> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final FloatConverter INSTANCE;
@@ -308,7 +308,7 @@ public final class Floats {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LexicographicalComparator implements Comparator<float[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -414,7 +414,7 @@ public final class Floats {
     public static int e(float[] fArr, float f2, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{fArr, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             for (int i4 = i3 - 1; i4 >= i2; i4--) {
                 if (fArr[i4] == f2) {
                     return i4;

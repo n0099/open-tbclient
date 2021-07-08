@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,7 +136,7 @@ public final class PopupWindowCompat {
 
     public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, null, popupWindow, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, popupWindow, i2) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 popupWindow.setWindowLayoutType(i2);
                 return;

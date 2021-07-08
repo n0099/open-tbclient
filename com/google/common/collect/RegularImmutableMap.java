@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,7 @@ import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Map;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte ABSENT = -1;
@@ -32,7 +33,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public final transient Object hashTable;
     public final transient int size;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +171,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class KeySet<K> extends ImmutableSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +244,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class KeysOrValuesAsList extends ImmutableList<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -452,7 +453,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static IllegalArgumentException duplicateKeyException(Object obj, Object obj2, Object[] objArr, int i2) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65540, null, obj, obj2, objArr, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, objArr, i2)) == null) {
             return new IllegalArgumentException("Multiple entries with same key: " + obj + "=" + obj2 + " and " + objArr[i2] + "=" + objArr[i2 ^ 1]);
         }
         return (IllegalArgumentException) invokeLLLI.objValue;

@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.b.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements d.InterfaceC0314d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Bitmap.Config f27937a;
+    public final Bitmap.Config f28047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27938b;
+    public final int f28048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f27939c;
+    public final int f28049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ImageView.ScaleType f27940d;
+    public final ImageView.ScaleType f28050d;
 
     public a(int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
         Interceptable interceptable = $ic;
@@ -42,10 +42,10 @@ public class a implements d.InterfaceC0314d {
                 return;
             }
         }
-        this.f27937a = config;
-        this.f27938b = i2;
-        this.f27939c = i3;
-        this.f27940d = scaleType;
+        this.f28047a = config;
+        this.f28048b = i2;
+        this.f28049c = i3;
+        this.f28050d = scaleType;
     }
 
     @VisibleForTesting
@@ -99,16 +99,16 @@ public class a implements d.InterfaceC0314d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            if (this.f27938b == 0 && this.f27939c == 0) {
-                options.inPreferredConfig = this.f27937a;
+            if (this.f28048b == 0 && this.f28049c == 0) {
+                options.inPreferredConfig = this.f28047a;
                 return BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             }
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             int i2 = options.outWidth;
             int i3 = options.outHeight;
-            int a2 = a(this.f27938b, this.f27939c, i2, i3, this.f27940d);
-            int a3 = a(this.f27939c, this.f27938b, i3, i2, this.f27940d);
+            int a2 = a(this.f28048b, this.f28049c, i2, i3, this.f28050d);
+            int a3 = a(this.f28049c, this.f28048b, i3, i2, this.f28050d);
             options.inJustDecodeBounds = false;
             options.inSampleSize = a(i2, i3, a2, a3);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);

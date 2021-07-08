@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PayStatServiceEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIND_CARD_PASS_AGREE = "bind_card_pass_agree";

@@ -2,6 +2,7 @@ package com.baidu.ar.plugin.helper;
 
 import android.annotation.TargetApi;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.ar.plugin.reflect.MethodUtils;
@@ -127,7 +128,7 @@ public class NativeLibraryHelperCompat {
     public static Set<String> getAbisFromApk(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 Enumeration<? extends ZipEntry> entries = new ZipFile(str).entries();
                 HashSet hashSet = new HashSet();

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectKeyData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -25,9 +26,9 @@ import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.ImportExportConfigUtil;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.c0.b.a.k.c;
-import d.a.y0.j.b;
-import d.a.y0.t.h;
+import d.a.v0.j.b;
+import d.a.v0.t.h;
+import d.a.z.b.a.k.c;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -43,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InnerImportExportConfigUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +96,7 @@ public class InnerImportExportConfigUtil {
             HashMap hashMap2 = new HashMap();
             if (map != null) {
                 for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), c.f45163b) && !TextUtils.equals(entry.getKey(), c.f45166e) && (!TextUtils.equals(entry.getKey(), c.f45164c) || !h.e(entry.getValue().textures))) {
+                    if (!TextUtils.equals(entry.getKey(), c.f68741b) && !TextUtils.equals(entry.getKey(), c.f68744e) && (!TextUtils.equals(entry.getKey(), c.f68742c) || !h.e(entry.getValue().textures))) {
                         ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);
@@ -558,7 +559,7 @@ public class InnerImportExportConfigUtil {
     public static String exportTransitionWithShader(Context context, String str, MediaTransition mediaTransition, String str2, ShaderConfig shaderConfig) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, context, str, mediaTransition, str2, shaderConfig)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, mediaTransition, str2, shaderConfig)) == null) {
             try {
                 File file = new File(str);
                 if (file.exists()) {

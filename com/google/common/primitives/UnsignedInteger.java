@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.math.BigInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnsignedInteger extends Number implements Comparable<UnsignedInteger> {
     public static /* synthetic */ Interceptable $ic;
     public static final UnsignedInteger MAX_VALUE;
@@ -212,7 +212,7 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
     public static UnsignedInteger valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? valueOf(str, 10) : (UnsignedInteger) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? valueOf(str, 10) : (UnsignedInteger) invokeL.objValue;
     }
 
     public static UnsignedInteger valueOf(String str, int i2) {

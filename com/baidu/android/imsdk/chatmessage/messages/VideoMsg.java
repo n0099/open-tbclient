@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -80,14 +80,14 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     private String getVideoContent(String str, int i2, int i3, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i2);
+                jSONObject.put("format", i2);
                 jSONObject.put("duration", i3);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 return jSONObject.toString();
@@ -134,7 +134,7 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 try {
                     JSONObject jSONObject = new JSONObject(getJsonContent());
                     this.mRemoteUrl = jSONObject.optString("url");
-                    this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
+                    this.mFormat = jSONObject.optInt("format");
                     this.mDuration = jSONObject.optInt("duration");
                     return true;
                 } catch (JSONException e2) {

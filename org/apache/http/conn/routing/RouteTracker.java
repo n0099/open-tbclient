@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.RouteInfo;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RouteTracker implements RouteInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

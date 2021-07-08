@@ -19,16 +19,16 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class h implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Element f44041a;
+    public Element f41057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f44042b;
+    public Set<String> f41058b;
 
     public h(Element element) {
         String nodeName;
@@ -47,15 +47,15 @@ public class h implements c {
                 return;
             }
         }
-        this.f44041a = element;
-        this.f44042b = new HashSet();
+        this.f41057a = element;
+        this.f41058b = new HashSet();
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i4 = 0; i4 < length; i4++) {
                 Node item = attributes.item(i4);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.f44042b.add(nodeName2);
+                    this.f41058b.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -63,7 +63,7 @@ public class h implements c {
             for (int i5 = 0; i5 < length2; i5++) {
                 Node item2 = childNodes.item(i5);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.f44042b.add(nodeName);
+                    this.f41058b.add(nodeName);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class h implements c {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44042b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41058b : (Set) invokeV.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
@@ -83,23 +83,23 @@ public class h implements c {
             return;
         }
         if (obj instanceof Boolean) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Byte) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Character) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Short) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Integer) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Long) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Float) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof Double) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj instanceof String) {
-            this.f44041a.setAttribute(str, String.valueOf(obj));
+            this.f41057a.setAttribute(str, String.valueOf(obj));
         } else if (obj.getClass().isArray() || d.a.c.e.b.a.a.e(obj.getClass(), List.class) || d.a.c.e.b.a.a.e(obj.getClass(), Queue.class) || d.a.c.e.b.a.a.e(obj.getClass(), Set.class) || d.a.c.e.b.a.a.e(obj.getClass(), Map.class)) {
         } else {
             d.a.c.e.b.a.a.e(obj.getClass(), SparseArray.class);
@@ -127,9 +127,9 @@ public class h implements c {
         String nodeName;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            String attribute = this.f44041a.getAttribute(str);
+            String attribute = this.f41057a.getAttribute(str);
             if (TextUtils.isEmpty(attribute)) {
-                NodeList childNodes = this.f44041a.getChildNodes();
+                NodeList childNodes = this.f41057a.getChildNodes();
                 int length = childNodes.getLength();
                 ArrayList arrayList = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {

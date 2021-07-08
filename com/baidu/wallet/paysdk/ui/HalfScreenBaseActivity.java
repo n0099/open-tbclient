@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.paysdk.ui.widget.HalfScreenContainerLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f26415a;
+    public static int f26525a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AnimationDrawable f26416b;
+    public AnimationDrawable f26526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f26417c;
+    public View f26527c;
     public View mActionBar;
     public ViewGroup mContentView;
     public HalfScreenContainerLayout mHalfScreenContainer;
@@ -73,7 +73,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     private void a() {
         int size;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || f26415a <= 1 || BaseActivity.mActivityStack.size() - 2 < 0 || !(BaseActivity.mActivityStack.get(size) instanceof HalfScreenBaseActivity)) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || f26525a <= 1 || BaseActivity.mActivityStack.size() - 2 < 0 || !(BaseActivity.mActivityStack.get(size) instanceof HalfScreenBaseActivity)) {
             return;
         }
         findViewById(ResUtils.id(getActivity(), "ebpay_top_half")).setVisibility(4);
@@ -83,7 +83,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
         int drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (f26415a > 1) {
+            if (f26525a > 1) {
                 drawable = ResUtils.drawable(this, "wallet_base_new_halfscreen_actionbar_back");
                 this.mLeftImg.setContentDescription("返回");
             } else {
@@ -96,8 +96,8 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
 
     public static void resetInstanceCount() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
-            f26415a = 0;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            f26525a = 0;
         }
     }
 
@@ -108,9 +108,9 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
-            int i2 = f26415a;
+            int i2 = f26525a;
             if (i2 > 0) {
-                f26415a = i2 - 1;
+                f26525a = i2 - 1;
             }
         }
     }
@@ -120,9 +120,9 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.finishWithoutAnim();
-            int i2 = f26415a;
+            int i2 = f26525a;
             if (i2 > 0) {
-                f26415a = i2 - 1;
+                f26525a = i2 - 1;
             }
         }
     }
@@ -149,12 +149,12 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            f26415a++;
+            f26525a++;
             setFlagPaySdk();
             setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_half_scrren_activity"));
             this.mHalfScreenPageView = (ViewGroup) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_page"));
             View findViewById = findViewById(ResUtils.id(getActivity(), "welcome_page"));
-            this.f26417c = findViewById;
+            this.f26527c = findViewById;
             findViewById.setVisibility(8);
             this.mRootView = findViewById(ResUtils.id(getActivity(), "root_view"));
             this.mHalfScreenContainer = (HalfScreenContainerLayout) findViewById(ResUtils.id(getActivity(), "ebpay_half_screen_container"));
@@ -164,7 +164,7 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             this.mTitle = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_title"));
             this.mRightTxt = (TextView) findViewById(ResUtils.id(getActivity(), "action_bar_left_txt"));
             b();
-            this.f26416b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
+            this.f26526b = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
             addContentView();
         }
     }
@@ -175,10 +175,10 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            if (isFinishing() || (i2 = f26415a) <= 0) {
+            if (isFinishing() || (i2 = f26525a) <= 0) {
                 return;
             }
-            f26415a = i2 - 1;
+            f26525a = i2 - 1;
         }
     }
 
@@ -192,8 +192,8 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
     public void showLikeDismissLadingPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f26417c.setVisibility(8);
-            this.f26416b.stop();
+            this.f26527c.setVisibility(8);
+            this.f26526b.stop();
         }
     }
 
@@ -203,13 +203,13 @@ public abstract class HalfScreenBaseActivity extends PayBaseActivity {
             setPageTransparent(false);
             if (z) {
                 this.mHalfScreenPageView.setVisibility(8);
-                this.f26417c.setVisibility(0);
-                this.f26416b.start();
+                this.f26527c.setVisibility(0);
+                this.f26526b.start();
                 return;
             }
             this.mHalfScreenPageView.setVisibility(0);
-            this.f26417c.setVisibility(8);
-            this.f26416b.stop();
+            this.f26527c.setVisibility(8);
+            this.f26526b.stop();
         }
     }
 }

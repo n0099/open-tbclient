@@ -1,6 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
@@ -20,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COLON = ":";
@@ -59,7 +60,7 @@ public class LoadErrorCode {
     public volatile StringBuilder mDetails;
     public volatile int mErrorCode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
@@ -79,7 +80,7 @@ public class LoadErrorCode {
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +268,7 @@ public class LoadErrorCode {
 
         public static void addBkupList(ErrorItem errorItem) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, null, errorItem) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, errorItem) == null) {
                 if (sBkupList == null) {
                     sBkupList = new LinkedList();
                 }
@@ -647,7 +648,7 @@ public class LoadErrorCode {
     public static String getRootMessage(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
             Throwable rootCause = getRootCause(th);
             return rootCause == null ? "" : rootCause.toString();
         }

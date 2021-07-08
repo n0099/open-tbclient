@@ -1,6 +1,7 @@
 package com.baidu.searchbox.config;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class HostConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_ABTEST_SCOP = "scop_abtest";
@@ -25,7 +26,7 @@ public final class HostConfig {
     public static ConfigInterceptor sConfigInterceptor;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ConfigInterceptor {
         boolean getBooleanConfig(String str, String str2);
     }
@@ -67,7 +68,7 @@ public final class HostConfig {
     public static String getAppAuthorityDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? String.format("%s/webpage?type=user&action=authority", BaseUrlManager.ONLINE_URL) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? String.format("%s/webpage?type=user&action=authority", BaseUrlManager.ONLINE_URL) : (String) invokeV.objValue;
     }
 
     public static String getBaiduLogoHost() {

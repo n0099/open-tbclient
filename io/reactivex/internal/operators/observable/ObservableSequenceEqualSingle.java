@@ -19,7 +19,7 @@ import io.reactivex.internal.fuseable.FuseToObservable;
 import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> implements FuseToObservable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
     public final ObservableSource<? extends T> first;
     public final ObservableSource<? extends T> second;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EqualCoordinator<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6178010334400373240L;
@@ -185,7 +185,7 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EqualObserver<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

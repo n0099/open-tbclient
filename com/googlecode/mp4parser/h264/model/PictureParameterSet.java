@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PictureParameterSet extends BitstreamElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class PictureParameterSet extends BitstreamElement {
     public int weighted_bipred_idc;
     public boolean weighted_pred_flag;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PPSExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

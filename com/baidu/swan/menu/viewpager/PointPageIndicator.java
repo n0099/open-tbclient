@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PointPageIndicator extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f12040e;
+    public Drawable f12057e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f12041f;
+    public Drawable f12058f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f12042g;
+    public Rect f12059g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f12043h;
+    public Rect f12060h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12044i;
+    public int f12061i;
     public int j;
     public int k;
 
@@ -54,11 +54,11 @@ public class PointPageIndicator extends View {
                 return;
             }
         }
-        this.f12040e = null;
-        this.f12041f = null;
-        this.f12042g = new Rect();
-        this.f12043h = new Rect();
-        this.f12044i = 0;
+        this.f12057e = null;
+        this.f12058f = null;
+        this.f12059g = new Rect();
+        this.f12060h = new Rect();
+        this.f12061i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -98,13 +98,13 @@ public class PointPageIndicator extends View {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, drawable, drawable2)) == null) {
-            this.f12040e = drawable;
-            this.f12041f = drawable2;
+            this.f12057e = drawable;
+            this.f12058f = drawable2;
             if (drawable instanceof BitmapDrawable) {
-                this.f12042g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                this.f12059g.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             }
             if (drawable2 instanceof BitmapDrawable) {
-                this.f12043h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                this.f12060h.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
             }
             return this;
         }
@@ -125,7 +125,7 @@ public class PointPageIndicator extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f12044i = i2;
+            this.f12061i = i2;
             return this;
         }
         return (PointPageIndicator) invokeI.objValue;
@@ -141,14 +141,14 @@ public class PointPageIndicator extends View {
             if (i2 <= 0) {
                 return;
             }
-            int i3 = this.f12044i;
+            int i3 = this.f12061i;
             int height = getHeight();
             int width2 = getWidth();
             int i4 = this.j;
-            Rect rect = this.f12042g;
-            Rect rect2 = this.f12043h;
-            Drawable drawable = this.f12040e;
-            Drawable drawable2 = this.f12041f;
+            Rect rect = this.f12059g;
+            Rect rect2 = this.f12060h;
+            Drawable drawable = this.f12057e;
+            Drawable drawable2 = this.f12058f;
             int i5 = i2 - 1;
             int width3 = (width2 - (((i3 * i5) + (rect.width() * i5)) + rect2.width())) / 2;
             for (int i6 = 0; i6 < i2; i6++) {
@@ -191,11 +191,11 @@ public class PointPageIndicator extends View {
                 return;
             }
         }
-        this.f12040e = null;
-        this.f12041f = null;
-        this.f12042g = new Rect();
-        this.f12043h = new Rect();
-        this.f12044i = 0;
+        this.f12057e = null;
+        this.f12058f = null;
+        this.f12059g = new Rect();
+        this.f12060h = new Rect();
+        this.f12061i = 0;
         this.j = 0;
         this.k = 0;
         a(context);
@@ -220,11 +220,11 @@ public class PointPageIndicator extends View {
                 return;
             }
         }
-        this.f12040e = null;
-        this.f12041f = null;
-        this.f12042g = new Rect();
-        this.f12043h = new Rect();
-        this.f12044i = 0;
+        this.f12057e = null;
+        this.f12058f = null;
+        this.f12059g = new Rect();
+        this.f12060h = new Rect();
+        this.f12061i = 0;
         this.j = 0;
         this.k = 0;
         a(context);

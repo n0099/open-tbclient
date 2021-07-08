@@ -12,7 +12,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WireInput {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType = null;
     public static /* synthetic */ Interceptable $ic = null;
@@ -100,7 +100,7 @@ public final class WireInput {
     public static int decodeZigZag32(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
     }
 
     public static long decodeZigZag64(long j) {

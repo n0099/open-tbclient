@@ -7,27 +7,27 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23155a;
+    public static final String f23265a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23156b;
+    public static final String f23266b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23157c;
+    public static final String f23267c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f23158d;
+    public static int f23268d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class EnumC0249a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
@@ -65,17 +65,17 @@ public final class a {
                 return;
             }
         }
-        f23155a = Environment.getExternalStorageDirectory().getPath();
-        f23156b = f23155a + "/baidu/ab/crash/";
-        f23157c = f23155a + "/baidu/ab/sdklog/";
-        String str = f23155a + "/baidu/ab/sdkupdata/" + b() + "/";
-        f23158d = EnumC0249a.aV;
+        f23265a = Environment.getExternalStorageDirectory().getPath();
+        f23266b = f23265a + "/baidu/ab/crash/";
+        f23267c = f23265a + "/baidu/ab/sdklog/";
+        String str = f23265a + "/baidu/ab/sdkupdata/" + b() + "/";
+        f23268d = EnumC0249a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f23158d == EnumC0249a.aV : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f23268d == EnumC0249a.aV : invokeV.booleanValue;
     }
 
     public static int b() {

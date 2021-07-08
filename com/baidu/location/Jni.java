@@ -9,36 +9,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Jni {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f6476a = 0;
+    public static int f6493a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6477b = 1;
+    public static int f6494b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6478c = 2;
+    public static int f6495c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f6479d = 11;
+    public static int f6496d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f6480e = 12;
+    public static int f6497e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6481f = 13;
+    public static int f6498f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6482g = 14;
+    public static int f6499g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f6483h = 15;
+    public static int f6500h = 15;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6484i = 1024;
+    public static int f6501i = 1024;
     public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,19 +93,19 @@ public class Jni {
             }
             int i2 = -1;
             if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-                i2 = f6476a;
+                i2 = f6493a;
             } else if (str.equals("bd09ll")) {
-                i2 = f6477b;
+                i2 = f6494b;
             } else if (str.equals("gcj02")) {
-                i2 = f6478c;
+                i2 = f6495c;
             } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-                i2 = f6479d;
+                i2 = f6496d;
             } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-                i2 = f6480e;
+                i2 = f6497e;
             } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-                i2 = f6481f;
+                i2 = f6498f;
             } else if (str.equals("wgs842mc")) {
-                i2 = f6483h;
+                i2 = f6500h;
             }
             try {
                 String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
@@ -131,7 +131,7 @@ public class Jni {
                 return StringUtil.NULL_STRING;
             }
             byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[f6484i];
+            byte[] bArr = new byte[f6501i];
             int length = bytes.length;
             if (length > 740) {
                 length = 740;

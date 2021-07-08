@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.multipro.d;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +13,12 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f31507a;
+    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f31617a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(String str) {
@@ -30,7 +31,7 @@ public class b {
         SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference;
         Map<String, Object> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, str) == null) || (softReference = f31507a) == null || softReference.get() == null || (map = f31507a.get().get(a(str))) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65550, null, str) == null) || (softReference = f31617a) == null || softReference.get() == null || (map = f31617a.get().get(a(str))) == null) {
             return;
         }
         map.clear();
@@ -54,7 +55,7 @@ public class b {
         Map<String, Object> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f31507a;
+            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f31617a;
             if (softReference == null || (concurrentHashMap = softReference.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
                 return null;
             }
@@ -107,12 +108,12 @@ public class b {
     public static void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, obj) == null) {
-            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f31507a;
+            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f31617a;
             if (softReference == null || softReference.get() == null) {
-                f31507a = new SoftReference<>(new ConcurrentHashMap());
+                f31617a = new SoftReference<>(new ConcurrentHashMap());
             }
             String a2 = a(str);
-            ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f31507a.get();
+            ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f31617a.get();
             if (concurrentHashMap.get(a2) == null) {
                 concurrentHashMap.put(a2, new HashMap());
             }
@@ -165,16 +166,16 @@ public class b {
                 SharedPreferences.Editor edit = c2.edit();
                 edit.remove(str2);
                 edit.apply();
-                if (f31507a == null || f31507a.get() == null) {
+                if (f31617a == null || f31617a.get() == null) {
                     return;
                 }
                 String a2 = a(str);
-                if (!TextUtils.isEmpty(a2) && (map = f31507a.get().get(a2)) != null && map.size() != 0) {
+                if (!TextUtils.isEmpty(a2) && (map = f31617a.get().get(a2)) != null && map.size() != 0) {
                     map.remove(str2);
-                    if (f31507a == null || f31507a.get() == null) {
+                    if (f31617a == null || f31617a.get() == null) {
                         return;
                     }
-                    f31507a.get().put(a2, map);
+                    f31617a.get().put(a2, map);
                 }
             } catch (Throwable unused) {
             }
@@ -190,7 +191,7 @@ public class b {
     public static String a(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, context, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
             Object a2 = a(str, str2);
             if (a2 != null) {
                 return a2 + "";

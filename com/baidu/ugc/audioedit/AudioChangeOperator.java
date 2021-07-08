@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.y0.g.b;
-import d.a.y0.t.c;
+import d.a.v0.g.b;
+import d.a.v0.t.c;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AudioChangeOperator implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;
@@ -115,14 +115,14 @@ public class AudioChangeOperator implements b {
         }
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mReverbType > 100 || this.mPitchType > 0 || this.mDenoiseType > 200 || this.mAgcType > 300 : invokeV.booleanValue;
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AudioChangeOperator implements b {
         return invokeV.intValue;
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public void clearQueues() {
         DuAudioProcess duAudioProcess;
         Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class AudioChangeOperator implements b {
         duAudioProcess.b();
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -158,7 +158,7 @@ public class AudioChangeOperator implements b {
         }
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public void flush() {
         DuAudioProcess duAudioProcess;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class AudioChangeOperator implements b {
         duAudioProcess.d();
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public int getBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class AudioChangeOperator implements b {
         return invokeLI.intValue;
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public void initVoiceChanger(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
@@ -192,7 +192,7 @@ public class AudioChangeOperator implements b {
         }
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public boolean putBytes(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public class AudioChangeOperator implements b {
         return invokeLI.booleanValue;
     }
 
-    @Override // d.a.y0.g.b
+    @Override // d.a.v0.g.b
     public void setVoiceChangeType(int[] iArr) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr) == null) || checkTypesEquals(iArr)) {

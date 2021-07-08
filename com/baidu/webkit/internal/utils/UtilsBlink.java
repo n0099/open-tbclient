@@ -2,6 +2,7 @@ package com.baidu.webkit.internal.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UtilsBlink implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEX_FILE_SUBFIX = ".dex";
@@ -77,7 +78,7 @@ public class UtilsBlink implements INoProGuard {
     public static String getFilesPath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             File filesDir = context.getFilesDir();
             if (filesDir != null) {
                 return filesDir.getAbsolutePath();

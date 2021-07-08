@@ -1,5 +1,6 @@
 package rx.internal.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ExceptionsUtils {
     public static final /* synthetic */ ExceptionsUtils[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -84,7 +85,7 @@ public final class ExceptionsUtils {
     public static boolean isTerminated(AtomicReference<Throwable> atomicReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, atomicReference)) == null) ? isTerminated(atomicReference.get()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReference)) == null) ? isTerminated(atomicReference.get()) : invokeL.booleanValue;
     }
 
     public static Throwable terminate(AtomicReference<Throwable> atomicReference) {

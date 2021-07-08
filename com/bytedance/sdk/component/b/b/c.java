@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class c implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.a.e f28413a;
+    public final com.bytedance.sdk.component.b.b.a.a.e f28523a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.a.d f28414b;
+    public final com.bytedance.sdk.component.b.b.a.a.d f28524b;
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f28414b.close();
+            this.f28524b.close();
         }
     }
 
@@ -29,7 +29,7 @@ public final class c implements Closeable, Flushable {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28414b.flush();
+            this.f28524b.flush();
         }
     }
 }

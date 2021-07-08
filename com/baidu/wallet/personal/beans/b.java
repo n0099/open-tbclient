@@ -12,24 +12,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.beans.BeanManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.personal.beans.b$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f26953a;
+        public static b f27063a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public final class b implements IBeanFactory {
                     return;
                 }
             }
-            f26953a = new b(null);
+            f27063a = new b(null);
         }
     }
 
@@ -70,7 +70,7 @@ public final class b implements IBeanFactory {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f26953a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f27063a : (b) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

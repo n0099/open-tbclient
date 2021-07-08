@@ -25,7 +25,7 @@ import d.l.a.e.a.g;
 import d.l.a.e.a.l;
 import d.l.a.e.b.g.e;
 import d.l.a.e.b.g.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a extends d.l.a.e.b.p.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class a extends d.l.a.e.b.p.a {
         }
         try {
             Notification w = w(baseException, z);
-            this.f75034i = w;
+            this.f72086i = w;
             f(w);
         } catch (Exception e2) {
             e2.printStackTrace();

@@ -20,51 +20,51 @@ import i.a.a.e.n.f;
 import i.a.a.e.n.g;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f75865e;
+    public final Context f72899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f75866f;
+    public int f72900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<i.a.a.e.l.a> f75867g;
+    public List<i.a.a.e.l.a> f72901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f75868h;
+    public String f72902h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PayUIKitConfig f75869i;
+    public PayUIKitConfig f72903i;
 
     /* renamed from: i.a.a.e.o.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C2119a {
+    /* loaded from: classes8.dex */
+    public class C2087a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f75870a;
+        public TextView f72904a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f75871b;
+        public TextView f72905b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LinearLayout f75872c;
+        public LinearLayout f72906c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f75873d;
+        public TextView f72907d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f75874e;
+        public LinearLayout f72908e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f75875f;
+        public TextView f72909f;
 
-        public C2119a(a aVar) {
+        public C2087a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,10 +96,10 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f75868h = "Y币";
-        this.f75865e = context;
-        this.f75867g = list;
-        this.f75869i = payUIKitConfig;
+        this.f72902h = "Y币";
+        this.f72899e = context;
+        this.f72901g = list;
+        this.f72903i = payUIKitConfig;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -109,11 +109,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<i.a.a.e.l.a> list = this.f75867g;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f75867g.size()) {
+            List<i.a.a.e.l.a> list = this.f72901g;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f72901g.size()) {
                 return null;
             }
-            return this.f75867g.get(i2);
+            return this.f72901g.get(i2);
         }
         return (i.a.a.e.l.a) invokeI.objValue;
     }
@@ -123,7 +123,7 @@ public class a extends BaseAdapter {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f75866f >= getCount() || (i2 = this.f75866f) < 0) {
+            if (this.f72900f >= getCount() || (i2 = this.f72900f) < 0) {
                 return null;
             }
             return getItem(i2);
@@ -134,14 +134,14 @@ public class a extends BaseAdapter {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f75868h = str;
+            this.f72902h = str;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f75866f = i2;
+            this.f72900f = i2;
         }
     }
 
@@ -149,7 +149,7 @@ public class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f75867g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72901g.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -162,48 +162,48 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C2119a c2119a;
+        C2087a c2087a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(new ContextThemeWrapper(this.f75865e, g.f75863a.a(this.f75869i))).inflate(e.pay_ui_item_pay_amount_choose, (ViewGroup) null);
-                c2119a = new C2119a(this);
-                c2119a.f75870a = (TextView) view.findViewById(d.tv_dest_amount);
-                c2119a.f75871b = (TextView) view.findViewById(d.tv_amount_unit);
-                c2119a.f75872c = (LinearLayout) view.findViewById(d.amount_new_rl);
-                c2119a.f75873d = (TextView) view.findViewById(d.amount_new);
-                c2119a.f75874e = (LinearLayout) view.findViewById(d.ll_dest_amount_container);
-                c2119a.f75875f = (TextView) view.findViewById(d.tv_other_amount);
-                view.setTag(c2119a);
+                view = LayoutInflater.from(new ContextThemeWrapper(this.f72899e, g.f72897a.a(this.f72903i))).inflate(e.pay_ui_item_pay_amount_choose, (ViewGroup) null);
+                c2087a = new C2087a(this);
+                c2087a.f72904a = (TextView) view.findViewById(d.tv_dest_amount);
+                c2087a.f72905b = (TextView) view.findViewById(d.tv_amount_unit);
+                c2087a.f72906c = (LinearLayout) view.findViewById(d.amount_new_rl);
+                c2087a.f72907d = (TextView) view.findViewById(d.amount_new);
+                c2087a.f72908e = (LinearLayout) view.findViewById(d.ll_dest_amount_container);
+                c2087a.f72909f = (TextView) view.findViewById(d.tv_other_amount);
+                view.setTag(c2087a);
             } else {
-                c2119a = (C2119a) view.getTag();
+                c2087a = (C2087a) view.getTag();
             }
             i.a.a.e.l.a item = getItem(i2);
-            if (item.f75850c) {
-                c2119a.f75875f.setVisibility(0);
-                c2119a.f75874e.setVisibility(8);
-                c2119a.f75873d.setVisibility(8);
+            if (item.f72884c) {
+                c2087a.f72909f.setVisibility(0);
+                c2087a.f72908e.setVisibility(8);
+                c2087a.f72907d.setVisibility(8);
             } else {
-                c2119a.f75875f.setVisibility(8);
-                c2119a.f75874e.setVisibility(0);
-                c2119a.f75873d.setVisibility(0);
-                c2119a.f75870a.setText(String.valueOf(item.a()));
-                c2119a.f75871b.setText(this.f75868h);
-                c2119a.f75873d.setVisibility(0);
+                c2087a.f72909f.setVisibility(8);
+                c2087a.f72908e.setVisibility(0);
+                c2087a.f72907d.setVisibility(0);
+                c2087a.f72904a.setText(String.valueOf(item.a()));
+                c2087a.f72905b.setText(this.f72902h);
+                c2087a.f72907d.setVisibility(0);
                 Double b2 = item.b();
                 if (b2 == null) {
-                    c2119a.f75873d.setText("");
+                    c2087a.f72907d.setText("");
                 } else {
-                    c2119a.f75873d.setText(String.format("¥%s", f.a(b2.doubleValue())));
+                    c2087a.f72907d.setText(String.format("¥%s", f.a(b2.doubleValue())));
                 }
-                if (this.f75866f == i2) {
-                    c2119a.f75872c.setSelected(true);
-                    c2119a.f75870a.setSelected(true);
-                    c2119a.f75871b.setSelected(true);
+                if (this.f72900f == i2) {
+                    c2087a.f72906c.setSelected(true);
+                    c2087a.f72904a.setSelected(true);
+                    c2087a.f72905b.setSelected(true);
                 } else {
-                    c2119a.f75872c.setSelected(false);
-                    c2119a.f75870a.setSelected(false);
-                    c2119a.f75871b.setSelected(false);
+                    c2087a.f72906c.setSelected(false);
+                    c2087a.f72904a.setSelected(false);
+                    c2087a.f72905b.setSelected(false);
                 }
             }
             return view;

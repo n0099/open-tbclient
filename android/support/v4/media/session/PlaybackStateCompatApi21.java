@@ -3,6 +3,7 @@ package android.support.v4.media.session;
 import android.media.session.PlaybackState;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +58,7 @@ public class PlaybackStateCompatApi21 {
         public static CharSequence getName(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((PlaybackState.CustomAction) obj).getName() : (CharSequence) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((PlaybackState.CustomAction) obj).getName() : (CharSequence) invokeL.objValue;
         }
 
         public static Object newInstance(String str, CharSequence charSequence, int i2, Bundle bundle) {
@@ -107,7 +108,7 @@ public class PlaybackStateCompatApi21 {
     public static List<Object> getCustomActions(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((PlaybackState) obj).getCustomActions() : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((PlaybackState) obj).getCustomActions() : (List) invokeL.objValue;
     }
 
     public static CharSequence getErrorMessage(Object obj) {

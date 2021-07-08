@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f44346b;
+    public static a f41362b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44347a;
+    public long f41363a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,21 +46,21 @@ public class a {
                 return;
             }
         }
-        this.f44347a = 0L;
+        this.f41363a = 0L;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f44346b == null) {
+            if (f41362b == null) {
                 synchronized (a.class) {
-                    if (f44346b == null) {
-                        f44346b = new a();
+                    if (f41362b == null) {
+                        f41362b = new a();
                     }
                 }
             }
-            return f44346b;
+            return f41362b;
         }
         return (a) invokeV.objValue;
     }
@@ -71,12 +71,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f44347a > 0) {
-                    this.f44347a++;
+                if (this.f41363a > 0) {
+                    this.f41363a++;
                 } else {
-                    this.f44347a = System.currentTimeMillis();
+                    this.f41363a = System.currentTimeMillis();
                 }
-                j = this.f44347a;
+                j = this.f41363a;
             }
             return j;
         }

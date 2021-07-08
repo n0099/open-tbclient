@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ea implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f23483a;
+    public final /* synthetic */ FeedbackReportActivity f23593a;
 
     public ea(FeedbackReportActivity feedbackReportActivity) {
         Interceptable interceptable = $ic;
@@ -28,15 +28,15 @@ public final class ea implements View.OnClickListener {
                 return;
             }
         }
-        this.f23483a = feedbackReportActivity;
+        this.f23593a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f23483a.C = true;
-            this.f23483a.a();
+            this.f23593a.C = true;
+            this.f23593a.a();
         }
     }
 }

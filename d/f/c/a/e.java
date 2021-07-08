@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f73673a;
+    public final /* synthetic */ f f70776a;
 
     public e(f fVar) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class e implements ArCoreApk.a {
                 return;
             }
         }
-        this.f73673a = fVar;
+        this.f70776a = fVar;
     }
 
     public static Uri b(String str) {
@@ -104,9 +104,9 @@ public class e implements ArCoreApk.a {
     public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.f73673a) {
-                f.c(this.f73673a, availability);
-                f.f(this.f73673a, false);
+            synchronized (this.f70776a) {
+                f.c(this.f70776a, availability);
+                f.f(this.f70776a, false);
             }
         }
     }

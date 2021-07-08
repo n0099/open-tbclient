@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XSplashAdProd extends XAbstractAdProdTemplate {
     public static /* synthetic */ Interceptable $ic;
     public static int scaleType;
@@ -129,7 +129,7 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
 
     public static void setDisplayMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) {
             scaleType = i2;
         }
     }

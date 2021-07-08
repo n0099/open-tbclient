@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.model.AdStyleInfo;
+import com.kwad.sdk.core.webview.jshandler.n;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class s implements com.kwad.sdk.core.c<AdStyleInfo.FeedAdInfo> {
+/* loaded from: classes6.dex */
+public class s implements com.kwad.sdk.core.d<n.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +28,29 @@ public class s implements com.kwad.sdk.core.c<AdStyleInfo.FeedAdInfo> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(AdStyleInfo.FeedAdInfo feedAdInfo) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(n.a aVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedAdInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "templateConfig", feedAdInfo.templateConfig);
-            com.kwad.sdk.utils.o.a(jSONObject, "heightRatio", feedAdInfo.heightRatio);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        aVar.f35252a = jSONObject.optDouble("progress");
+        aVar.f35253b = jSONObject.optInt("status");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(AdStyleInfo.FeedAdInfo feedAdInfo, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(n.a aVar, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, feedAdInfo, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aVar, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "progress", aVar.f35252a);
+            com.kwad.sdk.utils.q.a(jSONObject, "status", aVar.f35253b);
+            return jSONObject;
         }
-        feedAdInfo.templateConfig = jSONObject.optString("templateConfig");
-        feedAdInfo.heightRatio = jSONObject.optDouble("heightRatio");
+        return (JSONObject) invokeLL.objValue;
     }
 }

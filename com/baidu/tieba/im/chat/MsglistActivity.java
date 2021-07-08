@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.o;
-import d.a.s0.i1.f.c;
-import d.a.s0.i1.f.h;
-/* loaded from: classes5.dex */
+import d.a.o0.z0.o;
+import d.a.p0.i1.f.c;
+import d.a.p0.i1.f.h;
+/* loaded from: classes4.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (first(this)) {
                 loadDraft();
                 regReceiver();
-                h.f61531a = o.e();
+                h.f58296a = o.e();
             }
         }
     }
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // d.a.s0.i1.f.c
+    @Override // d.a.p0.i1.f.c
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

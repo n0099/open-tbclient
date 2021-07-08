@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static SoftReference<e> f75177d;
+    public static SoftReference<e> f72211d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.o.b.f.a f75178a;
+    public d.o.b.f.a f72212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f75179b;
+    public String f72213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f75180c;
+    public Context f72214c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,9 +61,9 @@ public final class e {
             }
         }
         d.o.b.g.a.b();
-        this.f75178a = new d.o.b.f.a(context, str);
-        this.f75179b = str;
-        this.f75180c = context;
+        this.f72212a = new d.o.b.f.a(context, str);
+        this.f72213b = str;
+        this.f72214c = context;
     }
 
     public static e b(Context context, String str) {
@@ -72,12 +72,12 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             if (context != null && str != null) {
-                SoftReference<e> softReference = f75177d;
+                SoftReference<e> softReference = f72211d;
                 e eVar2 = softReference == null ? null : softReference.get();
-                if (eVar2 == null || !str.equals(eVar2.f75179b)) {
+                if (eVar2 == null || !str.equals(eVar2.f72213b)) {
                     synchronized (e.class) {
                         eVar = new e(context, str);
-                        f75177d = new SoftReference<>(eVar);
+                        f72211d = new SoftReference<>(eVar);
                     }
                     return eVar;
                 }
@@ -91,14 +91,14 @@ public final class e {
     public final void a(Activity activity, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bVar) == null) {
-            this.f75178a.c(activity, TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT, bVar);
+            this.f72212a.c(activity, TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT, bVar);
         }
     }
 
     public final void c(int i2, int i3, Intent intent, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, bVar}) == null) {
-            this.f75178a.d(i2, i3, intent, bVar);
+            this.f72212a.d(i2, i3, intent, bVar);
         }
     }
 }

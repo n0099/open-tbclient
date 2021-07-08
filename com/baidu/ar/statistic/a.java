@@ -90,7 +90,7 @@ public final class a implements Cloneable {
     public static a aG(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null && !str.isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject(str.trim());

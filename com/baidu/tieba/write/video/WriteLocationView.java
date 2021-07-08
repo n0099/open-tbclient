@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WriteLocationView extends LocationInfoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocationModel f22604h;
+    public LocationModel f22663h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteLocationView f22605a;
+        public final /* synthetic */ WriteLocationView f22664a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(WriteLocationView writeLocationView, int i2) {
@@ -45,7 +45,7 @@ public class WriteLocationView extends LocationInfoView {
                     return;
                 }
             }
-            this.f22605a = writeLocationView;
+            this.f22664a = writeLocationView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,13 +55,13 @@ public class WriteLocationView extends LocationInfoView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.f22605a.f22604h.L(false);
-                    this.f22605a.f22604h.K(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                    this.f22605a.e(2, true, responsedSelectLocation.getName());
+                    this.f22664a.f22663h.M(false);
+                    this.f22664a.f22663h.L(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.f22664a.e(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.f22605a.f22604h.L(true);
-                this.f22605a.e(0, true, null);
+                this.f22664a.f22663h.M(true);
+                this.f22664a.e(0, true, null);
             }
         }
     }

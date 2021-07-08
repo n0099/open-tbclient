@@ -1341,7 +1341,7 @@ public final class MediaControllerCompat {
 
     public static void validateCustomAction(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, bundle) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bundle) == null) || str == null) {
             return;
         }
         char c2 = 65535;

@@ -24,6 +24,7 @@ import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.VectorEnabledTintResources;
 import androidx.collection.ArraySet;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -125,7 +126,7 @@ public abstract class AppCompatDelegate {
     public static AppCompatDelegate create(@NonNull Activity activity, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, activity, appCompatCallback)) == null) ? new AppCompatDelegateImpl(activity, appCompatCallback) : (AppCompatDelegate) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, appCompatCallback)) == null) ? new AppCompatDelegateImpl(activity, appCompatCallback) : (AppCompatDelegate) invokeLL.objValue;
     }
 
     public static int getDefaultNightMode() {

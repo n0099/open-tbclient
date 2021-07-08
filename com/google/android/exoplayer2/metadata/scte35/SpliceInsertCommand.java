@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.metadata.scte35;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import d.f.b.a.i0.s;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceInsertCommand> CREATOR;
@@ -34,7 +35,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final boolean spliceImmediateFlag;
     public final int uniqueProgramId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<SpliceInsertCommand> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,19 +73,19 @@ public final class SpliceInsertCommand extends SpliceCommand {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f32734a;
+        public final int f32844a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f32735b;
+        public final long f32845b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f32736c;
+        public final long f32846c;
 
         public /* synthetic */ b(int i2, long j, long j2, a aVar) {
             this(i2, j, j2);
@@ -99,9 +100,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public void b(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.f32734a);
-                parcel.writeLong(this.f32735b);
-                parcel.writeLong(this.f32736c);
+                parcel.writeInt(this.f32844a);
+                parcel.writeLong(this.f32845b);
+                parcel.writeLong(this.f32846c);
             }
         }
 
@@ -120,9 +121,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f32734a = i2;
-            this.f32735b = j;
-            this.f32736c = j2;
+            this.f32844a = i2;
+            this.f32845b = j;
+            this.f32846c = j2;
         }
     }
 
@@ -161,7 +162,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
         boolean z5;
         long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{lVar, Long.valueOf(j), sVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lVar, Long.valueOf(j), sVar})) == null) {
             long z6 = lVar.z();
             boolean z7 = (lVar.x() & 128) != 0;
             List emptyList = Collections.emptyList();

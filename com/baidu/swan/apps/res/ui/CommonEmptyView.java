@@ -18,40 +18,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.c;
-import d.a.q0.a.d;
-import d.a.q0.a.e;
-import d.a.q0.a.f;
-import d.a.q0.a.g;
-/* loaded from: classes4.dex */
+import d.a.n0.a.c;
+import d.a.n0.a.d;
+import d.a.n0.a.e;
+import d.a.n0.a.f;
+import d.a.n0.a.g;
+/* loaded from: classes3.dex */
 public class CommonEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f11285e;
+    public ImageView f11302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f11286f;
+    public TextView f11303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f11287g;
+    public TextView f11304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f11288h;
+    public TextView f11305h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f11289i;
+    public TextView f11306i;
     public FrameLayout j;
     public TextView k;
 
-    /* loaded from: classes4.dex */
-    public class a implements d.a.q0.a.g2.a {
+    /* loaded from: classes3.dex */
+    public class a implements d.a.n0.a.g2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmptyView f11290a;
+        public final /* synthetic */ CommonEmptyView f11307a;
 
         public a(CommonEmptyView commonEmptyView) {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class CommonEmptyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f11290a = commonEmptyView;
+            this.f11307a = commonEmptyView;
         }
     }
 
@@ -98,11 +98,11 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g.aiapps_common_empty_view, (ViewGroup) this, true);
             setBackground(context.getResources().getDrawable(c.aiapps_empty_layout_backgroud));
-            this.f11285e = (ImageView) findViewById(f.emptyview_image);
-            this.f11286f = (TextView) findViewById(f.emptyview_title);
-            this.f11287g = (TextView) findViewById(f.emptyview_subtitle);
-            this.f11288h = (TextView) findViewById(f.emptyview_link);
-            this.f11289i = (TextView) findViewById(f.emptyview_btn);
+            this.f11302e = (ImageView) findViewById(f.emptyview_image);
+            this.f11303f = (TextView) findViewById(f.emptyview_title);
+            this.f11304g = (TextView) findViewById(f.emptyview_subtitle);
+            this.f11305h = (TextView) findViewById(f.emptyview_link);
+            this.f11306i = (TextView) findViewById(f.emptyview_btn);
             this.j = (FrameLayout) findViewById(f.emptyview_bottom_layout);
             this.k = (TextView) findViewById(f.emptyview_problem_feedback);
             setPageResources();
@@ -114,7 +114,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            d.a.q0.a.c1.a.H().f(this, new a(this));
+            d.a.n0.a.c1.a.H().f(this, new a(this));
         }
     }
 
@@ -143,36 +143,36 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            d.a.q0.a.c1.a.H().g(this);
+            d.a.n0.a.c1.a.H().g(this);
         }
     }
 
     public void setButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f11289i.setText(str);
+            this.f11306i.setText(str);
         }
     }
 
     public void setButtonTextColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, colorStateList) == null) {
-            this.f11289i.setTextColor(colorStateList);
+            this.f11306i.setTextColor(colorStateList);
         }
     }
 
     public void setIcon(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            this.f11285e.setImageDrawable(drawable);
+            this.f11302e.setImageDrawable(drawable);
         }
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
-            this.f11288h.setVisibility(0);
-            this.f11288h.setOnClickListener(onClickListener);
+            this.f11305h.setVisibility(0);
+            this.f11305h.setOnClickListener(onClickListener);
         }
     }
 
@@ -180,20 +180,20 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             setBackgroundColor(-1);
-            TextView textView = this.f11286f;
+            TextView textView = this.f11303f;
             if (textView != null) {
                 textView.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
             }
-            TextView textView2 = this.f11288h;
+            TextView textView2 = this.f11305h;
             if (textView2 != null) {
                 textView2.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
             }
-            TextView textView3 = this.f11289i;
+            TextView textView3 = this.f11306i;
             if (textView3 != null) {
                 textView3.setBackground(getResources().getDrawable(e.aiapps_emptyview_btn_bg));
-                this.f11289i.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
+                this.f11306i.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
             }
-            TextView textView4 = this.f11287g;
+            TextView textView4 = this.f11304g;
             if (textView4 != null) {
                 textView4.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
             }
@@ -203,31 +203,31 @@ public class CommonEmptyView extends RelativeLayout {
     public void setSubTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f11287g.setVisibility(0);
-            this.f11287g.setText(str);
-            this.f11287g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+            this.f11304g.setVisibility(0);
+            this.f11304g.setText(str);
+            this.f11304g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
-            this.f11289i.setVisibility(0);
-            this.f11289i.setOnClickListener(onClickListener);
+            this.f11306i.setVisibility(0);
+            this.f11306i.setOnClickListener(onClickListener);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f11286f.setText(str);
+            this.f11303f.setText(str);
         }
     }
 
     public void setTitleColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f11286f.setTextColor(i2);
+            this.f11303f.setTextColor(i2);
         }
     }
 
@@ -255,21 +255,21 @@ public class CommonEmptyView extends RelativeLayout {
     public void setButtonText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f11289i.setText(i2);
+            this.f11306i.setText(i2);
         }
     }
 
     public void setIcon(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f11285e.setImageDrawable(getResources().getDrawable(i2));
+            this.f11302e.setImageDrawable(getResources().getDrawable(i2));
         }
     }
 
     public void setTitle(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f11286f.setText(i2);
+            this.f11303f.setText(i2);
         }
     }
 
@@ -298,9 +298,9 @@ public class CommonEmptyView extends RelativeLayout {
     public void setSubTitle(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f11287g.setVisibility(0);
-            this.f11287g.setText(i2);
-            this.f11287g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+            this.f11304g.setVisibility(0);
+            this.f11304g.setText(i2);
+            this.f11304g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
     }
 }

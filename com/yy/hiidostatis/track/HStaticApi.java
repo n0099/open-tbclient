@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.track;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import com.yy.hiidostatis.defs.StatisAPI;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class HStaticApi {
     public static final /* synthetic */ HStaticApi[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -65,7 +66,7 @@ public final class HStaticApi {
     public static HStaticApi valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (HStaticApi) Enum.valueOf(HStaticApi.class, str) : (HStaticApi) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (HStaticApi) Enum.valueOf(HStaticApi.class, str) : (HStaticApi) invokeL.objValue;
     }
 
     public static HStaticApi[] values() {

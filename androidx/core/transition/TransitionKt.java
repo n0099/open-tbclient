@@ -3,6 +3,7 @@ package androidx.core.transition;
 import android.transition.Transition;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
@@ -199,7 +200,7 @@ public final class TransitionKt {
     public static final Transition.TransitionListener doOnPause(Transition transition, final Function1<? super Transition, Unit> function1) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, transition, function1)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, transition, function1)) == null) {
             Transition.TransitionListener transitionListener = new Transition.TransitionListener(function1) { // from class: androidx.core.transition.TransitionKt$doOnPause$$inlined$addListener$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

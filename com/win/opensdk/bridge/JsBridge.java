@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.bridge.core.NativeMethodInjectHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JsBridge {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile JsBridge f42533a;
+    public static volatile JsBridge f39547a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public JsBridge() {
@@ -32,13 +32,13 @@ public class JsBridge {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JsBridge jsBridge = f42533a;
+            JsBridge jsBridge = f39547a;
             if (jsBridge == null) {
                 synchronized (JsBridge.class) {
-                    jsBridge = f42533a;
+                    jsBridge = f39547a;
                     if (jsBridge == null) {
                         jsBridge = new JsBridge();
-                        f42533a = jsBridge;
+                        f39547a = jsBridge;
                     }
                 }
             }

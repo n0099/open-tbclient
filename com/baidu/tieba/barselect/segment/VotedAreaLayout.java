@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.x.b.d;
-import d.a.s0.x.b.f;
-/* loaded from: classes5.dex */
+import d.a.p0.x.b.d;
+import d.a.p0.x.b.f;
+/* loaded from: classes4.dex */
 public class VotedAreaLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f14413h;
+    public Context f14452h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f14414i;
+    public TextView f14453i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VotedAreaLayout(Context context) {
@@ -52,14 +52,14 @@ public class VotedAreaLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f14414i = (TextView) findViewById(R.id.vote_num);
+            this.f14453i = (TextView) findViewById(R.id.vote_num);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f14413h = getContext();
+            this.f14452h = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -76,7 +76,7 @@ public class VotedAreaLayout extends CardBasicLayout {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f14414i, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f14453i, R.color.CAM_X0105, 1, i2);
             SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i2);
         }
     }
@@ -86,9 +86,9 @@ public class VotedAreaLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
             super.setData(i2, fVar);
-            if (this.f14404f != null && this.f14405g != null && this.f14403e >= 0) {
-                TextView textView = this.f14414i;
-                textView.setText(StringHelper.numFormatOverWan(this.f14405g.m()) + "票");
+            if (this.f14443f != null && this.f14444g != null && this.f14442e >= 0) {
+                TextView textView = this.f14453i;
+                textView.setText(StringHelper.numFormatOverWan(this.f14444g.m()) + "票");
                 c(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
@@ -101,9 +101,9 @@ public class VotedAreaLayout extends CardBasicLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f14405g = dVar;
-        TextView textView = this.f14414i;
-        textView.setText(StringHelper.numFormatOverWan(this.f14405g.m()) + "票");
+        this.f14444g = dVar;
+        TextView textView = this.f14453i;
+        textView.setText(StringHelper.numFormatOverWan(this.f14444g.m()) + "票");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

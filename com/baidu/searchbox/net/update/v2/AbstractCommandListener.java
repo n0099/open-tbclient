@@ -12,7 +12,7 @@ import com.google.gson.TypeAdapter;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractCommandListener<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

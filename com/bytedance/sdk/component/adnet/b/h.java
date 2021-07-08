@@ -14,19 +14,19 @@ import com.bytedance.sdk.component.adnet.core.m;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class h<T> implements m.a<T>, Future<m<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Request<?> f27804a;
+    public Request<?> f27914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27805b;
+    public boolean f27915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m<T> f27806c;
+    public m<T> f27916c;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class h<T> implements m.a<T>, Future<m<T>> {
                 return;
             }
         }
-        this.f27805b = false;
+        this.f27915b = false;
     }
 
     public static <E> h<E> a() {
@@ -72,13 +72,13 @@ public class h<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
-                if (this.f27804a == null) {
+                if (this.f27914a == null) {
                     return false;
                 }
                 if (isDone()) {
                     return false;
                 }
-                this.f27804a.cancel();
+                this.f27914a.cancel();
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class h<T> implements m.a<T>, Future<m<T>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Request<?> request = this.f27804a;
+            Request<?> request = this.f27914a;
             if (request == null) {
                 return false;
             }
@@ -106,7 +106,7 @@ public class h<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                if (!this.f27805b) {
+                if (!this.f27915b) {
                     z = isCancelled();
                 }
             }
@@ -129,8 +129,8 @@ public class h<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, l)) == null) {
             synchronized (this) {
-                if (this.f27805b) {
-                    return this.f27806c;
+                if (this.f27915b) {
+                    return this.f27916c;
                 }
                 if (l == null) {
                     while (!isDone()) {
@@ -144,8 +144,8 @@ public class h<T> implements m.a<T>, Future<m<T>> {
                         uptimeMillis = SystemClock.uptimeMillis();
                     }
                 }
-                if (this.f27805b) {
-                    return this.f27806c;
+                if (this.f27915b) {
+                    return this.f27916c;
                 }
                 throw new TimeoutException();
             }
@@ -158,8 +158,8 @@ public class h<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mVar) == null) {
             synchronized (this) {
-                this.f27805b = true;
-                this.f27806c = mVar;
+                this.f27915b = true;
+                this.f27916c = mVar;
                 notifyAll();
             }
         }
@@ -170,8 +170,8 @@ public class h<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
             synchronized (this) {
-                this.f27805b = true;
-                this.f27806c = mVar;
+                this.f27915b = true;
+                this.f27916c = mVar;
                 notifyAll();
             }
         }

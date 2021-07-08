@@ -2,6 +2,7 @@ package com.kwad.sdk.core.imageloader.core;
 
 import android.graphics.Bitmap;
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
@@ -73,7 +74,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public final ImageSize targetSize;
     public final String uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FireCancelEventRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FireFailEventRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,9 +151,10 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class TaskCancelledException extends Exception {
-        public static /* synthetic */ Interceptable $ic;
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final long serialVersionUID = -504619855289909996L;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadAndDisplayImageTask this$0;
 
@@ -228,7 +230,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
 
     private void checkViewCollected() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && isViewCollected()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && isViewCollected()) {
             throw new TaskCancelledException(this);
         }
     }

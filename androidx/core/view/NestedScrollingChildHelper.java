@@ -112,7 +112,7 @@ public class NestedScrollingChildHelper {
 
     private void setNestedScrollingParentForType(int i2, ViewParent viewParent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, this, i2, viewParent) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, viewParent) == null) {
             if (i2 == 0) {
                 this.mNestedScrollingParentTouch = viewParent;
             } else if (i2 != 1) {

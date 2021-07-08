@@ -1,6 +1,9 @@
 package com.kwad.sdk.core.network.a;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -8,17 +11,22 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kwad.sdk.core.network.c;
+import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.core.network.k;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.SocketTimeoutException;
 import java.net.URLEncoder;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.GZIPInputStream;
+import okhttp3.ConnectionSpec;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -26,15 +34,15 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36351a = "UTF-8";
+    public static String f34652a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f36352b;
+    public static OkHttpClient f34653b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,13 +58,81 @@ public class b {
                 return;
             }
         }
-        f36352b = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).build();
+        f34653b = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
+    }
+
+    public static c a(String str, @Nullable Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) ? a(str, map, true) : (c) invokeLL.objValue;
+    }
+
+    public static c a(String str, Map<String, String> map, Map<String, String> map2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, map, map2)) == null) {
+            c cVar = new c();
+            try {
+                Request.Builder url = new Request.Builder().url(str);
+                url.addHeader("User-Agent", k.a());
+                a(url, map);
+                b(url, map2);
+                Response execute = a().newCall(url.build()).execute();
+                cVar.f34670a = execute.code();
+                cVar.f34671b = a(execute);
+            } catch (Exception e2) {
+                a(cVar, e2);
+            }
+            return cVar;
+        }
+        return (c) invokeLLL.objValue;
+    }
+
+    public static c a(String str, Map<String, String> map, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, map, jSONObject)) == null) {
+            c cVar = new c();
+            try {
+                Request.Builder url = new Request.Builder().url(str);
+                url.addHeader("User-Agent", k.a());
+                a(url, map);
+                a(url, jSONObject);
+                Response execute = a().newCall(url.build()).execute();
+                cVar.f34670a = execute.code();
+                cVar.f34671b = a(execute);
+            } catch (Exception e2) {
+                a(cVar, e2);
+            }
+            return cVar;
+        }
+        return (c) invokeLLL.objValue;
+    }
+
+    public static c a(String str, @Nullable Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map, z)) == null) {
+            c cVar = new c();
+            try {
+                Request.Builder url = new Request.Builder().url(str);
+                url.addHeader("User-Agent", k.a());
+                a(url, map);
+                Response execute = a().newCall(url.build()).execute();
+                cVar.f34670a = execute.code();
+                cVar.f34671b = z ? a(execute) : "";
+            } catch (Exception e2) {
+                a(cVar, e2);
+            }
+            return cVar;
+        }
+        return (c) invokeLLZ.objValue;
     }
 
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -70,8 +146,8 @@ public class b {
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0012 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0065 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0012 */
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.util.zip.GZIPInputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: java.util.zip.GZIPInputStream */
@@ -85,7 +161,7 @@ public class b {
         InputStream inputStream;
         InputStream inputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, response)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, response)) != null) {
             return (String) invokeL.objValue;
         }
         StringBuilder sb = new StringBuilder();
@@ -102,9 +178,7 @@ public class b {
                     while (true) {
                         if (!it.hasNext()) {
                             break;
-                        }
-                        String next = it.next();
-                        if (next != null && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(next)) {
+                        } else if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(it.next())) {
                             z = true;
                             break;
                         }
@@ -116,7 +190,7 @@ public class b {
                 } else {
                     inputStream2 = inputStream;
                 }
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f36351a), 8);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream2, f34652a), 8);
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (readLine == null) {
@@ -150,62 +224,24 @@ public class b {
     public static OkHttpClient a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f36352b : (OkHttpClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f34653b : (OkHttpClient) invokeV.objValue;
     }
 
-    public static Response a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public static void a(@NonNull c cVar, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, map)) == null) {
-            try {
-                Request.Builder url = new Request.Builder().url(str);
-                url.addHeader("User-Agent", k.a());
-                a(url, map);
-                return a().newCall(url.build()).execute();
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(65544, null, cVar, exc) == null) {
+            f fVar = exc instanceof SocketTimeoutException ? f.f34673a : f.f34674b;
+            cVar.f34670a = fVar.m;
+            cVar.f34671b = fVar.n;
+            if (com.kwad.sdk.b.f33870b.booleanValue()) {
+                com.kwad.sdk.core.d.a.b(exc);
             }
         }
-        return (Response) invokeLL.objValue;
     }
 
-    public static Response a(String str, Map<String, String> map, Map<String, String> map2) {
-        InterceptResult invokeLLL;
+    public static void a(Request.Builder builder, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, map, map2)) == null) {
-            try {
-                Request.Builder url = new Request.Builder().url(str);
-                url.addHeader("User-Agent", k.a());
-                a(url, map);
-                b(url, map2);
-                return a().newCall(url.build()).execute();
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (Response) invokeLLL.objValue;
-    }
-
-    public static Response a(String str, Map<String, String> map, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map, jSONObject)) == null) {
-            try {
-                Request.Builder url = new Request.Builder().url(str);
-                url.addHeader("User-Agent", k.a());
-                a(url, map);
-                a(url, jSONObject);
-                return a().newCall(url.build()).execute();
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (Response) invokeLLL.objValue;
-    }
-
-    public static void a(Request.Builder builder, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, builder, map) == null) || builder == null || map == null || map.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, builder, map) == null) || builder == null || map == null || map.isEmpty()) {
             return;
         }
         for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -221,7 +257,7 @@ public class b {
 
     public static void a(Request.Builder builder, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, builder, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(65546, null, builder, jSONObject) == null) {
             builder.post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString()));
         }
     }
@@ -229,7 +265,7 @@ public class b {
     public static void b(Request.Builder builder, Map<String, String> map) {
         FormBody formBody;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, builder, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65547, null, builder, map) == null) {
             if (map == null || map.isEmpty()) {
                 formBody = null;
             } else {

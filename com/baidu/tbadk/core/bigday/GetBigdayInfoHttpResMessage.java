@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.r0.r.n.a;
+import d.a.o0.r.n.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            l<byte[]> d2 = d.a.r0.r.r.a.f().d("tb.bigday_datas");
+            l<byte[]> d2 = d.a.o0.r.r.a.f().d("tb.bigday_datas");
             d2.remove("tb.bigday_datas");
             d2.g("tb.bigday_datas", bArr);
         }

@@ -3,6 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class FCMPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +33,7 @@ public class FCMPushHelper {
     public static void clearToken(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            i.m131a(context, e.f42788b);
+            i.m131a(context, e.f39802b);
         }
     }
 
@@ -46,13 +47,13 @@ public class FCMPushHelper {
     public static boolean isFCMSwitchOpen(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m133a(context, e.f42788b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m133a(context, e.f39802b) && MiPushClient.getOpenFCMPush(context) : invokeL.booleanValue;
     }
 
     public static void notifyFCMNotificationCome(Context context, Map<String, String> map) {
         PushMessageReceiver a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, map) == null) {
             String str = map.get("pushMsg");
             if (TextUtils.isEmpty(str) || (a2 = i.a(context)) == null) {
                 return;
@@ -76,14 +77,14 @@ public class FCMPushHelper {
     public static void reportFCMMessageDelete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
-            MiTinyDataClient.upload(i.b(e.f42788b), "fcm", 1L, "some fcm messages was deleted ");
+            MiTinyDataClient.upload(i.b(e.f39802b), "fcm", 1L, "some fcm messages was deleted ");
         }
     }
 
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
-            i.a(context, e.f42788b, str);
+            i.a(context, e.f39802b, str);
         }
     }
 }

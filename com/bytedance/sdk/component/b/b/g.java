@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,27 +18,27 @@ import java.util.List;
 import java.util.Set;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.CertificatePinner;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f28432a;
+    public static final g f28542a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<b> f28433b;
+    public final Set<b> f28543b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.component.b.b.a.i.c f28434c;
+    public final com.bytedance.sdk.component.b.b.a.i.c f28544c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<b> f28435a;
+        public final List<b> f28545a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,48 +53,48 @@ public final class g {
                     return;
                 }
             }
-            this.f28435a = new ArrayList();
+            this.f28545a = new ArrayList();
         }
 
         public g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(new LinkedHashSet(this.f28435a), null) : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(new LinkedHashSet(this.f28545a), null) : (g) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f28436a;
+        public final String f28546a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f28437b;
+        public final String f28547b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f28438c;
+        public final String f28548c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final com.bytedance.sdk.component.b.a.f f28439d;
+        public final com.bytedance.sdk.component.b.a.f f28549d;
 
         public boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.f28436a.startsWith(CertificatePinner.Pin.WILDCARD)) {
+                if (this.f28546a.startsWith(CertificatePinner.Pin.WILDCARD)) {
                     int indexOf = str.indexOf(46);
-                    if ((str.length() - indexOf) - 1 == this.f28437b.length()) {
-                        String str2 = this.f28437b;
+                    if ((str.length() - indexOf) - 1 == this.f28547b.length()) {
+                        String str2 = this.f28547b;
                         if (str.regionMatches(false, indexOf + 1, str2, 0, str2.length())) {
                             return true;
                         }
                     }
                     return false;
                 }
-                return str.equals(this.f28437b);
+                return str.equals(this.f28547b);
             }
             return invokeL.booleanValue;
         }
@@ -104,7 +105,7 @@ public final class g {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (this.f28436a.equals(bVar.f28436a) && this.f28438c.equals(bVar.f28438c) && this.f28439d.equals(bVar.f28439d)) {
+                    if (this.f28546a.equals(bVar.f28546a) && this.f28548c.equals(bVar.f28548c) && this.f28549d.equals(bVar.f28549d)) {
                         return true;
                     }
                 }
@@ -116,14 +117,14 @@ public final class g {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f28436a.hashCode()) * 31) + this.f28438c.hashCode()) * 31) + this.f28439d.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.f28546a.hashCode()) * 31) + this.f28548c.hashCode()) * 31) + this.f28549d.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f28438c + this.f28439d.b();
+                return this.f28548c + this.f28549d.b();
             }
             return (String) invokeV.objValue;
         }
@@ -142,7 +143,7 @@ public final class g {
                 return;
             }
         }
-        f28432a = new a().a();
+        f28542a = new a().a();
     }
 
     public g(Set<b> set, com.bytedance.sdk.component.b.b.a.i.c cVar) {
@@ -160,14 +161,14 @@ public final class g {
                 return;
             }
         }
-        this.f28433b = set;
-        this.f28434c = cVar;
+        this.f28543b = set;
+        this.f28544c = cVar;
     }
 
     public static com.bytedance.sdk.component.b.a.f b(X509Certificate x509Certificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, x509Certificate)) == null) ? com.bytedance.sdk.component.b.a.f.a(x509Certificate.getPublicKey().getEncoded()).d() : (com.bytedance.sdk.component.b.a.f) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) ? com.bytedance.sdk.component.b.a.f.a(x509Certificate.getPublicKey().getEncoded()).d() : (com.bytedance.sdk.component.b.a.f) invokeL.objValue;
     }
 
     public void a(String str, List<Certificate> list) throws SSLPeerUnverifiedException {
@@ -177,7 +178,7 @@ public final class g {
             if (a2.isEmpty()) {
                 return;
             }
-            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f28434c;
+            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f28544c;
             if (cVar != null) {
                 list = cVar.a(list, str);
             }
@@ -189,22 +190,22 @@ public final class g {
                 com.bytedance.sdk.component.b.a.f fVar2 = null;
                 for (int i3 = 0; i3 < size2; i3++) {
                     b bVar = a2.get(i3);
-                    if (bVar.f28438c.equals("sha256/")) {
+                    if (bVar.f28548c.equals("sha256/")) {
                         if (fVar == null) {
                             fVar = b(x509Certificate);
                         }
-                        if (bVar.f28439d.equals(fVar)) {
+                        if (bVar.f28549d.equals(fVar)) {
                             return;
                         }
-                    } else if (bVar.f28438c.equals("sha1/")) {
+                    } else if (bVar.f28548c.equals("sha1/")) {
                         if (fVar2 == null) {
                             fVar2 = a(x509Certificate);
                         }
-                        if (bVar.f28439d.equals(fVar2)) {
+                        if (bVar.f28549d.equals(fVar2)) {
                             return;
                         }
                     } else {
-                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f28438c);
+                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f28548c);
                     }
                 }
             }
@@ -240,7 +241,7 @@ public final class g {
             }
             if (obj instanceof g) {
                 g gVar = (g) obj;
-                if (com.bytedance.sdk.component.b.b.a.c.a(this.f28434c, gVar.f28434c) && this.f28433b.equals(gVar.f28433b)) {
+                if (com.bytedance.sdk.component.b.b.a.c.a(this.f28544c, gVar.f28544c) && this.f28543b.equals(gVar.f28543b)) {
                     return true;
                 }
             }
@@ -253,8 +254,8 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f28434c;
-            return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.f28433b.hashCode();
+            com.bytedance.sdk.component.b.b.a.i.c cVar = this.f28544c;
+            return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.f28543b.hashCode();
         }
         return invokeV.intValue;
     }
@@ -264,7 +265,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             List<b> emptyList = Collections.emptyList();
-            for (b bVar : this.f28433b) {
+            for (b bVar : this.f28543b) {
                 if (bVar.a(str)) {
                     if (emptyList.isEmpty()) {
                         emptyList = new ArrayList<>();
@@ -280,7 +281,7 @@ public final class g {
     public g a(com.bytedance.sdk.component.b.b.a.i.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? com.bytedance.sdk.component.b.b.a.c.a(this.f28434c, cVar) ? this : new g(this.f28433b, cVar) : (g) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? com.bytedance.sdk.component.b.b.a.c.a(this.f28544c, cVar) ? this : new g(this.f28543b, cVar) : (g) invokeL.objValue;
     }
 
     public static String a(Certificate certificate) {

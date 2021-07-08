@@ -12,6 +12,7 @@ import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -111,7 +112,7 @@ public class DeviceUtils implements IDevices {
                         RandomAccessFile randomAccessFile2 = null;
                         try {
                             try {
-                                randomAccessFile = new RandomAccessFile(file, r.f7745a);
+                                randomAccessFile = new RandomAccessFile(file, r.f7762a);
                             } catch (Throwable th) {
                                 th = th;
                             }
@@ -207,7 +208,7 @@ public class DeviceUtils implements IDevices {
         public static String getPreferredABI() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
                 if (OSInfo.hasLollipop()) {
                     String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
                     if (strArr != null && strArr.length > 0) {
@@ -378,7 +379,7 @@ public class DeviceUtils implements IDevices {
         public static boolean hasFroyo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
         }
 
         @SuppressLint({"ObsoleteSdkInt"})
@@ -579,7 +580,7 @@ public class DeviceUtils implements IDevices {
         public static float getDensity(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
                 initDisplayMetrics(context);
                 DisplayMetrics displayMetrics = sDisplayMetrics;
                 if (displayMetrics != null) {

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b2;
-import d.a.s0.u0.b1;
+import d.a.o0.r.q.b2;
+import d.a.p0.u0.b1;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             b1 b1Var = new b1();
             this.pageInfo = b1Var;
-            b1Var.f65790g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f67232c = optJSONObject.optInt(Config.PACKAGE_NAME);
+            b1Var.f62571g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f64015c = optJSONObject.optInt(Config.PACKAGE_NAME);
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
-                this.pageInfo.f67230a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f67231b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.f64013a = frsPageAlaTabRequestMessage.getForumName();
+                this.pageInfo.f64014b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LiveInfoResultData extends BaseResultData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2695767546208947458L;
@@ -37,7 +37,7 @@ public class LiveInfoResultData extends BaseResultData {
         this.liveInfoList = new ArrayList();
     }
 
-    @Override // com.kwad.sdk.core.network.BaseResultData
+    @Override // com.kwad.sdk.core.network.BaseResultData, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -68,8 +68,8 @@ public class LiveInfoResultData extends BaseResultData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject json = super.toJson();
-            o.a(json, "pcursor", this.pcursor);
-            o.a(json, "feeds", this.liveInfoList);
+            q.a(json, "pcursor", this.pcursor);
+            q.a(json, "feeds", this.liveInfoList);
             return json;
         }
         return (JSONObject) invokeV.objValue;

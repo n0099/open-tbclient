@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicLong f72030a;
+    public static AtomicLong f69133a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,17 +27,17 @@ public class k {
                 return;
             }
         }
-        f72030a = new AtomicLong(999L);
+        f69133a = new AtomicLong(999L);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (0 == f72030a.incrementAndGet()) {
-                f72030a.set(999L);
+            if (0 == f69133a.incrementAndGet()) {
+                f69133a.set(999L);
             }
-            return f72030a.get();
+            return f69133a.get();
         }
         return invokeV.longValue;
     }
@@ -48,7 +48,7 @@ public class k {
             if (0 == j) {
                 j = 999;
             }
-            f72030a.set(j);
+            f69133a.set(j);
         }
     }
 }

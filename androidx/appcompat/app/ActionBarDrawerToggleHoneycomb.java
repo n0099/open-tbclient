@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,7 +136,7 @@ public class ActionBarDrawerToggleHoneycomb {
     public static SetIndicatorInfo setActionBarUpIndicator(Activity activity, Drawable drawable, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, null, activity, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, drawable, i2)) == null) {
             SetIndicatorInfo setIndicatorInfo = new SetIndicatorInfo(activity);
             if (setIndicatorInfo.setHomeAsUpIndicator != null) {
                 try {

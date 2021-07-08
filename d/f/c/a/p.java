@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class p extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ m f73704a;
+    public final /* synthetic */ m f70807a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f73705b;
+    public final /* synthetic */ l f70808b;
 
     public p(l lVar, m mVar) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class p extends BroadcastReceiver {
                 return;
             }
         }
-        this.f73705b = lVar;
-        this.f73704a = mVar;
+        this.f70808b = lVar;
+        this.f70807a = mVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -45,15 +45,15 @@ public final class p extends BroadcastReceiver {
             String action = intent.getAction();
             Bundle extras = intent.getExtras();
             if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.f73705b.p();
+                this.f70808b.p();
                 int i2 = extras.getInt("install.status");
                 if (i2 == 1 || i2 == 2 || i2 == 3) {
-                    this.f73704a.a(com.google.ar.core.p.f32880a);
+                    this.f70807a.a(com.google.ar.core.p.f32990a);
                 } else if (i2 == 4) {
-                    this.f73704a.a(com.google.ar.core.p.f32882c);
+                    this.f70807a.a(com.google.ar.core.p.f32992c);
                 } else if (i2 != 6) {
                 } else {
-                    this.f73704a.a(com.google.ar.core.p.f32881b);
+                    this.f70807a.a(com.google.ar.core.p.f32991b);
                 }
             }
         }

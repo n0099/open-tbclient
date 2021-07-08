@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payservice.impl;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PayResultPoller {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +29,7 @@ public class PayResultPoller {
     public IPayInnerLogic payInnerLogic;
     public IAppPayService payService;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface PollerListener {
         void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str);
 
@@ -59,7 +60,7 @@ public class PayResultPoller {
     /* JADX INFO: Access modifiers changed from: private */
     public void doPollingForChargeResult(ChargeCurrencyReqParams chargeCurrencyReqParams, GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, PollingModeInfo pollingModeInfo, PollerListener pollerListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, this, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollingModeInfo, pollerListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollingModeInfo, pollerListener) == null) {
             RLog.info("AppPayServiceImpl-Poller", "do pollingForChargeResult has finishTimes:" + pollingModeInfo.finishTimes);
             this.payService.queryChargeOrderStatus(getChargeOrderStatusReqParams, new IResult<GetChargeOrderStatusResult>(this, pollingModeInfo, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollerListener) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayResultPoller.2
                 public static /* synthetic */ Interceptable $ic;

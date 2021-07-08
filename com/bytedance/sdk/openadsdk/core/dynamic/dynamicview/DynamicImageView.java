@@ -12,7 +12,7 @@ import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
 import com.bytedance.sdk.openadsdk.g.a;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicImageView extends DynamicBaseWidgetImp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.b.e;
 import java.lang.reflect.AccessibleObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f31810a;
+    public static final b f31920a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public abstract class b {
                 return;
             }
         }
-        f31810a = e.a() < 9 ? new a() : new c();
+        f31920a = e.a() < 9 ? new a() : new c();
     }
 
     public b() {
@@ -50,7 +50,7 @@ public abstract class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f31810a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f31920a : (b) invokeV.objValue;
     }
 
     public abstract void a(AccessibleObject accessibleObject);

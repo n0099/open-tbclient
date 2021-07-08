@@ -9,26 +9,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f5117a;
+    public final long f5134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f5118b;
+    public long f5135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f5119c;
+    public long f5136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f5120d;
+    public long f5137d;
     @SuppressLint({"InlinedApi"})
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5121e;
+    public int f5138e;
 
     public c(long j) {
         Interceptable interceptable = $ic;
@@ -45,38 +45,38 @@ public class c {
                 return;
             }
         }
-        this.f5121e = 1;
-        this.f5117a = j;
+        this.f5138e = 1;
+        this.f5134a = j;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5121e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5138e : invokeV.intValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5118b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5135b : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5119c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5136c : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5117a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f5134a : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f5120d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f5137d : invokeV.longValue;
     }
 
     public String toString() {
@@ -84,11 +84,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("DownloadItem=(id: " + this.f5117a);
-            sb.append(", current bytes: " + this.f5118b);
-            sb.append(", total bytes: " + this.f5119c);
-            sb.append(", speed: " + this.f5120d);
-            sb.append(", state: " + this.f5121e);
+            sb.append("DownloadItem=(id: " + this.f5134a);
+            sb.append(", current bytes: " + this.f5135b);
+            sb.append(", total bytes: " + this.f5136c);
+            sb.append(", speed: " + this.f5137d);
+            sb.append(", state: " + this.f5138e);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             return sb.toString();
         }
@@ -98,28 +98,28 @@ public class c {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f5121e = i2;
+            this.f5138e = i2;
         }
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f5119c = j;
+            this.f5136c = j;
         }
     }
 
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.f5120d = j;
+            this.f5137d = j;
         }
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f5118b = j;
+            this.f5135b = j;
         }
     }
 }

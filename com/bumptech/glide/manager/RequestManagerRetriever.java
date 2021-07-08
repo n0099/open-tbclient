@@ -36,7 +36,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final RequestManagerFactory DEFAULT_FACTORY;
@@ -58,7 +58,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     public final ArrayMap<View, Fragment> tempViewToFragment;
     public final ArrayMap<View, androidx.fragment.app.Fragment> tempViewToSupportFragment;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface RequestManagerFactory {
         @NonNull
         RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);
@@ -157,7 +157,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     @Deprecated
     private void findAllFragmentsWithViews(@NonNull FragmentManager fragmentManager, @NonNull ArrayMap<View, Fragment> arrayMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, fragmentManager, arrayMap) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragmentManager, arrayMap) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 for (Fragment fragment : fragmentManager.getFragments()) {
                     if (fragment.getView() != null) {

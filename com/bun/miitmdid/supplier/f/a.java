@@ -5,17 +5,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Uri f27522a;
+    public static Uri f27632a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +32,7 @@ public class a {
                 return;
             }
         }
-        f27522a = Uri.parse("content://cn.nubia.identity/identity");
+        f27632a = Uri.parse("content://cn.nubia.identity/identity");
     }
 
     public static String a(Context context, String str) {
@@ -41,7 +42,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27522a);
+                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27632a);
                     call = acquireUnstableContentProviderClient.call("getAAID", str, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -51,7 +52,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = context.getContentResolver().call(f27522a, "getAAID", str, (Bundle) null);
+                    call = context.getContentResolver().call(f27632a, "getAAID", str, (Bundle) null);
                 }
                 if (call.getInt("code", -1) == 0) {
                     String string = call.getString("id");
@@ -76,7 +77,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27522a);
+                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27632a);
                     call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -86,7 +87,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = context.getContentResolver().call(f27522a, "isSupport", (String) null, (Bundle) null);
+                    call = context.getContentResolver().call(f27632a, "isSupport", (String) null, (Bundle) null);
                 }
                 if (call.getInt("code", -1) == 0) {
                     com.bun.miitmdid.utils.a.a("NubiaLog", "succeed");
@@ -110,7 +111,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27522a);
+                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27632a);
                     call = acquireUnstableContentProviderClient.call("getOAID", null, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -120,7 +121,7 @@ public class a {
                         }
                     }
                 } else {
-                    call = context.getContentResolver().call(f27522a, "getOAID", (String) null, (Bundle) null);
+                    call = context.getContentResolver().call(f27632a, "getOAID", (String) null, (Bundle) null);
                 }
                 if (call.getInt("code", -1) == 0) {
                     String string = call.getString("id");
@@ -142,10 +143,10 @@ public class a {
         InterceptResult invokeLL;
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 17) {
-                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27522a);
+                    ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27632a);
                     bundle = acquireUnstableContentProviderClient.call("getVAID", str, null);
                     if (acquireUnstableContentProviderClient != null) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -155,7 +156,7 @@ public class a {
                         }
                     }
                 } else {
-                    context.getContentResolver().call(f27522a, "getVAID", str, (Bundle) null);
+                    context.getContentResolver().call(f27632a, "getVAID", str, (Bundle) null);
                     bundle = null;
                 }
                 if (bundle.getInt("code", -1) == 0) {

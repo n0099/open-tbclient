@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.o.g;
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +13,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f31663a;
+    public static Context f31773a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             if (context != null) {
-                f31663a = context;
+                f31773a = context;
                 return;
             }
             throw null;
@@ -77,7 +78,7 @@ public class a {
     public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b(f31663a) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b(f31773a) : (File) invokeV.objValue;
     }
 
     public static File b() {
@@ -113,7 +114,7 @@ public class a {
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, file) == null) || file.exists()) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) || file.exists()) {
             return;
         }
         file.mkdirs();

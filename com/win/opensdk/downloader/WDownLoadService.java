@@ -35,25 +35,25 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WDownLoadService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a */
-    public String f42553a;
+    public String f39567a;
 
     /* renamed from: b */
-    public String f42554b;
+    public String f39568b;
 
     /* renamed from: c */
-    public String f42555c;
+    public String f39569c;
 
     /* renamed from: d */
-    public NotificationManager f42556d;
+    public NotificationManager f39570d;
 
     /* renamed from: e */
-    public Notification f42557e;
+    public Notification f39571e;
 
     public WDownLoadService() {
         Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class WDownLoadService extends Service {
     public final PendingIntent a(Info info) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, info)) == null) ? PendingIntent.getActivity(this, 0, z.a(info, getApplicationContext(), this.f42553a), 134217728) : (PendingIntent) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, info)) == null) ? PendingIntent.getActivity(this, 0, z.a(info, getApplicationContext(), this.f39567a), 134217728) : (PendingIntent) invokeL.objValue;
     }
 
     public void a(Info info, String str, String str2, int i2) {
@@ -120,8 +120,8 @@ public class WDownLoadService extends Service {
             builder2.setTicker(str);
             builder2.setContentIntent(i2 >= 100 ? a(info) : PendingIntent.getActivity(this, 0, new Intent(), 134217728));
             Notification build = builder2.build();
-            this.f42557e = build;
-            this.f42556d.notify(232, build);
+            this.f39571e = build;
+            this.f39570d.notify(232, build);
         }
     }
 
@@ -129,7 +129,7 @@ public class WDownLoadService extends Service {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(this.f42553a);
+            File file = new File(this.f39567a);
             if (file.exists() && file.isFile()) {
                 return file.delete();
             }
@@ -150,13 +150,13 @@ public class WDownLoadService extends Service {
         if (interceptable == null || interceptable.invokeL(1048580, this, info) == null) {
             w0 a2 = x0.a(getApplicationContext());
             y0 y0Var = new y0(info);
-            String str = this.f42554b;
+            String str = this.f39568b;
             try {
-                a2.f42683b = x0.a("wdst", y0Var);
+                a2.f39697b = x0.a("wdst", y0Var);
                 a2.a("msg", x0.a(str));
             } catch (JSONException unused) {
             }
-            String str2 = this.f42553a;
+            String str2 = this.f39567a;
             try {
                 str2 = z.a(str2);
             } catch (Exception unused2) {
@@ -170,11 +170,11 @@ public class WDownLoadService extends Service {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            A a3 = A.f42301d;
-            String str3 = this.f42554b;
-            String str4 = this.f42553a;
+            A a3 = A.f39315d;
+            String str3 = this.f39568b;
+            String str4 = this.f39567a;
             G g2 = new G(this, info);
-            if (a3.f42304c) {
+            if (a3.f39318c) {
                 return;
             }
             File file = new File(str4.substring(0, str4.lastIndexOf("/") + 1));
@@ -190,8 +190,8 @@ public class WDownLoadService extends Service {
                 }
             }
             E e4 = new E(str3, str4, g2);
-            a3.f42303b = e4;
-            new WeakReference(a3.f42302a.submit(e4));
+            a3.f39317b = e4;
+            new WeakReference(a3.f39316a.submit(e4));
         }
     }
 
@@ -209,7 +209,7 @@ public class WDownLoadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f42556d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            this.f39570d = (NotificationManager) getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
     }
 
@@ -219,9 +219,9 @@ public class WDownLoadService extends Service {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             try {
-                A.f42301d.f42304c = false;
-                if (this.f42556d != null) {
-                    this.f42556d.cancel(232);
+                A.f39315d.f39318c = false;
+                if (this.f39570d != null) {
+                    this.f39570d.cancel(232);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -238,15 +238,15 @@ public class WDownLoadService extends Service {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i2, i3)) == null) {
             Info info = null;
             try {
-                this.f42554b = intent.getStringExtra("down_load_apk_url");
-                this.f42555c = intent.getStringExtra("down_load_pkg_name");
-                this.f42553a = z.a(getApplicationContext()) + File.separator + "win" + File.separator + z.e(this.f42554b);
-                File parentFile = new File(this.f42553a).getParentFile();
+                this.f39568b = intent.getStringExtra("down_load_apk_url");
+                this.f39569c = intent.getStringExtra("down_load_pkg_name");
+                this.f39567a = z.a(getApplicationContext()) + File.separator + "win" + File.separator + z.e(this.f39568b);
+                File parentFile = new File(this.f39567a).getParentFile();
                 if (!parentFile.exists()) {
                     parentFile.mkdirs();
                 }
                 try {
-                    info = (Info) s1.b(getApplicationContext(), this.f42555c);
+                    info = (Info) s1.b(getApplicationContext(), this.f39569c);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

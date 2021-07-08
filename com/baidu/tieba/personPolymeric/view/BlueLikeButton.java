@@ -22,19 +22,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.r0.k0.a;
-import d.a.r0.r.f0.s.b;
+import d.a.o0.k0.a;
+import d.a.o0.r.f0.t.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BlueLikeButton extends TextView implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20196e;
+    public boolean f20236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20197f;
+    public boolean f20237f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlueLikeButton(Context context) {
@@ -54,14 +54,14 @@ public class BlueLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f20196e = false;
-        this.f20197f = false;
+        this.f20236e = false;
+        this.f20237f = false;
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void a(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20197f) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f20237f) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
@@ -72,7 +72,7 @@ public class BlueLikeButton extends TextView implements b {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(statisticItem);
         }
-        if (this.f20196e) {
+        if (this.f20236e) {
             return;
         }
         Context context = getContext();
@@ -86,7 +86,7 @@ public class BlueLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -94,7 +94,7 @@ public class BlueLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void c(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -102,14 +102,14 @@ public class BlueLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -120,9 +120,9 @@ public class BlueLikeButton extends TextView implements b {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f20196e = z;
+            this.f20236e = z;
             if (z) {
-                if (this.f20197f) {
+                if (this.f20237f) {
                     setText(R.string.followed);
                     TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                     SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
@@ -133,7 +133,7 @@ public class BlueLikeButton extends TextView implements b {
                 setPadding(0, 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
-            } else if (this.f20197f) {
+            } else if (this.f20237f) {
                 setText(R.string.attention);
                 TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
@@ -150,7 +150,7 @@ public class BlueLikeButton extends TextView implements b {
     public void setBJH(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f20197f = z;
+            this.f20237f = z;
         }
     }
 
@@ -173,8 +173,8 @@ public class BlueLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f20196e = false;
-        this.f20197f = false;
+        this.f20236e = false;
+        this.f20237f = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -196,7 +196,7 @@ public class BlueLikeButton extends TextView implements b {
                 return;
             }
         }
-        this.f20196e = false;
-        this.f20197f = false;
+        this.f20236e = false;
+        this.f20237f = false;
     }
 }

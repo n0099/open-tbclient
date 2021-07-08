@@ -1,7 +1,7 @@
 package com.qq.e.comm.pi;
 
 import com.qq.e.ads.nativ.express2.VideoOption2;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface NEIADI extends ADI {
     void loadAd(int i2);
 

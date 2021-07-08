@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BuddyInitContext {
     public BuddyInitHolder current;
     public Object genesisObj;

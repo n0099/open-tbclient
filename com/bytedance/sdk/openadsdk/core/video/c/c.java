@@ -4,41 +4,41 @@ import android.content.Context;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import java.io.FileDescriptor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(c cVar, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(c cVar);
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0343c {
         boolean a(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         boolean b(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface e {
         void b(c cVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface f {
         void c(c cVar);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface g {
         void a(c cVar, int i2, int i3, int i4, int i5);
     }

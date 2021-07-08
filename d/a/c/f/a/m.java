@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +53,12 @@ public class m extends l {
             return;
         }
         boolean z = true;
-        boolean z2 = this.t == null || this.u != this.k.f44587b;
+        boolean z2 = this.t == null || this.u != this.k.f41603b;
         Rect rect2 = this.v;
         if (rect2 != null && rect2.contains(rect)) {
             z = z2;
         }
-        this.u = this.k.f44587b;
+        this.u = this.k.f41603b;
         if (z) {
             this.v = rect;
             Path path = new Path();
@@ -66,7 +66,7 @@ public class m extends l {
             if (this.u) {
                 this.t.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
             } else {
-                path.addRoundRect(new RectF(rect), this.k.f44586a, Path.Direction.CW);
+                path.addRoundRect(new RectF(rect), this.k.f41602a, Path.Direction.CW);
             }
             this.t.close();
         }

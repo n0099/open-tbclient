@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -26,12 +27,12 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Futures extends GwtFuturesCatchingSpecialization {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CallbackListener<V> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FutureCombiner<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +171,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InCompletionOrderFuture<T> extends AbstractFuture<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +233,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InCompletionOrderState<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,7 +308,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class NonCancellationPropagatingFuture<V> extends AbstractFuture.TrustedFuture<V> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -397,7 +398,7 @@ public final class Futures extends GwtFuturesCatchingSpecialization {
     public static <V, X extends Throwable> ListenableFuture<V> catching(ListenableFuture<? extends V> listenableFuture, Class<X> cls, g<? super X, ? extends V> gVar, Executor executor) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, listenableFuture, cls, gVar, executor)) == null) ? AbstractCatchingFuture.create(listenableFuture, cls, gVar, executor) : (ListenableFuture) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, listenableFuture, cls, gVar, executor)) == null) ? AbstractCatchingFuture.create(listenableFuture, cls, gVar, executor) : (ListenableFuture) invokeLLLL.objValue;
     }
 
     @Partially.GwtIncompatible("AVAILABLE but requires exceptionType to be Throwable.class")

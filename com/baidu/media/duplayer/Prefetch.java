@@ -1,5 +1,6 @@
 package com.baidu.media.duplayer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Prefetch {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "filecache-Prefetch";
@@ -69,9 +70,9 @@ public class Prefetch {
             }
             CyberLog.i(TAG, "adjustPrefetchPolicy call before url : " + str + " prefetchSize : " + i9);
             PlayerConfigManagerInternal.b adjustPrefetchPolicy = adjustPrefetchPolicy(str, i9, prefetchOptions);
-            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f8101b + " info.adjustSize : " + adjustPrefetchPolicy.f8100a);
-            if (Utils.a() > Utils.f8068b) {
-                nativeAdd(adjustPrefetchPolicy.f8101b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f8100a, str4, i5, i6, i7, i8);
+            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f8118b + " info.adjustSize : " + adjustPrefetchPolicy.f8117a);
+            if (Utils.a() > Utils.f8085b) {
+                nativeAdd(adjustPrefetchPolicy.f8118b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f8117a, str4, i5, i6, i7, i8);
             }
         }
     }
@@ -139,7 +140,7 @@ public class Prefetch {
     public static boolean hasCacheFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? nativeHasCacheFile(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? nativeHasCacheFile(str) : invokeL.booleanValue;
     }
 
     public static native void nativeAdd(String str, String str2, String str3, String str4, int i2, int i3, int i4, String str5, int i5, int i6, int i7, int i8);

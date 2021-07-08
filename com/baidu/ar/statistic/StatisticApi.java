@@ -2,6 +2,7 @@ package com.baidu.ar.statistic;
 
 import android.content.Context;
 import android.os.HandlerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,7 +81,7 @@ public final class StatisticApi {
 
     public static void onEvent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             onEvent(str, "");
         }
     }

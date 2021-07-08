@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class y extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,14 +87,14 @@ public class y extends p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("local_time_ms", this.f71720e);
-            jSONObject.put("tea_event_index", this.f71721f);
-            jSONObject.put("session_id", this.f71722g);
+            jSONObject.put("local_time_ms", this.f68823e);
+            jSONObject.put("tea_event_index", this.f68824f);
+            jSONObject.put("session_id", this.f68825g);
             jSONObject.put("stop_timestamp", this.n);
             jSONObject.put("duration", this.m / 1000);
             jSONObject.put("datetime", this.k);
-            if (!TextUtils.isEmpty(this.f71724i)) {
-                jSONObject.put("ab_version", this.f71724i);
+            if (!TextUtils.isEmpty(this.f68827i)) {
+                jSONObject.put("ab_version", this.f68827i);
             }
             if (!TextUtils.isEmpty(this.j)) {
                 jSONObject.put("ab_sdk_version", this.j);

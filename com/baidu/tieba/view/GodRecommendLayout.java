@@ -44,30 +44,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.k.e.j;
 import d.a.c.k.e.l;
-import d.a.r0.m.f;
-import d.a.r0.r.q.t1;
-import d.a.r0.z0.n0;
+import d.a.o0.m.f;
+import d.a.o0.r.q.t1;
+import d.a.o0.z0.n0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GodRecommendLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f22014e;
+    public final Context f22071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22015f;
+    public TextView f22072f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22016g;
+    public TextView f22073g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f22017h;
+    public RecyclerView f22074h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GodRecommendListAdapter f22018i;
+    public GodRecommendListAdapter f22075i;
     public l j;
     public List<String> k;
     public boolean l;
@@ -75,65 +75,65 @@ public class GodRecommendLayout extends LinearLayout {
     public f n;
     public RecyclerView.OnScrollListener o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class GodRecommendListAdapter extends RecyclerView.Adapter<GodViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f22019a;
+        public Context f22076a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbPageContext f22020b;
+        public TbPageContext f22077b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BdUniqueId f22021c;
+        public BdUniqueId f22078c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<MetaData> f22022d;
+        public List<MetaData> f22079d;
 
         /* renamed from: e  reason: collision with root package name */
-        public f<MetaData> f22023e;
+        public f<MetaData> f22080e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GodRecommendLayout f22024f;
+        public final /* synthetic */ GodRecommendLayout f22081f;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class GodViewHolder extends RecyclerView.ViewHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public LinearLayout f22025a;
+            public LinearLayout f22082a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f22026b;
+            public TextView f22083b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f22027c;
+            public TextView f22084c;
 
             /* renamed from: d  reason: collision with root package name */
-            public HeadPendantClickableView f22028d;
+            public HeadPendantClickableView f22085d;
 
             /* renamed from: e  reason: collision with root package name */
-            public DynamicUserLikeButton f22029e;
+            public DynamicUserLikeButton f22086e;
 
             /* renamed from: f  reason: collision with root package name */
-            public d.a.r0.r.f0.s.c f22030f;
+            public d.a.o0.r.f0.t.c f22087f;
 
             /* renamed from: g  reason: collision with root package name */
-            public boolean f22031g;
+            public boolean f22088g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ GodRecommendListAdapter f22032h;
+            public final /* synthetic */ GodRecommendListAdapter f22089h;
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes4.dex */
             public class a implements DynamicUserLikeButton.a {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ GodViewHolder f22033a;
+                public final /* synthetic */ GodViewHolder f22090a;
 
                 public a(GodViewHolder godViewHolder, GodRecommendListAdapter godRecommendListAdapter) {
                     Interceptable interceptable = $ic;
@@ -150,17 +150,17 @@ public class GodRecommendLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f22033a = godViewHolder;
+                    this.f22090a = godViewHolder;
                 }
 
                 @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
                 public void a(View view) {
-                    d.a.r0.r.f0.s.c cVar;
+                    d.a.o0.r.f0.t.c cVar;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (cVar = this.f22033a.f22030f) == null || cVar.j() == null || this.f22033a.f22030f.j().getIsLike()) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (cVar = this.f22090a.f22087f) == null || cVar.j() == null || this.f22090a.f22087f.j().getIsLike()) {
                         return;
                     }
-                    TiebaStatic.log(new StatisticItem("c13903").param(TiebaStatic.Params.FRIEND_UID, this.f22033a.f22030f.j().getUserId()).param("obj_name", this.f22033a.f22027c.getText().toString()));
+                    TiebaStatic.log(new StatisticItem("c13903").param(TiebaStatic.Params.FRIEND_UID, this.f22090a.f22087f.j().getUserId()).param("obj_name", this.f22090a.f22084c.getText().toString()));
                 }
             }
 
@@ -182,63 +182,63 @@ public class GodRecommendLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f22032h = godRecommendListAdapter;
-                this.f22031g = false;
-                this.f22025a = (LinearLayout) view.findViewById(R.id.concern_container);
+                this.f22089h = godRecommendListAdapter;
+                this.f22088g = false;
+                this.f22082a = (LinearLayout) view.findViewById(R.id.concern_container);
                 HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-                this.f22028d = headPendantClickableView;
+                this.f22085d = headPendantClickableView;
                 headPendantClickableView.getHeadView().setIsRound(true);
-                this.f22028d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.f22028d.getHeadView().setDefaultResource(17170445);
-                this.f22028d.getHeadView().setPlaceHolder(1);
-                this.f22028d.getHeadView().setBorderWidth(d.a.c.e.p.l.g(godRecommendListAdapter.f22019a, R.dimen.tbds1));
-                this.f22028d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-                this.f22026b = (TextView) view.findViewById(R.id.concern_user_name);
-                this.f22027c = (TextView) view.findViewById(R.id.concern_user_desc);
+                this.f22085d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.f22085d.getHeadView().setDefaultResource(17170445);
+                this.f22085d.getHeadView().setPlaceHolder(1);
+                this.f22085d.getHeadView().setBorderWidth(d.a.c.e.p.l.g(godRecommendListAdapter.f22076a, R.dimen.tbds1));
+                this.f22085d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+                this.f22083b = (TextView) view.findViewById(R.id.concern_user_name);
+                this.f22084c = (TextView) view.findViewById(R.id.concern_user_desc);
                 DynamicUserLikeButton dynamicUserLikeButton = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-                this.f22029e = dynamicUserLikeButton;
+                this.f22086e = dynamicUserLikeButton;
                 dynamicUserLikeButton.setGodRecommendStyle(true);
-                this.f22029e.setOnClickEvent(new a(this, godRecommendListAdapter));
-                d.a.r0.r.f0.s.c cVar = new d.a.r0.r.f0.s.c(godRecommendListAdapter.f22020b, this.f22029e);
-                this.f22030f = cVar;
+                this.f22086e.setOnClickEvent(new a(this, godRecommendListAdapter));
+                d.a.o0.r.f0.t.c cVar = new d.a.o0.r.f0.t.c(godRecommendListAdapter.f22077b, this.f22086e);
+                this.f22087f = cVar;
                 cVar.k(true);
             }
 
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (!this.f22031g) {
-                        SkinManager.setViewTextColor(this.f22026b, R.color.CAM_X0101);
+                    if (!this.f22088g) {
+                        SkinManager.setViewTextColor(this.f22083b, R.color.CAM_X0101);
                     } else {
-                        SkinManager.setViewTextColor(this.f22026b, R.color.CAM_X0301);
+                        SkinManager.setViewTextColor(this.f22083b, R.color.CAM_X0301);
                     }
-                    SkinManager.setViewTextColor(this.f22027c, R.color.CAM_X0101);
-                    this.f22029e.k();
-                    TBSelector.makeDrawableSelector().setShape(0).defaultStrokeColor(R.color.CAM_X0614).defaultColor(R.color.CAM_X0614).strokeWidth(d.a.c.e.p.l.g(this.f22032h.f22019a, R.dimen.tbds1)).radius(d.a.c.e.p.l.g(this.f22032h.f22019a, R.dimen.tbds10)).into(this.f22025a);
+                    SkinManager.setViewTextColor(this.f22084c, R.color.CAM_X0101);
+                    this.f22086e.k();
+                    TBSelector.makeDrawableSelector().setShape(0).defaultStrokeColor(R.color.CAM_X0614).defaultColor(R.color.CAM_X0614).strokeWidth(d.a.c.e.p.l.g(this.f22089h.f22076a, R.dimen.tbds1)).radius(d.a.c.e.p.l.g(this.f22089h.f22076a, R.dimen.tbds10)).into(this.f22082a);
                 }
             }
 
             public final void c(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                    this.f22031g = z;
+                    this.f22088g = z;
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ MetaData f22034e;
+            public final /* synthetic */ MetaData f22091e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GodViewHolder f22035f;
+            public final /* synthetic */ GodViewHolder f22092f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ GodRecommendListAdapter f22036g;
+            public final /* synthetic */ GodRecommendListAdapter f22093g;
 
             public a(GodRecommendListAdapter godRecommendListAdapter, MetaData metaData, GodViewHolder godViewHolder) {
                 Interceptable interceptable = $ic;
@@ -255,16 +255,16 @@ public class GodRecommendLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f22036g = godRecommendListAdapter;
-                this.f22034e = metaData;
-                this.f22035f = godViewHolder;
+                this.f22093g = godRecommendListAdapter;
+                this.f22091e = metaData;
+                this.f22092f = godViewHolder;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f22036g.i(this.f22034e, this.f22035f);
+                    this.f22093g.i(this.f22091e, this.f22092f);
                 }
             }
         }
@@ -284,8 +284,8 @@ public class GodRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f22024f = godRecommendLayout;
-            this.f22019a = context;
+            this.f22081f = godRecommendLayout;
+            this.f22076a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -295,7 +295,7 @@ public class GodRecommendLayout extends LinearLayout {
             List<MetaData> list;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, godViewHolder, i2) == null) || godViewHolder == null || (list = this.f22022d) == null || (metaData = list.get(i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, godViewHolder, i2) == null) || godViewHolder == null || (list = this.f22079d) == null || (metaData = list.get(i2)) == null) {
                 return;
             }
             godViewHolder.c(metaData.isNewGod());
@@ -303,7 +303,7 @@ public class GodRecommendLayout extends LinearLayout {
             r(metaData, godViewHolder);
             p(metaData, godViewHolder);
             q(metaData, godViewHolder);
-            f<MetaData> fVar = this.f22023e;
+            f<MetaData> fVar = this.f22080e;
             if (fVar != null) {
                 fVar.c(godViewHolder.itemView, metaData, i2, i2);
             }
@@ -317,7 +317,7 @@ public class GodRecommendLayout extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                List<MetaData> list = this.f22022d;
+                List<MetaData> list = this.f22079d;
                 if (list == null) {
                     return 0;
                 }
@@ -332,15 +332,15 @@ public class GodRecommendLayout extends LinearLayout {
         public GodViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) ? new GodViewHolder(this, LayoutInflater.from(this.f22019a).inflate(R.layout.recommend_god_item, (ViewGroup) null)) : (GodViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) ? new GodViewHolder(this, LayoutInflater.from(this.f22076a).inflate(R.layout.recommend_god_item, (ViewGroup) null)) : (GodViewHolder) invokeLI.objValue;
         }
 
         public final void i(MetaData metaData, GodViewHolder godViewHolder) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048579, this, metaData, godViewHolder) == null) || this.f22023e == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048579, this, metaData, godViewHolder) == null) || this.f22080e == null) {
                 return;
             }
-            this.f22023e.a(godViewHolder.itemView, metaData, godViewHolder.getAdapterPosition(), godViewHolder.getItemId());
+            this.f22080e.a(godViewHolder.itemView, metaData, godViewHolder.getAdapterPosition(), godViewHolder.getItemId());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -351,13 +351,13 @@ public class GodRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, godViewHolder) == null) {
                 super.onViewAttachedToWindow(godViewHolder);
-                if (this.f22024f.l && (view = godViewHolder.itemView) != null && (view.getTag(R.id.tag_user_id) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.tag_holder) instanceof Boolean)) {
+                if (this.f22081f.l && (view = godViewHolder.itemView) != null && (view.getTag(R.id.tag_user_id) instanceof MetaData) && (godViewHolder.itemView.getTag(R.id.tag_holder) instanceof Boolean)) {
                     boolean booleanValue = ((Boolean) godViewHolder.itemView.getTag(R.id.tag_holder)).booleanValue();
                     MetaData metaData = (MetaData) godViewHolder.itemView.getTag(R.id.tag_user_id);
-                    if (!booleanValue || this.f22024f.k.contains(metaData.getUserId())) {
+                    if (!booleanValue || this.f22081f.k.contains(metaData.getUserId())) {
                         return;
                     }
-                    this.f22024f.k.add(metaData.getUserId());
+                    this.f22081f.k.add(metaData.getUserId());
                     TiebaStatic.log(new StatisticItem("c13902").param("uid", metaData.getUserId()));
                     godViewHolder.itemView.setTag(R.id.tag_holder, Boolean.FALSE);
                 }
@@ -372,7 +372,7 @@ public class GodRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, godViewHolder) == null) {
                 super.onViewDetachedFromWindow(godViewHolder);
-                if (this.f22024f.k.isEmpty() && (view = godViewHolder.itemView) != null) {
+                if (this.f22081f.k.isEmpty() && (view = godViewHolder.itemView) != null) {
                     view.setTag(R.id.tag_holder, Boolean.TRUE);
                 }
             }
@@ -381,29 +381,29 @@ public class GodRecommendLayout extends LinearLayout {
         public void l(f<MetaData> fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-                this.f22023e = fVar;
+                this.f22080e = fVar;
             }
         }
 
         public void m(TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-                this.f22020b = tbPageContext;
+                this.f22077b = tbPageContext;
             }
         }
 
         public void n(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-                this.f22021c = bdUniqueId;
+                this.f22078c = bdUniqueId;
             }
         }
 
         public final void o(MetaData metaData, GodViewHolder godViewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048585, this, metaData, godViewHolder) == null) {
-                godViewHolder.f22028d.setData(metaData, true);
-                godViewHolder.f22028d.setOnClickListener(new a(this, metaData, godViewHolder));
+                godViewHolder.f22085d.setData(metaData, true);
+                godViewHolder.f22085d.setOnClickListener(new a(this, metaData, godViewHolder));
             }
         }
 
@@ -424,16 +424,16 @@ public class GodRecommendLayout extends LinearLayout {
             } else {
                 d2 = n0.d(metaData.isVideoGod());
             }
-            godViewHolder.f22027c.setText(d2);
+            godViewHolder.f22084c.setText(d2);
         }
 
         public final void q(MetaData metaData, GodViewHolder godViewHolder) {
-            d.a.r0.r.f0.s.c cVar;
+            d.a.o0.r.f0.t.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048591, this, metaData, godViewHolder) == null) || (cVar = godViewHolder.f22030f) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048591, this, metaData, godViewHolder) == null) || (cVar = godViewHolder.f22087f) == null) {
                 return;
             }
-            cVar.l(this.f22021c);
+            cVar.l(this.f22078c);
             cVar.n(metaData);
         }
 
@@ -442,31 +442,31 @@ public class GodRecommendLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeLL(1048592, this, metaData, godViewHolder) == null) || metaData == null || godViewHolder == null) {
                 return;
             }
-            String string = this.f22024f.getResources().getString(R.string.god_default_name);
+            String string = this.f22081f.getResources().getString(R.string.god_default_name);
             if (!StringUtils.isNull(metaData.getName_show())) {
                 string = metaData.getName_show();
             }
-            godViewHolder.f22026b.setText(string);
+            godViewHolder.f22083b.setText(string);
             if (metaData.isNewGod()) {
-                SkinManager.setViewTextColor(godViewHolder.f22026b, R.color.CAM_X0301);
+                SkinManager.setViewTextColor(godViewHolder.f22083b, R.color.CAM_X0301);
             }
         }
 
         public void setData(List<MetaData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-                this.f22022d = list;
+                this.f22079d = list;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodRecommendLayout f22037a;
+        public final /* synthetic */ GodRecommendLayout f22094a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GodRecommendLayout godRecommendLayout, int i2) {
@@ -486,7 +486,7 @@ public class GodRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f22037a = godRecommendLayout;
+            this.f22094a = godRecommendLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -495,24 +495,24 @@ public class GodRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    if (this.f22037a.j == null) {
-                        this.f22037a.j = new l(new j());
+                    if (this.f22094a.j == null) {
+                        this.f22094a.j = new l(new j());
                     }
-                    this.f22037a.j.q(this.f22037a.f22017h, 1);
-                } else if (this.f22037a.j != null) {
-                    this.f22037a.j.w();
+                    this.f22094a.j.q(this.f22094a.f22074h, 1);
+                } else if (this.f22094a.j != null) {
+                    this.f22094a.j.w();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements f<MetaData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GodRecommendLayout f22038e;
+        public final /* synthetic */ GodRecommendLayout f22095e;
 
         public b(GodRecommendLayout godRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -529,11 +529,11 @@ public class GodRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f22038e = godRecommendLayout;
+            this.f22095e = godRecommendLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.m.f
+        @Override // d.a.o0.m.f
         /* renamed from: b */
         public void c(View view, MetaData metaData, int i2, long j) {
             Interceptable interceptable = $ic;
@@ -542,24 +542,24 @@ public class GodRecommendLayout extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.m.f
+        @Override // d.a.o0.m.f
         /* renamed from: d */
         public void a(View view, MetaData metaData, int i2, long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j)}) == null) || metaData == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22038e.f22014e, metaData.getUserId(), metaData.getName_show())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22095e.f22071e, metaData.getUserId(), metaData.getName_show())));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GodRecommendLayout f22039a;
+        public final /* synthetic */ GodRecommendLayout f22096a;
 
         public c(GodRecommendLayout godRecommendLayout) {
             Interceptable interceptable = $ic;
@@ -576,7 +576,7 @@ public class GodRecommendLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f22039a = godRecommendLayout;
+            this.f22096a = godRecommendLayout;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -584,7 +584,7 @@ public class GodRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 super.onScrollStateChanged(recyclerView, i2);
-                this.f22039a.k.clear();
+                this.f22096a.k.clear();
             }
         }
     }
@@ -616,13 +616,13 @@ public class GodRecommendLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                Context context = this.f22014e;
+                Context context = this.f22071e;
                 if ((context instanceof BaseFragmentActivity) && ((BaseFragmentActivity) context).isSwipeBackEnabled()) {
-                    ((BaseFragmentActivity) this.f22014e).disableSwipeJustOnce();
+                    ((BaseFragmentActivity) this.f22071e).disableSwipeJustOnce();
                 } else {
-                    Context context2 = this.f22014e;
+                    Context context2 = this.f22071e;
                     if ((context2 instanceof BaseActivity) && ((BaseActivity) context2).isSwipeBackEnabled()) {
-                        ((BaseActivity) this.f22014e).disableSwipeJustOnce();
+                        ((BaseActivity) this.f22071e).disableSwipeJustOnce();
                     }
                 }
             }
@@ -637,25 +637,25 @@ public class GodRecommendLayout extends LinearLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_god_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f22015f = (TextView) findViewById(R.id.title);
-            this.f22016g = (TextView) findViewById(R.id.change);
-            this.f22017h = (RecyclerView) findViewById(R.id.thread_card_list);
-            GodRecommendListAdapter godRecommendListAdapter = new GodRecommendListAdapter(this, this.f22014e);
-            this.f22018i = godRecommendListAdapter;
+            this.f22072f = (TextView) findViewById(R.id.title);
+            this.f22073g = (TextView) findViewById(R.id.change);
+            this.f22074h = (RecyclerView) findViewById(R.id.thread_card_list);
+            GodRecommendListAdapter godRecommendListAdapter = new GodRecommendListAdapter(this, this.f22071e);
+            this.f22075i = godRecommendListAdapter;
             godRecommendListAdapter.l(this.n);
-            this.f22017h.setAdapter(this.f22018i);
-            this.f22017h.setClipChildren(false);
+            this.f22074h.setAdapter(this.f22075i);
+            this.f22074h.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
                 l lVar = new l(new j());
                 this.j = lVar;
-                lVar.q(this.f22017h, 1);
+                lVar.q(this.f22074h, 1);
             }
-            int g2 = d.a.c.e.p.l.g(this.f22014e, R.dimen.tbds21);
-            int g3 = d.a.c.e.p.l.g(this.f22014e, R.dimen.tbds44);
-            this.f22017h.setLayoutManager(new LinearLayoutManager(this.f22014e, 0, false));
-            this.f22017h.setItemAnimator(new DefaultItemAnimator());
-            this.f22017h.addItemDecoration(new SpaceItemDecoration(g3, g2, g3));
-            this.f22017h.addOnScrollListener(this.o);
+            int g2 = d.a.c.e.p.l.g(this.f22071e, R.dimen.tbds21);
+            int g3 = d.a.c.e.p.l.g(this.f22071e, R.dimen.tbds44);
+            this.f22074h.setLayoutManager(new LinearLayoutManager(this.f22071e, 0, false));
+            this.f22074h.setItemAnimator(new DefaultItemAnimator());
+            this.f22074h.addItemDecoration(new SpaceItemDecoration(g3, g2, g3));
+            this.f22074h.addOnScrollListener(this.o);
             h();
         }
     }
@@ -663,10 +663,10 @@ public class GodRecommendLayout extends LinearLayout {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f22015f, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f22016g, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f22072f, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f22073g, R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0604);
-            this.f22018i.notifyDataSetChanged();
+            this.f22075i.notifyDataSetChanged();
         }
     }
 
@@ -682,9 +682,9 @@ public class GodRecommendLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, t1Var) == null) || t1Var == null) {
             return;
         }
-        this.f22018i.setData(t1Var.c());
-        this.f22018i.notifyDataSetChanged();
-        this.f22017h.scrollToPosition(0);
+        this.f22075i.setData(t1Var.c());
+        this.f22075i.notifyDataSetChanged();
+        this.f22074h.scrollToPosition(0);
         this.k.clear();
         this.l = true;
     }
@@ -692,7 +692,7 @@ public class GodRecommendLayout extends LinearLayout {
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
-            this.f22018i.m(tbPageContext);
+            this.f22075i.m(tbPageContext);
         }
     }
 
@@ -701,14 +701,14 @@ public class GodRecommendLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
             this.m.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.m);
-            this.f22018i.n(bdUniqueId);
+            this.f22075i.n(bdUniqueId);
         }
     }
 
     public void setRefreshListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f22016g.setOnClickListener(onClickListener);
+            this.f22073g.setOnClickListener(onClickListener);
         }
     }
 
@@ -757,7 +757,7 @@ public class GodRecommendLayout extends LinearLayout {
         this.m = new a(this, 2156674);
         this.n = new b(this);
         this.o = new c(this);
-        this.f22014e = context;
+        this.f22071e = context;
         g();
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -77,7 +78,7 @@ public class LogUtils {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
             if (mIsWriteToFile) {
                 LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + "\n").getBytes());
                 return;

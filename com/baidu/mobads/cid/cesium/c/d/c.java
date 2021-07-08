@@ -1,5 +1,6 @@
 package com.baidu.mobads.cid.cesium.c.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,34 +15,34 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f8302a;
+    public static final byte[] f8319a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8303b;
+    public int f8320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8304c;
+    public String f8321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f8305d;
+    public f f8322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f8306e;
+    public byte[] f8323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8307f;
+    public int f8324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f8308g;
+    public int f8325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f8309h;
+    public d f8326h;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +57,7 @@ public final class c {
                 return;
             }
         }
-        f8302a = new byte[0];
+        f8319a = new byte[0];
     }
 
     public c() {
@@ -72,7 +73,7 @@ public final class c {
                 return;
             }
         }
-        this.f8304c = "PKCS1Padding";
+        this.f8321c = "PKCS1Padding";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
@@ -98,18 +99,18 @@ public final class c {
             if (dVar instanceof d) {
                 throw new InvalidKeyException("only support helios key");
             }
-            this.f8303b = z ? 1 : 4;
-            this.f8309h = dVar;
+            this.f8320b = z ? 1 : 4;
+            this.f8326h = dVar;
             int a2 = b.a(dVar.a());
-            this.f8308g = a2;
-            this.f8307f = 0;
-            String str = this.f8304c;
+            this.f8325g = a2;
+            this.f8324f = 0;
+            String str = this.f8321c;
             if (str == "NoPadding") {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                this.f8305d = f.a(3, a2, secureRandom);
-                this.f8306e = new byte[a2];
+                this.f8322d = f.a(3, a2, secureRandom);
+                this.f8323e = new byte[a2];
                 return;
             } else if (str != "PKCS1Padding") {
                 throw new InvalidKeyException("OAEP not supported");
@@ -117,13 +118,13 @@ public final class c {
                 if (algorithmParameterSpec != null) {
                     throw new InvalidAlgorithmParameterException("Parameters not supported");
                 }
-                f a3 = f.a(this.f8303b > 2 ? 1 : 2, a2, secureRandom);
-                this.f8305d = a3;
+                f a3 = f.a(this.f8320b > 2 ? 1 : 2, a2, secureRandom);
+                this.f8322d = a3;
                 if (z) {
-                    this.f8306e = new byte[a3.a()];
+                    this.f8323e = new byte[a3.a()];
                     return;
                 } else {
-                    this.f8306e = new byte[a2];
+                    this.f8323e = new byte[a2];
                     return;
                 }
             }
@@ -137,18 +138,18 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            int i2 = this.f8307f;
-            byte[] bArr = this.f8306e;
+            int i2 = this.f8324f;
+            byte[] bArr = this.f8323e;
             if (i2 > bArr.length) {
-                throw new IllegalBlockSizeException("Data must not be longer than " + this.f8306e.length + " bytes");
+                throw new IllegalBlockSizeException("Data must not be longer than " + this.f8323e.length + " bytes");
             }
             try {
-                int i3 = this.f8303b;
+                int i3 = this.f8320b;
                 if (i3 != 1) {
                     if (i3 != 2) {
                         if (i3 != 3) {
                             if (i3 == 4) {
-                                return this.f8305d.b(b.a(b.a(bArr, 0, i2), this.f8309h));
+                                return this.f8322d.b(b.a(b.a(bArr, 0, i2), this.f8326h));
                             }
                             throw new AssertionError("Internal error");
                         }
@@ -156,9 +157,9 @@ public final class c {
                     }
                     throw new UnsupportedOperationException("only verify supported");
                 }
-                return b.a(this.f8305d.a(bArr, 0, i2), this.f8309h);
+                return b.a(this.f8322d.a(bArr, 0, i2), this.f8326h);
             } finally {
-                this.f8307f = 0;
+                this.f8324f = 0;
             }
         }
         return (byte[]) invokeV.objValue;
@@ -167,19 +168,19 @@ public final class c {
     private void b(byte[] bArr, int i2, int i3) {
         int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65540, this, bArr, i2, i3) == null) || i3 == 0 || bArr == null) {
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2, i3) == null) || i3 == 0 || bArr == null) {
             return;
         }
-        int i5 = this.f8307f;
+        int i5 = this.f8324f;
         int i6 = i5 + i3;
-        byte[] bArr2 = this.f8306e;
+        byte[] bArr2 = this.f8323e;
         if (i6 > bArr2.length) {
             i4 = bArr2.length + 1;
         } else {
             System.arraycopy(bArr, i2, bArr2, i5, i3);
-            i4 = this.f8307f + i3;
+            i4 = this.f8324f + i3;
         }
-        this.f8307f = i4;
+        this.f8324f = i4;
     }
 
     public void a(int i2, d dVar, SecureRandom secureRandom) {
@@ -205,7 +206,7 @@ public final class c {
                     throw new NoSuchPaddingException("Padding " + str + " not supported");
                 }
             }
-            this.f8304c = str2;
+            this.f8321c = str2;
         }
     }
 

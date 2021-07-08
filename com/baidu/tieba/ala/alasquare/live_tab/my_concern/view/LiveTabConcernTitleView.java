@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a0.b;
-import d.a.s0.v.d.f.c.g;
-/* loaded from: classes5.dex */
+import d.a.p0.a0.b;
+import d.a.p0.v.d.f.c.g;
+/* loaded from: classes4.dex */
 public class LiveTabConcernTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LiveTabConcernTitleView f13995a;
+        public LiveTabConcernTitleView f14034a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f13996b;
+        public View f14035b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f13997c;
+        public TextView f14036c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
-            super(liveTabConcernTitleView.l());
+            super(liveTabConcernTitleView.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,10 +55,10 @@ public class LiveTabConcernTitleView extends b<g> {
                     return;
                 }
             }
-            this.f13995a = liveTabConcernTitleView;
-            View l = liveTabConcernTitleView.l();
-            this.f13996b = l;
-            this.f13997c = (TextView) l.findViewById(R.id.tab_sub_rec_title_tv);
+            this.f14034a = liveTabConcernTitleView;
+            View k = liveTabConcernTitleView.k();
+            this.f14035b = k;
+            this.f14036c = (TextView) k.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 
@@ -82,22 +82,22 @@ public class LiveTabConcernTitleView extends b<g> {
             }
         }
         this.m = new ViewHolder(this);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.s0.a0.b
-    public int h() {
+    @Override // d.a.p0.a0.b
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.tab_sub_title_view : invokeV.intValue;
     }
 
-    @Override // d.a.s0.a0.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    @Override // d.a.p0.a0.b
+    public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setBackgroundColor(this.m.f13996b, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.m.f13997c, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.m.f14035b, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.m.f14036c, R.color.CAM_X0105);
         }
     }
 
@@ -109,14 +109,14 @@ public class LiveTabConcernTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.s0.a0.b
-    /* renamed from: s */
-    public void m(g gVar) {
+    @Override // d.a.p0.a0.b
+    /* renamed from: q */
+    public void l(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f67748f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f64530f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.f13997c.setText(gVar.f67748f);
+        viewHolder.f14036c.setText(gVar.f64530f);
     }
 }

@@ -2,6 +2,7 @@ package com.kwad.sdk.core.network;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,14 +13,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.utils.n;
 import java.io.File;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f36357a;
+    public static volatile e f34672a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,10 +59,10 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (e.class) {
-                if (f36357a == null) {
-                    f36357a = new e();
+                if (f34672a == null) {
+                    f34672a = new e();
                 }
-                eVar = f36357a;
+                eVar = f34672a;
             }
             return eVar;
         }
@@ -72,7 +74,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             try {
-                com.kwad.sdk.utils.k.a(new File(d()), str, Charset.forName("UTF-8"), false);
+                n.a(new File(d()), str, Charset.forName("UTF-8"), false);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
@@ -84,9 +86,9 @@ public class e {
     private String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
-                return com.kwad.sdk.utils.k.a(new File(d()), Charset.forName("UTF-8"));
+                return n.a(new File(d()), Charset.forName("UTF-8"));
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
                 return null;

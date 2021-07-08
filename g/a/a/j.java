@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import org.brotli.dec.BrotliRuntimeException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,31 +40,31 @@ public final class j {
     public byte[] Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f75299a;
+    public int f72333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75300b;
+    public int f72334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f75301c;
+    public final a f72335c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f75302d;
+    public byte[] f72336d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f75303e;
+    public final int[] f72337e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f75304f;
+    public final int[] f72338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f75305g;
+    public int f72339g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f75306h;
+    public boolean f72340h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f75307i;
+    public boolean f72341i;
     public boolean j;
     public final g k;
     public final g l;
@@ -96,10 +96,10 @@ public final class j {
                 return;
             }
         }
-        this.f75299a = 0;
-        this.f75301c = new a();
-        this.f75303e = new int[3240];
-        this.f75304f = new int[3240];
+        this.f72333a = 0;
+        this.f72335c = new a();
+        this.f72337e = new int[3240];
+        this.f72338f = new int[3240];
         this.k = new g();
         this.l = new g();
         this.m = new g();
@@ -121,15 +121,15 @@ public final class j {
     public static void a(j jVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, jVar) == null) {
-            int i2 = jVar.f75299a;
+            int i2 = jVar.f72333a;
             if (i2 == 0) {
                 throw new IllegalStateException("State MUST be initialized");
             }
             if (i2 == 11) {
                 return;
             }
-            jVar.f75299a = 11;
-            a.b(jVar.f75301c);
+            jVar.f72333a = 11;
+            a.b(jVar.f72335c);
         }
     }
 
@@ -156,14 +156,14 @@ public final class j {
     public static void c(j jVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jVar, inputStream) == null) {
-            if (jVar.f75299a == 0) {
-                a.e(jVar.f75301c, inputStream);
-                int b2 = b(jVar.f75301c);
+            if (jVar.f72333a == 0) {
+                a.e(jVar.f72335c, inputStream);
+                int b2 = b(jVar.f72335c);
                 if (b2 != 9) {
                     int i2 = 1 << b2;
                     jVar.P = i2;
                     jVar.O = i2 - 16;
-                    jVar.f75299a = 1;
+                    jVar.f72333a = 1;
                     return;
                 }
                 throw new BrotliRuntimeException("Invalid 'windowBits' code");

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f71944a;
+    public final int f69047a;
 
     public e(int i2) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class e {
                 return;
             }
         }
-        this.f71944a = i2;
+        this.f69047a = i2;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71944a == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69047a == 0 : invokeV.booleanValue;
     }
 
     public e(int i2, Throwable th) {
@@ -53,7 +53,7 @@ public class e {
                 return;
             }
         }
-        this.f71944a = i2;
+        this.f69047a = i2;
         if (th != null) {
             th.getMessage();
         }
@@ -74,7 +74,7 @@ public class e {
                 return;
             }
         }
-        this.f71944a = i2;
+        this.f69047a = i2;
     }
 
     public e(int i2, JSONObject jSONObject) {
@@ -92,6 +92,6 @@ public class e {
                 return;
             }
         }
-        this.f71944a = i2;
+        this.f69047a = i2;
     }
 }

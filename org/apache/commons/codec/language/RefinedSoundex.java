@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class RefinedSoundex implements StringEncoder {
     public static /* synthetic */ Interceptable $ic;
     public static final RefinedSoundex US_ENGLISH = null;

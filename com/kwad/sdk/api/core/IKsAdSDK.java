@@ -11,7 +11,7 @@ import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkDynamicApi("com.kwad.sdk.KsAdSDKImpl")
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep
@@ -89,7 +89,15 @@ public interface IKsAdSDK {
 
     @KsAdSdkDynamicApi
     @Keep
+    void pauseCurrentPlayer();
+
+    @KsAdSdkDynamicApi
+    @Keep
     void reportBatchEvent(int i2, Map<String, Object> map);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void resumeCurrentPlayer();
 
     @KsAdSdkDynamicApi
     @Keep
@@ -106,6 +114,14 @@ public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep
     void setIsExternal(boolean z);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setPersonalRecommend(boolean z);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setThemeMode(int i2);
 
     @KsAdSdkDynamicApi
     @Keep

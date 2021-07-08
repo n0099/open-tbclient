@@ -4,16 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38733h;
+    public int f35805h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38734i;
+    public int f35806i;
     public int j;
     public int k;
     public int l;
@@ -43,15 +43,15 @@ public class h extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            com.kwad.sdk.pngencrypt.k kVar = this.f38698e;
-            if (kVar.f38782f) {
-                this.f38733h = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 0);
-            } else if (kVar.f38783g) {
-                this.l = dVar.f38720d[0] & 255;
+            com.kwad.sdk.pngencrypt.k kVar = this.f35770e;
+            if (kVar.f35854f) {
+                this.f35805h = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 0);
+            } else if (kVar.f35855g) {
+                this.l = dVar.f35792d[0] & 255;
             } else {
-                this.f38734i = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 0);
-                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 2);
-                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 4);
+                this.f35806i = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 0);
+                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 2);
+                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 4);
             }
         }
     }

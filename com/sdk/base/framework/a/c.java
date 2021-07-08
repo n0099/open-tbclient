@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f41087a;
+    public long f38101a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f41088b;
+    public long f38102b;
 
     public c(a aVar, long j) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public final class c {
                 return;
             }
         }
-        this.f41087a = 1500L;
-        this.f41087a = 2000L;
-        this.f41088b = System.currentTimeMillis();
+        this.f38101a = 1500L;
+        this.f38101a = 2000L;
+        this.f38102b = System.currentTimeMillis();
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f41088b > this.f41087a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f38102b > this.f38101a : invokeV.booleanValue;
     }
 }

@@ -13,6 +13,7 @@ import android.graphics.Shader;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
@@ -171,7 +172,7 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
     private RadialGradient getRadialGradient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             long gradientHash = getGradientHash();
             RadialGradient radialGradient = this.radialGradientCache.get(gradientHash);
             if (radialGradient != null) {

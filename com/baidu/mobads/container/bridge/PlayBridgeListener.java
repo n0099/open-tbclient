@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.bridge;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface PlayBridgeListener extends BridgeListener {
     void handlePermissionClick(String str);
 

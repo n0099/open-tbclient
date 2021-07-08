@@ -3,6 +3,7 @@ package com.baidu.searchbox.anr.utils;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.anr.collector.ThreadCollector;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ANR_LOG = "Wrote stack traces to ";
@@ -198,7 +199,7 @@ public class Utils {
         BufferedWriter bufferedWriter;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65540, null, str, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) != null) {
             return invokeLI.booleanValue;
         }
         long currentTimeMillis = System.currentTimeMillis();

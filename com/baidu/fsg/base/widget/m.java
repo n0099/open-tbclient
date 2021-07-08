@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class m implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeScrollView f5532a;
+    public final /* synthetic */ SafeScrollView f5549a;
 
     public m(SafeScrollView safeScrollView) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class m implements Runnable {
                 return;
             }
         }
-        this.f5532a = safeScrollView;
+        this.f5549a = safeScrollView;
     }
 
     @Override // java.lang.Runnable
@@ -41,13 +41,13 @@ public class m implements Runnable {
         SafeKeyBoardEditText safeKeyBoardEditText3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            safeKeyBoardUtil = this.f5532a.f5516g;
-            context = this.f5532a.f5514e;
-            safeKeyBoardEditText = this.f5532a.f5515f;
-            safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.f5532a);
-            safeKeyBoardUtil2 = this.f5532a.f5516g;
-            safeKeyBoardEditText2 = this.f5532a.f5515f;
-            safeKeyBoardEditText3 = this.f5532a.f5515f;
+            safeKeyBoardUtil = this.f5549a.f5533g;
+            context = this.f5549a.f5531e;
+            safeKeyBoardEditText = this.f5549a.f5532f;
+            safeKeyBoardUtil.init(context, safeKeyBoardEditText.getViewGroup(), this.f5549a);
+            safeKeyBoardUtil2 = this.f5549a.f5533g;
+            safeKeyBoardEditText2 = this.f5549a.f5532f;
+            safeKeyBoardEditText3 = this.f5549a.f5532f;
             safeKeyBoardUtil2.showSoftKeyBoard(safeKeyBoardEditText2, safeKeyBoardEditText3.getVisibleView());
         }
     }

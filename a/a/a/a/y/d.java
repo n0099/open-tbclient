@@ -1,6 +1,7 @@
 package a.a.a.a.y;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -57,7 +58,7 @@ public final class d {
 
     public static void a(Throwable th, int i2, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65540, null, th, i2, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
+        if ((interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, null, th, i2, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
             try {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 StackTraceElement stackTraceElement = stackTrace[2];

@@ -1,43 +1,34 @@
 package com.kwad.sdk.utils;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
-public class aq implements Runnable {
+import java.util.Formatter;
+import java.util.Locale;
+/* loaded from: classes6.dex */
+public class aq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Runnable> f39376a;
-
-    public aq(Runnable runnable) {
+    public static String a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {runnable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            if (j <= 0 || j >= 86400000) {
+                return "00:00";
+            }
+            try {
+                long j2 = j / 1000;
+                long j3 = j2 % 60;
+                long j4 = (j2 / 60) % 60;
+                long j5 = j2 / 3600;
+                Formatter formatter = new Formatter(new StringBuilder(), Locale.getDefault());
+                return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                return "";
             }
         }
-        this.f39376a = new WeakReference<>(runnable);
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (runnable = this.f39376a.get()) == null) {
-            return;
-        }
-        runnable.run();
+        return (String) invokeJ.objValue;
     }
 }

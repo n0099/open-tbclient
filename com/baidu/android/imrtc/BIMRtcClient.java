@@ -2,6 +2,7 @@ package com.baidu.android.imrtc;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.request.BIMRtcAnswerAbilityListener;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
@@ -60,7 +61,7 @@ public class BIMRtcClient {
 
     public static void closeRoom(@NonNull Context context, @NonNull BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, IStatusListener iStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, context, bIMCloseRoomRtcInfo, iStatusListener) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bIMCloseRoomRtcInfo, iStatusListener) == null) {
             BIMRtcManager.getInstance(context).closeRoom(bIMCloseRoomRtcInfo, iStatusListener);
         }
     }

@@ -3,6 +3,7 @@ package com.airbnb.lottie.parser;
 import android.graphics.Rect;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SparseArrayCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieImageAsset;
 import com.airbnb.lottie.model.Font;
@@ -216,7 +217,7 @@ public class LottieCompositionMoshiParser {
 
     public static void parseChars(JsonReader jsonReader, LottieComposition lottieComposition, SparseArrayCompat<FontCharacter> sparseArrayCompat) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, jsonReader, lottieComposition, sparseArrayCompat) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsonReader, lottieComposition, sparseArrayCompat) == null) {
             jsonReader.beginArray();
             while (jsonReader.hasNext()) {
                 FontCharacter parse = FontCharacterParser.parse(jsonReader, lottieComposition);

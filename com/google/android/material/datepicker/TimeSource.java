@@ -1,6 +1,7 @@
 package com.google.android.material.datepicker;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TimeSource {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSource SYSTEM_TIME_SOURCE;
@@ -65,7 +66,7 @@ public class TimeSource {
     public static TimeSource system() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? SYSTEM_TIME_SOURCE : (TimeSource) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SYSTEM_TIME_SOURCE : (TimeSource) invokeV.objValue;
     }
 
     public Calendar now() {

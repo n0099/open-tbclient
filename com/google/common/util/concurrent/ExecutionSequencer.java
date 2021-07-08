@@ -12,14 +12,14 @@ import d.f.d.a.n;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExecutionSequencer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicReference<ListenableFuture<Object>> ref;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RunningState {
         public static final /* synthetic */ RunningState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

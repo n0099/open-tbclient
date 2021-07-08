@@ -976,7 +976,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public static <K, V> Node<K, V>[] doubleCapacity(Node<K, V>[] nodeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, nodeArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nodeArr)) == null) {
             int length = nodeArr.length;
             Node<K, V>[] nodeArr2 = new Node[length * 2];
             AvlIterator avlIterator = new AvlIterator();

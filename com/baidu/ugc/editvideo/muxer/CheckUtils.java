@@ -1,6 +1,7 @@
 package com.baidu.ugc.editvideo.muxer;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,15 +19,15 @@ import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.y0.i.c;
-import d.a.y0.l.a;
-import d.a.y0.t.h;
-import d.a.y0.t.n;
+import d.a.v0.i.c;
+import d.a.v0.l.a;
+import d.a.v0.t.h;
+import d.a.v0.t.n;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +134,7 @@ public class CheckUtils {
     public static boolean checkArEdit(VideoMuxerData videoMuxerData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, videoMuxerData)) == null) ? (videoMuxerData == null || (h.f(videoMuxerData.getAREditBeautyMap()) && videoMuxerData.getAREditSticker() == null && !ImageQualityData.isValidStatus(videoMuxerData.getImageQualityData()))) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, videoMuxerData)) == null) ? (videoMuxerData == null || (h.f(videoMuxerData.getAREditBeautyMap()) && videoMuxerData.getAREditSticker() == null && !ImageQualityData.isValidStatus(videoMuxerData.getImageQualityData()))) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean checkAudioDirectNext(VideoMuxerData videoMuxerData) {

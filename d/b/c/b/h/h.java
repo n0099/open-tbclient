@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<Long> f71899a;
+    public static final AtomicReference<Long> f69002a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public class h {
                 return;
             }
         }
-        f71899a = new AtomicReference<>(0L);
+        f69002a = new AtomicReference<>(0L);
     }
 
     public static void a(long j) {
@@ -41,8 +41,8 @@ public class h {
             if (i2 >= 5) {
                 return;
             }
-            long longValue = f71899a.get().longValue();
-            if (f71899a.compareAndSet(Long.valueOf(longValue), Long.valueOf(longValue | j))) {
+            long longValue = f69002a.get().longValue();
+            if (f69002a.compareAndSet(Long.valueOf(longValue), Long.valueOf(longValue | j))) {
                 return;
             }
             i2 = i3;

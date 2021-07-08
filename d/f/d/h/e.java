@@ -3,11 +3,11 @@ package d.f.d.h;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class e<T> extends d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TypeVariable<?> f73844a;
+    public final TypeVariable<?> f70947a;
 }

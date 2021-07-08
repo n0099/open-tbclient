@@ -1,5 +1,6 @@
 package com.facebook.datasource;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,21 +16,21 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     /* renamed from: com.facebook.datasource.FirstAvailableDataSourceSupplier$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @ThreadSafe
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +39,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
         public int mIndex;
         public final /* synthetic */ FirstAvailableDataSourceSupplier this$0;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +145,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
 
         private void closeSafely(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65540, this, dataSource) == null) || dataSource == null) {
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataSource) == null) || dataSource == null) {
                 return;
             }
             dataSource.close();

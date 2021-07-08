@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n.h.f;
-import d.a.q0.n.h.g;
-/* loaded from: classes4.dex */
+import d.a.n0.n.h.f;
+import d.a.n0.n.h.g;
+/* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PMSAppInfo> CREATOR;
@@ -66,7 +66,7 @@ public class PMSAppInfo implements Parcelable {
     public String webUrl;
     public String webViewDomains;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,8 +166,8 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) || fVar == null) {
             return;
         }
-        this.appId = fVar.f53938g;
-        this.versionCode = fVar.f53940i;
+        this.appId = fVar.f50636g;
+        this.versionCode = fVar.f50638i;
         this.versionName = fVar.j;
         this.type = fVar.o;
         this.pkgSize = fVar.k;
@@ -179,7 +179,7 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = gVar.o;
-        this.versionCode = gVar.f53940i;
+        this.versionCode = gVar.f50638i;
         this.versionName = gVar.j;
         this.type = gVar.q;
         this.pkgSize = gVar.k;

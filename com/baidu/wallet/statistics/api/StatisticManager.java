@@ -1,5 +1,6 @@
 package com.baidu.wallet.statistics.api;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.NoProguard;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,27 +12,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatisticManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SensorStatisticApi f27210a;
+    public static SensorStatisticApi f27320a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.statistics.api.StatisticManager$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatisticManager f27211a;
+        public static StatisticManager f27321a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +48,7 @@ public class StatisticManager implements NoProguard {
                     return;
                 }
             }
-            f27211a = new StatisticManager(null);
+            f27321a = new StatisticManager(null);
         }
     }
 
@@ -58,14 +59,14 @@ public class StatisticManager implements NoProguard {
     public static StatisticManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f27211a : (StatisticManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f27321a : (StatisticManager) invokeV.objValue;
     }
 
     public static void onEvent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEvent(str);
             }
@@ -76,7 +77,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEnd(str, i2);
             }
@@ -87,7 +88,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i2, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEndWithValue(str, i2, str2);
             }
@@ -98,7 +99,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65545, null, str, i2, collection) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEndWithValues(str, i2, collection);
             }
@@ -109,7 +110,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventStart(str);
             }
@@ -120,7 +121,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventWithValue(str, str2);
             }
@@ -131,7 +132,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, str, collection) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventWithValues(str, collection);
             }
@@ -142,7 +143,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.triggerSending();
             }
@@ -162,14 +163,14 @@ public class StatisticManager implements NoProguard {
                 return;
             }
         }
-        f27210a = SensorStatisticApi.getInstance();
+        f27320a = SensorStatisticApi.getInstance();
     }
 
     public static void onEvent(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEvent(str, str2);
             }
@@ -180,7 +181,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, null, str, i2, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEnd(str, i2, str2);
             }
@@ -191,7 +192,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65544, null, str, i2, str2, str3) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEndWithValue(str, i2, str2, str3);
             }
@@ -202,7 +203,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65547, null, str, i2, collection, map) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEndWithValues(str, i2, collection, map);
             }
@@ -213,7 +214,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventWithValue(str, str2, str3);
             }
@@ -224,7 +225,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65554, null, str, collection, map) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventWithValues(str, collection, map);
             }
@@ -235,7 +236,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65546, null, str, i2, collection, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEndWithValues(str, i2, collection, str2);
             }
@@ -246,7 +247,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, str, collection, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventWithValues(str, collection, str2);
             }
@@ -257,7 +258,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, Integer.valueOf(i2), collection, map, str2}) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventEndWithValues(str, i2, collection, map, str2);
             }
@@ -268,7 +269,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65555, null, str, collection, map, str2) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f27210a;
+            SensorStatisticApi sensorStatisticApi = f27320a;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.onEventWithValues(str, collection, map, str2);
             }

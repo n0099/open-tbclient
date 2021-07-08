@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.mcast;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -151,7 +152,7 @@ public class ParseM3u8 {
     public static Date stringToDate(String str, String str2) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) ? new SimpleDateFormat(str2).parse(str) : (Date) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? new SimpleDateFormat(str2).parse(str) : (Date) invokeLL.objValue;
     }
 
     public static long stringToLong(String str, String str2) throws ParseException {

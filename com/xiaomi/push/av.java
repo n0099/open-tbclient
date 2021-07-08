@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class av implements ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f42846a;
+    public Context f39860a;
 
     /* renamed from: a  reason: collision with other field name */
     public Class<?> f134a;
@@ -26,13 +26,13 @@ public class av implements ar {
     public Method f136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f42847b;
+    public Method f39861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f42848c;
+    public Method f39862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f42849d;
+    public Method f39863d;
 
     public av(Context context) {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class av implements ar {
             }
         }
         this.f136a = null;
-        this.f42847b = null;
-        this.f42848c = null;
-        this.f42849d = null;
-        this.f42846a = context;
+        this.f39861b = null;
+        this.f39862c = null;
+        this.f39863d = null;
+        this.f39860a = context;
         a(context);
     }
 
@@ -87,9 +87,9 @@ public class av implements ar {
                 this.f134a = a2;
                 this.f135a = a2.newInstance();
                 this.f136a = this.f134a.getMethod("getUDID", Context.class);
-                this.f42847b = this.f134a.getMethod("getOAID", Context.class);
-                this.f42848c = this.f134a.getMethod("getVAID", Context.class);
-                this.f42849d = this.f134a.getMethod("getAAID", Context.class);
+                this.f39861b = this.f134a.getMethod("getOAID", Context.class);
+                this.f39862c = this.f134a.getMethod("getVAID", Context.class);
+                this.f39863d = this.f134a.getMethod("getAAID", Context.class);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e2);
             }
@@ -125,20 +125,20 @@ public class av implements ar {
     public String mo149b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.f42846a, this.f42847b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.f39860a, this.f39861b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.f42846a, this.f42848c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.f39860a, this.f39862c) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.f42846a, this.f42849d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.f39860a, this.f39863d) : (String) invokeV.objValue;
     }
 }

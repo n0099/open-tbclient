@@ -16,29 +16,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.w.z.a;
+import d.a.o0.w.z.a;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CommonTabWidgetView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CommonTabHorizonScrollView f13067e;
+    public CommonTabHorizonScrollView f13084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13068f;
+    public ImageView f13085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f13069g;
+    public EditorTools f13086g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonTabWidgetView f13070e;
+        public final /* synthetic */ CommonTabWidgetView f13087e;
 
         public a(CommonTabWidgetView commonTabWidgetView) {
             Interceptable interceptable = $ic;
@@ -55,20 +55,20 @@ public class CommonTabWidgetView extends LinearLayout {
                     return;
                 }
             }
-            this.f13070e = commonTabWidgetView;
+            this.f13087e = commonTabWidgetView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13070e.f13069g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13087e.f13086g == null) {
                 return;
             }
-            this.f13070e.f13069g.A(new d.a.r0.w.a(3, 3, null));
+            this.f13087e.f13086g.A(new d.a.o0.w.a(3, 3, null));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i2);
     }
@@ -98,7 +98,7 @@ public class CommonTabWidgetView extends LinearLayout {
     public void b(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f13067e.b(bVar);
+            this.f13084e.b(bVar);
         }
     }
 
@@ -108,9 +108,9 @@ public class CommonTabWidgetView extends LinearLayout {
             setVisibility(8);
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.common_tab_widget, (ViewGroup) this, true);
-            this.f13067e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
+            this.f13084e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
             ImageView imageView = (ImageView) findViewById(R.id.privilege_tab_delete);
-            this.f13068f = imageView;
+            this.f13085f = imageView;
             imageView.setOnClickListener(new a(this));
         }
     }
@@ -119,30 +119,30 @@ public class CommonTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             SkinManager.setBackgroundColor(this, R.color.common_color_10223, i2);
-            this.f13067e.e(i2);
-            SkinManager.setImageResource(this.f13068f, R.drawable.but_face_close, i2);
-            SkinManager.setBackgroundColor(this.f13068f, R.color.common_color_10224, i2);
+            this.f13084e.e(i2);
+            SkinManager.setImageResource(this.f13085f, R.drawable.but_face_close, i2);
+            SkinManager.setBackgroundColor(this.f13085f, R.color.common_color_10224, i2);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13067e.f();
+            this.f13084e.f();
         }
     }
 
     public void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13067e.setCurrentTab(i2);
+            this.f13084e.setCurrentTab(i2);
         }
     }
 
-    public void setDatas(ArrayList<d.a.r0.w.z.a> arrayList) {
+    public void setDatas(ArrayList<d.a.o0.w.z.a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.f13067e.setDatas(arrayList);
+            this.f13084e.setDatas(arrayList);
             if (arrayList != null && arrayList.size() > 1) {
                 setVisibility(0);
             } else {
@@ -154,14 +154,14 @@ public class CommonTabWidgetView extends LinearLayout {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, editorTools) == null) {
-            this.f13069g = editorTools;
+            this.f13086g = editorTools;
         }
     }
 
     public void setOnTabSelectedListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f13067e.setOnTabSelectedListener(bVar);
+            this.f13084e.setOnTabSelectedListener(bVar);
         }
     }
 
@@ -169,9 +169,9 @@ public class CommonTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                this.f13068f.setVisibility(0);
+                this.f13085f.setVisibility(0);
             } else {
-                this.f13068f.setVisibility(8);
+                this.f13085f.setVisibility(8);
             }
         }
     }

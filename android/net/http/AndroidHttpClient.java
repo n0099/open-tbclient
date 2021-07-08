@@ -75,7 +75,7 @@ public final class AndroidHttpClient implements HttpClient {
 
     public static void modifyRequestToAcceptGzipResponse(HttpRequest httpRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, httpRequest) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpRequest) == null) {
             throw new RuntimeException("Stub!");
         }
     }

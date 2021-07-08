@@ -94,7 +94,7 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
     public static EasyAudio getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (iV == null) {
                 synchronized (EasyAudio.class) {
                     if (iV == null) {

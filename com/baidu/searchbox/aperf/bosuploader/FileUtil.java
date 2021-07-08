@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtil";
@@ -131,7 +132,7 @@ public class FileUtil {
     public static void writeDataToFile(FileOutputStream fileOutputStream, String str) {
         BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, fileOutputStream, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fileOutputStream, str) == null) {
             BufferedWriter bufferedWriter2 = null;
             try {
                 try {

@@ -335,7 +335,7 @@ public abstract class Transition implements Cloneable {
 
     public static void addViewValues(TransitionValuesMaps transitionValuesMaps, View view, TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, transitionValuesMaps, view, transitionValues) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, transitionValuesMaps, view, transitionValues) == null) {
             transitionValuesMaps.mViewValues.put(view, transitionValues);
             int id = view.getId();
             if (id >= 0) {

@@ -14,16 +14,16 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.ui.widget.FeedbackDialog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ab extends PayBaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25844a;
+    public String f25954a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f25845b;
+    public FeedbackDialog.c f25955b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(Context context) {
@@ -48,8 +48,8 @@ public class ab extends PayBaseBean<Object> {
     public void a(String str, FeedbackDialog.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f25844a = str;
-            this.f25845b = cVar;
+            this.f25954a = str;
+            this.f25955b = cVar;
         }
     }
 
@@ -67,10 +67,10 @@ public class ab extends PayBaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("trans_no", this.f25844a));
-            arrayList.add(new RestNameValuePair(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, "" + this.f25845b.f26780a));
-            FeedbackDialog.c cVar = this.f25845b;
-            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f26781b : null)));
+            arrayList.add(new RestNameValuePair("trans_no", this.f25954a));
+            arrayList.add(new RestNameValuePair(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE, "" + this.f25955b.f26890a));
+            FeedbackDialog.c cVar = this.f25955b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f26891b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -3,6 +3,7 @@ package com.google.android.material.shape;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ViewUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialShapeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class MaterialShapeUtils {
 
     public static void setElevation(@NonNull View view, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65540, null, view, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, view, f2) == null) {
             Drawable background = view.getBackground();
             if (background instanceof MaterialShapeDrawable) {
                 ((MaterialShapeDrawable) background).setElevation(f2);

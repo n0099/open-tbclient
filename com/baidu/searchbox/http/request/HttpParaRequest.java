@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class HttpParaRequest<T extends HttpRequestParasBuilder> extends HttpRequest<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

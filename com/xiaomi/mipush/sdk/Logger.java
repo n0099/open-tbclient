@@ -1,6 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.push.de;
 import com.xiaomi.push.df;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sDisablePushLog;
@@ -70,7 +71,7 @@ public class Logger {
     public static File getLogFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             return null;
         }
         return (File) invokeL.objValue;

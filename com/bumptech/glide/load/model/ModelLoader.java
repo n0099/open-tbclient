@@ -12,10 +12,10 @@ import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.util.Preconditions;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ModelLoader<Model, Data> {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LoadData<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

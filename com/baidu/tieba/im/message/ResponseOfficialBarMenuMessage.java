@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.r.r.a;
-import d.a.s0.i1.g.b;
-import d.a.s0.i1.g.c;
+import d.a.o0.r.r.a;
+import d.a.p0.i1.g.b;
+import d.a.p0.i1.g.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumMenu.ForumMenuResIdl;
 import tbclient.ForumMenu.Menu;
 import tbclient.ForumMenu.SubMenu;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OFFICIAL_BAR_MENU_KEY_PRE = "official_bar_menu_";

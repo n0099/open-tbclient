@@ -32,7 +32,7 @@ import d.a.c.a.f;
 import d.a.c.e.p.j;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<NoNetworkView> j;
@@ -40,27 +40,27 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12483e;
+    public TextView f12500e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12484f;
+    public Context f12501f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12485g;
+    public boolean f12502g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12486h;
+    public int f12503h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ArrayList<b> f12487i;
+    public final ArrayList<b> f12504i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NoNetworkView f12488a;
+        public final /* synthetic */ NoNetworkView f12505a;
 
         public a(NoNetworkView noNetworkView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
             }
-            this.f12488a = noNetworkView;
+            this.f12505a = noNetworkView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f12488a.setVisibility(8);
+                this.f12505a.setVisibility(8);
             }
         }
 
@@ -103,7 +103,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void b(boolean z);
     }
@@ -143,14 +143,14 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f12486h = 0;
-        this.f12487i = new ArrayList<>();
+        this.f12503h = 0;
+        this.f12504i = new ArrayList<>();
         b(context, attributeSet);
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             if (j.z()) {
                 setIsHasNetwork(true);
             } else {
@@ -179,22 +179,22 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f12487i.contains(bVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || this.f12504i.contains(bVar)) {
             return;
         }
-        this.f12487i.add(bVar);
+        this.f12504i.add(bVar);
     }
 
     public void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            this.f12484f = context;
+            this.f12501f = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.f12483e = (TextView) findViewById(R.id.no_network_guide);
+            this.f12500e = (TextView) findViewById(R.id.no_network_guide);
             setOnClickListener(this);
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.noNetworkView);
-                this.f12485g = obtainStyledAttributes.getBoolean(R$styleable.noNetworkView_is_support_offline, false);
+                this.f12502g = obtainStyledAttributes.getBoolean(R$styleable.noNetworkView_is_support_offline, false);
                 obtainStyledAttributes.recycle();
             }
             try {
@@ -225,8 +225,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && bVar != null && this.f12487i.contains(bVar)) {
-            this.f12487i.remove(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) && bVar != null && this.f12504i.contains(bVar)) {
+            this.f12504i.remove(bVar);
         }
     }
 
@@ -234,43 +234,43 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                if (1 == this.f12486h) {
+                if (1 == this.f12503h) {
                     return;
                 }
-                this.f12486h = 1;
-                this.f12483e.setText(R.string.no_network_guide);
+                this.f12503h = 1;
+                this.f12500e.setText(R.string.no_network_guide);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i2 = 0; i2 < this.f12487i.size(); i2++) {
-                    this.f12487i.get(i2).b(false);
+                for (int i2 = 0; i2 < this.f12504i.size(); i2++) {
+                    this.f12504i.get(i2).b(false);
                 }
-            } else if (this.f12485g && !BdSocketLinkService.isAvailable()) {
-                if (2 == this.f12486h) {
+            } else if (this.f12502g && !BdSocketLinkService.isAvailable()) {
+                if (2 == this.f12503h) {
                     return;
                 }
-                this.f12486h = 2;
-                this.f12483e.setText(R.string.offline_guide);
+                this.f12503h = 2;
+                this.f12500e.setText(R.string.offline_guide);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
-                for (int i3 = 0; i3 < this.f12487i.size(); i3++) {
-                    this.f12487i.get(i3).b(false);
+                for (int i3 = 0; i3 < this.f12504i.size(); i3++) {
+                    this.f12504i.get(i3).b(false);
                 }
-            } else if (this.f12486h != 0) {
-                this.f12486h = 0;
+            } else if (this.f12503h != 0) {
+                this.f12503h = 0;
                 if (getVisibility() != 8) {
                     AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.8f);
                     alphaAnimation3.setFillAfter(true);
                     alphaAnimation3.setDuration(500L);
                     alphaAnimation3.setAnimationListener(new a(this));
                     startAnimation(alphaAnimation3);
-                    for (int i4 = 0; i4 < this.f12487i.size(); i4++) {
-                        this.f12487i.get(i4).b(true);
+                    for (int i4 = 0; i4 < this.f12504i.size(); i4++) {
+                        this.f12504i.get(i4).b(true);
                     }
                 }
             }
@@ -296,9 +296,9 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, view) == null) && view == this && getVisibility() == 0) {
-            Intent intent = new Intent(this.f12484f, NoNetworkMoreActivity.class);
+            Intent intent = new Intent(this.f12501f, NoNetworkMoreActivity.class);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            this.f12484f.startActivity(intent);
+            this.f12501f.startActivity(intent);
         }
     }
 
@@ -308,7 +308,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDetachedFromWindow();
             j.remove(this);
-            this.f12487i.clear();
+            this.f12504i.clear();
         }
     }
 
@@ -340,8 +340,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f12486h = 0;
-        this.f12487i = new ArrayList<>();
+        this.f12503h = 0;
+        this.f12504i = new ArrayList<>();
         b(context, attributeSet);
     }
 
@@ -363,8 +363,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f12486h = 0;
-        this.f12487i = new ArrayList<>();
+        this.f12503h = 0;
+        this.f12504i = new ArrayList<>();
         b(context, null);
     }
 }

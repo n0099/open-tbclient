@@ -3,6 +3,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
@@ -20,21 +21,21 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class DpSessionDatasUploader {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f5016a;
+    public static DpSessionDatasUploader f5033a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f5017b;
+    public d f5034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f5018c;
+    public d f5035c;
 
     public DpSessionDatasUploader() {
         Interceptable interceptable = $ic;
@@ -49,18 +50,18 @@ public final class DpSessionDatasUploader {
                 return;
             }
         }
-        this.f5017b = new d();
-        this.f5018c = new d("live_show_session");
+        this.f5034b = new d();
+        this.f5035c = new d("live_show_session");
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            d dVar = this.f5017b;
+            d dVar = this.f5034b;
             if (dVar != null) {
                 dVar.a();
             }
-            d dVar2 = this.f5018c;
+            d dVar2 = this.f5035c;
             if (dVar2 != null) {
                 dVar2.a();
             }
@@ -92,14 +93,14 @@ public final class DpSessionDatasUploader {
     private void a(byte[] bArr, int i2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, this, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2) == null) {
             if (i2 == 24) {
-                dVar = this.f5018c;
+                dVar = this.f5035c;
                 if (dVar == null) {
                     return;
                 }
             } else {
-                dVar = this.f5017b;
+                dVar = this.f5034b;
                 if (dVar == null) {
                     return;
                 }
@@ -132,10 +133,10 @@ public final class DpSessionDatasUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
             synchronized (DpSessionDatasUploader.class) {
-                if (f5016a == null) {
-                    f5016a = new DpSessionDatasUploader();
+                if (f5033a == null) {
+                    f5033a = new DpSessionDatasUploader();
                 }
-                dpSessionDatasUploader = f5016a;
+                dpSessionDatasUploader = f5033a;
             }
             return dpSessionDatasUploader;
         }
@@ -162,11 +163,11 @@ public final class DpSessionDatasUploader {
     public void a(Context context) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f5017b) == null || this.f5018c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (dVar = this.f5034b) == null || this.f5035c == null) {
             return;
         }
         dVar.a(context);
-        this.f5018c.a(context);
+        this.f5035c.a(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x00e2 */
@@ -294,13 +295,13 @@ public final class DpSessionDatasUploader {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f5019a;
+                public final /* synthetic */ String f5036a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f5020b;
+                public final /* synthetic */ String f5037b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f5021c;
+                public final /* synthetic */ DpSessionDatasUploader f5038c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -317,16 +318,16 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f5021c = this;
-                    this.f5019a = str;
-                    this.f5020b = str2;
+                    this.f5038c = this;
+                    this.f5036a = str;
+                    this.f5037b = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f5021c.a(this.f5019a, this.f5020b, 1);
+                        this.f5038c.a(this.f5036a, this.f5037b, 1);
                     }
                 }
             });
@@ -342,16 +343,16 @@ public final class DpSessionDatasUploader {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f5022a;
+                public final /* synthetic */ int f5039a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f5023b;
+                public final /* synthetic */ String f5040b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f5024c;
+                public final /* synthetic */ String f5041c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DpSessionDatasUploader f5025d;
+                public final /* synthetic */ DpSessionDatasUploader f5042d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -368,20 +369,20 @@ public final class DpSessionDatasUploader {
                             return;
                         }
                     }
-                    this.f5025d = this;
-                    this.f5022a = i2;
-                    this.f5023b = str;
-                    this.f5024c = str2;
+                    this.f5042d = this;
+                    this.f5039a = i2;
+                    this.f5040b = str;
+                    this.f5041c = str2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f5022a == 24) {
-                            this.f5025d.a(this.f5023b, this.f5024c, 24);
+                        if (com.baidu.cyberplayer.sdk.c.a().c() && this.f5039a == 24) {
+                            this.f5042d.a(this.f5040b, this.f5041c, 24);
                         }
-                        this.f5025d.a(this.f5023b, this.f5024c, 1);
+                        this.f5042d.a(this.f5040b, this.f5041c, 1);
                     }
                 }
             });

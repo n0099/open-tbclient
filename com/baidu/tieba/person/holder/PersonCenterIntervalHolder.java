@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19937a;
+    public int f19977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19938b;
+    public View f19978b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterIntervalHolder(View view) {
@@ -36,7 +36,7 @@ public class PersonCenterIntervalHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19937a = -1;
-        this.f19938b = view.findViewById(R.id.person_center_interval_item);
+        this.f19977a = -1;
+        this.f19978b = view.findViewById(R.id.person_center_interval_item);
     }
 }

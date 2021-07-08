@@ -13,27 +13,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.b1.m.a;
-import d.a.r0.r.u.c;
-/* loaded from: classes5.dex */
+import d.a.o0.b1.m.a;
+import d.a.o0.r.u.c;
+/* loaded from: classes4.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15592a;
+    public Context f15631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15593b;
+    public View f15632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f15594c;
+    public EMTextView f15633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbRichTextView f15595d;
+    public TbRichTextView f15634d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f15596e;
+    public boolean f15635e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailItemVH(Context context, View view) {
@@ -53,21 +53,21 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15592a = context;
-        this.f15593b = view;
+        this.f15631a = context;
+        this.f15632b = view;
         b(view);
     }
 
     public final void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f15594c = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
+            this.f15633c = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
             TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
-            this.f15595d = tbRichTextView;
+            this.f15634d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            a layoutStrategy = this.f15595d.getLayoutStrategy();
+            a layoutStrategy = this.f15634d.getLayoutStrategy();
             layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-            this.f15595d.setLayoutStrategy(layoutStrategy);
+            this.f15634d.setLayoutStrategy(layoutStrategy);
             c();
         }
     }
@@ -75,24 +75,24 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f15596e) {
-                c d2 = c.d(this.f15594c);
+            if (this.f15635e) {
+                c d2 = c.d(this.f15633c);
                 d2.y(R.string.F_X02);
                 d2.t(R.color.CAM_X0301);
-                this.f15595d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                this.f15634d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
-            c d3 = c.d(this.f15594c);
+            c d3 = c.d(this.f15633c);
             d3.y(R.string.F_X02);
             d3.t(R.color.CAM_X0105);
-            this.f15595d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f15634d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f15596e = z;
+            this.f15635e = z;
             c();
         }
     }

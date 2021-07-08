@@ -17,17 +17,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-import com.kwad.sdk.api.core.fragment.KsFragment;
-/* loaded from: classes7.dex */
-public abstract class a extends KsFragment {
+/* loaded from: classes6.dex */
+public abstract class a extends com.kwad.sdk.c.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecyclerView f36419a;
+    public RecyclerView f34771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f36420b;
+    public d f34772b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,10 +42,10 @@ public abstract class a extends KsFragment {
         }
     }
 
-    private void a() {
+    private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f36419a.setAdapter(this.f36420b);
+            this.f34771a.setAdapter(this.f34772b);
         }
     }
 
@@ -63,16 +62,16 @@ public abstract class a extends KsFragment {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f36419a.setItemAnimator(null);
-            this.f36419a.setLayoutManager(e());
-            this.f36420b = a(this.f36419a);
+            this.f34771a.setItemAnimator(null);
+            this.f34771a.setLayoutManager(e());
+            this.f34772b = a(this.f34771a);
         }
     }
 
     public RecyclerView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36419a : (RecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34771a : (RecyclerView) invokeV.objValue;
     }
 
     public RecyclerView.LayoutManager e() {
@@ -110,21 +109,17 @@ public abstract class a extends KsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View a2 = a(layoutInflater, viewGroup, bundle);
-            this.f36419a = (RecyclerView) a2.findViewById(f());
+            this.f34771a = (RecyclerView) a2.findViewById(f());
             return a2;
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Override // com.kwad.sdk.c.d, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            RecyclerView recyclerView = this.f36419a;
-            if (recyclerView != null) {
-                recyclerView.setAdapter(null);
-            }
         }
     }
 
@@ -133,7 +128,7 @@ public abstract class a extends KsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroyView();
-            this.f36419a.clearOnChildAttachStateChangeListeners();
+            this.f34771a.clearOnChildAttachStateChangeListeners();
         }
     }
 
@@ -159,7 +154,7 @@ public abstract class a extends KsFragment {
         if (interceptable == null || interceptable.invokeLL(1048590, this, view, bundle) == null) {
             super.onViewCreated(view, bundle);
             c();
-            a();
+            g();
         }
     }
 }

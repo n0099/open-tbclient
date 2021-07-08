@@ -2,6 +2,7 @@ package com.kwad.sdk.core.h;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,37 +11,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f36330a;
+    public int f34615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36331b;
+    public int f34616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36332c;
+    public long f34617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f36333d;
+    public InputStream f34618d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36334e;
+    public int f34619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f36335f;
+    public long f34620f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile float f36336g;
+    public volatile float f34621g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f36337h;
+    public volatile long f34622h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36338i;
+    public int f34623i;
 
     public c(@NonNull InputStream inputStream, int i2) {
         Interceptable interceptable = $ic;
@@ -57,14 +58,14 @@ public class c extends InputStream {
                 return;
             }
         }
-        this.f36330a = -1;
-        this.f36331b = 10000;
-        this.f36332c = -1L;
-        this.f36335f = -1L;
-        this.f36338i = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
+        this.f34615a = -1;
+        this.f34616b = 10000;
+        this.f34617c = -1L;
+        this.f34620f = -1L;
+        this.f34623i = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
         i2 = i2 < 20480 ? LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA : i2;
-        this.f36333d = inputStream;
-        this.f36336g = i2 / 1000.0f;
+        this.f34618d = inputStream;
+        this.f34621g = i2 / 1000.0f;
     }
 
     private long a(long j, long j2) {
@@ -97,20 +98,20 @@ public class c extends InputStream {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f36330a = 0;
-            this.f36332c = System.currentTimeMillis();
+            this.f34615a = 0;
+            this.f34617c = System.currentTimeMillis();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || this.f36330a < this.f36331b) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f34615a < this.f34616b) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f36332c;
-        float f2 = this.f36330a / this.f36336g;
-        this.f36337h = a(this.f36334e, currentTimeMillis - this.f36335f);
+        long j = currentTimeMillis - this.f34617c;
+        float f2 = this.f34615a / this.f34621g;
+        this.f34622h = a(this.f34619e, currentTimeMillis - this.f34620f);
         float f3 = (float) j;
         if (f2 > f3) {
             a(f2 - f3);
@@ -121,23 +122,23 @@ public class c extends InputStream {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36337h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34622h : invokeV.longValue;
     }
 
     @Override // java.io.InputStream
     public int available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36333d.available() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34618d.available() : invokeV.intValue;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f36333d.close();
+            this.f34618d.close();
             b.a(this);
-            this.f36335f = -1L;
+            this.f34620f = -1L;
         }
     }
 
@@ -146,7 +147,7 @@ public class c extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             synchronized (this) {
-                this.f36333d.mark(i2);
+                this.f34618d.mark(i2);
             }
         }
     }
@@ -155,7 +156,7 @@ public class c extends InputStream {
     public boolean markSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36333d.markSupported() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34618d.markSupported() : invokeV.booleanValue;
     }
 
     @Override // java.io.InputStream
@@ -163,20 +164,20 @@ public class c extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f36335f <= 0) {
-                this.f36335f = System.currentTimeMillis();
+            if (this.f34620f <= 0) {
+                this.f34620f = System.currentTimeMillis();
             }
-            this.f36334e++;
-            if (b.f36326b && b.f36325a) {
-                if (this.f36330a < 0) {
+            this.f34619e++;
+            if (b.f34611b && b.f34610a) {
+                if (this.f34615a < 0) {
                     b();
                 }
-                int read = this.f36333d.read();
-                this.f36330a++;
+                int read = this.f34618d.read();
+                this.f34615a++;
                 c();
                 return read;
             }
-            return this.f36333d.read();
+            return this.f34618d.read();
         }
         return invokeV.intValue;
     }
@@ -186,7 +187,7 @@ public class c extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                this.f36333d.reset();
+                this.f34618d.reset();
             }
         }
     }
@@ -195,6 +196,6 @@ public class c extends InputStream {
     public long skip(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? this.f36333d.skip(j) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? this.f34618d.skip(j) : invokeJ.longValue;
     }
 }

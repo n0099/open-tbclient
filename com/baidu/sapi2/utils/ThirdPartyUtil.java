@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Message;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ThirdPartyUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_QQ = "qzone";
@@ -86,7 +87,7 @@ public class ThirdPartyUtil {
     public static boolean isSinaInstalled(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             List<PackageInfo> installedPackages = context.getPackageManager().getInstalledPackages(0);
             if (installedPackages != null) {
                 for (int i2 = 0; i2 < installedPackages.size(); i2++) {

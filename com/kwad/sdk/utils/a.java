@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class a extends BroadcastReceiver {
             String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
             InstalledAppInfoManager.AppPackageInfo appPackageInfo = new InstalledAppInfoManager.AppPackageInfo();
             appPackageInfo.packageName = schemeSpecificPart;
-            com.kwad.sdk.core.report.e.a(InstalledAppInfoManager.a(appPackageInfo), 2);
+            com.kwad.sdk.core.report.d.a(InstalledAppInfoManager.a(appPackageInfo), 2);
             com.kwad.sdk.core.d.a.a("APPInstalledChangerReceiver", "uninstalled packageName :" + schemeSpecificPart);
         } else if (intent.getData() != null) {
             String schemeSpecificPart2 = intent.getData().getSchemeSpecificPart();
@@ -57,7 +57,7 @@ public class a extends BroadcastReceiver {
                 if (packageInfo == null) {
                     return;
                 }
-                com.kwad.sdk.core.report.e.a(InstalledAppInfoManager.a(InstalledAppInfoManager.a(packageInfo, packageManager)), 1);
+                com.kwad.sdk.core.report.d.a(InstalledAppInfoManager.a(InstalledAppInfoManager.a(packageInfo, packageManager)), 1);
                 com.kwad.sdk.core.d.a.a("APPInstalledChangerReceiver", "installed packageName :" + schemeSpecificPart2);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);

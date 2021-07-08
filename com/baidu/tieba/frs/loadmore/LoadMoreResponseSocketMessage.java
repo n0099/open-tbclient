@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.k.e.n;
-import d.a.r0.r.q.b2;
-import d.a.r0.r.q.o0;
-import d.a.s0.w2.g0.a;
-import d.a.s0.w2.i0.b;
+import d.a.o0.r.q.b2;
+import d.a.o0.r.q.o0;
+import d.a.p0.w2.g0.a;
+import d.a.p0.w2.i0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +25,7 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

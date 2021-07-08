@@ -9,37 +9,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f44206a;
+    public volatile boolean f41222a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44207b;
+    public int f41223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44208c;
+    public int f41224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44209d;
+    public String f41225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44210e;
+    public String f41226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44211f;
+    public String f41227f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, List<String>> f44212g;
+    public Map<String, List<String>> f41228g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f44213h;
+    public byte[] f41229h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44214i;
+    public int f41230i;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -54,12 +54,12 @@ public class g {
                 return;
             }
         }
-        this.f44206a = false;
-        this.f44207b = -1;
-        this.f44208c = -1;
-        this.f44209d = "";
-        this.f44210e = "";
-        this.f44211f = "";
+        this.f41222a = false;
+        this.f41223b = -1;
+        this.f41224c = -1;
+        this.f41225d = "";
+        this.f41226e = "";
+        this.f41227f = "";
     }
 
     public void a(HttpURLConnection httpURLConnection) throws Exception {
@@ -67,16 +67,16 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, httpURLConnection) == null) || httpURLConnection == null) {
             return;
         }
-        this.f44207b = httpURLConnection.getResponseCode();
-        this.f44209d = httpURLConnection.getContentEncoding();
-        this.f44210e = httpURLConnection.getContentType();
-        this.f44211f = httpURLConnection.getContentLength() + "";
-        this.f44212g = httpURLConnection.getHeaderFields();
+        this.f41223b = httpURLConnection.getResponseCode();
+        this.f41225d = httpURLConnection.getContentEncoding();
+        this.f41226e = httpURLConnection.getContentType();
+        this.f41227f = httpURLConnection.getContentLength() + "";
+        this.f41228g = httpURLConnection.getHeaderFields();
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44207b == 200 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41223b == 200 : invokeV.booleanValue;
     }
 }

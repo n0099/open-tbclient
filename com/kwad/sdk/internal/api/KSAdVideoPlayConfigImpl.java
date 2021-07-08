@@ -7,13 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
+import com.kwad.sdk.core.config.c;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -154151744722615768L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean dataFlowAutoStart;
+    public boolean hasNoCache;
     public boolean videoSoundEnable;
 
     public KSAdVideoPlayConfigImpl() {
@@ -26,8 +28,10 @@ public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializabl
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.dataFlowAutoStart = c.t();
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
@@ -38,24 +42,39 @@ public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializabl
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
+    public boolean isNoCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasNoCache : invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
     public boolean isVideoSoundEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.videoSoundEnable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.videoSoundEnable : invokeV.booleanValue;
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
     public void setDataFlowAutoStart(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.dataFlowAutoStart = z;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
+    public void setNoCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.hasNoCache = true;
         }
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig
     public void setVideoSoundEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.videoSoundEnable = z;
         }
     }

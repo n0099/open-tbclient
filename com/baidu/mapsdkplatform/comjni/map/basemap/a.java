@@ -18,25 +18,25 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8005a = "a";
+    public static final String f8022a = "a";
 
     /* renamed from: d  reason: collision with root package name */
-    public static Set<Integer> f8006d;
+    public static Set<Integer> f8023d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static List<JNIBaseMap> f8007e;
+    public static List<JNIBaseMap> f8024e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8008b;
+    public long f8025b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JNIBaseMap f8009c;
+    public JNIBaseMap f8026c;
 
     static {
         InterceptResult invokeClinit;
@@ -51,8 +51,8 @@ public class a {
                 return;
             }
         }
-        f8006d = new HashSet();
-        f8007e = new ArrayList();
+        f8023d = new HashSet();
+        f8024e = new ArrayList();
     }
 
     public a() {
@@ -68,9 +68,9 @@ public class a {
                 return;
             }
         }
-        this.f8008b = 0L;
-        this.f8009c = null;
-        this.f8009c = new JNIBaseMap();
+        this.f8025b = 0L;
+        this.f8026c = null;
+        this.f8026c = new JNIBaseMap();
     }
 
     public static int a(long j, int i2, int i3, int i4) {
@@ -82,12 +82,12 @@ public class a {
     public static List<JNIBaseMap> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8007e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8024e : (List) invokeV.objValue;
     }
 
     public static void b(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             JNIBaseMap.SetMapCustomEnable(j, z);
         }
     }
@@ -95,72 +95,72 @@ public class a {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8008b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8025b : invokeV.longValue;
     }
 
     public long a(int i2, int i3, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str)) == null) ? this.f8009c.AddLayer(this.f8008b, i2, i3, str) : invokeIIL.longValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str)) == null) ? this.f8026c.AddLayer(this.f8025b, i2, i3, str) : invokeIIL.longValue;
     }
 
     public String a(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? this.f8009c.ScrPtToGeoPoint(this.f8008b, i2, i3) : (String) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? this.f8026c.ScrPtToGeoPoint(this.f8025b, i2, i3) : (String) invokeII.objValue;
     }
 
     public String a(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) ? this.f8009c.GetNearlyObjID(this.f8008b, i2, i3, i4, i5) : (String) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) ? this.f8026c.GetNearlyObjID(this.f8025b, i2, i3, i4, i5) : (String) invokeIIII.objValue;
     }
 
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f8009c.OnSchcityGet(this.f8008b, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.f8026c.OnSchcityGet(this.f8025b, str) : (String) invokeL.objValue;
     }
 
     public void a(long j, long j2, long j3, long j4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)}) == null) {
-            this.f8009c.setCustomTrafficColor(this.f8008b, j, j2, j3, j4, z);
+            this.f8026c.setCustomTrafficColor(this.f8025b, j, j2, j3, j4, z);
         }
     }
 
     public void a(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.f8009c.ShowLayers(this.f8008b, j, z);
+            this.f8026c.ShowLayers(this.f8025b, j, z);
         }
     }
 
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            this.f8009c.SetMapStatus(this.f8008b, bundle);
+            this.f8026c.SetMapStatus(this.f8025b, bundle);
         }
     }
 
     public void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bundle) == null) {
-            this.f8009c.SaveScreenToLocal(this.f8008b, str, bundle);
+            this.f8026c.SaveScreenToLocal(this.f8025b, str, bundle);
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f8009c.ShowSatelliteMap(this.f8008b, z);
+            this.f8026c.ShowSatelliteMap(this.f8025b, z);
         }
     }
 
     public void a(Bundle[] bundleArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundleArr) == null) {
-            this.f8009c.addOverlayItems(this.f8008b, bundleArr, bundleArr.length);
+            this.f8026c.addOverlayItems(this.f8025b, bundleArr, bundleArr.length);
         }
     }
 
@@ -168,12 +168,12 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            this.f8008b = f8007e.size() == 0 ? this.f8009c.Create() : this.f8009c.CreateDuplicate(f8007e.get(0).f8004a);
-            JNIBaseMap jNIBaseMap = this.f8009c;
-            jNIBaseMap.f8004a = this.f8008b;
-            f8007e.add(jNIBaseMap);
-            f8006d.add(Integer.valueOf(i2));
-            this.f8009c.SetCallback(this.f8008b, null);
+            this.f8025b = f8024e.size() == 0 ? this.f8026c.Create() : this.f8026c.CreateDuplicate(f8024e.get(0).f8021a);
+            JNIBaseMap jNIBaseMap = this.f8026c;
+            jNIBaseMap.f8021a = this.f8025b;
+            f8024e.add(jNIBaseMap);
+            f8023d.add(Integer.valueOf(i2));
+            this.f8026c.SetCallback(this.f8025b, null);
             return true;
         }
         return invokeI.booleanValue;
@@ -182,75 +182,75 @@ public class a {
     public boolean a(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f8009c.OnRecordReload(this.f8008b, i2, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f8026c.OnRecordReload(this.f8025b, i2, z) : invokeCommon.booleanValue;
     }
 
     public boolean a(int i2, boolean z, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) ? this.f8009c.OnRecordStart(this.f8008b, i2, z, i3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) ? this.f8026c.OnRecordStart(this.f8025b, i2, z, i3) : invokeCommon.booleanValue;
     }
 
     public boolean a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) ? this.f8009c.LayersIsShow(this.f8008b, j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048590, this, j)) == null) ? this.f8026c.LayersIsShow(this.f8025b, j) : invokeJ.booleanValue;
     }
 
     public boolean a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? this.f8009c.SwitchLayer(this.f8008b, j, j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? this.f8026c.SwitchLayer(this.f8025b, j, j2) : invokeCommon.booleanValue;
     }
 
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? this.f8009c.SwitchBaseIndoorMapFloor(this.f8008b, str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? this.f8026c.SwitchBaseIndoorMapFloor(this.f8025b, str, str2) : invokeLL.booleanValue;
     }
 
     public boolean a(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, String str8, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i2), str8, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)})) == null) ? this.f8009c.Init(this.f8008b, str, str2, str3, str4, str5, str6, str7, i2, str8, i3, i4, i5, i6, i7, i8, i9) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i2), str8, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)})) == null) ? this.f8026c.Init(this.f8025b, str, str2, str3, str4, str5, str6, str7, i2, str8, i3, i4, i5, i6, i7, i8, i9) : invokeCommon.booleanValue;
     }
 
     public boolean a(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f8009c.OnRecordImport(this.f8008b, z, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f8026c.OnRecordImport(this.f8025b, z, z2) : invokeCommon.booleanValue;
     }
 
     public int[] a(int[] iArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048595, this, iArr, i2, i3)) == null) ? this.f8009c.GetScreenBuf(this.f8008b, iArr, i2, i3) : (int[]) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048595, this, iArr, i2, i3)) == null) ? this.f8026c.GetScreenBuf(this.f8025b, iArr, i2, i3) : (int[]) invokeLII.objValue;
     }
 
     public String b(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i2, i3)) == null) ? this.f8009c.GeoPtToScrPoint(this.f8008b, i2, i3) : (String) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i2, i3)) == null) ? this.f8026c.GeoPtToScrPoint(this.f8025b, i2, i3) : (String) invokeII.objValue;
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.f8009c.UpdateLayers(this.f8008b, j);
+            this.f8026c.UpdateLayers(this.f8025b, j);
         }
     }
 
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
-            this.f8009c.setMapStatusLimits(this.f8008b, bundle);
+            this.f8026c.setMapStatusLimits(this.f8025b, bundle);
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.f8009c.ShowHotMap(this.f8008b, z);
+            this.f8026c.ShowHotMap(this.f8025b, z);
         }
     }
 
@@ -258,10 +258,10 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            this.f8009c.Release(this.f8008b);
-            f8007e.remove(this.f8009c);
-            f8006d.remove(Integer.valueOf(i2));
-            this.f8008b = 0L;
+            this.f8026c.Release(this.f8025b);
+            f8024e.remove(this.f8026c);
+            f8023d.remove(Integer.valueOf(i2));
+            this.f8025b = 0L;
             return true;
         }
         return invokeI.booleanValue;
@@ -270,200 +270,200 @@ public class a {
     public boolean b(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f8009c.OnRecordRemove(this.f8008b, i2, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.f8026c.OnRecordRemove(this.f8025b, i2, z) : invokeCommon.booleanValue;
     }
 
     public boolean b(int i2, boolean z, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) ? this.f8009c.OnRecordSuspend(this.f8008b, i2, z, i3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) ? this.f8026c.OnRecordSuspend(this.f8025b, i2, z, i3) : invokeCommon.booleanValue;
     }
 
     public float c(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, bundle)) == null) ? this.f8009c.GetZoomToBound(this.f8008b, bundle) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, bundle)) == null) ? this.f8026c.GetZoomToBound(this.f8025b, bundle) : invokeL.floatValue;
     }
 
     public int c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) ? this.f8009c.SetMapControlMode(this.f8008b, i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) ? this.f8026c.SetMapControlMode(this.f8025b, i2) : invokeI.intValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            this.f8009c.OnPause(this.f8008b);
+            this.f8026c.OnPause(this.f8025b);
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
-            this.f8009c.ShowTrafficMap(this.f8008b, z);
+            this.f8026c.ShowTrafficMap(this.f8025b, z);
         }
     }
 
     public boolean c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048607, this, j)) == null) ? this.f8009c.cleanSDKTileDataCache(this.f8008b, j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048607, this, j)) == null) ? this.f8026c.cleanSDKTileDataCache(this.f8025b, j) : invokeJ.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.f8009c.OnResume(this.f8008b);
+            this.f8026c.OnResume(this.f8025b);
         }
     }
 
     public void d(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048609, this, j) == null) {
-            this.f8009c.ClearLayer(this.f8008b, j);
+            this.f8026c.ClearLayer(this.f8025b, j);
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            this.f8009c.enableDrawHouseHeight(this.f8008b, z);
+            this.f8026c.enableDrawHouseHeight(this.f8025b, z);
         }
     }
 
     public boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? this.f8009c.OnRecordAdd(this.f8008b, i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? this.f8026c.OnRecordAdd(this.f8025b, i2) : invokeI.booleanValue;
     }
 
     public boolean d(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, bundle)) == null) ? this.f8009c.updateSDKTile(this.f8008b, bundle) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, bundle)) == null) ? this.f8026c.updateSDKTile(this.f8025b, bundle) : invokeL.booleanValue;
     }
 
     public String e(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.f8009c.OnRecordGetAt(this.f8008b, i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.f8026c.OnRecordGetAt(this.f8025b, i2) : (String) invokeI.objValue;
     }
 
     public String e(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j)) == null) ? this.f8009c.getCompassPosition(this.f8008b, j) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j)) == null) ? this.f8026c.getCompassPosition(this.f8025b, j) : (String) invokeJ.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.f8009c.OnBackground(this.f8008b);
+            this.f8026c.OnBackground(this.f8025b);
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            this.f8009c.ShowBaseIndoorMap(this.f8008b, z);
+            this.f8026c.ShowBaseIndoorMap(this.f8025b, z);
         }
     }
 
     public boolean e(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, bundle)) == null) ? this.f8009c.addtileOverlay(this.f8008b, bundle) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, bundle)) == null) ? this.f8026c.addtileOverlay(this.f8025b, bundle) : invokeL.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            this.f8009c.OnForeground(this.f8008b);
+            this.f8026c.OnForeground(this.f8025b);
         }
     }
 
     public void f(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, bundle) == null) {
-            this.f8009c.addOneOverlayItem(this.f8008b, bundle);
+            this.f8026c.addOneOverlayItem(this.f8025b, bundle);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            this.f8009c.ResetImageRes(this.f8008b);
+            this.f8026c.ResetImageRes(this.f8025b);
         }
     }
 
     public void g(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, bundle) == null) {
-            this.f8009c.updateOneOverlayItem(this.f8008b, bundle);
+            this.f8026c.updateOneOverlayItem(this.f8025b, bundle);
         }
     }
 
     public Bundle h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f8009c.GetMapStatus(this.f8008b) : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f8026c.GetMapStatus(this.f8025b) : (Bundle) invokeV.objValue;
     }
 
     public void h(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, bundle) == null) {
-            this.f8009c.removeOneOverlayItem(this.f8008b, bundle);
+            this.f8026c.removeOneOverlayItem(this.f8025b, bundle);
         }
     }
 
     public Bundle i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f8009c.getMapStatusLimits(this.f8008b) : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f8026c.getMapStatusLimits(this.f8025b) : (Bundle) invokeV.objValue;
     }
 
     public Bundle j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f8009c.getDrawingMapStatus(this.f8008b) : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.f8026c.getDrawingMapStatus(this.f8025b) : (Bundle) invokeV.objValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f8009c.GetBaiduHotMapCityInfo(this.f8008b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f8026c.GetBaiduHotMapCityInfo(this.f8025b) : invokeV.booleanValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.f8009c.OnRecordGetAll(this.f8008b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.f8026c.OnRecordGetAll(this.f8025b) : (String) invokeV.objValue;
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.f8009c.OnHotcityGet(this.f8008b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.f8026c.OnHotcityGet(this.f8025b) : (String) invokeV.objValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
-            this.f8009c.PostStatInfo(this.f8008b);
+            this.f8026c.PostStatInfo(this.f8025b);
         }
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f8009c.isDrawHouseHeightEnable(this.f8008b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.f8026c.isDrawHouseHeightEnable(this.f8025b) : invokeV.booleanValue;
     }
 
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
-            this.f8009c.clearHeatMapLayerCache(this.f8008b);
+            this.f8026c.clearHeatMapLayerCache(this.f8025b);
         }
     }
 
@@ -472,7 +472,7 @@ public class a {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            String str = this.f8009c.getfocusedBaseIndoorMapInfo(this.f8008b);
+            String str = this.f8026c.getfocusedBaseIndoorMapInfo(this.f8025b);
             if (str == null) {
                 return null;
             }
@@ -501,20 +501,20 @@ public class a {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.f8009c.IsBaseIndoorMapMode(this.f8008b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.f8026c.IsBaseIndoorMapMode(this.f8025b) : invokeV.booleanValue;
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
-            this.f8009c.setBackgroundTransparent(this.f8008b);
+            this.f8026c.setBackgroundTransparent(this.f8025b);
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
-            this.f8009c.resetBackgroundTransparent(this.f8008b);
+            this.f8026c.resetBackgroundTransparent(this.f8025b);
         }
     }
 
@@ -522,12 +522,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            JNIBaseMap jNIBaseMap = this.f8009c;
+            JNIBaseMap jNIBaseMap = this.f8026c;
             if (jNIBaseMap == null) {
                 return null;
             }
             float[] fArr = new float[16];
-            jNIBaseMap.getProjectionMatrix(this.f8008b, fArr, 16);
+            jNIBaseMap.getProjectionMatrix(this.f8025b, fArr, 16);
             return fArr;
         }
         return (float[]) invokeV.objValue;
@@ -537,12 +537,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
-            JNIBaseMap jNIBaseMap = this.f8009c;
+            JNIBaseMap jNIBaseMap = this.f8026c;
             if (jNIBaseMap == null) {
                 return null;
             }
             float[] fArr = new float[16];
-            jNIBaseMap.getViewMatrix(this.f8008b, fArr, 16);
+            jNIBaseMap.getViewMatrix(this.f8025b, fArr, 16);
             return fArr;
         }
         return (float[]) invokeV.objValue;

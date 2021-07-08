@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.RequestParamsUtils;
 import com.kwad.sdk.api.core.SpeedLimitApiHolder;
+import com.kwad.sdk.api.core.TLSConnectionUtils;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -34,28 +36,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34202a;
+    public static final String f33816a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
         void a(File file);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f34206a;
+        public final OutputStream f33820a;
 
         public b(File file, boolean z) {
             Interceptable interceptable = $ic;
@@ -72,7 +74,7 @@ public class h {
                     return;
                 }
             }
-            this.f34206a = new FileOutputStream(file, z);
+            this.f33820a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -93,7 +95,7 @@ public class h {
         public void a(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f34206a.write(bArr, i2, i3);
+                this.f33820a.write(bArr, i2, i3);
             }
         }
 
@@ -101,17 +103,17 @@ public class h {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f34206a.close();
+                this.f33820a.close();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface d extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 
@@ -133,7 +135,7 @@ public class h {
                 return;
             }
         }
-        f34202a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+        f33816a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
     }
 
     @NonNull
@@ -172,6 +174,7 @@ public class h {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             try {
                 URLConnection openConnection = new URL(str).openConnection();
+                TLSConnectionUtils.wrapHttpURLConnection(openConnection);
                 openConnection.setRequestProperty("Accept-Language", "zh-CN");
                 if (i2 > 0) {
                     openConnection.setConnectTimeout(i2);
@@ -204,7 +207,7 @@ public class h {
 
     public static void a(String str, String str2, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, str, str2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, aVar) == null) {
             File file = new File(str2);
             if (file.exists()) {
                 file.delete();
@@ -214,13 +217,13 @@ public class h {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f34203a;
+                public final /* synthetic */ String f33817a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f34204b;
+                public final /* synthetic */ File f33818b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f34205c;
+                public final /* synthetic */ a f33819c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -237,9 +240,9 @@ public class h {
                             return;
                         }
                     }
-                    this.f34203a = str;
-                    this.f34204b = file;
-                    this.f34205c = aVar;
+                    this.f33817a = str;
+                    this.f33818b = file;
+                    this.f33819c = aVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -247,17 +250,17 @@ public class h {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            boolean a2 = h.a(this.f34203a, this.f34204b, null, 0);
-                            if (this.f34205c != null) {
+                            boolean a2 = h.a(this.f33817a, this.f33818b, null, 0);
+                            if (this.f33819c != null) {
                                 if (a2) {
-                                    this.f34205c.a(this.f34204b);
+                                    this.f33819c.a(this.f33818b);
                                 } else {
-                                    this.f34205c.a();
+                                    this.f33819c.a();
                                 }
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            a aVar2 = this.f34205c;
+                            a aVar2 = this.f33819c;
                             if (aVar2 != null) {
                                 aVar2.a();
                             }
@@ -432,7 +435,7 @@ public class h {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file2 = new File(f34202a, random.nextInt() + ".tmp");
+                    file2 = new File(f33816a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file2);
                         try {

@@ -1,6 +1,7 @@
 package com.sdk.base.framework.f.k;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.packet.e;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,15 +17,15 @@ import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
 import java.util.TreeMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41248a;
+    public static final String f38262a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f41249b;
+    public static Boolean f38263b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,8 +42,8 @@ public class a {
             }
         }
         new TreeMap();
-        f41248a = a.class.getSimpleName();
-        f41249b = Boolean.valueOf(f.f41195b);
+        f38262a = a.class.getSimpleName();
+        f38263b = Boolean.valueOf(f.f38209b);
     }
 
     public a() {
@@ -69,8 +70,8 @@ public class a {
                 return com.sdk.base.framework.f.i.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
-                String str2 = f41248a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f41249b);
+                String str2 = f38262a;
+                c.b(str2, "SDK解密异常：" + th.toString(), f38263b);
                 return null;
             }
         }
@@ -90,7 +91,7 @@ public class a {
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
                     dataInfo.putData(IAdRequestParam.SEQ, str2);
-                    aVar.a(aVar.f41205c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f41155b);
+                    aVar.a(aVar.f38219c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f38169b);
                 } catch (Throwable unused) {
                 }
             }
@@ -100,12 +101,12 @@ public class a {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
             } catch (Exception e2) {
-                String str2 = f41248a;
-                c.c(str2, "out data error" + e2, f41249b);
+                String str2 = f38262a;
+                c.c(str2, "out data error" + e2, f38263b);
                 return true;
             }
         }

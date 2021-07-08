@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f17599c = 1;
+    public static int f17638c = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f17600a;
+    public int[] f17639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<PersonalGroupFragment> f17601b;
+    public ArrayList<PersonalGroupFragment> f17640b;
 
     static {
         InterceptResult invokeClinit;
@@ -61,52 +61,52 @@ public class PersonGroupAdapter extends FragmentPagerAdapter {
                 return;
             }
         }
-        this.f17601b = new ArrayList<>();
+        this.f17640b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.f17601b.add(personalGroupFragment);
+        this.f17640b.add(personalGroupFragment);
         if (z) {
-            this.f17600a = new int[]{0};
+            this.f17639a = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.f17601b.add(personalGroupFragment2);
-            this.f17600a = new int[]{0, 1};
+            this.f17640b.add(personalGroupFragment2);
+            this.f17639a = new int[]{0, 1};
         }
-        f17599c = this.f17600a.length;
-        Iterator<PersonalGroupFragment> it = this.f17601b.iterator();
+        f17638c = this.f17639a.length;
+        Iterator<PersonalGroupFragment> it = this.f17640b.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.f17601b.size());
+            it.next().getArguments().putInt("page_size", this.f17640b.size());
         }
+    }
+
+    public int b(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f17639a[i2] : invokeI.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f17599c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f17638c : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= f17599c || i2 < 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (i2 >= f17638c || i2 < 0) {
                 return null;
             }
-            return this.f17601b.get(i2);
+            return this.f17640b.get(i2);
         }
         return (Fragment) invokeI.objValue;
-    }
-
-    public int i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f17600a[i2] : invokeI.intValue;
     }
 }

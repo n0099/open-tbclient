@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.videocache;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,25 +14,25 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f36670d;
+    public static final Pattern f35018d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f36671e;
+    public static final Pattern f35019e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f36672a;
+    public final String f35020a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f36673b;
+    public final long f35021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f36674c;
+    public final boolean f35022c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,8 +47,8 @@ public class d {
                 return;
             }
         }
-        f36670d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
-        f36671e = Pattern.compile("GET /(.*) HTTP");
+        f35018d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+        f35019e = Pattern.compile("GET /(.*) HTTP");
     }
 
     public d(String str) {
@@ -67,16 +68,16 @@ public class d {
         }
         j.a(str);
         long a2 = a(str);
-        this.f36673b = Math.max(0L, a2);
-        this.f36674c = a2 >= 0;
-        this.f36672a = b(str);
+        this.f35021b = Math.max(0L, a2);
+        this.f35022c = a2 >= 0;
+        this.f35020a = b(str);
     }
 
     private long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            Matcher matcher = f36670d.matcher(str);
+            Matcher matcher = f35018d.matcher(str);
             if (matcher.find()) {
                 return Long.parseLong(matcher.group(1));
             }
@@ -106,8 +107,8 @@ public class d {
     private String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
-            Matcher matcher = f36671e.matcher(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
+            Matcher matcher = f35019e.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
@@ -120,7 +121,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetRequest{rangeOffset=" + this.f36673b + ", partial=" + this.f36674c + ", uri='" + this.f36672a + "'}";
+            return "GetRequest{rangeOffset=" + this.f35021b + ", partial=" + this.f35022c + ", uri='" + this.f35020a + "'}";
         }
         return (String) invokeV.objValue;
     }

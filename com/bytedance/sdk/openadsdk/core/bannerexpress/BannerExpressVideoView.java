@@ -17,7 +17,7 @@ import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressVideoView;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BannerExpressVideoView extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public class BannerExpressVideoView extends a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f29752a, this.f29755d, this.f29756e, this.j);
-            this.f29753b = nativeExpressVideoView;
+            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f29862a, this.f29865d, this.f29866e, this.j);
+            this.f29863b = nativeExpressVideoView;
             addView(nativeExpressVideoView, new ViewGroup.LayoutParams(-1, -1));
         }
     }
@@ -87,7 +87,7 @@ public class BannerExpressVideoView extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            NativeExpressView nativeExpressView = this.f29753b;
+            NativeExpressView nativeExpressView = this.f29863b;
             if (nativeExpressView != null) {
                 return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
             }
@@ -115,14 +115,14 @@ public class BannerExpressVideoView extends a {
     public void a(m mVar, AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, adSlot) == null) {
-            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f29752a, mVar, adSlot, this.j);
-            this.f29754c = nativeExpressVideoView;
+            NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f29862a, mVar, adSlot, this.j);
+            this.f29864c = nativeExpressVideoView;
             nativeExpressVideoView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener(this) { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressVideoView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BannerExpressVideoView f29751a;
+                public final /* synthetic */ BannerExpressVideoView f29861a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -139,7 +139,7 @@ public class BannerExpressVideoView extends a {
                             return;
                         }
                     }
-                    this.f29751a = this;
+                    this.f29861a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -147,7 +147,7 @@ public class BannerExpressVideoView extends a {
                     BannerExpressVideoView bannerExpressVideoView;
                     TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener = (bannerExpressVideoView = this.f29751a).f29757f) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, view, i2) == null) || (expressAdInteractionListener = (bannerExpressVideoView = this.f29861a).f29867f) == null) {
                         return;
                     }
                     expressAdInteractionListener.onAdClicked(bannerExpressVideoView, i2);
@@ -171,13 +171,13 @@ public class BannerExpressVideoView extends a {
                 public void onRenderSuccess(View view, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                        this.f29751a.a(f2, f3);
-                        this.f29751a.f();
+                        this.f29861a.a(f2, f3);
+                        this.f29861a.f();
                     }
                 }
             });
-            q.a((View) this.f29754c, 8);
-            addView(this.f29754c, new ViewGroup.LayoutParams(-1, -1));
+            q.a((View) this.f29864c, 8);
+            addView(this.f29864c, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

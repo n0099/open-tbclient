@@ -1,6 +1,7 @@
 package com.airbnb.lottie.model.content;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.MergePathsContent;
@@ -108,7 +109,7 @@ public class MergePaths implements ContentModel {
         public static MergePathsMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (MergePathsMode[]) $VALUES.clone() : (MergePathsMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (MergePathsMode[]) $VALUES.clone() : (MergePathsMode[]) invokeV.objValue;
         }
     }
 

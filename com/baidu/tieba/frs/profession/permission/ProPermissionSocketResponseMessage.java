@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.u0.f2.a.b;
+import d.a.p0.u0.f2.a.b;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<b, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

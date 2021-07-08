@@ -38,7 +38,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestManager implements LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DECODE_TYPE_BITMAP;
@@ -56,7 +56,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public final TargetTracker targetTracker;
     public final RequestManagerTreeNode treeNode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ClearTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
 
     private void updateRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, requestOptions) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, requestOptions) == null) {
             this.requestOptions = this.requestOptions.apply(requestOptions);
         }
     }

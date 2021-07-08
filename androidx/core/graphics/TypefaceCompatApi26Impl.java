@@ -139,7 +139,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     private boolean freeze(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj)) == null) {
             try {
                 return ((Boolean) this.mFreeze.invoke(obj, new Object[0])).booleanValue();
             } catch (IllegalAccessException | InvocationTargetException unused) {
@@ -232,7 +232,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             if (!isFontFamilyPrivateAPIAvailable()) {
                 FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i2);
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7745a, cancellationSignal);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f7762a, cancellationSignal);
                     if (openFileDescriptor == null) {
                         if (openFileDescriptor != null) {
                             openFileDescriptor.close();

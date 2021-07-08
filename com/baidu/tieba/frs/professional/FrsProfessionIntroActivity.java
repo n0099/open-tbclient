@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,8 +15,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsProfessionIntroActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -25,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROFESSION_THREAD_ID = "5977226324";
@@ -49,13 +50,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public View mTopCorner;
     public View.OnClickListener onClickListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsProfessionIntroActivity f15956e;
+        public final /* synthetic */ FrsProfessionIntroActivity f15995e;
 
         public a(FrsProfessionIntroActivity frsProfessionIntroActivity) {
             Interceptable interceptable = $ic;
@@ -72,35 +73,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                     return;
                 }
             }
-            this.f15956e = frsProfessionIntroActivity;
+            this.f15995e = frsProfessionIntroActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f15956e.mBack) {
-                    if (view != this.f15956e.mGoPublishButton) {
-                        if (view == this.f15956e.mGotItButton) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f15956e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
+                if (view != this.f15995e.mBack) {
+                    if (view != this.f15995e.mGoPublishButton) {
+                        if (view == this.f15995e.mGotItButton) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f15995e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                            this.f15956e.setResult(-1, intent);
-                            this.f15956e.finish();
+                            this.f15995e.setResult(-1, intent);
+                            this.f15995e.finish();
                             return;
                         }
                         return;
                     }
                     Intent intent2 = new Intent();
                     intent2.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, 1);
-                    this.f15956e.setResult(-1, intent2);
-                    this.f15956e.finish();
+                    this.f15995e.setResult(-1, intent2);
+                    this.f15995e.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
                 intent3.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                this.f15956e.setResult(-1, intent3);
-                this.f15956e.finish();
+                this.f15995e.setResult(-1, intent3);
+                this.f15995e.finish();
             }
         }
     }
@@ -123,14 +124,20 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
 
     private void handleNotchScreen() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && UtilHelper.isMiNotchDevice()) {
-            int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
-            ViewGroup.LayoutParams layoutParams = this.mHeaderContainer.getLayoutParams();
-            if (layoutParams instanceof LinearLayout.LayoutParams) {
-                ((LinearLayout.LayoutParams) layoutParams).height = g2;
-                ViewGroup.LayoutParams layoutParams2 = this.mGradientView.getLayoutParams();
-                if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                    ((RelativeLayout.LayoutParams) layoutParams2).height = g2;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            boolean z = true;
+            if (!DeviceInfoUtil.isMiNotchDevice() && !DeviceInfoUtil.isHonor30NotchDevice()) {
+                z = false;
+            }
+            if (z) {
+                int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                ViewGroup.LayoutParams layoutParams = this.mHeaderContainer.getLayoutParams();
+                if (layoutParams instanceof LinearLayout.LayoutParams) {
+                    ((LinearLayout.LayoutParams) layoutParams).height = g2;
+                    ViewGroup.LayoutParams layoutParams2 = this.mGradientView.getLayoutParams();
+                    if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
+                        ((RelativeLayout.LayoutParams) layoutParams2).height = g2;
+                    }
                 }
             }
         }

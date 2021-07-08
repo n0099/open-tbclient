@@ -1,5 +1,5 @@
 package d.j.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface a {
     void a();
 

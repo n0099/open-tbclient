@@ -1,5 +1,6 @@
 package d.a.c.e.p;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.InputStream;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f44456a;
+    public static final char[] f41472a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +30,7 @@ public class q {
                 return;
             }
         }
-        f44456a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f41472a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(byte[] bArr) {
@@ -41,8 +42,8 @@ public class q {
             }
             StringBuilder sb = new StringBuilder(bArr.length * 2);
             for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(f44456a[(bArr[i2] & 240) >>> 4]);
-                sb.append(f44456a[bArr[i2] & 15]);
+                sb.append(f41472a[(bArr[i2] & 240) >>> 4]);
+                sb.append(f41472a[bArr[i2] & 15]);
             }
             return sb.toString();
         }
@@ -99,7 +100,7 @@ public class q {
     public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(bArr);

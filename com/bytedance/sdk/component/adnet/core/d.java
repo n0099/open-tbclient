@@ -2,6 +2,7 @@ package com.bytedance.sdk.component.adnet.core;
 
 import android.os.Process;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,42 +18,42 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends Thread {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f27862a;
+    public static final boolean f27972a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f27863b;
+    public final BlockingQueue<Request<?>> f27973b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f27864c;
+    public final BlockingQueue<Request<?>> f27974c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.a f27865d;
+    public final com.bytedance.sdk.component.adnet.face.a f27975d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.c f27866e;
+    public final com.bytedance.sdk.component.adnet.face.c f27976e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f27867f;
+    public volatile boolean f27977f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final a f27868g;
+    public final a f27978g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Request.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<Request<?>>> f27871a;
+        public final Map<String, List<Request<?>>> f27981a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d f27872b;
+        public final d f27982b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -69,8 +70,8 @@ public class d extends Thread {
                     return;
                 }
             }
-            this.f27871a = new HashMap();
-            this.f27872b = dVar;
+            this.f27981a = new HashMap();
+            this.f27982b = dVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -80,22 +81,22 @@ public class d extends Thread {
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, request)) == null) {
                 synchronized (this) {
                     String cacheKey = request.getCacheKey();
-                    if (this.f27871a.containsKey(cacheKey)) {
-                        List<Request<?>> list = this.f27871a.get(cacheKey);
+                    if (this.f27981a.containsKey(cacheKey)) {
+                        List<Request<?>> list = this.f27981a.get(cacheKey);
                         if (list == null) {
                             list = new ArrayList<>();
                         }
                         request.addMarker("waiting-for-response");
                         list.add(request);
-                        this.f27871a.put(cacheKey, list);
-                        if (o.f27929a) {
+                        this.f27981a.put(cacheKey, list);
+                        if (o.f28039a) {
                             o.b("Request for cacheKey=%s is in flight, putting on hold.", cacheKey);
                         }
                         return true;
                     }
-                    this.f27871a.put(cacheKey, null);
+                    this.f27981a.put(cacheKey, null);
                     request.a(this);
-                    if (o.f27929a) {
+                    if (o.f28039a) {
                         o.b("new request, sending to network %s", cacheKey);
                     }
                     return false;
@@ -109,18 +110,18 @@ public class d extends Thread {
             List<Request<?>> remove;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, mVar) == null) {
-                a.C0316a c0316a = mVar.f27922b;
+                a.C0316a c0316a = mVar.f28032b;
                 if (c0316a != null && !c0316a.a()) {
                     String cacheKey = request.getCacheKey();
                     synchronized (this) {
-                        remove = this.f27871a.remove(cacheKey);
+                        remove = this.f27981a.remove(cacheKey);
                     }
                     if (remove != null) {
-                        if (o.f27929a) {
+                        if (o.f28039a) {
                             o.a("Releasing %d waiting requests for cacheKey=%s.", Integer.valueOf(remove.size()), cacheKey);
                         }
                         for (Request<?> request2 : remove) {
-                            this.f27872b.f27866e.a(request2, mVar);
+                            this.f27982b.f27976e.a(request2, mVar);
                         }
                         return;
                     }
@@ -136,20 +137,20 @@ public class d extends Thread {
             if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
                 synchronized (this) {
                     String cacheKey = request.getCacheKey();
-                    List<Request<?>> remove = this.f27871a.remove(cacheKey);
+                    List<Request<?>> remove = this.f27981a.remove(cacheKey);
                     if (remove != null && !remove.isEmpty()) {
-                        if (o.f27929a) {
+                        if (o.f28039a) {
                             o.a("%d waiting requests for cacheKey=%s; resend to network", Integer.valueOf(remove.size()), cacheKey);
                         }
                         Request<?> remove2 = remove.remove(0);
-                        this.f27871a.put(cacheKey, remove);
+                        this.f27981a.put(cacheKey, remove);
                         remove2.a(this);
                         try {
-                            this.f27872b.f27864c.put(remove2);
+                            this.f27982b.f27974c.put(remove2);
                         } catch (InterruptedException e2) {
                             o.c("Couldn't add request to queue. %s", e2.toString());
                             Thread.currentThread().interrupt();
-                            this.f27872b.a();
+                            this.f27982b.a();
                         }
                     }
                 }
@@ -170,7 +171,7 @@ public class d extends Thread {
                 return;
             }
         }
-        f27862a = o.f27929a;
+        f27972a = o.f28039a;
     }
 
     public d(BlockingQueue<Request<?>> blockingQueue, BlockingQueue<Request<?>> blockingQueue2, com.bytedance.sdk.component.adnet.face.a aVar, com.bytedance.sdk.component.adnet.face.c cVar) {
@@ -188,12 +189,12 @@ public class d extends Thread {
                 return;
             }
         }
-        this.f27867f = false;
-        this.f27863b = blockingQueue;
-        this.f27864c = blockingQueue2;
-        this.f27865d = aVar;
-        this.f27866e = cVar;
-        this.f27868g = new a(this);
+        this.f27977f = false;
+        this.f27973b = blockingQueue;
+        this.f27974c = blockingQueue2;
+        this.f27975d = aVar;
+        this.f27976e = cVar;
+        this.f27978g = new a(this);
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -202,16 +203,16 @@ public class d extends Thread {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
             return;
         }
-        if (f27862a) {
+        if (f27972a) {
             o.a("start new dispatcher", new Object[0]);
         }
         Process.setThreadPriority(10);
-        this.f27865d.a();
+        this.f27975d.a();
         while (true) {
             try {
                 b();
             } catch (InterruptedException unused) {
-                if (this.f27867f) {
+                if (this.f27977f) {
                     Thread.currentThread().interrupt();
                     return;
                 }
@@ -222,15 +223,15 @@ public class d extends Thread {
 
     private void b() throws InterruptedException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            a(this.f27863b.take());
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            a(this.f27973b.take());
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f27867f = true;
+            this.f27977f = true;
             interrupt();
         }
     }
@@ -252,38 +253,38 @@ public class d extends Thread {
                 request.a("cache-discard-canceled");
                 return;
             }
-            a.C0316a a2 = this.f27865d.a(request.getCacheKey());
+            a.C0316a a2 = this.f27975d.a(request.getCacheKey());
             if (a2 == null) {
                 request.addMarker("cache-miss");
-                if (!this.f27868g.b(request)) {
-                    this.f27864c.put(request);
+                if (!this.f27978g.b(request)) {
+                    this.f27974c.put(request);
                 }
             } else if (a2.a()) {
                 request.addMarker("cache-hit-expired");
                 request.setCacheEntry(a2);
-                if (!this.f27868g.b(request)) {
-                    this.f27864c.put(request);
+                if (!this.f27978g.b(request)) {
+                    this.f27974c.put(request);
                 }
             } else {
                 request.addMarker("cache-hit");
-                m<?> a3 = request.a(new i(a2.f27957b, a2.f27963h));
+                m<?> a3 = request.a(new i(a2.f28067b, a2.f28073h));
                 request.addMarker("cache-hit-parsed");
                 if (!a2.b()) {
-                    this.f27866e.a(request, a3);
+                    this.f27976e.a(request, a3);
                 } else {
                     request.addMarker("cache-hit-refresh-needed");
                     request.setCacheEntry(a2);
-                    a3.f27924d = true;
-                    if (!this.f27868g.b(request)) {
-                        this.f27866e.a(request, a3, new Runnable(this, request) { // from class: com.bytedance.sdk.component.adnet.core.d.1
+                    a3.f28034d = true;
+                    if (!this.f27978g.b(request)) {
+                        this.f27976e.a(request, a3, new Runnable(this, request) { // from class: com.bytedance.sdk.component.adnet.core.d.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Request f27869a;
+                            public final /* synthetic */ Request f27979a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ d f27870b;
+                            public final /* synthetic */ d f27980b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -300,8 +301,8 @@ public class d extends Thread {
                                         return;
                                     }
                                 }
-                                this.f27870b = this;
-                                this.f27869a = request;
+                                this.f27980b = this;
+                                this.f27979a = request;
                             }
 
                             @Override // java.lang.Runnable
@@ -309,7 +310,7 @@ public class d extends Thread {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f27870b.f27864c.put(this.f27869a);
+                                        this.f27980b.f27974c.put(this.f27979a);
                                     } catch (InterruptedException unused) {
                                         Thread.currentThread().interrupt();
                                     }
@@ -317,7 +318,7 @@ public class d extends Thread {
                             }
                         });
                     } else {
-                        this.f27866e.a(request, a3);
+                        this.f27976e.a(request, a3);
                     }
                 }
             }

@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f36920a;
+    public static Context f35290a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36921b;
+    public static String f35291b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            File file = !TextUtils.isEmpty(f36921b) ? new File(f36921b) : new File(a(f36920a), "kwad_ex");
+            File file = !TextUtils.isEmpty(f35291b) ? new File(f35291b) : new File(a(f35290a), "kwad_ex");
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -54,8 +54,8 @@ public class a {
     public static void a(@NonNull Context context, @Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            f36920a = context;
-            f36921b = str;
+            f35290a = context;
+            f35291b = str;
         }
     }
 

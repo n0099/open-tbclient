@@ -27,14 +27,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
-import d.a.r0.b.d;
-import d.a.r0.r.u.c;
-import d.a.s0.f1.a.a;
-import d.a.s0.h3.h0.n;
-import d.a.s0.v0.a;
+import d.a.o0.b.d;
+import d.a.o0.r.f0.h;
+import d.a.o0.r.u.c;
+import d.a.p0.f1.a.a;
+import d.a.p0.h3.h0.n;
+import d.a.p0.v0.a;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FunAdNativeFrsView extends FunAdNativePbView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +103,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 agreeData.agreeNum = a.a(25, 1000);
                 nVar.h(agreeData);
             }
-            this.y.setText(this.f16224e);
+            this.y.setText(this.f16263e);
             AgreeData a2 = nVar.a();
             this.z.setAgreeAlone(true);
             this.z.setData(a2);
@@ -128,11 +129,11 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             this.C = (TextView) findViewById(R.id.share_num);
             this.G = (ViewGroup) findViewById(R.id.layout_card_top);
             this.H = (ImageView) findViewById(R.id.fun_ad_feedback);
-            this.f16257g.setVisibility(8);
+            this.f16296g.setVisibility(8);
             m(this.w);
             l();
-            RelativeLayout relativeLayout = this.f16256f;
-            relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16256f.getPaddingTop(), this.f16256f.getPaddingRight(), 0);
+            RelativeLayout relativeLayout = this.f16295f;
+            relativeLayout.setPadding(relativeLayout.getPaddingLeft(), this.f16295f.getPaddingTop(), this.f16295f.getPaddingRight(), 0);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
             marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
             setLayoutParams(marginLayoutParams);
@@ -143,7 +144,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public List<View> getClickViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.asList(this, this.f16256f, this.k, this.n, this.t, this.s, this.G) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.asList(this, this.f16295f, this.k, this.n, this.t, this.s, this.G) : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -165,7 +166,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return d.a.s0.v0.a.a("frs", d.m() ? "1" : "0");
+            return d.a.p0.v0.a.a("frs", d.w() ? "1" : "0");
         }
         return (a.e) invokeV.objValue;
     }
@@ -189,11 +190,16 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             c.d(this.x).t(R.color.CAM_X0109);
             c.d(this.y).t(R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.H, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.a.s0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-            this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.a.s0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
-            this.C.setTextColor(d.a.s0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
-            this.F.setTextColor(d.a.s0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.B.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_share22, d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.E.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_comment22, d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.C.setTextColor(d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.F.setTextColor(d.a.p0.h3.c.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.w.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.z.m(TbadkCoreApplication.getInst().getSkinType());
+            h.a(this.B, R.drawable.icon_pure_card_share20);
+            h.e(this.C);
+            h.a(this.E, R.drawable.icon_pure_card_comment20);
+            h.e(this.F);
         }
     }
 
@@ -210,14 +216,14 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.z.getLayoutParams();
             int i2 = layoutParams.width;
-            if (layoutParams.weight == 1.0f && i2 == 0) {
-                return;
+            if (layoutParams.weight != 1.0f || i2 != 0) {
+                layoutParams.width = 0;
+                layoutParams.weight = 1.0f;
+                layoutParams.leftMargin = 0;
+                layoutParams.rightMargin = 0;
+                this.z.setLayoutParams(layoutParams);
             }
-            layoutParams.width = 0;
-            layoutParams.weight = 1.0f;
-            layoutParams.leftMargin = 0;
-            layoutParams.rightMargin = 0;
-            this.z.setLayoutParams(layoutParams);
+            this.z.l(true);
         }
     }
 

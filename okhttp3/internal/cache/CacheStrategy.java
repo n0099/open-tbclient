@@ -1,5 +1,6 @@
 package okhttp3.internal.cache;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import okhttp3.Response;
 import okhttp3.internal.Internal;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.http.HttpHeaders;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CacheStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +26,7 @@ public final class CacheStrategy {
     @Nullable
     public final Request networkRequest;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +209,7 @@ public final class CacheStrategy {
         public static boolean hasConditions(Request request) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, request)) == null) ? (request.header("If-Modified-Since") == null && request.header("If-None-Match") == null) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, request)) == null) ? (request.header("If-Modified-Since") == null && request.header("If-None-Match") == null) ? false : true : invokeL.booleanValue;
         }
 
         private boolean isFreshnessLifetimeHeuristic() {

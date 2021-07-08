@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class c implements f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile byte[] f44483a;
+    public volatile byte[] f41499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f44484b;
+    public volatile boolean f41500b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public abstract class c implements f0 {
                 return;
             }
         }
-        this.f44483a = null;
-        this.f44484b = false;
+        this.f41499a = null;
+        this.f41500b = false;
     }
 
     public abstract byte[] d();
@@ -41,12 +41,12 @@ public abstract class c implements f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (!this.f44484b) {
-                    this.f44484b = true;
-                    this.f44483a = d();
+                if (!this.f41500b) {
+                    this.f41500b = true;
+                    this.f41499a = d();
                 }
             }
-            return this.f44483a;
+            return this.f41499a;
         }
         return (byte[]) invokeV.objValue;
     }

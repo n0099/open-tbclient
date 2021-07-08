@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +15,12 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ai f42822a;
+    public static volatile ai f39836a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -34,7 +35,7 @@ public class ai {
     /* renamed from: a  reason: collision with other field name */
     public ScheduledThreadPoolExecutor f109a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +58,13 @@ public class ai {
         public abstract String mo184a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f42823a;
+        public a f39837a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -80,7 +81,7 @@ public class ai {
                     return;
                 }
             }
-            this.f42823a = aVar;
+            this.f39837a = aVar;
         }
 
         public void a() {
@@ -100,7 +101,7 @@ public class ai {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 a();
-                this.f42823a.run();
+                this.f39837a.run();
                 b();
             }
         }
@@ -131,14 +132,14 @@ public class ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f42822a == null) {
+            if (f39836a == null) {
                 synchronized (ai.class) {
-                    if (f42822a == null) {
-                        f42822a = new ai(context);
+                    if (f39836a == null) {
+                        f39836a = new ai(context);
                     }
                 }
             }
-            return f42822a;
+            return f39836a;
         }
         return (ai) invokeL.objValue;
     }
@@ -146,7 +147,7 @@ public class ai {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             return "last_job_time" + str;
         }
         return (String) invokeL.objValue;

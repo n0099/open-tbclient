@@ -20,6 +20,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
@@ -31,7 +32,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.l.a.e.b.f.v;
@@ -41,30 +41,30 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f74546a;
+    public static int f71598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f74547b;
+    public static NotificationChannel f71599b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f74548a;
+        public final /* synthetic */ Context f71600a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f74549b;
+        public final /* synthetic */ int f71601b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f74550c;
+        public final /* synthetic */ boolean f71602c;
 
         public a(Context context, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -81,39 +81,39 @@ public class d {
                     return;
                 }
             }
-            this.f74548a = context;
-            this.f74549b = i2;
-            this.f74550c = z;
+            this.f71600a = context;
+            this.f71601b = i2;
+            this.f71602c = z;
         }
 
         @Override // d.l.a.e.a.d.k
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int unused = d.f74546a = d.P(this.f74548a, this.f74549b, this.f74550c);
+                int unused = d.f71598a = d.P(this.f71600a, this.f71601b, this.f71602c);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f74551e;
+        public final /* synthetic */ Context f71603e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f74552f;
+        public final /* synthetic */ int f71604f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f74553g;
+        public final /* synthetic */ boolean f71605g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f74554h;
+        public final /* synthetic */ DownloadInfo f71606h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f74555i;
+        public final /* synthetic */ File f71607i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
             Interceptable interceptable = $ic;
@@ -130,27 +130,27 @@ public class d {
                     return;
                 }
             }
-            this.f74551e = context;
-            this.f74552f = i2;
-            this.f74553g = z;
-            this.f74554h = downloadInfo;
-            this.f74555i = file;
+            this.f71603e = context;
+            this.f71604f = i2;
+            this.f71605g = z;
+            this.f71606h = downloadInfo;
+            this.f71607i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = d.e(this.f74551e, this.f74552f, this.f74553g, this.f74554h, this.f74555i);
+                int e2 = d.e(this.f71603e, this.f71604f, this.f71605g, this.f71606h, this.f71607i);
                 if (e2 == 1 && d.l.a.e.a.e.G().L() != null) {
-                    d.l.a.e.a.e.G().L().a(this.f74554h, null);
+                    d.l.a.e.a.e.G().L().a(this.f71606h, null);
                 }
-                d.I(this.f74554h, this.f74553g, e2);
+                d.I(this.f71606h, this.f71605g, e2);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class c implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,12 +200,12 @@ public class d {
     }
 
     /* renamed from: d.l.a.e.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public abstract class AbstractC2068d implements n {
+    /* loaded from: classes8.dex */
+    public abstract class AbstractC2036d implements n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractC2068d() {
+        public AbstractC2036d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -230,14 +230,14 @@ public class d {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface e {
         n a(Context context);
 
         boolean a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         void a(int i2, int i3, String str, String str2, String str3);
 
@@ -252,7 +252,7 @@ public class d {
         void b(int i2, int i3, String str, int i4, long j);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface g {
         String a();
 
@@ -267,41 +267,41 @@ public class d {
         void b(int i2, String str, String str2, String str3);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface h {
         Uri a(int i2, String str, String str2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface i {
         void a(DownloadInfo downloadInfo, boolean z);
 
         void a(List<DownloadInfo> list);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface j {
         void a(DownloadInfo downloadInfo, BaseException baseException, int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface k {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface l {
         void a(DownloadInfo downloadInfo, k kVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface m {
         void a();
 
         boolean b();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface n {
         m a();
 
@@ -318,12 +318,12 @@ public class d {
         n c(DialogInterface.OnCancelListener onCancelListener);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface o {
         NotificationCompat.Builder a(Context context, String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface p {
         void a();
 
@@ -379,7 +379,7 @@ public class d {
     public static int D(Context context, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             DownloadInfo f2 = d.l.a.e.b.g.a.H(context).f(i2);
             if (f2 != null && "application/vnd.android.package-archive".equals(f2.getMimeType()) && !TextUtils.isEmpty(f2.getSavePath()) && !TextUtils.isEmpty(f2.getName())) {
                 File file = new File(f2.getSavePath(), f2.getName());
@@ -428,7 +428,7 @@ public class d {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j2)) == null) {
-            long[] jArr = {1099511627776L, KsMediaMeta.AV_CH_STEREO_RIGHT, 1048576, 1024, 1};
+            long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
             String[] strArr = {"TB", "GB", "MB", "KB", "B"};
             if (j2 < 1) {
                 return "0 " + strArr[4];
@@ -450,12 +450,12 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
-                if (f74547b == null) {
+                if (f71599b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f74547b = notificationChannel;
+                    f71599b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f74547b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f74547b);
+                    f71599b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f71599b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -614,9 +614,9 @@ public class d {
                 return P(context, i2, z);
             }
             DownloadInfo f2 = d.l.a.e.b.g.a.H(context).f(i2);
-            f74546a = 1;
+            f71598a = 1;
             D.a(f2, new a(context, i2, z));
-            return f74546a;
+            return f71598a;
         }
         return invokeCommon.intValue;
     }
@@ -873,7 +873,7 @@ public class d {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65567, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            long[] jArr = {1099511627776L, KsMediaMeta.AV_CH_STEREO_RIGHT, 1048576, 1024, 1};
+            long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
             String[] strArr = {"TB", "GB", "MB", "KB", "B"};
             if (j2 < 1) {
                 return "0 " + strArr[4];

@@ -2,6 +2,7 @@ package com.baidu.wallet.api;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.bankdetection.BuildConfig;
 import com.baidu.crabsdk.lite.CrabLite;
@@ -19,13 +20,13 @@ import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CrabHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRAB_TAG = "crab";
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f23780a;
+    public static volatile boolean f23890a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,8 +60,8 @@ public class CrabHelper {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
-            f23780a = true;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            f23890a = true;
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 Class.forName("com.baidu.crabsdk.lite.CrabLite");
@@ -123,13 +124,13 @@ public class CrabHelper {
     public static void initCrab(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23780a) {
+            if (StatSettings.getInstance(context).isEnableCrashHandler() && !f23890a) {
                 new Thread(new Runnable(context) { // from class: com.baidu.wallet.api.CrabHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f23781a;
+                    public final /* synthetic */ Context f23891a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -146,7 +147,7 @@ public class CrabHelper {
                                 return;
                             }
                         }
-                        this.f23781a = context;
+                        this.f23891a = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -154,14 +155,14 @@ public class CrabHelper {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             LogUtil.d(CrabHelper.CRAB_TAG, "init in child thread");
-                            CrabHelper.b(this.f23781a);
+                            CrabHelper.b(this.f23891a);
                         }
                     }
                 }).start();
                 return;
             }
-            if (f23780a) {
-                LogUtil.d(CRAB_TAG, "crab already init :" + f23780a);
+            if (f23890a) {
+                LogUtil.d(CRAB_TAG, "crab already init :" + f23890a);
             }
             if (StatSettings.getInstance(context).isEnableCrashHandler()) {
                 return;

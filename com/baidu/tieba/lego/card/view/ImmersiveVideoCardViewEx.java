@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.l.a;
-import d.a.s0.n1.o.l.o;
-import d.a.s0.n2.d;
-import d.a.s0.n2.e;
-/* loaded from: classes5.dex */
+import d.a.p0.n1.o.l.a;
+import d.a.p0.n1.o.l.n;
+import d.a.p0.n2.d;
+import d.a.p0.n2.e;
+/* loaded from: classes4.dex */
 public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements e, d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup r;
-    public o s;
+    public n s;
     public a t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,7 +45,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         }
         this.s.y(immersiveVideoCardEx.getShowExtra(), "feed");
         this.s.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-        boolean z = immersiveVideoCardEx.getVideoInfo().f18172i;
+        boolean z = immersiveVideoCardEx.getVideoInfo().f18212i;
         this.s.u(z);
         this.s.t(z);
         this.t.u(z);
@@ -91,7 +91,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         H();
     }
 
-    @Override // d.a.s0.n2.d
+    @Override // d.a.p0.n2.d
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         aVar.j();
     }
 
-    @Override // d.a.s0.n2.d
+    @Override // d.a.p0.n2.d
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         aVar.k();
     }
 
-    @Override // d.a.s0.n2.d
+    @Override // d.a.p0.n2.d
     public void d() {
         a aVar;
         Interceptable interceptable = $ic;
@@ -121,66 +121,66 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         aVar.m();
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            o oVar = this.s;
-            if (oVar != null) {
-                return oVar.k();
+            n nVar = this.s;
+            if (nVar != null) {
+                return nVar.k();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            o oVar = this.s;
-            if (oVar != null) {
-                return oVar.m();
+            n nVar = this.s;
+            if (nVar != null) {
+                return nVar.m();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            o oVar = this.s;
-            if (oVar != null) {
-                return oVar.n();
+            n nVar = this.s;
+            if (nVar != null) {
+                return nVar.n();
             }
             return null;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            o oVar = this.s;
-            return oVar != null && oVar.p();
+            n nVar = this.s;
+            return nVar != null && nVar.p();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            o oVar = this.s;
-            return oVar != null && oVar.q();
+            n nVar = this.s;
+            return nVar != null && nVar.q();
         }
         return invokeV.booleanValue;
     }
@@ -192,7 +192,7 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_item_video_thread, (ViewGroup) null);
             this.r = viewGroup;
-            this.s = new o(this.m, viewGroup.findViewById(R.id.layout_video_container));
+            this.s = new n(this.m, viewGroup.findViewById(R.id.layout_video_container));
             a aVar = new a(this.m, this.r);
             this.t = aVar;
             this.s.s(aVar);
@@ -201,23 +201,23 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public void startPlay() {
-        o oVar;
+        n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (oVar = this.s) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (nVar = this.s) == null) {
             return;
         }
-        oVar.v();
+        nVar.v();
     }
 
-    @Override // d.a.s0.n2.e
+    @Override // d.a.p0.n2.e
     public void stopPlay() {
-        o oVar;
+        n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (oVar = this.s) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (nVar = this.s) == null) {
             return;
         }
-        oVar.w();
+        nVar.w();
     }
 }

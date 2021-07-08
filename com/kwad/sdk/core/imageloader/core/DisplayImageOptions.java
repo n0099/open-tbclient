@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DisplayImageOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,13 +40,13 @@ public final class DisplayImageOptions {
     public final boolean resetViewBeforeLoading;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.DisplayImageOptions$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,10 +312,16 @@ public final class DisplayImageOptions {
             return (Builder) invokeZ.objValue;
         }
 
+        public Builder setBlurRadius(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) ? this : (Builder) invokeI.objValue;
+        }
+
         public Builder showImageForEmptyUri(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
                 this.imageResForEmptyUri = i2;
                 return this;
             }
@@ -325,7 +331,7 @@ public final class DisplayImageOptions {
         public Builder showImageForEmptyUri(Drawable drawable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, drawable)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, drawable)) == null) {
                 this.imageForEmptyUri = drawable;
                 return this;
             }
@@ -335,7 +341,7 @@ public final class DisplayImageOptions {
         public Builder showImageOnFail(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
                 this.imageResOnFail = i2;
                 return this;
             }
@@ -345,7 +351,7 @@ public final class DisplayImageOptions {
         public Builder showImageOnFail(Drawable drawable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, drawable)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, drawable)) == null) {
                 this.imageOnFail = drawable;
                 return this;
             }
@@ -355,7 +361,7 @@ public final class DisplayImageOptions {
         public Builder showImageOnLoading(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
                 this.imageResOnLoading = i2;
                 return this;
             }
@@ -365,7 +371,7 @@ public final class DisplayImageOptions {
         public Builder showImageOnLoading(Drawable drawable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, drawable)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, drawable)) == null) {
                 this.imageOnLoading = drawable;
                 return this;
             }
@@ -376,7 +382,7 @@ public final class DisplayImageOptions {
         public Builder showStubImage(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
                 this.imageResOnLoading = i2;
                 return this;
             }
@@ -386,7 +392,7 @@ public final class DisplayImageOptions {
         public Builder syncLoading(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048603, this, z)) == null) {
                 this.isSyncLoading = z;
                 return this;
             }

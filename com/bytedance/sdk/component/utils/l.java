@@ -2,6 +2,7 @@ package com.bytedance.sdk.component.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,22 +24,22 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile l f28793c;
+    public static volatile l f28903c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f28794a;
+    public Map<String, String> f28904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f28795b;
+    public volatile boolean f28905b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f28796d;
+    public Context f28906d;
 
     public l(Context context) {
         Interceptable interceptable = $ic;
@@ -55,12 +56,12 @@ public class l {
                 return;
             }
         }
-        this.f28795b = false;
-        if (context != null && this.f28796d == null) {
-            this.f28796d = context.getApplicationContext();
+        this.f28905b = false;
+        if (context != null && this.f28906d == null) {
+            this.f28906d = context.getApplicationContext();
             a();
         }
-        this.f28796d = context;
+        this.f28906d = context;
     }
 
     public static String b(String str) {
@@ -124,12 +125,12 @@ public class l {
                 return null;
             }
             a();
-            Map<String, String> map = this.f28794a;
+            Map<String, String> map = this.f28904a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             do {
-                str2 = this.f28794a.get(e2);
+                str2 = this.f28904a.get(e2);
                 if (str2 == null) {
                     e2 = e(e2);
                 }
@@ -213,14 +214,14 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f28793c == null) {
+            if (f28903c == null) {
                 synchronized (l.class) {
-                    if (f28793c == null) {
-                        f28793c = new l(context);
+                    if (f28903c == null) {
+                        f28903c = new l(context);
                     }
                 }
             }
-            return f28793c;
+            return f28903c;
         }
         return (l) invokeL.objValue;
     }
@@ -249,17 +250,17 @@ public class l {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || this.f28796d == null || this.f28795b) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f28906d == null || this.f28905b) {
             return;
         }
         synchronized (this) {
-            if (!this.f28795b) {
+            if (!this.f28905b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>(this) { // from class: com.bytedance.sdk.component.utils.l.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ l f28797a;
+                    public final /* synthetic */ l f28907a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -276,7 +277,7 @@ public class l {
                                 return;
                             }
                         }
-                        this.f28797a = this;
+                        this.f28907a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -292,7 +293,7 @@ public class l {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = this.f28797a.f28796d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = this.f28907a.f28906d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -349,7 +350,7 @@ public class l {
                         }
                     }
                 });
-                this.f28794a = new HashMap(list.size());
+                this.f28904a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -364,16 +365,16 @@ public class l {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f28795b = true;
+                this.f28905b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f28794a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) || str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f28904a.containsKey(str)) {
             return;
         }
-        this.f28794a.put(str, str2);
+        this.f28904a.put(str, str2);
     }
 }

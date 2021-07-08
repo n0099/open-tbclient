@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.j.c;
-import d.a.s0.n1.o.k.b;
+import d.a.p0.n1.o.j.c;
+import d.a.p0.n1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HorRankCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,37 +33,37 @@ public class HorRankCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18155a;
+        public int f18195a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18156b;
+        public String f18196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f18157c;
+        public String f18197c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f18158d;
+        public String f18198d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f18159e;
+        public String f18199e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f18160f;
+        public String f18200f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f18161g;
+        public boolean f18201g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f18162h;
+        public String f18202h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f18163i;
+        public String f18203i;
         public String j;
         public int k;
         public int l;
@@ -123,15 +123,15 @@ public class HorRankCard extends BaseCardInfo {
         for (int i4 = 0; i4 < length; i4++) {
             a aVar = new a();
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
-            aVar.f18155a = optJSONObject.optInt("rank");
-            aVar.f18156b = optJSONObject.optString("picUrl");
-            aVar.f18157c = optJSONObject.optString("picIcon");
-            aVar.f18158d = optJSONObject.optString("title");
-            aVar.f18159e = optJSONObject.optString("subTitle");
-            aVar.f18160f = optJSONObject.optString("postUrl");
-            aVar.f18161g = optJSONObject.optInt("isDone") == 1;
-            aVar.f18162h = optJSONObject.optString("btnText");
-            aVar.f18163i = optJSONObject.optString("btnDone");
+            aVar.f18195a = optJSONObject.optInt("rank");
+            aVar.f18196b = optJSONObject.optString("picUrl");
+            aVar.f18197c = optJSONObject.optString("picIcon");
+            aVar.f18198d = optJSONObject.optString("title");
+            aVar.f18199e = optJSONObject.optString("subTitle");
+            aVar.f18200f = optJSONObject.optString("postUrl");
+            aVar.f18201g = optJSONObject.optInt("isDone") == 1;
+            aVar.f18202h = optJSONObject.optString("btnText");
+            aVar.f18203i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
             aVar.k = b.b(optJSONObject.optString("bgColor", ""));
             aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
@@ -222,8 +222,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f18160f) && !TextUtils.isEmpty(aVar.f18162h) && !TextUtils.isEmpty(aVar.f18163i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f18160f))) {
-                    aVar.f18161g = z;
+                if (!TextUtils.isEmpty(aVar.f18200f) && !TextUtils.isEmpty(aVar.f18202h) && !TextUtils.isEmpty(aVar.f18203i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f18200f))) {
+                    aVar.f18201g = z;
                     z2 = true;
                 }
             }
@@ -239,8 +239,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f18160f) && !TextUtils.isEmpty(aVar.f18162h) && !TextUtils.isEmpty(aVar.f18163i) && TextUtils.equals(getTouidFromPostUrl(aVar.f18160f), str)) {
-                    aVar.f18161g = z;
+                if (!TextUtils.isEmpty(aVar.f18200f) && !TextUtils.isEmpty(aVar.f18202h) && !TextUtils.isEmpty(aVar.f18203i) && TextUtils.equals(getTouidFromPostUrl(aVar.f18200f), str)) {
+                    aVar.f18201g = z;
                     z2 = true;
                 }
             }

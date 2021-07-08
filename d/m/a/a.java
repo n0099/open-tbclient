@@ -16,6 +16,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -32,52 +33,52 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.m.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static /* synthetic */ class C2082a {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class C2050a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f75038a;
+        public Intent f72090a;
 
-        public /* synthetic */ b(Context context, C2082a c2082a) {
+        public /* synthetic */ b(Context context, C2050a c2050a) {
             this(context);
         }
 
         public final int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75038a.getIntExtra("level", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72090a.getIntExtra("level", 0) : invokeV.intValue;
         }
 
         public final int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75038a.getIntExtra("scale", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72090a.getIntExtra("scale", 0) : invokeV.intValue;
         }
 
         public final int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f75038a.getIntExtra("temperature", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72090a.getIntExtra("temperature", 0) : invokeV.intValue;
         }
 
         public final int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75038a.getIntExtra("voltage", 0) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72090a.getIntExtra("voltage", 0) : invokeV.intValue;
         }
 
         public b(Context context) {
@@ -95,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f75038a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            this.f72090a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
     }
 
@@ -258,7 +259,7 @@ public class a {
         NetworkInfo activeNetworkInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str2 = "none";
             try {
                 activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
@@ -284,7 +285,7 @@ public class a {
                         case 12:
                         case 14:
                         case 15:
-                            str = g.f3983b;
+                            str = g.f3986b;
                             str2 = str;
                             break;
                         case 13:

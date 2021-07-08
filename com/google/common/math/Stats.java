@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Stats implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES = 40;
@@ -281,7 +281,7 @@ public final class Stats implements Serializable {
     public static double meanOf(double... dArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, dArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dArr)) == null) {
             n.d(dArr.length > 0);
             double d2 = dArr[0];
             for (int i2 = 1; i2 < dArr.length; i2++) {

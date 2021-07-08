@@ -1,5 +1,6 @@
 package okhttp3.internal.connection;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RouteSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public final class RouteSelector {
     public List<Proxy> proxies;
     public final RouteDatabase routeDatabase;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Selection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +157,7 @@ public final class RouteSelector {
         String host;
         int port;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, proxy) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, proxy) == null) {
             this.inetSocketAddresses = new ArrayList();
             if (proxy.type() != Proxy.Type.DIRECT && proxy.type() != Proxy.Type.SOCKS) {
                 SocketAddress address = proxy.address();

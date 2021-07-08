@@ -176,7 +176,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), drawable, Boolean.valueOf(z)})) == null) {
                 int addChild = super.addChild(drawable);
                 long generateTransitionKey = generateTransitionKey(i2, i3);
-                long j = z ? 8589934592L : 0L;
+                long j = z ? REVERSIBLE_FLAG_BIT : 0L;
                 long j2 = addChild;
                 this.mTransitions.append(generateTransitionKey, Long.valueOf(j2 | j));
                 if (z) {
@@ -241,7 +241,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         public boolean transitionHasReversibleFlag(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) ? (this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() & 8589934592L) != 0 : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) ? (this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() & REVERSIBLE_FLAG_BIT) != 0 : invokeII.booleanValue;
         }
 
         @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, android.graphics.drawable.Drawable.ConstantState
@@ -554,7 +554,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     public static AnimatedStateListDrawableCompat createFromXmlInner(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws IOException, XmlPullParserException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, context, resources, xmlPullParser, attributeSet, theme)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, resources, xmlPullParser, attributeSet, theme)) == null) {
             String name = xmlPullParser.getName();
             if (name.equals("animated-selector")) {
                 AnimatedStateListDrawableCompat animatedStateListDrawableCompat = new AnimatedStateListDrawableCompat();

@@ -23,36 +23,36 @@ import java.util.HashMap;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25784a;
+    public String f25894a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25785b;
+    public String f25895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25786c;
+    public boolean f25896c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<?> f25787d;
+    public Class<?> f25897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f25788e;
+    public Method f25898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Class<?> f25789f;
+    public Class<?> f25899f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ILightappInvokerCallback f25795a;
+        public ILightappInvokerCallback f25905a;
 
         public a(ILightappInvokerCallback iLightappInvokerCallback) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class b {
                     return;
                 }
             }
-            this.f25795a = iLightappInvokerCallback;
+            this.f25905a = iLightappInvokerCallback;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -77,14 +77,14 @@ public class b {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-                if (this.f25795a != null) {
+                if (this.f25905a != null) {
                     if ("onResult".equals(method.getName())) {
                         if (objArr != null && objArr.length >= 2) {
-                            this.f25795a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
+                            this.f25905a.onResult(((Integer) objArr[0]).intValue(), (String) objArr[1]);
                         }
                         return null;
                     }
-                    return method.invoke(this.f25795a, objArr);
+                    return method.invoke(this.f25905a, objArr);
                 }
                 return null;
             }
@@ -107,10 +107,10 @@ public class b {
                 return;
             }
         }
-        this.f25784a = "";
-        this.f25785b = b.class.getSimpleName();
-        this.f25786c = false;
-        this.f25784a = str;
+        this.f25894a = "";
+        this.f25895b = b.class.getSimpleName();
+        this.f25896c = false;
+        this.f25894a = str;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IPUT, MOVE_EXCEPTION, IGET, CONST_STR, INVOKE, IPUT, MOVE_EXCEPTION] complete} */
@@ -122,16 +122,16 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f25790a;
+                public final /* synthetic */ Context f25900a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f25791b;
+                public final /* synthetic */ String f25901b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ILightappInvokerCallback f25792c;
+                public final /* synthetic */ ILightappInvokerCallback f25902c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ b f25793d;
+                public final /* synthetic */ b f25903d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,10 +148,10 @@ public class b {
                             return;
                         }
                     }
-                    this.f25793d = this;
-                    this.f25790a = context;
-                    this.f25791b = str;
-                    this.f25792c = iLightappInvokerCallback;
+                    this.f25903d = this;
+                    this.f25900a = context;
+                    this.f25901b = str;
+                    this.f25902c = iLightappInvokerCallback;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -159,12 +159,12 @@ public class b {
                     Set set;
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) && i2 == 0 && hashMap != null && (set = (Set) hashMap.get("data")) != null && set.contains("callNativeVoice")) {
-                        LocalRouter.getInstance(this.f25790a).route(this.f25790a, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_invoke").data("options", this.f25791b).data("invoke_callback", this.f25792c), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.b.1.1
+                        LocalRouter.getInstance(this.f25900a).route(this.f25900a, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_invoke").data("options", this.f25901b).data("invoke_callback", this.f25902c), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.b.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f25794a;
+                            public final /* synthetic */ AnonymousClass1 f25904a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -181,7 +181,7 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f25794a = this;
+                                this.f25904a = this;
                             }
 
                             @Override // com.baidu.wallet.router.RouterCallback
@@ -195,29 +195,29 @@ public class b {
                     }
                 }
             });
-            if (!this.f25786c) {
+            if (!this.f25896c) {
                 try {
-                    this.f25787d = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
+                    this.f25897d = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
                     Class<?> cls = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
-                    this.f25789f = cls;
-                    this.f25788e = this.f25787d.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
+                    this.f25899f = cls;
+                    this.f25898e = this.f25897d.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
                 } finally {
                     try {
                     } finally {
                     }
                 }
             }
-            if (this.f25787d != null && this.f25789f != null && this.f25788e != null) {
+            if (this.f25897d != null && this.f25899f != null && this.f25898e != null) {
                 try {
-                    this.f25788e.invoke(null, context, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f25789f}, new a(iLightappInvokerCallback)));
+                    this.f25898e.invoke(null, context, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f25899f}, new a(iLightappInvokerCallback)));
                     return;
                 } catch (Throwable th) {
-                    LogUtil.e(this.f25785b, "reflect callNativeVoice fail!", th);
+                    LogUtil.e(this.f25895b, "reflect callNativeVoice fail!", th);
                     String a2 = a(iLightappInvokerCallback, "reflect callNativeVoice fail!");
                     iLightappInvokerCallback.onResult(1, a2);
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(a2);
-                    PayStatisticsUtil.onEventWithValues(this.f25784a, arrayList);
+                    PayStatisticsUtil.onEventWithValues(this.f25894a, arrayList);
                     return;
                 }
             }
@@ -225,7 +225,7 @@ public class b {
             iLightappInvokerCallback.onResult(1, a3);
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(a3);
-            PayStatisticsUtil.onEventWithValues(this.f25784a, arrayList2);
+            PayStatisticsUtil.onEventWithValues(this.f25894a, arrayList2);
         }
     }
 

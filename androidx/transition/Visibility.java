@@ -263,7 +263,7 @@ public abstract class Visibility extends Transition {
     private VisibilityInfo getVisibilityChangeInfo(TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, transitionValues, transitionValues2)) == null) {
             VisibilityInfo visibilityInfo = new VisibilityInfo();
             visibilityInfo.mVisibilityChange = false;
             visibilityInfo.mFadeIn = false;

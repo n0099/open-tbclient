@@ -26,27 +26,27 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NetworkClientImpl implements NetworkClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final NetworkClient f41020a;
+    public static final NetworkClient f38034a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f41021b;
+    public final ExecutorService f38035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PriorityBlockingQueue<Runnable> f41022c;
+    public PriorityBlockingQueue<Runnable> f38036c;
 
     /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41023a;
+        public static final /* synthetic */ int[] f38037a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,25 +63,25 @@ public class NetworkClientImpl implements NetworkClient {
                 }
             }
             int[] iArr = new int[Request.Method.values().length];
-            f41023a = iArr;
+            f38037a = iArr;
             try {
                 iArr[Request.Method.POST.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41023a[Request.Method.GET.ordinal()] = 2;
+                f38037a[Request.Method.GET.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NetFutureTask<T> extends FutureTask<T> implements Comparable<NetFutureTask<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final NetworkClient.Priority f41024a;
+        public final NetworkClient.Priority f38038a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NetFutureTask(Callable<T> callable, NetworkClient.Priority priority) {
@@ -101,7 +101,7 @@ public class NetworkClientImpl implements NetworkClient {
                     return;
                 }
             }
-            this.f41024a = priority;
+            this.f38038a = priority;
         }
 
         public int compareTo(NetFutureTask<T> netFutureTask) {
@@ -111,7 +111,7 @@ public class NetworkClientImpl implements NetworkClient {
                 if (netFutureTask == null) {
                     return 1;
                 }
-                return this.f41024a.value() - netFutureTask.f41024a.value();
+                return this.f38038a.value() - netFutureTask.f38038a.value();
             }
             return invokeL.intValue;
         }
@@ -130,20 +130,20 @@ public class NetworkClientImpl implements NetworkClient {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41024a.value() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38038a.value() : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TaskCallable implements Callable<Response> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Request f41025a;
+        public Request f38039a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetworkCallBack f41026b;
+        public NetworkCallBack f38040b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public TaskCallable(Request request) {
@@ -181,20 +181,20 @@ public class NetworkClientImpl implements NetworkClient {
                     return;
                 }
             }
-            this.f41025a = request;
-            this.f41026b = networkCallBack;
+            this.f38039a = request;
+            this.f38040b = networkCallBack;
         }
 
         private Response a() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f41025a.getUrlWithParas()).openConnection();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f38039a.getUrlWithParas()).openConnection();
                 a(httpURLConnection);
-                if (AnonymousClass1.f41023a[this.f41025a.getMethod().ordinal()] == 1) {
+                if (AnonymousClass1.f38037a[this.f38039a.getMethod().ordinal()] == 1) {
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setChunkedStreamingMode(0);
-                    byte[] postData = this.f41025a.getPostData();
+                    byte[] postData = this.f38039a.getPostData();
                     if (postData != null && postData.length > 0) {
                         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
                         try {
@@ -205,7 +205,7 @@ public class NetworkClientImpl implements NetworkClient {
                         }
                     }
                 }
-                return this.f41025a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
+                return this.f38039a.initResponse(NetworkClientImpl.followRedirect(httpURLConnection));
             }
             return (Response) invokeV.objValue;
         }
@@ -213,17 +213,17 @@ public class NetworkClientImpl implements NetworkClient {
         private void a(HttpURLConnection httpURLConnection) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, httpURLConnection) == null) {
-                for (Map.Entry<String, String> entry : this.f41025a.getHeaders().entrySet()) {
+                for (Map.Entry<String, String> entry : this.f38039a.getHeaders().entrySet()) {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
                 httpURLConnection.setRequestProperty("User-Agent", "GDTADNetClient-[" + System.getProperty("http.agent") + PreferencesUtil.RIGHT_MOUNT);
-                if (this.f41025a.getConnectionTimeOut() > 0) {
-                    httpURLConnection.setConnectTimeout(this.f41025a.getConnectionTimeOut());
+                if (this.f38039a.getConnectionTimeOut() > 0) {
+                    httpURLConnection.setConnectTimeout(this.f38039a.getConnectionTimeOut());
                 } else {
                     httpURLConnection.setConnectTimeout(30000);
                 }
-                if (this.f41025a.getSocketTimeOut() > 0) {
-                    httpURLConnection.setReadTimeout(this.f41025a.getSocketTimeOut());
+                if (this.f38039a.getSocketTimeOut() > 0) {
+                    httpURLConnection.setReadTimeout(this.f38039a.getSocketTimeOut());
                 } else {
                     httpURLConnection.setReadTimeout(30000);
                 }
@@ -233,7 +233,7 @@ public class NetworkClientImpl implements NetworkClient {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         /* JADX WARN: Code restructure failed: missing block: B:14:0x001f, code lost:
-            if (r4.f41025a.isAutoClose() != false) goto L12;
+            if (r4.f38039a.isAutoClose() != false) goto L12;
          */
         /* JADX WARN: Code restructure failed: missing block: B:15:0x0021, code lost:
             r1.close();
@@ -263,15 +263,15 @@ public class NetworkClientImpl implements NetworkClient {
                 exc = e2;
             }
             if (exc == null) {
-                NetworkCallBack networkCallBack = this.f41026b;
+                NetworkCallBack networkCallBack = this.f38040b;
                 if (networkCallBack != null) {
-                    networkCallBack.onResponse(this.f41025a, response);
+                    networkCallBack.onResponse(this.f38039a, response);
                 }
-            } else if (this.f41026b == null) {
+            } else if (this.f38040b == null) {
                 throw exc;
             } else {
                 GDTLogger.w("NetworkClientException", exc);
-                this.f41026b.onException(exc);
+                this.f38040b.onException(exc);
             }
         }
     }
@@ -289,7 +289,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        f41020a = new NetworkClientImpl();
+        f38034a = new NetworkClientImpl();
     }
 
     public NetworkClientImpl() {
@@ -305,8 +305,8 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        this.f41022c = new PriorityBlockingQueue<>(15);
-        this.f41021b = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f41022c);
+        this.f38036c = new PriorityBlockingQueue<>(15);
+        this.f38035b = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f38036c);
     }
 
     public static HttpURLConnection followRedirect(HttpURLConnection httpURLConnection) throws IOException {
@@ -351,7 +351,7 @@ public class NetworkClientImpl implements NetworkClient {
     public static NetworkClient getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f41020a : (NetworkClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f38034a : (NetworkClient) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -367,8 +367,8 @@ public class NetworkClientImpl implements NetworkClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, priority)) == null) {
             NetFutureTask netFutureTask = new NetFutureTask(new TaskCallable(request), priority);
-            this.f41021b.execute(netFutureTask);
-            GDTLogger.d("QueueSize:" + this.f41022c.size());
+            this.f38035b.execute(netFutureTask);
+            GDTLogger.d("QueueSize:" + this.f38036c.size());
             return netFutureTask;
         }
         return (Future) invokeLL.objValue;
@@ -386,7 +386,7 @@ public class NetworkClientImpl implements NetworkClient {
     public void submit(Request request, NetworkClient.Priority priority, NetworkCallBack networkCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, request, priority, networkCallBack) == null) {
-            submit(request, priority, networkCallBack, this.f41021b);
+            submit(request, priority, networkCallBack, this.f38035b);
         }
     }
 
@@ -399,7 +399,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
             executor.execute(new NetFutureTask(new TaskCallable(request, networkCallBack), priority));
-            GDTLogger.d("QueueSize:" + this.f41022c.size());
+            GDTLogger.d("QueueSize:" + this.f38036c.size());
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.lbsapi.auth;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +16,12 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +97,7 @@ public class b {
     public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             try {
                 return MessageDigest.getInstance("SHA1").digest(bArr);
             } catch (NoSuchAlgorithmException unused) {
@@ -119,7 +120,7 @@ public class b {
             String[] strArr = new String[length];
             for (int i2 = 0; i2 < length; i2++) {
                 strArr[i2] = b2[i2] + ";" + packageName;
-                if (com.baidu.lbsapi.auth.a.f6366a) {
+                if (com.baidu.lbsapi.auth.a.f6383a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i2]);
                 }
             }

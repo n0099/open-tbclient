@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ea {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ea f43037a;
+    public static volatile ea f40051a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -36,7 +36,7 @@ public final class ea {
     public HashMap<ec, ed> f315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43038b;
+    public String f40052b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -56,24 +56,24 @@ public final class ea {
         HashMap<ec, ed> hashMap = new HashMap<>();
         this.f315a = hashMap;
         this.f312a = context;
-        hashMap.put(ec.f43043b, new eg());
-        this.f315a.put(ec.f43044c, new eh());
-        this.f315a.put(ec.f43042a, new dy());
-        this.f315a.put(ec.f43045d, new ef());
+        hashMap.put(ec.f40057b, new eg());
+        this.f315a.put(ec.f40058c, new eh());
+        this.f315a.put(ec.f40056a, new dy());
+        this.f315a.put(ec.f40059d, new ef());
     }
 
     public static ea a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f43037a == null) {
+            if (f40051a == null) {
                 synchronized (ea.class) {
-                    if (f43037a == null) {
-                        f43037a = new ea(context);
+                    if (f40051a == null) {
+                        f40051a = new ea(context);
                     }
                 }
             }
-            return f43037a;
+            return f40051a;
         }
         return (ea) invokeL.objValue;
     }
@@ -90,7 +90,7 @@ public final class ea {
     public static boolean m282a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? com.xiaomi.push.service.ac.m574a(context, context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m574a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
@@ -170,13 +170,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43038b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40052b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f43038b = str;
+            this.f40052b = str;
         }
     }
 }

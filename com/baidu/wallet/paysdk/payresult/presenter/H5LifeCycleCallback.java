@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduWalletDelegate;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class H5LifeCycleCallback implements Application.ActivityLifecycleCallbacks, Parcelable, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<H5LifeCycleCallback> CREATOR;

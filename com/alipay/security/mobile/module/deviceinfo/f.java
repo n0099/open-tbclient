@@ -13,10 +13,10 @@ public final class f extends PhoneStateListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f2085a;
+    public final /* synthetic */ e f2086a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ TelephonyManager f2086b;
+    public final /* synthetic */ TelephonyManager f2087b;
 
     public f(e eVar, TelephonyManager telephonyManager) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class f extends PhoneStateListener {
                 return;
             }
         }
-        this.f2085a = eVar;
-        this.f2086b = telephonyManager;
+        this.f2086a = eVar;
+        this.f2087b = telephonyManager;
     }
 
     @Override // android.telephony.PhoneStateListener
@@ -43,9 +43,9 @@ public final class f extends PhoneStateListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, signalStrength) == null) {
             super.onSignalStrengthsChanged(signalStrength);
             if (signalStrength != null) {
-                this.f2085a.a(signalStrength.getGsmSignalStrength());
+                this.f2086a.a(signalStrength.getGsmSignalStrength());
             }
-            this.f2086b.listen(this, 0);
+            this.f2087b.listen(this, 0);
         }
     }
 }

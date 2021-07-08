@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class y0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f71777a;
+    public final SharedPreferences f68880a;
 
     @WorkerThread
     public y0(Context context) {
@@ -34,7 +34,7 @@ public final class y0 {
                 return;
             }
         }
-        this.f71777a = context.getSharedPreferences("device_register_oaid_refine", 0);
+        this.f68880a = context.getSharedPreferences("device_register_oaid_refine", 0);
     }
 
     @Nullable
@@ -42,7 +42,7 @@ public final class y0 {
     public x0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? x0.a(this.f71777a.getString("oaid", "")) : (x0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? x0.a(this.f68880a.getString("oaid", "")) : (x0) invokeV.objValue;
     }
 
     @WorkerThread
@@ -51,6 +51,6 @@ public final class y0 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x0Var) == null) || x0Var == null) {
             return;
         }
-        this.f71777a.edit().putString("oaid", x0Var.c().toString()).apply();
+        this.f68880a.edit().putString("oaid", x0Var.c().toString()).apply();
     }
 }

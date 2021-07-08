@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -19,15 +20,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
-import d.a.u0.d;
-import d.a.u0.e0;
-import d.a.u0.r;
-import d.a.v0.a;
+import d.a.r0.d;
+import d.a.r0.e0;
+import d.a.r0.r;
+import d.a.s0.a;
 import java.util.Map;
 import org.json.JSONObject;
 @Autowired
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UBC {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_KEY_DURATION = "duration";
@@ -119,7 +120,7 @@ public class UBC {
     public static final r getUBCContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? d.a.s0.c3.r.a() : (r) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? d.a.p0.c3.r.a() : (r) invokeV.objValue;
     }
 
     public static String getUploadType(String str) {
@@ -175,7 +176,7 @@ public class UBC {
     public static final Flow beginFlow(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) ? beginFlow(str, str2, 0) : (Flow) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? beginFlow(str, str2, 0) : (Flow) invokeLL.objValue;
     }
 
     public static final void onEvent(String str, String str2) {

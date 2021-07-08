@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ActivityCompat extends ContextCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnRequestPermissionsResultCallback {
         void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr);
     }
@@ -61,7 +62,7 @@ public class ActivityCompat extends ContextCompat {
     public static boolean shouldShowRequestPermissionRationale(Activity activity, String... strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, activity, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
             if (!ApiUtil.shouldCheckPermission() || strArr == null || strArr.length == 0) {
                 return false;
             }

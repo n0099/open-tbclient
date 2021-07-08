@@ -18,16 +18,16 @@ import com.bytedance.sdk.openadsdk.core.widget.webview.a.e;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f30324a;
+    public com.bytedance.sdk.openadsdk.core.e.m f30434a;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30325h;
+    public boolean f30435h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, w wVar, com.bytedance.sdk.openadsdk.core.e.m mVar, com.bytedance.sdk.openadsdk.e.j jVar, boolean z) {
@@ -48,8 +48,8 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                 return;
             }
         }
-        this.f30324a = mVar;
-        this.f30325h = z;
+        this.f30434a = mVar;
+        this.f30435h = z;
     }
 
     private WebResourceResponse a(WebView webView, String str) {
@@ -61,8 +61,8 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                 return null;
             }
             e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-            if (a2 != e.a.f30843d) {
-                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f30324a.ad().iterator();
+            if (a2 != e.a.f30953d) {
+                Iterator<com.bytedance.sdk.openadsdk.core.e.l> it = this.f30434a.ad().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -80,7 +80,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                     }
                 }
             }
-            if (a2 == e.a.f30843d) {
+            if (a2 == e.a.f30953d) {
                 return a(str, "");
             }
             return com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str, a2, lVar != null ? lVar.g() : "");
@@ -92,7 +92,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-            this.f30855f = false;
+            this.f30965f = false;
             super.onPageFinished(webView, str);
         }
     }
@@ -101,7 +101,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-            this.f30856g = false;
+            this.f30966g = false;
             super.onPageStarted(webView, str, bitmap);
         }
     }
@@ -153,11 +153,11 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str, 0, 0, null);
                 }
-                File a2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str2, this.f30325h);
+                File a2 = com.bytedance.sdk.openadsdk.l.a.a.a().a(str2, this.f30435h);
                 if (a2 == null || !a2.exists() || a2.length() <= 0) {
                     return null;
                 }
-                return new WebResourceResponse(e.a.f30843d.a(), "utf-8", new FileInputStream(a2));
+                return new WebResourceResponse(e.a.f30953d.a(), "utf-8", new FileInputStream(a2));
             } catch (Throwable th) {
                 com.bytedance.sdk.component.utils.j.c("ExpressClient", "get image WebResourceResponse error", th);
                 return null;
@@ -169,14 +169,14 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
     private void a(long j, long j2, String str, int i2) {
         com.bytedance.sdk.openadsdk.e.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) || (jVar = this.f30854e) == null || jVar.b() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) || (jVar = this.f30964e) == null || jVar.b() == null) {
             return;
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
-        if (a2 == e.a.f30840a) {
-            this.f30854e.b().a(str, j, j2, i2);
-        } else if (a2 == e.a.f30842c) {
-            this.f30854e.b().b(str, j, j2, i2);
+        if (a2 == e.a.f30950a) {
+            this.f30964e.b().a(str, j, j2, i2);
+        } else if (a2 == e.a.f30952c) {
+            this.f30964e.b().b(str, j, j2, i2);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.mobads.container.dex;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SkyReflectionUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +210,7 @@ public class SkyReflectionUtil {
     public static Object getFieldValue(Class cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
             Field declaredField = XAdRemoteCommonUtils.getDeclaredField(cls, str);
             declaredField.setAccessible(true);
             try {

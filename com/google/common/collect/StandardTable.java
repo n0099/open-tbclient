@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -33,30 +33,30 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
     public final r<? extends Map<C, V>> factory;
     public transient Map<R, Map<C, V>> rowMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c extends Maps.y<R, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final C f33307h;
+        public final C f33417h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33308i;
+        public final /* synthetic */ StandardTable f33418i;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends Sets.c<Map.Entry<R, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f33309e;
+            public final /* synthetic */ c f33419e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33309e = cVar;
+                this.f33419e = cVar;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
             public void clear() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f33309e.d(Predicates.b());
+                    this.f33419e.d(Predicates.b());
                 }
             }
 
@@ -91,7 +91,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                     if (obj instanceof Map.Entry) {
                         Map.Entry entry = (Map.Entry) obj;
-                        return this.f33309e.f33308i.containsMapping(entry.getKey(), this.f33309e.f33307h, entry.getValue());
+                        return this.f33419e.f33418i.containsMapping(entry.getKey(), this.f33419e.f33417h, entry.getValue());
                     }
                     return false;
                 }
@@ -103,8 +103,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    c cVar = this.f33309e;
-                    return !cVar.f33308i.containsColumn(cVar.f33307h);
+                    c cVar = this.f33419e;
+                    return !cVar.f33418i.containsColumn(cVar.f33417h);
                 }
                 return invokeV.booleanValue;
             }
@@ -113,7 +113,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public Iterator<Map.Entry<R, V>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new b(this.f33309e, null) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new b(this.f33419e, null) : (Iterator) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -123,7 +123,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
                     if (obj instanceof Map.Entry) {
                         Map.Entry entry = (Map.Entry) obj;
-                        return this.f33309e.f33308i.removeMapping(entry.getKey(), this.f33309e.f33307h, entry.getValue());
+                        return this.f33419e.f33418i.removeMapping(entry.getKey(), this.f33419e.f33417h, entry.getValue());
                     }
                     return false;
                 }
@@ -134,7 +134,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public boolean retainAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) ? this.f33309e.d(Predicates.j(Predicates.g(collection))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) ? this.f33419e.d(Predicates.j(Predicates.g(collection))) : invokeL.booleanValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -143,8 +143,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                     int i2 = 0;
-                    for (Map<C, V> map : this.f33309e.f33308i.backingMap.values()) {
-                        if (map.containsKey(this.f33309e.f33307h)) {
+                    for (Map<C, V> map : this.f33419e.f33418i.backingMap.values()) {
+                        if (map.containsKey(this.f33419e.f33417h)) {
                             i2++;
                         }
                     }
@@ -159,13 +159,13 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         }
 
         /* renamed from: com.google.common.collect.StandardTable$c$c  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class C0388c extends Maps.q<R, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f33314f;
+            public final /* synthetic */ c f33424f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public C0388c(c cVar) {
@@ -185,7 +185,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33314f = cVar;
+                this.f33424f = cVar;
             }
 
             @Override // com.google.common.collect.Maps.q, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -193,8 +193,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                    c cVar = this.f33314f;
-                    return cVar.f33308i.contains(obj, cVar.f33307h);
+                    c cVar = this.f33424f;
+                    return cVar.f33418i.contains(obj, cVar.f33417h);
                 }
                 return invokeL.booleanValue;
             }
@@ -204,8 +204,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                    c cVar = this.f33314f;
-                    return cVar.f33308i.remove(obj, cVar.f33307h) != null;
+                    c cVar = this.f33424f;
+                    return cVar.f33418i.remove(obj, cVar.f33417h) != null;
                 }
                 return invokeL.booleanValue;
             }
@@ -214,17 +214,17 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public boolean retainAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f33314f.d(Maps.q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f33424f.d(Maps.q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class d extends Maps.x<R, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f33315f;
+            public final /* synthetic */ c f33425f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public d(c cVar) {
@@ -244,28 +244,28 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33315f = cVar;
+                this.f33425f = cVar;
             }
 
             @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
             public boolean remove(Object obj) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && this.f33315f.d(Maps.Q(Predicates.f(obj))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && this.f33425f.d(Maps.Q(Predicates.f(obj))) : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
             public boolean removeAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? this.f33315f.d(Maps.Q(Predicates.g(collection))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) ? this.f33425f.d(Maps.Q(Predicates.g(collection))) : invokeL.booleanValue;
             }
 
             @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
             public boolean retainAll(Collection<?> collection) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f33315f.d(Maps.Q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) ? this.f33425f.d(Maps.Q(Predicates.j(Predicates.g(collection)))) : invokeL.booleanValue;
             }
         }
 
@@ -284,9 +284,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33308i = standardTable;
+            this.f33418i = standardTable;
             n.p(c2);
-            this.f33307h = c2;
+            this.f33417h = c2;
         }
 
         @Override // com.google.common.collect.Maps.y
@@ -314,21 +314,21 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f33308i.contains(obj, this.f33307h) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? this.f33418i.contains(obj, this.f33417h) : invokeL.booleanValue;
         }
 
         public boolean d(o<? super Map.Entry<R, V>> oVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, oVar)) == null) {
-                Iterator<Map.Entry<R, Map<C, V>>> it = this.f33308i.backingMap.entrySet().iterator();
+                Iterator<Map.Entry<R, Map<C, V>>> it = this.f33418i.backingMap.entrySet().iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     Map.Entry<R, Map<C, V>> next = it.next();
                     Map<C, V> value = next.getValue();
-                    V v = value.get(this.f33307h);
+                    V v = value.get(this.f33417h);
                     if (v != null && oVar.apply(Maps.l(next.getKey(), v))) {
-                        value.remove(this.f33307h);
+                        value.remove(this.f33417h);
                         z = true;
                         if (value.isEmpty()) {
                             it.remove();
@@ -344,44 +344,44 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public V get(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? (V) this.f33308i.get(obj, this.f33307h) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? (V) this.f33418i.get(obj, this.f33417h) : (V) invokeL.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V put(R r, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, r, v)) == null) ? (V) this.f33308i.put(r, this.f33307h, v) : (V) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, r, v)) == null) ? (V) this.f33418i.put(r, this.f33417h, v) : (V) invokeLL.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V remove(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (V) this.f33308i.remove(obj, this.f33307h) : (V) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (V) this.f33418i.remove(obj, this.f33417h) : (V) invokeL.objValue;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class b extends AbstractIterator<Map.Entry<R, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<Map.Entry<R, Map<C, V>>> f33310g;
+            public final Iterator<Map.Entry<R, Map<C, V>>> f33420g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ c f33311h;
+            public final /* synthetic */ c f33421h;
 
-            /* loaded from: classes7.dex */
+            /* loaded from: classes6.dex */
             public class a extends d.f.d.c.b<R, V> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f33312e;
+                public final /* synthetic */ Map.Entry f33422e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ b f33313f;
+                public final /* synthetic */ b f33423f;
 
                 /* JADX DEBUG: Incorrect args count in method signature: ()V */
                 public a(b bVar, Map.Entry entry) {
@@ -399,22 +399,22 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                             return;
                         }
                     }
-                    this.f33313f = bVar;
-                    this.f33312e = entry;
+                    this.f33423f = bVar;
+                    this.f33422e = entry;
                 }
 
                 @Override // d.f.d.c.b, java.util.Map.Entry
                 public R getKey() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (R) this.f33312e.getKey() : (R) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (R) this.f33422e.getKey() : (R) invokeV.objValue;
                 }
 
                 @Override // d.f.d.c.b, java.util.Map.Entry
                 public V getValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (V) ((Map) this.f33312e.getValue()).get(this.f33313f.f33311h.f33307h) : (V) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (V) ((Map) this.f33422e.getValue()).get(this.f33423f.f33421h.f33417h) : (V) invokeV.objValue;
                 }
 
                 @Override // d.f.d.c.b, java.util.Map.Entry
@@ -422,9 +422,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v)) == null) {
-                        C c2 = this.f33313f.f33311h.f33307h;
+                        C c2 = this.f33423f.f33421h.f33417h;
                         n.p(v);
-                        return (V) ((Map) this.f33312e.getValue()).put(c2, v);
+                        return (V) ((Map) this.f33422e.getValue()).put(c2, v);
                     }
                     return (V) invokeL.objValue;
                 }
@@ -445,8 +445,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33311h = cVar;
-                this.f33310g = this.f33311h.f33308i.backingMap.entrySet().iterator();
+                this.f33421h = cVar;
+                this.f33420g = this.f33421h.f33418i.backingMap.entrySet().iterator();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -456,9 +456,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    while (this.f33310g.hasNext()) {
-                        Map.Entry<R, Map<C, V>> next = this.f33310g.next();
-                        if (next.getValue().containsKey(this.f33311h.f33307h)) {
+                    while (this.f33420g.hasNext()) {
+                        Map.Entry<R, Map<C, V>> next = this.f33420g.next();
+                        if (next.getValue().containsKey(this.f33421h.f33417h)) {
                             return new a(this, next);
                         }
                     }
@@ -473,13 +473,13 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class e extends StandardTable<R, C, V>.i<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33319f;
+        public final /* synthetic */ StandardTable f33429f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(StandardTable standardTable) {
@@ -500,21 +500,21 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33319f = standardTable;
+            this.f33429f = standardTable;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f33319f.containsColumn(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f33429f.containsColumn(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<C> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33319f.createColumnKeyIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33429f.createColumnKeyIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -526,7 +526,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (obj == null) {
                     return false;
                 }
-                Iterator<Map<C, V>> it = this.f33319f.backingMap.values().iterator();
+                Iterator<Map<C, V>> it = this.f33429f.backingMap.values().iterator();
                 while (it.hasNext()) {
                     Map<C, V> next = it.next();
                     if (next.keySet().remove(obj)) {
@@ -547,7 +547,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
                 n.p(collection);
-                Iterator<Map<C, V>> it = this.f33319f.backingMap.values().iterator();
+                Iterator<Map<C, V>> it = this.f33429f.backingMap.values().iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     Map<C, V> next = it.next();
@@ -569,7 +569,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
                 n.p(collection);
-                Iterator<Map<C, V>> it = this.f33319f.backingMap.values().iterator();
+                Iterator<Map<C, V>> it = this.f33429f.backingMap.values().iterator();
                 boolean z = false;
                 while (it.hasNext()) {
                     Map<C, V> next = it.next();
@@ -597,30 +597,30 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class f extends Maps.y<C, Map<R, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33320h;
+        public final /* synthetic */ StandardTable f33430h;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends StandardTable<R, C, V>.i<Map.Entry<C, Map<R, V>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ f f33321f;
+            public final /* synthetic */ f f33431f;
 
             /* renamed from: com.google.common.collect.StandardTable$f$a$a  reason: collision with other inner class name */
-            /* loaded from: classes7.dex */
+            /* loaded from: classes6.dex */
             public class C0389a implements d.f.d.a.g<C, Map<R, V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f33322e;
+                public final /* synthetic */ a f33432e;
 
                 public C0389a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -637,7 +637,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                             return;
                         }
                     }
-                    this.f33322e = aVar;
+                    this.f33432e = aVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -646,13 +646,13 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 public Map<R, V> apply(C c2) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c2)) == null) ? this.f33322e.f33321f.f33320h.column(c2) : (Map) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c2)) == null) ? this.f33432e.f33431f.f33430h.column(c2) : (Map) invokeL.objValue;
                 }
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(f fVar) {
-                super(fVar.f33320h, null);
+                super(fVar.f33430h, null);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -669,7 +669,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33321f = fVar;
+                this.f33431f = fVar;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -679,8 +679,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                     if (obj instanceof Map.Entry) {
                         Map.Entry entry = (Map.Entry) obj;
-                        if (this.f33321f.f33320h.containsColumn(entry.getKey())) {
-                            return this.f33321f.get(entry.getKey()).equals(entry.getValue());
+                        if (this.f33431f.f33430h.containsColumn(entry.getKey())) {
+                            return this.f33431f.get(entry.getKey()).equals(entry.getValue());
                         }
                         return false;
                     }
@@ -693,7 +693,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public Iterator<Map.Entry<C, Map<R, V>>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f33321f.f33320h.columnKeySet(), new C0389a(this)) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f33431f.f33430h.columnKeySet(), new C0389a(this)) : (Iterator) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -702,7 +702,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                     if (contains(obj)) {
-                        this.f33321f.f33320h.removeColumn(((Map.Entry) obj).getKey());
+                        this.f33431f.f33430h.removeColumn(((Map.Entry) obj).getKey());
                         return true;
                     }
                     return false;
@@ -729,12 +729,12 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
                     n.p(collection);
-                    Iterator it = Lists.k(this.f33321f.f33320h.columnKeySet().iterator()).iterator();
+                    Iterator it = Lists.k(this.f33431f.f33430h.columnKeySet().iterator()).iterator();
                     boolean z = false;
                     while (it.hasNext()) {
                         Object next = it.next();
-                        if (!collection.contains(Maps.l(next, this.f33321f.f33320h.column(next)))) {
-                            this.f33321f.f33320h.removeColumn(next);
+                        if (!collection.contains(Maps.l(next, this.f33431f.f33430h.column(next)))) {
+                            this.f33431f.f33430h.removeColumn(next);
                             z = true;
                         }
                     }
@@ -747,17 +747,17 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public int size() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33321f.f33320h.columnKeySet().size() : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33431f.f33430h.columnKeySet().size() : invokeV.intValue;
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class b extends Maps.x<C, Map<R, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ f f33323f;
+            public final /* synthetic */ f f33433f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(f fVar) {
@@ -777,7 +777,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33323f = fVar;
+                this.f33433f = fVar;
             }
 
             @Override // com.google.common.collect.Maps.x, java.util.AbstractCollection, java.util.Collection
@@ -785,9 +785,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                    for (Map.Entry<C, Map<R, V>> entry : this.f33323f.entrySet()) {
+                    for (Map.Entry<C, Map<R, V>> entry : this.f33433f.entrySet()) {
                         if (entry.getValue().equals(obj)) {
-                            this.f33323f.f33320h.removeColumn(entry.getKey());
+                            this.f33433f.f33430h.removeColumn(entry.getKey());
                             return true;
                         }
                     }
@@ -804,12 +804,12 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
                     n.p(collection);
-                    Iterator it = Lists.k(this.f33323f.f33320h.columnKeySet().iterator()).iterator();
+                    Iterator it = Lists.k(this.f33433f.f33430h.columnKeySet().iterator()).iterator();
                     boolean z = false;
                     while (it.hasNext()) {
                         Object next = it.next();
-                        if (collection.contains(this.f33323f.f33320h.column(next))) {
-                            this.f33323f.f33320h.removeColumn(next);
+                        if (collection.contains(this.f33433f.f33430h.column(next))) {
+                            this.f33433f.f33430h.removeColumn(next);
                             z = true;
                         }
                     }
@@ -826,12 +826,12 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
                     n.p(collection);
-                    Iterator it = Lists.k(this.f33323f.f33320h.columnKeySet().iterator()).iterator();
+                    Iterator it = Lists.k(this.f33433f.f33430h.columnKeySet().iterator()).iterator();
                     boolean z = false;
                     while (it.hasNext()) {
                         Object next = it.next();
-                        if (!collection.contains(this.f33323f.f33320h.column(next))) {
-                            this.f33323f.f33320h.removeColumn(next);
+                        if (!collection.contains(this.f33433f.f33430h.column(next))) {
+                            this.f33433f.f33430h.removeColumn(next);
                             z = true;
                         }
                     }
@@ -856,7 +856,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33320h = standardTable;
+            this.f33430h = standardTable;
         }
 
         @Override // com.google.common.collect.Maps.y
@@ -877,7 +877,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f33320h.containsColumn(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? this.f33430h.containsColumn(obj) : invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -887,8 +887,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-                if (this.f33320h.containsColumn(obj)) {
-                    return this.f33320h.column(obj);
+                if (this.f33430h.containsColumn(obj)) {
+                    return this.f33430h.column(obj);
                 }
                 return null;
             }
@@ -902,8 +902,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                if (this.f33320h.containsColumn(obj)) {
-                    return this.f33320h.removeColumn(obj);
+                if (this.f33430h.containsColumn(obj)) {
+                    return this.f33430h.removeColumn(obj);
                 }
                 return null;
             }
@@ -914,7 +914,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public Set<C> keySet() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33320h.columnKeySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33430h.columnKeySet() : (Set) invokeV.objValue;
         }
 
         public /* synthetic */ f(StandardTable standardTable, a aVar) {
@@ -922,30 +922,30 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class g extends Maps.p<C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final R f33324e;
+        public final R f33434e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map<C, V> f33325f;
+        public Map<C, V> f33435f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33326g;
+        public final /* synthetic */ StandardTable f33436g;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a implements Iterator<Map.Entry<C, V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Iterator f33327e;
+            public final /* synthetic */ Iterator f33437e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g f33328f;
+            public final /* synthetic */ g f33438f;
 
             public a(g gVar, Iterator it) {
                 Interceptable interceptable = $ic;
@@ -962,8 +962,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33328f = gVar;
-                this.f33327e = it;
+                this.f33438f = gVar;
+                this.f33437e = it;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -972,33 +972,33 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public Map.Entry<C, V> next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33328f.e((Map.Entry) this.f33327e.next()) : (Map.Entry) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33438f.e((Map.Entry) this.f33437e.next()) : (Map.Entry) invokeV.objValue;
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33327e.hasNext() : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33437e.hasNext() : invokeV.booleanValue;
             }
 
             @Override // java.util.Iterator
             public void remove() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    this.f33327e.remove();
-                    this.f33328f.d();
+                    this.f33437e.remove();
+                    this.f33438f.d();
                 }
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class b extends e0<C, V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Map.Entry f33329e;
+            public final /* synthetic */ Map.Entry f33439e;
 
             public b(g gVar, Map.Entry entry) {
                 Interceptable interceptable = $ic;
@@ -1015,7 +1015,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33329e = entry;
+                this.f33439e = entry;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1024,7 +1024,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public Map.Entry<C, V> delegate() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33329e : (Map.Entry) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33439e : (Map.Entry) invokeV.objValue;
             }
 
             @Override // d.f.d.c.e0, java.util.Map.Entry
@@ -1061,9 +1061,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33326g = standardTable;
+            this.f33436g = standardTable;
             n.p(r);
-            this.f33324e = r;
+            this.f33434e = r;
         }
 
         @Override // com.google.common.collect.Maps.p
@@ -1084,13 +1084,13 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<C, V> map = this.f33325f;
-                if (map == null || (map.isEmpty() && this.f33326g.backingMap.containsKey(this.f33324e))) {
+                Map<C, V> map = this.f33435f;
+                if (map == null || (map.isEmpty() && this.f33436g.backingMap.containsKey(this.f33434e))) {
                     Map<C, V> c2 = c();
-                    this.f33325f = c2;
+                    this.f33435f = c2;
                     return c2;
                 }
-                return this.f33325f;
+                return this.f33435f;
             }
             return (Map) invokeV.objValue;
         }
@@ -1098,7 +1098,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public Map<C, V> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33326g.backingMap.get(this.f33324e) : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33436g.backingMap.get(this.f33434e) : (Map) invokeV.objValue;
         }
 
         @Override // com.google.common.collect.Maps.p, java.util.AbstractMap, java.util.Map
@@ -1126,9 +1126,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
 
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && b() != null && this.f33325f.isEmpty()) {
-                this.f33326g.backingMap.remove(this.f33324e);
-                this.f33325f = null;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && b() != null && this.f33435f.isEmpty()) {
+                this.f33436g.backingMap.remove(this.f33434e);
+                this.f33435f = null;
             }
         }
 
@@ -1159,11 +1159,11 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c2, v)) == null) {
                 n.p(c2);
                 n.p(v);
-                Map<C, V> map = this.f33325f;
+                Map<C, V> map = this.f33435f;
                 if (map != null && !map.isEmpty()) {
-                    return this.f33325f.put(c2, v);
+                    return this.f33435f.put(c2, v);
                 }
-                return (V) this.f33326g.put(this.f33324e, c2, v);
+                return (V) this.f33436g.put(this.f33434e, c2, v);
             }
             return (V) invokeLL.objValue;
         }
@@ -1199,30 +1199,30 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class h extends Maps.y<R, Map<C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33330h;
+        public final /* synthetic */ StandardTable f33440h;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends StandardTable<R, C, V>.i<Map.Entry<R, Map<C, V>>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f33331f;
+            public final /* synthetic */ h f33441f;
 
             /* renamed from: com.google.common.collect.StandardTable$h$a$a  reason: collision with other inner class name */
-            /* loaded from: classes7.dex */
+            /* loaded from: classes6.dex */
             public class C0390a implements d.f.d.a.g<R, Map<C, V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f33332e;
+                public final /* synthetic */ a f33442e;
 
                 public C0390a(a aVar) {
                     Interceptable interceptable = $ic;
@@ -1239,7 +1239,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                             return;
                         }
                     }
-                    this.f33332e = aVar;
+                    this.f33442e = aVar;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1248,13 +1248,13 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 public Map<C, V> apply(R r) {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r)) == null) ? this.f33332e.f33331f.f33330h.row(r) : (Map) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r)) == null) ? this.f33442e.f33441f.f33440h.row(r) : (Map) invokeL.objValue;
                 }
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(h hVar) {
-                super(hVar.f33330h, null);
+                super(hVar.f33440h, null);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1271,7 +1271,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                         return;
                     }
                 }
-                this.f33331f = hVar;
+                this.f33441f = hVar;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1281,7 +1281,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                     if (obj instanceof Map.Entry) {
                         Map.Entry entry = (Map.Entry) obj;
-                        return entry.getKey() != null && (entry.getValue() instanceof Map) && d.f.d.c.n.e(this.f33331f.f33330h.backingMap.entrySet(), entry);
+                        return entry.getKey() != null && (entry.getValue() instanceof Map) && d.f.d.c.n.e(this.f33441f.f33440h.backingMap.entrySet(), entry);
                     }
                     return false;
                 }
@@ -1292,7 +1292,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public Iterator<Map.Entry<R, Map<C, V>>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f33331f.f33330h.backingMap.keySet(), new C0390a(this)) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f33441f.f33440h.backingMap.keySet(), new C0390a(this)) : (Iterator) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1302,7 +1302,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                     if (obj instanceof Map.Entry) {
                         Map.Entry entry = (Map.Entry) obj;
-                        return entry.getKey() != null && (entry.getValue() instanceof Map) && this.f33331f.f33330h.backingMap.entrySet().remove(entry);
+                        return entry.getKey() != null && (entry.getValue() instanceof Map) && this.f33441f.f33440h.backingMap.entrySet().remove(entry);
                     }
                     return false;
                 }
@@ -1313,7 +1313,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             public int size() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33331f.f33330h.backingMap.size() : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33441f.f33440h.backingMap.size() : invokeV.intValue;
             }
         }
 
@@ -1332,7 +1332,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33330h = standardTable;
+            this.f33440h = standardTable;
         }
 
         @Override // com.google.common.collect.Maps.y
@@ -1346,7 +1346,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public boolean containsKey(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f33330h.containsRow(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f33440h.containsRow(obj) : invokeL.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1356,8 +1356,8 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this.f33330h.containsRow(obj)) {
-                    return this.f33330h.row(obj);
+                if (this.f33440h.containsRow(obj)) {
+                    return this.f33440h.row(obj);
                 }
                 return null;
             }
@@ -1374,19 +1374,19 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 if (obj == null) {
                     return null;
                 }
-                return this.f33330h.backingMap.remove(obj);
+                return this.f33440h.backingMap.remove(obj);
             }
             return (Map) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public abstract class i<T> extends Sets.c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33333e;
+        public final /* synthetic */ StandardTable f33443e;
 
         public i(StandardTable standardTable) {
             Interceptable interceptable = $ic;
@@ -1403,14 +1403,14 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33333e = standardTable;
+            this.f33443e = standardTable;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33333e.backingMap.clear();
+                this.f33443e.backingMap.clear();
             }
         }
 
@@ -1418,7 +1418,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public boolean isEmpty() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33333e.backingMap.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33443e.backingMap.isEmpty() : invokeV.booleanValue;
         }
 
         public /* synthetic */ i(StandardTable standardTable, a aVar) {
@@ -1449,7 +1449,7 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
     public boolean containsMapping(Object obj, Object obj2, Object obj3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, obj, obj2, obj3)) == null) ? obj3 != null && obj3.equals(get(obj, obj2)) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, obj, obj2, obj3)) == null) ? obj3 != null && obj3.equals(get(obj, obj2)) : invokeLLL.booleanValue;
     }
 
     private Map<C, V> getOrCreate(R r) {
@@ -1717,22 +1717,22 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? super.values() : (Collection) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements Iterator<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<Map.Entry<R, Map<C, V>>> f33303e;
+        public final Iterator<Map.Entry<R, Map<C, V>>> f33413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Map.Entry<R, Map<C, V>> f33304f;
+        public Map.Entry<R, Map<C, V>> f33414f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<Map.Entry<C, V>> f33305g;
+        public Iterator<Map.Entry<C, V>> f33415g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ StandardTable f33306h;
+        public final /* synthetic */ StandardTable f33416h;
 
         public b(StandardTable standardTable) {
             Interceptable interceptable = $ic;
@@ -1749,9 +1749,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                     return;
                 }
             }
-            this.f33306h = standardTable;
-            this.f33303e = this.f33306h.backingMap.entrySet().iterator();
-            this.f33305g = Iterators.k();
+            this.f33416h = standardTable;
+            this.f33413e = this.f33416h.backingMap.entrySet().iterator();
+            this.f33415g = Iterators.k();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1761,13 +1761,13 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!this.f33305g.hasNext()) {
-                    Map.Entry<R, Map<C, V>> next = this.f33303e.next();
-                    this.f33304f = next;
-                    this.f33305g = next.getValue().entrySet().iterator();
+                if (!this.f33415g.hasNext()) {
+                    Map.Entry<R, Map<C, V>> next = this.f33413e.next();
+                    this.f33414f = next;
+                    this.f33415g = next.getValue().entrySet().iterator();
                 }
-                Map.Entry<C, V> next2 = this.f33305g.next();
-                return Tables.c(this.f33304f.getKey(), next2.getKey(), next2.getValue());
+                Map.Entry<C, V> next2 = this.f33415g.next();
+                return Tables.c(this.f33414f.getKey(), next2.getKey(), next2.getValue());
             }
             return (k1.a) invokeV.objValue;
         }
@@ -1776,17 +1776,17 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33303e.hasNext() || this.f33305g.hasNext() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33413e.hasNext() || this.f33415g.hasNext() : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f33305g.remove();
-                if (this.f33304f.getValue().isEmpty()) {
-                    this.f33303e.remove();
-                    this.f33304f = null;
+                this.f33415g.remove();
+                if (this.f33414f.getValue().isEmpty()) {
+                    this.f33413e.remove();
+                    this.f33414f = null;
                 }
             }
         }
@@ -1796,19 +1796,19 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class d extends AbstractIterator<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Map<C, V> f33316g;
+        public final Map<C, V> f33426g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final Iterator<Map<C, V>> f33317h;
+        public final Iterator<Map<C, V>> f33427h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Iterator<Map.Entry<C, V>> f33318i;
+        public Iterator<Map.Entry<C, V>> f33428i;
         public final /* synthetic */ StandardTable j;
 
         public d(StandardTable standardTable) {
@@ -1827,9 +1827,9 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 }
             }
             this.j = standardTable;
-            this.f33316g = this.j.factory.get();
-            this.f33317h = this.j.backingMap.values().iterator();
-            this.f33318i = Iterators.i();
+            this.f33426g = this.j.factory.get();
+            this.f33427h = this.j.backingMap.values().iterator();
+            this.f33428i = Iterators.i();
         }
 
         @Override // com.google.common.collect.AbstractIterator
@@ -1840,14 +1840,14 @@ public class StandardTable<R, C, V> extends d.f.d.c.i<R, C, V> implements Serial
                 return (C) invokeV.objValue;
             }
             while (true) {
-                if (this.f33318i.hasNext()) {
-                    Map.Entry<C, V> next = this.f33318i.next();
-                    if (!this.f33316g.containsKey(next.getKey())) {
-                        this.f33316g.put(next.getKey(), next.getValue());
+                if (this.f33428i.hasNext()) {
+                    Map.Entry<C, V> next = this.f33428i.next();
+                    if (!this.f33426g.containsKey(next.getKey())) {
+                        this.f33426g.put(next.getKey(), next.getValue());
                         return next.getKey();
                     }
-                } else if (this.f33317h.hasNext()) {
-                    this.f33318i = this.f33317h.next().entrySet().iterator();
+                } else if (this.f33427h.hasNext()) {
+                    this.f33428i = this.f33427h.next().entrySet().iterator();
                 } else {
                     return b();
                 }

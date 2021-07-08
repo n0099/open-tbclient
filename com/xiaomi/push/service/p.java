@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Looper;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,12 +16,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Pair<String, byte[]>> f43686a;
+    public static ArrayList<Pair<String, byte[]>> f40700a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Map<String, byte[]> f968a;
@@ -40,7 +41,7 @@ public class p {
             }
         }
         f968a = new HashMap();
-        f43686a = new ArrayList<>();
+        f40700a = new ArrayList<>();
     }
 
     public static void a(Context context, int i2, String str) {
@@ -86,7 +87,7 @@ public class p {
 
     public static void a(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr) == null) {
             synchronized (f968a) {
                 f968a.put(str, bArr);
             }
@@ -98,9 +99,9 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, xMPushService) == null) {
             try {
-                synchronized (f43686a) {
-                    arrayList = f43686a;
-                    f43686a = new ArrayList<>();
+                synchronized (f40700a) {
+                    arrayList = f40700a;
+                    f40700a = new ArrayList<>();
                 }
                 boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
                 Iterator<Pair<String, byte[]>> it = arrayList.iterator();
@@ -124,10 +125,10 @@ public class p {
     public static void b(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr) == null) {
-            synchronized (f43686a) {
-                f43686a.add(new Pair<>(str, bArr));
-                if (f43686a.size() > 50) {
-                    f43686a.remove(0);
+            synchronized (f40700a) {
+                f40700a.add(new Pair<>(str, bArr));
+                if (f40700a.size() > 50) {
+                    f40700a.remove(0);
                 }
             }
         }

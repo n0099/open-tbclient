@@ -20,23 +20,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.w2.i0.g;
+import d.a.p0.w2.i0.g;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SplashAdView extends BCAdView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.s0.t.a.f.b q;
+    public d.a.p0.t.a.f.b q;
     public boolean r;
     public ScalableVideoView s;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f13865e;
+        public final /* synthetic */ SplashAdView f13904e;
 
         public a(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -53,25 +53,25 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f13865e = splashAdView;
+            this.f13904e = splashAdView;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f13865e.s.g();
+                this.f13904e.s.g();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements MediaPlayer.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f13866e;
+        public final /* synthetic */ SplashAdView f13905e;
 
         public b(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f13866e = splashAdView;
+            this.f13905e = splashAdView;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -96,9 +96,9 @@ public class SplashAdView extends BCAdView {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                d.a.s0.t.a.j.a.a();
-                this.f13866e.q.f65483d = "";
-                d.a.s0.t.a.j.a.h(this.f13866e.q);
+                d.a.p0.t.a.j.a.a();
+                this.f13905e.q.f62264d = "";
+                d.a.p0.t.a.j.a.h(this.f13905e.q);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
                 return false;
             }
@@ -106,13 +106,13 @@ public class SplashAdView extends BCAdView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f13867e;
+        public final /* synthetic */ SplashAdView f13906e;
 
         public c(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f13867e = splashAdView;
+            this.f13906e = splashAdView;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
@@ -141,13 +141,13 @@ public class SplashAdView extends BCAdView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f13868e;
+        public final /* synthetic */ SplashAdView f13907e;
 
         public d(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -164,35 +164,35 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f13868e = splashAdView;
+            this.f13907e = splashAdView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || d.a.s0.t.a.j.a.f()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || d.a.p0.t.a.j.a.f()) {
                 return;
             }
-            AdInfo adInfo = this.f13868e.j;
+            AdInfo adInfo = this.f13907e.j;
             if (adInfo.advisible != 0) {
-                d.a.s0.w2.i0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
+                d.a.p0.w2.i0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
             }
-            SplashAdView splashAdView = this.f13868e;
-            if (splashAdView.f13856e == null || TextUtils.isEmpty(splashAdView.q.f65484e)) {
+            SplashAdView splashAdView = this.f13907e;
+            if (splashAdView.f13895e == null || TextUtils.isEmpty(splashAdView.q.f62265e)) {
                 return;
             }
-            SplashAdView splashAdView2 = this.f13868e;
-            splashAdView2.f13856e.a(splashAdView2.q.f65484e);
+            SplashAdView splashAdView2 = this.f13907e;
+            splashAdView2.f13895e.a(splashAdView2.q.f62265e);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SplashAdView f13869e;
+        public final /* synthetic */ SplashAdView f13908e;
 
         public e(SplashAdView splashAdView) {
             Interceptable interceptable = $ic;
@@ -209,25 +209,25 @@ public class SplashAdView extends BCAdView {
                     return;
                 }
             }
-            this.f13869e = splashAdView;
+            this.f13908e = splashAdView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || d.a.s0.t.a.j.a.f()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || d.a.p0.t.a.j.a.f()) {
                 return;
             }
-            AdInfo adInfo = this.f13869e.j;
+            AdInfo adInfo = this.f13908e.j;
             if (adInfo.advisible != 0) {
-                d.a.s0.w2.i0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
+                d.a.p0.w2.i0.e.b().d(g.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
             }
-            SplashAdView splashAdView = this.f13869e;
-            if (splashAdView.f13856e == null || TextUtils.isEmpty(splashAdView.q.f65481b)) {
+            SplashAdView splashAdView = this.f13908e;
+            if (splashAdView.f13895e == null || TextUtils.isEmpty(splashAdView.q.f62262b)) {
                 return;
             }
-            SplashAdView splashAdView2 = this.f13869e;
-            splashAdView2.f13856e.a(splashAdView2.q.f65481b);
+            SplashAdView splashAdView2 = this.f13908e;
+            splashAdView2.f13895e.a(splashAdView2.q.f62262b);
         }
     }
 
@@ -250,7 +250,7 @@ public class SplashAdView extends BCAdView {
                 return;
             }
         }
-        this.p = new d.a.s0.t.a.f.c(tbPageContext.getPageActivity());
+        this.p = new d.a.p0.t.a.f.c(tbPageContext.getPageActivity());
         this.j = new AdInfo();
     }
 
@@ -264,19 +264,19 @@ public class SplashAdView extends BCAdView {
             String str = this.l;
             jsonToObject.placeId = str;
             if (jsonToObject.advisible == 0) {
-                d.a.s0.w2.i0.e.b().d(g.j(jsonToObject.extraParam, 3, str));
+                d.a.p0.w2.i0.e.b().d(g.j(jsonToObject.extraParam, 3, str));
             }
-            d.a.s0.t.a.f.b b2 = d.a.s0.t.a.f.b.b(d.a.s0.t.a.j.a.d());
+            d.a.p0.t.a.f.b b2 = d.a.p0.t.a.f.b.b(d.a.p0.t.a.j.a.d());
             this.q = b2;
             if (b2.c()) {
                 if (this.q.d()) {
                     this.r = true;
-                    String str2 = this.q.f65483d;
+                    String str2 = this.q.f62264d;
                     File file = new File(str2);
                     if (file.exists()) {
-                        d.a.s0.t.a.j.a.b(file);
+                        d.a.p0.t.a.j.a.b(file);
                         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.n, this.m);
-                        ScalableVideoView scalableVideoView = new ScalableVideoView(this.f13860i);
+                        ScalableVideoView scalableVideoView = new ScalableVideoView(this.f13899i);
                         this.s = scalableVideoView;
                         scalableVideoView.setScalableType(ScalableType.CENTER_CROP);
                         try {
@@ -288,41 +288,41 @@ public class SplashAdView extends BCAdView {
                             this.s.setOnClickListener(new d(this));
                             addView(this.s, layoutParams);
                             AdInfo adInfo = this.j;
-                            d.a.s0.w2.i0.e.b().d(g.k(adInfo.extraParam, 3, adInfo.placeId, "video"));
+                            d.a.p0.w2.i0.e.b().d(g.k(adInfo.extraParam, 3, adInfo.placeId, "video"));
                             return true;
                         } catch (Exception e2) {
                             e2.printStackTrace();
-                            d.a.s0.t.a.j.a.a();
-                            d.a.s0.t.a.f.b bVar = this.q;
-                            bVar.f65483d = "";
-                            d.a.s0.t.a.j.a.h(bVar);
+                            d.a.p0.t.a.j.a.a();
+                            d.a.p0.t.a.f.b bVar = this.q;
+                            bVar.f62264d = "";
+                            d.a.p0.t.a.j.a.h(bVar);
                             return false;
                         }
                     }
-                    d.a.s0.t.a.j.a.a();
-                    d.a.s0.t.a.f.b bVar2 = this.q;
-                    bVar2.f65483d = "";
-                    d.a.s0.t.a.j.a.h(bVar2);
+                    d.a.p0.t.a.j.a.a();
+                    d.a.p0.t.a.f.b bVar2 = this.q;
+                    bVar2.f62264d = "";
+                    d.a.p0.t.a.j.a.h(bVar2);
                     return false;
-                } else if (!TextUtils.isEmpty(this.q.f65480a)) {
-                    if (this.f13858g != null) {
-                        this.f13858g = null;
+                } else if (!TextUtils.isEmpty(this.q.f62261a)) {
+                    if (this.f13897g != null) {
+                        this.f13897g = null;
                     }
-                    TbImageView tbImageView = new TbImageView(this.f13860i);
-                    this.f13858g = tbImageView;
+                    TbImageView tbImageView = new TbImageView(this.f13899i);
+                    this.f13897g = tbImageView;
                     tbImageView.setOnClickListener(new e(this));
-                    this.f13858g.M(this.j.adImgUrl, 10, false);
-                    this.f13858g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    addView(this.f13858g, new RelativeLayout.LayoutParams(this.n, this.m));
+                    this.f13897g.M(this.j.adImgUrl, 10, false);
+                    this.f13897g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    addView(this.f13897g, new RelativeLayout.LayoutParams(this.n, this.m));
                     AdInfo adInfo2 = this.j;
-                    d.a.s0.w2.i0.e.b().d(g.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
+                    d.a.p0.w2.i0.e.b().d(g.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
                     return true;
                 } else {
-                    d.a.s0.t.a.j.a.a();
+                    d.a.p0.t.a.j.a.a();
                 }
             } else {
-                d.a.s0.t.a.j.a.c();
-                d.a.s0.t.a.j.a.a();
+                d.a.p0.t.a.j.a.c();
+                d.a.p0.t.a.j.a.a();
             }
             return false;
         }
@@ -346,10 +346,10 @@ public class SplashAdView extends BCAdView {
         return (String) invokeV.objValue;
     }
 
-    public d.a.s0.t.a.f.b getEntryInfoData() {
+    public d.a.p0.t.a.f.b getEntryInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.q : (d.a.s0.t.a.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.q : (d.a.p0.t.a.f.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.advert.sdk.view.BCAdView, android.view.ViewGroup, android.view.View

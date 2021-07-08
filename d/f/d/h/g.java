@@ -12,13 +12,13 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.lang.reflect.WildcardType;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<Type> f73856a;
+    public final Set<Type> f70959a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public abstract class g {
                 return;
             }
         }
-        this.f73856a = Sets.f();
+        this.f70959a = Sets.f();
     }
 
     public final void a(Type... typeArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, typeArr) == null) {
             for (Type type : typeArr) {
-                if (type != null && this.f73856a.add(type)) {
+                if (type != null && this.f70959a.add(type)) {
                     try {
                         if (type instanceof TypeVariable) {
                             e((TypeVariable) type);
@@ -56,7 +56,7 @@ public abstract class g {
                             throw new AssertionError("Unknown type: " + type);
                         }
                     } catch (Throwable th) {
-                        this.f73856a.remove(type);
+                        this.f70959a.remove(type);
                         throw th;
                     }
                 }

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class i extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,10 +42,10 @@ public class i extends g {
     private void a(Set<File> set) {
         com.kwai.sodler.lib.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, set) == null) || (bVar = this.f39754f) == null || bVar.f39778h.size() <= 0 || set == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, set) == null) || (bVar = this.f36962f) == null || bVar.f36986h.size() <= 0 || set == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.f39754f.f39778h;
+        HashMap<String, String> hashMap = this.f36962f.f36986h;
         for (File file : set) {
             String f2 = com.kwai.sodler.lib.c.a.f(file);
             String str = hashMap.get(file.getName());
@@ -72,7 +72,7 @@ public class i extends g {
             a.b("Sodler.simple.SoLib", "Install plugin so libs, destDir = " + file2);
             HashSet hashSet = new HashSet();
             if (!file2.exists() || file2.list().length <= 0) {
-                File file3 = new File(file2.getParentFile(), this.f39751c.d());
+                File file3 = new File(file2.getParentFile(), this.f36959c.d());
                 com.kwai.sodler.lib.c.a.e(file3);
                 Set<String> a2 = com.kwai.sodler.lib.c.c.a(file, file3);
                 if (a2 != null) {
@@ -100,11 +100,11 @@ public class i extends g {
             a(file);
             try {
                 File b2 = b(file);
-                this.f39749a = b2;
+                this.f36957a = b2;
                 try {
                     a(a(context, file, b2));
                     synchronized (Runtime.getRuntime()) {
-                        com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f39749a);
+                        com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f36957a);
                     }
                     super.a(context, str);
                 } catch (IOException e2) {
@@ -120,7 +120,7 @@ public class i extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            File file2 = new File(file.getParentFile(), this.f39751c.c());
+            File file2 = new File(file.getParentFile(), this.f36959c.c());
             com.kwai.sodler.lib.c.a.e(file2);
             return file2;
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HomeApkBannerData extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3305476346070314287L;
@@ -36,14 +36,14 @@ public class HomeApkBannerData extends com.kwad.sdk.core.response.a.a implements
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adTemplate)) == null) {
-            if (adTemplate == null || !c.c(adTemplate)) {
+            if (adTemplate == null || !c.b(adTemplate)) {
                 return null;
             }
             HomeApkBannerData homeApkBannerData = new HomeApkBannerData();
             homeApkBannerData.mTimeStamp = System.currentTimeMillis();
             homeApkBannerData.mAdTemplateUniqueId = adTemplate.mUniqueId;
-            homeApkBannerData.mDownloadFilePath = c.j(adTemplate).downloadFilePath;
-            homeApkBannerData.appPackageName = com.kwad.sdk.core.response.b.a.s(c.j(adTemplate));
+            homeApkBannerData.mDownloadFilePath = c.i(adTemplate).downloadFilePath;
+            homeApkBannerData.appPackageName = com.kwad.sdk.core.response.b.a.q(c.i(adTemplate));
             return homeApkBannerData;
         }
         return (HomeApkBannerData) invokeL.objValue;

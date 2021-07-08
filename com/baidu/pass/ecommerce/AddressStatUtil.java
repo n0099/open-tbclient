@@ -1,5 +1,6 @@
 package com.baidu.pass.ecommerce;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressStatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AddressStatUtil";
@@ -62,7 +63,7 @@ public class AddressStatUtil {
 
     public static void statAddressOption(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65540, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
             commonParamsMap.put("time", "" + j);
             Log.d(TAG, "statAddressOption key=" + str + " time=" + j);

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f41278a;
+    public Handler f38292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f41279b;
+    public long f38293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f41280c;
+    public /* synthetic */ a f38294c;
 
     public e(a aVar, long j) {
         Interceptable interceptable = $ic;
@@ -37,22 +37,22 @@ public final class e implements Runnable {
                 return;
             }
         }
-        this.f41280c = aVar;
-        this.f41278a = new Handler(Looper.getMainLooper());
-        this.f41279b = j;
+        this.f38294c = aVar;
+        this.f38292a = new Handler(Looper.getMainLooper());
+        this.f38293b = j;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41278a.postDelayed(this, this.f41279b);
+            this.f38292a.postDelayed(this, this.f38293b);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f41278a.removeCallbacks(this);
+            this.f38292a.removeCallbacks(this);
         }
     }
 
@@ -64,15 +64,15 @@ public final class e implements Runnable {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fVar = this.f41280c.f41258f;
+            fVar = this.f38294c.f38272f;
             if (fVar != null) {
-                str = a.f41253a;
-                bool = a.f41254b;
+                str = a.f38267a;
+                bool = a.f38268b;
                 com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-                fVar2 = this.f41280c.f41258f;
+                fVar2 = this.f38294c.f38272f;
                 fVar2.a();
             }
-            this.f41280c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+            this.f38294c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
         }
     }
 }

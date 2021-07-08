@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f10277c;
+    public static String f10294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f10278d;
+    public static b f10295d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10279a;
+    public Context f10296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f10280b;
+    public a f10297b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class b {
                 return;
             }
         }
-        this.f10279a = context;
+        this.f10296a = context;
     }
 
     public static synchronized b a(Context context) {
@@ -49,12 +49,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (b.class) {
                 if (context == null) {
-                    return f10278d;
+                    return f10295d;
                 }
-                if (f10278d == null) {
-                    f10278d = new b(context);
+                if (f10295d == null) {
+                    f10295d = new b(context);
                 }
-                return f10278d;
+                return f10295d;
             }
         }
         return (b) invokeL.objValue;
@@ -66,7 +66,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                bVar = f10278d;
+                bVar = f10295d;
             }
             return bVar;
         }
@@ -83,13 +83,13 @@ public final class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ FaceProcessCallback f10281a;
+            public final /* synthetic */ FaceProcessCallback f10298a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f10282b;
+            public final /* synthetic */ int f10299b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f10283c;
+            public final /* synthetic */ b f10300c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -106,16 +106,16 @@ public final class b {
                         return;
                     }
                 }
-                this.f10283c = this;
-                this.f10281a = faceProcessCallback;
-                this.f10282b = i2;
+                this.f10300c = this;
+                this.f10298a = faceProcessCallback;
+                this.f10299b = i2;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f10281a.onEnd(this.f10282b, null);
+                    this.f10298a.onEnd(this.f10299b, null);
                 }
             }
         });

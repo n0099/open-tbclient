@@ -85,7 +85,7 @@ public class SyncAllMessage extends SyncStrategy {
 
     private void setDeviceMaxNotifyMsgid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             String str = TAG;
             LogUtils.d(str, "deal setDeviceMaxNotifyMsgid:" + j);
             if (j > this.mMaxMsgid) {

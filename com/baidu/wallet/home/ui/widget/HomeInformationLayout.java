@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HomeInformationLayout extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeLayoutOneTipView f24925a;
+    public HomeLayoutOneTipView f25035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f24926b;
+    public LinearLayout f25036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f24927c;
+    public List<BaseItemView> f25037c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeInformationLayout(Context context) {
@@ -47,14 +47,14 @@ public class HomeInformationLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f24927c = new ArrayList();
+        this.f25037c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24927c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25037c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -62,8 +62,8 @@ public class HomeInformationLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_layout"), this);
-            this.f24925a = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "home_information_layout_title"));
-            this.f24926b = (LinearLayout) findViewById(ResUtils.id(getContext(), "home_information_layout_content"));
+            this.f25035a = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "home_information_layout_title"));
+            this.f25036b = (LinearLayout) findViewById(ResUtils.id(getContext(), "home_information_layout_content"));
         }
     }
 
@@ -86,16 +86,16 @@ public class HomeInformationLayout extends BaseItemLayout {
             HomeCfgResponse.ConfigData configData = this.mConfigData;
             HomeCfgResponse.DataItem[] dataItemArr = configData.list;
             if (!TextUtils.isEmpty(configData.getGroup_name())) {
-                this.f24925a.setData(this.mConfigData, getWalletInterface());
+                this.f25035a.setData(this.mConfigData, getWalletInterface());
             } else {
-                this.f24925a.setVisibility(8);
+                this.f25035a.setVisibility(8);
             }
             HomeInformationItemView homeInformationItemView = null;
             for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
                 homeInformationItemView = new HomeInformationItemView(getContext());
                 homeInformationItemView.setData(dataItem, getWalletInterface());
-                this.f24926b.addView(homeInformationItemView);
-                this.f24927c.add(homeInformationItemView);
+                this.f25036b.addView(homeInformationItemView);
+                this.f25037c.add(homeInformationItemView);
             }
             if (homeInformationItemView != null) {
                 homeInformationItemView.setLineVisibility(false);
@@ -122,6 +122,6 @@ public class HomeInformationLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f24927c = new ArrayList();
+        this.f25037c = new ArrayList();
     }
 }

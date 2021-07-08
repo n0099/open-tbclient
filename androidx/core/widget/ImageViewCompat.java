@@ -7,6 +7,7 @@ import android.os.Build;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +86,7 @@ public class ImageViewCompat {
     public static void setImageTintMode(@NonNull ImageView imageView, @Nullable PorterDuff.Mode mode) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, imageView, mode) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageView, mode) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 imageView.setImageTintMode(mode);
                 if (Build.VERSION.SDK_INT != 21 || (drawable = imageView.getDrawable()) == null || imageView.getImageTintList() == null) {

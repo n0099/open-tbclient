@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SurfaceHolder f17175e;
+    public SurfaceHolder f17214e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TopicGifView f17176e;
+        public final /* synthetic */ TopicGifView f17215e;
 
         public a(TopicGifView topicGifView) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
                     return;
                 }
             }
-            this.f17176e = topicGifView;
+            this.f17215e = topicGifView;
         }
 
         @Override // java.lang.Runnable
@@ -78,7 +78,7 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SurfaceHolder holder = getHolder();
-            this.f17175e = holder;
+            this.f17214e = holder;
             holder.addCallback(this);
         }
     }

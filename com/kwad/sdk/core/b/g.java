@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.j;
+import com.kwad.sdk.utils.m;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class g implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                return new String(c.a().a(h.a(str.getBytes(), j.a(1))), "UTF-8");
+                return new String(c.a().a(h.a(str.getBytes(), m.a(1))), "UTF-8");
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
                 return str;
@@ -64,7 +64,7 @@ public class g implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                return h.b(c.b().a(str.getBytes()), j.a(2));
+                return h.b(c.b().a(str.getBytes()), m.a(2));
             } catch (Exception unused) {
                 return str;
             }

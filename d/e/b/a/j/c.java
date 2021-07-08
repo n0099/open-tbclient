@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f72084a;
+    public static volatile String f69187a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f72085b;
+    public static final Object f69188b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,22 +33,22 @@ public class c {
                 return;
             }
         }
-        f72085b = new Object();
+        f69188b = new Object();
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f72084a != null) {
-                return f72084a;
+            if (f69187a != null) {
+                return f69187a;
             }
-            synchronized (f72085b) {
-                if (f72084a != null) {
-                    return f72084a;
+            synchronized (f69188b) {
+                if (f69187a != null) {
+                    return f69187a;
                 }
-                f72084a = b(d.e.b.a.c.d().provideContext());
-                return f72084a;
+                f69187a = b(d.e.b.a.c.d().provideContext());
+                return f69187a;
             }
         }
         return (String) invokeV.objValue;

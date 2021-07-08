@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,52 +21,52 @@ import com.bytedance.sdk.component.adnet.face.IHttpStack;
 import com.bytedance.sdk.component.net.NetClient;
 import com.bytedance.sdk.openadsdk.core.o;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f31352a;
+    public static volatile e f31462a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static IHttpStack f31353c;
+    public static IHttpStack f31463c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31354b;
+    public Context f31464b;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile l f31355d;
+    public volatile l f31465d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.component.adnet.b.b f31356e;
+    public com.bytedance.sdk.component.adnet.b.b f31466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.component.adnet.b.d f31357f;
+    public com.bytedance.sdk.component.adnet.b.d f31467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.l.a.b f31358g;
+    public com.bytedance.sdk.openadsdk.l.a.b f31468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final NetClient f31359h;
+    public final NetClient f31469h;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements d.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ImageView f31360a;
+        public ImageView f31470a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f31361b;
+        public final String f31471b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31362c;
+        public final int f31472c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f31363d;
+        public final int f31473d;
 
         public a(ImageView imageView, String str, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -82,10 +83,10 @@ public class e {
                     return;
                 }
             }
-            this.f31360a = imageView;
-            this.f31361b = str;
-            this.f31362c = i2;
-            this.f31363d = i3;
+            this.f31470a = imageView;
+            this.f31471b = str;
+            this.f31472c = i2;
+            this.f31473d = i3;
             if (imageView != null) {
                 imageView.setTag(1094453505, str);
             }
@@ -96,8 +97,8 @@ public class e {
             Object tag;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                ImageView imageView = this.f31360a;
-                return (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f31361b)) ? false : true;
+                ImageView imageView = this.f31470a;
+                return (imageView == null || (tag = imageView.getTag(1094453505)) == null || !tag.equals(this.f31471b)) ? false : true;
             }
             return invokeV.booleanValue;
         }
@@ -107,11 +108,11 @@ public class e {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ImageView imageView = this.f31360a;
-                if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f31360a.getContext()).isFinishing()) || this.f31360a == null || !c() || (i2 = this.f31362c) == 0) {
+                ImageView imageView = this.f31470a;
+                if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f31470a.getContext()).isFinishing()) || this.f31470a == null || !c() || (i2 = this.f31472c) == 0) {
                     return;
                 }
-                this.f31360a.setImageResource(i2);
+                this.f31470a.setImageResource(i2);
             }
         }
 
@@ -136,7 +137,7 @@ public class e {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f31360a = null;
+                this.f31470a = null;
             }
         }
 
@@ -144,11 +145,11 @@ public class e {
         public void b(m<Bitmap> mVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) {
-                ImageView imageView = this.f31360a;
-                if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f31360a.getContext()).isFinishing()) || this.f31360a == null || this.f31363d == 0 || !c()) {
+                ImageView imageView = this.f31470a;
+                if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f31470a.getContext()).isFinishing()) || this.f31470a == null || this.f31473d == 0 || !c()) {
                     return;
                 }
-                this.f31360a.setImageResource(this.f31363d);
+                this.f31470a.setImageResource(this.f31473d);
             }
         }
 
@@ -156,11 +157,11 @@ public class e {
         public void a(d.c cVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, z) == null) {
-                ImageView imageView = this.f31360a;
-                if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f31360a.getContext()).isFinishing()) || this.f31360a == null || !c() || cVar.a() == null) {
+                ImageView imageView = this.f31470a;
+                if ((imageView != null && (imageView.getContext() instanceof Activity) && ((Activity) this.f31470a.getContext()).isFinishing()) || this.f31470a == null || !c() || cVar.a() == null) {
                     return;
                 }
-                this.f31360a.setImageBitmap(cVar.a());
+                this.f31470a.setImageBitmap(cVar.a());
             }
         }
     }
@@ -180,64 +181,64 @@ public class e {
                 return;
             }
         }
-        this.f31354b = context == null ? o.a() : context.getApplicationContext();
-        this.f31359h = new NetClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).readTimeout(10000L, TimeUnit.MILLISECONDS).writeTimeout(10000L, TimeUnit.MILLISECONDS).enableTNC(true).build();
+        this.f31464b = context == null ? o.a() : context.getApplicationContext();
+        this.f31469h = new NetClient.Builder().connectTimeout(10000L, TimeUnit.MILLISECONDS).readTimeout(10000L, TimeUnit.MILLISECONDS).writeTimeout(10000L, TimeUnit.MILLISECONDS).enableTNC(true).build();
     }
 
     public static IHttpStack a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31353c : (IHttpStack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f31463c : (IHttpStack) invokeV.objValue;
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (f31352a == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f31462a == null) {
                 synchronized (e.class) {
-                    if (f31352a == null) {
-                        f31352a = new e(o.a());
+                    if (f31462a == null) {
+                        f31462a = new e(o.a());
                     }
                 }
             }
-            return f31352a;
+            return f31462a;
         }
         return (e) invokeV.objValue;
     }
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f31358g == null) {
-            this.f31358g = new com.bytedance.sdk.openadsdk.l.a.b(d());
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f31468g == null) {
+            this.f31468g = new com.bytedance.sdk.openadsdk.l.a.b(d());
         }
     }
 
     private void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.f31357f == null) {
-            this.f31357f = new com.bytedance.sdk.component.adnet.b.d(d(), com.bytedance.sdk.openadsdk.l.a.a());
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.f31467f == null) {
+            this.f31467f = new com.bytedance.sdk.component.adnet.b.d(d(), com.bytedance.sdk.openadsdk.l.a.a());
         }
     }
 
     public NetClient c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31359h : (NetClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31469h : (NetClient) invokeV.objValue;
     }
 
     public l d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f31355d == null) {
+            if (this.f31465d == null) {
                 synchronized (e.class) {
-                    if (this.f31355d == null) {
-                        this.f31355d = com.bytedance.sdk.component.adnet.a.a(this.f31354b);
+                    if (this.f31465d == null) {
+                        this.f31465d = com.bytedance.sdk.component.adnet.a.a(this.f31464b);
                     }
                 }
             }
-            return this.f31355d;
+            return this.f31465d;
         }
         return (l) invokeV.objValue;
     }
@@ -247,7 +248,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             f();
-            return this.f31358g;
+            return this.f31468g;
         }
         return (com.bytedance.sdk.openadsdk.l.a.b) invokeV.objValue;
     }
@@ -255,17 +256,17 @@ public class e {
     public static void a(IHttpStack iHttpStack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, iHttpStack) == null) {
-            f31353c = iHttpStack;
+            f31463c = iHttpStack;
         }
     }
 
     public void a(String str, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) {
-            if (this.f31356e == null) {
-                this.f31356e = new com.bytedance.sdk.component.adnet.b.b(this.f31354b, d());
+            if (this.f31466e == null) {
+                this.f31466e = new com.bytedance.sdk.component.adnet.b.b(this.f31464b, d());
             }
-            this.f31356e.a(str, aVar);
+            this.f31466e.a(str, aVar);
         }
     }
 
@@ -280,7 +281,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageView, eVar) == null) {
             g();
-            this.f31357f.a(str, eVar);
+            this.f31467f.a(str, eVar);
         }
     }
 

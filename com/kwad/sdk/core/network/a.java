@@ -1,6 +1,8 @@
 package com.kwad.sdk.core.network;
 
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,18 +13,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class a<R extends g> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f36348a;
+    public static final ExecutorService f34649a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f36349b;
+    public Future<?> f34650b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +38,7 @@ public abstract class a<R extends g> {
                 return;
             }
         }
-        f36348a = Executors.newFixedThreadPool(5);
+        f34649a = com.kwad.sdk.core.i.b.h();
     }
 
     public a() {
@@ -63,12 +64,12 @@ public abstract class a<R extends g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                this.f36349b = f36348a.submit(new Runnable(this) { // from class: com.kwad.sdk.core.network.a.1
+                this.f34650b = f34649a.submit(new Runnable(this) { // from class: com.kwad.sdk.core.network.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f36350a;
+                    public final /* synthetic */ a f34651a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -85,14 +86,18 @@ public abstract class a<R extends g> {
                                 return;
                             }
                         }
-                        this.f36350a = this;
+                        this.f34651a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f36350a.f();
+                            try {
+                                this.f34651a.f();
+                            } catch (Exception e2) {
+                                com.kwad.sdk.core.d.a.a(e2);
+                            }
                         }
                     }
                 });
@@ -102,14 +107,16 @@ public abstract class a<R extends g> {
         }
     }
 
+    @CallSuper
     public void e() {
         Future<?> future;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (future = this.f36349b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (future = this.f34650b) == null) {
             return;
         }
         future.cancel(true);
     }
 
+    @WorkerThread
     public abstract void f();
 }

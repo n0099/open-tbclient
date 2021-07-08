@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.FinishMemberTask.DataRes;
 import tbclient.FinishMemberTask.FinishMemberTaskResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FinishMemberTaskHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

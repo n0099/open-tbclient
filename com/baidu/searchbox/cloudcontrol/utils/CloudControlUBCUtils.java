@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CloudControlUBCUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CONTROL = "control";

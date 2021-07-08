@@ -5,37 +5,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f44586a;
+    public float[] f41602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f44587b;
+    public boolean f41603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44588c;
+    public boolean f41604c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44589d;
+    public int f41605d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44590e;
+    public int f41606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f44591f;
+    public boolean f41607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44592g;
+    public boolean f41608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44593h;
+    public boolean f41609h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f44594i;
+    public boolean f41610i;
     public int j;
     public float k;
     public Matrix l;
@@ -56,10 +56,10 @@ public class e {
                 return;
             }
         }
-        this.f44586a = new float[8];
-        this.f44593h = false;
-        this.f44594i = true;
-        this.j = b.f44580a;
+        this.f41602a = new float[8];
+        this.f41609h = false;
+        this.f41610i = true;
+        this.j = b.f41596a;
         this.k = 1.0f;
         this.o = false;
     }

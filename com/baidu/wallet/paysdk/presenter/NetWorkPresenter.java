@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePresenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +60,16 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f26102a;
+                public final /* synthetic */ int f26212a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f26103b;
+                public final /* synthetic */ int f26213b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f26104c;
+                public final /* synthetic */ String f26214c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f26105d;
+                public final /* synthetic */ NetWorkPresenter f26215d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -86,17 +86,17 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                             return;
                         }
                     }
-                    this.f26105d = this;
-                    this.f26102a = i2;
-                    this.f26103b = i3;
-                    this.f26104c = str;
+                    this.f26215d = this;
+                    this.f26212a = i2;
+                    this.f26213b = i3;
+                    this.f26214c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26105d.handleFailure(this.f26102a, this.f26103b, this.f26104c);
+                        this.f26215d.handleFailure(this.f26212a, this.f26213b, this.f26214c);
                     }
                 }
             });
@@ -112,16 +112,16 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f26098a;
+                public final /* synthetic */ int f26208a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f26099b;
+                public final /* synthetic */ Object f26209b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f26100c;
+                public final /* synthetic */ String f26210c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ NetWorkPresenter f26101d;
+                public final /* synthetic */ NetWorkPresenter f26211d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,17 +138,17 @@ public abstract class NetWorkPresenter implements IBeanResponseCallback, BasePre
                             return;
                         }
                     }
-                    this.f26101d = this;
-                    this.f26098a = i2;
-                    this.f26099b = obj;
-                    this.f26100c = str;
+                    this.f26211d = this;
+                    this.f26208a = i2;
+                    this.f26209b = obj;
+                    this.f26210c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26101d.handleResponse(this.f26098a, this.f26099b, this.f26100c);
+                        this.f26211d.handleResponse(this.f26208a, this.f26209b, this.f26210c);
                     }
                 }
             });

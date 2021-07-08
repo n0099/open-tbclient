@@ -12,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BufferMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BufferMemoryChunk";

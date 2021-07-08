@@ -2,6 +2,7 @@ package com.baidu.mapapi.search.route;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PlanNode implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PlanNode> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7388a;
+    public LatLng f7405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7389b;
+    public String f7406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7390c;
+    public String f7407c;
 
     static {
         InterceptResult invokeClinit;
@@ -58,12 +59,12 @@ public class PlanNode implements Parcelable {
                 return;
             }
         }
-        this.f7388a = null;
-        this.f7389b = null;
-        this.f7390c = null;
-        this.f7388a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7389b = parcel.readString();
-        this.f7390c = parcel.readString();
+        this.f7405a = null;
+        this.f7406b = null;
+        this.f7407c = null;
+        this.f7405a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7406b = parcel.readString();
+        this.f7407c = parcel.readString();
     }
 
     public PlanNode(LatLng latLng, String str, String str2) {
@@ -81,12 +82,12 @@ public class PlanNode implements Parcelable {
                 return;
             }
         }
-        this.f7388a = null;
-        this.f7389b = null;
-        this.f7390c = null;
-        this.f7388a = latLng;
-        this.f7389b = str;
-        this.f7390c = str2;
+        this.f7405a = null;
+        this.f7406b = null;
+        this.f7407c = null;
+        this.f7405a = latLng;
+        this.f7406b = str;
+        this.f7407c = str2;
     }
 
     public static PlanNode withCityCodeAndPlaceName(int i2, String str) {
@@ -98,7 +99,7 @@ public class PlanNode implements Parcelable {
     public static PlanNode withCityNameAndPlaceName(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) ? new PlanNode(null, str, str2) : (PlanNode) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? new PlanNode(null, str, str2) : (PlanNode) invokeLL.objValue;
     }
 
     public static PlanNode withLocation(LatLng latLng) {
@@ -120,28 +121,28 @@ public class PlanNode implements Parcelable {
     public String getCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7389b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7406b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7388a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7405a : (LatLng) invokeV.objValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7390c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7407c : (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeValue(this.f7388a);
-            parcel.writeString(this.f7389b);
-            parcel.writeString(this.f7390c);
+            parcel.writeValue(this.f7405a);
+            parcel.writeString(this.f7406b);
+            parcel.writeString(this.f7407c);
         }
     }
 }

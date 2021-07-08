@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.j;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a extends j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.e f75681e;
+        public final /* synthetic */ h.e f72715e;
 
         public a(h.e eVar) {
             Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public final class f {
                     return;
                 }
             }
-            this.f75681e = eVar;
+            this.f72715e = eVar;
         }
 
         @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f75681e.onCompleted();
+                this.f72715e.onCompleted();
             }
         }
 
@@ -50,7 +50,7 @@ public final class f {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f75681e.onError(th);
+                this.f72715e.onError(th);
             }
         }
 
@@ -58,18 +58,18 @@ public final class f {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.f75681e.onNext(t);
+                this.f72715e.onNext(t);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b extends j<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f75682e;
+        public final /* synthetic */ j f72716e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(j jVar, j jVar2) {
@@ -89,14 +89,14 @@ public final class f {
                     return;
                 }
             }
-            this.f75682e = jVar2;
+            this.f72716e = jVar2;
         }
 
         @Override // h.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f75682e.onCompleted();
+                this.f72716e.onCompleted();
             }
         }
 
@@ -104,7 +104,7 @@ public final class f {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f75682e.onError(th);
+                this.f72716e.onError(th);
             }
         }
 
@@ -112,7 +112,7 @@ public final class f {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.f75682e.onNext(t);
+                this.f72716e.onNext(t);
             }
         }
     }

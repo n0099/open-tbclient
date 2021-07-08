@@ -66,7 +66,7 @@ public class JSONSerializer extends SerializeFilterable {
     private DateFormat generateDateFormat(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(str, this.locale);
             simpleDateFormat.setTimeZone(this.timeZone);
             return simpleDateFormat;

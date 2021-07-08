@@ -14,6 +14,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class TransformationUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Lock BITMAP_DRAWABLE_LOCK;
@@ -45,7 +46,7 @@ public final class TransformationUtils {
     public static final String TAG = "TransformationUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class NoLock implements Lock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +201,7 @@ public final class TransformationUtils {
     public static Bitmap centerInside(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65540, null, bitmapPool, bitmap, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapPool, bitmap, i2, i3)) == null) {
             if (bitmap.getWidth() <= i2 && bitmap.getHeight() <= i3) {
                 if (Log.isLoggable(TAG, 2)) {
                     Log.v(TAG, "requested target size larger or equal to input, returning input");

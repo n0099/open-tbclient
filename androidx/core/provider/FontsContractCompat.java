@@ -28,6 +28,7 @@ import androidx.core.graphics.TypefaceCompat;
 import androidx.core.graphics.TypefaceCompatUtil;
 import androidx.core.provider.SelfDestructiveThread;
 import androidx.core.util.Preconditions;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -382,7 +383,7 @@ public class FontsContractCompat {
     public static boolean equalsByteArrayList(List<byte[]> list, List<byte[]> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, list, list2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, list2)) == null) {
             if (list.size() != list2.size()) {
                 return false;
             }

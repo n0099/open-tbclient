@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,17 +41,17 @@ public class f extends com.baidu.platform.base.e {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     latLng = CoordTrans.gcjToBaidu(latLng);
                 }
-                com.baidu.platform.util.a aVar = this.f9391a;
+                com.baidu.platform.util.a aVar = this.f9408a;
                 aVar.a("location", latLng.latitude + "," + latLng.longitude);
             }
-            this.f9391a.a("coordtype", "bd09ll");
-            this.f9391a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
-            this.f9391a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
-            this.f9391a.a("pois", "1");
-            this.f9391a.a("output", "jsonaes");
-            this.f9391a.a("from", "android_map_sdk");
-            this.f9391a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
-            this.f9391a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
+            this.f9408a.a("coordtype", "bd09ll");
+            this.f9408a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
+            this.f9408a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
+            this.f9408a.a("pois", "1");
+            this.f9408a.a("output", "jsonaes");
+            this.f9408a.a("from", "android_map_sdk");
+            this.f9408a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
+            this.f9408a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
         }
     }
 

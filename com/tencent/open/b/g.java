@@ -24,7 +24,7 @@ Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0
   (r11v0 'z' boolean)
   (r9v0 'str2' java.lang.String)
  call: com.tencent.open.b.g.6.<init>(com.tencent.open.b.g, android.os.Bundle, java.lang.String, boolean, java.lang.String):void type: CONSTRUCTOR)
- type: STATIC call: com.tencent.open.utils.i.a(java.lang.Runnable):void in method: com.tencent.open.b.g.a(java.lang.String, java.lang.String, android.os.Bundle, boolean):void, file: classes7.dex
+ type: STATIC call: com.tencent.open.utils.i.a(java.lang.Runnable):void in method: com.tencent.open.b.g.a(java.lang.String, java.lang.String, android.os.Bundle, boolean):void, file: classes6.dex
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
 	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)
@@ -48,7 +48,7 @@ Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x0
 Caused by: jadx.core.utils.exceptions.JadxRuntimeException: Method generation error
 	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:309)
 	... 5 more
-Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x00e2: IF  (r4v13 'i2' int) >= (r1v3 'a2' int)  -> B:55:0x00e4 in method: com.tencent.open.b.g.6.run():void, file: classes7.dex
+Caused by: jadx.core.utils.exceptions.CodegenException: Error generate insn: 0x00e2: IF  (r4v13 'i2' int) >= (r1v3 'a2' int)  -> B:55:0x00e4 in method: com.tencent.open.b.g.6.run():void, file: classes6.dex
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:287)
 	at jadx.core.codegen.InsnGen.makeInsn(InsnGen.java:250)
 	at jadx.core.codegen.RegionGen.makeSimpleBlock(RegionGen.java:91)

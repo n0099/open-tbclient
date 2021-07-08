@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f44195a;
+    public f f41211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f44196b;
+    public g f41212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<d> f44197c;
+    public LinkedList<d> f41213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f44198d;
+    public d f41214d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -39,34 +39,34 @@ public class e {
                 return;
             }
         }
-        this.f44195a = new f();
-        this.f44196b = new g();
-        this.f44197c = new LinkedList<>();
-        this.f44198d = null;
+        this.f41211a = new f();
+        this.f41212b = new g();
+        this.f41213c = new LinkedList<>();
+        this.f41214d = null;
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44198d : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41214d : (d) invokeV.objValue;
     }
 
     public f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44195a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41211a : (f) invokeV.objValue;
     }
 
     public g c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44196b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41212b : (g) invokeV.objValue;
     }
 
     public List<d> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f44197c) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f41213c) : (List) invokeV.objValue;
     }
 
     public void e(d dVar) {
@@ -74,13 +74,13 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f44197c.add(dVar);
+        this.f41213c.add(dVar);
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f44198d = dVar;
+            this.f41214d = dVar;
         }
     }
 }

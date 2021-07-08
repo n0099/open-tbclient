@@ -3,7 +3,7 @@ package d.l.a.a.a.c;
 import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.NonNull;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface h {
     void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr);
 

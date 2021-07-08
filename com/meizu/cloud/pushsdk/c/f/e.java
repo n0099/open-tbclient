@@ -15,11 +15,11 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40452a = "e";
+    public static final String f37466a = "e";
 
     public static long a(String str) {
         long j;
@@ -99,7 +99,7 @@ public class e {
             try {
                 jSONObject.put(str, a2);
             } catch (JSONException e2) {
-                c.a(f40452a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
+                c.a(f37466a, "Could not put key '%s' and value '%s' into new JSONObject: %s", str, a2, e2);
                 e2.printStackTrace();
             }
         }
@@ -112,13 +112,13 @@ public class e {
 
     public static boolean a(Context context) {
         try {
-            c.c(f40452a, "Checking tracker internet connectivity.", new Object[0]);
+            c.c(f37466a, "Checking tracker internet connectivity.", new Object[0]);
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             boolean z = activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            c.b(f40452a, "Tracker connection online: %s", Boolean.valueOf(z));
+            c.b(f37466a, "Tracker connection online: %s", Boolean.valueOf(z));
             return z;
         } catch (Exception e2) {
-            c.a(f40452a, "Security exception checking connection: %s", e2.toString());
+            c.a(f37466a, "Security exception checking connection: %s", e2.toString());
             return true;
         }
     }
@@ -135,7 +135,7 @@ public class e {
             }
             return null;
         } catch (Exception e2) {
-            c.a(f40452a, "getCarrier: %s", e2.toString());
+            c.a(f37466a, "getCarrier: %s", e2.toString());
             return null;
         }
     }
@@ -144,7 +144,7 @@ public class e {
         try {
             LocationManager locationManager = (LocationManager) context.getSystemService("location");
             if (locationManager == null) {
-                c.a(f40452a, "Location Manager is null.", new Object[0]);
+                c.a(f37466a, "Location Manager is null.", new Object[0]);
                 return null;
             }
             Criteria criteria = new Criteria();
@@ -152,14 +152,14 @@ public class e {
             criteria.setAccuracy(2);
             String bestProvider = locationManager.getBestProvider(criteria, true);
             if (bestProvider == null) {
-                c.a(f40452a, "Location Manager provider is null.", new Object[0]);
+                c.a(f37466a, "Location Manager provider is null.", new Object[0]);
                 return null;
             }
             Location lastKnownLocation = locationManager.getLastKnownLocation(bestProvider);
-            c.b(f40452a, "Location found: %s", lastKnownLocation);
+            c.b(f37466a, "Location found: %s", lastKnownLocation);
             return lastKnownLocation;
         } catch (Exception e2) {
-            c.a(f40452a, "Failed to retrieve location: %s", e2.toString());
+            c.a(f37466a, "Failed to retrieve location: %s", e2.toString());
             return null;
         }
     }

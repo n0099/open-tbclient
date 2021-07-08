@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class RevenueConfigCenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueConfigCenter";
@@ -71,7 +72,7 @@ public class RevenueConfigCenter {
     public static String getRevenueConfigMapKey(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) {
             return i2 + "-" + i3;
         }
         return (String) invokeII.objValue;

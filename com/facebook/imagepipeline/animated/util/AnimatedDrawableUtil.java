@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedDrawableUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_DURATION_MS_FOR_MIN = 100;

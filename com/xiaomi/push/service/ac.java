@@ -23,6 +23,7 @@ import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
@@ -67,12 +68,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43561a;
+    public static long f40575a;
 
     /* renamed from: a  reason: collision with other field name */
     public static volatile aj f872a;
@@ -84,13 +85,13 @@ public class ac {
     public static ExecutorService f874a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Callable<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f43562a;
+        public Context f40576a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f875a;
@@ -113,7 +114,7 @@ public class ac {
                     return;
                 }
             }
-            this.f43562a = context;
+            this.f40576a = context;
             this.f875a = str;
             this.f876a = z;
         }
@@ -131,12 +132,12 @@ public class ac {
                     return null;
                 }
                 if (this.f875a.startsWith("http")) {
-                    an.b a2 = an.a(this.f43562a, this.f875a, this.f876a);
+                    an.b a2 = an.a(this.f40576a, this.f875a, this.f876a);
                     if (a2 != null) {
                         return a2.f892a;
                     }
                 } else {
-                    bitmap = an.a(this.f43562a, this.f875a);
+                    bitmap = an.a(this.f40576a, this.f875a);
                     if (bitmap != null) {
                         return bitmap;
                     }
@@ -148,13 +149,13 @@ public class ac {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f43563a;
+        public long f40577a;
 
         /* renamed from: a  reason: collision with other field name */
         public Notification f877a;
@@ -172,17 +173,17 @@ public class ac {
                     return;
                 }
             }
-            this.f43563a = 0L;
+            this.f40577a = 0L;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f43564a;
+        public long f40578a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f878a;
@@ -200,7 +201,7 @@ public class ac {
                     return;
                 }
             }
-            this.f43564a = 0L;
+            this.f40578a = 0L;
         }
     }
 
@@ -256,7 +257,7 @@ public class ac {
     public static int a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
             String str = map == null ? null : map.get("timeout");
             if (TextUtils.isEmpty(str)) {
                 return 0;
@@ -441,13 +442,13 @@ public class ac {
             if (TextUtils.isEmpty(str6)) {
                 return null;
             }
-            if (az.f43608a.equals(str6)) {
+            if (az.f40622a.equals(str6)) {
                 try {
                     launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("Cause: " + e2.getMessage());
                 }
-            } else if (az.f43609b.equals(str6)) {
+            } else if (az.f40623b.equals(str6)) {
                 if (map.containsKey(str3)) {
                     String str7 = map.get(str3);
                     if (str7 != null) {
@@ -480,7 +481,7 @@ public class ac {
                 }
                 launchIntentForPackage = null;
             } else {
-                if (az.f43610c.equals(str6)) {
+                if (az.f40624c.equals(str6)) {
                     String str8 = map.get(str5);
                     if (!TextUtils.isEmpty(str8)) {
                         String trim = str8.trim();
@@ -852,7 +853,7 @@ public class ac {
                     an.b a16 = an.a(context, a15, true);
                     if (a16 != null) {
                         a5 = a16.f892a;
-                        bVar2.f43563a = a16.f43578a;
+                        bVar2.f40577a = a16.f40592a;
                     } else {
                         a5 = null;
                     }
@@ -898,8 +899,8 @@ public class ac {
                     if (m408a != null && m408a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
                         enVar2.setTicker(m408a.get(ALaKeepAliveService.KEY_TICKER));
                     }
-                    if (currentTimeMillis - f43561a <= 10000) {
-                        f43561a = currentTimeMillis;
+                    if (currentTimeMillis - f40575a <= 10000) {
+                        f40575a = currentTimeMillis;
                         i3 = m450a.f540a;
                         if (m578b(context, a9)) {
                             i3 = a(context, a9);
@@ -1041,7 +1042,7 @@ public class ac {
             if (m408a != null) {
                 enVar2.setTicker(m408a.get(ALaKeepAliveService.KEY_TICKER));
             }
-            if (currentTimeMillis - f43561a <= 10000) {
+            if (currentTimeMillis - f40575a <= 10000) {
             }
             if (m408a != null) {
             }
@@ -1128,7 +1129,7 @@ public class ac {
                 i2 = 0;
             }
             int hashCode = ((a(ibVar).hashCode() / 10) * 10) + i2;
-            if (com.xiaomi.push.l.m536a(context) && a4 == g.a.f43146c) {
+            if (com.xiaomi.push.l.m536a(context) && a4 == g.a.f40160c) {
                 if (m450a != null) {
                     el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m450a.m407a(), "10:" + a(ibVar));
                 }
@@ -1144,7 +1145,7 @@ public class ac {
                 if (a6 != null) {
                     if (Build.VERSION.SDK_INT >= 11) {
                         b a7 = a(context, ibVar, bArr, a5, a6, hashCode);
-                        cVar.f43564a = a7.f43563a;
+                        cVar.f40578a = a7.f40577a;
                         cVar.f878a = a(ibVar);
                         notification = a7.f877a;
                     } else {
@@ -1167,7 +1168,7 @@ public class ac {
                                 notification.tickerText = m408a.get(ALaKeepAliveService.KEY_TICKER);
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f43561a > 10000) {
+                            if (currentTimeMillis - f40575a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1239,7 +1240,7 @@ public class ac {
                             if (m408a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f43561a > 10000) {
+                            if (currentTimeMillis - f40575a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1284,7 +1285,7 @@ public class ac {
                             if (m408a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f43561a > 10000) {
+                            if (currentTimeMillis - f40575a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1329,7 +1330,7 @@ public class ac {
                             if (m408a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
-                            if (currentTimeMillis - f43561a > 10000) {
+                            if (currentTimeMillis - f40575a > 10000) {
                             }
                             notification.flags |= 16;
                             if (a5 != null) {
@@ -1366,8 +1367,8 @@ public class ac {
                             notification.tickerText = m408a.get(ALaKeepAliveService.KEY_TICKER);
                         }
                         currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - f43561a > 10000) {
-                            f43561a = currentTimeMillis;
+                        if (currentTimeMillis - f40575a > 10000) {
+                            f40575a = currentTimeMillis;
                             int i4 = m450a.f540a;
                             if (m578b(context, a(ibVar))) {
                                 i4 = a(context, a(ibVar));
@@ -1519,7 +1520,7 @@ public class ac {
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        if (az.f43608a.equals(a2) || az.f43609b.equals(a2) || az.f43610c.equals(a2)) {
+        if (az.f40622a.equals(a2) || az.f40623b.equals(a2) || az.f40624c.equals(a2)) {
             intent.putExtra("local_paid", ibVar.f634a);
             if (!TextUtils.isEmpty(ibVar.f638b)) {
                 intent.putExtra("target_package", ibVar.f638b);
@@ -1995,7 +1996,7 @@ public class ac {
     public static boolean d(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, ibVar)) == null) ? ibVar.a() == hf.f43236a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, ibVar)) == null) ? ibVar.a() == hf.f40250a : invokeL.booleanValue;
     }
 
     public static int e(Map<String, String> map) {

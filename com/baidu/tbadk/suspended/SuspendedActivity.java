@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class SuspendedActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,16 +31,16 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public NoNetworkView.b mNetListener;
     public NoNetworkView mNoNetView;
     public SusPendedView mRootView;
-    public d.a.r0.t0.a mSuspendedContentView;
+    public d.a.o0.t0.a mSuspendedContentView;
     public TranView mTranView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SuspendedActivity f13161e;
+        public final /* synthetic */ SuspendedActivity f13178e;
 
         public a(SuspendedActivity suspendedActivity) {
             Interceptable interceptable = $ic;
@@ -56,25 +57,25 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f13161e = suspendedActivity;
+            this.f13178e = suspendedActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f13161e.requestData();
+                this.f13178e.requestData();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SuspendedActivity f13162e;
+        public final /* synthetic */ SuspendedActivity f13179e;
 
         public b(SuspendedActivity suspendedActivity) {
             Interceptable interceptable = $ic;
@@ -91,14 +92,14 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f13162e = suspendedActivity;
+            this.f13179e = suspendedActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13162e.close();
+                this.f13179e.close();
             }
         }
     }
@@ -139,7 +140,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.content_view);
             this.mContentView = linearLayout;
-            d.a.r0.t0.a suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
+            d.a.o0.t0.a suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
             this.mSuspendedContentView = suspendedContentView;
             if (suspendedContentView != null) {
                 this.mRootView.setContentViewTop(suspendedContentView);
@@ -166,7 +167,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
 
     private void initNoNetView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.view_no_network);
             this.mNoNetView = noNetworkView;
             noNetworkView.a(this.mNetListener);
@@ -185,7 +186,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.a.r0.t0.a aVar = this.mSuspendedContentView;
+            d.a.o0.t0.a aVar = this.mSuspendedContentView;
             if (aVar == null || aVar.isOnViewCancel()) {
                 if (this.mTranView != null) {
                     this.mRootView.h();
@@ -216,7 +217,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d.a.r0.t0.a aVar = this.mSuspendedContentView;
+            d.a.o0.t0.a aVar = this.mSuspendedContentView;
             if (aVar != null) {
                 Intent resultIntent = aVar.getResultIntent();
                 if (resultIntent != null) {
@@ -234,7 +235,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         }
     }
 
-    public abstract d.a.r0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
+    public abstract d.a.o0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
@@ -246,7 +247,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.mContentView, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.mCancel, R.color.CAM_X0105);
-            d.a.r0.t0.a aVar = this.mSuspendedContentView;
+            d.a.o0.t0.a aVar = this.mSuspendedContentView;
             if (aVar != null) {
                 aVar.onViewChangeSkinType(i2);
             }
@@ -277,4 +278,13 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     }
 
     public abstract void requestData();
+
+    public void setCanDragClose(boolean z) {
+        SusPendedView susPendedView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (susPendedView = this.mRootView) == null) {
+            return;
+        }
+        susPendedView.setCanDragClose(z);
+    }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UpdatePackage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class UpdatePackage {
     public long version;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Content {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPRESSED_FILE = 0;
@@ -85,7 +85,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Package {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public class UpdatePackage {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Strategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

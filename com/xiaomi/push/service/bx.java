@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bx implements av.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f43647a;
+    public final /* synthetic */ XMPushService f40661a;
 
     public bx(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -29,16 +29,16 @@ public class bx implements av.a {
                 return;
             }
         }
-        this.f43647a = xMPushService;
+        this.f40661a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43647a.e();
+            this.f40661a.e();
             if (av.a().m599a() <= 0) {
-                XMPushService xMPushService = this.f43647a;
+                XMPushService xMPushService = this.f40661a;
                 xMPushService.a(new XMPushService.f(xMPushService, 12, null));
             }
         }

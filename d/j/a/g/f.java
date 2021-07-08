@@ -17,16 +17,16 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f73978a;
+    public final String f71030a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<g> f73979b;
+    public final List<g> f71031b;
 
     public f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class f {
                 return;
             }
         }
-        this.f73978a = jSONObject.optString("imageKey");
+        this.f71030a = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
         if (optJSONArray != null) {
@@ -59,19 +59,19 @@ public final class f {
                 }
             }
         }
-        this.f73979b = CollectionsKt___CollectionsKt.toList(arrayList);
+        this.f71031b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
     public final List<g> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73979b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71031b : (List) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73978a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71030a : (String) invokeV.objValue;
     }
 
     public f(SpriteEntity spriteEntity) {
@@ -90,7 +90,7 @@ public final class f {
                 return;
             }
         }
-        this.f73978a = spriteEntity.imageKey;
+        this.f71030a = spriteEntity.imageKey;
         List<FrameEntity> list = spriteEntity.frames;
         if (list != null) {
             emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
@@ -107,6 +107,6 @@ public final class f {
         } else {
             emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
-        this.f73979b = emptyList;
+        this.f71031b = emptyList;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.dns.util;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DnsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -114,7 +115,7 @@ public class DnsUtil {
     public static List<String> parseRawAddressList(List<InetAddress> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list == null || list.size() <= 0) {
                 return null;
             }

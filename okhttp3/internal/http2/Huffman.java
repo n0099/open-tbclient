@@ -1,5 +1,6 @@
 package okhttp3.internal.http2;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Huffman {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CODES;
@@ -104,7 +105,7 @@ public class Huffman {
     public static Huffman get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? INSTANCE : (Huffman) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? INSTANCE : (Huffman) invokeV.objValue;
     }
 
     public byte[] decode(byte[] bArr) {
@@ -181,7 +182,7 @@ public class Huffman {
         return invokeL.intValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Node {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

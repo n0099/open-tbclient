@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class ApollonConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APOLLON_PUBLIC_SHARE_PREF = "apollon_share";

@@ -20,30 +20,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FloatingAnimationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameAnimationView f21999e;
+    public FrameAnimationView f22056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f22000f;
+    public TbImageView f22057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f22001g;
+    public ImageView f22058g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f22002h;
+    public d f22059h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FloatingAnimationView f22003e;
+        public final /* synthetic */ FloatingAnimationView f22060e;
 
         public a(FloatingAnimationView floatingAnimationView) {
             Interceptable interceptable = $ic;
@@ -60,26 +60,26 @@ public class FloatingAnimationView extends FrameLayout {
                     return;
                 }
             }
-            this.f22003e = floatingAnimationView;
+            this.f22060e = floatingAnimationView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22003e.f22002h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22060e.f22059h == null) {
                 return;
             }
-            this.f22003e.f22002h.b();
+            this.f22060e.f22059h.b();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FloatingAnimationView f22004a;
+        public final /* synthetic */ FloatingAnimationView f22061a;
 
         public b(FloatingAnimationView floatingAnimationView) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class FloatingAnimationView extends FrameLayout {
                     return;
                 }
             }
-            this.f22004a = floatingAnimationView;
+            this.f22061a = floatingAnimationView;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
@@ -109,19 +109,19 @@ public class FloatingAnimationView extends FrameLayout {
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void b(TbImageView tbImageView, Canvas canvas) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && this.f22004a.f21999e.getBdImage() == null && !k.isEmpty(this.f22004a.f21999e.getUrl())) {
-                this.f22004a.f21999e.M(this.f22004a.f21999e.getUrl(), 10, false);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && this.f22061a.f22056e.getBdImage() == null && !k.isEmpty(this.f22061a.f22056e.getUrl())) {
+                this.f22061a.f22056e.M(this.f22061a.f22056e.getUrl(), 10, false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FloatingAnimationView f22005e;
+        public final /* synthetic */ FloatingAnimationView f22062e;
 
         public c(FloatingAnimationView floatingAnimationView) {
             Interceptable interceptable = $ic;
@@ -138,20 +138,20 @@ public class FloatingAnimationView extends FrameLayout {
                     return;
                 }
             }
-            this.f22005e = floatingAnimationView;
+            this.f22062e = floatingAnimationView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22005e.f22002h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22062e.f22059h == null) {
                 return;
             }
-            this.f22005e.f22002h.a();
+            this.f22062e.f22059h.a();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a();
 
@@ -184,28 +184,28 @@ public class FloatingAnimationView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = getContext();
             FrameAnimationView frameAnimationView = new FrameAnimationView(context);
-            this.f21999e = frameAnimationView;
+            this.f22056e = frameAnimationView;
             frameAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds200), l.g(context, R.dimen.tbds200));
             layoutParams.gravity = 17;
-            addView(this.f21999e, layoutParams);
+            addView(this.f22056e, layoutParams);
             TbImageView tbImageView = new TbImageView(context);
-            this.f22000f = tbImageView;
+            this.f22057f = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds62), l.g(context, R.dimen.tbds62));
             layoutParams2.gravity = 53;
-            this.f22000f.setAutoChangeStyle(false);
-            addView(this.f22000f, layoutParams2);
+            this.f22057f.setAutoChangeStyle(false);
+            addView(this.f22057f, layoutParams2);
             ImageView imageView = new ImageView(context);
-            this.f22001g = imageView;
+            this.f22058g = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams3.gravity = 51;
             layoutParams3.topMargin = l.g(context, R.dimen.tbds14);
-            addView(this.f22001g, layoutParams3);
-            this.f21999e.setOnClickListener(new a(this));
-            this.f21999e.setOnDrawListener(new b(this));
-            this.f22000f.setOnClickListener(new c(this));
+            addView(this.f22058g, layoutParams3);
+            this.f22056e.setOnClickListener(new a(this));
+            this.f22056e.setOnDrawListener(new b(this));
+            this.f22057f.setOnClickListener(new c(this));
             d();
         }
     }
@@ -213,14 +213,14 @@ public class FloatingAnimationView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f22000f, R.drawable.icon_live_close_n);
+            SkinManager.setImageResource(this.f22057f, R.drawable.icon_live_close_n);
         }
     }
 
     public void setCallback(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f22002h = dVar;
+            this.f22059h = dVar;
         }
     }
 
@@ -229,13 +229,13 @@ public class FloatingAnimationView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || k.isEmpty(str)) {
             return;
         }
-        this.f21999e.setData(str);
+        this.f22056e.setData(str);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         FrameAnimationView frameAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) || (frameAnimationView = this.f21999e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) || (frameAnimationView = this.f22056e) == null) {
             return;
         }
         frameAnimationView.setPageId(bdUniqueId);
@@ -266,7 +266,7 @@ public class FloatingAnimationView extends FrameLayout {
     public void setData(List<String> list, int i2) {
         FrameAnimationView frameAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, list, i2) == null) || (frameAnimationView = this.f21999e) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, list, i2) == null) || (frameAnimationView = this.f22056e) == null) {
             return;
         }
         frameAnimationView.setData(list, i2);

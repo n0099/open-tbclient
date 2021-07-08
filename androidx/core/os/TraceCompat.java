@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Trace;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -92,7 +93,7 @@ public final class TraceCompat {
 
     public static void endAsyncSection(@NonNull String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, null, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2) == null) {
             int i3 = Build.VERSION.SDK_INT;
             if (i3 >= 29) {
                 Trace.endAsyncSection(str, i2);

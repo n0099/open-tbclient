@@ -1,19 +1,36 @@
 package com.kwad.sdk.core.network.b;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.network.c;
-import com.kwad.sdk.export.proxy.AdHttpProxy;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class a implements AdHttpProxy<c> {
+/* loaded from: classes6.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public long f34656a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f34657b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f34658c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f34659d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f34660e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f34661f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f34662g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,36 +46,13 @@ public class a implements AdHttpProxy<c> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    /* renamed from: a */
-    public c parseResponse(c cVar) {
-        InterceptResult invokeL;
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar : (c) invokeL.objValue;
-    }
-
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public c doGet(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map)) == null) ? com.kwad.sdk.core.network.a.a.a(str, map) : (c) invokeLL.objValue;
-    }
-
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public c doPost(String str, Map<String, String> map, Map<String, String> map2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2)) == null) ? com.kwad.sdk.core.network.a.a.a(str, map, map2) : (c) invokeLLL.objValue;
-    }
-
-    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
-    public c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, map, jSONObject)) == null) {
-            return com.kwad.sdk.core.network.a.a.a(str, map, jSONObject != null ? jSONObject.toString() : null, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "NetworkMonitorInfo{requestTotalTime=" + this.f34656a + ", mRequestCreateTime" + this.f34657b + ", requestResponseTime=" + this.f34658c + ", requestParseDataTime=" + this.f34659d + ", requestCallbackTime=" + this.f34660e + ", requestFailReason='" + this.f34661f + "', requestUrl='" + this.f34662g + "'}";
         }
-        return (c) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

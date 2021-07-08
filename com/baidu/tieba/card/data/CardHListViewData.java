@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;

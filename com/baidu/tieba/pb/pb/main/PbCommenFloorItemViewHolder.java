@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.f;
-import d.a.s0.h2.k.e.a1.d;
-import d.a.s0.h2.k.e.e;
-/* loaded from: classes5.dex */
+import d.a.o0.r.q.f;
+import d.a.p0.h2.k.e.a1.d;
+import d.a.p0.h2.k.e.e;
+/* loaded from: classes4.dex */
 public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,38 +65,38 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public ImageView Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19161a;
+    public int f19201a;
     public ViewGroup a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19162b;
+    public View f19202b;
     public TextView b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19163c;
+    public boolean f19203c;
     public TextView c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f19164d;
+    public View f19204d;
     public ImageView d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19165e;
+    public TextView f19205e;
     public FrameLayout e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19166f;
+    public TextView f19206f;
     public MaskView f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19167g;
+    public TextView f19207g;
     public d g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19168h;
+    public TextView f19208h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f19169i;
+    public TextView f19209i;
     public TextView j;
     public AgreeView k;
     public HeadImageView l;
@@ -115,13 +115,13 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public ImageView y;
     public TextView z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f19170e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f19210e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -138,14 +138,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f19170e = pbCommenFloorItemViewHolder;
+            this.f19210e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19170e.W.playAnimation();
+                this.f19210e.W.playAnimation();
             }
         }
     }
@@ -168,17 +168,17 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19161a = 3;
-        this.f19163c = true;
+        this.f19201a = 3;
+        this.f19203c = true;
         this.U = -1;
         if (tbPageContext == null || view == null) {
             return;
         }
-        this.f19162b = view;
-        this.f19164d = view.findViewById(R.id.top_divider_line);
-        this.f19165e = (TextView) view.findViewById(R.id.view_user_name);
-        this.f19166f = (TextView) view.findViewById(R.id.view_author_tip);
-        this.f19167g = (TextView) view.findViewById(R.id.view_post_time);
+        this.f19202b = view;
+        this.f19204d = view.findViewById(R.id.top_divider_line);
+        this.f19205e = (TextView) view.findViewById(R.id.view_user_name);
+        this.f19206f = (TextView) view.findViewById(R.id.view_author_tip);
+        this.f19207g = (TextView) view.findViewById(R.id.view_post_time);
         this.E = (ImageView) view.findViewById(R.id.icon_forum_level);
         this.j = (TextView) view.findViewById(R.id.view_location);
         this.o = view.findViewById(R.id.pb_post_reply_container);
@@ -210,10 +210,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.I = (ImageView) view.findViewById(R.id.pb_floor_feedback);
         this.V = i2;
         f fVar = new f();
-        fVar.f55932b = 5;
-        fVar.f55938h = 8;
-        fVar.f55937g = 2;
-        fVar.f55936f = i2;
+        fVar.f52647b = 5;
+        fVar.f52653h = 8;
+        fVar.f52652g = 2;
+        fVar.f52651f = i2;
         this.k.setStatisticData(fVar);
         this.l = (HeadImageView) view.findViewById(R.id.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(R.id.pendant_user_photo);
@@ -236,11 +236,11 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.n = (ConstrainImageGroup) view.findViewById(R.id.floor_images_content);
         this.J = view.findViewById(R.id.pb_bottom_line);
         this.D = (TextView) view.findViewById(R.id.floor_num);
-        this.f19168h = (TextView) view.findViewById(R.id.point_between_floor_and_time);
-        this.f19169i = (TextView) view.findViewById(R.id.point_between_time_and_locate);
+        this.f19208h = (TextView) view.findViewById(R.id.point_between_floor_and_time);
+        this.f19209i = (TextView) view.findViewById(R.id.point_between_time_and_locate);
         this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16));
         this.n.setSingleImageRatio(0.75d);
-        this.n.setImageProcessor(new d.a.r0.b1.j.f(3));
+        this.n.setImageProcessor(new d.a.o0.b1.j.f(3));
         e eVar = new e(this.m.getLayoutStrategy());
         eVar.j(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
         eVar.o(TbConfig.getPostLineSpace(), 1.0f);
@@ -250,7 +250,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.l.setIsRound(true);
         this.l.setGodIconWidth(R.dimen.tbds31);
         this.l.setPlaceHolder(1);
-        this.m.setDisplayImage(this.f19163c, false);
+        this.m.setDisplayImage(this.f19203c, false);
         this.m.setVoiceViewRes(R.layout.voice_play_btn_new);
         this.K = (TextView) view.findViewById(R.id.pb_item_tail_content);
         this.L = (LinearLayout) view.findViewById(R.id.pb_post_recommend_live_layout);
@@ -278,7 +278,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.e0 = frameLayout;
         d dVar = new d(tbPageContext, frameLayout);
         this.g0 = dVar;
-        dVar.f60326f = 3;
+        dVar.f57082f = 3;
         this.f0 = (MaskView) view.findViewById(R.id.mask_view_op);
     }
 
@@ -326,10 +326,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
             f fVar = new f();
-            fVar.f55932b = 12;
-            fVar.f55938h = 9;
-            fVar.f55937g = 3;
-            fVar.f55936f = this.V;
+            fVar.f52647b = 12;
+            fVar.f52653h = 9;
+            fVar.f52652g = 3;
+            fVar.f52651f = this.V;
             this.k.setStatisticData(fVar);
         }
     }

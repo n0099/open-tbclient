@@ -11,7 +11,7 @@ import com.baidu.wallet.base.controllers.IdCardDetectionController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EnterWalletIdCardDetectAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class EnterWalletIdCardDetectAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f25967a;
+                public final /* synthetic */ RouterCallback f26077a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletIdCardDetectAction f25968b;
+                public final /* synthetic */ EnterWalletIdCardDetectAction f26078b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,31 +58,31 @@ public class EnterWalletIdCardDetectAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f25968b = this;
-                    this.f25967a = routerCallback;
+                    this.f26078b = this;
+                    this.f26077a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
                 public void onDetectFailed(int i3, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) || this.f25967a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) || this.f26077a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i3));
                     hashMap.put("errMsg", str);
-                    this.f25967a.onResult(1, hashMap);
+                    this.f26077a.onResult(1, hashMap);
                 }
 
                 @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
                 public void onDetectOK(Bundle bundle) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f25967a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || this.f26077a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("result", bundle);
-                    this.f25967a.onResult(0, hashMap);
+                    this.f26077a.onResult(0, hashMap);
                 }
             }, z);
         }

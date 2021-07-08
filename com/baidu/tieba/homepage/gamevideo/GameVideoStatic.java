@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.v0.b;
-import d.a.s0.h3.d0.a;
-/* loaded from: classes5.dex */
+import d.a.o0.v0.b;
+import d.a.p0.h3.d0.a;
+/* loaded from: classes4.dex */
 public class GameVideoStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

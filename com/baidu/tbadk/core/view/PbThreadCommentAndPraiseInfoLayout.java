@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.b2;
-import d.a.r0.r.q.f;
-import d.a.r0.r.u.c;
-/* loaded from: classes4.dex */
+import d.a.o0.r.q.b2;
+import d.a.o0.r.q.f;
+import d.a.o0.r.u.c;
+/* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -207,10 +207,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         f fVar = new f();
-        fVar.f55932b = 4;
-        fVar.f55934d = 2;
-        this.f12537h.setStatisticData(fVar);
-        this.f12537h.s();
+        fVar.f52647b = 4;
+        fVar.f52649d = 2;
+        this.f12554h.setStatisticData(fVar);
+        this.f12554h.t();
     }
 
     public void R() {
@@ -289,13 +289,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, b2Var) == null) {
             if (b2Var != null) {
-                this.f12537h.setDisagreeShow(b2Var.p2());
+                this.f12554h.setDisagreeShow(b2Var.p2());
             }
             if (b2Var != null && b2Var.r2()) {
-                this.f12537h.setDisagreeShow(true);
+                this.f12554h.setDisagreeShow(true);
             }
             if (b2Var != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12554h.getLayoutParams();
                 if (b2Var.r2()) {
                     layoutParams.weight = 0.2f;
                 } else if (b2Var.p2()) {
@@ -303,7 +303,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 } else {
                     layoutParams.weight = 0.5f;
                 }
-                this.f12537h.setLayoutParams(layoutParams);
+                this.f12554h.setLayoutParams(layoutParams);
             }
         }
     }

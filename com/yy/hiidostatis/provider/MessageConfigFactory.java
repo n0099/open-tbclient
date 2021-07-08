@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.provider;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MessageConfigFactory {
     public static /* synthetic */ Interceptable $ic;
     public static ConcurrentHashMap<String, MessageConfig> caches;
@@ -92,6 +93,6 @@ public class MessageConfigFactory {
     public static MessageConfig getMainConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? mainConfig : (MessageConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mainConfig : (MessageConfig) invokeV.objValue;
     }
 }

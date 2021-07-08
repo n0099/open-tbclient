@@ -19,30 +19,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.d0.b;
-import d.a.r0.r.u.c;
-import d.a.s0.u0.a;
+import d.a.o0.r.d0.b;
+import d.a.o0.r.u.c;
+import d.a.p0.u0.a;
 import java.util.List;
 import tbclient.FrsTabInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f16137e;
+    public TbPageContext f16176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f16138f;
+    public RelativeLayout f16177f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f16139g;
+    public EMTextView f16178g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f16140h;
+    public EMTextView f16179h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f16141i;
+    public RecyclerView f16180i;
     public FrsMoveAreaChooseAdapter j;
     public EMTextView k;
     public View.OnClickListener l;
@@ -65,7 +65,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 return;
             }
         }
-        this.f16137e = tbPageContext;
+        this.f16176e = tbPageContext;
         a();
     }
 
@@ -75,19 +75,19 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             setOrientation(1);
             setGravity(80);
             LayoutInflater.from(getContext()).inflate(R.layout.frs_move_area_choose_layout, this);
-            this.f16138f = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
-            this.f16139g = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
-            this.f16140h = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
+            this.f16177f = (RelativeLayout) findViewById(R.id.frs_move_area_choose_bar);
+            this.f16178g = (EMTextView) findViewById(R.id.frs_move_area_choose_title);
+            this.f16179h = (EMTextView) findViewById(R.id.frs_move_area_choose_done);
             this.k = (EMTextView) findViewById(R.id.frs_move_area_choose_cancel);
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.frs_move_area_choose_list);
-            this.f16141i = recyclerView;
+            this.f16180i = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-            this.f16141i.addItemDecoration(new GridSpacingItemDecoration(3, l.g(getContext(), R.dimen.M_W_X004), l.g(getContext(), R.dimen.M_H_X003), false));
+            this.f16180i.addItemDecoration(new GridSpacingItemDecoration(3, l.g(getContext(), R.dimen.M_W_X004), l.g(getContext(), R.dimen.M_H_X003), false));
             FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter = new FrsMoveAreaChooseAdapter(this);
             this.j = frsMoveAreaChooseAdapter;
-            this.f16141i.setAdapter(frsMoveAreaChooseAdapter);
-            this.f16138f.setOnClickListener(this);
-            this.f16140h.setOnClickListener(this);
+            this.f16180i.setAdapter(frsMoveAreaChooseAdapter);
+            this.f16177f.setOnClickListener(this);
+            this.f16179h.setOnClickListener(this);
             this.k.setOnClickListener(this);
             c();
         }
@@ -96,10 +96,10 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.j.n() >= 0) {
-                this.f16140h.setAlpha(1.0f);
+            if (this.j.e() >= 0) {
+                this.f16179h.setAlpha(1.0f);
             } else {
-                this.f16140h.setAlpha(0.5f);
+                this.f16179h.setAlpha(0.5f);
             }
         }
     }
@@ -108,13 +108,13 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            c d2 = c.d(this.f16138f);
+            c d2 = c.d(this.f16177f);
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.f16139g, R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.f16140h, R.color.CAM_X0304);
+            SkinManager.setViewTextColor(this.f16178g, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f16179h, R.color.CAM_X0304);
             b();
-            SkinManager.setBackgroundColor(this.f16141i, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f16180i, R.color.CAM_X0204);
             SkinManager.setViewTextColorSelector(this.k, R.color.CAM_X0107);
         }
     }
@@ -125,19 +125,19 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view.getTag() instanceof Integer) {
                 b();
-            } else if (view == this.f16140h) {
-                if (this.f16137e == null || getParent() == null || this.j.n() < 0) {
+            } else if (view == this.f16179h) {
+                if (this.f16176e == null || getParent() == null || this.j.e() < 0) {
                     return;
                 }
                 boolean g2 = b.j().g("key_frs_move_area_tip", true);
                 List<FrsTabInfo> g3 = a.h().g();
-                FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g3, this.j.m());
-                FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g3, this.j.n());
+                FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g3, this.j.d());
+                FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g3, this.j.e());
                 if (frsTabInfo == null || frsTabInfo2 == null) {
                     return;
                 }
                 if (g2) {
-                    d.a.s0.u0.r2.c.a(this.f16137e, frsTabInfo, frsTabInfo2);
+                    d.a.p0.u0.r2.c.a(this.f16176e, frsTabInfo, frsTabInfo2);
                 } else {
                     a.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                 }

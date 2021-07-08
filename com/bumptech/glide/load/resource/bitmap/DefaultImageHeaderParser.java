@@ -3,6 +3,7 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +21,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BYTES_PER_FORMAT;
@@ -48,7 +49,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int WEBP_LOSSLESS_ALPHA_FLAG = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +130,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +198,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -210,7 +211,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         long skip(long j) throws IOException;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,7 +455,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     private ImageHeaderParser.ImageType getType(Reader reader) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, reader)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, reader)) == null) {
             int uInt16 = reader.getUInt16();
             if (uInt16 == 65496) {
                 return ImageHeaderParser.ImageType.JPEG;

@@ -8,33 +8,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f45845d;
+    public b f42728d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<?> f45846a;
+        public Class<?> f42729a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f45847b;
+        public Method f42730b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f45848c;
+        public Method f42731c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public final class f extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 try {
-                    return ((Long) this.f45848c.invoke(obj, new Object[0])).longValue();
+                    return ((Long) this.f42731c.invoke(obj, new Object[0])).longValue();
                 } catch (Exception unused) {
                     throw new i.a("");
                 }
@@ -73,9 +73,9 @@ public final class f extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f45846a = Class.forName(i.a(c.a()), true, Object.class.getClassLoader());
-                    this.f45847b = i.b(this.f45846a, i.a(c.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.f45848c = i.b(this.f45846a, i.a(c.c()), null);
+                    this.f42729a = Class.forName(i.a(c.a()), true, Object.class.getClassLoader());
+                    this.f42730b = i.b(this.f42729a, i.a(c.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.f42731c = i.b(this.f42729a, i.a(c.c()), null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -86,7 +86,7 @@ public final class f extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i2, i3) == null) {
                 try {
-                    this.f45847b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                    this.f42730b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
                 } catch (Exception unused) {
                     throw new i.a("");
                 }
@@ -96,7 +96,7 @@ public final class f extends e {
         public final Object g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45846a.newInstance() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42729a.newInstance() : invokeV.objValue;
         }
     }
 
@@ -115,10 +115,10 @@ public final class f extends e {
                 return;
             }
         }
-        this.f45842a = 32;
-        this.f45843b = i2;
-        this.f45844c = i3;
-        this.f45845d = new b(null);
+        this.f42725a = 32;
+        this.f42726b = i2;
+        this.f42727c = i3;
+        this.f42728d = new b(null);
     }
 
     @Override // d.a.k.a.e
@@ -128,9 +128,9 @@ public final class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             try {
-                Object g2 = this.f45845d.g();
-                this.f45845d.f(g2, bArr, i2, i3);
-                j = this.f45845d.b(g2);
+                Object g2 = this.f42728d.g();
+                this.f42728d.f(g2, bArr, i2, i3);
+                j = this.f42728d.b(g2);
             } catch (Exception unused) {
                 j = 4294967295L;
             }

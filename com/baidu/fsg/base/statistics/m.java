@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class m implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f5328a;
+    public final /* synthetic */ String f5345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f5329b;
+    public final /* synthetic */ l f5346b;
 
     public m(l lVar, String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class m implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f5329b = lVar;
-        this.f5328a = str;
+        this.f5346b = lVar;
+        this.f5345a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
@@ -47,7 +47,7 @@ public class m implements IBeanResponseCallback {
     public void onBeanExecSuccess(int i2, Object obj, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), obj, str, str2}) == null) {
-            f.a().a(this.f5328a);
+            f.a().a(this.f5345a);
         }
     }
 }

@@ -1,105 +1,83 @@
 package com.kwad.sdk.core.response.b;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.CommonUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-import com.kwad.sdk.plugin.g;
-import com.kwad.sdk.utils.ag;
+import com.kwad.sdk.plugin.f;
+import com.kwad.sdk.utils.ab;
+import com.kwad.sdk.utils.an;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int A(@NonNull AdInfo adInfo) {
+    public static String A(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) ? adInfo.adBaseInfo.ecpm : invokeL.intValue;
-    }
-
-    public static String B(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) ? adInfo.adConversionInfo.h5Url : (String) invokeL.objValue;
-    }
-
-    public static String C(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adInfo)) == null) ? adInfo.adConversionInfo.deeplinkUrl : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) ? adInfo.adConversionInfo.deeplinkUrl : (String) invokeL.objValue;
     }
 
     @NonNull
-    public static AdInfo.AdMaterialInfo.MaterialFeature D(@NonNull AdInfo adInfo) {
+    public static AdInfo.AdMaterialInfo.MaterialFeature B(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
             for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
                 if (materialFeature != null && materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
                     return materialFeature;
                 }
             }
-            com.kwad.sdk.core.d.a.d("AdInfoHelper", "getImageMaterialFeature in null");
+            com.kwad.sdk.core.d.a.e("AdInfoHelper", "getImageMaterialFeature in null");
             return new AdInfo.AdMaterialInfo.MaterialFeature();
         }
         return (AdInfo.AdMaterialInfo.MaterialFeature) invokeL.objValue;
     }
 
     @NonNull
-    public static AdInfo.AdMaterialInfo.MaterialFeature E(@NonNull AdInfo adInfo) {
+    public static AdInfo.AdMaterialInfo.MaterialFeature C(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adInfo)) == null) {
             for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
                 if (materialFeature != null && materialFeature.featureType == 1 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
                     return materialFeature;
                 }
             }
-            com.kwad.sdk.core.d.a.d("AdInfoHelper", "getVideoMaterialFeature in null");
+            com.kwad.sdk.core.d.a.e("AdInfoHelper", "getVideoMaterialFeature in null");
             return new AdInfo.AdMaterialInfo.MaterialFeature();
         }
         return (AdInfo.AdMaterialInfo.MaterialFeature) invokeL.objValue;
     }
 
-    public static long F(@NonNull AdInfo adInfo) {
+    public static String D(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, adInfo)) == null) ? ah(adInfo).likeCount : invokeL.longValue;
-    }
-
-    public static long G(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, adInfo)) == null) ? ah(adInfo).commentCount : invokeL.longValue;
-    }
-
-    public static String H(AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, adInfo)) == null) ? adInfo.adPreloadInfo.preloadId : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adInfo)) == null) ? adInfo.adPreloadInfo.preloadId : (String) invokeL.objValue;
     }
 
     @NonNull
-    public static List<String> I(@NonNull AdInfo adInfo) {
+    public static List<String> E(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, adInfo)) == null) {
             ArrayList arrayList = new ArrayList();
-            int L = L(adInfo);
-            if (L == 2 || L == 3) {
+            int H = H(adInfo);
+            if (H == 2 || H == 3) {
                 for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
                     if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
                         arrayList.add(materialFeature.materialUrl);
@@ -112,22 +90,22 @@ public class a {
         return (List) invokeL.objValue;
     }
 
-    public static boolean J(@NonNull AdInfo adInfo) {
+    public static boolean F(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, adInfo)) == null) ? L(adInfo) == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, adInfo)) == null) ? H(adInfo) == 1 : invokeL.booleanValue;
     }
 
-    public static boolean K(@NonNull AdInfo adInfo) {
+    public static boolean G(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, adInfo)) == null) ? D(adInfo).featureType == 2 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, adInfo)) == null) ? B(adInfo).featureType == 2 : invokeL.booleanValue;
     }
 
-    public static int L(AdInfo adInfo) {
+    public static int H(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, adInfo)) == null) {
             int i2 = adInfo.adMaterialInfo.materialType;
             int i3 = 1;
             if (i2 != 1) {
@@ -145,10 +123,10 @@ public class a {
     }
 
     @Nullable
-    public static List<Integer> M(@NonNull AdInfo adInfo) {
+    public static List<Integer> I(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, adInfo)) == null) {
             String str = adInfo.adBaseInfo.videoPlayedNS;
             ArrayList arrayList = new ArrayList();
             if (!TextUtils.isEmpty(str)) {
@@ -171,30 +149,51 @@ public class a {
         return (List) invokeL.objValue;
     }
 
-    public static boolean N(@NonNull AdInfo adInfo) {
+    public static boolean J(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, adInfo)) == null) ? adInfo.adBaseInfo.mABParams.videoBlackAreaClick != 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, adInfo)) == null) ? adInfo.adBaseInfo.mABParams.videoBlackAreaClick != 0 : invokeL.booleanValue;
+    }
+
+    public static boolean K(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, adInfo)) == null) ? adInfo.adBaseInfo.mABParams.videoBlackAreaNewStyle != 0 : invokeL.booleanValue;
+    }
+
+    public static boolean L(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, adInfo)) == null) ? adInfo.adStyleInfo2.playDetailInfo.detailWebCardInfo.style == 1 : invokeL.booleanValue;
+    }
+
+    public static boolean M(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, adInfo)) == null) ? adInfo.adStyleInfo2.playDetailInfo.detailCommonInfo.rewardFullClickSwitch == 1 : invokeL.booleanValue;
+    }
+
+    public static int N(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, adInfo)) == null) ? adInfo.adStyleInfo2.playDetailInfo.detailCommonInfo.middleEndcardShowTime : invokeL.intValue;
     }
 
     public static boolean O(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, adInfo)) == null) ? adInfo.adBaseInfo.mABParams.videoBlackAreaNewStyle != 0 : invokeL.booleanValue;
-    }
-
-    public static boolean P(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, adInfo)) == null) ? (adInfo.adBaseInfo.mABParams.showVideoAtH5 == 0 || ag.a(adInfo.adConversionInfo.h5Url)) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, adInfo)) == null) {
+            return ((com.kwad.sdk.core.config.c.W() && v(adInfo)) || adInfo.adBaseInfo.mABParams.showVideoAtH5 == 0 || an.a(adInfo.adConversionInfo.h5Url)) ? false : true;
+        }
+        return invokeL.booleanValue;
     }
 
     @NonNull
-    public static int[] Q(@NonNull AdInfo adInfo) {
+    public static int[] P(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, adInfo)) == null) {
             int[] iArr = {3, 3, 3};
             String str = adInfo.adBaseInfo.mABParams.drawActionBarTimes;
             if (TextUtils.isEmpty(str)) {
@@ -216,15 +215,28 @@ public class a {
         return (int[]) invokeL.objValue;
     }
 
+    public static int Q(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, adInfo)) == null) {
+            int[] P = P(adInfo);
+            if (P.length >= 3 && P[0] > 0) {
+                return P[0];
+            }
+            return 3;
+        }
+        return invokeL.intValue;
+    }
+
     public static int R(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, adInfo)) == null) {
-            int[] Q = Q(adInfo);
-            if (Q.length >= 3 && Q[0] > 0) {
-                return Q[0];
+            int[] P = P(adInfo);
+            if (P.length < 3) {
+                return 6;
             }
-            return 3;
+            return (P[1] > 0 ? P[1] : 3) + Q(adInfo);
         }
         return invokeL.intValue;
     }
@@ -233,204 +245,79 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, adInfo)) == null) {
-            int[] Q = Q(adInfo);
-            if (Q.length < 3) {
-                return 6;
-            }
-            return (Q[1] > 0 ? Q[1] : 3) + R(adInfo);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int T(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, adInfo)) == null) {
-            int[] Q = Q(adInfo);
-            if (Q.length < 3) {
+            int[] P = P(adInfo);
+            if (P.length < 3) {
                 return 9;
             }
-            return (Q[2] > 0 ? Q[2] : 3) + S(adInfo);
+            return (P[2] > 0 ? P[2] : 3) + R(adInfo);
         }
         return invokeL.intValue;
     }
 
     @NonNull
-    public static com.kwad.sdk.core.response.model.c U(@NonNull AdInfo adInfo) {
+    public static com.kwad.sdk.core.response.model.c T(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         String f2;
-        int i2;
-        int j;
+        int g2;
+        int h2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, adInfo)) == null) {
             String c2 = c(adInfo);
             int d2 = d(adInfo);
             int e2 = e(adInfo);
-            if (ag.a(c2) || ag.b(c2) || d2 == 0 || e2 == 0) {
+            if (an.a(c2) || an.b(c2) || d2 == 0 || e2 == 0) {
                 f2 = f(adInfo);
-                i2 = i(adInfo);
-                j = j(adInfo);
+                g2 = g(adInfo);
+                h2 = h(adInfo);
                 z = true;
             } else {
                 f2 = c2;
-                i2 = d2;
-                j = e2;
+                g2 = d2;
+                h2 = e2;
                 z = false;
             }
             com.kwad.sdk.core.d.a.a("AdInfoHelper", "frameUrl=" + f2 + " useCover=" + z + " isAd=true");
-            return new com.kwad.sdk.core.response.model.c(f2, i2, j, true, z);
+            return new com.kwad.sdk.core.response.model.c(f2, g2, h2, true, z);
         }
         return (com.kwad.sdk.core.response.model.c) invokeL.objValue;
     }
 
-    @NonNull
-    public static com.kwad.sdk.core.response.model.c V(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        String c2;
-        int d2;
-        int e2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, adInfo)) == null) {
-            String f2 = f(adInfo);
-            int i2 = i(adInfo);
-            int j = j(adInfo);
-            if (ag.a(f2) || i2 == 0 || j == 0) {
-                c2 = c(adInfo);
-                d2 = d(adInfo);
-                e2 = e(adInfo);
-                z = false;
-            } else {
-                c2 = f2;
-                d2 = i2;
-                e2 = j;
-                z = true;
-            }
-            return new com.kwad.sdk.core.response.model.c(c2, d2, e2, true, z);
-        }
-        return (com.kwad.sdk.core.response.model.c) invokeL.objValue;
-    }
-
-    public static com.kwad.sdk.core.response.model.c W(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        String c2;
-        int d2;
-        int e2;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, adInfo)) == null) {
-            String h2 = h(adInfo);
-            if (ag.a(h2)) {
-                h2 = f(adInfo);
-            }
-            int i2 = i(adInfo);
-            int j = j(adInfo);
-            if (ag.a(h2) || i2 == 0 || j == 0) {
-                c2 = c(adInfo);
-                d2 = d(adInfo);
-                e2 = e(adInfo);
-                z = false;
-            } else {
-                c2 = h2;
-                d2 = i2;
-                e2 = j;
-                z = true;
-            }
-            return new com.kwad.sdk.core.response.model.c(c2, d2, e2, true, z);
-        }
-        return (com.kwad.sdk.core.response.model.c) invokeL.objValue;
-    }
-
-    public static String X(@NonNull AdInfo adInfo) {
+    public static String U(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, adInfo)) == null) {
-            String str = adInfo.adBaseInfo.adActionBarColor;
-            return (ag.a(str) || !str.matches("^#([0-9a-fA-F]{8}|[0-9a-fA-F]{6}|[0-9a-fA-F]{3})$")) ? "#FFE4A704" : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String Y(AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, adInfo)) == null) {
             String str = adInfo.downloadSafeInfo.webPageTipbarText;
             return !TextUtils.isEmpty(str) ? str : "您访问的网站由第三方提供";
         }
         return (String) invokeL.objValue;
     }
 
-    public static AdInfo.DownloadSafeInfo Z(AdInfo adInfo) {
+    public static AdInfo.DownloadSafeInfo V(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, adInfo)) == null) ? adInfo.downloadSafeInfo : (AdInfo.DownloadSafeInfo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, adInfo)) == null) ? adInfo.downloadSafeInfo : (AdInfo.DownloadSafeInfo) invokeL.objValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? CommonUtils.DIALOG_POS_TEXT : (String) invokeV.objValue;
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public static String a(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65563, null, f2)) == null) ? String.format("%.1fM", Float.valueOf((f2 / 1000.0f) / 1000.0f)) : (String) invokeF.objValue;
-    }
-
-    public static String a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65564, null, i2)) == null) {
-            return "下载中  " + i2 + "%";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String a(@NonNull AdInfo adInfo) {
+    public static boolean W(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, adInfo)) == null) ? E(adInfo).materialUrl : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, adInfo)) == null) ? adInfo.downloadSafeInfo.webPageTipbarSwitch : invokeL.booleanValue;
     }
 
-    public static String a(@NonNull AdInfo adInfo, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, adInfo, i2)) == null) {
-            return "下载中..." + i2 + "%  (" + a(((float) adInfo.totalBytes) * (i2 / 100.0f)) + "/" + a((float) adInfo.totalBytes) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String a(AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        SceneImpl sceneImpl;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65567, null, adTemplate)) == null) ? (adTemplate == null || (sceneImpl = adTemplate.mAdScene) == null || sceneImpl.getAdStyle() != 2) ? "立即安装" : "安装获取奖励" : (String) invokeL.objValue;
-    }
-
-    public static boolean aa(AdInfo adInfo) {
+    public static int X(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, adInfo)) == null) ? adInfo.downloadSafeInfo.webPageTipbarSwitch : invokeL.booleanValue;
-    }
-
-    public static int ab(AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, adInfo)) == null) {
             if (adInfo != null) {
-                DOWNLOADSTAUS downloadstaus = adInfo.status;
-                if (DOWNLOADSTAUS.UNKNOWN == downloadstaus) {
+                int i2 = adInfo.status;
+                if (i2 == 0) {
                     return 1;
                 }
-                if (DOWNLOADSTAUS.START == downloadstaus || DOWNLOADSTAUS.DOWNLOADING == downloadstaus || DOWNLOADSTAUS.PROGRESS == downloadstaus || DOWNLOADSTAUS.PAUSED == downloadstaus) {
+                if (1 == i2 || 2 == i2 || 3 == i2 || 4 == i2) {
                     return 2;
                 }
-                return DOWNLOADSTAUS.FINISHED == downloadstaus ? 3 : 0;
+                return 8 == i2 ? 3 : 0;
             }
             return 0;
         }
@@ -438,10 +325,10 @@ public class a {
     }
 
     @Nullable
-    public static String ac(AdInfo adInfo) {
+    public static String Y(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, adInfo)) == null) {
             if (adInfo != null) {
                 return adInfo.adBaseInfo.corporationName;
             }
@@ -451,10 +338,10 @@ public class a {
     }
 
     @Nullable
-    public static String ad(AdInfo adInfo) {
+    public static String Z(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, adInfo)) == null) {
             if (adInfo != null) {
                 return adInfo.downloadSafeInfo.permissionInfo;
             }
@@ -463,11 +350,88 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static String ae(AdInfo adInfo) {
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? CommonUtils.DIALOG_POS_TEXT : (String) invokeV.objValue;
+    }
+
+    public static String a(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i2)) == null) {
+            return "下载中  " + i2 + "%";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String a(Context context, @NonNull AdInfo adInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, adInfo)) == null) {
+            File j = com.kwad.sdk.core.config.c.j(context);
+            if (j.exists()) {
+                return Uri.fromFile(j).toString();
+            }
+            String g2 = com.kwad.sdk.core.config.c.g();
+            return !an.a(g2) ? g2 : adInfo.downloadSafeInfo.windowPopUrl;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String a(Context context, AdTemplate adTemplate, AdInfo adInfo) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65565, null, context, adTemplate, adInfo)) == null) {
+            boolean b2 = b(context, adTemplate, adInfo);
+            File i2 = com.kwad.sdk.core.config.c.i(context);
+            return (b2 && i2.exists()) ? Uri.fromFile(i2).toString() : b2 ? com.kwad.sdk.core.config.c.f() : adInfo.adConversionInfo.h5Url;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String a(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, adInfo)) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(65566, null, adInfo)) == null) ? C(adInfo).materialUrl : (String) invokeL.objValue;
+    }
+
+    public static String a(AdTemplate adTemplate) {
+        InterceptResult invokeL;
+        SceneImpl sceneImpl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, adTemplate)) == null) {
+            if (adTemplate == null || (sceneImpl = adTemplate.mAdScene) == null || sceneImpl.getAdStyle() != 2) {
+                if (adTemplate == null) {
+                    return "立即安装";
+                }
+                AdInfo i2 = c.i(adTemplate);
+                return TextUtils.isEmpty(i2.adBaseInfo.installAppLabel) ? "立即安装" : i2.adBaseInfo.installAppLabel;
+            }
+            return "安装获取奖励";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean a(AdInfo adInfo, Context context) {
+        InterceptResult invokeLL;
+        AdInfo.AdConversionInfo adConversionInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65568, null, adInfo, context)) == null) {
+            if (adInfo == null || context == null || (adConversionInfo = adInfo.adConversionInfo) == null) {
+                return false;
+            }
+            String str = adConversionInfo.playableUrl;
+            return b(adInfo, context) && (str != null && adConversionInfo.playableStyleInfo != null && !TextUtils.isEmpty(str.trim()));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Nullable
+    public static String aa(AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, adInfo)) == null) {
             if (adInfo != null) {
                 return adInfo.downloadSafeInfo.appPrivacyUrl;
             }
@@ -477,10 +441,10 @@ public class a {
     }
 
     @Nullable
-    public static String af(AdInfo adInfo) {
+    public static String ab(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, adInfo)) == null) {
             if (adInfo != null) {
                 return adInfo.adBaseInfo.appVersion;
             }
@@ -489,10 +453,10 @@ public class a {
         return (String) invokeL.objValue;
     }
 
-    public static long ag(AdInfo adInfo) {
+    public static long ac(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, adInfo)) == null) {
             if (adInfo != null) {
                 return adInfo.adBaseInfo.packageSize;
             }
@@ -501,173 +465,316 @@ public class a {
         return invokeL.longValue;
     }
 
+    @Nullable
+    public static String ad(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.AdConversionInfo adConversionInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, adInfo)) == null) {
+            if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null) {
+                return null;
+            }
+            return adConversionInfo.playableUrl;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static String ae(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.AdConversionInfo adConversionInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, adInfo)) == null) {
+            if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null) {
+                return null;
+            }
+            return adConversionInfo.callbackUrl;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean af(AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65574, null, adInfo)) == null) ? (TextUtils.isEmpty(y(adInfo)) || v(adInfo) || adInfo.adStyleInfo.adBrowseInfo.enableAdBrowse != 1) ? false : true : invokeL.booleanValue;
+    }
+
     @NonNull
-    public static AdInfo.AdMaterialInfo.MaterialFeature ah(@NonNull AdInfo adInfo) {
+    public static String ag(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, adInfo)) == null) {
-            List<AdInfo.AdMaterialInfo.MaterialFeature> list = adInfo.adMaterialInfo.materialFeatureList;
-            AdInfo.AdMaterialInfo.MaterialFeature materialFeature = list.size() > 0 ? list.get(0) : null;
-            return materialFeature == null ? new AdInfo.AdMaterialInfo.MaterialFeature() : materialFeature;
+            String o = v(adInfo) ? o(adInfo) : p(adInfo);
+            if (TextUtils.isEmpty(o)) {
+                o = adInfo.advertiserInfo.rawUserName;
+            }
+            return TextUtils.isEmpty(o) ? "可爱的广告君" : o;
         }
-        return (AdInfo.AdMaterialInfo.MaterialFeature) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String ah(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, adInfo)) == null) {
+            if (v(adInfo)) {
+                String n = n(adInfo);
+                if (!an.a(n)) {
+                    return n;
+                }
+            }
+            return adInfo.advertiserInfo.portraitUrl;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static String ai(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.AdSplashInfo adSplashInfo;
+        String str;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65577, null, adInfo)) == null) ? (adInfo == null || (adSplashInfo = adInfo.adSplashInfo) == null || (str = adSplashInfo.skipTips) == null || TextUtils.isEmpty(str)) ? "跳过" : adInfo.adSplashInfo.skipTips : (String) invokeL.objValue;
+    }
+
+    public static boolean aj(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.AdSplashInfo adSplashInfo;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65578, null, adInfo)) == null) ? (adInfo == null || (adSplashInfo = adInfo.adSplashInfo) == null || adSplashInfo.countdownShow != 1) ? false : true : invokeL.booleanValue;
+    }
+
+    public static boolean ak(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.DownloadSafeInfo downloadSafeInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, adInfo)) == null) {
+            if (adInfo == null || (downloadSafeInfo = adInfo.downloadSafeInfo) == null) {
+                return false;
+            }
+            return downloadSafeInfo.downloadPauseEnable;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean al(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.AdConversionInfo adConversionInfo;
+        AdInfo.PlayableStyleInfo playableStyleInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, adInfo)) == null) {
+            if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null || (playableStyleInfo = adConversionInfo.playableStyleInfo) == null) {
+                return false;
+            }
+            int i2 = playableStyleInfo.playableOrientation;
+            return i2 == 0 || i2 == 2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean am(AdInfo adInfo) {
+        InterceptResult invokeL;
+        AdInfo.AdConversionInfo adConversionInfo;
+        AdInfo.PlayableStyleInfo playableStyleInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, adInfo)) == null) {
+            if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null || (playableStyleInfo = adConversionInfo.playableStyleInfo) == null) {
+                return false;
+            }
+            int i2 = playableStyleInfo.playableOrientation;
+            return i2 == 0 || i2 == 1;
+        }
+        return invokeL.booleanValue;
     }
 
     public static int b(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65576, null, adInfo)) == null) ? E(adInfo).videoDuration : invokeL.intValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) ? "立即打开" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65582, null, adInfo)) == null) ? C(adInfo).videoDuration : invokeL.intValue;
     }
 
     public static String b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65578, null, i2)) == null) {
-            return "下载中..." + i2 + "%";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String b(@NonNull AdInfo adInfo, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, adInfo, i2)) == null) {
-            return "继续下载 " + i2 + "%  (" + a(((float) adInfo.totalBytes) * (i2 / 100.0f)) + "/" + a((float) adInfo.totalBytes) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String c(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65580, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65583, null, i2)) == null) {
             return "继续下载 " + i2 + "%";
         }
         return (String) invokeI.objValue;
     }
 
+    public static boolean b(Context context, AdTemplate adTemplate, AdInfo adInfo) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65584, null, context, adTemplate, adInfo)) == null) {
+            if (adTemplate == null || adInfo == null || adTemplate.mAdScene == null || !ab.e(context) || com.kwad.sdk.core.config.c.W()) {
+                return false;
+            }
+            int adStyle = adTemplate.mAdScene.getAdStyle();
+            return (adStyle == 1 || adStyle == 3 || adStyle == 2) && adInfo.adBaseInfo.adAttributeType == 1 && v(adInfo) && com.kwad.sdk.core.config.c.h();
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean b(AdInfo adInfo, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65585, null, adInfo, context)) == null) ? ab.e(context) ? am(adInfo) : al(adInfo) : invokeLL.booleanValue;
+    }
+
     public static String c(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65581, null, adInfo)) == null) ? E(adInfo).firstFrame : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, adInfo)) == null) {
+            int H = H(adInfo);
+            if (H != 1) {
+                if (H != 2 && H != 3) {
+                    return "";
+                }
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
+                    if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.firstFrame)) {
+                        return materialFeature.firstFrame;
+                    }
+                }
+            }
+            for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adInfo.adMaterialInfo.materialFeatureList) {
+                if (materialFeature2.featureType == 1 && !TextUtils.isEmpty(materialFeature2.firstFrame)) {
+                    return materialFeature2.firstFrame;
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 
     public static int d(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65582, null, adInfo)) == null) ? E(adInfo).videoWidth : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65587, null, adInfo)) == null) ? C(adInfo).videoWidth : invokeL.intValue;
     }
 
     public static int e(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65583, null, adInfo)) == null) ? E(adInfo).videoHeight : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65588, null, adInfo)) == null) ? C(adInfo).videoHeight : invokeL.intValue;
     }
 
     public static String f(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65584, null, adInfo)) == null) ? E(adInfo).coverUrl : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, adInfo)) == null) {
+            int H = H(adInfo);
+            if (H != 1) {
+                if (H != 2 && H != 3) {
+                    return "";
+                }
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
+                    if (materialFeature.featureType == 2) {
+                        if (!TextUtils.isEmpty(materialFeature.materialUrl)) {
+                            return materialFeature.materialUrl;
+                        }
+                        if (!TextUtils.isEmpty(materialFeature.coverUrl)) {
+                            return materialFeature.coverUrl;
+                        }
+                    }
+                }
+            }
+            for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adInfo.adMaterialInfo.materialFeatureList) {
+                if (materialFeature2.featureType == 1 && !TextUtils.isEmpty(materialFeature2.coverUrl)) {
+                    return materialFeature2.coverUrl;
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static String g(@NonNull AdInfo adInfo) {
+    public static int g(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, adInfo)) == null) ? E(adInfo).blurBackgroundUrl : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, adInfo)) == null) ? C(adInfo).width : invokeL.intValue;
     }
 
-    public static String h(@NonNull AdInfo adInfo) {
+    public static int h(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65586, null, adInfo)) == null) ? E(adInfo).webpCoverUrl : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65591, null, adInfo)) == null) ? C(adInfo).height : invokeL.intValue;
     }
 
-    public static int i(@NonNull AdInfo adInfo) {
+    public static long i(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65587, null, adInfo)) == null) ? E(adInfo).width : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65592, null, adInfo)) == null) ? C(adInfo).photoId : invokeL.longValue;
     }
 
-    public static int j(@NonNull AdInfo adInfo) {
+    public static String j(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65588, null, adInfo)) == null) ? E(adInfo).height : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65593, null, adInfo)) == null) ? (adInfo == null || TextUtils.isEmpty(adInfo.adBaseInfo.openAppLabel)) ? "立即打开" : adInfo.adBaseInfo.openAppLabel : (String) invokeL.objValue;
     }
 
-    public static long k(@NonNull AdInfo adInfo) {
+    public static boolean k(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65589, null, adInfo)) == null) ? E(adInfo).photoId : invokeL.longValue;
-    }
-
-    public static boolean l(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, adInfo)) == null) {
-            DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) g.a(DevelopMangerPlugin.class)).a("KEY_SKIP_FIVE_SECOND");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, adInfo)) == null) {
+            DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) f.a(DevelopMangerPlugin.class)).a("KEY_SKIP_FIVE_SECOND");
             return a2 != null ? ((Boolean) a2.getValue()).booleanValue() : adInfo.adBaseInfo.enableSkipAd == 1;
         }
         return invokeL.booleanValue;
     }
 
-    public static long m(@NonNull AdInfo adInfo) {
+    public static long l(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65591, null, adInfo)) == null) ? adInfo.adBaseInfo.skipSecond * 1000 : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65595, null, adInfo)) == null) ? adInfo.adBaseInfo.skipSecond * 1000 : invokeL.longValue;
+    }
+
+    public static String m(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65596, null, adInfo)) == null) ? adInfo.adBaseInfo.adDescription : (String) invokeL.objValue;
     }
 
     public static String n(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65592, null, adInfo)) == null) ? adInfo.adBaseInfo.adDescription : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65597, null, adInfo)) == null) ? adInfo.adBaseInfo.appIconUrl : (String) invokeL.objValue;
     }
 
     public static String o(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65593, null, adInfo)) == null) ? adInfo.adBaseInfo.appIconUrl : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65598, null, adInfo)) == null) ? adInfo.adBaseInfo.appName : (String) invokeL.objValue;
     }
 
     public static String p(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65594, null, adInfo)) == null) ? adInfo.advertiserInfo.authorIconGuide : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65599, null, adInfo)) == null) ? adInfo.adBaseInfo.productName : (String) invokeL.objValue;
     }
 
-    public static String q(@NonNull AdInfo adInfo) {
+    public static String q(AdInfo adInfo) {
         InterceptResult invokeL;
+        AdInfo.AdBaseInfo adBaseInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65595, null, adInfo)) == null) ? adInfo.adBaseInfo.appName : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, adInfo)) == null) {
+            if (adInfo == null || (adBaseInfo = adInfo.adBaseInfo) == null) {
+                return null;
+            }
+            return adBaseInfo.appPackageName;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String r(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65596, null, adInfo)) == null) ? adInfo.adBaseInfo.productName : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65601, null, adInfo)) == null) ? adInfo.adBaseInfo.appDownloadCountDesc : (String) invokeL.objValue;
     }
 
-    public static String s(AdInfo adInfo) {
+    public static float s(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65597, null, adInfo)) == null) ? adInfo.adBaseInfo.appPackageName : (String) invokeL.objValue;
-    }
-
-    public static String t(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65598, null, adInfo)) == null) ? adInfo.adBaseInfo.appDownloadCountDesc : (String) invokeL.objValue;
-    }
-
-    public static float u(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, adInfo)) == null) {
             int i2 = adInfo.adBaseInfo.appScore;
             if (i2 <= 0) {
                 return 0.0f;
@@ -677,48 +784,35 @@ public class a {
         return invokeL.floatValue;
     }
 
-    public static String v(AdInfo adInfo) {
+    public static String t(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65600, null, adInfo)) == null) ? ag.a(adInfo.adBaseInfo.adSourceDescription) ? "广告" : adInfo.adBaseInfo.adSourceDescription : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65603, null, adInfo)) == null) ? an.a(adInfo.adBaseInfo.adSourceDescription) ? "广告" : adInfo.adBaseInfo.adSourceDescription : (String) invokeL.objValue;
     }
 
-    public static String w(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, adInfo)) == null) {
-            String str = adInfo.adBaseInfo.adActionDescription;
-            if (TextUtils.isEmpty(str)) {
-                return y(adInfo) ? "立即下载" : "查看详情";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String x(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, adInfo)) == null) {
-            String str = adInfo.adBaseInfo.adActionDescription;
-            if (TextUtils.isEmpty(str)) {
-                return y(adInfo) ? "点我试玩" : "查看详情";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean y(@NonNull AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65603, null, adInfo)) == null) ? z(adInfo) == 1 : invokeL.booleanValue;
-    }
-
-    public static int z(@NonNull AdInfo adInfo) {
+    public static String u(@NonNull AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, adInfo)) == null) {
+            String str = adInfo.adBaseInfo.adActionDescription;
+            if (TextUtils.isEmpty(str)) {
+                return v(adInfo) ? "立即下载" : "查看详情";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean v(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65605, null, adInfo)) == null) ? w(adInfo) == 1 : invokeL.booleanValue;
+    }
+
+    public static int w(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65606, null, adInfo)) == null) {
             int i2 = adInfo.adBaseInfo.adOperationType;
             int i3 = 1;
             if (i2 != 1) {
@@ -730,5 +824,23 @@ public class a {
             return i3;
         }
         return invokeL.intValue;
+    }
+
+    public static int x(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65607, null, adInfo)) == null) ? adInfo.adBaseInfo.ecpm : invokeL.intValue;
+    }
+
+    public static String y(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65608, null, adInfo)) == null) ? adInfo.adConversionInfo.h5Url : (String) invokeL.objValue;
+    }
+
+    public static int z(@NonNull AdInfo adInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65609, null, adInfo)) == null) ? adInfo.adConversionInfo.h5Type : invokeL.intValue;
     }
 }

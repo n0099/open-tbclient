@@ -12,7 +12,7 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f2023a;
+    public final /* synthetic */ a f2024a;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f2023a = aVar;
+        this.f2024a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -42,23 +42,23 @@ public class b implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            alertDialogC0018a = this.f2023a.f2017e;
+            alertDialogC0018a = this.f2024a.f2018e;
             if (alertDialogC0018a == null) {
-                a aVar = this.f2023a;
-                a aVar2 = this.f2023a;
-                aVar.f2017e = new a.AlertDialogC0018a(aVar2, aVar2.f2018f);
-                alertDialogC0018a4 = this.f2023a.f2017e;
-                z = this.f2023a.k;
+                a aVar = this.f2024a;
+                a aVar2 = this.f2024a;
+                aVar.f2018e = new a.AlertDialogC0018a(aVar2, aVar2.f2019f);
+                alertDialogC0018a4 = this.f2024a.f2018e;
+                z = this.f2024a.k;
                 alertDialogC0018a4.setCancelable(z);
             }
             try {
-                alertDialogC0018a2 = this.f2023a.f2017e;
+                alertDialogC0018a2 = this.f2024a.f2018e;
                 if (alertDialogC0018a2.isShowing()) {
                     return;
                 }
-                alertDialogC0018a3 = this.f2023a.f2017e;
+                alertDialogC0018a3 = this.f2024a.f2018e;
                 alertDialogC0018a3.show();
-                handler = this.f2023a.l;
+                handler = this.f2024a.l;
                 handler.sendEmptyMessageDelayed(1, 15000L);
             } catch (Exception e2) {
                 com.alipay.sdk.util.c.a(e2);

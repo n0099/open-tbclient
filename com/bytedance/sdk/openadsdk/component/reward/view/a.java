@@ -17,37 +17,37 @@ import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.widget.TTRatingBar;
 import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f29483a;
+    public LinearLayout f29593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTRoundRectImageView f29484b;
+    public TTRoundRectImageView f29594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f29485c;
+    public TextView f29595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTRatingBar f29486d;
+    public TTRatingBar f29596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f29487e;
+    public TextView f29597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f29488f;
+    public TextView f29598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Activity f29489g;
+    public final Activity f29599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public m f29490h;
+    public m f29600h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29491i;
+    public int f29601i;
     public boolean j;
 
     public a(Activity activity) {
@@ -65,32 +65,32 @@ public class a {
                 return;
             }
         }
-        this.f29489g = activity;
+        this.f29599g = activity;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            Activity activity = this.f29489g;
-            this.f29483a = (LinearLayout) activity.findViewById(r.e(activity, "tt_reward_full_endcard_backup"));
-            Activity activity2 = this.f29489g;
-            this.f29484b = (TTRoundRectImageView) activity2.findViewById(r.e(activity2, "tt_reward_ad_icon_backup"));
-            Activity activity3 = this.f29489g;
-            this.f29485c = (TextView) activity3.findViewById(r.e(activity3, "tt_reward_ad_appname_backup"));
-            Activity activity4 = this.f29489g;
-            this.f29486d = (TTRatingBar) activity4.findViewById(r.e(activity4, "tt_rb_score_backup"));
-            Activity activity5 = this.f29489g;
-            this.f29487e = (TextView) activity5.findViewById(r.e(activity5, "tt_comment_backup"));
-            Activity activity6 = this.f29489g;
-            this.f29488f = (TextView) activity6.findViewById(r.e(activity6, "tt_reward_ad_download_backup"));
-            TTRatingBar tTRatingBar = this.f29486d;
+            Activity activity = this.f29599g;
+            this.f29593a = (LinearLayout) activity.findViewById(r.e(activity, "tt_reward_full_endcard_backup"));
+            Activity activity2 = this.f29599g;
+            this.f29594b = (TTRoundRectImageView) activity2.findViewById(r.e(activity2, "tt_reward_ad_icon_backup"));
+            Activity activity3 = this.f29599g;
+            this.f29595c = (TextView) activity3.findViewById(r.e(activity3, "tt_reward_ad_appname_backup"));
+            Activity activity4 = this.f29599g;
+            this.f29596d = (TTRatingBar) activity4.findViewById(r.e(activity4, "tt_rb_score_backup"));
+            Activity activity5 = this.f29599g;
+            this.f29597e = (TextView) activity5.findViewById(r.e(activity5, "tt_comment_backup"));
+            Activity activity6 = this.f29599g;
+            this.f29598f = (TextView) activity6.findViewById(r.e(activity6, "tt_reward_ad_download_backup"));
+            TTRatingBar tTRatingBar = this.f29596d;
             if (tTRatingBar != null) {
                 tTRatingBar.setStarEmptyNum(1);
-                this.f29486d.setStarFillNum(4);
-                this.f29486d.setStarImageWidth(q.d(this.f29489g, 16.0f));
-                this.f29486d.setStarImageHeight(q.d(this.f29489g, 16.0f));
-                this.f29486d.setStarImagePadding(q.d(this.f29489g, 4.0f));
-                this.f29486d.a();
+                this.f29596d.setStarFillNum(4);
+                this.f29596d.setStarImageWidth(q.d(this.f29599g, 16.0f));
+                this.f29596d.setStarImageHeight(q.d(this.f29599g, 16.0f));
+                this.f29596d.setStarImagePadding(q.d(this.f29599g, 4.0f));
+                this.f29596d.a();
             }
         }
     }
@@ -98,10 +98,10 @@ public class a {
     private void d() {
         TTRoundRectImageView tTRoundRectImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f29491i == 1 && (tTRoundRectImageView = this.f29484b) != null) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.f29601i == 1 && (tTRoundRectImageView = this.f29594b) != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tTRoundRectImageView.getLayoutParams();
-            layoutParams.setMargins(0, (int) q.b(this.f29489g, 50.0f), 0, 0);
-            this.f29484b.setLayoutParams(layoutParams);
+            layoutParams.setMargins(0, (int) q.b(this.f29599g, 50.0f), 0, 0);
+            this.f29594b.setLayoutParams(layoutParams);
         }
     }
 
@@ -111,8 +111,8 @@ public class a {
             return;
         }
         this.j = true;
-        this.f29490h = mVar;
-        this.f29491i = i2;
+        this.f29600h = mVar;
+        this.f29601i = i2;
         c();
         b();
         a(str);
@@ -123,30 +123,30 @@ public class a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f29484b != null) {
-                l Y = this.f29490h.Y();
+            if (this.f29594b != null) {
+                l Y = this.f29600h.Y();
                 if (Y != null && !TextUtils.isEmpty(Y.a())) {
-                    com.bytedance.sdk.openadsdk.g.a.a(Y).a(this.f29484b);
+                    com.bytedance.sdk.openadsdk.g.a.a(Y).a(this.f29594b);
                 } else {
-                    this.f29484b.setImageResource(r.d(this.f29489g, "tt_ad_logo_small"));
+                    this.f29594b.setImageResource(r.d(this.f29599g, "tt_ad_logo_small"));
                 }
             }
-            if (this.f29485c != null) {
-                if (this.f29490h.al() != null && !TextUtils.isEmpty(this.f29490h.al().c())) {
-                    this.f29485c.setText(this.f29490h.al().c());
+            if (this.f29595c != null) {
+                if (this.f29600h.al() != null && !TextUtils.isEmpty(this.f29600h.al().c())) {
+                    this.f29595c.setText(this.f29600h.al().c());
                 } else {
-                    this.f29485c.setText(this.f29490h.ah());
+                    this.f29595c.setText(this.f29600h.ah());
                 }
             }
-            if (this.f29487e != null) {
-                int f2 = this.f29490h.al() != null ? this.f29490h.al().f() : 6870;
-                String a2 = r.a(this.f29489g, "tt_comment_num_backup");
+            if (this.f29597e != null) {
+                int f2 = this.f29600h.al() != null ? this.f29600h.al().f() : 6870;
+                String a2 = r.a(this.f29599g, "tt_comment_num_backup");
                 if (f2 > 10000) {
                     str = (f2 / 10000) + "万";
                 } else {
                     str = f2 + "";
                 }
-                this.f29487e.setText(String.format(a2, str));
+                this.f29597e.setText(String.format(a2, str));
             }
         }
     }
@@ -154,12 +154,12 @@ public class a {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            q.a(this.f29483a, new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.a.1
+            q.a(this.f29593a, new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.view.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f29492a;
+                public final /* synthetic */ a f29602a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -176,7 +176,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f29492a = this;
+                    this.f29602a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -186,22 +186,22 @@ public class a {
                     }
                 }
             }, "TTBaseVideoActivity#mLLEndCardBackup");
-            this.f29488f.setOnClickListener(eVar);
-            this.f29488f.setOnTouchListener(eVar);
+            this.f29598f.setOnClickListener(eVar);
+            this.f29598f.setOnTouchListener(eVar);
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q.a((View) this.f29483a, 0);
+            q.a((View) this.f29593a, 0);
         }
     }
 
     public void a(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str) || (textView = this.f29488f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str) || (textView = this.f29598f) == null) {
             return;
         }
         textView.setText(str);

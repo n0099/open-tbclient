@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util.bdapp;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Base64OutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] EMPTY;
@@ -70,7 +71,7 @@ public class Base64OutputStream extends FilterOutputStream {
     private void flushBuffer() throws IOException {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (i2 = this.bpos) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (i2 = this.bpos) <= 0) {
             return;
         }
         internalWrite(this.buffer, 0, i2, false);

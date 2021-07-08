@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.r.q;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicButton extends DynamicBaseWidgetImp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class DynamicButton extends DynamicBaseWidgetImp {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.p = ((this.f29876f - ((int) q.b(this.f29879i, this.j.e()))) / 2) - this.j.a();
+            this.p = ((this.f29986f - ((int) q.b(this.f29989i, this.j.e()))) / 2) - this.j.a();
             this.q = 0;
         }
     }

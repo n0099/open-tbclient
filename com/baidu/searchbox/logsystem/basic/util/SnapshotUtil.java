@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
@@ -30,14 +31,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SnapshotUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_FILE_PATH_NAME_PARAMETER_DIVIDER = "=";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.util.SnapshotUtil$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType;
         public static /* synthetic */ Interceptable $ic;
@@ -251,7 +252,7 @@ public class SnapshotUtil {
         InterceptResult invokeLLLLL;
         boolean saveFragmentSnapshot;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, context, forwardingDeviceEventSceneHandler, eventObject, file, str)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, forwardingDeviceEventSceneHandler, eventObject, file, str)) == null) {
             File file2 = new File(file, str);
             if (Utility.createNewEmptyFile(file2)) {
                 try {

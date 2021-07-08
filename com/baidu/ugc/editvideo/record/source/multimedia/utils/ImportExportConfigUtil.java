@@ -2,6 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia.utils;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -21,12 +22,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImportExportConfigUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnExportListener {
         void onExportFail(String str);
 
@@ -68,7 +69,7 @@ public class ImportExportConfigUtil {
     public static String exportTransitionWithShader(Context context, String str, MediaTransition mediaTransition, String str2, ShaderConfig shaderConfig) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, context, str, mediaTransition, str2, shaderConfig)) == null) ? InnerImportExportConfigUtil.exportTransitionWithShader(context, str, mediaTransition, str2, shaderConfig) : (String) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, mediaTransition, str2, shaderConfig)) == null) ? InnerImportExportConfigUtil.exportTransitionWithShader(context, str, mediaTransition, str2, shaderConfig) : (String) invokeLLLLL.objValue;
     }
 
     @NonNull

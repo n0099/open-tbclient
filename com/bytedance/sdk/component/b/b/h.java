@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static final h A;
@@ -47,7 +48,7 @@ public final class h {
     public static final h Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator<String> f28440a;
+    public static final Comparator<String> f28550a;
     public static final h aA;
     public static final h aB;
     public static final h aC;
@@ -102,7 +103,7 @@ public final class h {
     public static final h az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f28441b;
+    public static final h f28551b;
     public static final h ba;
     public static final h bb;
     public static final h bc;
@@ -115,25 +116,25 @@ public final class h {
     public static final Map<String, h> bk;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f28442c;
+    public static final h f28552c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f28443d;
+    public static final h f28553d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f28444e;
+    public static final h f28554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f28445f;
+    public static final h f28555f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f28446g;
+    public static final h f28556g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f28447h;
+    public static final h f28557h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f28448i;
+    public static final h f28558i;
     public static final h j;
     public static final h k;
     public static final h l;
@@ -167,7 +168,7 @@ public final class h {
                 return;
             }
         }
-        f28440a = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.h.1
+        f28550a = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,15 +211,15 @@ public final class h {
                 return invokeLL.intValue;
             }
         };
-        bk = new TreeMap(f28440a);
-        f28441b = a("SSL_RSA_WITH_NULL_MD5", 1);
-        f28442c = a("SSL_RSA_WITH_NULL_SHA", 2);
-        f28443d = a("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
-        f28444e = a("SSL_RSA_WITH_RC4_128_MD5", 4);
-        f28445f = a("SSL_RSA_WITH_RC4_128_SHA", 5);
-        f28446g = a("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
-        f28447h = a("SSL_RSA_WITH_DES_CBC_SHA", 9);
-        f28448i = a("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
+        bk = new TreeMap(f28550a);
+        f28551b = a("SSL_RSA_WITH_NULL_MD5", 1);
+        f28552c = a("SSL_RSA_WITH_NULL_SHA", 2);
+        f28553d = a("SSL_RSA_EXPORT_WITH_RC4_40_MD5", 3);
+        f28554e = a("SSL_RSA_WITH_RC4_128_MD5", 4);
+        f28555f = a("SSL_RSA_WITH_RC4_128_SHA", 5);
+        f28556g = a("SSL_RSA_EXPORT_WITH_DES40_CBC_SHA", 8);
+        f28557h = a("SSL_RSA_WITH_DES_CBC_SHA", 9);
+        f28558i = a("SSL_RSA_WITH_3DES_EDE_CBC_SHA", 10);
         j = a("SSL_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA", 17);
         k = a("SSL_DHE_DSS_WITH_DES_CBC_SHA", 18);
         l = a("SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA", 19);
@@ -373,7 +374,7 @@ public final class h {
     public static List<h> a(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
             ArrayList arrayList = new ArrayList(strArr.length);
             for (String str : strArr) {
                 arrayList.add(a(str));

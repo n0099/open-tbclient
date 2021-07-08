@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f44045a;
+    public Bundle f41061a;
 
     public c(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c implements h {
                 return;
             }
         }
-        this.f44045a = bundle;
+        this.f41061a = bundle;
     }
 
     @Override // d.a.c.e.b.b.a.d.h

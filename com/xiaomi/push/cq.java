@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class cq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42934a;
+    public int f39948a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f196a;
@@ -34,7 +34,7 @@ public final class cq {
             }
         }
         this.f196a = str;
-        this.f42934a = i2;
+        this.f39948a = i2;
     }
 
     public static cq a(String str, int i2) {
@@ -72,7 +72,7 @@ public final class cq {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42934a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39948a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -86,8 +86,8 @@ public final class cq {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f42934a > 0) {
-                return this.f196a + ":" + this.f42934a;
+            if (this.f39948a > 0) {
+                return this.f196a + ":" + this.f39948a;
             }
             return this.f196a;
         }

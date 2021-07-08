@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CodedOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 4096;
@@ -27,7 +27,7 @@ public final class CodedOutputStream {
     public final OutputStream output;
     public int position;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class OutOfSpaceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6947486886997889499L;
@@ -91,7 +91,7 @@ public final class CodedOutputStream {
     public static int computeBytesSize(int i2, ByteString byteString) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, byteString)) == null) ? computeTagSize(i2) + computeBytesSizeNoTag(byteString) : invokeIL.intValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, byteString)) == null) ? computeTagSize(i2) + computeBytesSizeNoTag(byteString) : invokeIL.intValue;
     }
 
     public static int computeBytesSizeNoTag(ByteString byteString) {
@@ -280,7 +280,7 @@ public final class CodedOutputStream {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i2)) == null) {
-            if ((i2 & a.f1888g) == 0) {
+            if ((i2 & a.f1889g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -742,7 +742,7 @@ public final class CodedOutputStream {
     public void writeRawVarint32(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            while ((i2 & a.f1888g) != 0) {
+            while ((i2 & a.f1889g) != 0) {
                 writeRawByte((i2 & 127) | 128);
                 i2 >>>= 7;
             }

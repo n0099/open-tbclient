@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +30,7 @@ import com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.al;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -39,12 +40,12 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultConfigurationFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger poolNumber;
@@ -140,7 +141,7 @@ public class DefaultConfigurationFactory {
                     L.e(e2);
                 }
             }
-            return new UnlimitedDiskCache(ad.b(context), createReserveDiskCacheDir, fileNameGenerator);
+            return new UnlimitedDiskCache(al.b(context), createReserveDiskCacheDir, fileNameGenerator);
         }
         return (DiskCache) invokeCommon.objValue;
     }
@@ -157,7 +158,7 @@ public class DefaultConfigurationFactory {
     public static FileNameGenerator createFileNameGenerator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new HashCodeFileNameGenerator() : (FileNameGenerator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new HashCodeFileNameGenerator() : (FileNameGenerator) invokeV.objValue;
     }
 
     public static ImageDecoder createImageDecoder(boolean z) {
@@ -193,7 +194,7 @@ public class DefaultConfigurationFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            File b2 = ad.b(context);
+            File b2 = al.b(context);
             File file = new File(b2, StorageUtils.INDIVIDUAL_DIR_NAME);
             return (file.exists() || file.mkdir()) ? file : b2;
         }

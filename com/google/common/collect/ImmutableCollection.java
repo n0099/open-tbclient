@@ -20,25 +20,25 @@ import java.util.AbstractCollection;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ImmutableCollection<E> extends AbstractCollection<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Object[] EMPTY_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a<E> extends b<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f33090a;
+        public Object[] f33200a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33091b;
+        public int f33201b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f33092c;
+        public boolean f33202c;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
                 }
             }
             m.b(i2, "initialCapacity");
-            this.f33090a = new Object[i2];
-            this.f33091b = 0;
+            this.f33200a = new Object[i2];
+            this.f33201b = 0;
         }
 
         @Override // com.google.common.collect.ImmutableCollection.b
@@ -66,9 +66,9 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eArr)) == null) {
                 u0.b(eArr);
-                g(this.f33091b + eArr.length);
-                System.arraycopy(eArr, 0, this.f33090a, this.f33091b, eArr.length);
-                this.f33091b += eArr.length;
+                g(this.f33201b + eArr.length);
+                System.arraycopy(eArr, 0, this.f33200a, this.f33201b, eArr.length);
+                this.f33201b += eArr.length;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -79,10 +79,10 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
                 n.p(e2);
-                g(this.f33091b + 1);
-                Object[] objArr = this.f33090a;
-                int i2 = this.f33091b;
-                this.f33091b = i2 + 1;
+                g(this.f33201b + 1);
+                Object[] objArr = this.f33200a;
+                int i2 = this.f33201b;
+                this.f33201b = i2 + 1;
                 objArr[i2] = e2;
                 return this;
             }
@@ -92,19 +92,19 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
         public final void g(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                Object[] objArr = this.f33090a;
+                Object[] objArr = this.f33200a;
                 if (objArr.length < i2) {
-                    this.f33090a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
-                    this.f33092c = false;
-                } else if (this.f33092c) {
-                    this.f33090a = (Object[]) objArr.clone();
-                    this.f33092c = false;
+                    this.f33200a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
+                    this.f33202c = false;
+                } else if (this.f33202c) {
+                    this.f33200a = (Object[]) objArr.clone();
+                    this.f33202c = false;
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class b<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.h.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f45530e;
+    public final /* synthetic */ BDHttpDns.a f42384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDnsResult.ResolveType f45531f;
+    public final /* synthetic */ BDHttpDnsResult.ResolveType f42385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ h.a f45532g;
+    public final /* synthetic */ h.a f42386g;
 
     public c(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, h.a aVar2) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f45530e = aVar;
-        this.f45531f = resolveType;
-        this.f45532g = aVar2;
+        this.f42384e = aVar;
+        this.f42385f = resolveType;
+        this.f42386g = aVar2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f45530e.a(new BDHttpDnsResult(this.f45531f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f45532g.d(), null));
+            this.f42384e.a(new BDHttpDnsResult(this.f42385f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f42386g.d(), null));
         }
     }
 }

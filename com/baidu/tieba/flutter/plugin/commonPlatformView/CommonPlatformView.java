@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.e3.a;
+import d.a.p0.e3.a;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommonPlatformView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommonPlatformView";
@@ -124,7 +124,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
                 this.mSquareDelegate = aVar;
                 aVar.g();
                 this.mSquareDelegate.o();
-                this.mainView = this.mSquareDelegate.f59158d.d();
+                this.mainView = this.mSquareDelegate.f55903d.d();
             }
         }
     }

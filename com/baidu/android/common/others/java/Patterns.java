@@ -1,5 +1,6 @@
 package com.baidu.android.common.others.java;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -112,7 +113,7 @@ public class Patterns {
 
     public static void initClazz() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
         }
     }
 }

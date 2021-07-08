@@ -14,27 +14,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NavigationBarShadowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12445e;
+    public int f12462e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlphaAnimation f12446f;
+    public AlphaAnimation f12463f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f12447g;
+    public AlphaAnimation f12464g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarShadowView f12448a;
+        public final /* synthetic */ NavigationBarShadowView f12465a;
 
         public a(NavigationBarShadowView navigationBarShadowView) {
             Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class NavigationBarShadowView extends View {
                     return;
                 }
             }
-            this.f12448a = navigationBarShadowView;
+            this.f12465a = navigationBarShadowView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f12448a.setVisibility(8);
+                this.f12465a.setVisibility(8);
             }
         }
 
@@ -101,24 +101,24 @@ public class NavigationBarShadowView extends View {
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getVisibility() == 0) {
-            if (this.f12447g == null) {
+            if (this.f12464g == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                this.f12447g = alphaAnimation;
+                this.f12464g = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f12447g.setDuration(300L);
-                this.f12447g.setAnimationListener(new a(this));
+                this.f12464g.setDuration(300L);
+                this.f12464g.setAnimationListener(new a(this));
             }
-            startAnimation(this.f12447g);
+            startAnimation(this.f12464g);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f12445e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f12462e == i2) {
             return;
         }
         SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
-        this.f12445e = i2;
+        this.f12462e = i2;
     }
 
     public void c() {
@@ -129,13 +129,13 @@ public class NavigationBarShadowView extends View {
                 return;
             }
             setVisibility(0);
-            if (this.f12446f == null) {
+            if (this.f12463f == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                this.f12446f = alphaAnimation;
+                this.f12463f = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f12446f.setDuration(300L);
+                this.f12463f.setDuration(300L);
             }
-            startAnimation(this.f12446f);
+            startAnimation(this.f12463f);
         }
     }
 
@@ -179,7 +179,7 @@ public class NavigationBarShadowView extends View {
                 return;
             }
         }
-        this.f12445e = 3;
+        this.f12462e = 3;
         setVisibility(8);
         b(TbadkCoreApplication.getInst().getSkinType());
     }

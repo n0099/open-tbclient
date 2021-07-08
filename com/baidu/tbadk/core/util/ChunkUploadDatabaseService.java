@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +11,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.k.b;
 import d.a.c.e.m.a;
-import d.a.r0.s.c.q;
+import d.a.o0.s.c.q;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ChunkUploadDatabaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +112,7 @@ public class ChunkUploadDatabaseService {
     public static boolean saveChunkUploadData(q qVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, qVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qVar)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             }

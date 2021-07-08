@@ -16,19 +16,19 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CHLifeGridGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CHTitleView f25025a;
+    public CHTitleView f25135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GridLayout f25026b;
+    public GridLayout f25136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25027c;
+    public List<BaseItemView> f25137c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHLifeGridGroup(Context context) {
@@ -48,7 +48,7 @@ public class CHLifeGridGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25027c = new ArrayList();
+        this.f25137c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -62,7 +62,7 @@ public class CHLifeGridGroup extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25027c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25137c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -70,8 +70,8 @@ public class CHLifeGridGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_life_layout"), this);
-            this.f25026b = (GridLayout) findViewById(ResUtils.id(getContext(), "ch_life_group"));
-            this.f25025a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_life_lable"));
+            this.f25136b = (GridLayout) findViewById(ResUtils.id(getContext(), "ch_life_group"));
+            this.f25135a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_life_lable"));
         }
     }
 
@@ -91,19 +91,19 @@ public class CHLifeGridGroup extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25025a.setData(this.mConfigData, getWalletInterface());
+            this.f25135a.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-            this.f25026b.setColumnCount(4);
-            this.f25026b.setHorizontalSpacing(0);
-            this.f25026b.setVerticalSpacing(0);
-            a(this.f25026b);
+            this.f25136b.setColumnCount(4);
+            this.f25136b.setHorizontalSpacing(0);
+            this.f25136b.setVerticalSpacing(0);
+            a(this.f25136b);
             int length = dataItemArr.length <= 16 ? dataItemArr.length : 16;
             for (int i2 = 0; i2 < length; i2++) {
                 if (dataItemArr[i2] != null) {
                     CHLifeGridItem cHLifeGridItem = new CHLifeGridItem(getContext());
                     cHLifeGridItem.setData(dataItemArr[i2], getWalletInterface());
-                    this.f25026b.addView(cHLifeGridItem);
-                    this.f25027c.add(cHLifeGridItem);
+                    this.f25136b.addView(cHLifeGridItem);
+                    this.f25137c.add(cHLifeGridItem);
                 }
             }
         }
@@ -128,6 +128,6 @@ public class CHLifeGridGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25027c = new ArrayList();
+        this.f25137c = new ArrayList();
     }
 }

@@ -8,30 +8,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.report.d;
-import com.kwad.sdk.core.report.m;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.core.report.l;
+import com.kwad.sdk.utils.q;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class c extends d implements com.kwad.sdk.core.b {
+/* loaded from: classes6.dex */
+public class c extends com.kwad.sdk.core.report.c implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36599b;
+    public String f34945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36600c;
+    public String f34946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36601d;
+    public long f34947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36602e;
+    public String f34948e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f36603f;
+    public long f34949f;
 
     public c(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -48,33 +47,36 @@ public class c extends d implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f36535a = UUID.randomUUID().toString();
-        this.f36601d = System.currentTimeMillis();
-        this.f36602e = m.b();
-        this.f36603f = m.d();
-        this.f36599b = str;
-        this.f36600c = str2;
+        this.f34878a = UUID.randomUUID().toString();
+        this.f34947d = System.currentTimeMillis();
+        this.f34948e = l.b();
+        this.f34949f = l.d();
+        this.f34945b = str;
+        this.f34946c = str2;
     }
 
-    @Override // com.kwad.sdk.core.report.d
-    public void a(@Nullable JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
+            super.parseJson(jSONObject);
             if (jSONObject == null) {
                 return;
             }
             try {
-                this.f36601d = jSONObject.optLong("timestamp");
-                if (jSONObject.has("sessionId")) {
-                    this.f36602e = jSONObject.optString("sessionId");
+                this.f34947d = jSONObject.optLong("timestamp");
+                if (jSONObject.has("actionId")) {
+                    this.f34878a = jSONObject.optString("actionId");
                 }
-                this.f36603f = jSONObject.optLong(IAdRequestParam.SEQ);
+                if (jSONObject.has("sessionId")) {
+                    this.f34948e = jSONObject.optString("sessionId");
+                }
+                this.f34949f = jSONObject.optLong(IAdRequestParam.SEQ);
                 if (jSONObject.has("mediaPlayerAction")) {
-                    this.f36599b = jSONObject.optString("mediaPlayerAction");
+                    this.f34945b = jSONObject.optString("mediaPlayerAction");
                 }
                 if (jSONObject.has("mediaPlayerMsg")) {
-                    this.f36600c = jSONObject.optString("mediaPlayerMsg");
+                    this.f34946c = jSONObject.optString("mediaPlayerMsg");
                 }
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
@@ -82,17 +84,18 @@ public class c extends d implements com.kwad.sdk.core.b {
         }
     }
 
-    @Override // com.kwad.sdk.core.report.d, com.kwad.sdk.core.b
+    @Override // com.kwad.sdk.core.response.a.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject json = super.toJson();
-            o.a(json, "timestamp", this.f36601d);
-            o.a(json, "sessionId", this.f36602e);
-            o.a(json, IAdRequestParam.SEQ, this.f36603f);
-            o.a(json, "mediaPlayerAction", this.f36599b);
-            o.a(json, "mediaPlayerMsg", this.f36600c);
+            q.a(json, "actionId", this.f34878a);
+            q.a(json, "timestamp", this.f34947d);
+            q.a(json, "sessionId", this.f34948e);
+            q.a(json, IAdRequestParam.SEQ, this.f34949f);
+            q.a(json, "mediaPlayerAction", this.f34945b);
+            q.a(json, "mediaPlayerMsg", this.f34946c);
             return json;
         }
         return (JSONObject) invokeV.objValue;
@@ -102,7 +105,7 @@ public class c extends d implements com.kwad.sdk.core.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "MediaPlayerReportAction{actionId='" + this.f36535a + "', timestamp=" + this.f36601d + ", sessionId='" + this.f36602e + "', seq=" + this.f36603f + ", mediaPlayerAction='" + this.f36599b + "', mediaPlayerMsg='" + this.f36600c + "'}";
+            return "MediaPlayerReportAction{actionId='" + this.f34878a + "', timestamp=" + this.f34947d + ", sessionId='" + this.f34948e + "', seq=" + this.f34949f + ", mediaPlayerAction='" + this.f34945b + "', mediaPlayerMsg='" + this.f34946c + "'}";
         }
         return (String) invokeV.objValue;
     }

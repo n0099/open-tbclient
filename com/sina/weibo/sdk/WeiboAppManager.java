@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WeiboAppManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_INT_FILE_NAME = "weibo_for_sdk.json";
@@ -178,7 +179,7 @@ public class WeiboAppManager {
     public static WbAppInfo queryWbInfoByAsset(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
             intent.addCategory("android.intent.category.DEFAULT");
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);

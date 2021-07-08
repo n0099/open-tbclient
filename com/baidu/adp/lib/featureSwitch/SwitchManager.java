@@ -90,8 +90,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.i(0);
-                edit.putInt(cVar.d() + c.f44136d, 0);
-                edit.putInt(cVar.d() + c.f44137e, cVar.c());
+                edit.putInt(cVar.d() + c.f41152d, 0);
+                edit.putInt(cVar.d() + c.f41153e, cVar.c());
             }
         }
         edit.commit();

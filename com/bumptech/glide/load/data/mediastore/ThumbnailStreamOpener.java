@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThumbnailStreamOpener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileService DEFAULT_SERVICE;
@@ -102,7 +103,7 @@ public class ThumbnailStreamOpener {
     private boolean isValid(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, file)) == null) ? this.service.exists(file) && 0 < this.service.length(file) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, file)) == null) ? this.service.exists(file) && 0 < this.service.length(file) : invokeL.booleanValue;
     }
 
     public int getOrientation(Uri uri) {

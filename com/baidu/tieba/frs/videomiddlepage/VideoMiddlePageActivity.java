@@ -29,10 +29,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.r0.k0.d;
-import d.a.s0.t3.c;
+import d.a.o0.k0.d;
+import d.a.p0.t3.c;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
         VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
         if (videoMiddlePageFragment == null) {
-            videoMiddlePageFragment = VideoMiddlePageFragment.P0(this.mFrom, this.mId);
+            videoMiddlePageFragment = VideoMiddlePageFragment.Q0(this.mFrom, this.mId);
             supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
         }
         this.mFragment = videoMiddlePageFragment;
@@ -124,7 +124,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.r0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.o0.k0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -240,7 +240,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, keyEvent)) == null) {
             if (keyEvent != null && (videoMiddlePageFragment = this.mFragment) != null) {
-                if (videoMiddlePageFragment.T0(i2)) {
+                if (videoMiddlePageFragment.U0(i2)) {
                     return true;
                 }
                 return super.onKeyDown(i2, keyEvent);
@@ -255,7 +255,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            d.a.r0.a.d.y().E();
+            d.a.o0.a.d.y().E();
         }
     }
 
@@ -267,7 +267,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             if (k.isEmpty(this.mId)) {
                 return;
             }
-            d.a.r0.a.d.y().P(d.a.r0.a.c.Z, b.f(this.mId, 0L));
+            d.a.o0.a.d.y().P(d.a.o0.a.c.Z, b.f(this.mId, 0L));
         }
     }
 

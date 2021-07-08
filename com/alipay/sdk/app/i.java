@@ -1,6 +1,7 @@
 package com.alipay.sdk.app;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.data.a;
 import com.alipay.sdk.util.n;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,16 +19,16 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<a.C0016a> f1803a = null;
+    public static List<a.C0016a> f1804a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1804b = "";
+    public static String f1805b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a.C0016a f1805c;
+    public static final a.C0016a f1806c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a.C0016a f1806d;
+    public static final a.C0016a f1807d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +44,9 @@ public class i {
                 return;
             }
         }
-        f1805c = new a.C0016a(n.f1994a, 73, com.alipay.sdk.cons.a.f1838h);
-        f1806d = new a.C0016a(PayResultActivity.f1762c, 40, "e6b1bdcb890370f2f2419fe06d0fdf7628ad0083d52da1ecfe991164711bbf9297e75353de96f1740695d07610567b1240549af9cbd87d06919ac31c859ad37ab6907c311b4756e1e208775989a4f691bff4bbbc58174d2a96b1d0d970a05114d7ee57dfc33b1bafaf6e0d820e838427018b6435f903df04ba7fd34d73f843df9434b164e0220baabb10c8978c3f4c6b7da79d8220a968356d15090dea07df9606f665cbec14d218dd3d691cce2866a58840971b6a57b76af88b1a65fdffd2c080281a6ab20be5879e0330eb7ff70871ce684e7174ada5dc3159c461375a0796b17ce7beca83cf34f65976d237aee993db48d34a4e344f4d8b7e99119168bdd7");
-        f1803a = Collections.singletonList(f1805c);
+        f1806c = new a.C0016a(n.f1995a, 73, com.alipay.sdk.cons.a.f1839h);
+        f1807d = new a.C0016a(PayResultActivity.f1763c, 40, "e6b1bdcb890370f2f2419fe06d0fdf7628ad0083d52da1ecfe991164711bbf9297e75353de96f1740695d07610567b1240549af9cbd87d06919ac31c859ad37ab6907c311b4756e1e208775989a4f691bff4bbbc58174d2a96b1d0d970a05114d7ee57dfc33b1bafaf6e0d820e838427018b6435f903df04ba7fd34d73f843df9434b164e0220baabb10c8978c3f4c6b7da79d8220a968356d15090dea07df9606f665cbec14d218dd3d691cce2866a58840971b6a57b76af88b1a65fdffd2c080281a6ab20be5879e0330eb7ff70871ce684e7174ada5dc3159c461375a0796b17ce7beca83cf34f65976d237aee993db48d34a4e344f4d8b7e99119168bdd7");
+        f1804a = Collections.singletonList(f1806c);
     }
 
     public i() {
@@ -65,11 +66,11 @@ public class i {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f1804b = str;
+            f1805b = str;
             if (((str.hashCode() == 3331 && str.equals("hk")) ? (char) 0 : (char) 65535) != 0) {
-                f1803a = Collections.singletonList(f1805c);
+                f1804a = Collections.singletonList(f1806c);
             } else {
-                f1803a = Collections.singletonList(f1806d);
+                f1804a = Collections.singletonList(f1807d);
             }
         }
     }
@@ -77,12 +78,12 @@ public class i {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? TextUtils.isEmpty(f1804b) || TextUtils.equals(AdvanceSetting.CLEAR_NOTIFICATION, f1804b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TextUtils.isEmpty(f1805b) || TextUtils.equals(AdvanceSetting.CLEAR_NOTIFICATION, f1805b) : invokeV.booleanValue;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1804b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1805b : (String) invokeV.objValue;
     }
 }

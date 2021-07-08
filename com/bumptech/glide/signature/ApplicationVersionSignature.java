@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +20,7 @@ import com.bumptech.glide.load.Key;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ApplicationVersionSignature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY;
@@ -88,7 +89,7 @@ public final class ApplicationVersionSignature {
     public static Key obtain(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String packageName = context.getPackageName();
             Key key = PACKAGE_NAME_TO_KEY.get(packageName);
             if (key == null) {

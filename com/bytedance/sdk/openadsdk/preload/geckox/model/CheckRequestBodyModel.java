@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CheckRequestBodyModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f32130common;
+    public Common f32240common;
     @c(a = SchedulerSupport.CUSTOM)
     public Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -34,7 +34,7 @@ public class CheckRequestBodyModel {
     public Map<String, Map<String, LocalChannel>> local;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Channel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ChannelInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Channels {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Group {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class CheckRequestBodyModel {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class GroupType {
         public static final /* synthetic */ GroupType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -213,7 +213,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class LocalChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ProcessorParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +259,7 @@ public class CheckRequestBodyModel {
     }
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TargetChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,7 +347,7 @@ public class CheckRequestBodyModel {
     public void setCommon(Common common2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, common2) == null) {
-            this.f32130common = common2;
+            this.f32240common = common2;
         }
     }
 

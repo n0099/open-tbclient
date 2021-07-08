@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SingleLineEllipsizeTextView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12523f;
+    public String f12540f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleLineEllipsizeTextView(Context context) {
@@ -39,7 +39,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f12523f = StringHelper.STRING_MORE;
+        this.f12540f = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
@@ -53,7 +53,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
             TextPaint paint = getPaint();
-            float measureText = paint.measureText(this.f12523f);
+            float measureText = paint.measureText(this.f12540f);
             float measureText2 = paint.measureText(text.toString());
             float paddingRight = getPaddingRight() + getPaddingLeft();
             Drawable[] compoundDrawables = getCompoundDrawables();
@@ -73,12 +73,12 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                     measureText2 = paint.measureText(text, 0, length - 1);
                 }
                 if (length > 0) {
-                    if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.f12523f) > measuredWidth) {
+                    if (paint.measureText(((Object) text.subSequence(0, length - 1)) + this.f12540f) > measuredWidth) {
                         length--;
                     }
                 }
                 if (length > 0) {
-                    text = ((Object) text.subSequence(0, length - 1)) + this.f12523f;
+                    text = ((Object) text.subSequence(0, length - 1)) + this.f12540f;
                 }
                 float measureText3 = paint.measureText(text.toString());
                 setText(text);
@@ -90,7 +90,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
     public void setEllipsisSuffix(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f12523f = str;
+            this.f12540f = str;
         }
     }
 
@@ -113,7 +113,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f12523f = StringHelper.STRING_MORE;
+        this.f12540f = StringHelper.STRING_MORE;
         setSingleLine();
     }
 
@@ -136,7 +136,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
                 return;
             }
         }
-        this.f12523f = StringHelper.STRING_MORE;
+        this.f12540f = StringHelper.STRING_MORE;
         setSingleLine();
     }
 }

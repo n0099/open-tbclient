@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f1889h);
+                sb.append(a.f1890h);
                 sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
                 return this;
             }
@@ -121,7 +121,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f1889h);
+                sb.append(a.f1890h);
                 sb.append(Integer.toString(i2));
                 return this;
             }
@@ -136,7 +136,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f1889h);
+                sb.append(a.f1890h);
                 sb.append(Long.toString(j));
                 return this;
             }
@@ -151,7 +151,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(';');
                 sb.append(str);
-                sb.append(a.f1889h);
+                sb.append(a.f1890h);
                 sb.append(Double.toString(d2));
                 return this;
             }

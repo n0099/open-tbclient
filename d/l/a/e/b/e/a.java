@@ -3,6 +3,8 @@ package d.l.a.e.b.e;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
@@ -10,7 +12,6 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwai.video.player.KsMediaMeta;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.exception.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class a {
                     jSONObject2.put("save_path", downloadInfo.getSavePath());
                     jSONObject2.put("download_time", downloadInfo.getDownloadTime());
                     jSONObject2.put("cur_bytes", downloadInfo.getCurBytes());
-                    jSONObject2.put("total_bytes", downloadInfo.getTotalBytes());
+                    jSONObject2.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
                     jSONObject2.put("network_quality", downloadInfo.getNetworkQuality());
                     int i4 = 1;
                     jSONObject2.put("only_wifi", downloadInfo.isOnlyWifi() ? 1 : 0);
@@ -201,7 +202,7 @@ public class a {
 
     public static void e(z zVar, DownloadInfo downloadInfo, BaseException baseException, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65540, null, zVar, downloadInfo, baseException, i2) == null) || zVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, zVar, downloadInfo, baseException, i2) == null) || zVar == null) {
             return;
         }
         try {
@@ -239,7 +240,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("segments", i.b(list));
                 jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
-                jSONObject.put("total_bytes", downloadInfo.getTotalBytes());
+                jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
                 c p = e.p();
                 if (p != null) {
                     p.b(downloadInfo.getId(), "segments_error", jSONObject);
@@ -357,7 +358,7 @@ public class a {
                     if (errorMessage != null) {
                         jSONObject.put("error_msg", f.k(errorMessage, d2.b("exception_msg_length", 500)));
                     }
-                    jSONObject.put(KsMediaMeta.KSM_KEY_HTTP_CONNECT_TIME, j);
+                    jSONObject.put("connect_time", j);
                     jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
                     jSONObject.put("name", downloadInfo.getTitle());
                     if ((b2 != 1 || b2 == 3) && (t0 = e.t0()) != null) {
@@ -399,7 +400,7 @@ public class a {
         jSONObject.put("request_log", str42);
         if (errorMessage != null) {
         }
-        jSONObject.put(KsMediaMeta.KSM_KEY_HTTP_CONNECT_TIME, j);
+        jSONObject.put("connect_time", j);
         jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
         jSONObject.put("name", downloadInfo.getTitle());
         if (b2 != 1) {

@@ -40,7 +40,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CollapsingTextHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DRAW = false;
@@ -234,7 +234,7 @@ public final class CollapsingTextHelper {
 
     private void calculateCurrentOffsets() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             calculateOffsets(this.expandedFraction);
         }
     }

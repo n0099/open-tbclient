@@ -11,7 +11,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.PluginRegistry;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlutterHotReload {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

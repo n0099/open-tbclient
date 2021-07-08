@@ -1,5 +1,6 @@
 package com.baidu.ar.auth;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.h.r;
 import com.baidu.ar.libloader.ILibLoader;
 import com.baidu.ar.statistic.StatisticApi;
@@ -40,7 +41,7 @@ public class AuthJni {
     /* JADX INFO: Access modifiers changed from: private */
     public void cy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             for (Runnable runnable : this.jE) {
                 runnable.run();
             }

@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a0 extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44481a;
+    public boolean f41497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f44482b;
+    public Map<String, String> f41498b;
 
     public a0(boolean z, Map<String, String> map) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a0 extends r {
                 return;
             }
         }
-        this.f44481a = z;
-        this.f44482b = map;
+        this.f41497a = z;
+        this.f41498b = map;
     }
 }

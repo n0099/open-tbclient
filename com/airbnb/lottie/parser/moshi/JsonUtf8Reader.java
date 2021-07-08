@@ -260,7 +260,7 @@ public final class JsonUtf8Reader extends JsonReader {
     private int findName(String str, JsonReader.Options options) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, options)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, options)) == null) {
             int length = options.strings.length;
             for (int i2 = 0; i2 < length; i2++) {
                 if (str.equals(options.strings[i2])) {

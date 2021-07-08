@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,34 +26,34 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, f> f41993a;
+    public static Map<String, f> f39007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f41994b;
+    public static String f39008b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f41995c;
+    public Context f39009c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f41996d;
+    public String f39010d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f41997e;
+    public JSONObject f39011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f41998f;
+    public long f39012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41999g;
+    public int f39013g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42000h;
+    public boolean f39014h;
 
     static {
         InterceptResult invokeClinit;
@@ -67,8 +68,8 @@ public class f {
                 return;
             }
         }
-        f41993a = Collections.synchronizedMap(new HashMap());
-        f41994b = null;
+        f39007a = Collections.synchronizedMap(new HashMap());
+        f39008b = null;
     }
 
     public f(Context context, String str) {
@@ -86,14 +87,14 @@ public class f {
                 return;
             }
         }
-        this.f41995c = null;
-        this.f41996d = null;
-        this.f41997e = null;
-        this.f41998f = 0L;
-        this.f41999g = 0;
-        this.f42000h = true;
-        this.f41995c = context.getApplicationContext();
-        this.f41996d = str;
+        this.f39009c = null;
+        this.f39010d = null;
+        this.f39011e = null;
+        this.f39012f = 0L;
+        this.f39013g = 0;
+        this.f39014h = true;
+        this.f39009c = context.getApplicationContext();
+        this.f39010d = str;
         a();
         b();
     }
@@ -101,14 +102,14 @@ public class f {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            if (this.f41999g != 0) {
+            if (this.f39013g != 0) {
                 d("update thread is running, return");
                 return;
             }
-            this.f41999g = 1;
+            this.f39013g = 1;
             Bundle bundle = new Bundle();
-            bundle.putString("appid", this.f41996d);
-            bundle.putString("appid_for_getting_config", this.f41996d);
+            bundle.putString("appid", this.f39010d);
+            bundle.putString("appid_for_getting_config", this.f39010d);
             bundle.putString("status_os", Build.VERSION.RELEASE);
             bundle.putString("status_machine", Build.MODEL);
             bundle.putString("status_version", Build.VERSION.SDK);
@@ -119,10 +120,10 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Bundle f42001a;
+                public final /* synthetic */ Bundle f39015a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ f f42002b;
+                public final /* synthetic */ f f39016b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -139,8 +140,8 @@ public class f {
                             return;
                         }
                     }
-                    this.f42002b = this;
-                    this.f42001a = bundle;
+                    this.f39016b = this;
+                    this.f39015a = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -148,11 +149,11 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f42002b.a(j.d(HttpUtils.openUrl2(this.f42002b.f41995c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", this.f42001a).f42020a));
+                            this.f39016b.a(j.d(HttpUtils.openUrl2(this.f39016b.f39009c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", this.f39015a).f39034a));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f42002b.f41999g = 0;
+                        this.f39016b.f39013g = 0;
                     }
                 }
             }.start();
@@ -168,14 +169,14 @@ public class f {
             String str3 = "";
             try {
                 try {
-                    if (this.f41996d != null) {
-                        str2 = str + "." + this.f41996d;
+                    if (this.f39010d != null) {
+                        str2 = str + "." + this.f39010d;
                     } else {
                         str2 = str;
                     }
-                    open = this.f41995c.openFileInput(str2);
+                    open = this.f39009c.openFileInput(str2);
                 } catch (FileNotFoundException unused) {
-                    open = this.f41995c.getAssets().open(str);
+                    open = this.f39009c.getAssets().open(str);
                 }
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName("UTF-8")));
                 StringBuffer stringBuffer = new StringBuffer();
@@ -220,8 +221,8 @@ public class f {
 
     private void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.f42000h) {
-            com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", str + "; appid: " + this.f41996d);
+        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.f39014h) {
+            com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", str + "; appid: " + this.f39010d);
         }
     }
 
@@ -229,19 +230,19 @@ public class f {
         InterceptResult invokeLL;
         f fVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
-            synchronized (f41993a) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            synchronized (f39007a) {
                 com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance begin");
                 if (str != null) {
-                    f41994b = str;
+                    f39008b = str;
                 }
                 if (str == null) {
-                    str = f41994b != null ? f41994b : "0";
+                    str = f39008b != null ? f39008b : "0";
                 }
-                fVar = f41993a.get(str);
+                fVar = f39007a.get(str);
                 if (fVar == null) {
                     fVar = new f(context, str);
-                    f41993a.put(str, fVar);
+                    f39007a.put(str, fVar);
                 }
                 com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance end");
             }
@@ -256,7 +257,7 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             d("get " + str);
             c();
-            Object opt = this.f41997e.opt(str);
+            Object opt = this.f39011e.opt(str);
             if (opt == null) {
                 return false;
             }
@@ -275,9 +276,9 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             try {
-                this.f41997e = new JSONObject(c("com.tencent.open.config.json"));
+                this.f39011e = new JSONObject(c("com.tencent.open.config.json"));
             } catch (JSONException unused) {
-                this.f41997e = new JSONObject();
+                this.f39011e = new JSONObject();
             }
         }
     }
@@ -286,10 +287,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             try {
-                if (this.f41996d != null) {
-                    str = str + "." + this.f41996d;
+                if (this.f39010d != null) {
+                    str = str + "." + this.f39010d;
                 }
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f41995c.openFileOutput(str, 0), Charset.forName("UTF-8"));
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f39009c.openFileOutput(str, 0), Charset.forName("UTF-8"));
                 outputStreamWriter.write(str2);
                 outputStreamWriter.flush();
                 outputStreamWriter.close();
@@ -302,11 +303,11 @@ public class f {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            int optInt = this.f41997e.optInt("Common_frequency");
+            int optInt = this.f39011e.optInt("Common_frequency");
             if (optInt == 0) {
                 optInt = 1;
             }
-            if (SystemClock.elapsedRealtime() - this.f41998f >= optInt * 3600000) {
+            if (SystemClock.elapsedRealtime() - this.f39012f >= optInt * 3600000) {
                 b();
             }
         }
@@ -317,9 +318,9 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
             d("cgi back, do update");
-            this.f41997e = jSONObject;
+            this.f39011e = jSONObject;
             a("com.tencent.open.config.json", jSONObject.toString());
-            this.f41998f = SystemClock.elapsedRealtime();
+            this.f39012f = SystemClock.elapsedRealtime();
         }
     }
 
@@ -329,7 +330,7 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             d("get " + str);
             c();
-            return this.f41997e.optInt(str);
+            return this.f39011e.optInt(str);
         }
         return invokeL.intValue;
     }

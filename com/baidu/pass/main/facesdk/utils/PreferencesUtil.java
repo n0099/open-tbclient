@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LEFT_MOUNT = "[";
@@ -59,7 +60,7 @@ public class PreferencesUtil {
     public static float getFloat(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65540, null, str, f2)) == null) ? getPreferences().getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, str, f2)) == null) ? getPreferences().getFloat(str, f2) : invokeLF.floatValue;
     }
 
     public static int getInt(String str, int i2) {

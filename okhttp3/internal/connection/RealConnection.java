@@ -59,7 +59,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_TUNNEL_ATTEMPTS = 21;
@@ -220,7 +220,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     private Request createTunnel(int i2, int i3, Request request, HttpUrl httpUrl) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), request, httpUrl})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), request, httpUrl})) != null) {
             return (Request) invokeCommon.objValue;
         }
         String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";

@@ -22,37 +22,37 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NativeUnifiedADData f40824a;
+    public NativeUnifiedADData f37838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NativeADEventListener f40825b;
+    public NativeADEventListener f37839b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NativeADMediaListener f40826c;
+    public NativeADMediaListener f37840c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadConfirmListener f40827d;
+    public DownloadConfirmListener f37841d;
 
     /* renamed from: com.qq.e.ads.nativ.NativeUnifiedADDataAdapter$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class UnifiedAdListener implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public /* synthetic */ NativeUnifiedADDataAdapter f40828a;
+        public /* synthetic */ NativeUnifiedADDataAdapter f37842a;
 
         public UnifiedAdListener(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
                     return;
                 }
             }
-            this.f40828a = nativeUnifiedADDataAdapter;
+            this.f37842a = nativeUnifiedADDataAdapter;
         }
 
         public /* synthetic */ UnifiedAdListener(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, byte b2) {
@@ -81,9 +81,9 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
                 if (aDEvent.getType() <= 4) {
-                    NativeUnifiedADDataAdapter.a(this.f40828a, aDEvent);
+                    NativeUnifiedADDataAdapter.a(this.f37842a, aDEvent);
                 } else {
-                    NativeUnifiedADDataAdapter.b(this.f40828a, aDEvent);
+                    NativeUnifiedADDataAdapter.b(this.f37842a, aDEvent);
                 }
             }
         }
@@ -104,25 +104,25 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
                 return;
             }
         }
-        this.f40824a = nativeUnifiedADData;
+        this.f37838a = nativeUnifiedADData;
         if (nativeUnifiedADData instanceof ADEventListener) {
             ((ADEventListener) nativeUnifiedADData).setAdListener(new UnifiedAdListener(this, (byte) 0));
         }
     }
 
     public static /* synthetic */ void a(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, ADEvent aDEvent) {
-        if (nativeUnifiedADDataAdapter.f40825b != null) {
+        if (nativeUnifiedADDataAdapter.f37839b != null) {
             int type = aDEvent.getType();
             if (type == 1) {
-                nativeUnifiedADDataAdapter.f40825b.onADExposed();
+                nativeUnifiedADDataAdapter.f37839b.onADExposed();
             } else if (type != 2) {
                 if (type != 3) {
                     if (type != 4) {
                         return;
                     }
-                    nativeUnifiedADDataAdapter.f40825b.onADStatusChanged();
+                    nativeUnifiedADDataAdapter.f37839b.onADStatusChanged();
                 } else if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                    nativeUnifiedADDataAdapter.f40825b.onADError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                    nativeUnifiedADDataAdapter.f37839b.onADError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                 }
             } else if (aDEvent.getParas().length <= 0 || !(aDEvent.getParas()[0] instanceof String)) {
             } else {
@@ -132,7 +132,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
                     GDTLogger.e("native 2.0 set click url error");
                     e2.printStackTrace();
                 }
-                NativeADEventListener nativeADEventListener = nativeUnifiedADDataAdapter.f40825b;
+                NativeADEventListener nativeADEventListener = nativeUnifiedADDataAdapter.f37839b;
                 if (!(nativeADEventListener instanceof NativeADEventListenerWithClickInfo)) {
                     nativeADEventListener.onADClicked();
                     return;
@@ -141,52 +141,52 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
                 if (aDEvent.getParas().length == 2 && (aDEvent.getParas()[1] instanceof View)) {
                     view = (View) aDEvent.getParas()[1];
                 }
-                ((NativeADEventListenerWithClickInfo) nativeUnifiedADDataAdapter.f40825b).onADClicked(view);
+                ((NativeADEventListenerWithClickInfo) nativeUnifiedADDataAdapter.f37839b).onADClicked(view);
             }
         }
     }
 
     public static /* synthetic */ void b(NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter, ADEvent aDEvent) {
-        if (nativeUnifiedADDataAdapter.f40826c != null) {
+        if (nativeUnifiedADDataAdapter.f37840c != null) {
             switch (aDEvent.getType()) {
                 case 5:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoInit();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoInit();
                     return;
                 case 6:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoLoading();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoLoading();
                     return;
                 case 7:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoReady();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoReady();
                     return;
                 case 8:
                     if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                        nativeUnifiedADDataAdapter.f40826c.onVideoLoaded(((Integer) aDEvent.getParas()[0]).intValue());
+                        nativeUnifiedADDataAdapter.f37840c.onVideoLoaded(((Integer) aDEvent.getParas()[0]).intValue());
                         return;
                     }
                     return;
                 case 9:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoStart();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoStart();
                     return;
                 case 10:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoPause();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoPause();
                     return;
                 case 11:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoResume();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoResume();
                     return;
                 case 12:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoCompleted();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoCompleted();
                     return;
                 case 13:
                     if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
-                        nativeUnifiedADDataAdapter.f40826c.onVideoError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                        nativeUnifiedADDataAdapter.f37840c.onVideoError(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                         return;
                     }
                     return;
                 case 14:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoStop();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoStop();
                     return;
                 case 15:
-                    nativeUnifiedADDataAdapter.f40826c.onVideoClicked();
+                    nativeUnifiedADDataAdapter.f37840c.onVideoClicked();
                     return;
                 default:
                     return;
@@ -198,7 +198,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, context, nativeAdContainer, layoutParams, list) == null) {
-            this.f40824a.bindAdToView(context, nativeAdContainer, layoutParams, list);
+            this.f37838a.bindAdToView(context, nativeAdContainer, layoutParams, list);
         }
     }
 
@@ -206,7 +206,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void bindAdToView(Context context, NativeAdContainer nativeAdContainer, FrameLayout.LayoutParams layoutParams, List<View> list, List<View> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, nativeAdContainer, layoutParams, list, list2) == null) {
-            this.f40824a.bindAdToView(context, nativeAdContainer, layoutParams, list, list2);
+            this.f37838a.bindAdToView(context, nativeAdContainer, layoutParams, list, list2);
         }
     }
 
@@ -214,7 +214,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void bindCTAViews(List<View> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f40824a.bindCTAViews(list);
+            this.f37838a.bindCTAViews(list);
         }
     }
 
@@ -222,7 +222,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void bindImageViews(List<ImageView> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, list, i2) == null) {
-            this.f40824a.bindImageViews(list, i2);
+            this.f37838a.bindImageViews(list, i2);
         }
     }
 
@@ -230,7 +230,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void bindImageViews(List<ImageView> list, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, bArr) == null) {
-            this.f40824a.bindImageViews(list, bArr);
+            this.f37838a.bindImageViews(list, bArr);
         }
     }
 
@@ -238,8 +238,8 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void bindMediaView(MediaView mediaView, VideoOption videoOption, NativeADMediaListener nativeADMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, mediaView, videoOption, nativeADMediaListener) == null) {
-            this.f40826c = nativeADMediaListener;
-            this.f40824a.bindMediaView(mediaView, videoOption, null);
+            this.f37840c = nativeADMediaListener;
+            this.f37838a.bindMediaView(mediaView, videoOption, null);
         }
     }
 
@@ -247,7 +247,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f40824a.destroy();
+            this.f37838a.destroy();
         }
     }
 
@@ -255,181 +255,181 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public boolean equalsAdData(NativeUnifiedADData nativeUnifiedADData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, nativeUnifiedADData)) == null) ? this.f40824a.equalsAdData(nativeUnifiedADData) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, nativeUnifiedADData)) == null) ? this.f37838a.equalsAdData(nativeUnifiedADData) : invokeL.booleanValue;
     }
 
     public NativeUnifiedADData getAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40824a : (NativeUnifiedADData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37838a : (NativeUnifiedADData) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getAdPatternType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40824a.getAdPatternType() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37838a.getAdPatternType() : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f40824a.getApkInfoUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37838a.getApkInfoUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public double getAppPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f40824a.getAppPrice() : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37838a.getAppPrice() : invokeV.doubleValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getAppScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f40824a.getAppScore() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37838a.getAppScore() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getAppStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f40824a.getAppStatus() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37838a.getAppStatus() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getCTAText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f40824a.getCTAText() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f37838a.getCTAText() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f40824a.getDesc() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f37838a.getDesc() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public long getDownloadCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f40824a.getDownloadCount() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f37838a.getDownloadCount() : invokeV.longValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f40824a.getECPM() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f37838a.getECPM() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getECPMLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f40824a.getECPMLevel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f37838a.getECPMLevel() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f40824a.getIconUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f37838a.getIconUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public List<String> getImgList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f40824a.getImgList() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f37838a.getImgList() : (List) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getImgUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f40824a.getImgUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f37838a.getImgUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getPictureHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f40824a.getPictureHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f37838a.getPictureHeight() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getPictureWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f40824a.getPictureWidth() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f37838a.getPictureWidth() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f40824a.getProgress() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f37838a.getProgress() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f40824a.getTitle() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f37838a.getTitle() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getVastContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f40824a.getVastContent() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f37838a.getVastContent() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public String getVastTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f40824a.getVastTag() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f37838a.getVastTag() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getVideoCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f40824a.getVideoCurrentPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f37838a.getVideoCurrentPosition() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public int getVideoDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f40824a.getVideoDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f37838a.getVideoDuration() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public boolean isAppAd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f40824a.isAppAd() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f37838a.isAppAd() : invokeV.booleanValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public boolean isSkippable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f40824a.isSkippable() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f37838a.isSkippable() : invokeV.booleanValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeUnifiedADData
     public void negativeFeedback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.f40824a.negativeFeedback();
+            this.f37838a.negativeFeedback();
         }
     }
 
@@ -437,7 +437,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048609, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f40827d) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048609, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f37841d) == null) {
             return;
         }
         downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
@@ -447,7 +447,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void onVideoADExposured(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, view) == null) {
-            this.f40824a.onVideoADExposured(view);
+            this.f37838a.onVideoADExposured(view);
         }
     }
 
@@ -455,7 +455,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void pauseAppDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            this.f40824a.pauseAppDownload();
+            this.f37838a.pauseAppDownload();
         }
     }
 
@@ -463,7 +463,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void pauseVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            this.f40824a.pauseVideo();
+            this.f37838a.pauseVideo();
         }
     }
 
@@ -471,7 +471,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void preloadVideo(VideoPreloadListener videoPreloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, videoPreloadListener) == null) {
-            this.f40824a.preloadVideo(videoPreloadListener);
+            this.f37838a.preloadVideo(videoPreloadListener);
         }
     }
 
@@ -486,7 +486,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.f40824a.resume();
+            this.f37838a.resume();
         }
     }
 
@@ -494,7 +494,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void resumeAppDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            this.f40824a.resumeAppDownload();
+            this.f37838a.resumeAppDownload();
         }
     }
 
@@ -502,7 +502,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void resumeVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            this.f40824a.resumeVideo();
+            this.f37838a.resumeVideo();
         }
     }
 
@@ -510,8 +510,8 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, downloadConfirmListener) == null) {
-            this.f40827d = downloadConfirmListener;
-            NativeUnifiedADData nativeUnifiedADData = this.f40824a;
+            this.f37841d = downloadConfirmListener;
+            NativeUnifiedADData nativeUnifiedADData = this.f37838a;
             if (nativeUnifiedADData != null) {
                 nativeUnifiedADData.setDownloadConfirmListener(this);
             }
@@ -522,7 +522,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void setNativeAdEventListener(NativeADEventListener nativeADEventListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, nativeADEventListener) == null) {
-            this.f40825b = nativeADEventListener;
+            this.f37839b = nativeADEventListener;
         }
     }
 
@@ -530,7 +530,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void setVideoMute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
-            this.f40824a.setVideoMute(z);
+            this.f37838a.setVideoMute(z);
         }
     }
 
@@ -538,7 +538,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void startVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.f40824a.startVideo();
+            this.f37838a.startVideo();
         }
     }
 
@@ -546,7 +546,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public void stopVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.f40824a.stopVideo();
+            this.f37838a.stopVideo();
         }
     }
 }

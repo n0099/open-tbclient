@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.AuthorizeSignActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public class b extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f26111b = 1;
+                this.f26221b = 1;
             } else {
-                this.f26111b = 2;
+                this.f26221b = 2;
             }
         }
     }
@@ -61,7 +61,7 @@ public class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            AuthorizeSignActivity authorizeSignActivity = this.f26110a;
+            AuthorizeSignActivity authorizeSignActivity = this.f26220a;
             if (authorizeSignActivity == null || (payRequest = authorizeSignActivity.getPayRequest()) == null) {
                 return;
             }
@@ -70,18 +70,18 @@ public class b extends a {
             String discountAmount = payRequest.getDiscountAmount();
             String randomDiscountMsg = payRequest.getRandomDiscountMsg();
             boolean z = (TextUtils.isEmpty(StringUtils.fen2Yuan(discountAmount)) || StringUtils.fen2Yuan(discountAmount).equals("0.00")) ? false : true;
-            SpannableString spannableString = new SpannableString(ResUtils.getString(this.f26110a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
+            SpannableString spannableString = new SpannableString(ResUtils.getString(this.f26220a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(orderPrice));
             if (z) {
                 spannableString.setSpan(new StrikethroughSpan(), 0, spannableString.length(), 33);
             }
-            String str = "-" + ResUtils.getString(this.f26110a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
+            String str = "-" + ResUtils.getString(this.f26220a.getApplicationContext(), "wallet_base_unit") + StringUtils.fen2Yuan(discountAmount);
             if (z) {
-                this.f26110a.updateDiscountTxt(h(), payRequest.getGoodsName(), spannableString, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.b.1
+                this.f26220a.updateDiscountTxt(h(), payRequest.getGoodsName(), spannableString, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f26120a;
+                    public final /* synthetic */ b f26230a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -98,26 +98,26 @@ public class b extends a {
                                 return;
                             }
                         }
-                        this.f26120a = this;
+                        this.f26230a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PayController.getInstance().gotoDiscountPage(this.f26120a.f26110a);
+                            PayController.getInstance().gotoDiscountPage(this.f26230a.f26220a);
                         }
                     }
                 });
             } else if (!TextUtils.isEmpty(randomDiscountMsg)) {
-                this.f26110a.updateDiscountTxt(true, payRequest.getGoodsName(), null, randomDiscountMsg, null, StringUtils.fen2Yuan(needToPayAmount), null);
+                this.f26220a.updateDiscountTxt(true, payRequest.getGoodsName(), null, randomDiscountMsg, null, StringUtils.fen2Yuan(needToPayAmount), null);
             } else {
-                this.f26110a.updateDiscountTxt(h(), payRequest.getGoodsName(), null, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.b.2
+                this.f26220a.updateDiscountTxt(h(), payRequest.getGoodsName(), null, payRequest.getDiscountMsg(), str, StringUtils.fen2Yuan(needToPayAmount), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.b.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f26121a;
+                    public final /* synthetic */ b f26231a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -134,19 +134,19 @@ public class b extends a {
                                 return;
                             }
                         }
-                        this.f26121a = this;
+                        this.f26231a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PayController.getInstance().gotoDiscountPage(this.f26121a.f26110a);
+                            PayController.getInstance().gotoDiscountPage(this.f26231a.f26220a);
                         }
                     }
                 });
             }
-            this.f26110a.updateDiscountTitle(payRequest.title_url);
+            this.f26220a.updateDiscountTitle(payRequest.title_url);
         }
     }
 
@@ -176,7 +176,7 @@ public class b extends a {
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             super.onClick(view);
             view.getId();
-            ResUtils.id(this.f26110a.getApplicationContext(), "sign_next_btn");
+            ResUtils.id(this.f26220a.getApplicationContext(), "sign_next_btn");
         }
     }
 }

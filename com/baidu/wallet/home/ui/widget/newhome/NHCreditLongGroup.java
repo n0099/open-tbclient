@@ -17,7 +17,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NHCreditLongGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_LIMIT = 12;
@@ -25,13 +25,13 @@ public class NHCreditLongGroup extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NHTitleView f25078a;
+    public NHTitleView f25188a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25079b;
+    public LinearLayout f25189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f25080c;
+    public List<BaseItemView> f25190c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditLongGroup(Context context) {
@@ -51,14 +51,14 @@ public class NHCreditLongGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25080c = new ArrayList();
+        this.f25190c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25080c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25190c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -66,8 +66,8 @@ public class NHCreditLongGroup extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_long_layout"), this);
-            this.f25078a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
-            this.f25079b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
+            this.f25188a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_group_title"));
+            this.f25189b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_group_list"));
         }
     }
 
@@ -87,8 +87,8 @@ public class NHCreditLongGroup extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f25078a.setData(this.mConfigData, getWalletInterface());
-            this.f25078a.setHasGap(this.mConfigData.isLayoutHasGap());
+            this.f25188a.setData(this.mConfigData, getWalletInterface());
+            this.f25188a.setHasGap(this.mConfigData.isLayoutHasGap());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             if (dataItemArr == null) {
                 return;
@@ -98,8 +98,8 @@ public class NHCreditLongGroup extends BaseItemLayout {
             while (i2 < length) {
                 NHCreditLongItem nHCreditLongItem = new NHCreditLongItem(getContext());
                 nHCreditLongItem.setData(dataItemArr[i2], getWalletInterface());
-                this.f25079b.addView(nHCreditLongItem);
-                this.f25080c.add(nHCreditLongItem);
+                this.f25189b.addView(nHCreditLongItem);
+                this.f25190c.add(nHCreditLongItem);
                 ((LinearLayout.LayoutParams) nHCreditLongItem.getLayoutParams()).setMargins(0, DisplayUtils.dip2px(getContext(), i2 == 0 ? 0.0f : 15.0f), 0, 0);
                 i2++;
             }
@@ -125,6 +125,6 @@ public class NHCreditLongGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25080c = new ArrayList();
+        this.f25190c = new ArrayList();
     }
 }

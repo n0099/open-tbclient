@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a0.b;
-/* loaded from: classes5.dex */
+import d.a.p0.a0.b;
+/* loaded from: classes4.dex */
 public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f14511e;
+    public T f14550e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardViewHolder(T t) {
-        super(t.l());
+        super(t.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,12 +34,12 @@ public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14511e = t;
+        this.f14550e = t;
     }
 
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14511e : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14550e : (T) invokeV.objValue;
     }
 }

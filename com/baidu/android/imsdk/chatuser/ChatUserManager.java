@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatuser;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +64,7 @@ public class ChatUserManager extends BaseManager {
 
     public static void getUnconcernedUserDisturb(Context context, IGetUnconcernedMsgListener iGetUnconcernedMsgListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, iGetUnconcernedMsgListener) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, iGetUnconcernedMsgListener) == null) || BaseManager.isNullContext(context)) {
             return;
         }
         ChatUserManagerImpl.getInstance(context).getUnconcernedUserDisturb(iGetUnconcernedMsgListener);

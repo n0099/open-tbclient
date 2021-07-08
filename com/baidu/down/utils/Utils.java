@@ -12,6 +12,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.apollon.statistics.g;
 import com.baidu.down.request.db.DownloadDataConstants;
@@ -37,7 +38,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -235,7 +236,7 @@ public class Utils {
     public static String chooseUniqueFilename(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             int length = str.length();
             int length2 = str2.length();
             if (length + length2 > 243) {
@@ -456,7 +457,7 @@ public class Utils {
                             case 12:
                             case 14:
                             case 15:
-                                return g.f3983b;
+                                return g.f3986b;
                             case 4:
                             case 11:
                             default:

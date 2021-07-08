@@ -420,7 +420,7 @@ public class FieldInfo implements Comparable<FieldInfo> {
     public static boolean getArgument(Type[] typeArr, TypeVariable[] typeVariableArr, Type[] typeArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, typeArr, typeVariableArr, typeArr2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, typeArr, typeVariableArr, typeArr2)) == null) {
             if (typeArr2 == null || typeVariableArr.length == 0) {
                 return false;
             }

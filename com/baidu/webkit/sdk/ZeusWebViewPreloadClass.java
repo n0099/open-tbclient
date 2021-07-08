@@ -1,6 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZeusWebViewPreloadClass {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTINGS_KEY = "preload_webview_class";
@@ -62,7 +63,7 @@ public class ZeusWebViewPreloadClass {
     public static ZeusWebViewPreloadClass getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sInstance == null) {
                 synchronized (ZeusWebViewPreloadClass.class) {
                     if (sInstance == null) {

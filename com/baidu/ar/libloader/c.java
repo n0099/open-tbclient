@@ -1,6 +1,7 @@
 package com.baidu.ar.libloader;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.ILibLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -99,38 +101,34 @@ public class c extends b {
         super.release();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0083  */
-    /* JADX WARN: Removed duplicated region for block: B:30:? A[DONT_GENERATE, FINALLY_INSNS, RETURN, SYNTHETIC] */
     @Override // com.baidu.ar.libloader.b, com.baidu.ar.libloader.ILibLoader
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void require(String str) {
-        boolean isEmpty;
-        boolean exists;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048580, this, str) != null) {
-            return;
-        }
-        com.baidu.ar.h.b.k("LocalWithPathLibLoader", "require libName = " + str);
-        boolean z = true;
-        if (!this.sR) {
-            this.sR = true;
-            if (fh().contains(str)) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            com.baidu.ar.h.b.k("LocalWithPathLibLoader", "require libName = " + str);
+            if (!this.sR) {
+                this.sR = true;
+                if (fh().contains(str)) {
+                    return;
+                }
             }
-        }
-        try {
-            super.require(str);
-            if (this.sP.contains(str)) {
-                return;
-            }
-            this.sP.add(str);
-        } finally {
-            if (!isEmpty) {
-                if (exists) {
-                    if (!z) {
+            try {
+                super.require(str);
+                if (this.sP.contains(str)) {
+                    return;
+                }
+                this.sP.add(str);
+            } catch (Throwable unused) {
+                if (TextUtils.isEmpty(this.sO)) {
+                    return;
+                }
+                File file = new File(this.sO, "lib" + str + ".so");
+                if (file.exists()) {
+                    av(file.getAbsolutePath());
+                    if (this.sP.contains(str)) {
+                        return;
                     }
+                    this.sP.add(str);
                 }
             }
         }

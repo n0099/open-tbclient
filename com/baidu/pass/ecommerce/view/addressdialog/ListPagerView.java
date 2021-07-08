@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerListAdapter.OnAddressSelectedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_ACTION = 101;
@@ -47,7 +47,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     public String mSelectedAddressId;
 
     /* renamed from: com.baidu.pass.ecommerce.view.addressdialog.ListPagerView$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnEntitySelectedListener {
         void onEntitySelected(int i2, AddressBean addressBean);
     }
@@ -166,7 +166,7 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
 
     private void setEntity2View() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             AddrPagerListAdapter addrPagerListAdapter = this.mAdapter;
             if (addrPagerListAdapter == null) {
                 AddrPagerListAdapter addrPagerListAdapter2 = new AddrPagerListAdapter(this.mContext, this.mIsDarkMode, this.mDataEntity);

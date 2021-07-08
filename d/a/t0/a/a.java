@@ -1,142 +1,86 @@
 package d.a.t0.a;
 
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
-/* loaded from: classes9.dex */
+import com.baidu.ubs.analytics.SampleResult;
+import d.a.t0.a.c;
+import d.a.t0.a.e.e;
+import d.a.t0.a.e.g;
+import d.a.t0.a.e.j;
+import java.util.Map;
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f67525a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-657286922, "Ld/a/t0/a/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-657286922, "Ld/a/t0/a/a;");
         }
     }
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            b(str, str2, new Object[0]);
-        }
-    }
-
-    public static void b(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, objArr) == null) {
-            String e2 = e(str2, objArr);
-            Throwable g2 = g(objArr);
-            if (g2 != null) {
-                Log.d(i(str), e2, g2);
-            } else {
-                Log.d(i(str), e2);
-            }
-        }
-    }
-
-    public static void c(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
-            String d2 = d(str2, objArr);
-            Throwable g2 = g(objArr);
-            if (g2 != null) {
-                Log.e(i(str), d2, g2);
-            } else {
-                Log.e(i(str), d2);
-            }
-        }
-    }
-
-    public static String d(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, objArr)) == null) ? (objArr == null || objArr.length == 0) ? str : String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, objArr)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String name = a.class.getName();
-            int i2 = 0;
-            while (true) {
-                if (i2 >= stackTrace.length) {
-                    break;
-                } else if (stackTrace[i2].getClassName().equals(name)) {
-                    i2 += 4;
-                    break;
-                } else {
-                    i2++;
-                }
-            }
-            return stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Throwable g(Object[] objArr) {
+    public static SampleResult a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, objArr)) == null) {
-            if (objArr == null || objArr.length == 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (f67525a) {
+                return c.a.f67546a.f(str);
             }
-            Object obj = objArr[objArr.length - 1];
-            if (obj instanceof Throwable) {
-                return (Throwable) obj;
-            }
-            return null;
+            return SampleResult.OTHERE;
         }
-        return (Throwable) invokeL.objValue;
+        return (SampleResult) invokeL.objValue;
     }
 
-    public static void h(String str, String str2, Object... objArr) {
+    public static void b(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, objArr) == null) {
-            String d2 = d(str2, objArr);
-            Throwable g2 = g(objArr);
-            if (g2 != null) {
-                Log.i(i(str), d2, g2);
-            } else {
-                Log.i(i(str), d2);
-            }
+        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar == null) {
+            return;
+        }
+        g.b(bVar);
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && f67525a && str != null) {
+            j.a(str, str2, str3, map);
         }
     }
 
-    public static String i(String str) {
-        InterceptResult invokeL;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str.startsWith("cr_")) {
-                return str;
-            }
-            int i2 = str.startsWith("cr.") ? 3 : 0;
-            return "cr_" + str.substring(i2, str.length());
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f67525a) {
+            e.a().b(str);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && f67525a) {
+            e.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+            f67525a = z;
+        }
     }
 }

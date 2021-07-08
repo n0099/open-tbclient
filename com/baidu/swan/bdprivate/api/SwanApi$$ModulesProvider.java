@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.h0.l.g.f;
-import d.a.q0.a.u.c.b;
-import d.a.q0.a.u.c.d;
+import d.a.n0.a.h0.l.g.f;
+import d.a.n0.a.u.c.b;
+import d.a.n0.a.u.c.d;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanApi$$ModulesProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,13 +53,13 @@ public class SwanApi$$ModulesProvider {
                 public ConcurrentHashMap<String, Object> mApis;
                 public b mSwanApiContext;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10736e;
+                    public final /* synthetic */ Throwable f10753e;
 
                     public a(SwanApi$$PrivateAccountV8Module swanApi$$PrivateAccountV8Module, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -76,14 +76,14 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10736e = th;
+                        this.f10753e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10736e;
+                            throw this.f10753e;
                         }
                     }
                 }
@@ -101,7 +101,7 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    DEBUG = d.f50740c;
+                    DEBUG = d.f47438c;
                 }
 
                 {
@@ -126,7 +126,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String getBDUSS(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.a aVar;
+                    d.a.n0.b.l.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         try {
@@ -134,20 +134,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateAccount.getBDUSS[type:V8, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("446653951");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.a)) {
-                                aVar = (d.a.q0.b.l.a) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.a)) {
+                                aVar = (d.a.n0.b.l.a) obj;
                             } else {
-                                aVar = new d.a.q0.b.l.a(this.mSwanApiContext);
+                                aVar = new d.a.n0.b.l.a(this.mSwanApiContext);
                                 this.mApis.put("446653951", aVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateAccount.getBDUSS")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b s = aVar.s(str);
+                            d.a.n0.a.u.h.b s = aVar.s(str);
                             String a3 = s == null ? "" : s.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateAccount.getBDUSS[type:V8, v8 binding:false] result]]" + a3);
@@ -171,15 +171,15 @@ public class SwanApi$$ModulesProvider {
                 public static final String TAG = "Api-Base";
                 public transient /* synthetic */ FieldHolder $fh;
                 public ConcurrentHashMap<String, Object> mApis;
-                public d.a.q0.a.u.c.b mSwanApiContext;
+                public d.a.n0.a.u.c.b mSwanApiContext;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10738e;
+                    public final /* synthetic */ Throwable f10755e;
 
                     public a(SwanApi$$PrivateBusinessV8Module swanApi$$PrivateBusinessV8Module, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -196,25 +196,25 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10738e = th;
+                        this.f10755e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10738e;
+                            throw this.f10755e;
                         }
                     }
                 }
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class b implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10739e;
+                    public final /* synthetic */ Throwable f10756e;
 
                     public b(SwanApi$$PrivateBusinessV8Module swanApi$$PrivateBusinessV8Module, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -231,25 +231,25 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10739e = th;
+                        this.f10756e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10739e;
+                            throw this.f10756e;
                         }
                     }
                 }
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class c implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10740e;
+                    public final /* synthetic */ Throwable f10757e;
 
                     public c(SwanApi$$PrivateBusinessV8Module swanApi$$PrivateBusinessV8Module, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -266,14 +266,14 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10740e = th;
+                        this.f10757e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10740e;
+                            throw this.f10757e;
                         }
                     }
                 }
@@ -291,7 +291,7 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    DEBUG = d.f50740c;
+                    DEBUG = d.f47438c;
                 }
 
                 {
@@ -316,7 +316,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String getOpenBDUSS(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.b bVar2;
+                    d.a.n0.b.l.b bVar2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         try {
@@ -324,20 +324,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateBusiness.getOpenBDUSS[type:V8, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("-404108695");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.b)) {
-                                bVar2 = (d.a.q0.b.l.b) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.b)) {
+                                bVar2 = (d.a.n0.b.l.b) obj;
                             } else {
-                                bVar2 = new d.a.q0.b.l.b(this.mSwanApiContext);
+                                bVar2 = new d.a.n0.b.l.b(this.mSwanApiContext);
                                 this.mApis.put("-404108695", bVar2);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.getOpenBDUSS")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b s = bVar2.s(str);
+                            d.a.n0.a.u.h.b s = bVar2.s(str);
                             String a3 = s == null ? "" : s.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:V8, v8 binding:false] result]]" + a3);
@@ -358,7 +358,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String queryQuickLoginInfo(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.c cVar;
+                    d.a.n0.b.l.c cVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                         try {
@@ -366,20 +366,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateBusiness.queryQuickLoginInfo[type:V8, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("1495818240");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.c)) {
-                                cVar = (d.a.q0.b.l.c) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.c)) {
+                                cVar = (d.a.n0.b.l.c) obj;
                             } else {
-                                cVar = new d.a.q0.b.l.c(this.mSwanApiContext);
+                                cVar = new d.a.n0.b.l.c(this.mSwanApiContext);
                                 this.mApis.put("1495818240", cVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.queryQuickLoginInfo")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b z = cVar.z(str);
+                            d.a.n0.a.u.h.b z = cVar.z(str);
                             String a3 = z == null ? "" : z.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:V8, v8 binding:false] result]]" + a3);
@@ -400,7 +400,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String quickLogin(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.c cVar;
+                    d.a.n0.b.l.c cVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                         try {
@@ -408,20 +408,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateBusiness.quickLogin[type:V8, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("1495818240");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.c)) {
-                                cVar = (d.a.q0.b.l.c) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.c)) {
+                                cVar = (d.a.n0.b.l.c) obj;
                             } else {
-                                cVar = new d.a.q0.b.l.c(this.mSwanApiContext);
+                                cVar = new d.a.n0.b.l.c(this.mSwanApiContext);
                                 this.mApis.put("1495818240", cVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.quickLogin")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b A = cVar.A(str);
+                            d.a.n0.a.u.h.b A = cVar.A(str);
                             String a3 = A == null ? "" : A.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateBusiness.quickLogin[type:V8, v8 binding:false] result]]" + a3);
@@ -447,13 +447,13 @@ public class SwanApi$$ModulesProvider {
                 public ConcurrentHashMap<String, Object> mApis;
                 public b mSwanApiContext;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10746e;
+                    public final /* synthetic */ Throwable f10763e;
 
                     public a(SwanApi$$PrivateUtilsV8Module swanApi$$PrivateUtilsV8Module, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -470,14 +470,14 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10746e = th;
+                        this.f10763e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10746e;
+                            throw this.f10763e;
                         }
                     }
                 }
@@ -495,7 +495,7 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    DEBUG = d.f50740c;
+                    DEBUG = d.f47438c;
                 }
 
                 {
@@ -520,7 +520,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String getCommonSysInfo(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.n.c.a aVar;
+                    d.a.n0.b.n.c.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         try {
@@ -528,20 +528,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateUtils.getCommonSysInfo[type:V8, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("-599878304");
-                            if (obj != null && (obj instanceof d.a.q0.b.n.c.a)) {
-                                aVar = (d.a.q0.b.n.c.a) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.n.c.a)) {
+                                aVar = (d.a.n0.b.n.c.a) obj;
                             } else {
-                                aVar = new d.a.q0.b.n.c.a(this.mSwanApiContext);
+                                aVar = new d.a.n0.b.n.c.a(this.mSwanApiContext);
                                 this.mApis.put("-599878304", aVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(aVar, "swanAPI/getCommonSysInfo");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(aVar, "swanAPI/getCommonSysInfo");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateUtils.getCommonSysInfo")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b s = aVar.s(str);
+                            d.a.n0.a.u.h.b s = aVar.s(str);
                             String a3 = s == null ? "" : s.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:V8, v8 binding:false] result]]" + a3);
@@ -577,13 +577,13 @@ public class SwanApi$$ModulesProvider {
                 public ConcurrentHashMap<String, Object> mApis;
                 public b mSwanApiContext;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10737e;
+                    public final /* synthetic */ Throwable f10754e;
 
                     public a(SwanApi$$PrivateAccountWebviewModule swanApi$$PrivateAccountWebviewModule, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -600,14 +600,14 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10737e = th;
+                        this.f10754e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10737e;
+                            throw this.f10754e;
                         }
                     }
                 }
@@ -625,7 +625,7 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    DEBUG = d.f50740c;
+                    DEBUG = d.f47438c;
                 }
 
                 {
@@ -650,7 +650,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String getBDUSS(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.a aVar;
+                    d.a.n0.b.l.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         try {
@@ -658,20 +658,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateAccount.getBDUSS[type:Webview, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("446653951");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.a)) {
-                                aVar = (d.a.q0.b.l.a) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.a)) {
+                                aVar = (d.a.n0.b.l.a) obj;
                             } else {
-                                aVar = new d.a.q0.b.l.a(this.mSwanApiContext);
+                                aVar = new d.a.n0.b.l.a(this.mSwanApiContext);
                                 this.mApis.put("446653951", aVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(aVar, "swanAPI/getBDUSS");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateAccount.getBDUSS")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b s = aVar.s(str);
+                            d.a.n0.a.u.h.b s = aVar.s(str);
                             String a3 = s == null ? "" : s.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateAccount.getBDUSS[type:Webview, v8 binding:false] result]]" + a3);
@@ -695,15 +695,15 @@ public class SwanApi$$ModulesProvider {
                 public static final String TAG = "Api-Base";
                 public transient /* synthetic */ FieldHolder $fh;
                 public ConcurrentHashMap<String, Object> mApis;
-                public d.a.q0.a.u.c.b mSwanApiContext;
+                public d.a.n0.a.u.c.b mSwanApiContext;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10741e;
+                    public final /* synthetic */ Throwable f10758e;
 
                     public a(SwanApi$$PrivateBusinessWebviewModule swanApi$$PrivateBusinessWebviewModule, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -720,25 +720,25 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10741e = th;
+                        this.f10758e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10741e;
+                            throw this.f10758e;
                         }
                     }
                 }
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class b implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10742e;
+                    public final /* synthetic */ Throwable f10759e;
 
                     public b(SwanApi$$PrivateBusinessWebviewModule swanApi$$PrivateBusinessWebviewModule, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -755,25 +755,25 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10742e = th;
+                        this.f10759e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10742e;
+                            throw this.f10759e;
                         }
                     }
                 }
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class c implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10743e;
+                    public final /* synthetic */ Throwable f10760e;
 
                     public c(SwanApi$$PrivateBusinessWebviewModule swanApi$$PrivateBusinessWebviewModule, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -790,14 +790,14 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10743e = th;
+                        this.f10760e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10743e;
+                            throw this.f10760e;
                         }
                     }
                 }
@@ -815,7 +815,7 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    DEBUG = d.f50740c;
+                    DEBUG = d.f47438c;
                 }
 
                 {
@@ -840,7 +840,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String getOpenBDUSS(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.b bVar2;
+                    d.a.n0.b.l.b bVar2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         try {
@@ -848,20 +848,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateBusiness.getOpenBDUSS[type:Webview, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("-404108695");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.b)) {
-                                bVar2 = (d.a.q0.b.l.b) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.b)) {
+                                bVar2 = (d.a.n0.b.l.b) obj;
                             } else {
-                                bVar2 = new d.a.q0.b.l.b(this.mSwanApiContext);
+                                bVar2 = new d.a.n0.b.l.b(this.mSwanApiContext);
                                 this.mApis.put("-404108695", bVar2);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(bVar2, "swanAPI/getOpenBDUSS");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.getOpenBDUSS")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b s = bVar2.s(str);
+                            d.a.n0.a.u.h.b s = bVar2.s(str);
                             String a3 = s == null ? "" : s.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateBusiness.getOpenBDUSS[type:Webview, v8 binding:false] result]]" + a3);
@@ -882,7 +882,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String queryQuickLoginInfo(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.c cVar;
+                    d.a.n0.b.l.c cVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                         try {
@@ -890,20 +890,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateBusiness.queryQuickLoginInfo[type:Webview, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("1495818240");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.c)) {
-                                cVar = (d.a.q0.b.l.c) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.c)) {
+                                cVar = (d.a.n0.b.l.c) obj;
                             } else {
-                                cVar = new d.a.q0.b.l.c(this.mSwanApiContext);
+                                cVar = new d.a.n0.b.l.c(this.mSwanApiContext);
                                 this.mApis.put("1495818240", cVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(cVar, "swanAPI/queryQuickLoginInfo");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.queryQuickLoginInfo")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b z = cVar.z(str);
+                            d.a.n0.a.u.h.b z = cVar.z(str);
                             String a3 = z == null ? "" : z.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateBusiness.queryQuickLoginInfo[type:Webview, v8 binding:false] result]]" + a3);
@@ -924,7 +924,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String quickLogin(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.l.c cVar;
+                    d.a.n0.b.l.c cVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
                         try {
@@ -932,20 +932,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateBusiness.quickLogin[type:Webview, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("1495818240");
-                            if (obj != null && (obj instanceof d.a.q0.b.l.c)) {
-                                cVar = (d.a.q0.b.l.c) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.l.c)) {
+                                cVar = (d.a.n0.b.l.c) obj;
                             } else {
-                                cVar = new d.a.q0.b.l.c(this.mSwanApiContext);
+                                cVar = new d.a.n0.b.l.c(this.mSwanApiContext);
                                 this.mApis.put("1495818240", cVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(cVar, "swanAPI/quickLogin");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateBusiness.quickLogin")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b A = cVar.A(str);
+                            d.a.n0.a.u.h.b A = cVar.A(str);
                             String a3 = A == null ? "" : A.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateBusiness.quickLogin[type:Webview, v8 binding:false] result]]" + a3);
@@ -971,13 +971,13 @@ public class SwanApi$$ModulesProvider {
                 public ConcurrentHashMap<String, Object> mApis;
                 public b mSwanApiContext;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes3.dex */
                 public class a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f10747e;
+                    public final /* synthetic */ Throwable f10764e;
 
                     public a(SwanApi$$PrivateUtilsWebviewModule swanApi$$PrivateUtilsWebviewModule, Throwable th) {
                         Interceptable interceptable = $ic;
@@ -994,14 +994,14 @@ public class SwanApi$$ModulesProvider {
                                 return;
                             }
                         }
-                        this.f10747e = th;
+                        this.f10764e = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            throw this.f10747e;
+                            throw this.f10764e;
                         }
                     }
                 }
@@ -1019,7 +1019,7 @@ public class SwanApi$$ModulesProvider {
                             return;
                         }
                     }
-                    DEBUG = d.f50740c;
+                    DEBUG = d.f47438c;
                 }
 
                 {
@@ -1044,7 +1044,7 @@ public class SwanApi$$ModulesProvider {
                 @JavascriptInterface
                 public String getCommonSysInfo(String str) {
                     InterceptResult invokeL2;
-                    d.a.q0.b.n.c.a aVar;
+                    d.a.n0.b.n.c.a aVar;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, str)) == null) {
                         try {
@@ -1052,20 +1052,20 @@ public class SwanApi$$ModulesProvider {
                                 Log.d("Api-Base", "====================PrivateUtils.getCommonSysInfo[type:Webview, v8 binding:false]====================");
                             }
                             Object obj = this.mApis.get("-599878304");
-                            if (obj != null && (obj instanceof d.a.q0.b.n.c.a)) {
-                                aVar = (d.a.q0.b.n.c.a) obj;
+                            if (obj != null && (obj instanceof d.a.n0.b.n.c.a)) {
+                                aVar = (d.a.n0.b.n.c.a) obj;
                             } else {
-                                aVar = new d.a.q0.b.n.c.a(this.mSwanApiContext);
+                                aVar = new d.a.n0.b.n.c.a(this.mSwanApiContext);
                                 this.mApis.put("-599878304", aVar);
                             }
-                            Pair<Boolean, d.a.q0.a.u.h.a> a2 = d.a.q0.a.u.i.a.a(aVar, "swanAPI/getCommonSysInfo");
+                            Pair<Boolean, d.a.n0.a.u.h.a> a2 = d.a.n0.a.u.i.a.a(aVar, "swanAPI/getCommonSysInfo");
                             if (((Boolean) a2.first).booleanValue()) {
-                                return ((d.a.q0.a.u.h.a) a2.second).a();
+                                return ((d.a.n0.a.u.h.a) a2.second).a();
                             }
                             if (f.a(this.mSwanApiContext.g(), "PrivateUtils.getCommonSysInfo")) {
-                                return new d.a.q0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
+                                return new d.a.n0.a.u.h.b(1001, "illegal swanApp, intercept for preload/prefetch").a();
                             }
-                            d.a.q0.a.u.h.b s = aVar.s(str);
+                            d.a.n0.a.u.h.b s = aVar.s(str);
                             String a3 = s == null ? "" : s.a();
                             if (DEBUG) {
                                 Log.d("Api-Base", "====================[[PrivateUtils.getCommonSysInfo[type:Webview, v8 binding:false] result]]" + a3);

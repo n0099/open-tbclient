@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,19 +18,19 @@ import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.e;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f31506a;
+    public static Context f31616a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (f31506a == null || o.a() == null) {
+            if (f31616a == null || o.a() == null) {
                 j.b("The context of SPHelper is null, please initialize sdk in main process");
                 return false;
             }
@@ -58,7 +59,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            Context context = f31506a;
+            Context context = f31616a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -68,7 +69,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            return e.f31510b + "/t_sp/";
+            return e.f31620b + "/t_sp/";
         }
         return (String) invokeV.objValue;
     }
@@ -88,8 +89,8 @@ public class a {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
-            f31506a = context == null ? o.a() : context.getApplicationContext();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            f31616a = context == null ? o.a() : context.getApplicationContext();
         }
     }
 

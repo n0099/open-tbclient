@@ -11,13 +11,13 @@ import com.kwai.filedownloader.event.DownloadServiceConnectChangedEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class y extends e implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ArrayList<a.b> f39747a;
+    public final ArrayList<a.b> f36955a;
 
     public y() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class y extends e implements u {
                 return;
             }
         }
-        this.f39747a = new ArrayList<>();
+        this.f36955a = new ArrayList<>();
     }
 
     @Override // com.kwai.filedownloader.e
@@ -40,13 +40,13 @@ public class y extends e implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             v d2 = q.a().d();
-            if (com.kwai.filedownloader.f.d.f39637a) {
+            if (com.kwai.filedownloader.f.d.f36845a) {
                 com.kwai.filedownloader.f.d.c(this, "The downloader service is connected.", new Object[0]);
             }
-            synchronized (this.f39747a) {
-                this.f39747a.clear();
+            synchronized (this.f36955a) {
+                this.f36955a.clear();
                 ArrayList arrayList = new ArrayList(d2.b());
-                for (a.b bVar : (List) this.f39747a.clone()) {
+                for (a.b bVar : (List) this.f36955a.clone()) {
                     int I = bVar.I();
                     if (d2.a(I)) {
                         bVar.F().a().a();
@@ -66,7 +66,7 @@ public class y extends e implements u {
     public boolean a(a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? !this.f39747a.isEmpty() && this.f39747a.contains(bVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? !this.f36955a.isEmpty() && this.f36955a.contains(bVar) : invokeL.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.e
@@ -81,13 +81,13 @@ public class y extends e implements u {
                 return;
             }
             v d2 = q.a().d();
-            if (com.kwai.filedownloader.f.d.f39637a) {
+            if (com.kwai.filedownloader.f.d.f36845a) {
                 com.kwai.filedownloader.f.d.c(this, "lost the connection to the file download service, and current active task size is %d", Integer.valueOf(h.a().b()));
             }
             if (h.a().b() > 0) {
-                synchronized (this.f39747a) {
-                    h.a().a(this.f39747a);
-                    Iterator<a.b> it = this.f39747a.iterator();
+                synchronized (this.f36955a) {
+                    h.a().a(this.f36955a);
+                    Iterator<a.b> it = this.f36955a.iterator();
                     while (it.hasNext()) {
                         it.next().M();
                     }
@@ -101,11 +101,11 @@ public class y extends e implements u {
     @Override // com.kwai.filedownloader.u
     public void b(a.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || this.f39747a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || this.f36955a.isEmpty()) {
             return;
         }
-        synchronized (this.f39747a) {
-            this.f39747a.remove(bVar);
+        synchronized (this.f36955a) {
+            this.f36955a.remove(bVar);
         }
     }
 
@@ -115,15 +115,15 @@ public class y extends e implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
             if (!q.a().c()) {
-                synchronized (this.f39747a) {
+                synchronized (this.f36955a) {
                     if (!q.a().c()) {
-                        if (com.kwai.filedownloader.f.d.f39637a) {
+                        if (com.kwai.filedownloader.f.d.f36845a) {
                             com.kwai.filedownloader.f.d.c(this, "Waiting for connecting with the downloader service... %d", Integer.valueOf(bVar.F().h()));
                         }
                         m.a().a(com.kwai.filedownloader.f.c.a());
-                        if (!this.f39747a.contains(bVar)) {
+                        if (!this.f36955a.contains(bVar)) {
                             bVar.M();
-                            this.f39747a.add(bVar);
+                            this.f36955a.add(bVar);
                         }
                         return true;
                     }

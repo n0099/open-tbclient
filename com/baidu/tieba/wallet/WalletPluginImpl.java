@@ -40,19 +40,19 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
-import d.a.r0.d.a;
-import d.a.r0.l0.d;
-import d.a.r0.l0.e;
-import d.a.r0.l0.f;
+import d.a.o0.d.a;
+import d.a.o0.l0.d;
+import d.a.o0.l0.e;
+import d.a.o0.l0.f;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.athena.revenue.payui.YYPayUIKit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WalletPluginImpl implements IWalletPlugin {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String NPS_MODE = "wallet";
+    public static final String NPS_MODE = "Wallet";
     public transient /* synthetic */ FieldHolder $fh;
 
     public WalletPluginImpl() {
@@ -132,9 +132,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         str3 = null;
                     }
                     e eVar = new e();
-                    eVar.f55417a = this.val$tag;
-                    eVar.f55418b = i2;
-                    eVar.f55419c = str3;
+                    eVar.f52122a = this.val$tag;
+                    eVar.f52123b = i2;
+                    eVar.f52124c = str3;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                 }
             }
@@ -184,8 +184,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f55418b = i2;
-                        eVar.f55419c = str2;
+                        eVar.f52123b = i2;
+                        eVar.f52124c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
                     }
                 }
@@ -238,9 +238,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f55417a = this.val$tag;
-                        eVar.f55418b = i2;
-                        eVar.f55419c = str2;
+                        eVar.f52122a = this.val$tag;
+                        eVar.f52123b = i2;
+                        eVar.f52124c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }
@@ -470,9 +470,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
                         try {
                             a aVar = new a();
-                            aVar.f55176a = activity;
-                            aVar.f55177b = str;
-                            aVar.f55178c = false;
+                            aVar.f51881a = activity;
+                            aVar.f51882b = str;
+                            aVar.f51883c = false;
                             iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                         } catch (Exception e2) {
                             iAlipayProxyCallback.onFail(e2.getMessage());
@@ -675,7 +675,7 @@ public class WalletPluginImpl implements IWalletPlugin {
                         int i2 = -1;
                         String str2 = null;
                         for (String str3 : map.keySet()) {
-                            if (TextUtils.equals(str3, l.f1990a)) {
+                            if (TextUtils.equals(str3, l.f1991a)) {
                                 i2 = Integer.parseInt(map.get(str3));
                             } else if (TextUtils.equals(str3, "result")) {
                                 str2 = map.get(str3);
@@ -683,9 +683,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         }
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
                         e eVar = new e();
-                        eVar.f55417a = this.val$tag;
-                        eVar.f55418b = i3;
-                        eVar.f55419c = str2;
+                        eVar.f52122a = this.val$tag;
+                        eVar.f52123b = i3;
+                        eVar.f52124c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }

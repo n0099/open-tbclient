@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final t f72751d;
+    public static final t f69854d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72752a;
+    public final int f69855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s[] f72753b;
+    public final s[] f69856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f72754c;
+    public int f69857c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public final class t {
                 return;
             }
         }
-        f72751d = new t(new s[0]);
+        f69854d = new t(new s[0]);
     }
 
     public t(s... sVarArr) {
@@ -57,22 +57,22 @@ public final class t {
                 return;
             }
         }
-        this.f72753b = sVarArr;
-        this.f72752a = sVarArr.length;
+        this.f69856b = sVarArr;
+        this.f69855a = sVarArr.length;
     }
 
     public s a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f72753b[i2] : (s) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69856b[i2] : (s) invokeI.objValue;
     }
 
     public int b(s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar)) == null) {
-            for (int i2 = 0; i2 < this.f72752a; i2++) {
-                if (this.f72753b[i2] == sVar) {
+            for (int i2 = 0; i2 < this.f69855a; i2++) {
+                if (this.f69856b[i2] == sVar) {
                     return i2;
                 }
             }
@@ -92,7 +92,7 @@ public final class t {
                 return false;
             }
             t tVar = (t) obj;
-            return this.f72752a == tVar.f72752a && Arrays.equals(this.f72753b, tVar.f72753b);
+            return this.f69855a == tVar.f69855a && Arrays.equals(this.f69856b, tVar.f69856b);
         }
         return invokeL.booleanValue;
     }
@@ -101,10 +101,10 @@ public final class t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f72754c == 0) {
-                this.f72754c = Arrays.hashCode(this.f72753b);
+            if (this.f69857c == 0) {
+                this.f69857c = Arrays.hashCode(this.f69856b);
             }
-            return this.f72754c;
+            return this.f69857c;
         }
         return invokeV.intValue;
     }

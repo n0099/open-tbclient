@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class XAdservAdContainer extends XBaseHtmlAdContainer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADSERV_URL = "http://mobads.baidu.com/ads/index.htm";

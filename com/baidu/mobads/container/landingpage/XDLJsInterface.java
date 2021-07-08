@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.webkit.ValueCallback;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XAdInstanceInfoExt;
@@ -31,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XDLJsInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JAVASCRIPT_PREFIX = "javascript:";
@@ -45,7 +46,7 @@ public class XDLJsInterface {
     public XMyWebView mWebView;
 
     /* renamed from: com.baidu.mobads.container.landingpage.XDLJsInterface$4  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$bridge$CommandType;
         public static /* synthetic */ Interceptable $ic;
@@ -306,7 +307,7 @@ public class XDLJsInterface {
     private String string2jsParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) ? str.replace("'", "\\'").replace("\"", "\\\"") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? str.replace("'", "\\'").replace("\"", "\\\"") : (String) invokeL.objValue;
     }
 
     public void executeJavaScript(String str) {

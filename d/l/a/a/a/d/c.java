@@ -1,7 +1,7 @@
 package d.l.a.a.a.d;
 
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface c {
     String a();
 

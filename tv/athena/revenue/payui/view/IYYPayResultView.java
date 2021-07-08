@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import tv.athena.revenue.payui.model.PaySource;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface IYYPayResultView extends i.a.a.e.o.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Result {
         public static final /* synthetic */ Result[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,21 +74,21 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Result f76696a;
+        public Result f73730a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f76697b;
+        public CurrencyChargeMessage f73731b;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
             Interceptable interceptable = $ic;
@@ -105,21 +105,21 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
                     return;
                 }
             }
-            this.f76696a = result;
-            this.f76697b = currencyChargeMessage;
+            this.f73730a = result;
+            this.f73731b = currencyChargeMessage;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f76698a;
+        public b f73732a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f76699b;
+        public AbsViewEventHandler f73733b;
 
         public c() {
             Interceptable interceptable = $ic;

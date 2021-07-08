@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.h0.f.a;
-import d.a.q0.a.k;
-import d.a.q0.a.v1.c.f.b;
+import d.a.n0.a.h0.f.a;
+import d.a.n0.a.k;
+import d.a.n0.a.v1.c.f.b;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanAppPreloadJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -36,7 +36,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
     }
 
     public SwanAppPreloadJsBridge(a aVar) {

@@ -17,7 +17,7 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

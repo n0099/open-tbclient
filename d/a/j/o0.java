@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class o0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout l;
     public BjhArticleLayout m;
-    public d.a.r0.r.q.a n;
+    public d.a.o0.r.q.a n;
     public int o;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o0 f45793e;
+        public final /* synthetic */ o0 f42685e;
 
         public a(o0 o0Var) {
             Interceptable interceptable = $ic;
@@ -46,18 +46,18 @@ public class o0 extends h {
                     return;
                 }
             }
-            this.f45793e = o0Var;
+            this.f42685e = o0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o0 o0Var;
-            a.InterfaceC0643a interfaceC0643a;
+            a.InterfaceC0609a interfaceC0609a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0643a = (o0Var = this.f45793e).f45738i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0609a = (o0Var = this.f42685e).f42630i) == null) {
                 return;
             }
-            interfaceC0643a.a(o0Var.n);
+            interfaceC0609a.a(o0Var.n);
         }
     }
 
@@ -88,7 +88,7 @@ public class o0 extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.l == null) {
-                LinearLayout linearLayout = new LinearLayout(this.f45735f);
+                LinearLayout linearLayout = new LinearLayout(this.f42627f);
                 this.l = linearLayout;
                 SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
                 this.l.setOrientation(1);
@@ -96,15 +96,15 @@ public class o0 extends h {
             }
             this.l.removeAllViews();
             if (this.m == null) {
-                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f45735f);
+                BjhArticleLayout bjhArticleLayout = new BjhArticleLayout(this.f42627f);
                 this.m = bjhArticleLayout;
                 bjhArticleLayout.setJumpToPbListener(new a(this));
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = this.f45735f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.f45735f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.f45735f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
-            layoutParams.bottomMargin = this.f45735f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+            layoutParams.topMargin = this.f42627f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            layoutParams.leftMargin = this.f42627f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.f42627f.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+            layoutParams.bottomMargin = this.f42627f.getResources().getDimensionPixelSize(R.dimen.M_H_X005);
             this.l.addView(this.m, layoutParams);
             return this.l;
         }
@@ -112,7 +112,7 @@ public class o0 extends h {
     }
 
     @Override // d.a.j.a
-    public void l(d.a.s0.a0.b0<d.a.r0.r.q.a> b0Var) {
+    public void l(d.a.p0.a0.b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
             super.l(b0Var);
@@ -140,7 +140,7 @@ public class o0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: t */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.n = aVar;
@@ -151,10 +151,10 @@ public class o0 extends h {
         }
     }
 
-    public void u(a.InterfaceC0643a interfaceC0643a) {
+    public void u(a.InterfaceC0609a interfaceC0609a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0643a) == null) {
-            this.f45738i = interfaceC0643a;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0609a) == null) {
+            this.f42630i = interfaceC0609a;
         }
     }
 }

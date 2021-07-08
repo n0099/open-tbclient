@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class j0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile T f71684a;
+    public volatile T f68787a;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public abstract class j0<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
-            if (this.f71684a == null) {
+            if (this.f68787a == null) {
                 synchronized (this) {
-                    if (this.f71684a == null) {
-                        this.f71684a = a(objArr);
+                    if (this.f68787a == null) {
+                        this.f68787a = a(objArr);
                     }
                 }
             }
-            return this.f71684a;
+            return this.f68787a;
         }
         return (T) invokeL.objValue;
     }

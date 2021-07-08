@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ServiceManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ListenerCallQueue.Event<Listener> HEALTHY_EVENT;
@@ -51,7 +51,7 @@ public final class ServiceManager {
     public final ImmutableList<Service> services;
     public final ServiceManagerState state;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EmptyServiceManagerWarning extends Throwable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class ServiceManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class ServiceManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class NoOpService extends AbstractService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public final class ServiceManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ServiceListener extends Service.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -447,7 +447,7 @@ public final class ServiceManager {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ServiceManagerState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +462,7 @@ public final class ServiceManager {
         public final Monitor.Guard stoppedGuard;
         public boolean transitioned;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public final class AwaitHealthGuard extends Monitor.Guard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -502,7 +502,7 @@ public final class ServiceManager {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public final class StoppedGuard extends Monitor.Guard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

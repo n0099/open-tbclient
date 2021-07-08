@@ -1,5 +1,6 @@
 package com.baidu.ar.algo;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -119,7 +120,7 @@ public class a {
 
     private void a(a aVar, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65540, this, aVar, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar, f2) == null) {
             this.bY = new float[9];
             this.bZ = new float[5];
             this.ca = true;

@@ -161,7 +161,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static byte[] long2bytes(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[i2];
             for (int i3 = i2 - 1; i3 >= 0; i3--) {
                 bArr[i3] = (byte) (255 & j);

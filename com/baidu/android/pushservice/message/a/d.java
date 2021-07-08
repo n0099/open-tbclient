@@ -16,7 +16,7 @@ public abstract class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3524a;
+    public Context f3527a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class d {
                 return;
             }
         }
-        this.f3524a = context;
+        this.f3527a = context;
     }
 
     public abstract com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr);
@@ -41,7 +41,7 @@ public abstract class d {
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.f3524a.getPackageName())) ? "com.baidu.searchbox" : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.f3527a.getPackageName())) ? "com.baidu.searchbox" : str : (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0037 A[ORIG_RETURN, RETURN] */
@@ -60,7 +60,7 @@ public abstract class d {
         try {
             jSONObject = new JSONObject(new String(bArr));
         } catch (Exception e2) {
-            new b.c(this.f3524a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f3527a).a(Log.getStackTraceString(e2)).a();
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i2 = Integer.parseInt(jSONObject.getString("bccs_fb"));

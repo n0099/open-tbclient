@@ -31,7 +31,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadDispatcher";
@@ -720,7 +720,7 @@ public class DownloadDispatcher {
 
     private synchronized void enqueueLocked(DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, downloadTask) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, downloadTask) == null) {
             synchronized (this) {
                 Util.d(TAG, "enqueueLocked for single task: " + downloadTask);
                 if (inspectCompleted(downloadTask)) {

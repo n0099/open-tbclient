@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.f0.s.b;
-/* loaded from: classes5.dex */
+import d.a.o0.r.f0.t.b;
+/* loaded from: classes4.dex */
 public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String s;
     public String t;
-    public d.a.r0.r.f0.m.b u;
-    public d.a.r0.r.f0.m.b v;
+    public d.a.o0.r.f0.n.b u;
+    public d.a.o0.r.f0.n.b v;
     public View.OnClickListener w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,10 +51,10 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
             this.t = TbadkCoreApplication.getInst().getString(R.string.attention);
             setTextSize(R.dimen.T_X08);
             setText(this.t);
-            d.a.r0.r.f0.m.b bVar = new d.a.r0.r.f0.m.b();
+            d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
             this.u = bVar;
             bVar.q(R.color.CAM_X0302);
-            d.a.r0.r.f0.m.b bVar2 = new d.a.r0.r.f0.m.b();
+            d.a.o0.r.f0.n.b bVar2 = new d.a.o0.r.f0.n.b();
             this.v = bVar2;
             bVar2.r(R.color.CAM_X0109);
             setConfig(this.u);
@@ -70,7 +70,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         onClickListener.onClick(view);
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -78,7 +78,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void c(boolean z, int i2, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
@@ -87,14 +87,14 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
         }
     }
 
-    @Override // d.a.r0.r.f0.s.b
+    @Override // d.a.o0.r.f0.t.b
     public void e(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -112,11 +112,11 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements b 
     public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            Object obj = this.f12660e;
+            Object obj = this.f12677e;
             if ((obj instanceof Boolean) && ((Boolean) obj).booleanValue() == z) {
                 return;
             }
-            this.f12660e = Boolean.valueOf(z);
+            this.f12677e = Boolean.valueOf(z);
             if (z) {
                 setVisibility(8);
                 setClickable(false);

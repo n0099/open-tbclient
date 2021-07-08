@@ -1,5 +1,6 @@
 package com.alibaba.fastjson;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.util.ParameterizedTypeImpl;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -107,7 +108,7 @@ public class TypeReference<T> {
     public static Type intern(ParameterizedTypeImpl parameterizedTypeImpl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, parameterizedTypeImpl)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parameterizedTypeImpl)) == null) {
             Type type = classTypeCache.get(parameterizedTypeImpl);
             if (type == null) {
                 classTypeCache.putIfAbsent(parameterizedTypeImpl, parameterizedTypeImpl);

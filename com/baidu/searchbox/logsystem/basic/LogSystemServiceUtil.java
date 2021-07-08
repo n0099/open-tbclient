@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
@@ -19,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.b.a.a;
+import d.a.g0.b.a.a;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogSystemServiceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogSystemServiceUtil";
@@ -153,7 +154,7 @@ public class LogSystemServiceUtil {
 
     public static void startLogHandlerService(@NonNull Context context, @NonNull LogType logType, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, context, logType, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, logType, str) == null) {
             startLogHandlerService(context, logType, str, (File) null, (LogExtra) null);
         }
     }

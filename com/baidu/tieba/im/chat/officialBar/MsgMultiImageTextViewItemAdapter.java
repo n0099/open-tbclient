@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,15 +81,15 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
             MsgMultiImageTextView b2 = msgViewHolder.b();
-            b2.r(this.o);
-            b2.s(i2);
-            b2.k(this.p);
-            b2.o(chatMessage.getCacheData().getLastMsgTime());
-            b2.G(this.m, chatMessage, viewGroup);
+            b2.q(this.o);
+            b2.r(i2);
+            b2.j(this.p);
+            b2.n(chatMessage.getCacheData().getLastMsgTime());
+            b2.F(this.m, chatMessage, viewGroup);
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
-            d.a.s0.i1.u.a.c().d(chatMessage, this.m.getPageActivity());
-            d.a.s0.i1.u.a.c().e(chatMessage, this.m.getPageActivity());
+            d.a.p0.i1.u.a.c().d(chatMessage, this.m.getPageActivity());
+            d.a.p0.i1.u.a.c().e(chatMessage, this.m.getPageActivity());
             return view;
         }
         return (View) invokeCommon.objValue;

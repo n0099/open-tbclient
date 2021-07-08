@@ -15,16 +15,16 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.personal.datamodel.TransRecordsResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26947a;
+    public String f27057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26948b;
+    public String f27058b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryHceTransRecordsBean(Context context) {
@@ -44,8 +44,8 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
                 return;
             }
         }
-        this.f26947a = "";
-        this.f26948b = "";
+        this.f27057a = "";
+        this.f27058b = "";
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -62,11 +62,11 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f26947a)) {
-                arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f26947a));
+            if (!TextUtils.isEmpty(this.f27057a)) {
+                arrayList.add(new RestNameValuePair(Config.PACKAGE_NAME, this.f27057a));
             }
-            if (!TextUtils.isEmpty(this.f26948b)) {
-                arrayList.add(new RestNameValuePair("type", this.f26948b));
+            if (!TextUtils.isEmpty(this.f27058b)) {
+                arrayList.add(new RestNameValuePair("type", this.f27058b));
             }
             return arrayList;
         }
@@ -106,14 +106,14 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public void setPageNum(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f26947a = str;
+            this.f27057a = str;
         }
     }
 
     public void setType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f26948b = str;
+            this.f27058b = str;
         }
     }
 }

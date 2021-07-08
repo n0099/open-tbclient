@@ -26,34 +26,34 @@ import com.google.ar.core.exceptions.FatalException;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Queue<Runnable> f73690a;
+    public final Queue<Runnable> f70793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f73691b;
+    public Context f70794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f73692c;
+    public volatile int f70795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.google.a.b.a.a.a.a f73693d;
+    public com.google.a.b.a.a.a.a f70796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f73694e;
+    public BroadcastReceiver f70797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f73695f;
+    public Context f70798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ServiceConnection f73696g;
+    public final ServiceConnection f70799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final AtomicReference<c> f73697h;
+    public final AtomicReference<c> f70800h;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -114,14 +114,14 @@ public class l {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 p();
-                int i2 = this.f73692c - 1;
+                int i2 = this.f70795c - 1;
                 if (i2 == 1 || i2 == 2) {
-                    this.f73691b.unbindService(this.f73696g);
-                    this.f73691b = null;
-                    this.f73692c = s.f73711a;
+                    this.f70794b.unbindService(this.f70799g);
+                    this.f70794b = null;
+                    this.f70795c = s.f70814a;
                 }
-                if (this.f73694e != null) {
-                    this.f73695f.unregisterReceiver(this.f73694e);
+                if (this.f70797e != null) {
+                    this.f70798f.unregisterReceiver(this.f70797e);
                 }
             }
         }
@@ -131,15 +131,15 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, mVar) == null) {
             c cVar = new c(activity, mVar);
-            c andSet = this.f73697h.getAndSet(cVar);
+            c andSet = this.f70800h.getAndSet(cVar);
             if (andSet != null) {
                 andSet.a();
             }
             cVar.start();
-            if (this.f73694e == null) {
+            if (this.f70797e == null) {
                 p pVar = new p(this, mVar);
-                this.f73694e = pVar;
-                this.f73695f = activity;
+                this.f70797e = pVar;
+                this.f70798f = activity;
                 activity.registerReceiver(pVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
             }
             try {
@@ -155,15 +155,15 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             synchronized (this) {
-                this.f73691b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f73696g, 1)) {
-                    this.f73692c = s.f73712b;
+                this.f70794b = context;
+                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.f70799g, 1)) {
+                    this.f70795c = s.f70815b;
                     return;
                 }
-                this.f73692c = s.f73711a;
-                this.f73691b = null;
+                this.f70795c = s.f70814a;
+                this.f70794b = null;
                 Log.w("ARCore-InstallService", "bindService returned false.");
-                context.unbindService(this.f73696g);
+                context.unbindService(this.f70799g);
             }
         }
     }
@@ -188,9 +188,9 @@ public class l {
             synchronized (this) {
                 com.google.a.b.a.a.a.a a2 = com.google.a.b.a.a.a.b.a(iBinder);
                 Log.i("ARCore-InstallService", "Install service connected");
-                this.f73693d = a2;
-                this.f73692c = s.f73713c;
-                for (Runnable runnable : this.f73690a) {
+                this.f70796d = a2;
+                this.f70795c = s.f70816c;
+                for (Runnable runnable : this.f70793a) {
                     runnable.run();
                 }
             }
@@ -201,12 +201,12 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
             synchronized (this) {
-                int i2 = this.f73692c - 1;
+                int i2 = this.f70795c - 1;
                 if (i2 == 0) {
                     throw new ab();
                 }
                 if (i2 == 1) {
-                    this.f73690a.offer(runnable);
+                    this.f70793a.offer(runnable);
                     return;
                 }
                 if (i2 == 2) {
@@ -219,7 +219,7 @@ public class l {
     public final void p() {
         c andSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.f73697h.getAndSet(null)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (andSet = this.f70800h.getAndSet(null)) == null) {
             return;
         }
         andSet.a();
@@ -230,8 +230,8 @@ public class l {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
                 Log.i("ARCore-InstallService", "Install service disconnected");
-                this.f73692c = s.f73711a;
-                this.f73693d = null;
+                this.f70795c = s.f70814a;
+                this.f70796d = null;
                 p();
             }
         }
@@ -255,9 +255,9 @@ public class l {
                 return;
             }
         }
-        this.f73690a = new ArrayDeque();
-        this.f73692c = s.f73711a;
-        this.f73696g = new n(this);
-        this.f73697h = new AtomicReference<>();
+        this.f70793a = new ArrayDeque();
+        this.f70795c = s.f70814a;
+        this.f70799g = new n(this);
+        this.f70800h = new AtomicReference<>();
     }
 }

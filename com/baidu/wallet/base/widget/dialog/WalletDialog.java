@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WalletDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f24369a;
+    public ViewGroup f24479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Adapter f24370b;
+    public Adapter f24480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f24371c;
+    public LayoutInflater f24481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewHolder f24372d;
+    public ViewHolder f24482d;
     public Context mContext;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Adapter<VH extends ViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +69,13 @@ public class WalletDialog extends Dialog {
         public abstract VH onCreateViewHolder(ViewGroup viewGroup);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final View f24373a;
+        public final View f24483a;
 
         public ViewHolder(View view) {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class WalletDialog extends Dialog {
                 }
             }
             if (view != null) {
-                this.f24373a = view;
+                this.f24483a = view;
                 return;
             }
             throw new IllegalArgumentException("contentView may not be null");
@@ -128,13 +128,13 @@ public class WalletDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             LayoutInflater from = LayoutInflater.from(this.mContext);
-            this.f24371c = from;
+            this.f24481c = from;
             ViewGroup viewGroup = (ViewGroup) from.inflate(ResUtils.layout(this.mContext, "wallet_base_layout_dialog"), (ViewGroup) null);
-            this.f24369a = viewGroup;
+            this.f24479a = viewGroup;
             setContentView(viewGroup);
-            ViewHolder createViewHolder = this.f24370b.createViewHolder(this.f24369a);
-            this.f24372d = createViewHolder;
-            this.f24369a.addView(createViewHolder.f24373a);
+            ViewHolder createViewHolder = this.f24480b.createViewHolder(this.f24479a);
+            this.f24482d = createViewHolder;
+            this.f24479a.addView(createViewHolder.f24483a);
             setCanceledOnTouchOutside(false);
             setCancelable(false);
         }
@@ -146,8 +146,8 @@ public class WalletDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onStart();
-            Adapter adapter = this.f24370b;
-            if (adapter == null || this.f24369a == null || (viewHolder = this.f24372d) == null) {
+            Adapter adapter = this.f24480b;
+            if (adapter == null || this.f24479a == null || (viewHolder = this.f24482d) == null) {
                 return;
             }
             adapter.bindViewHolder(viewHolder);
@@ -157,7 +157,7 @@ public class WalletDialog extends Dialog {
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapter) == null) {
-            this.f24370b = adapter;
+            this.f24480b = adapter;
         }
     }
 

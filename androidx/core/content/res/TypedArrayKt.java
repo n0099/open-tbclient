@@ -9,6 +9,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.Dimension;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StyleableRes;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.tbadk.TbConfig;
@@ -69,7 +70,7 @@ public final class TypedArrayKt {
     public static final float getDimensionOrThrow(TypedArray typedArray, @StyleableRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, typedArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, typedArray, i2)) == null) {
             checkAttribute(typedArray, i2);
             return typedArray.getDimension(i2, 0.0f);
         }

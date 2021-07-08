@@ -53,7 +53,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKABLE_STATE_SET;
@@ -88,21 +88,21 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -275,7 +275,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     private String getA11yClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             return (isCheckable() ? CompoundButton.class : Button.class).getName();
         }
         return (String) invokeV.objValue;

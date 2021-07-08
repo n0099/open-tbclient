@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,14 +23,14 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> implements p0<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public transient ImmutableListMultimap<V, K> inverse;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a<K, V> extends ImmutableMultimap.c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +150,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
         InterceptResult invokeLL;
         ImmutableList sortedCopyOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, collection, comparator)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection, comparator)) == null) {
             if (collection.isEmpty()) {
                 return of();
             }
@@ -224,8 +225,8 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
                     }
                 }
                 try {
-                    ImmutableMultimap.d.f33113a.b(this, builder.a());
-                    ImmutableMultimap.d.f33114b.a(this, i2);
+                    ImmutableMultimap.d.f33223a.b(this, builder.a());
+                    ImmutableMultimap.d.f33224b.a(this, i2);
                     return;
                 } catch (IllegalArgumentException e2) {
                     throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));

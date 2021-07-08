@@ -20,7 +20,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class EmptyComponent implements FlowableSubscriber<Object>, Observer<Object>, MaybeObserver<Object>, SingleObserver<Object>, CompletableObserver, Subscription, Disposable {
     public static final /* synthetic */ EmptyComponent[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public final class EmptyComponent implements FlowableSubscriber<Object>, Observe
     public static EmptyComponent valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (EmptyComponent) Enum.valueOf(EmptyComponent.class, str) : (EmptyComponent) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (EmptyComponent) Enum.valueOf(EmptyComponent.class, str) : (EmptyComponent) invokeL.objValue;
     }
 
     public static EmptyComponent[] values() {

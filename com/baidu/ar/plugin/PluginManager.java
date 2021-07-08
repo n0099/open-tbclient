@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.plugin.helper.ActivityThreadCompat;
 import com.baidu.ar.plugin.helper.CompatibilityInfoCompat;
 import com.baidu.ar.plugin.helper.NativeLibraryHelperCompat;
@@ -102,7 +103,7 @@ public class PluginManager {
 
     private void hookPackageManager(PluginPackageParser pluginPackageParser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, pluginPackageParser) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pluginPackageParser) == null) {
             Object currentActivityThread = ActivityThreadCompat.currentActivityThread();
             Object readField = FieldUtils.readField(currentActivityThread, "sPackageManager");
             Class<?> cls = Class.forName("android.content.pm.IPackageManager");

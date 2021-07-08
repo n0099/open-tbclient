@@ -8,6 +8,7 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -53,33 +54,33 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f44665a;
+    public static boolean f41681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Boolean> f44666b;
+    public static Map<String, Boolean> f41682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f44667c;
+    public static String f41683c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f44668d;
+    public static boolean f41684d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f44669e;
+    public static boolean f41685e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f44670f;
+    public static boolean f41686f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f44671g;
+    public static boolean f41687g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Signature[] f44672h;
+    public static Signature[] f41688h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -95,13 +96,13 @@ public class d {
                 return;
             }
         }
-        f44666b = new HashMap();
-        f44667c = null;
-        f44668d = false;
-        f44669e = false;
-        f44670f = false;
-        f44671g = false;
-        f44672h = null;
+        f41682b = new HashMap();
+        f41683c = null;
+        f41684d = false;
+        f41685e = false;
+        f41686f = false;
+        f41687g = false;
+        f41688h = null;
     }
 
     public static boolean a(File file, String str, byte[] bArr) {
@@ -543,7 +544,7 @@ public class d {
         boolean z12;
         ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLLL = interceptable.invokeLLLLL(65540, null, file, file2, str, str2, pluginSetting)) != null) {
+        if (interceptable != null && (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, str, str2, pluginSetting)) != null) {
             return (String) invokeLLLLL.objValue;
         }
         if (file2 != null && file2.exists() && file2.length() > 0) {
@@ -578,11 +579,11 @@ public class d {
                         str4 = "_";
                         z7 = p;
                         str12 = o;
-                        if (!BdBaseApplication.getInst().isDebugMode() || f44665a) {
+                        if (!BdBaseApplication.getInst().isDebugMode() || f41681a) {
                             z10 = z9;
                         } else {
                             z10 = z9;
-                            if (!r(str15, file2.getAbsolutePath()).f2260a) {
+                            if (!r(str15, file2.getAbsolutePath()).f2261a) {
                                 if (pluginSetting == null || !str.startsWith("file://")) {
                                     z11 = z8;
                                     str16 = "is_third";
@@ -603,7 +604,7 @@ public class d {
                                     } catch (Exception e2) {
                                         BdLog.e(e2);
                                     }
-                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f2261b + "-step_" + r.f2262c);
+                                    q(str, str15, "signature_not_match", str15 + "-SourceMd5_" + a2 + "-tmpSize_" + length + "-error_" + r.f2262b + "-step_" + r.f2263c);
                                     return null;
                                 }
                                 ?? r7 = "version_code";
@@ -922,10 +923,10 @@ public class d {
                                                 try {
                                                     Util.a d3 = Util.d(fileInputStream, file4);
                                                     file2.delete();
-                                                    if (!d3.f2260a) {
+                                                    if (!d3.f2261a) {
                                                         str20 = str3;
                                                         try {
-                                                            q(str, str15, str20, d3.f2261b);
+                                                            q(str, str15, str20, d3.f2262b);
                                                             d.a.c.e.m.a.c(fileInputStream);
                                                             return null;
                                                         } catch (Exception e12) {
@@ -971,7 +972,7 @@ public class d {
                                 long currentTimeMillis2 = System.currentTimeMillis();
                                 i(file4.getAbsolutePath(), str15, file6);
                                 d.a.c.h.h.a.b().n("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis2, str15);
-                                f44666b.put(str2 + str, Boolean.TRUE);
+                                f41682b.put(str2 + str, Boolean.TRUE);
                                 Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
                                 intent3.setPackage(BdBaseApplication.getInst().getPackageName());
                                 intent3.putExtra("package_name", str15);
@@ -986,7 +987,7 @@ public class d {
                                 intent3.putExtra("is_patch", z10);
                                 intent3.putExtra("replace_method_classes", str14);
                                 intent3.putExtra("is_inject_classloader", z6);
-                                intent3.putExtra("install_flag", f44667c);
+                                intent3.putExtra("install_flag", f41683c);
                                 BdStatisticsManager.getInstance().save();
                                 BdBaseApplication.getInst().sendOrderedBroadcast(intent3, null);
                                 listFiles = Util.m().listFiles();
@@ -1059,7 +1060,7 @@ public class d {
                         long currentTimeMillis22 = System.currentTimeMillis();
                         i(file4.getAbsolutePath(), str15, file62);
                         d.a.c.h.h.a.b().n("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis22, str15);
-                        f44666b.put(str2 + str, Boolean.TRUE);
+                        f41682b.put(str2 + str, Boolean.TRUE);
                         Intent intent32 = new Intent("com.baidu.adp.plugin.installed");
                         intent32.setPackage(BdBaseApplication.getInst().getPackageName());
                         intent32.putExtra("package_name", str15);
@@ -1074,7 +1075,7 @@ public class d {
                         intent32.putExtra("is_patch", z10);
                         intent32.putExtra("replace_method_classes", str14);
                         intent32.putExtra("is_inject_classloader", z6);
-                        intent32.putExtra("install_flag", f44667c);
+                        intent32.putExtra("install_flag", f41683c);
                         BdStatisticsManager.getInstance().save();
                         BdBaseApplication.getInst().sendOrderedBroadcast(intent32, null);
                         listFiles = Util.m().listFiles();
@@ -1302,7 +1303,7 @@ public class d {
                     long currentTimeMillis222 = System.currentTimeMillis();
                     i(file4.getAbsolutePath(), str15, file622);
                     d.a.c.h.h.a.b().n("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis222, str15);
-                    f44666b.put(str2 + str, Boolean.TRUE);
+                    f41682b.put(str2 + str, Boolean.TRUE);
                     Intent intent322 = new Intent("com.baidu.adp.plugin.installed");
                     intent322.setPackage(BdBaseApplication.getInst().getPackageName());
                     intent322.putExtra("package_name", str15);
@@ -1317,7 +1318,7 @@ public class d {
                     intent322.putExtra("is_patch", z10);
                     intent322.putExtra("replace_method_classes", str14);
                     intent322.putExtra("is_inject_classloader", z6);
-                    intent322.putExtra("install_flag", f44667c);
+                    intent322.putExtra("install_flag", f41683c);
                     BdStatisticsManager.getInstance().save();
                     BdBaseApplication.getInst().sendOrderedBroadcast(intent322, null);
                     listFiles = Util.m().listFiles();
@@ -1405,7 +1406,7 @@ public class d {
         if (!file.exists()) {
             q(str, str2, "apk_not_exist", "file_not_exists-apkFilePath_" + substring);
             d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
-            b2.o("plugin_install", "service_apk_not_exist", str2, f44667c + "_" + substring);
+            b2.o("plugin_install", "service_apk_not_exist", str2, f41683c + "_" + substring);
             return;
         }
         int i3 = 0;
@@ -1671,11 +1672,11 @@ public class d {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (f44671g) {
-                return f44670f;
+            if (f41687g) {
+                return f41686f;
             }
             boolean z = true;
-            f44671g = true;
+            f41687g = true;
             BufferedReader bufferedReader2 = 0;
             try {
                 try {
@@ -1757,7 +1758,7 @@ public class d {
                 if (intValue != 7) {
                     z = false;
                 }
-                f44670f = z;
+                f41686f = z;
                 m.g(bufferedReader);
             } catch (Exception e5) {
                 e = e5;
@@ -1767,7 +1768,7 @@ public class d {
                 bufferedReader2 = bufferedReader2;
                 m.g(inputStreamReader);
                 m.e(fileInputStream);
-                return f44670f;
+                return f41686f;
             } catch (Throwable th4) {
                 th = th4;
                 bufferedReader2 = bufferedReader;
@@ -1778,7 +1779,7 @@ public class d {
             }
             m.g(inputStreamReader);
             m.e(fileInputStream);
-            return f44670f;
+            return f41686f;
         }
         return invokeV.booleanValue;
     }
@@ -1787,10 +1788,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f44669e) {
-                return f44668d;
+            if (f41685e) {
+                return f41684d;
             }
-            f44669e = true;
+            f41685e = true;
             String lowerCase = Build.CPU_ABI.toLowerCase();
             String str = "none";
             if (Build.VERSION.SDK_INT > 7) {
@@ -1806,12 +1807,12 @@ public class d {
             }
             if (!lowerCase.contains("armeabi-v7a") && !str.contains("armeabi-v7a") && !k()) {
                 if (lowerCase.contains("armeabi") || str.contains("armeabi")) {
-                    f44668d = true;
+                    f41684d = true;
                 }
             } else {
-                f44668d = true;
+                f41684d = true;
             }
-            return f44668d;
+            return f41684d;
         }
         return invokeV.booleanValue;
     }
@@ -1848,7 +1849,7 @@ public class d {
                         fileInputStream = new FileInputStream(file3);
                         try {
                             Util.a d2 = Util.d(fileInputStream, file2);
-                            if (d2.f2260a) {
+                            if (d2.f2261a) {
                                 if (file2.length() == file3.length()) {
                                     d.a.c.e.m.a.c(fileInputStream);
                                 } else {
@@ -1856,7 +1857,7 @@ public class d {
                                 }
                             } else {
                                 f.n(file2);
-                                throw new Exception(d2.f2261b);
+                                throw new Exception(d2.f2262b);
                             }
                         } catch (Exception e3) {
                             e = e3;
@@ -1892,13 +1893,13 @@ public class d {
                 long currentTimeMillis = System.currentTimeMillis();
                 File file = new File(Util.m(), String.valueOf(System.currentTimeMillis()));
                 Util.a d2 = Util.d(inputStream, file);
-                if (!d2.f2260a) {
+                if (!d2.f2261a) {
                     try {
                         file.delete();
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
-                    q(str, str2, "assets_copy_temp_fail", d2.f2261b);
+                    q(str, str2, "assets_copy_temp_fail", d2.f2262b);
                     return null;
                 }
                 d.a.c.h.h.a.b().n("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
@@ -1938,16 +1939,16 @@ public class d {
                 d.a.c.h.h.a.b().q("plugin_install", "intent_action_null", null);
                 return;
             }
-            f44665a = intent.getBooleanExtra("is_debug_plugin", false);
+            f41681a = intent.getBooleanExtra("is_debug_plugin", false);
             if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
                 String stringExtra = intent.getStringExtra("install_src_file");
                 String stringExtra2 = intent.getStringExtra("package_name");
                 String stringExtra3 = intent.getStringExtra("install_flag");
-                f44667c = stringExtra3;
+                f41683c = stringExtra3;
                 if (stringExtra3 == null) {
-                    f44667c = "f" + System.currentTimeMillis();
+                    f41683c = "f" + System.currentTimeMillis();
                 }
-                d.a.c.h.h.a.b().o("plugin_install", "install_service_start", stringExtra2, f44667c);
+                d.a.c.h.h.a.b().o("plugin_install", "install_service_start", stringExtra2, f41683c);
                 try {
                     pluginSetting = (PluginSetting) intent.getSerializableExtra("plugin_setting");
                 } catch (Throwable unused) {
@@ -1967,7 +1968,7 @@ public class d {
                     }
                 }
                 String str = stringExtra2 + stringExtra;
-                if (f44666b.containsKey(str) && f44666b.get(str).booleanValue()) {
+                if (f41682b.containsKey(str) && f41682b.get(str).booleanValue()) {
                     d.a.c.h.h.a.b().o("plugin_install", "plugin_has_installed", stringExtra2, "b_pkgName_" + stringExtra2 + "-srcFile_" + stringExtra);
                     Intent intent3 = new Intent("com.baidu.adp.plugin.installrepeat");
                     intent3.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -1992,7 +1993,7 @@ public class d {
             intent.putExtra("fail_reason", str3);
             intent.putExtra("package_name", str2);
             intent.putExtra("install_comment", str4);
-            intent.putExtra("install_flag", f44667c);
+            intent.putExtra("install_flag", f41683c);
             try {
                 BdBaseApplication.getInst().sendBroadcast(intent);
             } catch (Throwable th) {
@@ -2007,9 +2008,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
             Util.a aVar = new Util.a();
-            if (f44672h == null) {
+            if (f41688h == null) {
                 try {
-                    f44672h = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                    f41688h = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
                 } catch (Throwable th) {
                     d.a.c.h.h.a.b().o("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
                 }
@@ -2027,30 +2028,30 @@ public class d {
                         d.a.c.h.h.a.b().o("plugin_install", "collectCertificates_ok", str, null);
                     }
                 } catch (Throwable th3) {
-                    aVar.f2261b += "-exception_" + th3.toString();
+                    aVar.f2262b += "-exception_" + th3.toString();
                     return aVar;
                 }
             }
             if (signatureArr == null) {
-                aVar.f2261b = "get_newsignatures_null_" + str2;
+                aVar.f2262b = "get_newsignatures_null_" + str2;
                 return aVar;
             }
-            Signature[] signatureArr2 = f44672h;
+            Signature[] signatureArr2 = f41688h;
             if (signatureArr2 == null) {
                 File file = new File(BdBaseApplication.getInst().getPackageCodePath());
                 if (file.exists()) {
                     try {
                         signatureArr2 = e.a(file.getAbsolutePath(), aVar);
-                        f44672h = signatureArr2;
+                        f41688h = signatureArr2;
                     } catch (Throwable th4) {
-                        aVar.f2261b += "-exception_" + th4.toString();
+                        aVar.f2262b += "-exception_" + th4.toString();
                         return aVar;
                     }
                 }
             }
             int b2 = Util.b(signatureArr2, signatureArr);
             if (b2 == 0) {
-                aVar.f2260a = true;
+                aVar.f2261a = true;
                 return aVar;
             }
             StringBuilder sb = new StringBuilder();
@@ -2080,7 +2081,7 @@ public class d {
                     sb.append(th6.getMessage());
                 }
             }
-            aVar.f2261b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
+            aVar.f2262b = "compare_signatures_fail_" + b2 + "_" + sb.toString();
             return aVar;
         }
         return (Util.a) invokeLL.objValue;

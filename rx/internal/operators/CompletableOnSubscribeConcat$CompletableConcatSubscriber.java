@@ -11,15 +11,15 @@ import h.j;
 import h.k;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends j<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f76148e;
+    public final SequentialSubscription f73182e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7233503139645205620L;
@@ -64,7 +64,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.this$0.f76148e.set(kVar);
+                this.this$0.f73182e.set(kVar);
             }
         }
     }

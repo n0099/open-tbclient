@@ -4,6 +4,7 @@ import android.icu.util.ULocale;
 import android.os.Build;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +116,7 @@ public final class ICUCompat {
     public static String maximizeAndGetScript(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, locale)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, locale)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 24) {
                 return ULocale.addLikelySubtags(ULocale.forLocale(locale)).getScript();

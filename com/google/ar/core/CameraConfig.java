@@ -1,5 +1,6 @@
 package com.google.ar.core;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CameraConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32847a;
+    public long f32957a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FacingDirection {
         public static final /* synthetic */ FacingDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -93,7 +94,7 @@ public class CameraConfig {
         public static FacingDirection[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FacingDirection[]) $VALUES.clone() : (FacingDirection[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FacingDirection[]) $VALUES.clone() : (FacingDirection[]) invokeV.objValue;
         }
     }
 
@@ -110,7 +111,7 @@ public class CameraConfig {
                 return;
             }
         }
-        this.f32847a = 0L;
+        this.f32957a = 0L;
     }
 
     public static native void nativeDestroyCameraConfig(long j);
@@ -126,10 +127,10 @@ public class CameraConfig {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f32847a;
+            long j = this.f32957a;
             if (j != 0) {
                 nativeDestroyCameraConfig(j);
-                this.f32847a = 0L;
+                this.f32957a = 0L;
             }
             super.finalize();
         }

@@ -109,7 +109,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Single<T> implements SingleSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -1514,7 +1514,7 @@ public abstract class Single<T> implements SingleSource<T> {
     public static <T> Flowable<T> concat(SingleSource<? extends T> singleSource, SingleSource<? extends T> singleSource2, SingleSource<? extends T> singleSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, singleSource, singleSource2, singleSource3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, singleSource, singleSource2, singleSource3)) == null) {
             ObjectHelper.requireNonNull(singleSource, "source1 is null");
             ObjectHelper.requireNonNull(singleSource2, "source2 is null");
             ObjectHelper.requireNonNull(singleSource3, "source3 is null");

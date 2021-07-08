@@ -482,7 +482,7 @@ public class InvalidationTracker {
     private void stopTrackingTable(SupportSQLiteDatabase supportSQLiteDatabase, int i2) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, this, supportSQLiteDatabase, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, supportSQLiteDatabase, i2) == null) {
             String str = this.mTableNames[i2];
             StringBuilder sb = new StringBuilder();
             for (String str2 : TRIGGERS) {

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class YoungsterPasswordActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public String mPassword;
     public YoungsterPasswordView mYoungsterPasswordView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ YoungsterPasswordActivity f20784e;
+        public final /* synthetic */ YoungsterPasswordActivity f20830e;
 
         public a(YoungsterPasswordActivity youngsterPasswordActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20784e = youngsterPasswordActivity;
+            this.f20830e = youngsterPasswordActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20784e.finish();
+                this.f20830e.finish();
             }
         }
     }
@@ -97,7 +97,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
                     this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                     break;
             }
-            this.mYoungsterPasswordView.j(i2);
+            this.mYoungsterPasswordView.i(i2);
         }
     }
 
@@ -107,7 +107,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            this.mYoungsterPasswordView.k();
+            this.mYoungsterPasswordView.j();
         }
     }
 
@@ -117,7 +117,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
             if (view == this.mBack) {
-                this.mYoungsterPasswordView.h();
+                this.mYoungsterPasswordView.g();
                 e.a().postDelayed(this.finishWithResult, 200L);
             }
         }
@@ -168,7 +168,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
             super.onResume();
             YoungsterPasswordView youngsterPasswordView = this.mYoungsterPasswordView;
             if (youngsterPasswordView != null) {
-                youngsterPasswordView.l();
+                youngsterPasswordView.k();
             }
         }
     }

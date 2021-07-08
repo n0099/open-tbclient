@@ -24,39 +24,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f44756e;
+    public static boolean f41772e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IPackageGetCallback f44757a;
+    public IPackageGetCallback f41773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile ResultData f44758b;
+    public volatile ResultData f41774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile ErrorInfo f44759c;
+    public volatile ErrorInfo f41775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RequestParams.Channel f44760d;
+    public RequestParams.Channel f41776d;
 
     /* renamed from: d.a.c.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0600a implements PackageCallback {
+    /* loaded from: classes7.dex */
+    public class C0561a implements PackageCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IPackageGetCallback f44761a;
+        public final /* synthetic */ IPackageGetCallback f41777a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f44762b;
+        public final /* synthetic */ a f41778b;
 
-        public C0600a(a aVar, IPackageGetCallback iPackageGetCallback) {
+        public C0561a(a aVar, IPackageGetCallback iPackageGetCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,8 +71,8 @@ public class a {
                     return;
                 }
             }
-            this.f44762b = aVar;
-            this.f44761a = iPackageGetCallback;
+            this.f41778b = aVar;
+            this.f41777a = iPackageGetCallback;
         }
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
@@ -86,7 +86,7 @@ public class a {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                this.f44762b.n(errorInfo, this.f44761a);
+                this.f41778b.n(errorInfo, this.f41777a);
             }
         }
 
@@ -94,18 +94,18 @@ public class a {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                this.f44762b.o(resultData, this.f44761a);
+                this.f41778b.o(resultData, this.f41777a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements PackageCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44763a;
+        public final /* synthetic */ a f41779a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class a {
                     return;
                 }
             }
-            this.f44763a = aVar;
+            this.f41779a = aVar;
         }
 
         @Override // com.baidu.searchbox.pms.callback.PackageCallback
@@ -136,9 +136,9 @@ public class a {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                synchronized (this.f44763a) {
-                    this.f44763a.f44759c = errorInfo;
-                    this.f44763a.p();
+                synchronized (this.f41779a) {
+                    this.f41779a.f41775c = errorInfo;
+                    this.f41779a.p();
                 }
             }
         }
@@ -147,10 +147,10 @@ public class a {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                synchronized (this.f44763a) {
-                    boolean unused = a.f44756e = true;
-                    this.f44763a.f44758b = resultData;
-                    this.f44763a.p();
+                synchronized (this.f41779a) {
+                    boolean unused = a.f41772e = true;
+                    this.f41779a.f41774b = resultData;
+                    this.f41779a.p();
                 }
             }
         }
@@ -188,7 +188,7 @@ public class a {
     public static boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f44756e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f41772e : invokeV.booleanValue;
     }
 
     public final List<IBundleInfo> g(List<PackageInfo> list) {
@@ -254,7 +254,7 @@ public class a {
                 arrayList.add(iBundleInfo.getPackageName());
             }
             channel.setPackageNames(arrayList);
-            channel.setCallback(new C0600a(this, iPackageGetCallback));
+            channel.setCallback(new C0561a(this, iPackageGetCallback));
             requestParams.addChannel(channel);
             PmsManager.getInstance().execute(requestParams);
         }
@@ -265,7 +265,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, iPackageGetCallback) == null) {
             if (list == null || list.isEmpty()) {
                 synchronized (this) {
-                    this.f44757a = iPackageGetCallback;
+                    this.f41773a = iPackageGetCallback;
                     p();
                 }
                 return;
@@ -278,16 +278,16 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RequestParams.Channel channel = this.f44760d;
+            RequestParams.Channel channel = this.f41776d;
             if (channel != null) {
                 return channel;
             }
             RequestParams.Channel channel2 = new RequestParams.Channel();
-            this.f44760d = channel2;
+            this.f41776d = channel2;
             channel2.setFetchAllPackages(true);
-            this.f44760d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
-            this.f44760d.setCallback(new b(this));
-            return this.f44760d;
+            this.f41776d.setChannelId(ApsConstants.TYPE_ANDROID_PLUGIN);
+            this.f41776d.setCallback(new b(this));
+            return this.f41776d;
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
@@ -311,17 +311,17 @@ public class a {
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f44757a == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f41773a == null) {
             return;
         }
-        if (this.f44759c != null) {
-            n(this.f44759c, this.f44757a);
-            this.f44757a = null;
-            this.f44759c = null;
-        } else if (this.f44758b != null) {
-            o(this.f44758b, this.f44757a);
-            this.f44757a = null;
-            this.f44758b = null;
+        if (this.f41775c != null) {
+            n(this.f41775c, this.f41773a);
+            this.f41773a = null;
+            this.f41775c = null;
+        } else if (this.f41774b != null) {
+            o(this.f41774b, this.f41773a);
+            this.f41773a = null;
+            this.f41774b = null;
         }
     }
 }

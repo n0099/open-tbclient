@@ -14,11 +14,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public @interface WireField {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Label {
         public static final /* synthetic */ Label[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

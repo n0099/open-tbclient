@@ -8,35 +8,35 @@ import com.meizu.cloud.pushsdk.platform.b.f;
 import com.meizu.cloud.pushsdk.platform.b.g;
 import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f40537a;
+    public static b f37551a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledExecutorService f40538b;
+    public ScheduledExecutorService f37552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f40539c;
+    public Context f37553c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f40540d;
+    public a f37554d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.meizu.cloud.pushsdk.platform.b.b f40541e;
+    public com.meizu.cloud.pushsdk.platform.b.b f37555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g f40542f;
+    public g f37556f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f40543g;
+    public f f37557g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f40544h;
+    public e f37558h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f40545i;
+    public d f37559i;
     public com.meizu.cloud.pushsdk.platform.b.a j;
     public boolean k;
 
@@ -47,52 +47,52 @@ public class b {
     public b(Context context, boolean z, boolean z2) {
         this.k = true;
         Context applicationContext = context.getApplicationContext();
-        this.f40539c = applicationContext;
-        this.f40540d = new a(applicationContext);
+        this.f37553c = applicationContext;
+        this.f37554d = new a(applicationContext);
         if (z) {
-            this.f40538b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
+            this.f37552b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
         }
         this.k = z2;
-        this.f40541e = new com.meizu.cloud.pushsdk.platform.b.b(this.f40539c, this.f40540d, this.f40538b, z2);
-        this.f40542f = new g(this.f40539c, this.f40540d, this.f40538b, z2);
-        this.f40543g = new f(this.f40539c, this.f40540d, this.f40538b, z2);
-        this.f40544h = new e(this.f40539c, this.f40540d, this.f40538b, z2);
-        this.f40545i = new d(this.f40539c, this.f40540d, this.f40538b, z2);
-        this.j = new com.meizu.cloud.pushsdk.platform.b.a(this.f40539c, this.f40538b, z2);
+        this.f37555e = new com.meizu.cloud.pushsdk.platform.b.b(this.f37553c, this.f37554d, this.f37552b, z2);
+        this.f37556f = new g(this.f37553c, this.f37554d, this.f37552b, z2);
+        this.f37557g = new f(this.f37553c, this.f37554d, this.f37552b, z2);
+        this.f37558h = new e(this.f37553c, this.f37554d, this.f37552b, z2);
+        this.f37559i = new d(this.f37553c, this.f37554d, this.f37552b, z2);
+        this.j = new com.meizu.cloud.pushsdk.platform.b.a(this.f37553c, this.f37552b, z2);
     }
 
     public static b a(Context context) {
-        if (f40537a == null) {
+        if (f37551a == null) {
             synchronized (b.class) {
-                if (f40537a == null) {
-                    f40537a = new b(context, true);
+                if (f37551a == null) {
+                    f37551a = new b(context, true);
                 }
             }
         }
-        return f40537a;
+        return f37551a;
     }
 
     public c<String> a(String str, String str2, String str3, File file) {
-        return this.f40540d.a(str, str2, str3, file);
+        return this.f37554d.a(str, str2, str3, file);
     }
 
     public void a(boolean z) {
-        this.f40541e.a(z);
-        this.f40542f.a(z);
-        this.f40543g.a(z);
-        this.f40545i.a(z);
-        this.f40544h.a(z);
+        this.f37555e.a(z);
+        this.f37556f.a(z);
+        this.f37557g.a(z);
+        this.f37559i.a(z);
+        this.f37558h.a(z);
     }
 
     public boolean a(String str) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.f40539c, this.f40538b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.f37553c, this.f37552b, this.k);
         aVar.a(0);
         aVar.d(str);
         return aVar.m();
     }
 
     public boolean a(String str, String str2) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.f40539c, this.f40538b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.f37553c, this.f37552b, this.k);
         aVar.a(2);
         aVar.a(str2);
         aVar.d(str);
@@ -100,53 +100,53 @@ public class b {
     }
 
     public boolean a(String str, String str2, String str3) {
-        this.f40541e.b(str);
-        this.f40541e.c(str2);
-        this.f40541e.d(str3);
-        return this.f40541e.m();
+        this.f37555e.b(str);
+        this.f37555e.c(str2);
+        this.f37555e.d(str3);
+        return this.f37555e.m();
     }
 
     public boolean a(String str, String str2, String str3, String str4) {
-        this.f40543g.b(str);
-        this.f40543g.c(str2);
-        this.f40543g.d(str3);
-        this.f40543g.a(str4);
-        this.f40543g.a(2);
-        return this.f40543g.m();
+        this.f37557g.b(str);
+        this.f37557g.c(str2);
+        this.f37557g.d(str3);
+        this.f37557g.a(str4);
+        this.f37557g.a(2);
+        return this.f37557g.m();
     }
 
     public boolean a(String str, String str2, String str3, String str4, int i2, boolean z) {
-        this.f40543g.b(str);
-        this.f40543g.c(str2);
-        this.f40543g.d(str3);
-        this.f40543g.a(str4);
-        this.f40543g.a(i2);
-        this.f40543g.b(z);
-        return this.f40543g.m();
+        this.f37557g.b(str);
+        this.f37557g.c(str2);
+        this.f37557g.d(str3);
+        this.f37557g.a(str4);
+        this.f37557g.a(i2);
+        this.f37557g.b(z);
+        return this.f37557g.m();
     }
 
     public boolean a(String str, String str2, String str3, String str4, String str5) {
-        this.f40544h.b(str);
-        this.f40544h.c(str2);
-        this.f40544h.d(str3);
-        this.f40544h.e(str4);
-        this.f40544h.a(0);
-        this.f40544h.a(str5);
-        return this.f40544h.m();
+        this.f37558h.b(str);
+        this.f37558h.c(str2);
+        this.f37558h.d(str3);
+        this.f37558h.e(str4);
+        this.f37558h.a(0);
+        this.f37558h.a(str5);
+        return this.f37558h.m();
     }
 
     public boolean a(String str, String str2, String str3, String str4, boolean z) {
-        this.f40543g.b(str);
-        this.f40543g.c(str2);
-        this.f40543g.d(str3);
-        this.f40543g.a(str4);
-        this.f40543g.a(3);
-        this.f40543g.b(z);
-        return this.f40543g.m();
+        this.f37557g.b(str);
+        this.f37557g.c(str2);
+        this.f37557g.d(str3);
+        this.f37557g.a(str4);
+        this.f37557g.a(3);
+        this.f37557g.b(z);
+        return this.f37557g.m();
     }
 
     public boolean a(String str, int... iArr) {
-        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.f40539c, this.f40538b, this.k);
+        com.meizu.cloud.pushsdk.platform.b.a aVar = new com.meizu.cloud.pushsdk.platform.b.a(this.f37553c, this.f37552b, this.k);
         aVar.a(iArr);
         aVar.d(str);
         aVar.a(1);
@@ -154,66 +154,66 @@ public class b {
     }
 
     public boolean b(String str, String str2, String str3) {
-        this.f40542f.b(str);
-        this.f40542f.c(str2);
-        this.f40542f.d(str3);
-        return this.f40542f.m();
+        this.f37556f.b(str);
+        this.f37556f.c(str2);
+        this.f37556f.d(str3);
+        return this.f37556f.m();
     }
 
     public boolean b(String str, String str2, String str3, String str4) {
-        this.f40544h.b(str);
-        this.f40544h.c(str2);
-        this.f40544h.d(str3);
-        this.f40544h.e(str4);
-        this.f40544h.a(2);
-        return this.f40544h.m();
+        this.f37558h.b(str);
+        this.f37558h.c(str2);
+        this.f37558h.d(str3);
+        this.f37558h.e(str4);
+        this.f37558h.a(2);
+        return this.f37558h.m();
     }
 
     public boolean b(String str, String str2, String str3, String str4, String str5) {
-        this.f40544h.b(str);
-        this.f40544h.c(str2);
-        this.f40544h.d(str3);
-        this.f40544h.e(str4);
-        this.f40544h.a(1);
-        this.f40544h.a(str5);
-        return this.f40544h.m();
+        this.f37558h.b(str);
+        this.f37558h.c(str2);
+        this.f37558h.d(str3);
+        this.f37558h.e(str4);
+        this.f37558h.a(1);
+        this.f37558h.a(str5);
+        return this.f37558h.m();
     }
 
     public boolean c(String str, String str2, String str3, String str4) {
-        this.f40544h.b(str);
-        this.f40544h.c(str2);
-        this.f40544h.d(str3);
-        this.f40544h.e(str4);
-        this.f40544h.a(3);
-        return this.f40544h.m();
+        this.f37558h.b(str);
+        this.f37558h.c(str2);
+        this.f37558h.d(str3);
+        this.f37558h.e(str4);
+        this.f37558h.a(3);
+        return this.f37558h.m();
     }
 
     public boolean c(String str, String str2, String str3, String str4, String str5) {
-        this.f40545i.b(str);
-        this.f40545i.c(str2);
-        this.f40545i.d(str3);
-        this.f40545i.e(str4);
-        this.f40545i.a(0);
-        this.f40545i.a(str5);
-        return this.f40545i.m();
+        this.f37559i.b(str);
+        this.f37559i.c(str2);
+        this.f37559i.d(str3);
+        this.f37559i.e(str4);
+        this.f37559i.a(0);
+        this.f37559i.a(str5);
+        return this.f37559i.m();
     }
 
     public boolean d(String str, String str2, String str3, String str4) {
-        this.f40545i.b(str);
-        this.f40545i.c(str2);
-        this.f40545i.d(str3);
-        this.f40545i.e(str4);
-        this.f40545i.a(2);
-        return this.f40545i.m();
+        this.f37559i.b(str);
+        this.f37559i.c(str2);
+        this.f37559i.d(str3);
+        this.f37559i.e(str4);
+        this.f37559i.a(2);
+        return this.f37559i.m();
     }
 
     public boolean d(String str, String str2, String str3, String str4, String str5) {
-        this.f40545i.b(str);
-        this.f40545i.c(str2);
-        this.f40545i.d(str3);
-        this.f40545i.e(str4);
-        this.f40545i.a(1);
-        this.f40545i.a(str5);
-        return this.f40545i.m();
+        this.f37559i.b(str);
+        this.f37559i.c(str2);
+        this.f37559i.d(str3);
+        this.f37559i.e(str4);
+        this.f37559i.a(1);
+        this.f37559i.a(str5);
+        return this.f37559i.m();
     }
 }

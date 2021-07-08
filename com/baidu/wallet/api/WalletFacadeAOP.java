@@ -1,5 +1,6 @@
 package com.baidu.wallet.api;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,13 +13,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.jvm.internal.ShortCompanionObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final IWalletFacade f23788a;
+    public final IWalletFacade f23898a;
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
         Interceptable interceptable = $ic;
@@ -35,7 +36,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        this.f23788a = iWalletFacade;
+        this.f23898a = iWalletFacade;
     }
 
     private boolean a() {
@@ -46,7 +47,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             CrabHelper.initCrab(BaiduWalletDelegate.getInstance().getAppContext());
             WalletLoginHelper.getInstance().clearOpenBduss();
         }
@@ -74,7 +75,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                     th.printStackTrace();
                 }
             }
-            Object invoke = method.invoke(this.f23788a, objArr);
+            Object invoke = method.invoke(this.f23898a, objArr);
             if (method != null && a(method.getName())) {
                 try {
                     c();

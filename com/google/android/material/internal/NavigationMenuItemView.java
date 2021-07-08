@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECKED_STATE_SET;
@@ -94,7 +94,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
 
     private void adjustAppearance() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (shouldExpandActionArea()) {
                 this.textView.setVisibility(8);
                 FrameLayout frameLayout = this.actionArea;

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class m extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f42604a;
+    public final /* synthetic */ PBSplash f39618a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(PBSplash pBSplash, Looper looper) {
@@ -33,7 +33,7 @@ public class m extends Handler {
                 return;
             }
         }
-        this.f42604a = pBSplash;
+        this.f39618a = pBSplash;
     }
 
     @Override // android.os.Handler
@@ -41,10 +41,10 @@ public class m extends Handler {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.f42604a).f42432e) == null || pBSplash.f42436i) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBSplashListener = (pBSplash = this.f39618a).f39446e) == null || pBSplash.f39450i) {
             return;
         }
         pBSplashListener.onFail(PBError.LOAD_TIME_OUT);
-        this.f42604a.j = true;
+        this.f39618a.j = true;
     }
 }

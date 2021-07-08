@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CmdConfigHttp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
@@ -197,6 +197,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
     public static final int CMD_HTTP_VIDEO_CHANNEL_FEED = 1003498;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
+    public static final int CMD_JUMP_YY_LIVE_IN_VIDEO_LIST = 1003504;
     public static final int CMD_LCS_STATISTICS = 1003422;
     public static final int CMD_LOW_FLOWS_PAGE = 1003486;
     public static final int CMD_MANGA_CHAPTER_ALL = 1003087;

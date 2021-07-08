@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NetResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_DISPATCH_FAIL_CODE = 607;

@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TranView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f13163e;
+    public Scroller f13180e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f13164f;
+    public a f13181f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
@@ -52,12 +52,12 @@ public class TranView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f13163e;
+            Scroller scroller = this.f13180e;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f13163e.getCurrY();
+                int currY = this.f13180e.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -66,7 +66,7 @@ public class TranView extends View {
                 }
                 return;
             }
-            a aVar = this.f13164f;
+            a aVar = this.f13181f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -84,7 +84,7 @@ public class TranView extends View {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f13164f = aVar;
+            this.f13181f = aVar;
         }
     }
 

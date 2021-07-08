@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LocalRouter implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LocalRouter";

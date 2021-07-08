@@ -3,6 +3,7 @@ package tv.athena.revenue.http;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 import okhttp3.Request;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,31 +43,31 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public boolean sEnableBackupDomain;
     public String version;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a extends i.a.a.c.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f76683a;
+        public final /* synthetic */ int f73717a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f76684b;
+        public final /* synthetic */ String f73718b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f76685c;
+        public final /* synthetic */ byte[] f73719c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PSCIMessageRequest f76686d;
+        public final /* synthetic */ PSCIMessageRequest f73720d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f76687e;
+        public final /* synthetic */ String f73721e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f76688f;
+        public final /* synthetic */ ArrayList f73722f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HttpDataSenderAdapter f76689g;
+        public final /* synthetic */ HttpDataSenderAdapter f73723g;
 
         public a(HttpDataSenderAdapter httpDataSenderAdapter, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -83,36 +84,36 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     return;
                 }
             }
-            this.f76689g = httpDataSenderAdapter;
-            this.f76683a = i2;
-            this.f76684b = str;
-            this.f76685c = bArr;
-            this.f76686d = pSCIMessageRequest;
-            this.f76687e = str2;
-            this.f76688f = arrayList;
+            this.f73723g = httpDataSenderAdapter;
+            this.f73717a = i2;
+            this.f73718b = str;
+            this.f73719c = bArr;
+            this.f73720d = pSCIMessageRequest;
+            this.f73721e = str2;
+            this.f73722f = arrayList;
         }
 
         @Override // i.a.a.c.b.a
         public void a(Request request, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, request, exc) == null) {
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f76684b + " exception: " + exc.getMessage(), new Object[0]);
-                String retryDomain = this.f76689g.getRetryDomain(this.f76687e);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f73718b + " exception: " + exc.getMessage(), new Object[0]);
+                String retryDomain = this.f73723g.getRetryDomain(this.f73721e);
                 if (!TextUtils.isEmpty(retryDomain)) {
                     try {
                         RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
-                        this.f76689g.sendByHttpPost(retryDomain, this.f76683a, this.f76684b, this.f76688f, this.f76685c);
+                        this.f73723g.sendByHttpPost(retryDomain, this.f73717a, this.f73718b, this.f73722f, this.f73719c);
                         return;
                     } catch (Exception e2) {
                         RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e2), new Object[0]);
                     }
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-                int i2 = this.f76683a;
-                String str = this.f76684b;
-                int cmd = this.f76686d.getCmd();
+                int i2 = this.f73717a;
+                String str = this.f73718b;
+                int cmd = this.f73720d.getCmd();
                 revenueDataParser.onRequestError(i2, str, cmd, -500, "onFailure = " + exc.getMessage());
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f76684b + " exception:" + exc.getMessage(), new Object[0]);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f73718b + " exception:" + exc.getMessage(), new Object[0]);
             }
         }
 
@@ -120,7 +121,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f76689g.onSuccess(this.f76683a, this.f76684b, this.f76685c, obj, this.f76686d);
+                this.f73723g.onSuccess(this.f73717a, this.f73718b, this.f73719c, obj, this.f73720d);
             }
         }
     }
@@ -152,7 +153,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         InterceptResult invokeL;
         Object[] objArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             if (this.sEnableBackupDomain && (objArr = Env.instance().BACKUP_DOMAIN_POOL) != null && objArr.length > 0 && str != null) {
                 int i2 = -1;
                 int i3 = 0;

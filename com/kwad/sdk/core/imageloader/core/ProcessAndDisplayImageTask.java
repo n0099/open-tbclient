@@ -9,7 +9,7 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
 import com.kwad.sdk.core.imageloader.utils.L;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ProcessAndDisplayImageTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_POSTPROCESS_IMAGE = "PostProcess image before displaying [%s]";

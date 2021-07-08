@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements com.kwad.sdk.pngencrypt.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38702a;
+    public boolean f35774a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -47,7 +47,7 @@ public class a implements com.kwad.sdk.pngencrypt.g {
                 return;
             }
         }
-        this.f38702a = z;
+        this.f35774a = z;
     }
 
     @Override // com.kwad.sdk.pngencrypt.g
@@ -55,15 +55,15 @@ public class a implements com.kwad.sdk.pngencrypt.g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, kVar)) == null) {
-            PngChunk a2 = a(dVar.f38719c, kVar);
+            PngChunk a2 = a(dVar.f35791c, kVar);
             if (a2 == null) {
-                a2 = c(dVar.f38719c, kVar);
+                a2 = c(dVar.f35791c, kVar);
             }
             if (a2 == null) {
-                a2 = b(dVar.f38719c, kVar);
+                a2 = b(dVar.f35791c, kVar);
             }
             a2.b(dVar);
-            if (this.f38702a && dVar.f38720d != null) {
+            if (this.f35774a && dVar.f35792d != null) {
                 a2.a(dVar);
             }
             return a2;

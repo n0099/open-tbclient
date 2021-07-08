@@ -15,19 +15,19 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Function0<VideoMiddleModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ VideoMiddlePageViewModel this$0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements VideoMiddleModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageViewModel$model$2 f16110a;
+        public final /* synthetic */ VideoMiddlePageViewModel$model$2 f16149a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(VideoMiddlePageViewModel$model$2 videoMiddlePageViewModel$model$2) {
@@ -45,15 +45,15 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
                     return;
                 }
             }
-            this.f16110a = videoMiddlePageViewModel$model$2;
+            this.f16149a = videoMiddlePageViewModel$model$2;
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f16110a.this$0.k().setValue(Boolean.FALSE);
-                this.f16110a.this$0.g().setValue(str);
+                this.f16149a.this$0.k().setValue(Boolean.FALSE);
+                this.f16149a.this$0.g().setValue(str);
             }
         }
 
@@ -61,10 +61,10 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
         public void b(List<? extends BaseCardInfo> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) {
-                this.f16110a.this$0.k().setValue(Boolean.FALSE);
-                this.f16110a.this$0.f().setValue(Boolean.valueOf(z));
-                this.f16110a.this$0.a(CollectionsKt___CollectionsKt.toMutableList((Collection) list));
-                this.f16110a.this$0.g().setValue("");
+                this.f16149a.this$0.k().setValue(Boolean.FALSE);
+                this.f16149a.this$0.f().setValue(Boolean.valueOf(z));
+                this.f16149a.this$0.a(CollectionsKt___CollectionsKt.toMutableList((Collection) list));
+                this.f16149a.this$0.g().setValue("");
             }
         }
     }

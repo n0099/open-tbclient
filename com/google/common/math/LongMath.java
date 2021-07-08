@@ -1,5 +1,6 @@
 package com.google.common.math;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,13 +14,13 @@ import com.google.common.primitives.UnsignedLongs;
 import d.f.d.a.n;
 import d.f.d.f.e;
 import java.math.RoundingMode;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LongMath {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class MillerRabinTester {
         public static final /* synthetic */ MillerRabinTester[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -209,7 +210,7 @@ public final class LongMath {
         public static boolean test(long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
                 return (j2 <= 3037000499L ? SMALL : LARGE).testWitness(j, j2);
             }
             return invokeCommon.booleanValue;
@@ -264,12 +265,12 @@ public final class LongMath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f33418a;
+        public static final /* synthetic */ int[] f33528a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -286,37 +287,37 @@ public final class LongMath {
                 }
             }
             int[] iArr = new int[RoundingMode.values().length];
-            f33418a = iArr;
+            f33528a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f33418a[RoundingMode.DOWN.ordinal()] = 2;
+                f33528a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f33418a[RoundingMode.FLOOR.ordinal()] = 3;
+                f33528a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f33418a[RoundingMode.UP.ordinal()] = 4;
+                f33528a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f33418a[RoundingMode.CEILING.ordinal()] = 5;
+                f33528a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f33418a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f33528a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f33418a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f33528a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f33418a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f33528a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -363,7 +364,7 @@ public final class LongMath {
             }
             int i3 = (int) ((j ^ j2) >> 63);
             int i4 = i3 | 1;
-            switch (a.f33418a[roundingMode.ordinal()]) {
+            switch (a.f33528a[roundingMode.ordinal()]) {
                 case 1:
                     e.d(i2 == 0);
                     r9 = false;

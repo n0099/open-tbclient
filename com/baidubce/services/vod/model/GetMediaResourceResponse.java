@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GetMediaResourceResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 getMediaResourceResponse.setStatus(jSONObject.getString("status"));
                 getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
                 getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f1966a)) {
+                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f1967a)) {
                     getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
                 }
                 getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));

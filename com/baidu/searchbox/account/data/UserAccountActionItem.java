@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
@@ -32,7 +32,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     public String mType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class UserAccountAction {
         public static final /* synthetic */ UserAccountAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +103,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class UserAccountType {
         public static final /* synthetic */ UserAccountType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -391,14 +391,14 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {userAccountAction, str, str2};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

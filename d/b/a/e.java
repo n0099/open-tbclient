@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71663e;
+    public final Context f68766e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -35,7 +35,7 @@ public class e extends s1 {
                 return;
             }
         }
-        this.f71663e = context;
+        this.f68766e = context;
     }
 
     @Override // d.b.a.s1
@@ -44,7 +44,7 @@ public class e extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            z1.g(jSONObject, "access", e0.b(this.f71663e));
+            z1.g(jSONObject, "access", e0.b(this.f68766e));
             return true;
         }
         return invokeL.booleanValue;

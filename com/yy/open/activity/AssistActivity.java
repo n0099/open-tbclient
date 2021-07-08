@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class AssistActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_TYPE = "type";
@@ -48,13 +48,13 @@ public final class AssistActivity extends Activity {
     public WebView mWebView;
     public WebViewClient webviewClient;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43743e;
+        public final /* synthetic */ AssistActivity f40759e;
 
         public a(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -71,26 +71,26 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43743e = assistActivity;
+            this.f40759e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AssistActivity assistActivity = this.f43743e;
+                AssistActivity assistActivity = this.f40759e;
                 assistActivity.mWebView.loadUrl(assistActivity.mURL);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43744e;
+        public final /* synthetic */ AssistActivity f40760e;
 
         public b(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -107,25 +107,25 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43744e = assistActivity;
+            this.f40760e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43744e.finish();
+                this.f40760e.finish();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43745a;
+        public final /* synthetic */ AssistActivity f40761a;
 
         public c(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43745a = assistActivity;
+            this.f40761a = assistActivity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -150,7 +150,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                this.f43745a.mProgressView.setVisibility(8);
+                this.f40761a.mProgressView.setVisibility(8);
             }
         }
 
@@ -159,18 +159,18 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                this.f43745a.mProgressView.setVisibility(0);
-                this.f43745a.mWebView.setVisibility(0);
-                this.f43745a.mTextView.setVisibility(8);
+                this.f40761a.mProgressView.setVisibility(0);
+                this.f40761a.mWebView.setVisibility(0);
+                this.f40761a.mTextView.setVisibility(8);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) && this.f43745a.mURL.equals(str2)) {
-                this.f43745a.mTextView.setVisibility(0);
-                this.f43745a.mWebView.setVisibility(4);
+            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) && this.f40761a.mURL.equals(str2)) {
+                this.f40761a.mTextView.setVisibility(0);
+                this.f40761a.mWebView.setVisibility(4);
             }
         }
 
@@ -181,10 +181,10 @@ public final class AssistActivity extends Activity {
                 super.onReceivedSslError(webView, sslErrorHandler, sslError);
                 int primaryError = sslError.getPrimaryError();
                 String str = primaryError != 0 ? primaryError != 1 ? primaryError != 2 ? primaryError != 3 ? primaryError != 4 ? "发生SSL一般错误" : "证书日期无效" : "证书颁发机构不受信任" : "证书主机名不匹配" : "证书已过期" : "证书尚未生效";
-                this.f43745a.mProgressView.setVisibility(0);
-                this.f43745a.mWebView.setVisibility(0);
-                this.f43745a.mTextView.setVisibility(8);
-                this.f43745a.mTextView.setText(str);
+                this.f40761a.mProgressView.setVisibility(0);
+                this.f40761a.mWebView.setVisibility(0);
+                this.f40761a.mTextView.setVisibility(8);
+                this.f40761a.mTextView.setText(str);
                 sslErrorHandler.cancel();
             }
         }
@@ -211,9 +211,9 @@ public final class AssistActivity extends Activity {
                             jSONObject.put("resMsg", queryParameter2);
                             intent.putExtra("resjson", jSONObject.toString());
                             if ("0".equals(queryParameter)) {
-                                this.f43745a.setResult(444111001, intent);
+                                this.f40761a.setResult(444111001, intent);
                             } else {
-                                this.f43745a.setResult(444222104, intent);
+                                this.f40761a.setResult(444222104, intent);
                             }
                         } else {
                             String queryParameter6 = Uri.parse(str).getQueryParameter("access_code");
@@ -226,12 +226,12 @@ public final class AssistActivity extends Activity {
                             jSONObject2.put("resMsg", queryParameter2);
                             intent.putExtra("resjson", jSONObject2.toString());
                             if ("0".equals(queryParameter)) {
-                                this.f43745a.setResult(444111001, intent);
+                                this.f40761a.setResult(444111001, intent);
                             } else {
-                                this.f43745a.setResult(444222104, intent);
+                                this.f40761a.setResult(444222104, intent);
                             }
                         }
-                        this.f43745a.finish();
+                        this.f40761a.finish();
                         return true;
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -254,9 +254,9 @@ public final class AssistActivity extends Activity {
                             jSONObject3.put("resMsg", queryParameter9);
                             intent2.putExtra("resjson", jSONObject3.toString());
                             if ("0".equals(queryParameter8)) {
-                                this.f43745a.setResult(444111003, intent2);
+                                this.f40761a.setResult(444111003, intent2);
                             } else {
-                                this.f43745a.setResult(444222106, intent2);
+                                this.f40761a.setResult(444222106, intent2);
                             }
                         } else if ("2".equals(queryParameter10)) {
                             String queryParameter13 = Uri.parse(str).getQueryParameter("token");
@@ -267,9 +267,9 @@ public final class AssistActivity extends Activity {
                             jSONObject4.put("token", queryParameter13);
                             intent2.putExtra("resjson", jSONObject4.toString());
                             if ("0".equals(queryParameter8)) {
-                                this.f43745a.setResult(444222108, intent2);
+                                this.f40761a.setResult(444222108, intent2);
                             } else {
-                                this.f43745a.setResult(444222110, intent2);
+                                this.f40761a.setResult(444222110, intent2);
                             }
                         } else {
                             Log.e("chenqiang", "appType:" + queryParameter10);
@@ -283,12 +283,12 @@ public final class AssistActivity extends Activity {
                             jSONObject5.put("resMsg", queryParameter9);
                             intent2.putExtra("resjson", jSONObject5.toString());
                             if ("0".equals(queryParameter8)) {
-                                this.f43745a.setResult(444111003, intent2);
+                                this.f40761a.setResult(444111003, intent2);
                             } else {
-                                this.f43745a.setResult(444222106, intent2);
+                                this.f40761a.setResult(444222106, intent2);
                             }
                         }
-                        this.f43745a.finish();
+                        this.f40761a.finish();
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
@@ -301,13 +301,13 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class d extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43746a;
+        public final /* synthetic */ AssistActivity f40762a;
 
         public d(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -324,7 +324,7 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43746a = assistActivity;
+            this.f40762a = assistActivity;
         }
 
         @Override // android.webkit.WebChromeClient
@@ -332,18 +332,18 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
                 super.onProgressChanged(webView, i2);
-                this.f43746a.mProgressView.a(i2);
+                this.f40762a.mProgressView.a(i2);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class e implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43747a;
+        public final /* synthetic */ AssistActivity f40763a;
 
         public e(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -360,7 +360,7 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43747a = assistActivity;
+            this.f40763a = assistActivity;
         }
 
         @Override // android.webkit.DownloadListener
@@ -368,7 +368,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 try {
-                    this.f43747a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                    this.f40763a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -376,19 +376,19 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class f extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f43748e;
+        public int f40764e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f43749f;
+        public Paint f40765f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43750g;
+        public final /* synthetic */ AssistActivity f40766g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -408,12 +408,12 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43750g = assistActivity;
+            this.f40766g = assistActivity;
             Paint paint = new Paint();
-            this.f43749f = paint;
+            this.f40765f = paint;
             paint.setColor(-731575);
-            this.f43749f.setAntiAlias(true);
-            this.f43749f.setStyle(Paint.Style.FILL);
+            this.f40765f.setAntiAlias(true);
+            this.f40765f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -424,7 +424,7 @@ public final class AssistActivity extends Activity {
                 } else if (i2 < 0) {
                     i2 = 0;
                 }
-                this.f43748e = i2;
+                this.f40764e = i2;
                 invalidate();
             }
         }
@@ -434,7 +434,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.f43748e / 100.0f) * getWidth(), getHeight(), this.f43749f);
+                canvas.drawRect(0.0f, 0.0f, (this.f40764e / 100.0f) * getWidth(), getHeight(), this.f40765f);
                 super.onDraw(canvas);
             }
         }
@@ -449,13 +449,13 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f43751a;
+        public final /* synthetic */ AssistActivity f40767a;
 
         public g(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -472,7 +472,7 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f43751a = assistActivity;
+            this.f40767a = assistActivity;
         }
 
         @JavascriptInterface

@@ -7,25 +7,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.o;
-import com.kwad.sdk.utils.w;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class k extends a<List<String>> {
+/* loaded from: classes6.dex */
+public class k extends a<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(String str, List<String> list) {
-        super(str, list);
+    public k(String str, Long l) {
+        super(str, l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, list};
+            Object[] objArr = {str, l};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -39,46 +34,27 @@ public class k extends a<List<String>> {
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, editor) == null) && w.a(b())) {
-            editor.putString(a(), o.a(b()).toString());
+        if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
+            editor.putLong(b(), a().longValue());
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
-    public void a(SharedPreferences sharedPreferences) {
+    @Override // com.kwad.sdk.core.config.item.b
+    public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            List a2 = o.a(sharedPreferences.getString(a(), ""));
-            if (w.a(a2)) {
-                a((k) a2);
-            } else {
-                a((k) c());
-            }
+            a((k) Long.valueOf(sharedPreferences.getLong(b(), c().longValue())));
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
+    @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
-        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray(a())) != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    String optString = optJSONArray.optString(i2);
-                    if (optString != null && !optString.isEmpty()) {
-                        arrayList.add(optString);
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    a((k) arrayList);
-                    return;
-                }
-            }
-            a((k) c());
+            a((k) (jSONObject != null ? Long.valueOf(jSONObject.optLong(b(), c().longValue())) : c()));
         }
     }
 }

@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.x.b.f;
-/* loaded from: classes5.dex */
+import d.a.p0.x.b.f;
+/* loaded from: classes4.dex */
 public class BarVoteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,16 +27,16 @@ public class BarVoteActivity extends BaseActivity {
     public BarVoteModel.c mCallBack;
     public BarVoteModel mModel;
     public BdUniqueId mPageId;
-    public d.a.s0.x.a mView;
+    public d.a.p0.x.a mView;
     public int source;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements BarVoteModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BarVoteActivity f14308a;
+        public final /* synthetic */ BarVoteActivity f14347a;
 
         public a(BarVoteActivity barVoteActivity) {
             Interceptable interceptable = $ic;
@@ -53,68 +53,68 @@ public class BarVoteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f14308a = barVoteActivity;
+            this.f14347a = barVoteActivity;
         }
 
         @Override // com.baidu.tieba.barselect.BarVoteModel.c
         public void a(int i2, String str, f fVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(1048576, this, i2, str, fVar) == null) || this.f14308a.mView == null || this.f14308a.mView.w() == null) {
+            if (!(interceptable == null || interceptable.invokeILL(1048576, this, i2, str, fVar) == null) || this.f14347a.mView == null || this.f14347a.mView.w() == null) {
                 return;
             }
-            BarVoteActivity barVoteActivity = this.f14308a;
+            BarVoteActivity barVoteActivity = this.f14347a;
             barVoteActivity.hideLoadingView(barVoteActivity.mView.w());
             if (i2 != 0) {
                 if (i2 == 2430005) {
-                    if (this.f14308a.mModel == null || this.f14308a.mModel.mPn != 0) {
+                    if (this.f14347a.mModel == null || this.f14347a.mModel.mPn != 0) {
                         return;
                     }
-                    if (this.f14308a.mView.u() != null) {
-                        this.f14308a.mView.u().setVisibility(8);
+                    if (this.f14347a.mView.u() != null) {
+                        this.f14347a.mView.u().setVisibility(8);
                     }
-                    this.f14308a.mView.F(str);
-                } else if (this.f14308a.mModel == null || this.f14308a.mModel.mPn != 0) {
+                    this.f14347a.mView.F(str);
+                } else if (this.f14347a.mModel == null || this.f14347a.mModel.mPn != 0) {
                 } else {
-                    if (this.f14308a.mView.u() != null) {
-                        this.f14308a.mView.u().setVisibility(8);
+                    if (this.f14347a.mView.u() != null) {
+                        this.f14347a.mView.u().setVisibility(8);
                     }
-                    this.f14308a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    this.f14347a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             } else if (fVar == null || fVar.a() == null || fVar.a().g() < 1 || fVar.a().g() > 2) {
-                if (this.f14308a.mModel == null || this.f14308a.mModel.mPn != 0) {
+                if (this.f14347a.mModel == null || this.f14347a.mModel.mPn != 0) {
                     return;
                 }
-                if (this.f14308a.mView.u() != null) {
-                    this.f14308a.mView.u().setVisibility(8);
+                if (this.f14347a.mView.u() != null) {
+                    this.f14347a.mView.u().setVisibility(8);
                 }
                 if (fVar == null || fVar.a() == null) {
-                    this.f14308a.mView.F(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
+                    this.f14347a.mView.F(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                 } else if (fVar.a().g() < 1 || fVar.a().g() > 2) {
-                    this.f14308a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    this.f14347a.mView.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             } else {
-                if (this.f14308a.mView.u() != null) {
-                    this.f14308a.mView.u().setVisibility(0);
+                if (this.f14347a.mView.u() != null) {
+                    this.f14347a.mView.u().setVisibility(0);
                 }
-                long j = this.f14308a.fid;
+                long j = this.f14347a.fid;
                 if (j != 0) {
                     fVar.i(j);
                 }
                 if (fVar.g() == null) {
-                    fVar.l(this.f14308a.mPageId);
+                    fVar.l(this.f14347a.mPageId);
                 }
-                this.f14308a.mView.C(fVar);
+                this.f14347a.mView.C(fVar);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BarVoteActivity f14309e;
+        public final /* synthetic */ BarVoteActivity f14348e;
 
         public b(BarVoteActivity barVoteActivity) {
             Interceptable interceptable = $ic;
@@ -131,17 +131,17 @@ public class BarVoteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f14309e = barVoteActivity;
+            this.f14348e = barVoteActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.D()) {
-                this.f14309e.mView.x();
-                BarVoteActivity barVoteActivity = this.f14309e;
+                this.f14348e.mView.x();
+                BarVoteActivity barVoteActivity = this.f14348e;
                 barVoteActivity.showLoadingView(barVoteActivity.mView.w());
-                this.f14309e.reload();
+                this.f14348e.reload();
             }
         }
     }
@@ -179,7 +179,7 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            d.a.s0.x.a aVar = this.mView;
+            d.a.p0.x.a aVar = this.mView;
             if (aVar != null) {
                 aVar.z(i2);
             }
@@ -193,7 +193,7 @@ public class BarVoteActivity extends BaseActivity {
             if (view.getId() == R.id.right_textview) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
             } else if (view.getId() == R.id.pb_more) {
-                d.a.s0.x.a aVar = this.mView;
+                d.a.p0.x.a aVar = this.mView;
                 if (aVar != null && aVar.v() != null) {
                     this.mView.v().L();
                 }
@@ -207,7 +207,7 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new d.a.s0.x.a(this);
+            this.mView = new d.a.p0.x.a(this);
             this.fid = getIntent().getLongExtra("fid", 0L);
             this.source = getIntent().getIntExtra("source", 0);
             BarVoteModel barVoteModel = new BarVoteModel(this);
@@ -222,7 +222,7 @@ public class BarVoteActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d.a.s0.x.a aVar = this.mView;
+            d.a.p0.x.a aVar = this.mView;
             if (aVar != null) {
                 aVar.y();
             }

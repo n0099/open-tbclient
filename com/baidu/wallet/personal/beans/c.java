@@ -14,25 +14,25 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.personal.datamodel.CouponDetailResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends BaseBean<CouponDetailResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26954a;
+    public int f27064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26955b;
+    public String f27065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26956c;
+    public String f27066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26957d;
+    public String f27067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26958e;
+    public String f27068e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -52,36 +52,36 @@ public class c extends BaseBean<CouponDetailResponse> {
                 return;
             }
         }
-        this.f26957d = "";
-        this.f26958e = "";
+        this.f27067d = "";
+        this.f27068e = "";
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f26954a = i2;
+            this.f27064a = i2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f26955b = str;
+            this.f27065b = str;
         }
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            this.f26957d = str;
-            this.f26958e = str2;
+            this.f27067d = str;
+            this.f27068e = str2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f26956c = str;
+            this.f27066c = str;
         }
     }
 
@@ -99,10 +99,10 @@ public class c extends BaseBean<CouponDetailResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_type", "" + this.f26954a));
-            arrayList.add(new RestNameValuePair("coupon_num", this.f26955b));
-            arrayList.add(new RestNameValuePair("template_num", this.f26956c));
-            arrayList.add(new RestNameValuePair("user_mapping", this.f26957d + "," + this.f26958e));
+            arrayList.add(new RestNameValuePair("card_type", "" + this.f27064a));
+            arrayList.add(new RestNameValuePair("coupon_num", this.f27065b));
+            arrayList.add(new RestNameValuePair("template_num", this.f27066c));
+            arrayList.add(new RestNameValuePair("user_mapping", this.f27067d + "," + this.f27068e));
             return arrayList;
         }
         return (List) invokeV.objValue;

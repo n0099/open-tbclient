@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AccountToolsActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
@@ -27,10 +27,10 @@ public class AccountToolsActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountToolsResult f9673a;
+    public AccountToolsResult f9690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f9674b;
+    public AccountToolsCallback f9691b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class AccountToolsActivity extends Activity {
                 return;
             }
         }
-        this.f9673a = new AccountToolsResult();
+        this.f9690a = new AccountToolsResult();
     }
 
     @Override // android.app.Activity
@@ -54,7 +54,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f9674b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f9691b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -63,7 +63,7 @@ public class AccountToolsActivity extends Activity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountToolsActivity f9675a;
+                public final /* synthetic */ AccountToolsActivity f9692a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -80,16 +80,16 @@ public class AccountToolsActivity extends Activity {
                             return;
                         }
                     }
-                    this.f9675a = this;
+                    this.f9692a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.AccountCenterCallback
                 public void onFinish(AccountCenterResult accountCenterResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountCenterResult) == null) {
-                        this.f9675a.f9673a.setResultCode(accountCenterResult.getResultCode());
-                        this.f9675a.f9673a.setResultMsg(accountCenterResult.getResultMsg());
-                        this.f9675a.a();
+                        this.f9692a.f9690a.setResultCode(accountCenterResult.getResultCode());
+                        this.f9692a.f9690a.setResultMsg(accountCenterResult.getResultMsg());
+                        this.f9692a.a();
                     }
                 }
 
@@ -107,9 +107,9 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f9674b;
+            AccountToolsCallback accountToolsCallback = this.f9691b;
             if (accountToolsCallback != null) {
-                accountToolsCallback.onFinish(this.f9673a);
+                accountToolsCallback.onFinish(this.f9690a);
             }
             finish();
         }

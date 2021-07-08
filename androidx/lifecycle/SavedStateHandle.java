@@ -11,6 +11,7 @@ import android.util.SparseArray;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.savedstate.SavedStateRegistry;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -181,7 +182,7 @@ public final class SavedStateHandle {
         InterceptResult invokeCommon;
         SavingStateLiveData<?> savingStateLiveData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, Boolean.valueOf(z), t})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Boolean.valueOf(z), t})) == null) {
             SavingStateLiveData<?> savingStateLiveData2 = this.mLiveDatas.get(str);
             if (savingStateLiveData2 != null) {
                 return savingStateLiveData2;

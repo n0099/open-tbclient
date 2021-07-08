@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.a;
-import d.a.q0.a.c2.c;
-import d.a.q0.a.c2.d;
-import d.a.q0.e.p.e;
+import d.a.g0.a.a;
+import d.a.n0.a.c2.c;
+import d.a.n0.a.c2.d;
+import d.a.n0.e.p.e;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider impleme
         }
     }
 
-    @Override // d.a.j0.a.a
+    @Override // d.a.g0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

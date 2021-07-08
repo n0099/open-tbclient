@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.PropertyNamingStrategy;
@@ -51,7 +52,7 @@ public class JavaBeanInfo {
     public final JSONType jsonType;
 
     /* renamed from: kotlin  reason: collision with root package name */
-    public boolean f1605kotlin;
+    public boolean f1606kotlin;
     public Constructor<?> kotlinDefaultConstructor;
     public String[] orders;
     public final int parserFeatures;
@@ -140,7 +141,7 @@ public class JavaBeanInfo {
         if (constructor2 != null) {
             this.creatorConstructorParameterTypes = constructor2.getParameterTypes();
             boolean isKotlin = TypeUtils.isKotlin(cls);
-            this.f1605kotlin = isKotlin;
+            this.f1606kotlin = isKotlin;
             if (isKotlin) {
                 this.creatorConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
                 try {
@@ -614,7 +615,7 @@ public class JavaBeanInfo {
         Constructor<?> creatorConstructor;
         PropertyNamingStrategy naming;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{cls, type, propertyNamingStrategy, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{cls, type, propertyNamingStrategy, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             Class<?> cls16 = cls;
             boolean z4 = z3;
             Class<String> cls17 = String.class;

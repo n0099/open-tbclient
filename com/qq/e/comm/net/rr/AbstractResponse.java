@@ -10,16 +10,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractResponse implements Response {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpURLConnection f41036a;
+    public final HttpURLConnection f38050a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41037b;
+    public int f38051b;
 
     public AbstractResponse(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public abstract class AbstractResponse implements Response {
                 return;
             }
         }
-        this.f41037b = 0;
+        this.f38051b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
-        this.f41036a = httpURLConnection;
+        this.f38050a = httpURLConnection;
         try {
-            this.f41037b = httpURLConnection.getResponseCode();
+            this.f38051b = httpURLConnection.getResponseCode();
         } catch (IOException e2) {
             throw new AssertionError(e2);
         }
@@ -52,7 +52,7 @@ public abstract class AbstractResponse implements Response {
     public void close() throws IllegalStateException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41036a.disconnect();
+            this.f38050a.disconnect();
         }
     }
 
@@ -83,14 +83,14 @@ public abstract class AbstractResponse implements Response {
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41037b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38051b : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
     public InputStream getStreamContent() throws IllegalStateException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41036a.getInputStream() : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38050a.getInputStream() : (InputStream) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response
@@ -114,7 +114,7 @@ public abstract class AbstractResponse implements Response {
                 return "";
             }
             try {
-                str2 = this.f41036a.getContentEncoding();
+                str2 = this.f38050a.getContentEncoding();
             } catch (Throwable unused) {
             }
             if (str2 != null) {

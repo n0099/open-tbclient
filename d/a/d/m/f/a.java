@@ -13,37 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f45216a;
+    public b f42018a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45217b;
+    public boolean f42019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f45218c;
+    public BdUniqueId f42020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoPasterResponseData f45219d;
+    public VideoPasterResponseData f42021d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f45220e;
+    public final HttpMessageListener f42022e;
 
     /* renamed from: d.a.d.m.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0612a extends HttpMessageListener {
+    /* loaded from: classes7.dex */
+    public class C0570a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f45221a;
+        public final /* synthetic */ a f42023a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0612a(a aVar, int i2) {
+        public C0570a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -60,7 +60,7 @@ public class a {
                     return;
                 }
             }
-            this.f45221a = aVar;
+            this.f42023a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,24 +68,24 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f45221a.f45217b = false;
+                this.f42023a.f42019b = false;
                 VideoPasterResponseData videoPasterResponseData = (VideoPasterResponseData) httpResponsedMessage;
-                this.f45221a.f45219d = videoPasterResponseData;
+                this.f42023a.f42021d = videoPasterResponseData;
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003431) {
                     return;
                 }
                 if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                    if (this.f45221a.f45216a != null) {
-                        this.f45221a.f45216a.b(videoPasterResponseData.getPasterData());
+                    if (this.f42023a.f42018a != null) {
+                        this.f42023a.f42018a.b(videoPasterResponseData.getPasterData());
                     }
-                } else if (this.f45221a.f45216a != null) {
-                    this.f45221a.f45216a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.f42023a.f42018a != null) {
+                    this.f42023a.f42018a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(int i2, String str);
 
@@ -105,31 +105,31 @@ public class a {
                 return;
             }
         }
-        this.f45220e = new C0612a(this, CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
-        this.f45218c = BdUniqueId.gen();
-        this.f45220e.setSelfListener(true);
-        this.f45220e.setTag(this.f45218c);
-        MessageManager.getInstance().registerListener(this.f45220e);
+        this.f42022e = new C0570a(this, CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
+        this.f42020c = BdUniqueId.gen();
+        this.f42022e.setSelfListener(true);
+        this.f42022e.setTag(this.f42020c);
+        MessageManager.getInstance().registerListener(this.f42022e);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45218c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42020c == null) {
             return;
         }
-        MessageManager.getInstance().removeMessage(this.f45218c);
+        MessageManager.getInstance().removeMessage(this.f42020c);
     }
 
     public VideoPasterResponseData e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45219d : (VideoPasterResponseData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42021d : (VideoPasterResponseData) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45217b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42019b : invokeV.booleanValue;
     }
 
     public void g(VideoPasterRequestData videoPasterRequestData) {
@@ -137,19 +137,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, videoPasterRequestData) == null) || videoPasterRequestData == null) {
             return;
         }
-        this.f45217b = true;
-        videoPasterRequestData.setTag(this.f45218c);
+        this.f42019b = true;
+        videoPasterRequestData.setTag(this.f42020c);
         MessageManager.getInstance().sendMessage(videoPasterRequestData);
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f45220e != null) {
-                MessageManager.getInstance().unRegisterListener(this.f45220e);
+            if (this.f42022e != null) {
+                MessageManager.getInstance().unRegisterListener(this.f42022e);
             }
-            if (this.f45216a != null) {
-                this.f45216a = null;
+            if (this.f42018a != null) {
+                this.f42018a = null;
             }
         }
     }
@@ -158,15 +158,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             d();
-            this.f45217b = false;
-            this.f45219d = null;
+            this.f42019b = false;
+            this.f42021d = null;
         }
     }
 
     public void j(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f45216a = bVar;
+            this.f42018a = bVar;
         }
     }
 }

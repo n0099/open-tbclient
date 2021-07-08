@@ -11,31 +11,31 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.l.a.e.b.f.o;
 import d.l.a.e.b.g.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b extends o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f74582b;
+    public Context f71634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f74583c;
+    public int f71635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f74584d;
+    public String f71636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f74585e;
+    public String f71637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f74586f;
+    public String f71638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f74587g;
+    public String f71639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.l.a.e.b.p.a f74588h;
+    public d.l.a.e.b.p.a f71640h;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -53,15 +53,15 @@ public class b extends o {
             }
         }
         if (context != null) {
-            this.f74582b = context.getApplicationContext();
+            this.f71634b = context.getApplicationContext();
         } else {
-            this.f74582b = e.n();
+            this.f71634b = e.n();
         }
-        this.f74583c = i2;
-        this.f74584d = str;
-        this.f74585e = str2;
-        this.f74586f = str3;
-        this.f74587g = str4;
+        this.f71635c = i2;
+        this.f71636d = str;
+        this.f71637e = str2;
+        this.f71638f = str3;
+        this.f71639g = str4;
     }
 
     @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
@@ -85,7 +85,7 @@ public class b extends o {
     @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
     public void f(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f74582b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f71634b == null) {
             return;
         }
         if (downloadInfo.canShowNotification() && (!downloadInfo.isAutoInstallWithoutNotification() || !downloadInfo.isAutoInstall())) {
@@ -108,7 +108,7 @@ public class b extends o {
     @Override // d.l.a.e.b.f.o, d.l.a.e.b.f.a, d.l.a.e.b.f.b
     public void h(DownloadInfo downloadInfo, BaseException baseException) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f74582b == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, downloadInfo, baseException) == null) || downloadInfo == null || this.f71634b == null || !downloadInfo.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification()) {
             return;
         }
         super.h(downloadInfo, baseException);
@@ -129,10 +129,10 @@ public class b extends o {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f74588h == null && (context = this.f74582b) != null) {
-                return new a(context, this.f74583c, this.f74584d, this.f74585e, this.f74586f, this.f74587g);
+            if (this.f71640h == null && (context = this.f71634b) != null) {
+                return new a(context, this.f71635c, this.f71636d, this.f71637e, this.f71638f, this.f71639g);
             }
-            return this.f74588h;
+            return this.f71640h;
         }
         return (d.l.a.e.b.p.a) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class b extends o {
                 return;
             }
         }
-        this.f74582b = e.n();
-        this.f74588h = aVar;
+        this.f71634b = e.n();
+        this.f71640h = aVar;
     }
 }

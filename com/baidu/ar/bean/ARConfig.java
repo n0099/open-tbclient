@@ -1,6 +1,7 @@
 package com.baidu.ar.bean;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.ARType;
 import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.h.l;
@@ -81,7 +82,7 @@ public class ARConfig {
     public static int getARInitialType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? mARInitialType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? mARInitialType : invokeV.intValue;
     }
 
     public static String getARKey() {

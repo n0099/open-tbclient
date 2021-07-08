@@ -3,6 +3,7 @@ package com.yy.gslbsdk.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class DBInitMgr extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBInitMgr";
@@ -71,7 +72,7 @@ public class DBInitMgr extends SQLiteOpenHelper {
 
     private void createTbProbe(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, sQLiteDatabase) == null) {
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS gslb_probe(_id INTEGER PRIMARY KEY AUTOINCREMENT,host TEXT,protocol INTEGER,method INTEGER,url TEXT)");
         }
     }

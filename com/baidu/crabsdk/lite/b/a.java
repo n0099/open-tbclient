@@ -1,6 +1,7 @@
 package com.baidu.crabsdk.lite.b;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4720a = "CRABLITE";
+    public static String f4737a = "CRABLITE";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +39,7 @@ public final class a {
         Object obj;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null || (hashMap = com.baidu.crabsdk.lite.a.f4688a.get(str)) == null || (obj = hashMap.get("sdk_log")) == null) {
+            if (str == null || (hashMap = com.baidu.crabsdk.lite.a.f4705a.get(str)) == null || (obj = hashMap.get("sdk_log")) == null) {
                 return true;
             }
             return ((Boolean) obj).booleanValue();
@@ -74,7 +75,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             if (a(str)) {
-                return Log.d(f4720a, b(str2));
+                return Log.d(f4737a, b(str2));
             }
             return -1;
         }
@@ -84,9 +85,9 @@ public final class a {
     public static int d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             if (a(str)) {
-                return Log.e(f4720a, b(str2));
+                return Log.e(f4737a, b(str2));
             }
             return -1;
         }
@@ -98,7 +99,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th)) == null) {
             if (a(str)) {
-                return Log.e(f4720a, b(str2), th);
+                return Log.e(f4737a, b(str2), th);
             }
             return -1;
         }
@@ -110,7 +111,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
             if (a(str)) {
-                return Log.i(f4720a, b(str2));
+                return Log.i(f4737a, b(str2));
             }
             return -1;
         }
@@ -122,7 +123,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
             if (a(str)) {
-                return Log.w(f4720a, b(str2));
+                return Log.w(f4737a, b(str2));
             }
             return -1;
         }

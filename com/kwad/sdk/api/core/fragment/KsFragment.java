@@ -34,6 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.b;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import com.kwad.sdk.api.core.lifecycle.KsLifecycle;
 import com.kwad.sdk.api.loader.Loader;
@@ -41,7 +42,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
     public static /* synthetic */ Interceptable $ic;
     public static final SimpleArrayMap<String, Class<?>> sClassMap;
@@ -130,7 +131,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     private boolean isAllFragmentIsHidden(Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, fragment)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragment)) == null) {
             Fragment parentFragment = fragment.getParentFragment();
             boolean isHidden = fragment.isHidden();
             return parentFragment == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment);
@@ -351,10 +352,17 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     public final Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mBase.getResources() : (Resources) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (b.f33767c.booleanValue()) {
+                throw new RuntimeException("please use getContext().getResources()");
+            }
+            return this.mBase.getContext().getResources();
+        }
+        return (Resources) invokeV.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -400,20 +408,22 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     public final String getString(@StringRes int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? this.mBase.getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? getResources().getString(i2) : (String) invokeI.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     public final String getString(@StringRes int i2, Object... objArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i2, objArr)) == null) ? this.mBase.getString(i2, objArr) : (String) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -439,10 +449,11 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
+    @Deprecated
     public final CharSequence getText(@StringRes int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? this.mBase.getText(i2) : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? getResources().getText(i2) : (CharSequence) invokeI.objValue;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment

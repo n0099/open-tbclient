@@ -13,37 +13,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.a.k;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebView f27647a;
+    public WebView f27757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27648b;
+    public a f27758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27649c;
+    public String f27759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f27650d;
+    public h f27760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f27651e;
+    public Context f27761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27652f;
+    public boolean f27762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27653g;
+    public boolean f27763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27654h;
+    public boolean f27764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public m f27655i;
+    public m f27765i;
     public n j;
     public String k;
     public final Set<String> l;
@@ -67,17 +67,17 @@ public class j {
                 return;
             }
         }
-        this.f27649c = "IESJSBridge";
+        this.f27759c = "IESJSBridge";
         this.k = "host";
         this.l = new LinkedHashSet();
         this.m = new LinkedHashSet();
-        this.f27647a = webView;
+        this.f27757a = webView;
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if ((this.f27647a == null && !this.n && this.f27648b == null) || ((TextUtils.isEmpty(this.f27649c) && this.f27647a != null) || this.f27650d == null)) {
+            if ((this.f27757a == null && !this.n && this.f27758b == null) || ((TextUtils.isEmpty(this.f27759c) && this.f27757a != null) || this.f27760d == null)) {
                 throw new IllegalArgumentException("Requested arguments aren't set properly when building JsBridge.");
             }
         }
@@ -87,7 +87,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f27648b = aVar;
+            this.f27758b = aVar;
             return this;
         }
         return (j) invokeL.objValue;
@@ -97,7 +97,7 @@ public class j {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            this.f27653g = z;
+            this.f27763g = z;
             return this;
         }
         return (j) invokeZ.objValue;
@@ -107,7 +107,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f27649c = str;
+            this.f27759c = str;
             return this;
         }
         return (j) invokeL.objValue;
@@ -127,7 +127,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar)) == null) {
-            this.f27650d = h.a(lVar);
+            this.f27760d = h.a(lVar);
             return this;
         }
         return (j) invokeL.objValue;
@@ -137,7 +137,7 @@ public class j {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f27652f = z;
+            this.f27762f = z;
             return this;
         }
         return (j) invokeZ.objValue;
@@ -166,7 +166,7 @@ public class j {
                 return;
             }
         }
-        this.f27649c = "IESJSBridge";
+        this.f27759c = "IESJSBridge";
         this.k = "host";
         this.l = new LinkedHashSet();
         this.m = new LinkedHashSet();

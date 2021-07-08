@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENDPOINT = -2;
@@ -46,7 +46,7 @@ public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     public static <K, V> CompactLinkedHashMap<K, V> createWithExpectedSize(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? new CompactLinkedHashMap<>(i2) : (CompactLinkedHashMap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new CompactLinkedHashMap<>(i2) : (CompactLinkedHashMap) invokeI.objValue;
     }
 
     private int getPredecessor(int i2) {

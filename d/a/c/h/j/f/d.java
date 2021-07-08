@@ -12,30 +12,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f44709c;
+    public static volatile d f41725c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PluginNetConfigInfos f44710a;
+    public PluginNetConfigInfos f41726a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f44711b;
+    public b f41727b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements d.a.c.h.j.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.h.j.f.a f44712a;
+        public final /* synthetic */ d.a.c.h.j.f.a f41728a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f44713b;
+        public final /* synthetic */ d f41729b;
 
         public a(d dVar, d.a.c.h.j.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class d {
                     return;
                 }
             }
-            this.f44713b = dVar;
-            this.f44712a = aVar;
+            this.f41729b = dVar;
+            this.f41728a = aVar;
         }
 
         @Override // d.a.c.h.j.f.a
@@ -61,11 +61,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), cVar, pluginNetConfigInfos, str}) == null) {
                 if (z) {
-                    this.f44713b.f44710a = pluginNetConfigInfos;
+                    this.f41729b.f41726a = pluginNetConfigInfos;
                 }
-                d.a.c.h.j.f.a aVar = this.f44712a;
+                d.a.c.h.j.f.a aVar = this.f41728a;
                 if (aVar != null) {
-                    aVar.a(z, cVar, this.f44713b.f44710a, str);
+                    aVar.a(z, cVar, this.f41729b.f41726a, str);
                 }
             }
         }
@@ -84,21 +84,21 @@ public class d {
                 return;
             }
         }
-        this.f44710a = new PluginNetConfigInfos();
+        this.f41726a = new PluginNetConfigInfos();
     }
 
     public static d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f44709c == null) {
+            if (f41725c == null) {
                 synchronized (d.class) {
-                    if (f44709c == null) {
-                        f44709c = new d();
+                    if (f41725c == null) {
+                        f41725c = new d();
                     }
                 }
             }
-            return f44709c;
+            return f41725c;
         }
         return (d) invokeV.objValue;
     }
@@ -106,14 +106,14 @@ public class d {
     public PluginNetConfigInfos d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44710a : (PluginNetConfigInfos) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41726a : (PluginNetConfigInfos) invokeV.objValue;
     }
 
     public void e(PluginSettings pluginSettings, boolean z, d.a.c.h.j.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{pluginSettings, Boolean.valueOf(z), aVar}) == null) {
             c g2 = g(pluginSettings);
-            b bVar = this.f44711b;
+            b bVar = this.f41727b;
             if (bVar != null) {
                 bVar.a(z, g2, new a(this, aVar));
             }
@@ -123,7 +123,7 @@ public class d {
     public void f(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f44711b = bVar;
+            this.f41727b = bVar;
         }
     }
 

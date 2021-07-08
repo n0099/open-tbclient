@@ -1,5 +1,6 @@
 package io.reactivex.internal.functions;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,7 +42,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Functions {
     public static /* synthetic */ Interceptable $ic;
     public static final Predicate<Object> ALWAYS_FALSE;
@@ -58,7 +59,7 @@ public final class Functions {
     public static final Consumer<Subscription> REQUEST_MAX;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ActionConsumer<T> implements Consumer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,13 +92,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array2Func<T1, T2, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final BiFunction<? super T1, ? super T2, ? extends R> f75952f;
+        public final BiFunction<? super T1, ? super T2, ? extends R> f72986f;
 
         public Array2Func(BiFunction<? super T1, ? super T2, ? extends R> biFunction) {
             Interceptable interceptable = $ic;
@@ -114,7 +115,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75952f = biFunction;
+            this.f72986f = biFunction;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,7 +125,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 2) {
-                    return this.f75952f.apply(objArr[0], objArr[1]);
+                    return this.f72986f.apply(objArr[0], objArr[1]);
                 }
                 throw new IllegalArgumentException("Array of size 2 expected but got " + objArr.length);
             }
@@ -132,13 +133,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array3Func<T1, T2, T3, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function3<T1, T2, T3, R> f75953f;
+        public final Function3<T1, T2, T3, R> f72987f;
 
         public Array3Func(Function3<T1, T2, T3, R> function3) {
             Interceptable interceptable = $ic;
@@ -155,7 +156,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75953f = function3;
+            this.f72987f = function3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -167,7 +168,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 3) {
-                    return (R) this.f75953f.apply(objArr[0], objArr[1], objArr[2]);
+                    return (R) this.f72987f.apply(objArr[0], objArr[1], objArr[2]);
                 }
                 throw new IllegalArgumentException("Array of size 3 expected but got " + objArr.length);
             }
@@ -175,13 +176,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array4Func<T1, T2, T3, T4, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function4<T1, T2, T3, T4, R> f75954f;
+        public final Function4<T1, T2, T3, T4, R> f72988f;
 
         public Array4Func(Function4<T1, T2, T3, T4, R> function4) {
             Interceptable interceptable = $ic;
@@ -198,7 +199,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75954f = function4;
+            this.f72988f = function4;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -210,7 +211,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 4) {
-                    return (R) this.f75954f.apply(objArr[0], objArr[1], objArr[2], objArr[3]);
+                    return (R) this.f72988f.apply(objArr[0], objArr[1], objArr[2], objArr[3]);
                 }
                 throw new IllegalArgumentException("Array of size 4 expected but got " + objArr.length);
             }
@@ -218,13 +219,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array5Func<T1, T2, T3, T4, T5, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function5<T1, T2, T3, T4, T5, R> f75955f;
+        public final Function5<T1, T2, T3, T4, T5, R> f72989f;
 
         public Array5Func(Function5<T1, T2, T3, T4, T5, R> function5) {
             Interceptable interceptable = $ic;
@@ -241,7 +242,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75955f = function5;
+            this.f72989f = function5;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -253,7 +254,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 5) {
-                    return (R) this.f75955f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4]);
+                    return (R) this.f72989f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4]);
                 }
                 throw new IllegalArgumentException("Array of size 5 expected but got " + objArr.length);
             }
@@ -261,13 +262,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array6Func<T1, T2, T3, T4, T5, T6, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function6<T1, T2, T3, T4, T5, T6, R> f75956f;
+        public final Function6<T1, T2, T3, T4, T5, T6, R> f72990f;
 
         public Array6Func(Function6<T1, T2, T3, T4, T5, T6, R> function6) {
             Interceptable interceptable = $ic;
@@ -284,7 +285,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75956f = function6;
+            this.f72990f = function6;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -296,7 +297,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 6) {
-                    return (R) this.f75956f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5]);
+                    return (R) this.f72990f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5]);
                 }
                 throw new IllegalArgumentException("Array of size 6 expected but got " + objArr.length);
             }
@@ -304,13 +305,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array7Func<T1, T2, T3, T4, T5, T6, T7, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function7<T1, T2, T3, T4, T5, T6, T7, R> f75957f;
+        public final Function7<T1, T2, T3, T4, T5, T6, T7, R> f72991f;
 
         public Array7Func(Function7<T1, T2, T3, T4, T5, T6, T7, R> function7) {
             Interceptable interceptable = $ic;
@@ -327,7 +328,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75957f = function7;
+            this.f72991f = function7;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -339,7 +340,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 7) {
-                    return (R) this.f75957f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6]);
+                    return (R) this.f72991f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6]);
                 }
                 throw new IllegalArgumentException("Array of size 7 expected but got " + objArr.length);
             }
@@ -347,13 +348,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array8Func<T1, T2, T3, T4, T5, T6, T7, T8, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> f75958f;
+        public final Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> f72992f;
 
         public Array8Func(Function8<T1, T2, T3, T4, T5, T6, T7, T8, R> function8) {
             Interceptable interceptable = $ic;
@@ -370,7 +371,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75958f = function8;
+            this.f72992f = function8;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -382,7 +383,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 8) {
-                    return (R) this.f75958f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7]);
+                    return (R) this.f72992f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7]);
                 }
                 throw new IllegalArgumentException("Array of size 8 expected but got " + objArr.length);
             }
@@ -390,13 +391,13 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Array9Func<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> implements Function<Object[], R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> f75959f;
+        public final Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> f72993f;
 
         public Array9Func(Function9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R> function9) {
             Interceptable interceptable = $ic;
@@ -413,7 +414,7 @@ public final class Functions {
                     return;
                 }
             }
-            this.f75959f = function9;
+            this.f72993f = function9;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -425,7 +426,7 @@ public final class Functions {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 if (objArr.length == 9) {
-                    return (R) this.f75959f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7], objArr[8]);
+                    return (R) this.f72993f.apply(objArr[0], objArr[1], objArr[2], objArr[3], objArr[4], objArr[5], objArr[6], objArr[7], objArr[8]);
                 }
                 throw new IllegalArgumentException("Array of size 9 expected but got " + objArr.length);
             }
@@ -433,7 +434,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ArrayListCapacityCallable<T> implements Callable<List<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -466,7 +467,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class BooleanSupplierPredicateReverse<T> implements Predicate<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -498,7 +499,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class CastToClass<T, U> implements Function<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -530,7 +531,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ClassFilter<T, U> implements Predicate<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +563,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EmptyAction implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -595,7 +596,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EmptyConsumer implements Consumer<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -628,7 +629,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EmptyLongConsumer implements LongConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -655,7 +656,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EmptyRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -688,7 +689,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class EqualsPredicate<T> implements Predicate<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -720,7 +721,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ErrorConsumer implements Consumer<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -749,7 +750,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class FalsePredicate implements Predicate<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -779,7 +780,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class FutureAction implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -813,7 +814,7 @@ public final class Functions {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class HashSetCallable implements Callable<Set<Object>> {
         public static final /* synthetic */ HashSetCallable[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -878,7 +879,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Identity implements Function<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -911,7 +912,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class JustValue<T, U> implements Callable<U>, Function<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -950,7 +951,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ListSorter<T> implements Function<List<T>, List<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -990,7 +991,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class MaxRequestSubscription implements Consumer<Subscription> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1020,7 +1021,7 @@ public final class Functions {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NaturalComparator implements Comparator<Object> {
         public static final /* synthetic */ NaturalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1084,7 +1085,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NaturalObjectComparator implements Comparator<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1111,7 +1112,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NotificationOnComplete<T> implements Action {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1144,7 +1145,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NotificationOnError<T> implements Consumer<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1178,7 +1179,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NotificationOnNext<T> implements Consumer<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1211,7 +1212,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class NullCallable implements Callable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1241,7 +1242,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorMissingConsumer implements Consumer<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1270,7 +1271,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TimestampFunction<T> implements Function<T, Timed<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1311,7 +1312,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToMapKeySelector<K, T> implements BiConsumer<Map<K, T>, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1350,7 +1351,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToMapKeyValueSelector<K, V, T> implements BiConsumer<Map<K, V>, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1391,7 +1392,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ToMultimapKeyValueSelector<K, V, T> implements BiConsumer<Map<K, Collection<V>>, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1440,7 +1441,7 @@ public final class Functions {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TruePredicate implements Predicate<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1528,7 +1529,7 @@ public final class Functions {
     public static <T> Predicate<T> alwaysTrue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Predicate<T>) ALWAYS_TRUE : (Predicate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Predicate<T>) ALWAYS_TRUE : (Predicate) invokeV.objValue;
     }
 
     public static <T, U> Function<T, U> castFunction(Class<U> cls) {

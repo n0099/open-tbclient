@@ -24,20 +24,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.e;
-import d.a.q0.a.f;
-import d.a.q0.a.g;
-import d.a.q0.a.h;
-import d.a.q0.a.v2.d;
+import d.a.n0.a.e;
+import d.a.n0.a.f;
+import d.a.n0.a.g;
+import d.a.n0.a.h;
+import d.a.n0.a.v2.d;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final Interpolator o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f11427i;
+    public RelativeLayout f11444i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -109,11 +109,11 @@ public class RotateLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.f11427i;
+            RelativeLayout relativeLayout = this.f11444i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
-            return (int) getResources().getDimension(d.a.q0.a.d.aiapps_picture_pull_to_refresh_height_height);
+            return (int) getResources().getDimension(d.a.n0.a.d.aiapps_picture_pull_to_refresh_height_height);
         }
         return invokeV.intValue;
     }
@@ -165,7 +165,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.f11427i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f11444i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
             this.j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.k = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_time);

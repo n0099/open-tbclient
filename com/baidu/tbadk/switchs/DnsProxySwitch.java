@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DnsProxySwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DNSPROXY_KEY = "switch_dnsproxy";

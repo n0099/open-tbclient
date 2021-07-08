@@ -17,23 +17,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.d.a.a.b.h;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f72005a;
+    public HandlerThread f69108a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f72006b;
+    public Handler f69109b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f72007a;
+        public static d f69110a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,17 +49,17 @@ public class d {
                     return;
                 }
             }
-            f72007a = new d(null);
+            f69110a = new d(null);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f72008a;
+        public final /* synthetic */ d f69111a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, Looper looper) {
@@ -79,7 +79,7 @@ public class d {
                     return;
                 }
             }
-            this.f72008a = dVar;
+            this.f69111a = dVar;
         }
 
         @Override // android.os.Handler
@@ -90,11 +90,11 @@ public class d {
             }
             int i2 = message.what;
             if (10000 == i2) {
-                this.f72008a.d((String) message.obj);
-                this.f72008a.f();
+                this.f69111a.d((String) message.obj);
+                this.f69111a.f();
             } else if (10001 == i2) {
-                this.f72008a.d("normal_log");
-                this.f72008a.f();
+                this.f69111a.d("normal_log");
+                this.f69111a.f();
             }
         }
     }
@@ -106,7 +106,7 @@ public class d {
     public static d h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f72007a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69110a : (d) invokeV.objValue;
     }
 
     public void a() {
@@ -145,13 +145,13 @@ public class d {
                 return false;
             }
             h.b f2 = h.a().f(str);
-            if (f2.f72016a == 0 || TextUtils.isEmpty(f2.f72017b) || !e(f2.f72017b, null)) {
+            if (f2.f69119a == 0 || TextUtils.isEmpty(f2.f69120b) || !e(f2.f69120b, null)) {
                 return false;
             }
             if (str.equals("normal_log")) {
-                f.a().d(c2, e.e(f2.f72017b.getBytes(), false));
+                f.a().d(c2, e.e(f2.f69120b.getBytes(), false));
             }
-            i.a().b(str, f2.f72016a);
+            i.a().b(str, f2.f69119a);
             return true;
         }
         return invokeL.booleanValue;
@@ -194,12 +194,12 @@ public class d {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (c2 = d.d.a.a.a.c()) == null) {
             return;
         }
-        this.f72006b.removeMessages(10001);
+        this.f69109b.removeMessages(10001);
         int i2 = d.d.a.a.a.e().f().get3GSendingInterval();
         if (e.k(c2)) {
             i2 = d.d.a.a.a.e().f().getWifiSendingInterval();
         }
-        this.f72006b.sendEmptyMessageDelayed(10001, i2 * 60000);
+        this.f69109b.sendEmptyMessageDelayed(10001, i2 * 60000);
     }
 
     public final boolean g(Context context, String str) {
@@ -218,7 +218,7 @@ public class d {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f72006b.obtainMessage(10000, str).sendToTarget();
+            this.f69109b.obtainMessage(10000, str).sendToTarget();
         }
     }
 
@@ -236,8 +236,8 @@ public class d {
             }
         }
         HandlerThread handlerThread = new HandlerThread("SensorLogSenderThread");
-        this.f72005a = handlerThread;
+        this.f69108a = handlerThread;
         handlerThread.start();
-        this.f72006b = new b(this, this.f72005a.getLooper());
+        this.f69109b = new b(this, this.f69108a.getLooper());
     }
 }

@@ -37,7 +37,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AppendTrack extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -218,7 +218,7 @@ public class AppendTrack extends AbstractTrack {
     private SampleEntry mergeSampleEntry(SampleEntry sampleEntry, SampleEntry sampleEntry2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, sampleEntry, sampleEntry2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sampleEntry, sampleEntry2)) == null) {
             if (sampleEntry.getType().equals(sampleEntry2.getType())) {
                 if ((sampleEntry instanceof VisualSampleEntry) && (sampleEntry2 instanceof VisualSampleEntry)) {
                     return mergeVisualSampleEntry((VisualSampleEntry) sampleEntry, (VisualSampleEntry) sampleEntry2);

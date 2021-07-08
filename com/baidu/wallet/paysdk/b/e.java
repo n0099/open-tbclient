@@ -12,7 +12,7 @@ import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,17 +39,17 @@ public class e extends b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr) == null) {
             if (strArr.length > 1) {
                 if (PayDataCache.getInstance().hasMobilePwd()) {
-                    this.f25796a.a("", strArr[0]);
+                    this.f25906a.a("", strArr[0]);
                 } else {
-                    CardData.BondCard bondCard = this.f25800e.mBondCard;
+                    CardData.BondCard bondCard = this.f25910e.mBondCard;
                     if (bondCard != null) {
-                        this.f25796a.a(strArr[0], bondCard.account_no);
+                        this.f25906a.a(strArr[0], bondCard.account_no);
                     } else {
-                        this.f25796a.a(strArr[0], "");
+                        this.f25906a.a(strArr[0], "");
                     }
                 }
             }
-            this.f25796a.a("repair_card_info");
+            this.f25906a.a("repair_card_info");
             super.a(strArr);
         }
     }
@@ -61,7 +61,7 @@ public class e extends b {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr) == null) {
-            CardData.BondCard bondCard = this.f25800e.getmBondCard();
+            CardData.BondCard bondCard = this.f25910e.getmBondCard();
             if (bondCard != null) {
                 str2 = bondCard.true_name;
                 str3 = bondCard.certificate_code;
@@ -73,25 +73,25 @@ public class e extends b {
             }
             if (strArr.length >= 5) {
                 if (k()) {
-                    this.f25800e.setmCvv(strArr[0]);
+                    this.f25910e.setmCvv(strArr[0]);
                 }
                 if (l()) {
-                    this.f25800e.setmValidDate(strArr[1].replaceAll("/", ""));
+                    this.f25910e.setmValidDate(strArr[1].replaceAll("/", ""));
                 }
                 if (j()) {
-                    this.f25800e.setmName(strArr[2]);
+                    this.f25910e.setmName(strArr[2]);
                 } else {
-                    this.f25800e.setmName(str2);
+                    this.f25910e.setmName(str2);
                 }
                 if (m()) {
-                    this.f25800e.setmIdCard(strArr[3]);
+                    this.f25910e.setmIdCard(strArr[3]);
                 } else {
-                    this.f25800e.setmIdCard(str3);
+                    this.f25910e.setmIdCard(str3);
                 }
                 if (n()) {
-                    this.f25800e.setmPhone(strArr[4].replaceAll(" ", ""));
+                    this.f25910e.setmPhone(strArr[4].replaceAll(" ", ""));
                 } else {
-                    this.f25800e.setmPhone(str);
+                    this.f25910e.setmPhone(str);
                 }
             }
             super.b(strArr);
@@ -113,19 +113,19 @@ public class e extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            CardData.BondCard bondCard = this.f25800e.mBondCard;
+            CardData.BondCard bondCard = this.f25910e.mBondCard;
             if (bondCard == null) {
-                this.f25799d.finish();
+                this.f25909d.finish();
                 return super.p();
             }
             String last4Num = bondCard.getLast4Num();
             if (PayDataCache.getInstance().hasMobilePwd()) {
-                if (this.f25800e.mBondCard.card_type == 2) {
-                    return this.f25800e.mBondCard.bank_name + " " + ResUtils.getString(this.f25799d, "wallet_base_mode_debit") + " " + ResUtils.getString(this.f25799d, "ebpay_last_nums") + last4Num;
+                if (this.f25910e.mBondCard.card_type == 2) {
+                    return this.f25910e.mBondCard.bank_name + " " + ResUtils.getString(this.f25909d, "wallet_base_mode_debit") + " " + ResUtils.getString(this.f25909d, "ebpay_last_nums") + last4Num;
                 }
-                return this.f25800e.mBondCard.bank_name + " " + ResUtils.getString(this.f25799d, "wallet_base_mode_credit") + " " + ResUtils.getString(this.f25799d, "ebpay_last_nums") + last4Num;
+                return this.f25910e.mBondCard.bank_name + " " + ResUtils.getString(this.f25909d, "wallet_base_mode_credit") + " " + ResUtils.getString(this.f25909d, "ebpay_last_nums") + last4Num;
             }
-            return String.format(ResUtils.getString(this.f25799d, "ebpay_hint_last4num"), last4Num);
+            return String.format(ResUtils.getString(this.f25909d, "ebpay_hint_last4num"), last4Num);
         }
         return (String) invokeV.objValue;
     }
@@ -142,27 +142,27 @@ public class e extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            BindFastRequest bindFastRequest = this.f25800e;
+            BindFastRequest bindFastRequest = this.f25910e;
             if (bindFastRequest != null) {
-                if (bindFastRequest.getmBankInfo() != null && this.f25800e.getmBankInfo().channel_info != null && this.f25800e.getmBankInfo().channel_info.card_item_required != null) {
-                    this.f25801f = "1".equals(this.f25800e.getmBankInfo().channel_info.card_item_required.valid_code);
-                    this.f25802g = "1".equals(this.f25800e.getmBankInfo().channel_info.card_item_required.true_name);
-                    this.f25803h = "1".equals(this.f25800e.getmBankInfo().channel_info.card_item_required.valid_date);
-                    this.f25804i = "1".equals(this.f25800e.getmBankInfo().channel_info.card_item_required.certificate_code);
-                    this.j = "1".equals(this.f25800e.getmBankInfo().channel_info.card_item_required.mobile) && (u() == null || !"1".equals(u().b()));
+                if (bindFastRequest.getmBankInfo() != null && this.f25910e.getmBankInfo().channel_info != null && this.f25910e.getmBankInfo().channel_info.card_item_required != null) {
+                    this.f25911f = "1".equals(this.f25910e.getmBankInfo().channel_info.card_item_required.valid_code);
+                    this.f25912g = "1".equals(this.f25910e.getmBankInfo().channel_info.card_item_required.true_name);
+                    this.f25913h = "1".equals(this.f25910e.getmBankInfo().channel_info.card_item_required.valid_date);
+                    this.f25914i = "1".equals(this.f25910e.getmBankInfo().channel_info.card_item_required.certificate_code);
+                    this.j = "1".equals(this.f25910e.getmBankInfo().channel_info.card_item_required.mobile) && (u() == null || !"1".equals(u().b()));
                 }
-                if (this.f25799d != null) {
-                    if (this.f25800e.getmBankInfo() != null) {
-                        this.f25799d.updateBankTitleInfo(this.f25800e.getmBankInfo().card_info, true);
+                if (this.f25909d != null) {
+                    if (this.f25910e.getmBankInfo() != null) {
+                        this.f25909d.updateBankTitleInfo(this.f25910e.getmBankInfo().card_info, true);
                     } else {
-                        this.f25799d.updateBankTitleInfo(null, true);
+                        this.f25909d.updateBankTitleInfo(null, true);
                     }
-                    if (this.f25800e.getmBankInfo() != null) {
-                        this.f25799d.updateProtocolFields(this.f25800e.getmBankInfo().protocol_info);
+                    if (this.f25910e.getmBankInfo() != null) {
+                        this.f25909d.updateProtocolFields(this.f25910e.getmBankInfo().protocol_info);
                     } else {
-                        this.f25799d.updateProtocolFields(null);
+                        this.f25909d.updateProtocolFields(null);
                     }
-                    this.f25799d.updateCardElement(this.f25801f, this.f25803h, this.f25802g, this.f25804i, this.j);
+                    this.f25909d.updateCardElement(this.f25911f, this.f25913h, this.f25912g, this.f25914i, this.j);
                 }
             }
         }

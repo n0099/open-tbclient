@@ -2,6 +2,7 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.statistics.StatService;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class RimStatisticsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "logsender";
@@ -27,12 +28,12 @@ public final class RimStatisticsUtil {
     public boolean hasInit;
     public r mHttpImpl;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f5259a;
+        public static RimStatisticsUtil f5276a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +49,7 @@ public final class RimStatisticsUtil {
                     return;
                 }
             }
-            f5259a = new RimStatisticsUtil(null);
+            f5276a = new RimStatisticsUtil(null);
         }
 
         public a() {
@@ -100,19 +101,19 @@ public final class RimStatisticsUtil {
     public static Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sAppContext : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sAppContext : (Context) invokeV.objValue;
     }
 
     public static RimStatisticsUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f5259a : (RimStatisticsUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f5276a : (RimStatisticsUtil) invokeV.objValue;
     }
 
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f5103h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f5120h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {

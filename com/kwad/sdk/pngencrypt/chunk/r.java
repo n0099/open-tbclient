@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class r extends ae {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class r extends ae {
             int i2 = 0;
             int i3 = 0;
             while (true) {
-                byte[] bArr = dVar.f38720d;
+                byte[] bArr = dVar.f35792d;
                 if (i2 >= bArr.length) {
                     break;
                 }
@@ -64,20 +64,20 @@ public class r extends ae {
             if (i3 != 3) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk"));
             }
-            ((ae) this).f38707h = b.a(dVar.f38720d, 0, iArr[0]);
+            ((ae) this).f35779h = b.a(dVar.f35792d, 0, iArr[0]);
             int i4 = iArr[0] + 1;
-            boolean z = dVar.f38720d[i4] != 0;
+            boolean z = dVar.f35792d[i4] != 0;
             this.j = z;
             int i5 = i4 + 1;
-            if (z && dVar.f38720d[i5] != 0) {
+            if (z && dVar.f35792d[i5] != 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
             }
-            this.k = b.a(dVar.f38720d, i5, iArr[1] - i5);
-            this.l = b.b(dVar.f38720d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+            this.k = b.a(dVar.f35792d, i5, iArr[1] - i5);
+            this.l = b.b(dVar.f35792d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
             int i6 = iArr[2] + 1;
             boolean z2 = this.j;
-            byte[] bArr2 = dVar.f38720d;
-            this.f38708i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
+            byte[] bArr2 = dVar.f35792d;
+            this.f35780i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
         }
     }
 }

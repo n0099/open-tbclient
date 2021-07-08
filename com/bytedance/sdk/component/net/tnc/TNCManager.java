@@ -26,7 +26,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TNCManager implements TNCBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_UPDATE_REMOTE = 10000;
@@ -153,7 +153,7 @@ public class TNCManager implements TNCBridge {
     private String getConnectionIpStr(z zVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, zVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, zVar)) == null) {
             if (zVar == null || zVar.a() == null) {
                 return "";
             }

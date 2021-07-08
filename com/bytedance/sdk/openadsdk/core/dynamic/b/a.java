@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.r.o;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29832a;
+    public String f29942a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29833b;
+    public String f29943b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29834c;
+    public String f29944c;
 
     public a(@NonNull m mVar) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class a {
         if (mVar == null) {
             return;
         }
-        this.f29832a = mVar.ak();
-        this.f29833b = mVar.ao();
-        this.f29834c = o.i(mVar);
+        this.f29942a = mVar.ak();
+        this.f29943b = mVar.ao();
+        this.f29944c = o.i(mVar);
     }
 
     public JSONObject a() {
@@ -54,14 +54,14 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(this.f29832a)) {
-                    jSONObject.put(IAdRequestParam.CELL_ID, this.f29832a);
+                if (!TextUtils.isEmpty(this.f29942a)) {
+                    jSONObject.put(IAdRequestParam.CELL_ID, this.f29942a);
                 }
-                if (!TextUtils.isEmpty(this.f29833b)) {
-                    jSONObject.put("log_extra", this.f29833b);
+                if (!TextUtils.isEmpty(this.f29943b)) {
+                    jSONObject.put("log_extra", this.f29943b);
                 }
-                if (!TextUtils.isEmpty(this.f29834c)) {
-                    jSONObject.put("download_url", this.f29834c);
+                if (!TextUtils.isEmpty(this.f29944c)) {
+                    jSONObject.put("download_url", this.f29944c);
                 }
             } catch (Exception unused) {
             }

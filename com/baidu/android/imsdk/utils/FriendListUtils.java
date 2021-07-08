@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -77,7 +78,7 @@ public class FriendListUtils {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             mUk = Utility.getUK(context);
             mAppid = AccountManager.getAppid(context);
             mLastTime = getLastTimeStamp(context);

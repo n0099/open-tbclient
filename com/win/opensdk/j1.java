@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class j1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class j1 {
             if (TextUtils.isEmpty(i2)) {
                 try {
                     h1 a2 = i1.a(context);
-                    String str = a2 == null ? null : a2.f42578a;
+                    String str = a2 == null ? null : a2.f39592a;
                     if (TextUtils.isEmpty(str)) {
                         s1.f(context, str);
                     }

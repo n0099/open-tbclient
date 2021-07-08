@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.e.b.d.c;
 import d.l.a.e.b.g.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class a extends Fragment {
             String packageName = e2.getPackageName();
             if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
                 String lowerCase = Build.MANUFACTURER.toLowerCase();
-                if (lowerCase.contains(c.f74686c)) {
+                if (lowerCase.contains(c.f71738c)) {
                     Intent intent = new Intent();
                     intent.putExtra("packageName", packageName);
                     intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));

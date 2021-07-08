@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.webviewbase.AdvancedWebView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class S1 implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AdvancedWebView f42467a;
+    public final /* synthetic */ AdvancedWebView f39481a;
 
     public S1(AdvancedWebView advancedWebView) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class S1 implements DownloadListener {
                 return;
             }
         }
-        this.f42467a = advancedWebView;
+        this.f39481a = advancedWebView;
     }
 
     @Override // android.webkit.DownloadListener
@@ -38,7 +38,7 @@ public class S1 implements DownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
             String guessFileName = URLUtil.guessFileName(str, str3, str4);
-            T1 t1 = this.f42467a.f42688c;
+            T1 t1 = this.f39481a.f39702c;
             if (t1 != null) {
                 t1.a(str, guessFileName, str4, j, str3, str2);
             }

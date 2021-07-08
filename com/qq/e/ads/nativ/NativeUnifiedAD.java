@@ -26,39 +26,39 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeUnifiedAD extends AbstractAD<NUADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdListenerAdapter f40813a;
+    public AdListenerAdapter f37827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f40814b;
+    public List<Integer> f37828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f40815c;
+    public List<String> f37829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40816d;
+    public String f37830d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f40817e;
+    public volatile int f37831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f40818f;
+    public volatile int f37832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40819g;
+    public String f37833g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NativeADUnifiedListener f40823a;
+        public NativeADUnifiedListener f37837a;
 
         public AdListenerAdapter(NativeADUnifiedListener nativeADUnifiedListener) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                     return;
                 }
             }
-            this.f40823a = nativeADUnifiedListener;
+            this.f37837a = nativeADUnifiedListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
-                if (this.f40823a == null) {
+                if (this.f37837a == null) {
                     GDTLogger.i("not bind NativeADUnifiedListener");
                     return;
                 }
@@ -90,7 +90,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 int type = aDEvent.getType();
                 if (type != 1) {
                     if (type == 2 && paras.length > 0 && (paras[0] instanceof Integer)) {
-                        this.f40823a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
+                        this.f37837a.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) aDEvent.getParas()[0]).intValue()));
                     }
                 } else if (paras.length == 1 && (paras[0] instanceof List)) {
                     List<NativeUnifiedADData> list = (List) paras[0];
@@ -100,7 +100,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                             arrayList.add(new NativeUnifiedADDataAdapter(nativeUnifiedADData));
                         }
                     }
-                    this.f40823a.onADLoaded(arrayList);
+                    this.f37837a.onADLoaded(arrayList);
                 }
             }
         }
@@ -121,7 +121,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 return;
             }
         }
-        this.f40814b = new ArrayList();
+        this.f37828b = new ArrayList();
         if (GDTADManager.getInstance().isInitialized()) {
             a(context, GDTADManager.getInstance().getAppStatus().getAPPID(), str, nativeADUnifiedListener);
             return;
@@ -146,7 +146,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 return;
             }
         }
-        this.f40814b = new ArrayList();
+        this.f37828b = new ArrayList();
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(context, str, str2, nativeADUnifiedListener);
     }
@@ -158,7 +158,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 GDTLogger.e("Parameters or context error, details in init NativeUnifiedAD log");
             } else if (!b()) {
                 if (z) {
-                    this.f40814b.add(Integer.valueOf(i2));
+                    this.f37828b.add(Integer.valueOf(i2));
                 }
             } else {
                 NUADI a2 = a();
@@ -177,8 +177,8 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 a(nativeADUnifiedListener, 2001);
                 return;
             }
-            this.f40813a = new AdListenerAdapter(nativeADUnifiedListener);
-            this.f40816d = str2;
+            this.f37827a = new AdListenerAdapter(nativeADUnifiedListener);
+            this.f37830d = str2;
             a(context, str, str2, (AbstractAD.BasicADListener) nativeADUnifiedListener);
         }
     }
@@ -186,7 +186,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     /* JADX DEBUG: Return type fixed from 'com.qq.e.comm.pi.ADI' to match base method */
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ NUADI a(Context context, POFactory pOFactory, String str, String str2) {
-        return pOFactory.getNativeAdManagerDelegate(context, str, str2, this.f40813a);
+        return pOFactory.getNativeAdManagerDelegate(context, str, str2, this.f37827a);
     }
 
     @Override // com.qq.e.ads.AbstractAD
@@ -198,13 +198,13 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public /* synthetic */ AbstractAD.BasicADListener f40820a;
+                public /* synthetic */ AbstractAD.BasicADListener f37834a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public /* synthetic */ int f40821b;
+                public /* synthetic */ int f37835b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public /* synthetic */ NativeUnifiedAD f40822c;
+                public /* synthetic */ NativeUnifiedAD f37836c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -221,16 +221,16 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                             return;
                         }
                     }
-                    this.f40822c = this;
-                    this.f40820a = basicADListener;
-                    this.f40821b = i2;
+                    this.f37836c = this;
+                    this.f37834a = basicADListener;
+                    this.f37835b = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        NativeUnifiedAD.super.a(this.f40820a, this.f40821b);
+                        NativeUnifiedAD.super.a(this.f37834a, this.f37835b);
                     }
                 }
             });
@@ -241,14 +241,14 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     @Override // com.qq.e.ads.AbstractAD
     public final /* synthetic */ void a(NUADI nuadi) {
         NUADI nuadi2 = nuadi;
-        nuadi2.setMinVideoDuration(this.f40817e);
-        nuadi2.setMaxVideoDuration(this.f40818f);
-        nuadi2.setVastClassName(this.f40819g);
-        List<String> list = this.f40815c;
+        nuadi2.setMinVideoDuration(this.f37831e);
+        nuadi2.setMaxVideoDuration(this.f37832f);
+        nuadi2.setVastClassName(this.f37833g);
+        List<String> list = this.f37829c;
         if (list != null) {
             setCategories(list);
         }
-        for (Integer num : this.f40814b) {
+        for (Integer num : this.f37828b) {
             a(num.intValue(), false);
         }
     }
@@ -284,7 +284,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     public void setCategories(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f40815c = list;
+            this.f37829c = list;
             NUADI a2 = a();
             if (a2 == null || list == null) {
                 return;
@@ -296,13 +296,13 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     public void setMaxVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f40818f = i2;
-            if (this.f40818f > 0 && this.f40817e > this.f40818f) {
+            this.f37832f = i2;
+            if (this.f37832f > 0 && this.f37831e > this.f37832f) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
             NUADI a2 = a();
             if (a2 != null) {
-                a2.setMaxVideoDuration(this.f40818f);
+                a2.setMaxVideoDuration(this.f37832f);
             }
         }
     }
@@ -310,13 +310,13 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
     public void setMinVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f40817e = i2;
-            if (this.f40818f > 0 && this.f40817e > this.f40818f) {
+            this.f37831e = i2;
+            if (this.f37832f > 0 && this.f37831e > this.f37832f) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
             NUADI a2 = a();
             if (a2 != null) {
-                a2.setMinVideoDuration(this.f40817e);
+                a2.setMinVideoDuration(this.f37831e);
             }
         }
     }
@@ -327,7 +327,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
             return;
         }
         try {
-            GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), this.f40816d);
+            GDTADManager.getInstance().getSM().setDEVCodeSetting(Constants.KEYS.AD_TAGS, new JSONObject(map), this.f37830d);
         } catch (Exception e2) {
             GDTLogger.e("NativeUnifiedAD#setTag Exception");
             e2.printStackTrace();
@@ -341,7 +341,7 @@ public class NativeUnifiedAD extends AbstractAD<NUADI> {
                 GDTLogger.e("Vast class name can't be null");
                 return;
             }
-            this.f40819g = str;
+            this.f37833g = str;
             NUADI a2 = a();
             if (a2 != null) {
                 a2.setVastClassName(str);

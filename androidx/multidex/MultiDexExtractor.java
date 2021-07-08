@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.e;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -226,7 +227,7 @@ public final class MultiDexExtractor implements Closeable {
     public static SharedPreferences getMultiDexPreferences(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
         }
         return (SharedPreferences) invokeL.objValue;
@@ -333,7 +334,7 @@ public final class MultiDexExtractor implements Closeable {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append("Extraction ");
-                        sb.append(z ? "succeeded" : e.f1966a);
+                        sb.append(z ? "succeeded" : e.f1967a);
                         sb.append(" '");
                         sb.append(extractedDex.getAbsolutePath());
                         sb.append("': length ");

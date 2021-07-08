@@ -1,5 +1,6 @@
 package com.google.gson.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PreJava9DateFormatProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public class PreJava9DateFormatProvider {
     public static DateFormat getUSDateFormat(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? new SimpleDateFormat(getDateFormatPattern(i2), Locale.US) : (DateFormat) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new SimpleDateFormat(getDateFormatPattern(i2), Locale.US) : (DateFormat) invokeI.objValue;
     }
 
     public static DateFormat getUSDateTimeFormat(int i2, int i3) {

@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,12 +14,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class CellSet extends IndexedImmutableSet<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Values extends ImmutableList<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,16 +141,16 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Comparator<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f33300e;
+        public final /* synthetic */ Comparator f33410e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Comparator f33301f;
+        public final /* synthetic */ Comparator f33411f;
 
         public a(Comparator comparator, Comparator comparator2) {
             Interceptable interceptable = $ic;
@@ -166,8 +167,8 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
                     return;
                 }
             }
-            this.f33300e = comparator;
-            this.f33301f = comparator2;
+            this.f33410e = comparator;
+            this.f33411f = comparator2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -177,12 +178,12 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, aVar2)) == null) {
-                Comparator comparator = this.f33300e;
+                Comparator comparator = this.f33410e;
                 int compare = comparator == null ? 0 : comparator.compare(aVar.getRowKey(), aVar2.getRowKey());
                 if (compare != 0) {
                     return compare;
                 }
-                Comparator comparator2 = this.f33301f;
+                Comparator comparator2 = this.f33411f;
                 if (comparator2 == null) {
                     return 0;
                 }
@@ -250,7 +251,7 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
     public static <R, C, V> RegularImmutableTable<R, C, V> forOrderedComponents(ImmutableList<k1.a<R, C, V>> immutableList, ImmutableSet<R> immutableSet, ImmutableSet<C> immutableSet2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, immutableList, immutableSet, immutableSet2)) == null) ? ((long) immutableList.size()) > (((long) immutableSet.size()) * ((long) immutableSet2.size())) / 2 ? new DenseImmutableTable(immutableList, immutableSet, immutableSet2) : new SparseImmutableTable(immutableList, immutableSet, immutableSet2) : (RegularImmutableTable) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, immutableList, immutableSet, immutableSet2)) == null) ? ((long) immutableList.size()) > (((long) immutableSet.size()) * ((long) immutableSet2.size())) / 2 ? new DenseImmutableTable(immutableList, immutableSet, immutableSet2) : new SparseImmutableTable(immutableList, immutableSet, immutableSet2) : (RegularImmutableTable) invokeLLL.objValue;
     }
 
     public final void checkNoDuplicate(R r, C c2, V v, V v2) {

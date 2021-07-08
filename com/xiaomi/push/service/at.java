@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class at {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43585a = 0;
+    public static long f40599a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static String f900a = "";
@@ -41,8 +41,8 @@ public class at {
             }
             StringBuilder sb = new StringBuilder();
             sb.append(f900a);
-            long j = f43585a;
-            f43585a = 1 + j;
+            long j = f40599a;
+            f40599a = 1 + j;
             sb.append(j);
             return sb.toString();
         }

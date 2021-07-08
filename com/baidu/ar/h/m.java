@@ -3,6 +3,7 @@ package com.baidu.ar.h;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,7 +89,7 @@ public final class m {
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (!t(context) || context == null) {
                 return "not_Reachable";
             }
@@ -96,7 +97,7 @@ public final class m {
                 return "wifi";
             }
             int w = w(context);
-            return w == 2 ? "2G" : w == 3 ? com.baidu.apollon.statistics.g.f3983b : w == 4 ? "4G" : "other_network";
+            return w == 2 ? "2G" : w == 3 ? com.baidu.apollon.statistics.g.f3986b : w == 4 ? "4G" : "other_network";
         }
         return (String) invokeL.objValue;
     }

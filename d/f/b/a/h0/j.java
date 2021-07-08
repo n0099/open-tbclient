@@ -17,37 +17,37 @@ import com.google.android.exoplayer2.upstream.FileDataSource;
 import d.f.b.a.i0.v;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class j implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f73308a;
+    public final Context f70411a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super e> f73309b;
+    public final p<? super e> f70412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f73310c;
+    public final e f70413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f73311d;
+    public e f70414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f73312e;
+    public e f70415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f73313f;
+    public e f70416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f73314g;
+    public e f70417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f73315h;
+    public e f70418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f73316i;
+    public e f70419i;
 
     public j(Context context, p<? super e> pVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -64,10 +64,10 @@ public final class j implements e {
                 return;
             }
         }
-        this.f73308a = context.getApplicationContext();
-        this.f73309b = pVar;
+        this.f70411a = context.getApplicationContext();
+        this.f70412b = pVar;
         d.f.b.a.i0.a.e(eVar);
-        this.f73310c = eVar;
+        this.f70413c = eVar;
     }
 
     @Override // d.f.b.a.h0.e
@@ -75,26 +75,26 @@ public final class j implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            d.f.b.a.i0.a.f(this.f73316i == null);
-            String scheme = gVar.f73280a.getScheme();
-            if (v.A(gVar.f73280a)) {
-                if (gVar.f73280a.getPath().startsWith("/android_asset/")) {
-                    this.f73316i = b();
+            d.f.b.a.i0.a.f(this.f70419i == null);
+            String scheme = gVar.f70383a.getScheme();
+            if (v.A(gVar.f70383a)) {
+                if (gVar.f70383a.getPath().startsWith("/android_asset/")) {
+                    this.f70419i = b();
                 } else {
-                    this.f73316i = e();
+                    this.f70419i = e();
                 }
             } else if (UriUtil.LOCAL_ASSET_SCHEME.equals(scheme)) {
-                this.f73316i = b();
+                this.f70419i = b();
             } else if ("content".equals(scheme)) {
-                this.f73316i = c();
+                this.f70419i = c();
             } else if ("rtmp".equals(scheme)) {
-                this.f73316i = f();
+                this.f70419i = f();
             } else if ("data".equals(scheme)) {
-                this.f73316i = d();
+                this.f70419i = d();
             } else {
-                this.f73316i = this.f73310c;
+                this.f70419i = this.f70413c;
             }
-            return this.f73316i.a(gVar);
+            return this.f70419i.a(gVar);
         }
         return invokeL.longValue;
     }
@@ -103,10 +103,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f73312e == null) {
-                this.f73312e = new AssetDataSource(this.f73308a, this.f73309b);
+            if (this.f70415e == null) {
+                this.f70415e = new AssetDataSource(this.f70411a, this.f70412b);
             }
-            return this.f73312e;
+            return this.f70415e;
         }
         return (e) invokeV.objValue;
     }
@@ -115,10 +115,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f73313f == null) {
-                this.f73313f = new ContentDataSource(this.f73308a, this.f73309b);
+            if (this.f70416f == null) {
+                this.f70416f = new ContentDataSource(this.f70411a, this.f70412b);
             }
-            return this.f73313f;
+            return this.f70416f;
         }
         return (e) invokeV.objValue;
     }
@@ -127,13 +127,13 @@ public final class j implements e {
     public void close() throws IOException {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (eVar = this.f73316i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (eVar = this.f70419i) == null) {
             return;
         }
         try {
             eVar.close();
         } finally {
-            this.f73316i = null;
+            this.f70419i = null;
         }
     }
 
@@ -141,10 +141,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f73315h == null) {
-                this.f73315h = new d();
+            if (this.f70418h == null) {
+                this.f70418h = new d();
             }
-            return this.f73315h;
+            return this.f70418h;
         }
         return (e) invokeV.objValue;
     }
@@ -153,10 +153,10 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f73311d == null) {
-                this.f73311d = new FileDataSource(this.f73309b);
+            if (this.f70414d == null) {
+                this.f70414d = new FileDataSource(this.f70412b);
             }
-            return this.f73311d;
+            return this.f70414d;
         }
         return (e) invokeV.objValue;
     }
@@ -165,9 +165,9 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f73314g == null) {
+            if (this.f70417g == null) {
                 try {
-                    this.f73314g = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+                    this.f70417g = (e) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
                 } catch (ClassNotFoundException unused) {
                     Log.w("DefaultDataSource", "Attempting to play RTMP stream without depending on the RTMP extension");
                 } catch (IllegalAccessException e2) {
@@ -179,11 +179,11 @@ public final class j implements e {
                 } catch (InvocationTargetException e5) {
                     Log.e("DefaultDataSource", "Error instantiating RtmpDataSource", e5);
                 }
-                if (this.f73314g == null) {
-                    this.f73314g = this.f73310c;
+                if (this.f70417g == null) {
+                    this.f70417g = this.f70413c;
                 }
             }
-            return this.f73314g;
+            return this.f70417g;
         }
         return (e) invokeV.objValue;
     }
@@ -193,7 +193,7 @@ public final class j implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            e eVar = this.f73316i;
+            e eVar = this.f70419i;
             if (eVar == null) {
                 return null;
             }
@@ -206,6 +206,6 @@ public final class j implements e {
     public int read(byte[] bArr, int i2, int i3) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) ? this.f73316i.read(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) ? this.f70419i.read(bArr, i2, i3) : invokeLII.intValue;
     }
 }

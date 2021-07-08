@@ -23,33 +23,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.heytap.openid.a f33470a = null;
+    public com.heytap.openid.a f33580a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33471b = null;
+    public String f33581b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33472c = null;
+    public String f33582c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f33473d = new Object();
+    public final Object f33583d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f33474e = new a(this);
+    public ServiceConnection f33584e = new a(this);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f33475a;
+        public final /* synthetic */ c f33585a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -66,16 +66,16 @@ public class c {
                     return;
                 }
             }
-            this.f33475a = cVar;
+            this.f33585a = cVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f33475a.f33470a = a.AbstractBinderC0394a.a(iBinder);
-                synchronized (this.f33475a.f33473d) {
-                    this.f33475a.f33473d.notify();
+                this.f33585a.f33580a = a.AbstractBinderC0394a.a(iBinder);
+                synchronized (this.f33585a.f33583d) {
+                    this.f33585a.f33583d.notify();
                 }
             }
         }
@@ -84,17 +84,17 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f33475a.f33470a = null;
+                this.f33585a.f33580a = null;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f33476a;
+        public static final c f33586a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,7 +110,7 @@ public class c {
                     return;
                 }
             }
-            f33476a = new c(null);
+            f33586a = new c(null);
         }
     }
 
@@ -123,7 +123,7 @@ public class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             synchronized (this) {
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    if (this.f33470a != null) {
+                    if (this.f33580a != null) {
                         try {
                             return b(context, str);
                         } catch (RemoteException e2) {
@@ -134,16 +134,16 @@ public class c {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                     intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                    if (context.bindService(intent, this.f33474e, 1)) {
-                        synchronized (this.f33473d) {
+                    if (context.bindService(intent, this.f33584e, 1)) {
+                        synchronized (this.f33583d) {
                             try {
-                                this.f33473d.wait(3000L);
+                                this.f33583d.wait(3000L);
                             } catch (InterruptedException e3) {
                                 e3.printStackTrace();
                             }
                         }
                     }
-                    if (this.f33470a == null) {
+                    if (this.f33580a == null) {
                         return "";
                     }
                     try {
@@ -179,13 +179,13 @@ public class c {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f33471b)) {
-                this.f33471b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f33581b)) {
+                this.f33581b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f33472c)) {
+            if (TextUtils.isEmpty(this.f33582c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f33471b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f33581b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -206,9 +206,9 @@ public class c {
                         e3.printStackTrace();
                     }
                 }
-                this.f33472c = str2;
+                this.f33582c = str2;
             }
-            String a2 = ((a.AbstractBinderC0394a.C0395a) this.f33470a).a(this.f33471b, this.f33472c, str);
+            String a2 = ((a.AbstractBinderC0394a.C0395a) this.f33580a).a(this.f33581b, this.f33582c, str);
             return TextUtils.isEmpty(a2) ? "" : a2;
         }
         return (String) invokeLL.objValue;

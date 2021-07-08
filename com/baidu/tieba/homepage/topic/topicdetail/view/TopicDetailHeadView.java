@@ -22,27 +22,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.e1.k.a.c.b;
-import d.a.s0.e1.k.a.c.f;
-/* loaded from: classes5.dex */
+import d.a.p0.e1.k.a.c.b;
+import d.a.p0.e1.k.a.c.f;
+/* loaded from: classes4.dex */
 public class TopicDetailHeadView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16878e;
+    public int f16917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f16879f;
+    public TbImageView f16918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f16880g;
+    public TextView f16919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f16881h;
+    public LinearLayout f16920h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f16882i;
+    public TbImageView f16921i;
     public View j;
     public TopicPkView k;
     public TopicTimelineView l;
@@ -65,7 +65,7 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
         }
-        this.f16878e = 3;
+        this.f16917e = 3;
         a(context);
     }
 
@@ -74,20 +74,20 @@ public class TopicDetailHeadView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.topic_detail_head_view_layout, (ViewGroup) this, true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.topic_detail_head_bg);
-            this.f16879f = tbImageView;
+            this.f16918f = tbImageView;
             tbImageView.setDrawingCacheEnabled(true);
-            this.f16880g = (TextView) findViewById(R.id.topic_detail_head_des);
-            this.f16881h = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
-            this.f16882i = (TbImageView) findViewById(R.id.topic_detail_head_img);
+            this.f16919g = (TextView) findViewById(R.id.topic_detail_head_des);
+            this.f16920h = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
+            this.f16921i = (TbImageView) findViewById(R.id.topic_detail_head_img);
             this.j = findViewById(R.id.topic_detail_head_img_placeholder);
             this.k = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
             this.l = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
-            ViewGroup.LayoutParams layoutParams = this.f16882i.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f16921i.getLayoutParams();
             layoutParams.height = ((l.k(getContext()) - l.g(getContext(), R.dimen.tbds88)) * 9) / 16;
-            this.f16882i.setLayoutParams(layoutParams);
-            this.f16882i.setRadius(l.g(context, R.dimen.tbds10));
-            this.f16882i.setConrers(15);
-            this.f16882i.setPlaceHolder(3);
+            this.f16921i.setLayoutParams(layoutParams);
+            this.f16921i.setRadius(l.g(context, R.dimen.tbds10));
+            this.f16921i.setConrers(15);
+            this.f16921i.setPlaceHolder(3);
             b();
         }
     }
@@ -95,13 +95,13 @@ public class TopicDetailHeadView extends RelativeLayout {
     public void b() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f16878e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f16917e) {
             return;
         }
-        this.f16878e = skinType;
-        this.f16879f.setIsNight(skinType == 1);
-        SkinManager.setViewTextColor(this.f16880g, R.color.CAM_X0101);
-        this.f16882i.setIsNight(this.f16878e == 1);
+        this.f16917e = skinType;
+        this.f16918f.setIsNight(skinType == 1);
+        SkinManager.setViewTextColor(this.f16919g, R.color.CAM_X0101);
+        this.f16921i.setIsNight(this.f16917e == 1);
         this.k.q();
         this.l.b();
     }
@@ -109,7 +109,7 @@ public class TopicDetailHeadView extends RelativeLayout {
     public TbImageView getmBgImg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16879f : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16918f : (TbImageView) invokeV.objValue;
     }
 
     public void setData(b bVar) {
@@ -120,34 +120,34 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
             setVisibility(0);
-            if (bVar.f59024e == null && StringUtils.isNull(bVar.f59022c)) {
-                ((LinearLayout.LayoutParams) this.f16880g.getLayoutParams()).bottomMargin = l.g(getContext(), R.dimen.tbds130);
+            if (bVar.f55769e == null && StringUtils.isNull(bVar.f55767c)) {
+                ((LinearLayout.LayoutParams) this.f16919g.getLayoutParams()).bottomMargin = l.g(getContext(), R.dimen.tbds130);
             }
-            this.f16880g.setText(bVar.f59021b);
-            if (StringUtils.isNull(bVar.f59022c)) {
-                this.f16881h.setVisibility(8);
-                this.f16879f.setDefaultBgResource(R.drawable.topic_detail_default_bg);
+            this.f16919g.setText(bVar.f55766b);
+            if (StringUtils.isNull(bVar.f55767c)) {
+                this.f16920h.setVisibility(8);
+                this.f16918f.setDefaultBgResource(R.drawable.topic_detail_default_bg);
             } else {
-                this.f16881h.setVisibility(0);
-                this.f16882i.M(bVar.f59022c, 10, false);
-                this.f16879f.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
+                this.f16920h.setVisibility(0);
+                this.f16921i.M(bVar.f55767c, 10, false);
+                this.f16918f.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
             }
-            if (bVar.f59024e == null) {
+            if (bVar.f55769e == null) {
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
             } else {
                 this.j.setVisibility(0);
                 this.k.setVisibility(0);
-                this.k.setData(bVar.f59024e);
+                this.k.setData(bVar.f55769e);
             }
-            f fVar = bVar.f59025f;
-            if (fVar != null && !ListUtils.isEmpty(fVar.f59043b)) {
+            f fVar = bVar.f55770f;
+            if (fVar != null && !ListUtils.isEmpty(fVar.f55788b)) {
                 this.l.setVisibility(0);
-                this.l.setData(bVar.f59025f);
+                this.l.setData(bVar.f55770f);
             } else {
                 this.l.setVisibility(8);
             }
-            this.f16879f.M(bVar.f59023d, 10, false);
+            this.f16918f.M(bVar.f55768d, 10, false);
         }
     }
 
@@ -170,7 +170,7 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
         }
-        this.f16878e = 3;
+        this.f16917e = 3;
         a(context);
     }
 
@@ -193,7 +193,7 @@ public class TopicDetailHeadView extends RelativeLayout {
                 return;
             }
         }
-        this.f16878e = 3;
+        this.f16917e = 3;
         a(context);
     }
 }

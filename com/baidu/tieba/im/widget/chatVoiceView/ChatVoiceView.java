@@ -31,48 +31,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.f0;
-import d.a.r0.z0.i0;
-import d.a.r0.z0.n;
-import d.a.s0.i1.h.l;
-import d.a.s0.i1.h.m;
+import d.a.o0.z0.f0;
+import d.a.o0.z0.i0;
+import d.a.o0.z0.n;
+import d.a.p0.i1.h.l;
+import d.a.p0.i1.h.m;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f17666e;
+    public ImageView f17705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17667f;
+    public ImageView f17706f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17668g;
+    public TextView f17707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f17669h;
+    public ImageView f17708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ProgressBar f17670i;
+    public ProgressBar f17709i;
     public VoiceData$VoiceModel j;
     public ChatMessage k;
     public RelativeLayout l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends f0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatMessage f17671a;
+        public final /* synthetic */ CommonGroupChatMessage f17710a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f17672b;
+        public final /* synthetic */ LinkedList f17711b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17673c;
+        public final /* synthetic */ ChatVoiceView f17712c;
 
         public a(ChatVoiceView chatVoiceView, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -89,28 +89,28 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17673c = chatVoiceView;
-            this.f17671a = commonGroupChatMessage;
-            this.f17672b = linkedList;
+            this.f17712c = chatVoiceView;
+            this.f17710a = commonGroupChatMessage;
+            this.f17711b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.r0.z0.f0
+        @Override // d.a.o0.z0.f0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.s0.i1.h.c.h().l(this.f17671a.getGroupId(), this.f17672b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.a.p0.i1.h.c.h().l(this.f17710a.getGroupId(), this.f17711b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements n<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17674a;
+        public final /* synthetic */ ChatVoiceView f17713a;
 
         public b(ChatVoiceView chatVoiceView) {
             Interceptable interceptable = $ic;
@@ -127,33 +127,33 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17674a = chatVoiceView;
+            this.f17713a = chatVoiceView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.z0.n
+        @Override // d.a.o0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f17674a.f17669h.setVisibility(8);
+                this.f17713a.f17708h.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends f0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonGroupChatMessage f17675a;
+        public final /* synthetic */ CommonGroupChatMessage f17714a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f17676b;
+        public final /* synthetic */ LinkedList f17715b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17677c;
+        public final /* synthetic */ ChatVoiceView f17716c;
 
         public c(ChatVoiceView chatVoiceView, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -170,28 +170,28 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17677c = chatVoiceView;
-            this.f17675a = commonGroupChatMessage;
-            this.f17676b = linkedList;
+            this.f17716c = chatVoiceView;
+            this.f17714a = commonGroupChatMessage;
+            this.f17715b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.r0.z0.f0
+        @Override // d.a.o0.z0.f0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m.t().m(d.a.s0.i1.w.c.m(this.f17675a), this.f17676b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m.t().m(d.a.p0.i1.w.c.m(this.f17714a), this.f17715b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements n<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17678a;
+        public final /* synthetic */ ChatVoiceView f17717a;
 
         public d(ChatVoiceView chatVoiceView) {
             Interceptable interceptable = $ic;
@@ -208,33 +208,33 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17678a = chatVoiceView;
+            this.f17717a = chatVoiceView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.z0.n
+        @Override // d.a.o0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f17678a.f17669h.setVisibility(8);
+                this.f17717a.f17708h.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e extends f0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatMessage f17679a;
+        public final /* synthetic */ PersonalChatMessage f17718a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f17680b;
+        public final /* synthetic */ LinkedList f17719b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17681c;
+        public final /* synthetic */ ChatVoiceView f17720c;
 
         public e(ChatVoiceView chatVoiceView, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -251,28 +251,28 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17681c = chatVoiceView;
-            this.f17679a = personalChatMessage;
-            this.f17680b = linkedList;
+            this.f17720c = chatVoiceView;
+            this.f17718a = personalChatMessage;
+            this.f17719b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.r0.z0.f0
+        @Override // d.a.o0.z0.f0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m.t().m(d.a.s0.i1.w.c.m(this.f17679a), this.f17680b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m.t().m(d.a.p0.i1.w.c.m(this.f17718a), this.f17719b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements n<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17682a;
+        public final /* synthetic */ ChatVoiceView f17721a;
 
         public f(ChatVoiceView chatVoiceView) {
             Interceptable interceptable = $ic;
@@ -289,33 +289,33 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17682a = chatVoiceView;
+            this.f17721a = chatVoiceView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.z0.n
+        @Override // d.a.o0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f17682a.f17669h.setVisibility(8);
+                this.f17721a.f17708h.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g extends f0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialChatMessage f17683a;
+        public final /* synthetic */ OfficialChatMessage f17722a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LinkedList f17684b;
+        public final /* synthetic */ LinkedList f17723b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17685c;
+        public final /* synthetic */ ChatVoiceView f17724c;
 
         public g(ChatVoiceView chatVoiceView, OfficialChatMessage officialChatMessage, LinkedList linkedList) {
             Interceptable interceptable = $ic;
@@ -332,28 +332,28 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17685c = chatVoiceView;
-            this.f17683a = officialChatMessage;
-            this.f17684b = linkedList;
+            this.f17724c = chatVoiceView;
+            this.f17722a = officialChatMessage;
+            this.f17723b = linkedList;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.r0.z0.f0
+        @Override // d.a.o0.z0.f0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l.t().m(d.a.s0.i1.w.c.m(this.f17683a), this.f17684b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l.t().m(d.a.p0.i1.w.c.m(this.f17722a), this.f17723b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class h implements n<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChatVoiceView f17686a;
+        public final /* synthetic */ ChatVoiceView f17725a;
 
         public h(ChatVoiceView chatVoiceView) {
             Interceptable interceptable = $ic;
@@ -370,16 +370,16 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            this.f17686a = chatVoiceView;
+            this.f17725a = chatVoiceView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.z0.n
+        @Override // d.a.o0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f17686a.f17669h.setVisibility(8);
+                this.f17725a.f17708h.setVisibility(8);
             }
         }
     }
@@ -402,10 +402,10 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                 return;
             }
         }
-        this.f17666e = null;
-        this.f17668g = null;
-        this.f17669h = null;
-        this.f17670i = null;
+        this.f17705e = null;
+        this.f17707g = null;
+        this.f17708h = null;
+        this.f17709i = null;
         LayoutInflater.from(context).inflate(R.layout.widget_left_voice_view, (ViewGroup) this, true);
         b();
     }
@@ -451,11 +451,11 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.l = (RelativeLayout) findViewById(R.id.lay_bubble);
-            this.f17666e = (ImageView) findViewById(R.id.img_voice_status);
-            this.f17667f = (ImageView) findViewById(R.id.img_voice_status_anim);
-            this.f17668g = (TextView) findViewById(R.id.tex_voice_duration);
-            this.f17669h = (ImageView) findViewById(R.id.img_voice_readed);
-            this.f17670i = (ProgressBar) findViewById(R.id.progress);
+            this.f17705e = (ImageView) findViewById(R.id.img_voice_status);
+            this.f17706f = (ImageView) findViewById(R.id.img_voice_status_anim);
+            this.f17707g = (TextView) findViewById(R.id.tex_voice_duration);
+            this.f17708h = (ImageView) findViewById(R.id.img_voice_readed);
+            this.f17709i = (ProgressBar) findViewById(R.id.progress);
         }
     }
 
@@ -469,13 +469,13 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (i2 == 3) {
-                ImageView imageView = this.f17666e;
+                ImageView imageView = this.f17705e;
                 if (imageView != null) {
                     imageView.setVisibility(0);
                 }
-                this.f17670i.setVisibility(4);
-                h();
-                VoiceMsgData n = d.a.s0.i1.w.c.n(this.k);
+                this.f17709i.setVisibility(4);
+                g();
+                VoiceMsgData n = d.a.p0.i1.w.c.n(this.k);
                 if (n == null || n.getHas_read() == 1) {
                     return;
                 }
@@ -487,7 +487,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
                     LinkedList linkedList = new LinkedList();
                     linkedList.add(new CommonMsgPojo(commonGroupChatMessage));
-                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(d.a.s0.i1.s.a.f61853i))) {
+                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(d.a.p0.i1.s.a.f58618i))) {
                         i0.c(new a(this, commonGroupChatMessage, linkedList), new b(this));
                         return;
                     } else {
@@ -510,19 +510,19 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     return;
                 }
             }
-            i();
+            h();
             if (i2 == 1) {
-                ImageView imageView2 = this.f17666e;
+                ImageView imageView2 = this.f17705e;
                 if (imageView2 != null) {
                     imageView2.setVisibility(0);
                 }
-                this.f17670i.setVisibility(4);
+                this.f17709i.setVisibility(4);
             } else if (i2 == 2) {
-                ImageView imageView3 = this.f17666e;
+                ImageView imageView3 = this.f17705e;
                 if (imageView3 != null) {
                     imageView3.setVisibility(4);
                 }
-                this.f17670i.setVisibility(0);
+                this.f17709i.setVisibility(0);
             }
         }
     }
@@ -540,14 +540,23 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, chatMessage) == null) {
             boolean z = true;
-            if (d.a.s0.i1.w.c.p(chatMessage) || ((n = d.a.s0.i1.w.c.n(chatMessage)) != null && n.getHas_read() == 1)) {
+            if (d.a.p0.i1.w.c.p(chatMessage) || ((n = d.a.p0.i1.w.c.n(chatMessage)) != null && n.getHas_read() == 1)) {
                 z = false;
             }
             if (z) {
-                this.f17669h.setVisibility(0);
+                this.f17708h.setVisibility(0);
             } else {
-                this.f17669h.setVisibility(8);
+                this.f17708h.setVisibility(8);
             }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f17705e.setVisibility(8);
+            this.f17706f.setVisibility(0);
+            ((AnimationDrawable) this.f17706f.getBackground()).start();
         }
     }
 
@@ -555,7 +564,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     public VoiceManager.i getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Context context = getContext();
             VoiceManager.i realView = context instanceof VoiceManager.j ? ((VoiceManager.j) context).getRealView(this.j) : this;
             return realView == null ? this : realView;
@@ -566,7 +575,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     public VoiceManager getVoiceManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
                 return ((VoiceManager.j) context).getVoiceManager();
@@ -580,25 +589,16 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     public VoiceData$VoiceModel getVoiceModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : (VoiceData$VoiceModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (VoiceData$VoiceModel) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f17666e.setVisibility(8);
-            this.f17667f.setVisibility(0);
-            ((AnimationDrawable) this.f17667f.getBackground()).start();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ((AnimationDrawable) this.f17667f.getBackground()).stop();
-            this.f17667f.clearAnimation();
-            this.f17666e.setVisibility(0);
-            this.f17667f.setVisibility(8);
+            ((AnimationDrawable) this.f17706f.getBackground()).stop();
+            this.f17706f.clearAnimation();
+            this.f17705e.setVisibility(0);
+            this.f17706f.setVisibility(8);
         }
     }
 
@@ -628,7 +628,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
             try {
-                i();
+                h();
             } catch (Exception unused) {
             }
         }
@@ -682,8 +682,8 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
             this.j = new VoiceData$VoiceModel();
         }
         this.k = chatMessage;
-        this.f17668g.setText(VoiceManager.formatVoiceTime(this.j.duration));
-        this.f17668g.setContentDescription(String.format(getContext().getString(R.string.editor_record_format), VoiceManager.formatVoiceTime(this.j.duration)));
+        this.f17707g.setText(VoiceManager.formatVoiceTime(this.j.duration));
+        this.f17707g.setContentDescription(String.format(getContext().getString(R.string.editor_record_format), VoiceManager.formatVoiceTime(this.j.duration)));
         setBubbleLength(this.j.duration);
         setTag(this.j);
         f(chatMessage);
@@ -713,10 +713,10 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                 return;
             }
         }
-        this.f17666e = null;
-        this.f17668g = null;
-        this.f17669h = null;
-        this.f17670i = null;
+        this.f17705e = null;
+        this.f17707g = null;
+        this.f17708h = null;
+        this.f17709i = null;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ChatVoiceView, 0, 0);
         if (obtainStyledAttributes != null) {
             z = obtainStyledAttributes.getBoolean(R$styleable.ChatVoiceView_is_left, true);

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.Authorize;
 import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends AuthorizeInfoView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +41,13 @@ public class a extends AuthorizeInfoView.b {
         }
         if (obj instanceof Authorize) {
             Authorize authorize = (Authorize) obj;
-            this.f26731a.setLogo(authorize.sp_logo_url);
-            this.f26731a.setTitle(authorize.sp_company_title);
-            this.f26731a.setTips(authorize.authorize_action_desc);
+            this.f26841a.setLogo(authorize.sp_logo_url);
+            this.f26841a.setTitle(authorize.sp_company_title);
+            this.f26841a.setTips(authorize.authorize_action_desc);
             String[] strArr = authorize.authorize_desc;
             int i2 = 0;
             if (strArr != null && strArr.length > 0) {
-                this.f26731a.setDesc(strArr[0]);
+                this.f26841a.setDesc(strArr[0]);
             }
             if (authorize.detail_info == null) {
                 return;
@@ -66,12 +66,12 @@ public class a extends AuthorizeInfoView.b {
                     }
                     i2++;
                 } else {
-                    this.f26731a.setTipMessage(sb.toString());
+                    this.f26841a.setTipMessage(sb.toString());
                     return;
                 }
             }
         } else if (obj instanceof UserData.UserModel) {
-            this.f26731a.setPhone(((UserData.UserModel) obj).authorize_display_name);
+            this.f26841a.setPhone(((UserData.UserModel) obj).authorize_display_name);
         }
     }
 }

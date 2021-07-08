@@ -19,19 +19,19 @@ public class TextProgressBar extends ProgressBar {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2415e;
+    public String f2416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f2416f;
+    public TextPaint f2417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint.FontMetrics f2417g;
+    public Paint.FontMetrics f2418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2418h;
+    public int f2419h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2419i;
+    public int f2420i;
     public int j;
     public int k;
 
@@ -59,12 +59,12 @@ public class TextProgressBar extends ProgressBar {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f2415e = "0%";
+            this.f2416e = "0%";
             TextPaint textPaint = new TextPaint();
-            this.f2416f = textPaint;
+            this.f2417f = textPaint;
             textPaint.setTextSize(20.0f);
-            this.f2416f.setColor(-1);
-            this.f2417g = new Paint.FontMetrics();
+            this.f2417f.setColor(-1);
+            this.f2418g = new Paint.FontMetrics();
         }
     }
 
@@ -75,10 +75,10 @@ public class TextProgressBar extends ProgressBar {
             synchronized (this) {
                 super.onDraw(canvas);
                 canvas.save();
-                this.f2419i = (int) Layout.getDesiredWidth(this.f2415e, this.f2416f);
-                this.f2416f.getFontMetrics(this.f2417g);
-                this.f2418h = (int) (this.f2417g.descent - this.f2417g.top);
-                canvas.drawText(this.f2415e, (getMeasuredWidth() - this.f2419i) / 2, getMeasuredHeight(), this.f2416f);
+                this.f2420i = (int) Layout.getDesiredWidth(this.f2416e, this.f2417f);
+                this.f2417f.getFontMetrics(this.f2418g);
+                this.f2419h = (int) (this.f2418g.descent - this.f2418g.top);
+                canvas.drawText(this.f2416e, (getMeasuredWidth() - this.f2420i) / 2, getMeasuredHeight(), this.f2417f);
                 canvas.restore();
             }
         }
@@ -89,13 +89,13 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             synchronized (this) {
-                this.f2419i = (int) Layout.getDesiredWidth("100%", this.f2416f);
-                this.f2416f.getFontMetrics(this.f2417g);
-                this.f2418h = (int) (this.f2417g.descent - this.f2417g.top);
+                this.f2420i = (int) Layout.getDesiredWidth("100%", this.f2417f);
+                this.f2417f.getFontMetrics(this.f2418g);
+                this.f2419h = (int) (this.f2418g.descent - this.f2418g.top);
                 super.onMeasure(i2, i3);
                 this.j = getMeasuredWidth();
                 this.k = getMeasuredHeight();
-                setMeasuredDimension(Math.max(this.f2419i, getMeasuredWidth()), getMeasuredHeight() + this.f2418h + 0);
+                setMeasuredDimension(Math.max(this.f2420i, getMeasuredWidth()), getMeasuredHeight() + this.f2419h + 0);
             }
         }
     }
@@ -123,7 +123,7 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             synchronized (this) {
-                this.f2415e = str;
+                this.f2416e = str;
                 drawableStateChanged();
             }
         }
@@ -132,7 +132,7 @@ public class TextProgressBar extends ProgressBar {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f2416f.setColor(i2);
+            this.f2417f.setColor(i2);
             drawableStateChanged();
         }
     }

@@ -24,14 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FPS = 25;
@@ -57,7 +56,7 @@ public class VideoPlayer {
     public int mVideoHeight;
     public int mVideoWidth;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -66,12 +65,12 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PlayTask implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_PLAY_ERROR = 1;
@@ -84,7 +83,7 @@ public class VideoPlayer {
         public boolean mStopped;
         public Thread mThread;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class LocalHandler extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -269,7 +268,7 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:83:0x014f  */
     /* JADX WARN: Removed duplicated region for block: B:85:0x0154  */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r10v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -430,7 +429,7 @@ public class VideoPlayer {
     /* JADX INFO: Access modifiers changed from: private */
     public void play() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             MediaExtractor mediaExtractor = this.mMediaExtractor;
             MediaCodec mediaCodec = this.mMediaDecoder;
             int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
@@ -438,7 +437,7 @@ public class VideoPlayer {
                 mediaExtractor.selectTrack(selectVideoTrackIndex);
                 if (mediaCodec == null) {
                     MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                    MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+                    MediaCodec createDecoderByType = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
                     Surface surface = this.mOutputSurface;
                     if (surface != null) {
                         createDecoderByType.configure(trackFormat, surface, (MediaCrypto) null, 0);
@@ -469,7 +468,7 @@ public class VideoPlayer {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, mediaExtractor)) == null) {
             int trackCount = mediaExtractor.getTrackCount();
             for (int i2 = 0; i2 < trackCount; i2++) {
-                if (mediaExtractor.getTrackFormat(i2).getString(IMediaFormat.KEY_MIME).startsWith(FileUtils.VIDEO_FILE_START)) {
+                if (mediaExtractor.getTrackFormat(i2).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
                     return i2;
                 }
             }

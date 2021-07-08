@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.app.NotificationCompatJellybean;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +27,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PlatformChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformChannel";
@@ -40,7 +41,7 @@ public class PlatformChannel {
     public PlatformMessageHandler platformMessageHandler;
 
     /* renamed from: io.flutter.embedding.engine.systemchannels.PlatformChannel$2  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation;
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay;
@@ -91,7 +92,7 @@ public class PlatformChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AppSwitcherDescription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Brightness {
         public static final /* synthetic */ Brightness[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -195,12 +196,12 @@ public class PlatformChannel {
         public static Brightness[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Brightness[]) $VALUES.clone() : (Brightness[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Brightness[]) $VALUES.clone() : (Brightness[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ClipboardContentFormat {
         public static final /* synthetic */ ClipboardContentFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -273,12 +274,12 @@ public class PlatformChannel {
         public static ClipboardContentFormat[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ClipboardContentFormat[]) $VALUES.clone() : (ClipboardContentFormat[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ClipboardContentFormat[]) $VALUES.clone() : (ClipboardContentFormat[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class DeviceOrientation {
         public static final /* synthetic */ DeviceOrientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -357,12 +358,12 @@ public class PlatformChannel {
         public static DeviceOrientation[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (DeviceOrientation[]) $VALUES.clone() : (DeviceOrientation[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DeviceOrientation[]) $VALUES.clone() : (DeviceOrientation[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class HapticFeedbackType {
         public static final /* synthetic */ HapticFeedbackType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -444,11 +445,11 @@ public class PlatformChannel {
         public static HapticFeedbackType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (HapticFeedbackType[]) $VALUES.clone() : (HapticFeedbackType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (HapticFeedbackType[]) $VALUES.clone() : (HapticFeedbackType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface PlatformMessageHandler {
         @Nullable
         CharSequence getClipboardData(@Nullable ClipboardContentFormat clipboardContentFormat);
@@ -477,7 +478,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SoundType {
         public static final /* synthetic */ SoundType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -550,11 +551,11 @@ public class PlatformChannel {
         public static SoundType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (SoundType[]) $VALUES.clone() : (SoundType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SoundType[]) $VALUES.clone() : (SoundType[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class SystemChromeStyle {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -593,7 +594,7 @@ public class PlatformChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SystemUiOverlay {
         public static final /* synthetic */ SystemUiOverlay[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -668,7 +669,7 @@ public class PlatformChannel {
         public static SystemUiOverlay[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (SystemUiOverlay[]) $VALUES.clone() : (SystemUiOverlay[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SystemUiOverlay[]) $VALUES.clone() : (SystemUiOverlay[]) invokeV.objValue;
         }
     }
 

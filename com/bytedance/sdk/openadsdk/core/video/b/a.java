@@ -48,7 +48,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements u.a, c, d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,31 +70,31 @@ public abstract class a implements u.a, c, d {
     public boolean P;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f30483a;
+    public final WeakReference<Context> f30593a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f30484b;
+    public final m f30594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f30485c;
+    public long f30595c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, Object> f30486d;
+    public Map<String, Object> f30596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f30487e;
+    public long f30597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30488f;
+    public long f30598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30489g;
+    public boolean f30599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30490h;
+    public boolean f30600h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f30491i;
+    public long f30601i;
     public i j;
     public final ViewGroup k;
     public final u l;
@@ -114,12 +114,12 @@ public abstract class a implements u.a, c, d {
     public long z;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.b.a$6  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30497a;
+        public static final /* synthetic */ int[] f30607a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -136,17 +136,17 @@ public abstract class a implements u.a, c, d {
                 }
             }
             int[] iArr = new int[i.a.values().length];
-            f30497a = iArr;
+            f30607a = iArr;
             try {
-                iArr[i.a.f30803a.ordinal()] = 1;
+                iArr[i.a.f30913a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30497a[i.a.f30804b.ordinal()] = 2;
+                f30607a[i.a.f30914b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30497a[i.a.f30805c.ordinal()] = 3;
+                f30607a[i.a.f30915c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -180,11 +180,11 @@ public abstract class a implements u.a, c, d {
         this.A = false;
         this.B = false;
         this.C = false;
-        this.f30486d = null;
-        this.f30487e = 0L;
-        this.f30488f = 0L;
-        this.f30489g = false;
-        this.f30490h = false;
+        this.f30596d = null;
+        this.f30597e = 0L;
+        this.f30598f = 0L;
+        this.f30599g = false;
+        this.f30600h = false;
         this.F = false;
         this.G = true;
         this.I = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.b.a.2
@@ -192,7 +192,7 @@ public abstract class a implements u.a, c, d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30493a;
+            public final /* synthetic */ a f30603a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -209,16 +209,16 @@ public abstract class a implements u.a, c, d {
                         return;
                     }
                 }
-                this.f30493a = this;
+                this.f30603a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30493a.o == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30603a.o == null) {
                     return;
                 }
-                this.f30493a.o.e();
+                this.f30603a.o.e();
             }
         };
         this.J = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.b.a.3
@@ -226,7 +226,7 @@ public abstract class a implements u.a, c, d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30494a;
+            public final /* synthetic */ a f30604a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -243,16 +243,16 @@ public abstract class a implements u.a, c, d {
                         return;
                     }
                 }
-                this.f30494a = this;
+                this.f30604a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30494a.p == null) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f30604a.p == null) {
                     return;
                 }
-                this.f30494a.p.a();
+                this.f30604a.p.a();
             }
         };
         this.K = new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.video.b.a.4
@@ -260,7 +260,7 @@ public abstract class a implements u.a, c, d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30495a;
+            public final /* synthetic */ a f30605a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -277,21 +277,21 @@ public abstract class a implements u.a, c, d {
                         return;
                     }
                 }
-                this.f30495a = this;
+                this.f30605a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (this.f30495a.o != null) {
-                        a aVar = this.f30495a;
-                        if (aVar.f30485c <= 0) {
+                    if (this.f30605a.o != null) {
+                        a aVar = this.f30605a;
+                        if (aVar.f30595c <= 0) {
                             aVar.o.e();
                         }
-                        this.f30495a.o.f();
+                        this.f30605a.o.f();
                     }
-                    this.f30495a.l.postDelayed(this, 200L);
+                    this.f30605a.l.postDelayed(this, 200L);
                 }
             }
         };
@@ -301,7 +301,7 @@ public abstract class a implements u.a, c, d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30496a;
+            public final /* synthetic */ a f30606a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -318,7 +318,7 @@ public abstract class a implements u.a, c, d {
                         return;
                     }
                 }
-                this.f30496a = this;
+                this.f30606a = this;
             }
 
             @Override // android.content.BroadcastReceiver
@@ -327,9 +327,9 @@ public abstract class a implements u.a, c, d {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) {
                     String action = intent.getAction();
                     if ("android.intent.action.SCREEN_OFF".equals(action)) {
-                        this.f30496a.i();
+                        this.f30606a.i();
                     } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action)) {
-                        this.f30496a.b(context2);
+                        this.f30606a.b(context2);
                     }
                 }
             }
@@ -338,10 +338,10 @@ public abstract class a implements u.a, c, d {
         this.P = false;
         this.O = com.bytedance.sdk.component.utils.m.c(context);
         this.k = viewGroup;
-        this.f30483a = new WeakReference<>(context);
-        this.f30484b = mVar;
+        this.f30593a = new WeakReference<>(context);
+        this.f30594b = mVar;
         a(context);
-        this.E = o.d(this.f30484b.ao());
+        this.E = o.d(this.f30594b.ao());
         this.u = Build.VERSION.SDK_INT >= 17;
     }
 
@@ -379,8 +379,8 @@ public abstract class a implements u.a, c, d {
     private boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
-            WeakReference<Context> weakReference = this.f30483a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+            WeakReference<Context> weakReference = this.f30593a;
             return (weakReference == null || weakReference.get() == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -403,7 +403,7 @@ public abstract class a implements u.a, c, d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            m mVar = this.f30484b;
+            m mVar = this.f30594b;
             return mVar == null || mVar.aJ() == 100.0f;
         }
         return invokeV.booleanValue;
@@ -446,8 +446,8 @@ public abstract class a implements u.a, c, d {
         m mVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            WeakReference<Context> weakReference = this.f30483a;
-            return weakReference == null || weakReference.get() == null || O() == null || (dVar = this.o) == null || dVar.a() == null || (mVar = this.f30484b) == null || mVar.P() != null || this.f30484b.k() == 1;
+            WeakReference<Context> weakReference = this.f30593a;
+            return weakReference == null || weakReference.get() == null || O() == null || (dVar = this.o) == null || dVar.a() == null || (mVar = this.f30594b) == null || mVar.P() != null || this.f30594b.k() == 1;
         }
         return invokeV.booleanValue;
     }
@@ -456,10 +456,10 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             try {
-                if (this.f30483a != null && this.f30483a.get() != null && O() != null && this.o != null && this.o.a() != null && this.f30484b != null) {
+                if (this.f30593a != null && this.f30593a.get() != null && O() != null && this.o != null && this.o.a() != null && this.f30594b != null) {
                     int[] b2 = q.b(com.bytedance.sdk.openadsdk.core.o.a());
                     MediaPlayer a2 = this.o.a();
-                    boolean z = this.f30484b.aI() == 1;
+                    boolean z = this.f30594b.aI() == 1;
                     float f2 = b2[0];
                     float f3 = b2[1];
                     float videoWidth = a2.getVideoWidth();
@@ -503,7 +503,7 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
-                j.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f30484b.m());
+                j.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f30594b.m());
                 if (K()) {
                     return;
                 }
@@ -511,7 +511,7 @@ public abstract class a implements u.a, c, d {
                 int[] b2 = q.b(com.bytedance.sdk.openadsdk.core.o.a());
                 MediaPlayer a2 = this.o.a();
                 boolean z = false;
-                boolean z2 = this.f30484b.aI() == 1;
+                boolean z2 = this.f30594b.aI() == 1;
                 float f2 = b2[0];
                 float f3 = b2[1];
                 float videoWidth = a2.getVideoWidth();
@@ -590,8 +590,8 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             try {
-                if (this.f30483a != null && this.f30483a.get() != null && O() != null && this.o != null && this.o.a() != null && this.f30484b != null) {
-                    boolean z = this.f30484b.aI() == 1;
+                if (this.f30593a != null && this.f30593a.get() != null && O() != null && this.o != null && this.o.a() != null && this.f30594b != null) {
+                    boolean z = this.f30594b.aI() == 1;
                     float f2 = q.b(com.bytedance.sdk.openadsdk.core.o.a())[1];
                     MediaPlayer a2 = this.o.a();
                     a(b2[0], f2, a2.getVideoWidth(), a2.getVideoHeight(), z);
@@ -608,7 +608,7 @@ public abstract class a implements u.a, c, d {
         com.bytedance.sdk.openadsdk.core.video.nativevideo.i iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            WeakReference<Context> weakReference = this.f30483a;
+            WeakReference<Context> weakReference = this.f30593a;
             if (weakReference == null || weakReference.get() == null || (iVar = this.j) == null) {
                 return null;
             }
@@ -645,13 +645,13 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
-            Map<String, Object> map = this.f30486d;
+            Map<String, Object> map = this.f30596d;
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     hashMap.put(entry.getKey(), entry.getValue());
                 }
             }
-            Map<String, Object> a2 = o.a(this.f30488f, this.f30484b, u());
+            Map<String, Object> a2 = o.a(this.f30598f, this.f30594b, u());
             if (a2 != null) {
                 for (Map.Entry<String, Object> entry2 : a2.entrySet()) {
                     hashMap.put(entry2.getKey(), entry2.getValue());
@@ -667,13 +667,13 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             HashMap hashMap = new HashMap();
-            Map<String, Object> a2 = o.a(this.f30484b, o(), u());
+            Map<String, Object> a2 = o.a(this.f30594b, o(), u());
             if (a2 != null) {
                 for (Map.Entry<String, Object> entry : a2.entrySet()) {
                     hashMap.put(entry.getKey(), entry.getValue());
                 }
             }
-            Map<String, Object> map = this.f30486d;
+            Map<String, Object> map = this.f30596d;
             if (map != null) {
                 for (Map.Entry<String, Object> entry2 : map.entrySet()) {
                     hashMap.put(entry2.getKey(), entry2.getValue());
@@ -738,7 +738,7 @@ public abstract class a implements u.a, c, d {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            this.f30491i = p();
+            this.f30601i = p();
             com.bytedance.sdk.openadsdk.core.video.c.d dVar = this.o;
             if (dVar != null) {
                 dVar.b();
@@ -866,14 +866,14 @@ public abstract class a implements u.a, c, d {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? com.bytedance.sdk.openadsdk.core.video.d.a.a(this.r, this.f30485c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? com.bytedance.sdk.openadsdk.core.video.d.a.a(this.r, this.f30595c) : invokeV.intValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
     public long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.f30485c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.f30595c : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
@@ -944,7 +944,7 @@ public abstract class a implements u.a, c, d {
     public void c(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
-            this.f30485c = j;
+            this.f30595c = j;
         }
     }
 
@@ -1031,9 +1031,9 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, context) == null) {
             EnumSet noneOf = EnumSet.noneOf(b.a.class);
-            noneOf.add(b.a.f30551a);
-            noneOf.add(b.a.f30555e);
-            com.bytedance.sdk.openadsdk.core.video.nativevideo.i iVar = new com.bytedance.sdk.openadsdk.core.video.nativevideo.i(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(r.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f30484b, this);
+            noneOf.add(b.a.f30661a);
+            noneOf.add(b.a.f30665e);
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.i iVar = new com.bytedance.sdk.openadsdk.core.video.nativevideo.i(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(r.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f30594b, this);
             this.j = iVar;
             iVar.a(this);
         }
@@ -1054,13 +1054,13 @@ public abstract class a implements u.a, c, d {
         }
         this.H = bVar;
         if (this.o != null) {
-            m mVar = this.f30484b;
+            m mVar = this.f30594b;
             if (mVar != null) {
                 x V = mVar.V();
                 if (V != null) {
                     bVar.b(V.l());
                 }
-                bVar.f(String.valueOf(o.d(this.f30484b.ao())));
+                bVar.f(String.valueOf(o.d(this.f30594b.ao())));
             }
             bVar.d(1);
             this.o.a(bVar);
@@ -1076,7 +1076,7 @@ public abstract class a implements u.a, c, d {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30492a;
+            public final /* synthetic */ a f30602a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -1093,26 +1093,26 @@ public abstract class a implements u.a, c, d {
                         return;
                     }
                 }
-                this.f30492a = this;
+                this.f30602a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f30492a.m = System.currentTimeMillis();
-                    this.f30492a.j.c(0);
-                    if (this.f30492a.o == null || this.f30492a.q != 0) {
-                        if (this.f30492a.o != null) {
-                            this.f30492a.o.a(true, this.f30492a.q, !this.f30492a.y);
+                    this.f30602a.m = System.currentTimeMillis();
+                    this.f30602a.j.c(0);
+                    if (this.f30602a.o == null || this.f30602a.q != 0) {
+                        if (this.f30602a.o != null) {
+                            this.f30602a.o.a(true, this.f30602a.q, !this.f30602a.y);
                         }
                     } else {
-                        this.f30492a.o.a(true, 0L, !this.f30492a.y);
+                        this.f30602a.o.a(true, 0L, !this.f30602a.y);
                     }
-                    if (this.f30492a.l != null) {
-                        this.f30492a.l.postDelayed(this.f30492a.I, 100L);
+                    if (this.f30602a.l != null) {
+                        this.f30602a.l.postDelayed(this.f30602a.I, 100L);
                     }
-                    this.f30492a.E();
+                    this.f30602a.E();
                 }
             }
         });
@@ -1168,7 +1168,7 @@ public abstract class a implements u.a, c, d {
                 return false;
             }
             f();
-            this.f30489g = !bVar.a().startsWith("http");
+            this.f30599g = !bVar.a().startsWith("http");
             this.y = bVar.h();
             if (bVar.g() > 0) {
                 long g2 = bVar.g();
@@ -1211,7 +1211,7 @@ public abstract class a implements u.a, c, d {
                 this.A = true;
                 this.B = false;
                 com.bytedance.sdk.openadsdk.core.video.nativevideo.i iVar = this.j;
-                if (iVar != null && (mVar = this.f30484b) != null) {
+                if (iVar != null && (mVar = this.f30594b) != null) {
                     return iVar.a(i2, mVar.V(), true);
                 }
             } else if (c2 == 4) {
@@ -1235,17 +1235,17 @@ public abstract class a implements u.a, c, d {
             this.n = currentTimeMillis;
             c.a aVar = this.p;
             if (aVar != null) {
-                aVar.a(currentTimeMillis, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.q, this.f30485c));
+                aVar.a(currentTimeMillis, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.q, this.f30595c));
             }
-            if (o.d(this.f30484b)) {
-                this.j.a(this.f30484b, this.f30483a, true);
+            if (o.d(this.f30594b)) {
+                this.j.a(this.f30594b, this.f30593a, true);
             }
             if (!this.w) {
                 b();
                 this.w = true;
-                long j = this.f30485c;
+                long j = this.f30595c;
                 a(j, j);
-                long j2 = this.f30485c;
+                long j2 = this.f30595c;
                 this.q = j2;
                 this.r = j2;
             }
@@ -1280,7 +1280,7 @@ public abstract class a implements u.a, c, d {
     public void a(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, map) == null) {
-            this.f30486d = map;
+            this.f30596d = map;
         }
     }
 
@@ -1338,7 +1338,7 @@ public abstract class a implements u.a, c, d {
     public void a(Message message) {
         WeakReference<Context> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, message) == null) || this.j == null || message == null || (weakReference = this.f30483a) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, message) == null) || this.j == null || message == null || (weakReference = this.f30593a) == null || weakReference.get() == null) {
             return;
         }
         int i2 = message.what;
@@ -1347,7 +1347,7 @@ public abstract class a implements u.a, c, d {
             if (!(obj instanceof Long) || ((Long) obj).longValue() <= 0) {
                 return;
             }
-            this.f30485c = ((Long) message.obj).longValue();
+            this.f30595c = ((Long) message.obj).longValue();
         } else if (i2 == 109) {
             Object obj2 = message.obj;
             if (obj2 instanceof Long) {
@@ -1358,18 +1358,18 @@ public abstract class a implements u.a, c, d {
                     longValue = j;
                 }
                 this.r = longValue;
-                a(this.q, this.f30485c);
+                a(this.q, this.f30595c);
             }
         } else if (i2 == 308) {
             a(308, 0);
         } else if (i2 == 311) {
             if (I()) {
-                m mVar = this.f30484b;
+                m mVar = this.f30594b;
                 if (mVar != null && mVar.i() == 0) {
                     N();
                     return;
                 }
-                m mVar2 = this.f30484b;
+                m mVar2 = this.f30594b;
                 if (mVar2 != null && mVar2.i() == 2) {
                     L();
                     return;
@@ -1393,7 +1393,7 @@ public abstract class a implements u.a, c, d {
                     }
                     c.a aVar = this.p;
                     if (aVar != null) {
-                        aVar.b(this.n, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.q, this.f30485c));
+                        aVar.b(this.n, com.bytedance.sdk.openadsdk.core.video.d.a.a(this.q, this.f30595c));
                         return;
                     }
                     return;
@@ -1412,10 +1412,10 @@ public abstract class a implements u.a, c, d {
                         }
                     }
                     if (this.u && i3 == 3 && !this.v) {
-                        this.f30488f = SystemClock.elapsedRealtime() - this.f30487e;
+                        this.f30598f = SystemClock.elapsedRealtime() - this.f30597e;
                         e();
                         this.v = true;
-                        this.f30490h = true;
+                        this.f30600h = true;
                         return;
                     }
                     return;
@@ -1425,7 +1425,7 @@ public abstract class a implements u.a, c, d {
                         uVar.removeCallbacks(this.J);
                     }
                     if (!this.u && !this.v) {
-                        this.f30488f = SystemClock.elapsedRealtime() - this.f30487e;
+                        this.f30598f = SystemClock.elapsedRealtime() - this.f30597e;
                         g();
                         this.v = true;
                     }
@@ -1447,7 +1447,7 @@ public abstract class a implements u.a, c, d {
                     return;
             }
         } else {
-            this.f30487e = SystemClock.elapsedRealtime();
+            this.f30597e = SystemClock.elapsedRealtime();
         }
     }
 
@@ -1463,7 +1463,7 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{bVar, view, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && G()) {
             g(!this.L);
-            if (!(this.f30483a.get() instanceof Activity)) {
+            if (!(this.f30593a.get() instanceof Activity)) {
                 j.b("BaseVideoController", "context is not activity, not support this function.");
                 return;
             }
@@ -1534,8 +1534,8 @@ public abstract class a implements u.a, c, d {
                 j.b("changeVideoSize", "screenWidth=" + f2 + ",screenHeight=" + f3);
                 j.b("changeVideoSize", "videoHeight=" + f5 + ",videoWidth=" + f4);
                 if (f4 <= 0.0f || f5 <= 0.0f) {
-                    f4 = this.f30484b.V().c();
-                    f5 = this.f30484b.V().b();
+                    f4 = this.f30594b.V().c();
+                    f5 = this.f30594b.V().b();
                 }
                 if (f5 > 0.0f && f4 > 0.0f) {
                     if (z) {
@@ -1609,8 +1609,8 @@ public abstract class a implements u.a, c, d {
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{bVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && G()) {
-            long l = (((float) (i2 * this.f30485c)) * 1.0f) / r.l(this.f30483a.get(), "tt_video_progress_max");
-            if (this.f30485c > 0) {
+            long l = (((float) (i2 * this.f30595c)) * 1.0f) / r.l(this.f30593a.get(), "tt_video_progress_max");
+            if (this.f30595c > 0) {
                 this.M = (int) l;
             } else {
                 this.M = 0L;
@@ -1626,7 +1626,7 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.q = j;
-            this.f30485c = j2;
+            this.f30595c = j2;
             this.j.a(j, j2);
             this.j.a(com.bytedance.sdk.openadsdk.core.video.d.a.a(j, j2));
             try {
@@ -1643,7 +1643,7 @@ public abstract class a implements u.a, c, d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && G()) {
             boolean z = i2 == 0 || i2 == 8;
-            Context context = this.f30483a.get();
+            Context context = this.f30593a.get();
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 try {
@@ -1729,7 +1729,7 @@ public abstract class a implements u.a, c, d {
     public void a(i.a aVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, aVar, str) == null) {
-            int i2 = AnonymousClass6.f30497a[aVar.ordinal()];
+            int i2 = AnonymousClass6.f30607a[aVar.ordinal()];
             if (i2 == 1) {
                 i();
             } else if (i2 == 2) {

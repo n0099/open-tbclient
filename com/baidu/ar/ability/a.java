@@ -1,5 +1,6 @@
 package com.baidu.ar.ability;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.auth.ARAuth;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -87,7 +88,7 @@ public class a {
     public static boolean p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (bw.containsKey(str)) {
                 return ARAuth.checkFeatureAuth(bw.get(str).intValue());
             }

@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class r implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f73709e;
+    public final /* synthetic */ AtomicBoolean f70812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ q f73710f;
+    public final /* synthetic */ q f70813f;
 
     public r(q qVar, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class r implements Runnable {
                 return;
             }
         }
-        this.f73710f = qVar;
-        this.f73709e = atomicBoolean;
+        this.f70813f = qVar;
+        this.f70812e = atomicBoolean;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f73709e.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f70812e.getAndSet(true)) {
             return;
         }
         Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        q qVar = this.f73710f;
-        l lVar = qVar.f73708g;
-        l.n(qVar.f73706e, qVar.f73707f);
+        q qVar = this.f70813f;
+        l lVar = qVar.f70811g;
+        l.n(qVar.f70809e, qVar.f70810f);
     }
 }

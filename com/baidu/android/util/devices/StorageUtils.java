@@ -7,6 +7,7 @@ import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.ReflectionUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -166,7 +167,7 @@ public final class StorageUtils {
         long blockSize;
         long availableBlocks;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (externalMemoryAvailable()) {
                 try {
                     StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());

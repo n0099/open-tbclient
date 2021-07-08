@@ -1,5 +1,6 @@
 package org.webrtc;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Logging {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger fallbackLogger;
@@ -25,7 +26,7 @@ public class Logging {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.Logging$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$Logging$Severity;
         public static /* synthetic */ Interceptable $ic;
@@ -62,7 +63,7 @@ public class Logging {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Severity {
         public static final /* synthetic */ Severity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -131,7 +132,7 @@ public class Logging {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TraceLevel {
         public static final /* synthetic */ TraceLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -269,7 +270,7 @@ public class Logging {
 
     public static void deleteInjectedLoggable() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             loggable = null;
         }
     }

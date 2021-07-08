@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class InitDelayThread extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InitDelayCallback mCallback;
     public WeakReference<Context> mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface InitDelayCallback extends NoProguard {
         void callBack();
     }
@@ -58,9 +58,9 @@ public class InitDelayThread extends Thread {
             if (!TextUtils.isEmpty(rimAllConfig)) {
                 try {
                     GetFPResponse.RimConfig rimConfig = (GetFPResponse.RimConfig) JsonUtils.fromJson(rimAllConfig, GetFPResponse.RimConfig.class);
-                    if (rimConfig != null && rimConfig.f5207common != null) {
+                    if (rimConfig != null && rimConfig.f5224common != null) {
                         try {
-                            j = Long.parseLong(rimConfig.f5207common.init_delay);
+                            j = Long.parseLong(rimConfig.f5224common.init_delay);
                         } catch (NumberFormatException e2) {
                             e2.printStackTrace();
                         }

@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BeanErrorContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f24568a;
+    public int f24678a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24569b;
+    public int f24679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24570c;
+    public String f24680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f24571d;
+    public Object f24681d;
 
     public BeanErrorContent(int i2, int i3, String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -38,33 +38,33 @@ public class BeanErrorContent {
                 return;
             }
         }
-        this.f24568a = i2;
-        this.f24569b = i3;
-        this.f24570c = str;
-        this.f24571d = obj;
+        this.f24678a = i2;
+        this.f24679b = i3;
+        this.f24680c = str;
+        this.f24681d = obj;
     }
 
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24568a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24678a : invokeV.intValue;
     }
 
     public Object getErrContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24571d : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24681d : invokeV.objValue;
     }
 
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24570c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24680c : (String) invokeV.objValue;
     }
 
     public int getRet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24569b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24679b : invokeV.intValue;
     }
 }

@@ -18,18 +18,18 @@ import com.bytedance.embedapplog.bi;
 import d.b.a.c1;
 import d.b.a.v0;
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a1 implements v0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final v0 f71648a;
+    public final v0 f68751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j0<Boolean> f71649b;
+    public j0<Boolean> f68752b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends j0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,16 +78,16 @@ public final class a1 implements v0 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b implements c1.b<bi, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f71650a;
+        public final /* synthetic */ Context f68753a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a1 f71651b;
+        public final /* synthetic */ a1 f68754b;
 
         public b(a1 a1Var, Context context) {
             Interceptable interceptable = $ic;
@@ -104,8 +104,8 @@ public final class a1 implements v0 {
                     return;
                 }
             }
-            this.f71651b = a1Var;
-            this.f71650a = context;
+            this.f68754b = a1Var;
+            this.f68753a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,11 +127,11 @@ public final class a1 implements v0 {
                 if (biVar == null) {
                     return null;
                 }
-                String c2 = this.f71651b.c(this.f71650a);
+                String c2 = this.f68754b.c(this.f68753a);
                 if (TextUtils.isEmpty(c2)) {
                     return null;
                 }
-                return biVar.a(this.f71650a.getPackageName(), c2, "OUID");
+                return biVar.a(this.f68753a.getPackageName(), c2, "OUID");
             }
             return (String) invokeL.objValue;
         }
@@ -160,14 +160,14 @@ public final class a1 implements v0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (this.f71648a != null && !this.f71649b.b(new Object[0]).booleanValue()) {
-                return this.f71648a.b(context);
+            if (this.f68751a != null && !this.f68752b.b(new Object[0]).booleanValue()) {
+                return this.f68751a.b(context);
             }
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
             v0.a aVar = new v0.a();
-            aVar.f71764a = (String) new c1(context, intent, new b(this, context)).a();
+            aVar.f68867a = (String) new c1(context, intent, new b(this, context)).a();
             return aVar;
         }
         return (v0.a) invokeL.objValue;
@@ -236,8 +236,8 @@ public final class a1 implements v0 {
                 return;
             }
         }
-        this.f71649b = new a(this);
-        this.f71648a = v0Var;
+        this.f68752b = new a(this);
+        this.f68751a = v0Var;
     }
 
     @Override // d.b.a.v0
@@ -248,9 +248,9 @@ public final class a1 implements v0 {
             if (context == null) {
                 return false;
             }
-            Boolean b2 = this.f71649b.b(context);
-            if (this.f71648a != null && !b2.booleanValue()) {
-                return this.f71648a.a(context);
+            Boolean b2 = this.f68752b.b(context);
+            if (this.f68751a != null && !b2.booleanValue()) {
+                return this.f68751a.a(context);
             }
             return b2.booleanValue();
         }

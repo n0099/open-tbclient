@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XActionBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BAR_HEIGHT = 46;
@@ -32,7 +32,7 @@ public class XActionBar extends RelativeLayout {
     public Paint paint;
     public TextView titleTextView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class CustomButtonView extends View {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MOVE_GAP = 8;
@@ -63,7 +63,7 @@ public class XActionBar extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class GoBackButtonView extends CustomButtonView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,14 +123,14 @@ public class XActionBar extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnButtonClickListener {
         void onGoBackBttonClick();
 
         void onThreePointButtonClick();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class ThreePointButtonView extends CustomButtonView {
         public static /* synthetic */ Interceptable $ic = null;
         public static final float POINT_RADIUS = 1.0f;

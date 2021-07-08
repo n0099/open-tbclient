@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TNCConfigHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TNCConfigHandler";

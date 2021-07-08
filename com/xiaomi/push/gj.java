@@ -14,19 +14,19 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class gj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static gj f43200a;
+    public static gj f40214a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
     public Map<String, Object> f438a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Object> f43201b;
+    public Map<String, Object> f40215b;
 
     public gj() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class gj {
             }
         }
         this.f438a = new ConcurrentHashMap();
-        this.f43201b = new ConcurrentHashMap();
+        this.f40215b = new ConcurrentHashMap();
         m351a();
     }
 
@@ -52,10 +52,10 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (gj.class) {
-                if (f43200a == null) {
-                    f43200a = new gj();
+                if (f40214a == null) {
+                    f40214a = new gj();
                 }
-                gjVar = f43200a;
+                gjVar = f40214a;
             }
             return gjVar;
         }
@@ -140,14 +140,14 @@ public class gj {
                                     newPullParser.next();
                                     String nextText3 = newPullParser.nextText();
                                     String a2 = a(nextText, nextText2);
-                                    if (!this.f43201b.containsKey(a2)) {
+                                    if (!this.f40215b.containsKey(a2)) {
                                         try {
                                             Class<?> cls = Class.forName(nextText3);
                                             if (gh.class.isAssignableFrom(cls)) {
-                                                map2 = this.f43201b;
+                                                map2 = this.f40215b;
                                                 obj2 = cls.newInstance();
                                             } else if (ga.class.isAssignableFrom(cls)) {
-                                                map2 = this.f43201b;
+                                                map2 = this.f40215b;
                                                 obj2 = cls;
                                             }
                                             map2.put(a2, obj2);

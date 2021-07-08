@@ -2,6 +2,7 @@ package com.baidu.sofire.utility;
 
 import android.accounts.NetworkErrorException;
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -26,19 +27,19 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f10508b;
+    public static final byte[] f10525b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f10509c;
+    public static OkHttpClient f10526c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10510a;
+    public Context f10527a;
 
     static {
         InterceptResult invokeClinit;
@@ -53,7 +54,7 @@ public class q {
                 return;
             }
         }
-        f10508b = new byte[1024];
+        f10525b = new byte[1024];
     }
 
     public q(Context context) {
@@ -71,16 +72,16 @@ public class q {
                 return;
             }
         }
-        this.f10510a = context;
+        this.f10527a = context;
     }
 
     private OkHttpClient a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (f10509c == null) {
+            if (f10526c == null) {
                 synchronized (q.class) {
-                    if (f10509c == null) {
+                    if (f10526c == null) {
                         OkHttpClient.Builder builder = new OkHttpClient.Builder();
                         builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
                         builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
@@ -89,7 +90,7 @@ public class q {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ q f10511a;
+                            public final /* synthetic */ q f10528a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -106,7 +107,7 @@ public class q {
                                         return;
                                     }
                                 }
-                                this.f10511a = this;
+                                this.f10528a = this;
                             }
 
                             @Override // okhttp3.Interceptor
@@ -122,11 +123,11 @@ public class q {
                                 return (Response) invokeL.objValue;
                             }
                         });
-                        f10509c = builder.build();
+                        f10526c = builder.build();
                     }
                 }
             }
-            return f10509c;
+            return f10526c;
         }
         return (OkHttpClient) invokeV.objValue;
     }
@@ -137,13 +138,13 @@ public class q {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bArr)) == null) {
             try {
                 MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-                String str2 = c.g(this.f10510a)[0];
+                String str2 = c.g(this.f10527a)[0];
                 Request.Builder url = new Request.Builder().url(str);
                 if (bArr != null) {
                     url.post(RequestBody.create(parse, bArr));
                 }
-                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f10510a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f10510a))).build();
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f10527a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f10527a))).build();
             } catch (Throwable unused) {
                 c.a();
                 return null;
@@ -157,7 +158,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
             try {
-                if (s.m(this.f10510a)) {
+                if (s.m(this.f10527a)) {
                     Response execute = a().newCall(b(str, bArr)).execute();
                     int code = execute.code();
                     if (code == 200) {
@@ -179,7 +180,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
             try {
-                if (s.m(this.f10510a)) {
+                if (s.m(this.f10527a)) {
                     Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
                     int code = execute.code();
                     if (code == 200) {
@@ -202,7 +203,7 @@ public class q {
     public static boolean a(InputStream inputStream, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65540, null, inputStream, file)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, file)) != null) {
             return invokeLL.booleanValue;
         }
         if (inputStream == null) {
@@ -211,9 +212,9 @@ public class q {
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f10508b);
+                int read = inputStream.read(f10525b);
                 if (read != -1) {
-                    bufferedOutputStream.write(f10508b, 0, read);
+                    bufferedOutputStream.write(f10525b, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();

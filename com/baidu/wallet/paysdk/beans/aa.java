@@ -17,13 +17,13 @@ import com.baidu.wallet.paysdk.datamodel.QueryBankBinResponse;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class aa extends PayBaseBean<QueryBankBinResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25843a;
+    public String f25953a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> aa(Context context) {
@@ -43,13 +43,13 @@ public class aa extends PayBaseBean<QueryBankBinResponse> {
                 return;
             }
         }
-        this.f25843a = "";
+        this.f25953a = "";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f25843a = str;
+            this.f25953a = str;
         }
     }
 
@@ -67,8 +67,8 @@ public class aa extends PayBaseBean<QueryBankBinResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f25843a)) {
-                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25843a)));
+            if (!TextUtils.isEmpty(this.f25953a)) {
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25953a)));
             }
             BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
             arrayList.add(new RestNameValuePair("source_flag", "3"));

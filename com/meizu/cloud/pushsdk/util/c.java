@@ -11,11 +11,11 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f40571a = Charset.forName("UTF-8");
+    public static final Charset f37585a = Charset.forName("UTF-8");
 
     public static String a(String str, String str2) {
         if (str != null) {
@@ -23,7 +23,7 @@ public class c {
                 if (TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                return new String(a(a(str), b(str2)), f40571a);
+                return new String(a(a(str), b(str2)), f37585a);
             } catch (Exception e2) {
                 d.h.a.a.a.b("RSAUtils", "decrypt " + e2.getMessage());
                 return null;

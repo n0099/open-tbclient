@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.EmotionType;
 import com.baidu.spswitch.emotion.EmotionUtils;
@@ -13,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SPSwitchConflictUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface SwitchClickListener {
         void onClickSwitch(View view, boolean z);
     }
@@ -149,7 +150,7 @@ public class SPSwitchConflictUtil {
     public static boolean isHandleByPlaceholder(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65540, null, z)) == null) ? z : invokeZ.booleanValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) ? z : invokeZ.booleanValue;
     }
 
     public static boolean showPanel(View view, View view2) {

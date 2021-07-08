@@ -23,31 +23,31 @@ import java.util.Random;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.ws.WebSocketProtocol;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f44522g;
+    public static long f41538g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Random f44523a;
+    public final Random f41539a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f44524b;
+    public final Handler f41540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Looper f44525c;
+    public final Looper f41541c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final e.a f44526d;
+    public final e.a f41542d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d0 f44527e;
+    public final d0 f41543e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final a f44528f;
+    public final a f41544f;
 
     static {
         InterceptResult invokeClinit;
@@ -82,19 +82,19 @@ public class g0 extends Handler {
                 return;
             }
         }
-        this.f44523a = new Random();
-        this.f44525c = looper;
-        this.f44524b = handler;
-        this.f44526d = aVar;
-        this.f44527e = d0Var;
-        this.f44528f = new a(d0Var.b() + 14, 262144);
+        this.f41539a = new Random();
+        this.f41541c = looper;
+        this.f41540b = handler;
+        this.f41542d = aVar;
+        this.f41543e = d0Var;
+        this.f41544f = new a(d0Var.b() + 14, 262144);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (g0.class) {
-                f44522g = 0L;
+                f41538g = 0L;
             }
         }
     }
@@ -116,7 +116,7 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (g0.class) {
-                j = f44522g;
+                j = f41538g;
             }
             return j;
         }
@@ -134,7 +134,7 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             byte[] bArr = new byte[16];
-            this.f44523a.nextBytes(bArr);
+            this.f41539a.nextBytes(bArr);
             return d.a.c.e.p.c.j(bArr);
         }
         return (String) invokeV.objValue;
@@ -143,9 +143,9 @@ public class g0 extends Handler {
     public final void f(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            Message obtainMessage = this.f44524b.obtainMessage();
+            Message obtainMessage = this.f41540b.obtainMessage();
             obtainMessage.obj = obj;
-            this.f44524b.sendMessage(obtainMessage);
+            this.f41540b.sendMessage(obtainMessage);
         }
     }
 
@@ -200,25 +200,25 @@ public class g0 extends Handler {
                 if (message.obj == null) {
                     return;
                 }
-                c cVar = message.obj instanceof s ? ((s) message.obj).f44563a : null;
-                this.f44528f.g();
+                c cVar = message.obj instanceof s ? ((s) message.obj).f41579a : null;
+                this.f41544f.g();
                 if (!h(message.obj)) {
                     f(new x(cVar));
                     return;
                 }
-                this.f44528f.r();
+                this.f41544f.r();
                 if (cVar != null) {
                     f(new b0(cVar));
                 }
-                while (this.f44528f.t() > 0) {
-                    if (this.f44526d == null) {
+                while (this.f41544f.t() > 0) {
+                    if (this.f41542d == null) {
                         f(new n(new SocketException("write socket = null")));
                         return;
                     }
-                    int write = this.f44526d.write(this.f44528f.s());
+                    int write = this.f41542d.write(this.f41544f.s());
                     if (write > 0) {
                         synchronized (g0.class) {
-                            f44522g += write;
+                            f41538g += write;
                         }
                     }
                 }
@@ -240,11 +240,11 @@ public class g0 extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                this.f44525c.quit();
+                this.f41541c.quit();
             } catch (Exception unused) {
             }
             try {
-                this.f44526d.close();
+                this.f41542d.close();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -254,8 +254,8 @@ public class g0 extends Handler {
     public final void j(k kVar) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, kVar) == null) {
-            if (kVar.f44549a.length <= this.f44527e.c()) {
-                m(2, true, kVar.f44549a);
+            if (kVar.f41565a.length <= this.f41543e.c()) {
+                m(2, true, kVar.f41565a);
                 return;
             }
             throw new WebSocketException("message payload exceeds payload limit");
@@ -265,51 +265,51 @@ public class g0 extends Handler {
     public final void k(l lVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, lVar) == null) {
-            this.f44528f.u("GET " + (lVar.f44554c != null ? lVar.f44553b + "?" + lVar.f44554c : lVar.f44553b) + " HTTP/1.1");
-            this.f44528f.n();
-            this.f44528f.u("Host: " + lVar.f44552a);
-            this.f44528f.n();
-            this.f44528f.u("Upgrade: WebSocket");
-            this.f44528f.n();
-            this.f44528f.u("Connection: Upgrade");
-            this.f44528f.n();
-            this.f44528f.u("Sec-WebSocket-Key: " + e());
-            this.f44528f.n();
-            d0 d0Var = this.f44527e;
-            if (d0Var != null && d0Var.i() != null && this.f44527e.i().length() > 0) {
-                this.f44528f.u("Sec-WebSocket-Extensions: " + this.f44527e.i());
-                this.f44528f.n();
+            this.f41544f.u("GET " + (lVar.f41570c != null ? lVar.f41569b + "?" + lVar.f41570c : lVar.f41569b) + " HTTP/1.1");
+            this.f41544f.n();
+            this.f41544f.u("Host: " + lVar.f41568a);
+            this.f41544f.n();
+            this.f41544f.u("Upgrade: WebSocket");
+            this.f41544f.n();
+            this.f41544f.u("Connection: Upgrade");
+            this.f41544f.n();
+            this.f41544f.u("Sec-WebSocket-Key: " + e());
+            this.f41544f.n();
+            d0 d0Var = this.f41543e;
+            if (d0Var != null && d0Var.i() != null && this.f41543e.i().length() > 0) {
+                this.f41544f.u("Sec-WebSocket-Extensions: " + this.f41543e.i());
+                this.f41544f.n();
             }
-            String str = lVar.f44555d;
+            String str = lVar.f41571d;
             if (str != null && !str.equals("")) {
-                this.f44528f.u("Origin: " + lVar.f44555d);
-                this.f44528f.n();
+                this.f41544f.u("Origin: " + lVar.f41571d);
+                this.f41544f.n();
             }
-            String[] strArr = lVar.f44556e;
+            String[] strArr = lVar.f41572e;
             if (strArr != null && strArr.length > 0) {
-                this.f44528f.u("Sec-WebSocket-Protocol: ");
+                this.f41544f.u("Sec-WebSocket-Protocol: ");
                 int i2 = 0;
                 while (true) {
-                    String[] strArr2 = lVar.f44556e;
+                    String[] strArr2 = lVar.f41572e;
                     if (i2 >= strArr2.length) {
                         break;
                     }
-                    this.f44528f.u(strArr2[i2]);
-                    this.f44528f.u(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    this.f41544f.u(strArr2[i2]);
+                    this.f41544f.u(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     i2++;
                 }
-                this.f44528f.n();
+                this.f41544f.n();
             }
-            this.f44528f.u("Sec-WebSocket-Version: 13");
-            this.f44528f.n();
-            List<BasicNameValuePair> list = lVar.f44557f;
+            this.f41544f.u("Sec-WebSocket-Version: 13");
+            this.f41544f.n();
+            List<BasicNameValuePair> list = lVar.f41573f;
             if (list != null) {
                 for (BasicNameValuePair basicNameValuePair : list) {
-                    this.f44528f.u(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
-                    this.f44528f.n();
+                    this.f41544f.u(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
+                    this.f41544f.n();
                 }
             }
-            this.f44528f.n();
+            this.f41544f.n();
         }
     }
 
@@ -317,19 +317,19 @@ public class g0 extends Handler {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, mVar) == null) {
-            if (mVar.f44558a > 0) {
-                String str = mVar.f44559b;
+            if (mVar.f41574a > 0) {
+                String str = mVar.f41575b;
                 if (str == null || str.equals("")) {
                     bArr = new byte[2];
                 } else {
-                    byte[] bytes = mVar.f44559b.getBytes("UTF-8");
+                    byte[] bytes = mVar.f41575b.getBytes("UTF-8");
                     bArr = new byte[bytes.length + 2];
                     for (int i2 = 0; i2 < bytes.length; i2++) {
                         bArr[i2 + 2] = bytes[i2];
                     }
                 }
                 if (bArr.length <= 125) {
-                    int i3 = mVar.f44558a;
+                    int i3 = mVar.f41574a;
                     bArr[0] = (byte) ((i3 >> 8) & 255);
                     bArr[1] = (byte) (i3 & 255);
                     m(8, true, bArr);
@@ -359,35 +359,35 @@ public class g0 extends Handler {
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), bArr, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             byte b3 = ByteCompanionObject.MIN_VALUE;
             if (z) {
-                b2 = (byte) com.alipay.sdk.encrypt.a.f1888g;
+                b2 = (byte) com.alipay.sdk.encrypt.a.f1889g;
                 i5 = i2;
             } else {
                 i5 = i2;
                 b2 = 0;
             }
-            this.f44528f.write((byte) (b2 | ((byte) i5)));
-            if (!this.f44527e.a()) {
+            this.f41544f.write((byte) (b2 | ((byte) i5)));
+            if (!this.f41543e.a()) {
                 b3 = 0;
             }
             long j = i4;
             if (j <= 125) {
-                this.f44528f.write((byte) (b3 | ((byte) j)));
+                this.f41544f.write((byte) (b3 | ((byte) j)));
             } else if (j <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                this.f44528f.write((byte) (b3 | 126));
-                this.f44528f.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (j & 255)});
+                this.f41544f.write((byte) (b3 | 126));
+                this.f41544f.write(new byte[]{(byte) ((j >> 8) & 255), (byte) (j & 255)});
             } else {
-                this.f44528f.write((byte) (b3 | ByteCompanionObject.MAX_VALUE));
-                this.f44528f.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (j & 255)});
+                this.f41544f.write((byte) (b3 | ByteCompanionObject.MAX_VALUE));
+                this.f41544f.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (j & 255)});
             }
-            if (this.f44527e.a()) {
-                this.f44528f.write(0);
-                this.f44528f.write(0);
-                this.f44528f.write(0);
-                this.f44528f.write(0);
+            if (this.f41543e.a()) {
+                this.f41544f.write(0);
+                this.f41544f.write(0);
+                this.f41544f.write(0);
+                this.f41544f.write(0);
             }
             if (j > 0) {
-                this.f44527e.a();
-                this.f44528f.write(bArr, i3, i4);
+                this.f41543e.a();
+                this.f41544f.write(bArr, i3, i4);
             }
         }
     }
@@ -396,11 +396,11 @@ public class g0 extends Handler {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, sVar)) == null) {
-            byte[] e2 = sVar.f44563a.e();
+            byte[] e2 = sVar.f41579a.e();
             if (e2 == null) {
                 return false;
             }
-            if (e2.length <= this.f44527e.c()) {
+            if (e2.length <= this.f41543e.c()) {
                 m(2, true, e2);
                 return true;
             }
@@ -412,30 +412,30 @@ public class g0 extends Handler {
     public final void p(t tVar) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, tVar) == null) {
-            byte[] bArr = tVar.f44564a;
+            byte[] bArr = tVar.f41580a;
             if (bArr != null && bArr.length > 125) {
                 throw new WebSocketException("ping payload exceeds 125 octets");
             }
-            m(9, true, tVar.f44564a);
+            m(9, true, tVar.f41580a);
         }
     }
 
     public final void q(u uVar) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, uVar) == null) {
-            byte[] bArr = uVar.f44565a;
+            byte[] bArr = uVar.f41581a;
             if (bArr != null && bArr.length > 125) {
                 throw new WebSocketException("pong payload exceeds 125 octets");
             }
-            m(10, true, uVar.f44565a);
+            m(10, true, uVar.f41581a);
         }
     }
 
     public final void r(w wVar) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, wVar) == null) {
-            if (wVar.f44567a.length <= this.f44527e.c()) {
-                m(1, true, wVar.f44567a);
+            if (wVar.f41583a.length <= this.f41543e.c()) {
+                m(1, true, wVar.f41583a);
                 return;
             }
             throw new WebSocketException("message payload exceeds payload limit");
@@ -445,8 +445,8 @@ public class g0 extends Handler {
     public final void s(c0 c0Var) throws IOException, WebSocketException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, c0Var) == null) {
-            byte[] bytes = c0Var.f44485a.getBytes("UTF-8");
-            if (bytes.length <= this.f44527e.c()) {
+            byte[] bytes = c0Var.f41501a.getBytes("UTF-8");
+            if (bytes.length <= this.f41543e.c()) {
                 m(1, true, bytes);
                 return;
             }

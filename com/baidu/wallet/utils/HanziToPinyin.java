@@ -2,6 +2,7 @@ package com.baidu.wallet.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Collator COLLATOR;
@@ -27,7 +28,7 @@ public class HanziToPinyin {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LATIN = 1;
@@ -145,7 +146,7 @@ public class HanziToPinyin {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (HanziToPinyin.class) {
                 if (sInstance != null) {
                     return sInstance;

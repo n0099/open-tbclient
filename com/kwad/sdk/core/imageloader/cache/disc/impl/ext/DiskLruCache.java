@@ -32,10 +32,12 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DiskLruCache implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANY_SEQUENCE_NUMBER = -1;
@@ -68,7 +70,7 @@ public final class DiskLruCache implements Closeable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +80,7 @@ public final class DiskLruCache implements Closeable {
         public final /* synthetic */ DiskLruCache this$0;
         public final boolean[] written;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +295,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -386,7 +388,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Snapshot implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -475,7 +477,7 @@ public final class DiskLruCache implements Closeable {
             }
         }
         LEGAL_KEY_PATTERN = Pattern.compile("[a-z0-9_-]{1,64}");
-        NULL_OUTPUT_STREAM = new OutputStream() { // from class: com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache.2
+        NULL_OUTPUT_STREAM = new OutputStream() { // from class: com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -506,7 +508,7 @@ public final class DiskLruCache implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
+            newInitContext.initArgs = r3;
             Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
@@ -521,8 +523,42 @@ public final class DiskLruCache implements Closeable {
         this.fileCount = 0;
         this.lruEntries = new LinkedHashMap<>(0, 0.75f, true);
         this.nextSequenceNumber = 0L;
-        this.executorService = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.cleanupCallable = new Callable<Void>(this) { // from class: com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache.1
+        this.executorService = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory(this) { // from class: com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final AtomicInteger poolNumber;
+            public final /* synthetic */ DiskLruCache this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i7 = newInitContext2.flag;
+                    if ((i7 & 1) != 0) {
+                        int i8 = i7 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.poolNumber = new AtomicInteger(1);
+            }
+
+            @Override // java.util.concurrent.ThreadFactory
+            public Thread newThread(Runnable runnable) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
+                    return new Thread(runnable, "ksad-DiskLruCache-" + this.poolNumber.getAndIncrement());
+                }
+                return (Thread) invokeL.objValue;
+            }
+        });
+        this.cleanupCallable = new Callable<Void>(this) { // from class: com.kwad.sdk.core.imageloader.cache.disc.impl.ext.DiskLruCache.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DiskLruCache this$0;

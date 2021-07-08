@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ViewUtilsLollipop {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] STATE_LIST_ANIM_ATTRS;
@@ -78,7 +79,7 @@ public class ViewUtilsLollipop {
 
     public static void setStateListAnimatorFromAttrs(@NonNull View view, AttributeSet attributeSet, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65540, null, view, attributeSet, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view, attributeSet, i2, i3) == null) {
             Context context = view.getContext();
             TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, STATE_LIST_ANIM_ATTRS, i2, i3, new int[0]);
             try {

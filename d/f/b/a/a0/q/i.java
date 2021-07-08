@@ -1,5 +1,6 @@
 package d.f.b.a.a0.q;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import d.f.b.a.i0.v;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f72294a;
+    public static final int[] f69397a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +30,7 @@ public final class i {
                 return;
             }
         }
-        f72294a = new int[]{v.q("isom"), v.q("iso2"), v.q("iso3"), v.q("iso4"), v.q("iso5"), v.q("iso6"), v.q(VisualSampleEntry.TYPE3), v.q("hvc1"), v.q("hev1"), v.q("mp41"), v.q("mp42"), v.q("3g2a"), v.q("3g2b"), v.q("3gr6"), v.q("3gs6"), v.q("3ge6"), v.q("3gg6"), v.q("M4V "), v.q("M4A "), v.q("f4v "), v.q("kddi"), v.q("M4VP"), v.q("qt  "), v.q("MSNV")};
+        f69397a = new int[]{v.q("isom"), v.q("iso2"), v.q("iso3"), v.q("iso4"), v.q("iso5"), v.q("iso6"), v.q(VisualSampleEntry.TYPE3), v.q("hvc1"), v.q("hev1"), v.q("mp41"), v.q("mp42"), v.q("3g2a"), v.q("3g2b"), v.q("3gr6"), v.q("3gs6"), v.q("3ge6"), v.q("3gg6"), v.q("M4V "), v.q("M4A "), v.q("f4v "), v.q("kddi"), v.q("M4VP"), v.q("qt  "), v.q("MSNV")};
     }
 
     public static boolean a(int i2) {
@@ -39,7 +40,7 @@ public final class i {
             if ((i2 >>> 8) == v.q("3gp")) {
                 return true;
             }
-            for (int i3 : f72294a) {
+            for (int i3 : f69397a) {
                 if (i3 == i2) {
                     return true;
                 }
@@ -71,12 +72,12 @@ public final class i {
             boolean z3 = false;
             while (i3 < i2) {
                 lVar.G(8);
-                fVar.c(lVar.f73386a, 0, 8);
+                fVar.c(lVar.f70489a, 0, 8);
                 long z4 = lVar.z();
                 int i4 = lVar.i();
                 int i5 = 16;
                 if (z4 == 1) {
-                    fVar.c(lVar.f73386a, 8, 8);
+                    fVar.c(lVar.f70489a, 8, 8);
                     lVar.I(16);
                     z4 = lVar.C();
                 } else {
@@ -102,12 +103,12 @@ public final class i {
                     } else {
                         int i6 = (int) (z4 - j2);
                         i3 += i6;
-                        if (i4 == a.f72204b) {
+                        if (i4 == a.f69307b) {
                             if (i6 < 8) {
                                 return false;
                             }
                             lVar.G(i6);
-                            fVar.c(lVar.f73386a, 0, i6);
+                            fVar.c(lVar.f70489a, 0, i6);
                             int i7 = i6 / 4;
                             int i8 = 0;
                             while (true) {
@@ -141,6 +142,6 @@ public final class i {
     public static boolean d(d.f.b.a.a0.f fVar) throws IOException, InterruptedException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, fVar)) == null) ? c(fVar, false) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar)) == null) ? c(fVar, false) : invokeL.booleanValue;
     }
 }

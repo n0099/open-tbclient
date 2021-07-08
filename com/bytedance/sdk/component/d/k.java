@@ -1,5 +1,5 @@
 package com.bytedance.sdk.component.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface k {
     void a(String str, com.bytedance.sdk.component.d.c.a aVar);
 

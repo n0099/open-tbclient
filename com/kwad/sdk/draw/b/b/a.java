@@ -7,33 +7,32 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f37069a;
+    public AdTemplate f35471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0444a f37070b;
+    public InterfaceC0434a f35472b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public b f37071c;
+    public b f35473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37072d;
+    public boolean f35474d;
 
     /* renamed from: com.kwad.sdk.draw.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0444a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0434a {
         void a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         boolean a();
     }
@@ -53,31 +52,31 @@ public class a {
                 return;
             }
         }
-        this.f37069a = adTemplate;
-        this.f37072d = false;
+        this.f35471a = adTemplate;
+        this.f35474d = false;
     }
 
     public void a() {
-        InterfaceC0444a interfaceC0444a;
+        InterfaceC0434a interfaceC0434a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37072d) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35474d) {
             return;
         }
-        this.f37072d = true;
-        if (com.kwad.sdk.core.response.b.c.j(this.f37069a).status == DOWNLOADSTAUS.START || com.kwad.sdk.core.response.b.c.j(this.f37069a).status == DOWNLOADSTAUS.DOWNLOADING || com.kwad.sdk.core.response.b.c.j(this.f37069a).status == DOWNLOADSTAUS.PROGRESS) {
+        this.f35474d = true;
+        if (com.kwad.sdk.core.response.b.c.i(this.f35471a).status == 1 || com.kwad.sdk.core.response.b.c.i(this.f35471a).status == 2 || com.kwad.sdk.core.response.b.c.i(this.f35471a).status == 3) {
             return;
         }
-        b bVar = this.f37071c;
-        if ((bVar == null || !bVar.a()) && (interfaceC0444a = this.f37070b) != null) {
-            interfaceC0444a.a();
+        b bVar = this.f35473c;
+        if ((bVar == null || !bVar.a()) && (interfaceC0434a = this.f35472b) != null) {
+            interfaceC0434a.a();
         }
     }
 
     @MainThread
-    public void a(InterfaceC0444a interfaceC0444a) {
+    public void a(InterfaceC0434a interfaceC0434a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0444a) == null) {
-            this.f37070b = interfaceC0444a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0434a) == null) {
+            this.f35472b = interfaceC0434a;
         }
     }
 
@@ -85,7 +84,7 @@ public class a {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f37071c = bVar;
+            this.f35473c = bVar;
         }
     }
 }

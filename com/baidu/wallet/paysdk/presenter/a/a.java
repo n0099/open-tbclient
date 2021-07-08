@@ -11,13 +11,13 @@ import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.a;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements a.InterfaceC0283a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f26116a;
+    public a.b f26226a;
 
     public a(a.b bVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements a.InterfaceC0283a {
                 return;
             }
         }
-        this.f26116a = bVar;
+        this.f26226a = bVar;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.InterfaceC0283a

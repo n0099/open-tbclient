@@ -1,10 +1,10 @@
 package com.baidu.livesdk.api.widget;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface LoadingView {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface LoadingViewListener {
         void onView(int i2, View view);
     }

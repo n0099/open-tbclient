@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.r.o;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTAdConstant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AD_MAX_EVENT_TIME = 600000;
@@ -58,22 +58,22 @@ public class TTAdConstant {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface NATIVE_AD_TYPE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface NETWORK_STATE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface ORIENTATION_STATE {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class RitScenes {
         public static /* synthetic */ Interceptable $ic;
         public static final RitScenes CUSTOMIZE_SCENES;
@@ -90,11 +90,11 @@ public class TTAdConstant {
         public static final RitScenes HOME_TRY_PROPS;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RitScenes[] f28928b;
+        public static final /* synthetic */ RitScenes[] f29038b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f28929a;
+        public final String f29039a;
 
         static {
             InterceptResult invokeClinit;
@@ -122,7 +122,7 @@ public class TTAdConstant {
             GAME_FINISH_REWARDS = new RitScenes("GAME_FINISH_REWARDS", 10, "game_finish_rewards");
             RitScenes ritScenes = new RitScenes("GAME_GIFT_BONUS", 11, "game_gift_bonus");
             GAME_GIFT_BONUS = ritScenes;
-            f28928b = new RitScenes[]{CUSTOMIZE_SCENES, HOME_OPEN_BONUS, HOME_SVIP_BONUS, HOME_GET_PROPS, HOME_TRY_PROPS, HOME_GET_BONUS, HOME_GIFT_BONUS, GAME_START_BONUS, GAME_REDUCE_WAITING, GAME_MORE_KLLKRTUNITIES, GAME_FINISH_REWARDS, ritScenes};
+            f29038b = new RitScenes[]{CUSTOMIZE_SCENES, HOME_OPEN_BONUS, HOME_SVIP_BONUS, HOME_GET_PROPS, HOME_TRY_PROPS, HOME_GET_BONUS, HOME_GIFT_BONUS, GAME_START_BONUS, GAME_REDUCE_WAITING, GAME_MORE_KLLKRTUNITIES, GAME_FINISH_REWARDS, ritScenes};
         }
 
         public RitScenes(String str, int i2, String str2) {
@@ -143,7 +143,7 @@ public class TTAdConstant {
                     return;
                 }
             }
-            this.f28929a = str2;
+            this.f29039a = str2;
         }
 
         public static RitScenes valueOf(String str) {
@@ -155,18 +155,18 @@ public class TTAdConstant {
         public static RitScenes[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RitScenes[]) f28928b.clone() : (RitScenes[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RitScenes[]) f29038b.clone() : (RitScenes[]) invokeV.objValue;
         }
 
         public String getScenesName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28929a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29039a : (String) invokeV.objValue;
         }
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface TITLE_BAR_THEME {
     }
 

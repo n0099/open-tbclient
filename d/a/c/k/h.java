@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f44925a;
+    public static final Interpolator f41941a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class h {
                 return;
             }
         }
-        f44925a = new a();
+        f41941a = new a();
     }
 
     public static int a(float f2, float f3, boolean z) {
@@ -69,9 +69,9 @@ public abstract class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
             if (z) {
-                interpolation = f2 - (f44925a.getInterpolation(f3 / (f3 - f2)) * f2);
+                interpolation = f2 - (f41941a.getInterpolation(f3 / (f3 - f2)) * f2);
             } else {
-                interpolation = f2 * f44925a.getInterpolation(f3 / f2);
+                interpolation = f2 * f41941a.getInterpolation(f3 / f2);
             }
             return (int) interpolation;
         }

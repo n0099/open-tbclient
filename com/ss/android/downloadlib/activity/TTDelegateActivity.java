@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -38,33 +39,33 @@ import d.l.a.e.a.d;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d.l.a.d.i.a.a f41300d;
+    public static d.l.a.d.i.a.a f38314d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Intent f41301a;
+    public Intent f38315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f41302b;
+    public boolean f38316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.l.a.b.a.c.b f41303c;
+    public d.l.a.b.a.c.b f38317c;
 
-    /* loaded from: classes7.dex */
-    public class b implements c.InterfaceC2044c {
+    /* loaded from: classes6.dex */
+    public class b implements c.InterfaceC2012c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.b.a.c.b f41307a;
+        public final /* synthetic */ d.l.a.b.a.c.b f38321a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TTDelegateActivity f41308b;
+        public final /* synthetic */ TTDelegateActivity f38322b;
 
         public b(TTDelegateActivity tTDelegateActivity, d.l.a.b.a.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -81,35 +82,35 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     return;
                 }
             }
-            this.f41308b = tTDelegateActivity;
-            this.f41307a = bVar;
+            this.f38322b = tTDelegateActivity;
+            this.f38321a = bVar;
         }
 
-        @Override // d.l.a.a.a.f.c.InterfaceC2044c
+        @Override // d.l.a.a.a.f.c.InterfaceC2012c
         public void a(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                e.c.a().v("market_openapp_cancel", this.f41307a);
+                c.d.j(this.f38321a);
                 dialogInterface.dismiss();
-                d.q(this.f41308b);
+                d.q(this.f38322b);
             }
         }
 
-        @Override // d.l.a.a.a.f.c.InterfaceC2044c
+        @Override // d.l.a.a.a.f.c.InterfaceC2012c
         public void b(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                c.d.j(this.f41307a);
+                e.c.a().v("market_openapp_cancel", this.f38321a);
                 dialogInterface.dismiss();
-                d.q(this.f41308b);
+                d.q(this.f38322b);
             }
         }
 
-        @Override // d.l.a.a.a.f.c.InterfaceC2044c
+        @Override // d.l.a.a.a.f.c.InterfaceC2012c
         public void c(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                d.q(this.f41308b);
+                d.q(this.f38322b);
             }
         }
     }
@@ -127,7 +128,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 return;
             }
         }
-        this.f41301a = null;
+        this.f38315a = null;
     }
 
     public static void a(String str, String[] strArr) {
@@ -176,7 +177,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             b();
-            this.f41301a = getIntent();
+            this.f38315a = getIntent();
             l.n(this);
             a();
         }
@@ -188,7 +189,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             super.onNewIntent(intent);
             setIntent(intent);
-            this.f41301a = intent;
+            this.f38315a = intent;
             l.n(this);
             a();
         }
@@ -209,26 +210,26 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            if (!this.f41302b || this.f41303c == null || (d2 = h.b(null).d(this.f41303c.a())) == null || d2.getCurBytes() < d2.getTotalBytes() || isFinishing()) {
+            if (!this.f38316b || this.f38317c == null || (d2 = h.b(null).d(this.f38317c.a())) == null || d2.getCurBytes() < d2.getTotalBytes() || isFinishing()) {
                 return;
             }
             finish();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Activity> f41304a;
+        public WeakReference<Activity> f38318a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f41305b;
+        public final /* synthetic */ String f38319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TTDelegateActivity f41306c;
+        public final /* synthetic */ TTDelegateActivity f38320c;
 
         public a(TTDelegateActivity tTDelegateActivity, String str) {
             Interceptable interceptable = $ic;
@@ -245,17 +246,17 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     return;
                 }
             }
-            this.f41306c = tTDelegateActivity;
-            this.f41305b = str;
-            this.f41304a = new WeakReference<>(this.f41306c);
+            this.f38320c = tTDelegateActivity;
+            this.f38319b = str;
+            this.f38318a = new WeakReference<>(this.f38320c);
         }
 
         @Override // d.l.a.a.a.c.t
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h.p.a(this.f41305b);
-                d.q(this.f41304a.get());
+                h.p.a(this.f38319b);
+                d.q(this.f38318a.get());
             }
         }
 
@@ -263,8 +264,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                h.p.c(this.f41305b, str);
-                d.q(this.f41304a.get());
+                h.p.c(this.f38319b, str);
+                d.q(this.f38318a.get());
             }
         }
     }
@@ -273,11 +274,11 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            long longExtra = this.f41301a.getLongExtra("model_id", 0L);
-            String stringExtra = this.f41301a.getStringExtra("message_text");
-            String stringExtra2 = this.f41301a.getStringExtra("positive_button_text");
-            String stringExtra3 = this.f41301a.getStringExtra("negative_button_text");
-            int intExtra = this.f41301a.getIntExtra("type", 0);
+            long longExtra = this.f38315a.getLongExtra("model_id", 0L);
+            String stringExtra = this.f38315a.getStringExtra("message_text");
+            String stringExtra2 = this.f38315a.getStringExtra("positive_button_text");
+            String stringExtra3 = this.f38315a.getStringExtra("negative_button_text");
+            int intExtra = this.f38315a.getIntExtra("type", 0);
             d.l.a.b.a.c.b u = c.g.e().u(longExtra);
             d.c cVar = new d.c(this);
             cVar.c(false);
@@ -303,8 +304,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f41302b = true;
-            this.f41303c = u;
+            this.f38316b = true;
+            this.f38317c = u;
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("pause_optimise_type", str);
@@ -379,8 +380,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         cVar.c(false);
         cVar.a(n.a());
         cVar.d().show();
-        this.f41302b = true;
-        this.f41303c = u;
+        this.f38316b = true;
+        this.f38317c = u;
     }
 
     public static void a(d.l.a.b.a.c.a aVar) {
@@ -398,11 +399,11 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
 
     public static void a(d.l.a.b.a.c.a aVar, d.l.a.d.i.a.a aVar2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, aVar, aVar2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, aVar2) == null) {
             Intent c2 = c(aVar);
             c2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             c2.putExtra("type", 9);
-            f41300d = aVar2;
+            f38314d = aVar2;
             if (l.a() != null) {
                 l.a().startActivity(c2);
             }
@@ -539,15 +540,15 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void a() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = this.f41301a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = this.f38315a) == null) {
             return;
         }
         switch (intent.getIntExtra("type", 0)) {
             case 1:
-                b(this.f41301a.getStringExtra("permission_id_key"), this.f41301a.getStringArrayExtra("permission_content_key"));
+                b(this.f38315a.getStringExtra("permission_id_key"), this.f38315a.getStringArrayExtra("permission_content_key"));
                 break;
             case 2:
-                a(this.f41301a.getStringExtra("open_url"));
+                a(this.f38315a.getStringExtra("open_url"));
                 break;
             case 3:
             case 6:
@@ -555,34 +556,34 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 d.l.a.e.a.d.q(this);
                 break;
             case 4:
-                c(this.f41301a.getLongExtra("model_id", 0L));
+                c(this.f38315a.getLongExtra("model_id", 0L));
                 break;
             case 5:
-                b(this.f41301a.getLongExtra("model_id", 0L));
+                b(this.f38315a.getLongExtra("model_id", 0L));
                 break;
             case 7:
             case 8:
                 c();
                 break;
             case 9:
-                d.l.a.d.i.a.a aVar = f41300d;
+                d.l.a.d.i.a.a aVar = f38314d;
                 if (aVar != null) {
                     aVar.a();
                 }
                 d.l.a.e.a.d.q(this);
                 break;
             case 10:
-                d(this.f41301a.getLongExtra("app_info_id", 0L));
+                d(this.f38315a.getLongExtra("app_info_id", 0L));
                 break;
             case 11:
-                b(this.f41301a.getStringExtra("package_name"));
+                b(this.f38315a.getStringExtra("package_name"));
                 break;
             case 12:
-                h.n.h(this, this.f41301a.getStringExtra("package_name"), this.f41301a.getLongExtra("model_id", 0L), this.f41301a.getStringExtra("param"), this.f41301a.getStringExtra("ext_json"));
+                h.n.h(this, this.f38315a.getStringExtra("package_name"), this.f38315a.getLongExtra("model_id", 0L), this.f38315a.getStringExtra("param"), this.f38315a.getStringExtra("ext_json"));
                 d.l.a.e.a.d.q(this);
                 break;
         }
-        this.f41301a = null;
+        this.f38315a = null;
     }
 
     private void a(String str) {

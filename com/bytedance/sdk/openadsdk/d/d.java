@@ -12,16 +12,16 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f30896a;
+    public long f31006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30897b;
+    public volatile boolean f31007b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class d extends b {
                 return;
             }
         }
-        this.f30896a = 83886080L;
-        this.f30897b = false;
+        this.f31006a = 83886080L;
+        this.f31007b = false;
     }
 
     private void c(List<File> list) {
@@ -67,7 +67,7 @@ public class d extends b {
                 }
                 boolean a3 = a(file, b2, size);
                 if (a3) {
-                    j.c("TotalSizeLruDiskUsage", "当前总大小totalSize：" + ((b2 / 1024) / 1024) + "MB，最大值存储上限maxSize=" + ((this.f30896a / 1024) / 1024) + "MB，当前文件的总大小totalSize已小于等于maxSize一半，停止删除操作：minStopDeleteCondition=" + a3);
+                    j.c("TotalSizeLruDiskUsage", "当前总大小totalSize：" + ((b2 / 1024) / 1024) + "MB，最大值存储上限maxSize=" + ((this.f31006a / 1024) / 1024) + "MB，当前文件的总大小totalSize已小于等于maxSize一半，停止删除操作：minStopDeleteCondition=" + a3);
                     return;
                 }
             }
@@ -107,7 +107,7 @@ public class d extends b {
                     }
                     boolean a3 = a(b2);
                     if (a3) {
-                        j.c("splashLoadAd", "当前总大小totalSize：" + ((((float) b2) / 1024.0f) / 1024.0f) + "MB，最大值存储上限maxSize=" + ((((float) this.f30896a) / 1024.0f) / 1024.0f) + "MB，当前文件的总大小totalSize已小于等于maxSize的80%，停止删除操作：minStopDeleteCondition=" + a3);
+                        j.c("splashLoadAd", "当前总大小totalSize：" + ((((float) b2) / 1024.0f) / 1024.0f) + "MB，最大值存储上限maxSize=" + ((((float) this.f31006a) / 1024.0f) / 1024.0f) + "MB，当前文件的总大小totalSize已小于等于maxSize的80%，停止删除操作：minStopDeleteCondition=" + a3);
                         return;
                     }
                 }
@@ -130,7 +130,7 @@ public class d extends b {
     public boolean a(long j, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? j < this.f30896a : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? j < this.f31006a : invokeCommon.booleanValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.b
@@ -138,8 +138,8 @@ public class d extends b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{file, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            j.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f30896a);
-            return j < this.f30896a / 2;
+            j.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f31006a);
+            return j < this.f31006a / 2;
         }
         return invokeCommon.booleanValue;
     }
@@ -159,18 +159,18 @@ public class d extends b {
                 return;
             }
         }
-        this.f30896a = j;
+        this.f31006a = j;
         if (j <= 0) {
-            this.f30896a = 83886080L;
+            this.f31006a = 83886080L;
         }
-        this.f30897b = z;
+        this.f31007b = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.b
     public void a(List<File> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (this.f30897b) {
+            if (this.f31007b) {
                 d(list);
             } else {
                 c(list);
@@ -182,7 +182,7 @@ public class d extends b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            j.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f30896a + " 最小内存 minSize 18874368");
+            j.f("splashLoadAd", "缓存的最大内存 maxSize " + this.f31006a + " 最小内存 minSize 18874368");
             return j <= 18874368;
         }
         return invokeJ.booleanValue;

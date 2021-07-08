@@ -348,7 +348,7 @@ public class LongSparseArray<E> implements Cloneable {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
                 sb.append(keyAt(i2));
-                sb.append(a.f1889h);
+                sb.append(a.f1890h);
                 E valueAt = valueAt(i2);
                 if (valueAt != this) {
                     sb.append(valueAt);

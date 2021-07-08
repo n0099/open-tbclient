@@ -1,5 +1,6 @@
 package com.baidu.searchbox.pms.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.bean.DegradeData;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
@@ -15,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatisticUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +100,7 @@ public class StatisticUtils {
 
     public static void sendDownload(PackageInfo packageInfo, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65540, null, packageInfo, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, packageInfo, i2) == null) {
             sendDownload(packageInfo, new ErrorInfo(i2));
         }
     }

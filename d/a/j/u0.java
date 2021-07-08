@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class u0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,18 +21,18 @@ public class u0 extends h {
     public int m;
     public VoteView n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.q.a f45807e;
+        public final /* synthetic */ d.a.o0.r.q.a f42699e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ u0 f45808f;
+        public final /* synthetic */ u0 f42700f;
 
-        public a(u0 u0Var, d.a.r0.r.q.a aVar) {
+        public a(u0 u0Var, d.a.o0.r.q.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,15 +47,15 @@ public class u0 extends h {
                     return;
                 }
             }
-            this.f45808f = u0Var;
-            this.f45807e = aVar;
+            this.f42700f = u0Var;
+            this.f42699e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadCardUtils.jumpToPB(this.f45807e, (Context) this.f45808f.l.getPageActivity(), this.f45808f.m, false);
+                ThreadCardUtils.jumpToPB(this.f42699e, (Context) this.f42700f.l.getPageActivity(), this.f42700f.m, false);
             }
         }
     }
@@ -97,7 +97,7 @@ public class u0 extends h {
         }
     }
 
-    public final boolean u(d.a.r0.r.q.a aVar) {
+    public final boolean u(d.a.o0.r.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().D0() == null || aVar.getThreadData().D0().getOptions() == null || aVar.getThreadData().D0().getOptions().size() <= 0 || aVar.getThreadData().q2()) ? false : true : invokeL.booleanValue;
@@ -106,7 +106,7 @@ public class u0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: v */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             if (u(aVar)) {

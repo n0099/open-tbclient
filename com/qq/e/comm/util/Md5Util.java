@@ -1,6 +1,7 @@
 package com.qq.e.comm.util;
 
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Md5Util {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f41066a;
+    public static final String[] f38080a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +34,7 @@ public class Md5Util {
                 return;
             }
         }
-        f41066a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        f38080a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
     public Md5Util() {
@@ -59,7 +60,7 @@ public class Md5Util {
                 if (i2 < 0) {
                     i2 += 256;
                 }
-                stringBuffer.append(f41066a[i2 / 16] + f41066a[i2 % 16]);
+                stringBuffer.append(f38080a[i2 / 16] + f38080a[i2 % 16]);
             }
             return stringBuffer.toString();
         }
@@ -124,7 +125,7 @@ public class Md5Util {
         String str2;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
             return (String) invokeL.objValue;
         }
         try {

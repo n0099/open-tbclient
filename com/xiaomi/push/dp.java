@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dp extends dq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42970a;
+    public String f39984a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dp(Context context, int i2, String str) {
@@ -39,17 +39,17 @@ public class dp extends dq {
                 return;
             }
         }
-        this.f42970a = str;
+        this.f39984a = str;
     }
 
     private String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (TextUtils.isEmpty(this.f42970a)) {
+            if (TextUtils.isEmpty(this.f39984a)) {
                 return null;
             }
-            String b2 = bj.b(this.f42970a);
+            String b2 = bj.b(this.f39984a);
             if (TextUtils.isEmpty(b2)) {
                 return null;
             }

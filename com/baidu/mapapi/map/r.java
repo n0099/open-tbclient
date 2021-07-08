@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class r implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ViewGroup.LayoutParams f7176a;
+    public final /* synthetic */ ViewGroup.LayoutParams f7193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f7177b;
+    public final /* synthetic */ SwipeDismissTouchListener f7194b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
                 return;
             }
         }
-        this.f7177b = swipeDismissTouchListener;
-        this.f7176a = layoutParams;
+        this.f7194b = swipeDismissTouchListener;
+        this.f7193a = layoutParams;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -42,9 +42,9 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            this.f7176a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            view = this.f7177b.f7072e;
-            view.setLayoutParams(this.f7176a);
+            this.f7193a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+            view = this.f7194b.f7089e;
+            view.setLayoutParams(this.f7193a);
         }
     }
 }

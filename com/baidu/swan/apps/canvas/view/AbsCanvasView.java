@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsCanvasView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f10880e;
+    public boolean f10897e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AbsCanvasView(Context context) {
@@ -41,7 +41,7 @@ public abstract class AbsCanvasView extends View {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10880e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f10897e : invokeV.booleanValue;
     }
 
     public void setGesture(boolean z) {
@@ -59,7 +59,7 @@ public abstract class AbsCanvasView extends View {
     public void setInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f10880e = z;
+            this.f10897e = z;
         }
     }
 
@@ -103,6 +103,6 @@ public abstract class AbsCanvasView extends View {
                 return;
             }
         }
-        this.f10880e = false;
+        this.f10897e = false;
     }
 }

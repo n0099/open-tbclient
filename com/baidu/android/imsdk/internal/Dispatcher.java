@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -236,7 +237,7 @@ public class Dispatcher {
     public static void dispatchMessage(Context context, int i2, ArrayList<ChatMsg> arrayList) {
         List<MsgListener> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65540, null, context, i2, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, arrayList) == null) {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("start dispatchMessage ");

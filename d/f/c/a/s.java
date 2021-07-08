@@ -5,18 +5,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f73711a = 1;
+    public static final int f70814a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f73712b = 2;
+    public static final int f70815b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f73713c = 3;
+    public static final int f70816c = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

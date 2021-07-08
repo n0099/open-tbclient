@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public abstract class aa {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, vVar, str)) == null) {
-            Charset charset = com.bytedance.sdk.component.b.b.a.c.f28115e;
+            Charset charset = com.bytedance.sdk.component.b.b.a.c.f28225e;
             if (vVar != null && (charset = vVar.a()) == null) {
-                charset = com.bytedance.sdk.component.b.b.a.c.f28115e;
+                charset = com.bytedance.sdk.component.b.b.a.c.f28225e;
                 vVar = v.a(vVar + "; charset=utf-8");
             }
             return a(vVar, str.getBytes(charset));
@@ -71,16 +71,16 @@ public abstract class aa {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ v f28377a;
+                    public final /* synthetic */ v f28487a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f28378b;
+                    public final /* synthetic */ int f28488b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ byte[] f28379c;
+                    public final /* synthetic */ byte[] f28489c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ int f28380d;
+                    public final /* synthetic */ int f28490d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -97,31 +97,31 @@ public abstract class aa {
                                 return;
                             }
                         }
-                        this.f28377a = vVar;
-                        this.f28378b = i3;
-                        this.f28379c = bArr;
-                        this.f28380d = i2;
+                        this.f28487a = vVar;
+                        this.f28488b = i3;
+                        this.f28489c = bArr;
+                        this.f28490d = i2;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.aa
                     public v a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28377a : (v) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28487a : (v) invokeV.objValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.aa
                     public long b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28378b : invokeV.longValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28488b : invokeV.longValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.aa
                     public void a(com.bytedance.sdk.component.b.a.d dVar) throws IOException {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-                            dVar.c(this.f28379c, this.f28380d, this.f28378b);
+                            dVar.c(this.f28489c, this.f28490d, this.f28488b);
                         }
                     }
                 };

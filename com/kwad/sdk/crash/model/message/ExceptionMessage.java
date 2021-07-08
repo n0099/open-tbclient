@@ -13,10 +13,10 @@ import com.baidu.webkit.sdk.SevenZipUtils;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.crash.utils.i;
 import com.kwad.sdk.crash.utils.j;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ExceptionMessage implements b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5338556142957298914L;
@@ -131,6 +131,7 @@ public abstract class ExceptionMessage implements b, Serializable {
         return (String) invokeV.objValue;
     }
 
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
@@ -173,35 +174,35 @@ public abstract class ExceptionMessage implements b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "mCrashDetail", this.mCrashDetail);
-            o.a(jSONObject, "mMemoryInfo", this.mMemoryInfo);
-            o.a(jSONObject, "mDiskInfo", this.mDiskInfo);
-            o.a(jSONObject, "mProcessName", this.mProcessName);
-            o.a(jSONObject, "mCrashType", this.mCrashType);
-            o.a(jSONObject, "mThreadName", this.mThreadName);
-            o.a(jSONObject, "mIsAppOnForeground", this.mIsAppOnForeground);
-            o.a(jSONObject, "mLogUUID", this.mLogUUID);
-            o.a(jSONObject, "mVirtualApp", this.mVirtualApp);
-            o.a(jSONObject, "mCustomMsg", this.mCustomMsg);
-            o.a(jSONObject, "mThreadOverflow", this.mThreadOverflow);
-            o.a(jSONObject, "mFdOverflow", this.mFdOverflow);
-            o.a(jSONObject, "mTaskId", this.mTaskId);
-            o.a(jSONObject, "mErrorMessage", this.mErrorMessage);
-            o.a(jSONObject, "mCurrentTimeStamp", this.mCurrentTimeStamp);
-            o.a(jSONObject, "mUsageTimeMills", this.mUsageTimeMills);
-            o.a(jSONObject, "mPid", this.mPid);
-            o.a(jSONObject, "mTid", this.mTid);
-            o.a(jSONObject, "mVersionCode", this.mVersionCode);
-            o.a(jSONObject, "mVersionConflict", this.mVersionConflict);
-            o.a(jSONObject, "mAppVersionBeforeLastUpload", this.mAppVersionBeforeLastUpload);
-            o.a(jSONObject, "mJNIError", this.mJNIError);
-            o.a(jSONObject, "mGCInfo", this.mGCInfo);
-            o.a(jSONObject, "mLockInfo", this.mLockInfo);
-            o.a(jSONObject, "mMonitorInfo", this.mMonitorInfo);
-            o.a(jSONObject, "mSlowLooper", this.mSlowLooper);
-            o.a(jSONObject, "mSlowOperation", this.mSlowOperation);
-            o.a(jSONObject, "mBuildConfigInfo", this.mBuildConfigInfo);
-            o.a(jSONObject, "mAbi", this.mAbi);
+            q.a(jSONObject, "mCrashDetail", this.mCrashDetail);
+            q.a(jSONObject, "mMemoryInfo", this.mMemoryInfo);
+            q.a(jSONObject, "mDiskInfo", this.mDiskInfo);
+            q.a(jSONObject, "mProcessName", this.mProcessName);
+            q.a(jSONObject, "mCrashType", this.mCrashType);
+            q.a(jSONObject, "mThreadName", this.mThreadName);
+            q.a(jSONObject, "mIsAppOnForeground", this.mIsAppOnForeground);
+            q.a(jSONObject, "mLogUUID", this.mLogUUID);
+            q.a(jSONObject, "mVirtualApp", this.mVirtualApp);
+            q.a(jSONObject, "mCustomMsg", this.mCustomMsg);
+            q.a(jSONObject, "mThreadOverflow", this.mThreadOverflow);
+            q.a(jSONObject, "mFdOverflow", this.mFdOverflow);
+            q.a(jSONObject, "mTaskId", this.mTaskId);
+            q.a(jSONObject, "mErrorMessage", this.mErrorMessage);
+            q.a(jSONObject, "mCurrentTimeStamp", this.mCurrentTimeStamp);
+            q.a(jSONObject, "mUsageTimeMills", this.mUsageTimeMills);
+            q.a(jSONObject, "mPid", this.mPid);
+            q.a(jSONObject, "mTid", this.mTid);
+            q.a(jSONObject, "mVersionCode", this.mVersionCode);
+            q.a(jSONObject, "mVersionConflict", this.mVersionConflict);
+            q.a(jSONObject, "mAppVersionBeforeLastUpload", this.mAppVersionBeforeLastUpload);
+            q.a(jSONObject, "mJNIError", this.mJNIError);
+            q.a(jSONObject, "mGCInfo", this.mGCInfo);
+            q.a(jSONObject, "mLockInfo", this.mLockInfo);
+            q.a(jSONObject, "mMonitorInfo", this.mMonitorInfo);
+            q.a(jSONObject, "mSlowLooper", this.mSlowLooper);
+            q.a(jSONObject, "mSlowOperation", this.mSlowOperation);
+            q.a(jSONObject, "mBuildConfigInfo", this.mBuildConfigInfo);
+            q.a(jSONObject, "mAbi", this.mAbi);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

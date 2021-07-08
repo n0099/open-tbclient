@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RTCBitrateTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,25 +56,25 @@ public class RTCBitrateTracker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null) {
-                try {
-                    if (str.indexOf("Mbps") != -1) {
-                        return (int) Math.round(Double.parseDouble(str.substring(0, str.indexOf("Mbps"))) * 1000000.0d);
-                    }
-                    if (str.indexOf("Kbps") != -1) {
-                        return (int) (Integer.parseInt(str.substring(0, str.indexOf("Kbps"))) * 1000.0d);
-                    }
-                    if (str.indexOf("bps") != -1) {
-                        return Integer.parseInt(str.substring(0, str.indexOf("bps")));
-                    }
-                    Log.e("BRTC", "illegal input num");
-                    return -1;
-                } catch (NumberFormatException e2) {
-                    Log.e("RTCBitrateTracker", "bitrateToString dataFormat error: " + e2);
-                    return -1;
-                }
+            if (str == null) {
+                return -1;
             }
-            throw new IllegalArgumentException();
+            try {
+                if (str.indexOf("Mbps") != -1) {
+                    return (int) Math.round(Double.parseDouble(str.substring(0, str.indexOf("Mbps"))) * 1000000.0d);
+                }
+                if (str.indexOf("Kbps") != -1) {
+                    return (int) (Integer.parseInt(str.substring(0, str.indexOf("Kbps"))) * 1000.0d);
+                }
+                if (str.indexOf("bps") != -1) {
+                    return Integer.parseInt(str.substring(0, str.indexOf("bps")));
+                }
+                Log.e("BRTC", "illegal input num");
+                return -1;
+            } catch (NumberFormatException e2) {
+                Log.e("RTCBitrateTracker", "bitrateToString dataFormat error: " + e2);
+                return -1;
+            }
         }
         return invokeL.intValue;
     }

@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class m1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final m1 f42610c;
+    public static final m1 f39624c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f42611a;
+    public double f39625a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f42612b;
+    public double f39626b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class m1 {
                 return;
             }
         }
-        f42610c = new m1();
+        f39624c = new m1();
     }
 
     public m1() {

@@ -1,6 +1,7 @@
 package com.baidu.pass.http;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -25,31 +26,31 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9323a = "HttpStack";
+    public static final String f9340a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9324b = "Set-Cookie";
+    public static final String f9341b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f9325c;
+    public static final char[] f9342c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9326d = "User-Agent";
+    public static final String f9343d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9327e = 15000;
+    public static final int f9344e = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9328f;
+    public String f9345f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9329g;
+    public boolean f9346g;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +65,7 @@ public class b {
                 return;
             }
         }
-        f9325c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f9342c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public b() {
@@ -80,8 +81,8 @@ public class b {
                 return;
             }
         }
-        this.f9328f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.f9329g = false;
+        this.f9345f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+        this.f9346g = false;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
@@ -117,7 +118,7 @@ public class b {
             return;
         }
         a();
-        int i2 = a.f9322a[passHttpClientRequest.method.ordinal()];
+        int i2 = a.f9339a[passHttpClientRequest.method.ordinal()];
         OutputStream outputStream = null;
         if (i2 == 1) {
             a2 = a(passHttpClientRequest.paramDTO);
@@ -200,7 +201,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
             HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
             if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9328f);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f9345f);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
                 if (httpHashMap2 != null) {
@@ -211,7 +212,7 @@ public class b {
                     }
                 }
                 MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.f9309a, aVar.f9310b, aVar.f9312d, aVar.f9311c);
+                a(byteArrayOutputStream, aVar.f9326a, aVar.f9327b, aVar.f9329d, aVar.f9328c);
                 a(byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (httpHashMap instanceof HttpHashMap) {
@@ -226,7 +227,7 @@ public class b {
     private HttpURLConnection a(PassHttpParamDTO passHttpParamDTO) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, passHttpParamDTO)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, passHttpParamDTO)) == null) {
             String a2 = a(passHttpParamDTO.paramsMap);
             if (!TextUtils.isEmpty(a2)) {
                 passHttpParamDTO.url += "?" + a2;
@@ -326,10 +327,10 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f9325c;
+                char[] cArr = f9342c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            this.f9328f = sb.toString();
+            this.f9345f = sb.toString();
         }
     }
 
@@ -339,13 +340,13 @@ public class b {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f9325c;
+                char[] cArr = f9342c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            byte[] bytes = ("\r\n--" + this.f9328f + Part.CRLF).getBytes();
-            if (!this.f9329g) {
-                this.f9329g = true;
-                byteArrayOutputStream.write(("--" + this.f9328f + Part.CRLF).getBytes());
+            byte[] bytes = ("\r\n--" + this.f9345f + Part.CRLF).getBytes();
+            if (!this.f9346g) {
+                this.f9346g = true;
+                byteArrayOutputStream.write(("--" + this.f9345f + Part.CRLF).getBytes());
                 return;
             }
             byteArrayOutputStream.write(bytes);

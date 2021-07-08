@@ -16,7 +16,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpRequest";

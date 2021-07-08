@@ -12,25 +12,25 @@ import d.f.b.a.d0.h;
 import d.f.b.a.d0.l;
 import d.f.b.a.h0.e;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class i implements l, h.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Uri f72703e;
+    public final Uri f69806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f72704f;
+    public final e.a f69807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.f.b.a.a0.h f72705g;
+    public final d.f.b.a.a0.h f69808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f72706h;
+    public final int f69809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f72707i;
+    public final Handler f69810i;
     public final a j;
     public final String k;
     public final int l;
@@ -38,7 +38,7 @@ public final class i implements l, h.f {
     public long n;
     public boolean o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(IOException iOException);
     }
@@ -99,8 +99,8 @@ public final class i implements l, h.f {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
-            d.f.b.a.i0.a.a(bVar.f72709a == 0);
-            return new h(this.f72703e, this.f72704f.a(), this.f72705g.a(), this.f72706h, this.f72707i, this.j, this, bVar2, this.k, this.l);
+            d.f.b.a.i0.a.a(bVar.f69812a == 0);
+            return new h(this.f69806e, this.f69807f.a(), this.f69808g.a(), this.f69809h, this.f69810i, this.j, this, bVar2, this.k, this.l);
         }
         return (k) invokeLL.objValue;
     }
@@ -166,11 +166,11 @@ public final class i implements l, h.f {
                 return;
             }
         }
-        this.f72703e = uri;
-        this.f72704f = aVar;
-        this.f72705g = hVar;
-        this.f72706h = i2;
-        this.f72707i = handler;
+        this.f69806e = uri;
+        this.f69807f = aVar;
+        this.f69808g = hVar;
+        this.f69809h = i2;
+        this.f69810i = handler;
         this.j = aVar2;
         this.k = str;
         this.l = i3;

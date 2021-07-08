@@ -1,6 +1,7 @@
 package com.baidu.wallet.core.utils.contacts;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.ContactManager;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AddressUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24658a = "AddressUtils";
+    public static final String f24768a = "AddressUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,6 +64,6 @@ public class AddressUtils {
     public static ConcurrentHashMap<String, ContractInfo> getSimContracts(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? ContactManager.getIContactsImpl().loadSimContracts(context) : (ConcurrentHashMap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? ContactManager.getIContactsImpl().loadSimContracts(context) : (ConcurrentHashMap) invokeL.objValue;
     }
 }

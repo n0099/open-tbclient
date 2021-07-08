@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.common.MapObject;
@@ -26,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LIMIT_TIME = 500;
@@ -38,7 +39,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
     public Context mContext;
     public List<String> nuomiAddressIds;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +153,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
 
         private void mapField(MapObject mapObject, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65540, this, mapObject, jSONObject) == null) {
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, mapObject, jSONObject) == null) {
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
@@ -253,7 +254,7 @@ public class AddrListAdapter extends CommonAdapter<JSONObject> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface EditAddressListener {
         void edit(MapObject mapObject, AddressSelectedBean addressSelectedBean);
     }

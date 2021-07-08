@@ -9,24 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Runnable f71725e;
+        public final Runnable f68828e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f71726f;
+        public final String f68829f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f71727g;
+        public final String f68830g;
 
         public a(Runnable runnable, String str) {
             Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public final class p0 {
                     return;
                 }
             }
-            this.f71725e = runnable;
-            this.f71726f = str;
-            this.f71727g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
+            this.f68828e = runnable;
+            this.f68829f = str;
+            this.f68830g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
         }
 
         @Override // java.lang.Runnable
@@ -53,10 +53,10 @@ public final class p0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f71725e.run();
+                    this.f68828e.run();
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    o0.f("TrackerDr", "Thread:" + this.f71726f + " exception\n" + this.f71727g, e2);
+                    o0.f("TrackerDr", "Thread:" + this.f68829f + " exception\n" + this.f68830g, e2);
                 }
             }
         }

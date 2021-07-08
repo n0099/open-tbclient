@@ -2,6 +2,7 @@ package com.kwad.sdk.core.download;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
@@ -14,9 +15,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.k;
+import com.kwad.sdk.core.network.l;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.al;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -34,21 +36,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36074a;
+    public static final String f34382a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f36075a;
+        public final OutputStream f34383a;
 
         public a(File file, boolean z) {
             Interceptable interceptable = $ic;
@@ -65,7 +67,7 @@ public class e {
                     return;
                 }
             }
-            this.f36075a = new FileOutputStream(file, z);
+            this.f34383a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -86,7 +88,7 @@ public class e {
         public void a(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f36075a.write(bArr, i2, i3);
+                this.f34383a.write(bArr, i2, i3);
             }
         }
 
@@ -94,17 +96,17 @@ public class e {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f36075a.close();
+                this.f34383a.close();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         boolean a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface c extends Closeable {
         void a(int i2, Map<String, List<String>> map);
 
@@ -126,7 +128,7 @@ public class e {
                 return;
             }
         }
-        f36074a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+        f34382a = al.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
     }
 
     public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
@@ -135,6 +137,7 @@ public class e {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             try {
                 URLConnection openConnection = new URL(str).openConnection();
+                l.a(openConnection);
                 openConnection.setRequestProperty("Accept-Language", "zh-CN");
                 if (i2 > 0) {
                     openConnection.setConnectTimeout(i2);
@@ -176,7 +179,7 @@ public class e {
 
     public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, closeable) == null) || closeable == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, closeable) == null) || closeable == null) {
             return;
         }
         try {
@@ -328,7 +331,7 @@ public class e {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file = new File(f36074a, random.nextInt() + ".tmp");
+                    file = new File(f34382a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream2 = new FileOutputStream(file);
                     } catch (Throwable th4) {

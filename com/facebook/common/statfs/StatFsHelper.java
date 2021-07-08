@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +24,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES = 419430400;
@@ -43,7 +44,7 @@ public class StatFsHelper {
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -165,7 +166,7 @@ public class StatFsHelper {
         InterceptResult invokeV;
         StatFsHelper statFsHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (StatFsHelper.class) {
                 if (sStatsFsHelper == null) {
                     sStatsFsHelper = new StatFsHelper();

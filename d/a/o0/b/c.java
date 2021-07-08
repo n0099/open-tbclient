@@ -1,83 +1,58 @@
 package d.a.o0.b;
 
-import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.e.i;
-import d.a.o0.k.e;
+import d.a.o0.b.f.f;
+import d.a.o0.b.f.g;
+import d.a.o0.b.f.h;
+import d.a.o0.b.f.i;
+import d.a.o0.b.f.j;
+import d.a.o0.b.f.k;
+import d.a.o0.b.f.l;
+import d.a.o0.b.f.n;
+import d.a.o0.b.f.o;
+import d.a.o0.b.f.p;
+import d.a.o0.b.f.q;
+import d.a.o0.b.f.r;
+import d.a.o0.b.f.s;
+import d.a.o0.b.f.t;
+import d.a.o0.b.f.u;
+import d.a.o0.b.f.v;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile c f46237b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static boolean f46238c;
+    /* renamed from: d  reason: collision with root package name */
+    public static c f51443d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f46239a;
+    public final HashMap<String, e> f51444a;
 
-    /* loaded from: classes8.dex */
-    public class a extends d.a.o0.k.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: b  reason: collision with root package name */
+    public final HashMap<BdUniqueId, d.a.o0.b.f.a> f51445b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f46240f;
+    /* renamed from: c  reason: collision with root package name */
+    public final HashMap<BdUniqueId, e> f51446c;
 
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f46240f = cVar;
-        }
-
-        @Override // d.a.o0.k.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    String b2 = new d.a.o0.f.d(this.f46240f.f46239a, null).b();
-                    if (TextUtils.isEmpty(b2)) {
-                        return;
-                    }
-                    JSONObject jSONObject = new JSONObject(b2);
-                    if (jSONObject.optInt("0") == 0) {
-                        c.f46238c = jSONObject.optInt("1") == 2;
-                    }
-                } catch (Throwable th) {
-                    d.a.o0.l.c.d(th);
-                }
-            }
-        }
-    }
-
-    public c(Context context) {
+    public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -87,233 +62,226 @@ public class c {
                 return;
             }
         }
-        this.f46239a = context;
+        this.f51444a = new HashMap<>();
+        this.f51445b = new HashMap<>();
+        this.f51446c = new HashMap<>();
+        m();
+        j(c());
     }
 
-    public static c b(Context context) {
+    public static c d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f51443d == null) {
+                synchronized (c.class) {
+                    if (f51443d == null) {
+                        f51443d = new c();
+                    }
+                }
+            }
+            return f51443d;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "ubs_abtest_config" : (String) invokeV.objValue;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d.a.o0.r.d0.b.j().v("static_opt_open", d.T() ? 1 : 0);
+        }
+    }
+
+    public synchronized e b(String str) {
+        InterceptResult invokeL;
+        e eVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                eVar = this.f51444a.get(str);
+            }
+            return eVar;
+        }
+        return (e) invokeL.objValue;
+    }
+
+    public final HashMap<String, e> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, e> hashMap = new HashMap<>();
+            try {
+                e();
+                JSONArray jSONArray = new JSONArray(d.a.o0.r.d0.b.j().p(e(), "[]"));
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    if (jSONObject != null) {
+                        String optString = jSONObject.optString("sid");
+                        hashMap.put(optString, new e(optString));
+                    }
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public e f(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f46237b == null) {
-                synchronized (c.class) {
-                    if (f46237b == null) {
-                        f46237b = new c(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
+            d.a.o0.b.f.a aVar = this.f51445b.get(bdUniqueId);
+            if (aVar == null) {
+                return null;
             }
-            return f46237b;
+            return aVar.b();
         }
-        return (c) invokeL.objValue;
+        return (e) invokeL.objValue;
     }
 
-    public String c(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String d2 = new d.a.o0.f.d(this.f46239a, null).d(jSONObject, j);
-                        if (!TextUtils.isEmpty(d2)) {
-                            return d2;
-                        }
-                    }
-                } catch (Throwable th) {
-                    d.a.o0.l.c.d(th);
-                }
-            }
-            return "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e.c().b(new a(this));
-        }
-    }
-
-    public String e(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String j2 = new d.a.o0.f.d(this.f46239a, null).j(jSONObject, j);
-                        if (!TextUtils.isEmpty(j2)) {
-                            return j2;
-                        }
-                    }
-                } catch (Throwable th) {
-                    d.a.o0.l.c.d(th);
-                }
-            }
-            return "";
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public synchronized boolean f() {
+    public Map<BdUniqueId, e> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                try {
-                    if (g()) {
-                        return true;
-                    }
-                    d.a.o0.f.d dVar = new d.a.o0.f.d(this.f46239a, null);
-                    String i2 = dVar.i();
-                    if (TextUtils.isEmpty(i2)) {
-                        for (int i3 = 0; i3 < 3; i3++) {
-                            i2 = dVar.i();
-                            if (!TextUtils.isEmpty(i2)) {
-                                break;
-                            }
-                        }
-                    }
-                    if (TextUtils.isEmpty(i2)) {
-                        return false;
-                    }
-                    JSONObject jSONObject = new JSONObject(i2);
-                    int optInt = jSONObject.optInt("0", -1);
-                    if (optInt == 2) {
-                        d.a.o0.b.a.h(this.f46239a).N(false);
-                    } else {
-                        d.a.o0.b.a.h(this.f46239a).N(true);
-                    }
-                    if (optInt == 1 || optInt == 3) {
-                        return true;
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("1");
-                    if (optJSONObject == null) {
-                        return false;
-                    }
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
-                    if (optJSONObject2 != null) {
-                        String optString = optJSONObject2.optString("app_id");
-                        String optString2 = optJSONObject2.optString("app_key");
-                        if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                            i.j("cm", optString, optString2);
-                        }
-                        int optInt2 = optJSONObject2.optInt("status", -1);
-                        if (optInt2 == 1) {
-                            d.a.o0.b.a.h(this.f46239a).n(true);
-                        } else if (optInt2 == 2) {
-                            d.a.o0.b.a.h(this.f46239a).n(false);
-                        }
-                        d.a.o0.b.a.h(this.f46239a).Y(optJSONObject2.toString());
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
-                    if (optJSONObject3 != null) {
-                        String optString3 = optJSONObject3.optString("app_id");
-                        String optString4 = optJSONObject3.optString("app_key");
-                        if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                            i.j(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
-                        }
-                        int optInt3 = optJSONObject3.optInt("status", -1);
-                        if (optInt3 == 1) {
-                            d.a.o0.b.a.h(this.f46239a).x(true);
-                        } else if (optInt3 == 2) {
-                            d.a.o0.b.a.h(this.f46239a).x(false);
-                        }
-                        d.a.o0.b.a.h(this.f46239a).B(optJSONObject3.toString());
-                    }
-                    JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
-                    if (optJSONObject4 != null) {
-                        String optString5 = optJSONObject4.optString("app_id");
-                        String optString6 = optJSONObject4.optString("app_key");
-                        if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                            i.j("cu", optString5, optString6);
-                        }
-                        int optInt4 = optJSONObject4.optInt("status", -1);
-                        if (optInt4 == 1) {
-                            d.a.o0.b.a.h(this.f46239a).D(true);
-                        } else if (optInt4 == 2) {
-                            d.a.o0.b.a.h(this.f46239a).D(false);
-                        }
-                        d.a.o0.b.a.h(this.f46239a).Q(optJSONObject4.toString());
-                    }
-                    JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
-                    if (optJSONObject5 != null) {
-                        String optString7 = optJSONObject5.optString("app_key", "");
-                        String optString8 = optJSONObject5.optString("secret_key", "");
-                        if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
-                            d.a.o0.a.f46218b = optString7;
-                            d.a.o0.a.f46219c = optString8;
-                            d.a.o0.b.a.h(this.f46239a).C(optString7, optString8);
-                        }
-                    }
-                    d.a.o0.b.a.h(this.f46239a).U(optJSONObject.optString("encrypt_key", ""));
-                    JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
-                    if (optJSONObject6 != null) {
-                        if ("1".equals(optJSONObject6.optString("1", "1"))) {
-                            d.a.o0.b.a.h(this.f46239a).I(true);
-                        } else {
-                            d.a.o0.b.a.h(this.f46239a).I(false);
-                        }
-                        d.a.o0.b.a.h(this.f46239a).z(optJSONObject6.optInt("2"));
-                    }
-                    d.a.o0.b.a.h(this.f46239a).l(jSONObject.optLong("3", 300L) * 1000);
-                    d.a.o0.b.a.h(this.f46239a).P(System.currentTimeMillis());
-                    return true;
-                } catch (Throwable th) {
-                    d.a.o0.l.c.d(th);
-                    return false;
-                }
-            }
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51446c : (Map) invokeV.objValue;
     }
 
-    public final boolean g() {
-        InterceptResult invokeV;
+    public void h(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
             try {
-                if (System.currentTimeMillis() - d.a.o0.b.a.h(this.f46239a).i0() > d.a.o0.b.a.h(this.f46239a).E()) {
-                    return false;
+                String e2 = e();
+                if (jSONArray == null) {
+                    this.f51444a.clear();
+                    d.a.o0.r.d0.b.j().C(e2);
+                    return;
                 }
-                String o0 = d.a.o0.b.a.h(this.f46239a).o0();
-                String S = d.a.o0.b.a.h(this.f46239a).S();
-                String f0 = d.a.o0.b.a.h(this.f46239a).f0();
-                if (TextUtils.isEmpty(o0) && TextUtils.isEmpty(S) && TextUtils.isEmpty(f0)) {
-                    return false;
-                }
-                if (!TextUtils.isEmpty(o0)) {
-                    JSONObject jSONObject = new JSONObject(o0);
-                    String string = jSONObject.getString("app_id");
-                    String string2 = jSONObject.getString("app_key");
-                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        i.j("cm", string, string2);
+                HashMap<String, e> hashMap = new HashMap<>();
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    if (jSONObject != null) {
+                        String optString = jSONObject.optString("sid");
+                        hashMap.put(optString, new e(optString));
                     }
                 }
-                if (!TextUtils.isEmpty(S)) {
-                    JSONObject jSONObject2 = new JSONObject(S);
-                    String string3 = jSONObject2.getString("app_id");
-                    String string4 = jSONObject2.getString("app_key");
-                    if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
-                        i.j(Config.EXCEPTION_CRASH_TYPE, string3, string4);
-                    }
-                }
-                if (TextUtils.isEmpty(f0)) {
-                    return true;
-                }
-                JSONObject jSONObject3 = new JSONObject(f0);
-                String optString = jSONObject3.optString("app_id");
-                String optString2 = jSONObject3.optString("app_key");
-                if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-                    return true;
-                }
-                i.j("cu", optString, optString2);
-                return true;
-            } catch (Throwable th) {
-                d.a.o0.l.c.d(th);
-                return false;
+                j(hashMap);
+                d.a.o0.r.d0.b.j().x(e2, jSONArray.toString());
+                a();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
         }
-        return invokeV.booleanValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    h(null);
+                } else {
+                    h(new JSONArray(str));
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final void j(HashMap<String, e> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
+            synchronized (this.f51444a) {
+                this.f51444a.clear();
+                if (hashMap != null) {
+                    this.f51444a.putAll(hashMap);
+                }
+                k();
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            for (Map.Entry<BdUniqueId, d.a.o0.b.f.a> entry : this.f51445b.entrySet()) {
+                d.a.o0.b.f.a value = entry.getValue();
+                if (value != null) {
+                    o(value);
+                }
+            }
+            l();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f51446c.clear();
+            for (BdUniqueId bdUniqueId : this.f51445b.keySet()) {
+                this.f51446c.put(bdUniqueId, f(bdUniqueId));
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            n(new u());
+            n(new j());
+            n(new l());
+            n(new g());
+            n(new r());
+            n(new d.a.o0.b.f.b());
+            n(new d.a.o0.b.f.c());
+            n(new t());
+            n(new i());
+            n(new h());
+            n(new n());
+            n(new v());
+            n(new o());
+            n(new s());
+            n(new p());
+            n(new k());
+            n(new q());
+            n(new f());
+            n(new d.a.o0.b.f.d());
+            n(new d.a.o0.b.f.e());
+        }
+    }
+
+    public void n(d.a.o0.b.f.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) || aVar == null || aVar.c() == null) {
+            return;
+        }
+        this.f51445b.put(aVar.c(), aVar);
+    }
+
+    public final void o(d.a.o0.b.f.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        ArrayList<String> a2 = aVar.a();
+        e eVar = null;
+        if (ListUtils.isEmpty(a2)) {
+            aVar.f(null);
+            return;
+        }
+        Iterator<String> it = a2.iterator();
+        while (it.hasNext()) {
+            eVar = this.f51444a.get(it.next());
+            if (eVar != null) {
+                break;
+            }
+        }
+        aVar.f(eVar);
     }
 }

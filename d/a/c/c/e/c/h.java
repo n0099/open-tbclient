@@ -1,6 +1,7 @@
 package d.a.c.c.e.c;
 
 import android.app.Application;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int A;
@@ -23,31 +24,31 @@ public class h {
     public static ArrayList<BasicNameValuePair> E = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f43913a = -100000000;
+    public static int f40929a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f43914b;
+    public static final int f40930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f43915c;
+    public static final int f40931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f43916d;
+    public static final int f40932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f43917e;
+    public static final int f40933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f43918f;
+    public static final int f40934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f43919g;
+    public static final int f40935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f43920h;
+    public static final int f40936h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f43921i;
+    public static final int f40937i;
     public static final int j;
     public static final int k;
     public static final int l;
@@ -80,14 +81,14 @@ public class h {
                 return;
             }
         }
-        f43914b = (-100000000) - 200;
-        f43915c = (-100000000) - 211;
-        f43916d = (-100000000) - 213;
-        f43917e = (-100000000) - 214;
-        f43918f = (-100000000) - 221;
-        f43919g = (-100000000) - 230;
-        f43920h = (-100000000) - 232;
-        f43921i = (-100000000) - 233;
+        f40930b = (-100000000) - 200;
+        f40931c = (-100000000) - 211;
+        f40932d = (-100000000) - 213;
+        f40933e = (-100000000) - 214;
+        f40934f = (-100000000) - 221;
+        f40935g = (-100000000) - 230;
+        f40936h = (-100000000) - 232;
+        f40937i = (-100000000) - 233;
         j = (-100000000) - 234;
         k = (-100000000) - 235;
         l = (-100000000) - 236;
@@ -106,7 +107,7 @@ public class h {
         y = (-100000000) - 310;
         z = (-100000000) - 311;
         A = (-100000000) + ErrorCode.ARGS_ERROR;
-        D = d.a.c.c.c.f43880a;
+        D = d.a.c.c.c.f40896a;
         E = null;
     }
 
@@ -131,7 +132,7 @@ public class h {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? B : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? B : (String) invokeV.objValue;
     }
 
     public static void e(String str) {
@@ -167,7 +168,7 @@ public class h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            int i3 = f43913a - i2;
+            int i3 = f40929a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
                 return app.getString(R.string.im_error_codec);

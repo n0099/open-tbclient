@@ -1,5 +1,6 @@
 package com.baidu.android.imsdk.chatmessage.sync;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +69,7 @@ public class SyncManager {
 
     public static synchronized void registerSyncStateListener(ISyncStateListener iSyncStateListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, iSyncStateListener) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iSyncStateListener) == null) {
             synchronized (SyncManager.class) {
                 if (iSyncStateListener != null) {
                     if (sSyncDone) {

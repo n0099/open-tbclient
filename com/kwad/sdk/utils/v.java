@@ -1,247 +1,202 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.core.content.ContextCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-/* loaded from: classes7.dex */
-public class v {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.KsAdSDKImpl;
+/* loaded from: classes6.dex */
+public final class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (!(ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) || (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
-                    return false;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f36595a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f36596b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f36597c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f36598d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f36599e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f36600f;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return activeNetworkInfo.isConnected();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
+            }
+            this.f36595a = -1;
+            this.f36596b = -1;
+            this.f36597c = -1;
+            this.f36598d = -1;
+            this.f36599e = -1;
+            this.f36600f = -1;
+        }
+
+        public a(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f36595a = -1;
+            this.f36596b = -1;
+            this.f36597c = -1;
+            this.f36598d = -1;
+            this.f36599e = -1;
+            this.f36600f = -1;
+            this.f36595a = i2;
+            this.f36596b = i3;
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36595a : invokeV.intValue;
+        }
+
+        public void a(float f2, float f3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                this.f36597c = (int) f2;
+                this.f36598d = (int) f3;
             }
         }
-        return invokeL.booleanValue;
-    }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
-                    return 1 == activeNetworkInfo.getType();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
-                    return activeNetworkInfo.getType() == 0;
-                }
-                return false;
-            } catch (Exception unused) {
-                return false;
+        public void a(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+                this.f36595a = i2;
+                this.f36596b = i3;
             }
         }
-        return invokeL.booleanValue;
-    }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? f(context) : invokeL.intValue;
-    }
-
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
-            int i2 = 0;
-            if (context == null) {
-                return 0;
-            }
-            try {
-                telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
-            if (telephonyManager == null) {
-                return 0;
-            }
-            if (Build.VERSION.SDK_INT >= 22) {
-                String simOperator = telephonyManager.getSimOperator();
-                char c2 = 65535;
-                int hashCode = simOperator.hashCode();
-                if (hashCode != 49679502) {
-                    switch (hashCode) {
-                        case 49679470:
-                            if (simOperator.equals("46000")) {
-                                c2 = 0;
-                                break;
-                            }
-                            break;
-                        case 49679471:
-                            if (simOperator.equals("46001")) {
-                                c2 = 4;
-                                break;
-                            }
-                            break;
-                        case 49679472:
-                            if (simOperator.equals("46002")) {
-                                c2 = 1;
-                                break;
-                            }
-                            break;
-                        case 49679473:
-                            if (simOperator.equals("46003")) {
-                                c2 = 7;
-                                break;
-                            }
-                            break;
-                        default:
-                            switch (hashCode) {
-                                case 49679475:
-                                    if (simOperator.equals("46005")) {
-                                        c2 = '\b';
-                                        break;
-                                    }
-                                    break;
-                                case 49679476:
-                                    if (simOperator.equals("46006")) {
-                                        c2 = 5;
-                                        break;
-                                    }
-                                    break;
-                                case 49679477:
-                                    if (simOperator.equals("46007")) {
-                                        c2 = 2;
-                                        break;
-                                    }
-                                    break;
-                                case 49679478:
-                                    if (simOperator.equals("46008")) {
-                                        c2 = 3;
-                                        break;
-                                    }
-                                    break;
-                                case 49679479:
-                                    if (simOperator.equals("46009")) {
-                                        c2 = 6;
-                                        break;
-                                    }
-                                    break;
-                            }
-                    }
-                } else if (simOperator.equals("46011")) {
-                    c2 = '\t';
-                }
-                switch (c2) {
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                        i2 = 1;
-                        break;
-                    case 4:
-                    case 5:
-                    case 6:
-                        i2 = 3;
-                        break;
-                    case 7:
-                    case '\b':
-                    case '\t':
-                        i2 = 2;
-                        break;
-                }
-            }
-            if (i2 == 0 && ContextCompat.checkSelfPermission(context, "android.permission.READ_PHONE_STATE") == 0) {
-                String subscriberId = telephonyManager.getSubscriberId();
-                if (TextUtils.isEmpty(subscriberId)) {
-                    return i2;
-                }
-                if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
-                    if (subscriberId.startsWith("46001")) {
-                        return 3;
-                    }
-                    if (subscriberId.startsWith("46003")) {
-                        return 2;
-                    }
-                }
-                return 1;
-            }
-            return i2;
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36596b : invokeV.intValue;
         }
-        return invokeL.intValue;
+
+        public void b(float f2, float f3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                this.f36599e = (int) f2;
+                this.f36600f = (int) f3;
+            }
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36597c : invokeV.intValue;
+        }
+
+        public int d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36598d : invokeV.intValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36599e : invokeV.intValue;
+        }
+
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36600f : invokeV.intValue;
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return PreferencesUtil.LEFT_MOUNT + this.f36595a + "," + this.f36596b + "," + this.f36597c + "," + this.f36598d + "," + this.f36599e + "," + this.f36600f + PreferencesUtil.RIGHT_MOUNT;
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public static byte f(Context context) {
-        InterceptResult invokeL;
+    public static String a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (context != null && a(context)) {
-                if (b(context)) {
-                    return (byte) 100;
-                }
-                TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone");
-                if (telephonyManager != null) {
-                    switch (telephonyManager.getNetworkType()) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                        case 16:
-                            return (byte) 2;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            return (byte) 3;
-                        case 13:
-                            return (byte) 4;
-                        default:
-                            return (byte) 0;
-                    }
-                }
-                return (byte) 0;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) ? i2 > -1 ? String.valueOf(i2) : "-999" : (String) invokeI.objValue;
+    }
+
+    @WorkerThread
+    public static String a(String str, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, aVar)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return (byte) 0;
+            String b2 = b(str, aVar);
+            String o = ap.o(KsAdSDKImpl.get().getContext());
+            if (!TextUtils.isEmpty(o)) {
+                b2 = b2.replace("__MAC__", o).replace("__MAC2__", w.a(o)).replace("__MAC3__", w.a(o.replace(":", "")));
+            }
+            String d2 = ap.d(KsAdSDKImpl.get().getContext());
+            if (!TextUtils.isEmpty(d2)) {
+                b2 = b2.replace("__IMEI__", d2).replace("__IMEI2__", w.a(d2)).replace("__IMEI3__", w.b(d2));
+            }
+            String a2 = com.kwad.sdk.core.f.b.a();
+            if (!TextUtils.isEmpty(a2)) {
+                b2 = b2.replace("__OAID__", a2).replace("__OAID2__", w.a(a2));
+            }
+            String m = ap.m(KsAdSDKImpl.get().getContext());
+            if (!TextUtils.isEmpty(m)) {
+                b2 = b2.replace("__ANDROIDID2__", w.a(m)).replace("__ANDROIDID3__", w.b(m)).replace("__ANDROIDID__", m);
+            }
+            return b2.replace("__TS__", String.valueOf(System.currentTimeMillis()));
         }
-        return invokeL.byteValue;
+        return (String) invokeLL.objValue;
+    }
+
+    @WorkerThread
+    public static String b(String str, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) ? (TextUtils.isEmpty(str) || aVar == null) ? str : str.replace("__WIDTH__", a(aVar.a())).replace("__HEIGHT__", a(aVar.b())).replace("__DOWN_X__", a(aVar.c())).replace("__DOWN_Y__", a(aVar.d())).replace("__UP_X__", a(aVar.e())).replace("__UP_Y__", a(aVar.f())) : (String) invokeLL.objValue;
     }
 }

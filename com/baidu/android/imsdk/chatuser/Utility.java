@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatuser;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -122,7 +123,7 @@ public class Utility {
     public static String createAnonyMousUserName(IpInfo ipInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, ipInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ipInfo)) == null) {
             if (ipInfo == null) {
                 return "未知地区客户";
             }

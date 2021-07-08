@@ -1,6 +1,7 @@
 package d.f.b.a.i0;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,36 +12,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f73366a;
+    public static final byte[] f70469a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f73367b;
+    public static final float[] f70470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f73368c;
+    public static final Object f70471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int[] f73369d;
+    public static int[] f70472d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f73370a;
+        public final int f70473a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73371b;
+        public final int f70474b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f73372c;
+        public final boolean f70475c;
 
         public a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,43 +58,43 @@ public final class j {
                     return;
                 }
             }
-            this.f73370a = i2;
-            this.f73371b = i3;
-            this.f73372c = z;
+            this.f70473a = i2;
+            this.f70474b = i3;
+            this.f70475c = z;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f73373a;
+        public final int f70476a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73374b;
+        public final int f70477b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f73375c;
+        public final int f70478c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f73376d;
+        public final float f70479d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f73377e;
+        public final boolean f70480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f73378f;
+        public final boolean f70481f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f73379g;
+        public final int f70482g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f73380h;
+        public final int f70483h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f73381i;
+        public final int f70484i;
         public final boolean j;
 
         public b(int i2, int i3, int i4, float f2, boolean z, boolean z2, int i5, int i6, int i7, boolean z3) {
@@ -111,15 +112,15 @@ public final class j {
                     return;
                 }
             }
-            this.f73373a = i2;
-            this.f73374b = i3;
-            this.f73375c = i4;
-            this.f73376d = f2;
-            this.f73377e = z;
-            this.f73378f = z2;
-            this.f73379g = i5;
-            this.f73380h = i6;
-            this.f73381i = i7;
+            this.f70476a = i2;
+            this.f70477b = i3;
+            this.f70478c = i4;
+            this.f70479d = f2;
+            this.f70480e = z;
+            this.f70481f = z2;
+            this.f70482g = i5;
+            this.f70483h = i6;
+            this.f70484i = i7;
             this.j = z3;
         }
     }
@@ -137,10 +138,10 @@ public final class j {
                 return;
             }
         }
-        f73366a = new byte[]{0, 0, 0, 1};
-        f73367b = new float[]{1.0f, 1.0f, 1.0909091f, 0.90909094f, 1.4545455f, 1.2121212f, 2.1818182f, 1.8181819f, 2.909091f, 2.4242425f, 1.6363636f, 1.3636364f, 1.939394f, 1.6161616f, 1.3333334f, 1.5f, 2.0f};
-        f73368c = new Object();
-        f73369d = new int[10];
+        f70469a = new byte[]{0, 0, 0, 1};
+        f70470b = new float[]{1.0f, 1.0f, 1.0909091f, 0.90909094f, 1.4545455f, 1.2121212f, 2.1818182f, 1.8181819f, 2.909091f, 2.4242425f, 1.6363636f, 1.3636364f, 1.939394f, 1.6161616f, 1.3333334f, 1.5f, 2.0f};
+        f70471c = new Object();
+        f70472d = new int[10];
     }
 
     public static void a(boolean[] zArr) {
@@ -243,7 +244,7 @@ public final class j {
     public static int d(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
             while (i2 < i3 - 2) {
                 if (bArr[i2] == 0 && bArr[i2 + 1] == 0 && bArr[i2 + 2] == 3) {
                     return i2;
@@ -394,7 +395,7 @@ public final class j {
                         }
                         f2 = f3;
                     } else {
-                        float[] fArr = f73367b;
+                        float[] fArr = f70470b;
                         if (e2 < fArr.length) {
                             f2 = fArr[e2];
                         } else {
@@ -458,17 +459,17 @@ public final class j {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, bArr, i2)) == null) {
-            synchronized (f73368c) {
+            synchronized (f70471c) {
                 int i4 = 0;
                 int i5 = 0;
                 while (i4 < i2) {
                     try {
                         i4 = d(bArr, i4, i2);
                         if (i4 < i2) {
-                            if (f73369d.length <= i5) {
-                                f73369d = Arrays.copyOf(f73369d, f73369d.length * 2);
+                            if (f70472d.length <= i5) {
+                                f70472d = Arrays.copyOf(f70472d, f70472d.length * 2);
                             }
-                            f73369d[i5] = i4;
+                            f70472d[i5] = i4;
                             i4 += 3;
                             i5++;
                         }
@@ -480,7 +481,7 @@ public final class j {
                 int i6 = 0;
                 int i7 = 0;
                 for (int i8 = 0; i8 < i5; i8++) {
-                    int i9 = f73369d[i8] - i7;
+                    int i9 = f70472d[i8] - i7;
                     System.arraycopy(bArr, i7, bArr, i6, i9);
                     int i10 = i6 + i9;
                     int i11 = i10 + 1;

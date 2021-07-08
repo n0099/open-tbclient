@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetworkStatRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FROM_ID = 0;

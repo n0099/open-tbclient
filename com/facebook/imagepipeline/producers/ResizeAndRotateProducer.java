@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
@@ -47,7 +48,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -329,7 +330,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static boolean shouldRotate(RotationOptions rotationOptions, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, rotationOptions, encodedImage)) == null) ? !rotationOptions.canDeferUntilRendered() && (JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage) != 0 || shouldRotateUsingExifOrientation(rotationOptions, encodedImage)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, rotationOptions, encodedImage)) == null) ? !rotationOptions.canDeferUntilRendered() && (JpegTranscoderUtils.getRotationAngle(rotationOptions, encodedImage) != 0 || shouldRotateUsingExifOrientation(rotationOptions, encodedImage)) : invokeLL.booleanValue;
     }
 
     public static boolean shouldRotateUsingExifOrientation(RotationOptions rotationOptions, EncodedImage encodedImage) {

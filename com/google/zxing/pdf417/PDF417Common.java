@@ -2,6 +2,7 @@ package com.google.zxing.pdf417;
 
 import android.support.v4.media.session.MediaSessionCompat;
 import androidx.core.view.DisplayCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.AutoScrollHelper;
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 import com.alibaba.fastjson.asm.Opcodes;
@@ -67,7 +68,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import org.apache.commons.codec.digest4util.PureJavaCrc32C;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417Common {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BARS_IN_MODULE = 8;
@@ -141,7 +142,7 @@ public final class PDF417Common {
     public static int[] toIntArray(Collection<Integer> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
             if (collection != null && !collection.isEmpty()) {
                 int[] iArr = new int[collection.size()];
                 int i2 = 0;

@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CircleProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18505e;
+    public Context f18545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f18506f;
+    public Paint f18546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f18507g;
+    public Paint f18547g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f18508h;
+    public RectF f18548h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18509i;
+    public int f18549i;
     public int j;
     public int k;
     public int l;
@@ -59,30 +59,30 @@ public class CircleProgressView extends View {
                 return;
             }
         }
-        this.f18509i = 0;
+        this.f18549i = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18505e = context;
+        this.f18545e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.l = l.g(this.f18505e, R.dimen.ds4);
-            this.f18508h = new RectF();
+            this.l = l.g(this.f18545e, R.dimen.ds4);
+            this.f18548h = new RectF();
             Paint paint = new Paint();
-            this.f18506f = paint;
+            this.f18546f = paint;
             paint.setAntiAlias(true);
-            this.f18506f.setStrokeWidth(this.l);
-            this.f18506f.setStyle(Paint.Style.STROKE);
+            this.f18546f.setStrokeWidth(this.l);
+            this.f18546f.setStyle(Paint.Style.STROKE);
             Paint paint2 = new Paint();
-            this.f18507g = paint2;
+            this.f18547g = paint2;
             paint2.setAntiAlias(true);
-            this.f18507g.setStrokeWidth(this.l);
-            this.f18507g.setStyle(Paint.Style.STROKE);
+            this.f18547g.setStrokeWidth(this.l);
+            this.f18547g.setStyle(Paint.Style.STROKE);
             this.j = R.color.common_color_10184;
             this.k = R.color.common_color_10162;
             b();
@@ -92,8 +92,8 @@ public class CircleProgressView extends View {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18506f.setColor(SkinManager.getColor(this.j));
-            this.f18507g.setColor(SkinManager.getColor(this.k));
+            this.f18546f.setColor(SkinManager.getColor(this.j));
+            this.f18547g.setColor(SkinManager.getColor(this.k));
             invalidate();
         }
     }
@@ -111,14 +111,14 @@ public class CircleProgressView extends View {
                 height = i2;
             }
             this.o = height;
-            RectF rectF = this.f18508h;
+            RectF rectF = this.f18548h;
             int i3 = this.l;
             rectF.left = i3 / 2.0f;
             rectF.top = i3 / 2.0f;
             rectF.right = height - (i3 / 2);
             rectF.bottom = height - (i3 / 2);
-            canvas.drawArc(rectF, 150.0f, 360.0f, false, this.f18507g);
-            canvas.drawArc(this.f18508h, 150.0f, this.f18509i, false, this.f18506f);
+            canvas.drawArc(rectF, 150.0f, 360.0f, false, this.f18547g);
+            canvas.drawArc(this.f18548h, 150.0f, this.f18549i, false, this.f18546f);
         }
     }
 
@@ -149,12 +149,12 @@ public class CircleProgressView extends View {
                 return;
             }
         }
-        this.f18509i = 0;
+        this.f18549i = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18505e = context;
+        this.f18545e = context;
         a();
     }
 
@@ -176,12 +176,12 @@ public class CircleProgressView extends View {
                 return;
             }
         }
-        this.f18509i = 0;
+        this.f18549i = 0;
         this.l = 0;
         this.m = 0;
         this.n = 0;
         this.o = 0;
-        this.f18505e = context;
+        this.f18545e = context;
         a();
     }
 }

@@ -1,6 +1,7 @@
 package org.apache.commons.codec.binary4util.bdapp;
 
 import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.UnsupportedEncodingException;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Base64 {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -26,7 +27,7 @@ public class Base64 {
     public static final int URL_SAFE = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Coder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class Base64 {
         public abstract boolean process(byte[] bArr, int i2, int i3, boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Decoder extends Coder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int[] DECODE;
@@ -239,7 +240,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Encoder extends Coder {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -589,7 +590,7 @@ public class Base64 {
     public static byte[] decode(byte[] bArr, int i2, int i3, int i4) throws IllegalArgumentException {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65540, null, bArr, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3, i4)) == null) {
             Decoder decoder = new Decoder(i4, new byte[(i3 * 3) / 4]);
             if (decoder.process(bArr, i2, i3, true)) {
                 int i5 = decoder.op;

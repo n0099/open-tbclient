@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.net;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IHeaderMap {
     void addHeader(String str, String str2);
 

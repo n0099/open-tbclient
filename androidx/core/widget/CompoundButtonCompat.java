@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -103,7 +104,7 @@ public final class CompoundButtonCompat {
 
     public static void setButtonTintList(@NonNull CompoundButton compoundButton, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, compoundButton, colorStateList) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, compoundButton, colorStateList) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 compoundButton.setButtonTintList(colorStateList);
             } else if (compoundButton instanceof TintableCompoundButton) {

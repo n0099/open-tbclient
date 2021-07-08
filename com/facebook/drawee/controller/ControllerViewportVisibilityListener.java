@@ -1,5 +1,5 @@
 package com.facebook.drawee.controller;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ControllerViewportVisibilityListener {
     void onDraweeViewportEntry(String str);
 

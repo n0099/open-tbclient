@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.f1.b.c;
-/* loaded from: classes5.dex */
+import d.a.p0.f1.b.c;
+/* loaded from: classes4.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f17013a;
+    public View.OnClickListener f17052a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemViewHolder(View view) {
@@ -44,7 +44,7 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f17013a = onClickListener;
+            this.f17052a = onClickListener;
         }
     }
 }

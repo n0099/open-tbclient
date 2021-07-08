@@ -1,5 +1,6 @@
 package com.alipay.android.phone.mrpc.core;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +109,7 @@ public class RpcException extends RuntimeException {
     public static String a(Integer num, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, num, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, num, str)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("RPCException: ");
             if (num != null) {

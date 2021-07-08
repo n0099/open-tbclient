@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -40,7 +41,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
@@ -63,7 +64,7 @@ public final class Downsampler {
     public final HardwareConfigState hardwareConfigState;
     public final List<ImageHeaderParser> parsers;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 
@@ -190,7 +191,7 @@ public final class Downsampler {
         double floor2;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{imageType, inputStream, decodeCallbacks, bitmapPool, downsampleStrategy, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), options}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{imageType, inputStream, decodeCallbacks, bitmapPool, downsampleStrategy, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), options}) == null) {
             if (i3 <= 0 || i4 <= 0) {
                 if (Log.isLoggable(TAG, 3)) {
                     Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT);

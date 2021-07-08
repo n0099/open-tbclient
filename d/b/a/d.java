@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.AppLog;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71662e;
+    public final Context f68765e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context, y1 y1Var) {
@@ -37,7 +37,7 @@ public class d extends s1 {
                 return;
             }
         }
-        this.f71662e = context;
+        this.f68765e = context;
     }
 
     @Override // d.b.a.s1

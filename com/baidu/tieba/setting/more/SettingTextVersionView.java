@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             }
             this.j.setText(TbConfig.getVersion());
             this.j.setBackgroundDrawable(null);
-            this.j.setTextAppearance(this.f12900e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+            this.j.setTextAppearance(this.f12917e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
         }
     }
 }

@@ -27,7 +27,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class DataTrack {
     public static final /* synthetic */ DataTrack[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -43,7 +43,7 @@ public final class DataTrack {
     public volatile long mUid;
     public long reportTime;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface IDataTrackListener {
         JSONObject getConfig(String str, long j, String str2);
     }

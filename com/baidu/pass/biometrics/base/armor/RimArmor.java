@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RimArmor {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static RimArmor f9070a;
+    public static RimArmor f9087a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimArmor() {
@@ -33,10 +33,10 @@ public class RimArmor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (RimArmor.class) {
-                if (f9070a == null) {
-                    f9070a = new RimArmor();
+                if (f9087a == null) {
+                    f9087a = new RimArmor();
                 }
-                rimArmor = f9070a;
+                rimArmor = f9087a;
             }
             return rimArmor;
         }

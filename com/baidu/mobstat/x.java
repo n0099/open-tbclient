@@ -23,27 +23,27 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile DexClassLoader f9000a;
+    public static volatile DexClassLoader f9017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f9001b;
+    public static volatile boolean f9018b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f9002a;
+        public Context f9019a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f9003b;
+        public com.baidu.mobstat.a f9020b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
             Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public class x {
                     return;
                 }
             }
-            this.f9002a = context;
-            this.f9003b = aVar;
+            this.f9019a = context;
+            this.f9020b = aVar;
         }
 
         private void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.f9003b.a(context, System.currentTimeMillis());
+                this.f9020b.a(context, System.currentTimeMillis());
             }
         }
 
@@ -113,7 +113,7 @@ public class x {
                     } catch (Exception unused) {
                     }
                 }
-                return aa.f8597c + "?" + sb.toString();
+                return aa.f8614c + "?" + sb.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -123,16 +123,16 @@ public class x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    int i2 = aa.f8595a ? 3 : 10;
+                    int i2 = aa.f8612a ? 3 : 10;
                     bb c2 = bb.c();
                     c2.a("start version check in " + i2 + "s");
                     Thread.sleep((long) (i2 * 1000));
                     a();
-                    a(this.f9002a);
+                    a(this.f9019a);
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                boolean unused = x.f9001b = false;
+                boolean unused = x.f9018b = false;
             }
         }
 
@@ -147,8 +147,8 @@ public class x {
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 synchronized (this) {
                     bb.c().a("start get config and download jar");
-                    Context context = this.f9002a;
-                    com.baidu.mobstat.a aVar = this.f9003b;
+                    Context context = this.f9019a;
+                    com.baidu.mobstat.a aVar = this.f9020b;
                     String b2 = b(context);
                     bb.c().c("update req url is:" + b2);
                     HttpURLConnection d2 = bo.d(context, b2);
@@ -182,7 +182,7 @@ public class x {
                                 e = e3;
                                 bb.c().b(e);
                                 bu.a(fileOutputStream);
-                                DexClassLoader unused = x.f9000a = null;
+                                DexClassLoader unused = x.f9017a = null;
                                 u.a();
                                 if (!TextUtils.isEmpty(headerField)) {
                                 }
@@ -199,7 +199,7 @@ public class x {
                             throw th;
                         }
                     }
-                    DexClassLoader unused2 = x.f9000a = null;
+                    DexClassLoader unused2 = x.f9017a = null;
                     u.a();
                     if (!TextUtils.isEmpty(headerField)) {
                         aVar.a(context, headerField);
@@ -359,8 +359,8 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (x.class) {
-                if (f9000a != null) {
-                    return f9000a;
+                if (f9017a != null) {
+                    return f9017a;
                 }
                 File fileStreamPath = context.getFileStreamPath(".remote.jar");
                 if (fileStreamPath == null || fileStreamPath.isFile()) {
@@ -378,11 +378,11 @@ public class x {
                         return null;
                     } else {
                         try {
-                            f9000a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                            f9017a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
                         } catch (Exception e2) {
                             bb.c().a(e2);
                         }
-                        return f9000a;
+                        return f9017a;
                     }
                 }
                 return null;
@@ -395,7 +395,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, aVar) == null) {
             synchronized (x.class) {
-                if (f9001b) {
+                if (f9018b) {
                     return;
                 }
                 if (!bw.q(context)) {
@@ -405,7 +405,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f9001b = true;
+                    f9018b = true;
                 }
             }
         }

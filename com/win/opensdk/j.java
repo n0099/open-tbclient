@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j implements P {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f42597a;
+    public final /* synthetic */ Bitmap.CompressFormat f39611a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f42598b;
+    public final /* synthetic */ PBSplash f39612b;
 
     public j(PBSplash pBSplash, Bitmap.CompressFormat compressFormat) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class j implements P {
                 return;
             }
         }
-        this.f42598b = pBSplash;
-        this.f42597a = compressFormat;
+        this.f39612b = pBSplash;
+        this.f39611a = compressFormat;
     }
 
     public void a(int i2) {
@@ -46,10 +46,10 @@ public class j implements P {
         PBSplash pBSplash;
         PBSplashListener pBSplashListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o) == null) || (pBSplashListener = (pBSplash = this.f42598b).f42432e) == null || pBSplash.j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o) == null) || (pBSplashListener = (pBSplash = this.f39612b).f39446e) == null || pBSplash.j) {
             return;
         }
         pBSplashListener.onFail(PBError.NO_RESUOURCE);
-        PBSplash.d(this.f42598b, true);
+        PBSplash.d(this.f39612b, true);
     }
 }

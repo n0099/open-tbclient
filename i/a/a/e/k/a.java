@@ -2,7 +2,7 @@ package i.a.a.e.k;
 
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface a {
     GetBannerConfigReqParams a();
 

@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-import d.a.r0.m0.k;
-/* loaded from: classes4.dex */
+import d.a.o0.m0.k;
+/* loaded from: classes3.dex */
 public class PerformanceSwitch extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

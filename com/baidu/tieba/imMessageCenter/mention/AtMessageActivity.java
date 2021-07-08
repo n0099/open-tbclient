@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.g0.c.b;
-import d.a.r0.r.f0.f;
-import d.a.s0.j1.b.d;
+import d.a.o0.g0.c.b;
+import d.a.o0.r.f0.f;
+import d.a.p0.j1.b.d;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.a.r0.g0.c.a {
+/* loaded from: classes4.dex */
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, d.a.o0.g0.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController atMeModelController;
@@ -40,13 +40,13 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public CustomMessageListener mMessageFromNotifyCenterListener;
     public ViewEventCenter viewEventController;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtMessageActivity f17841a;
+        public final /* synthetic */ AtMessageActivity f17880a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AtMessageActivity atMessageActivity, int i2) {
@@ -66,7 +66,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                     return;
                 }
             }
-            this.f17841a = atMessageActivity;
+            this.f17880a = atMessageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,8 +75,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (this.f17841a.atMeModelController != null) {
-                    this.f17841a.atMeModelController.y();
+                if (this.f17880a.atMeModelController != null) {
+                    this.f17880a.atMeModelController.y();
                 }
             }
         }
@@ -169,7 +169,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.r0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.o0.k0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,14 +194,14 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = dVar.f62189b;
+        BdListView bdListView = dVar.f58954b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
-        hideNetRefreshView(this.atMeViewController.f62190c);
+        hideNetRefreshView(this.atMeViewController.f58955c);
     }
 
-    @Override // d.a.r0.g0.c.a
+    @Override // d.a.o0.g0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -223,7 +223,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.atMeViewController.i(getPageContext(), i2);
+            this.atMeViewController.j(getPageContext(), i2);
         }
     }
 
@@ -247,7 +247,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // d.a.r0.g0.c.a
+    @Override // d.a.o0.g0.c.a
     public boolean onEventDispatch(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -256,19 +256,19 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                 return true;
             }
             if (bVar.b() == 9484) {
-                d.a.r0.g0.b.a a2 = bVar.a();
+                d.a.o0.g0.b.a a2 = bVar.a();
                 if (a2 instanceof FeedData) {
                     return toPb((FeedData) a2);
                 }
                 return false;
             } else if (bVar.b() == 9483) {
-                d.a.r0.g0.b.a a3 = bVar.a();
+                d.a.o0.g0.b.a a3 = bVar.a();
                 if (a3 instanceof FeedData) {
                     return toPersonInfo((FeedData) a3);
                 }
                 return false;
             } else if (bVar.b() == 9489) {
-                d.a.r0.g0.b.a a4 = bVar.a();
+                d.a.o0.g0.b.a a4 = bVar.a();
                 if (a4 instanceof FeedData) {
                     this.atMeViewController.g((FeedData) a4);
                     return true;
@@ -281,7 +281,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.r0.r.f0.f.g
+    @Override // d.a.o0.r.f0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -310,22 +310,22 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f62189b;
+        BdListView bdListView = this.atMeViewController.f58954b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f62190c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.f58955c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 
-    public void onViewDataChanged(d.a.r0.g0.b.a aVar) {
+    public void onViewDataChanged(d.a.o0.g0.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
             this.atMeViewController.m(aVar);
         }
     }
 
-    public void onViewStateChanged(d.a.r0.g0.d.b bVar) {
+    public void onViewStateChanged(d.a.o0.g0.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
             this.atMeViewController.n(bVar);

@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4079a = "NetworkUtils";
+    public static final String f4082a = "NetworkUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetworkUtils() {
@@ -91,7 +92,7 @@ public final class NetworkUtils {
     public static int getNetworkType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (isWifiNetworkAvailable(context)) {
                 return 1;
             }

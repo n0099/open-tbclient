@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.r0.s.f.b;
+import d.a.o0.s.f.b;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -30,7 +30,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 
@@ -79,7 +79,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     private boolean needConfirm(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, unitedSchemeEntity, callbackHandler)) == null) {
             return false;
         }
         return invokeLLL.booleanValue;

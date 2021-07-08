@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ha implements XMPushService.l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43231a;
+    public static boolean f40245a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -27,7 +28,7 @@ public class ha implements XMPushService.l {
     public Context f467a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f43232b;
+    public boolean f40246b;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +72,7 @@ public class ha implements XMPushService.l {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f43232b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
+            this.f40246b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
             int a2 = com.xiaomi.push.service.aq.a(context).a(hk.al.a(), 7200);
             this.f466a = a2;
             this.f466a = Math.max(60, a2);
@@ -80,8 +81,8 @@ public class ha implements XMPushService.l {
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
-            f43231a = z;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+            f40245a = z;
         }
     }
 
@@ -95,7 +96,7 @@ public class ha implements XMPushService.l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, heVar)) == null) {
-            if (!bg.b(this.f467a) || heVar == null || TextUtils.isEmpty(a(this.f467a.getPackageName())) || !new File(this.f467a.getFilesDir(), "tiny_data.data").exists() || f43231a) {
+            if (!bg.b(this.f467a) || heVar == null || TextUtils.isEmpty(a(this.f467a.getPackageName())) || !new File(this.f467a.getFilesDir(), "tiny_data.data").exists() || f40245a) {
                 return false;
             }
             return !com.xiaomi.push.service.aq.a(this.f467a).a(hk.aV.a(), false) || i.m437a(this.f467a) || i.m440b(this.f467a);
@@ -109,11 +110,11 @@ public class ha implements XMPushService.l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a(this.f467a);
-            if (this.f43232b && a()) {
+            if (this.f40246b && a()) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
                 he a2 = hd.a(this.f467a).a();
                 if (a(a2)) {
-                    f43231a = true;
+                    f40245a = true;
                     hb.a(this.f467a, a2);
                     return;
                 }

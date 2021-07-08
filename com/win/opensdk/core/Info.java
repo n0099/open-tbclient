@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Info implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class Info implements Serializable {
     public String events;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42549h;
+    public int f39563h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -177,7 +177,7 @@ public class Info implements Serializable {
     public int getH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f42549h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f39563h : invokeV.intValue;
     }
 
     public String getIcon() {
@@ -471,7 +471,7 @@ public class Info implements Serializable {
     public void setH(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            this.f42549h = i2;
+            this.f39563h = i2;
         }
     }
 

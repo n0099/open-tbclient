@@ -24,7 +24,7 @@ import d.a.c.f.a.h;
 import d.a.c.f.a.k;
 import d.a.c.f.a.n;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public k y0;
     public final Path z0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Canvas canvas);
     }
@@ -90,11 +90,11 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             } else {
                 this.y0 = new h();
             }
-            this.f2201h.n = true;
+            this.f2202h.n = true;
             this.y0.t(this);
             k kVar = this.y0;
-            this.f2202i = kVar;
-            kVar.p(this.f2201h);
+            this.f2203i = kVar;
+            kVar.p(this.f2202h);
         }
     }
 

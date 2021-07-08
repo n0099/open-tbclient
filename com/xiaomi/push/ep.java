@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,13 +26,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class ep extends en {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43055a;
+    public int f40069a;
 
     /* renamed from: a  reason: collision with other field name */
     public Bitmap f325a;
@@ -52,7 +53,7 @@ public abstract class ep extends en {
     public boolean f330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f43056b;
+    public CharSequence f40070b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f331b;
@@ -76,7 +77,7 @@ public abstract class ep extends en {
             }
         }
         this.f328a = str;
-        this.f43055a = i2;
+        this.f40069a = i2;
         m290c();
     }
 
@@ -122,7 +123,7 @@ public abstract class ep extends en {
     /* renamed from: c  reason: collision with other method in class */
     private void m290c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int a2 = a(a().getResources(), c(), "layout", a().getPackageName());
             if (a2 == 0) {
                 com.xiaomi.channel.commonutils.logger.b.m70a("create RemoteViews failed, no such layout resource was found");
@@ -150,7 +151,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f327a);
-        super.setContentText(this.f43056b);
+        super.setContentText(this.f40070b);
     }
 
     /* renamed from: d  reason: collision with other method in class */
@@ -173,7 +174,7 @@ public abstract class ep extends en {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             if (Build.VERSION.SDK_INT >= 20 && (m597b = com.xiaomi.push.service.ao.a(a(), this.f328a).m597b()) != null && !m597b.isEmpty()) {
                 for (StatusBarNotification statusBarNotification : m597b) {
-                    if (statusBarNotification.getId() == this.f43055a) {
+                    if (statusBarNotification.getId() == this.f40069a) {
                         Notification notification = statusBarNotification.getNotification();
                         if (notification == null) {
                             return false;
@@ -329,7 +330,7 @@ public abstract class ep extends en {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
-            this.f43056b = charSequence;
+            this.f40070b = charSequence;
             return this;
         }
         return (ep) invokeL.objValue;
@@ -344,7 +345,7 @@ public abstract class ep extends en {
             return;
         }
         super.setContentTitle(this.f327a);
-        super.setContentText(this.f43056b);
+        super.setContentText(this.f40070b);
         Bitmap bitmap = this.f325a;
         if (bitmap != null) {
             super.setLargeIcon(bitmap);

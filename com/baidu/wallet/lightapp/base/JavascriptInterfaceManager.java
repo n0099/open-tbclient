@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class JavascriptInterfaceManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Permission> f25160a;
+    public static final Map<String, Permission> f25270a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,66 +43,66 @@ public final class JavascriptInterfaceManager {
             }
         }
         HashMap hashMap = new HashMap();
-        f25160a = hashMap;
+        f25270a = hashMap;
         hashMap.put(LightappBusinessClient.METHOD_DO_PAY, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_INIT_PAY, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_BD_LOGIN, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_CALL_ID_PHOTOS, Permission.NONE);
-        f25160a.put("callNativeVoice", Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_DETECT_LIVENESS, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.METHOD_CALL_SHARE, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.METHOD_CLOSE_WINDOW, Permission.NONE);
-        f25160a.put("setTitle", Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_SET_FULLSCREEN, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_GET_USER_AGENT, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_DIGEST, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_ENCRYPT, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_DECRYPT, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_CALL_QRCODE_SCANNER, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_DETECT_BANKCARD, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_CALL_CAMERA, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.VIEW_CALENDAR_EVENT, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.ADJUST_SCREEN_BRIGHTNESS, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_GET_SUPPORT_LIVENESS, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_CALL_NATIVE_PHOTO, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.METHOD_CALL_VIBRATE, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_GET_LOAD_TIME_LINE, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_GET_OFFLINE_INFO, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.MW_OPEN_NEW_WEBVIEW, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.MW_PRE_LOAD_URL, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.MW_PRE_LOAD_EXCEPTION, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.MW_HSITORY_GO, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.MW_NATIVE_LOG, Permission.NONE);
-        f25160a.put(LightappJsNativeClient.MW_CLOSE_TOP_WEBVIEW, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_SEND_TO_SMS, Permission.NONE);
-        f25160a.put(LightappBusinessClient.MTD_GET_PERMISSION_STATE, Permission.NONE);
-        f25160a.put(LightappBusinessClient.METHOD_DO_RN_AUTH, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.METHOD_DO_BIND_CARD, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_BINDCARD_INDEPENDENT, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_BINDCARD_INITIATIVE, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.METHOD_ACCESS_WALLET_SERVICE, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_H5GOBCK, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_SETMENU, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_LIST_MY_BANK_CARD, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_STATEVENT, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_CUSTOMER_SERVICE, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_GET_SUPPORT_LIST, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_OPEN_IN_BROWSER, Permission.READ_NORMAL);
-        f25160a.put(LightappJsNativeClient.INSERT_CALENDAR_EVENT, Permission.READ_NORMAL);
-        f25160a.put(LightappJsNativeClient.SCREEN_CAPTURE_SETTINGS, Permission.READ_NORMAL);
-        f25160a.put(LightappBusinessClient.MTD_UPLOAD_MSG, Permission.READ_NORMAL);
-        f25160a.put("getPayMethod", Permission.READ_PRIVATE);
-        f25160a.put("changePayMethod", Permission.READ_PRIVATE);
-        f25160a.put("preOrderPay", Permission.READ_PRIVATE);
-        f25160a.put("selectPhonefromAdressBook", Permission.READ_PRIVATE);
-        f25160a.put(LightappBusinessClient.MTD_START_AUDIO_RECORD, Permission.WRITE);
-        f25160a.put(LightappBusinessClient.MTD_END_AUDIO_RECORD, Permission.WRITE);
-        f25160a.put(LightappBusinessClient.METHOD_SET_RN_AUTH_RUSULT, Permission.WRITE);
-        f25160a.put(LightappBusinessClient.METHOD_POST_EVENT, Permission.WRITE);
-        f25160a.put("getDeviceInfo", Permission.READ_DEVICE);
-        f25160a.put(LightappBusinessClient.MTD_CALLPHONEINFO, Permission.READ_DEVICE);
-        f25160a.put(LightappJsNativeClient.METHOD_GET_CURRENT_POSITION, Permission.READ_DEVICE);
-        f25160a.put(LightappBusinessClient.MTD_GO_TO_APP_SETTING, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_INIT_PAY, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_BD_LOGIN, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_CALL_ID_PHOTOS, Permission.NONE);
+        f25270a.put("callNativeVoice", Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_DETECT_LIVENESS, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.METHOD_CALL_SHARE, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.METHOD_CLOSE_WINDOW, Permission.NONE);
+        f25270a.put("setTitle", Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_SET_FULLSCREEN, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_GET_USER_AGENT, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_DIGEST, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_ENCRYPT, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_DECRYPT, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_CALL_QRCODE_SCANNER, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_DETECT_BANKCARD, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_CALL_CAMERA, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.VIEW_CALENDAR_EVENT, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.ADJUST_SCREEN_BRIGHTNESS, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_GET_SUPPORT_LIVENESS, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_CALL_NATIVE_PHOTO, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.METHOD_CALL_VIBRATE, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_GET_LOAD_TIME_LINE, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_GET_OFFLINE_INFO, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.MW_OPEN_NEW_WEBVIEW, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.MW_PRE_LOAD_URL, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.MW_PRE_LOAD_EXCEPTION, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.MW_HSITORY_GO, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.MW_NATIVE_LOG, Permission.NONE);
+        f25270a.put(LightappJsNativeClient.MW_CLOSE_TOP_WEBVIEW, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_SEND_TO_SMS, Permission.NONE);
+        f25270a.put(LightappBusinessClient.MTD_GET_PERMISSION_STATE, Permission.NONE);
+        f25270a.put(LightappBusinessClient.METHOD_DO_RN_AUTH, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.METHOD_DO_BIND_CARD, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_BINDCARD_INDEPENDENT, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_BINDCARD_INITIATIVE, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.METHOD_ACCESS_WALLET_SERVICE, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_H5GOBCK, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_SETMENU, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_LIST_MY_BANK_CARD, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_STATEVENT, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_CUSTOMER_SERVICE, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_GET_SUPPORT_LIST, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_OPEN_IN_BROWSER, Permission.READ_NORMAL);
+        f25270a.put(LightappJsNativeClient.INSERT_CALENDAR_EVENT, Permission.READ_NORMAL);
+        f25270a.put(LightappJsNativeClient.SCREEN_CAPTURE_SETTINGS, Permission.READ_NORMAL);
+        f25270a.put(LightappBusinessClient.MTD_UPLOAD_MSG, Permission.READ_NORMAL);
+        f25270a.put("getPayMethod", Permission.READ_PRIVATE);
+        f25270a.put("changePayMethod", Permission.READ_PRIVATE);
+        f25270a.put("preOrderPay", Permission.READ_PRIVATE);
+        f25270a.put("selectPhonefromAdressBook", Permission.READ_PRIVATE);
+        f25270a.put(LightappBusinessClient.MTD_START_AUDIO_RECORD, Permission.WRITE);
+        f25270a.put(LightappBusinessClient.MTD_END_AUDIO_RECORD, Permission.WRITE);
+        f25270a.put(LightappBusinessClient.METHOD_SET_RN_AUTH_RUSULT, Permission.WRITE);
+        f25270a.put(LightappBusinessClient.METHOD_POST_EVENT, Permission.WRITE);
+        f25270a.put("getDeviceInfo", Permission.READ_DEVICE);
+        f25270a.put(LightappBusinessClient.MTD_CALLPHONEINFO, Permission.READ_DEVICE);
+        f25270a.put(LightappJsNativeClient.METHOD_GET_CURRENT_POSITION, Permission.READ_DEVICE);
+        f25270a.put(LightappBusinessClient.MTD_GO_TO_APP_SETTING, Permission.NONE);
     }
 
     public JavascriptInterfaceManager() {
@@ -122,7 +122,7 @@ public final class JavascriptInterfaceManager {
     public static boolean verifyPermission(@NonNull URL url, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, url, str)) == null) ? verifyPermission(url, f25160a.get(str)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, url, str)) == null) ? verifyPermission(url, f25270a.get(str)) : invokeLL.booleanValue;
     }
 
     public static boolean verifyPermission(@NonNull URL url, @NonNull Permission permission) {

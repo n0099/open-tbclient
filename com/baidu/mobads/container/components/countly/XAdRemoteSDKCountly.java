@@ -1,6 +1,7 @@
 package com.baidu.mobads.container.components.countly;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdRemoteSDKCountly {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COUNTLY_BASE_URL_POST = "https://mobads-logs.baidu.com/brwhis.log";
@@ -94,7 +95,7 @@ public class XAdRemoteSDKCountly {
 
     private void onAPKAction(Context context, int i2, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65540, this, context, i2, xAdRemoteAPKDownloadExtraInfo) == null) || xAdRemoteAPKDownloadExtraInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i2, xAdRemoteAPKDownloadExtraInfo) == null) || xAdRemoteAPKDownloadExtraInfo == null) {
             return;
         }
         XAdRemoteDownloadMonitorTrackingInfo xAdRemoteDownloadMonitorTrackingInfo = new XAdRemoteDownloadMonitorTrackingInfo(context, cloneApkDownloadExtraInfo(xAdRemoteAPKDownloadExtraInfo));

@@ -1,6 +1,7 @@
 package com.baidu.swan.game.ad.downloader.model;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,31 +12,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DownloadParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11745a;
+    public String f11762a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11746b;
+    public String f11763b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11747c;
+    public String f11764c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11748d;
+    public String f11765d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11749e;
+    public String f11766e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11750f;
+    public long f11767f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -120,7 +121,7 @@ public class DownloadParams {
         public static SwanAppDownloadType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (SwanAppDownloadType[]) $VALUES.clone() : (SwanAppDownloadType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SwanAppDownloadType[]) $VALUES.clone() : (SwanAppDownloadType[]) invokeV.objValue;
         }
 
         public String getTypeName() {
@@ -145,8 +146,8 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f11745a = str;
-        this.f11746b = str2;
+        this.f11762a = str;
+        this.f11763b = str2;
     }
 
     public JSONObject a() {
@@ -155,12 +156,12 @@ public class DownloadParams {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", this.f11745a);
-                jSONObject.put("name", this.f11746b);
-                jSONObject.put("userAgent", this.f11747c);
-                jSONObject.put("contentDisposition", this.f11748d);
-                jSONObject.put("mimeType", this.f11749e);
-                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f11750f);
+                jSONObject.put("url", this.f11762a);
+                jSONObject.put("name", this.f11763b);
+                jSONObject.put("userAgent", this.f11764c);
+                jSONObject.put("contentDisposition", this.f11765d);
+                jSONObject.put("mimeType", this.f11766e);
+                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f11767f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -183,7 +184,7 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f11745a = str;
-        this.f11746b = str2;
+        this.f11762a = str;
+        this.f11763b = str2;
     }
 }

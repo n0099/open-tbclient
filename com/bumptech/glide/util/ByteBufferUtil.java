@@ -2,6 +2,7 @@ package com.bumptech.glide.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,14 +23,14 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicReference<byte[]> BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public final class ByteBufferUtil {
             long length = file.length();
             if (length <= 2147483647L) {
                 if (length != 0) {
-                    randomAccessFile = new RandomAccessFile(file, r.f7745a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7762a);
                     try {
                         fileChannel = randomAccessFile.getChannel();
                         MappedByteBuffer load = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0L, length).load();
@@ -170,7 +171,7 @@ public final class ByteBufferUtil {
     public static SafeArray getSafeArray(@NonNull ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer)) == null) {
             if (byteBuffer.isReadOnly() || !byteBuffer.hasArray()) {
                 return null;
             }
@@ -268,7 +269,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ByteBufferStream extends InputStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNSET = -1;

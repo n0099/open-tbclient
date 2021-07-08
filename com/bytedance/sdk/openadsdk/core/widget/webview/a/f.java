@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +14,12 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static u f30846a;
+    public static u f30956a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
@@ -38,14 +39,14 @@ public class f {
                             fileInputStream.read(bArr);
                             u a2 = u.a(new JSONObject(new String(bArr, "utf-8")));
                             if (a2 != null) {
-                                f30846a = a2;
-                                j.b(com.alipay.sdk.packet.e.f1912e, "old version read success: " + f30846a.b());
+                                f30956a = a2;
+                                j.b(com.alipay.sdk.packet.e.f1913e, "old version read success: " + f30956a.b());
                             }
                             fileInputStream2 = fileInputStream;
                         } catch (Throwable th2) {
                             th = th2;
                             try {
-                                j.c(com.alipay.sdk.packet.e.f1912e, "version init error", th);
+                                j.c(com.alipay.sdk.packet.e.f1913e, "version init error", th);
                                 if (fileInputStream != null) {
                                     fileInputStream.close();
                                 }
@@ -61,7 +62,7 @@ public class f {
                             }
                         }
                     } else {
-                        j.b(com.alipay.sdk.packet.e.f1912e, "version pkg json file does not exist");
+                        j.b(com.alipay.sdk.packet.e.f1913e, "version pkg json file does not exist");
                     }
                 } catch (IOException unused2) {
                     return;
@@ -82,7 +83,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (f.class) {
-                uVar = f30846a;
+                uVar = f30956a;
             }
             return uVar;
         }
@@ -92,14 +93,14 @@ public class f {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
-            u uVar = f30846a;
+            u uVar = f30956a;
             if (uVar == null) {
-                j.b(com.alipay.sdk.packet.e.f1912e, "version save error1");
+                j.b(com.alipay.sdk.packet.e.f1913e, "version save error1");
                 return;
             }
             String g2 = uVar.g();
             if (TextUtils.isEmpty(g2)) {
-                j.b(com.alipay.sdk.packet.e.f1912e, "version save error2");
+                j.b(com.alipay.sdk.packet.e.f1913e, "version save error2");
                 return;
             }
             File file = new File(b.e(), "temp_pkg_info.json");
@@ -122,7 +123,7 @@ public class f {
                         th = th;
                         fileOutputStream = fileOutputStream2;
                         try {
-                            j.c(com.alipay.sdk.packet.e.f1912e, "version save error3", th);
+                            j.c(com.alipay.sdk.packet.e.f1913e, "version save error3", th);
                             if (fileOutputStream != null) {
                                 fileOutputStream.close();
                             }
@@ -163,13 +164,13 @@ public class f {
                 }
             }
         }
-        f30846a = null;
+        f30956a = null;
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (b() != null && !TextUtils.isEmpty(b().b())) {
                 if (TextUtils.isEmpty(str)) {
                     return false;
@@ -207,7 +208,7 @@ public class f {
             synchronized (f.class) {
                 if (uVar != null) {
                     if (uVar.f()) {
-                        f30846a = uVar;
+                        f30956a = uVar;
                     }
                 }
             }

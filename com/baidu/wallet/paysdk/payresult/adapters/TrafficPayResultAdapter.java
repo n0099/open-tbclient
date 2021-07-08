@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TrafficPayResultAdapter extends PayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public class TrafficPayResultAdapter extends PayResultAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PayResultContent payResultContent = this.f26038c;
-            return (payResultContent == null || TextUtils.isEmpty(payResultContent.stream_recharge_msg)) ? "" : this.f26038c.stream_recharge_msg;
+            PayResultContent payResultContent = this.f26148c;
+            return (payResultContent == null || TextUtils.isEmpty(payResultContent.stream_recharge_msg)) ? "" : this.f26148c.stream_recharge_msg;
         }
         return (String) invokeV.objValue;
     }
@@ -65,7 +65,7 @@ public class TrafficPayResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f26038c != null;
+            return this.f26148c != null;
         }
         return invokeL.booleanValue;
     }

@@ -42,7 +42,7 @@ public class ChannelWXPay extends AbstractChannelPay {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelWXPay f2665a;
+        public static ChannelWXPay f2668a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class ChannelWXPay extends AbstractChannelPay {
                     return;
                 }
             }
-            f2665a = new ChannelWXPay(null);
+            f2668a = new ChannelWXPay(null);
         }
     }
 
@@ -86,7 +86,7 @@ public class ChannelWXPay extends AbstractChannelPay {
     public static ChannelWXPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f2665a : (ChannelWXPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f2668a : (ChannelWXPay) invokeV.objValue;
     }
 
     @Override // com.baidu.android.lbspay.channelpay.IChannelPay

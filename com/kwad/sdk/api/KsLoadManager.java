@@ -8,12 +8,12 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DrawAdListener {
         @KsAdSdkApi
         @Keep
@@ -28,22 +28,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
-    public interface EntryElementListener<T> {
-        @KsAdSdkApi
-        @Keep
-        @MainThread
-        void onEntryLoad(@Nullable T t);
-
-        @KsAdSdkApi
-        @Keep
-        @MainThread
-        void onError(int i2, String str);
-    }
-
-    @KsAdSdkApi
-    @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FeedAdListener {
         @KsAdSdkApi
         @Keep
@@ -58,7 +43,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FullScreenVideoAdListener {
         @KsAdSdkApi
         @Keep
@@ -69,11 +54,34 @@ public interface KsLoadManager {
         @Keep
         @MainThread
         void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list);
+
+        @KsAdSdkApi
+        @Keep
+        void onRequestResult(int i2);
     }
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
+    public interface InterstitialAdListener {
+        @KsAdSdkApi
+        @Keep
+        @MainThread
+        void onError(int i2, String str);
+
+        @KsAdSdkApi
+        @Keep
+        @MainThread
+        void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list);
+
+        @KsAdSdkApi
+        @Keep
+        void onRequestResult(int i2);
+    }
+
+    @KsAdSdkApi
+    @Keep
+    /* loaded from: classes6.dex */
     public interface NativeAdListener {
         @KsAdSdkApi
         @Keep
@@ -88,12 +96,16 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface RewardVideoAdListener {
         @KsAdSdkApi
         @Keep
         @MainThread
         void onError(int i2, String str);
+
+        @KsAdSdkApi
+        @Keep
+        void onRequestResult(int i2);
 
         @KsAdSdkApi
         @Keep
@@ -103,12 +115,16 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface SplashScreenAdListener {
         @KsAdSdkApi
         @Keep
         @MainThread
         void onError(int i2, String str);
+
+        @KsAdSdkApi
+        @Keep
+        void onRequestResult(int i2);
 
         @KsAdSdkApi
         @Keep
@@ -123,34 +139,8 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    @Deprecated
-    @MainThread
-    KsContentAllianceAd loadContentAllianceAd(KsScene ksScene);
-
-    @KsAdSdkApi
-    @Keep
-    @MainThread
-    KsContentPage loadContentPage(KsScene ksScene);
-
-    @KsAdSdkApi
-    @Keep
-    @MainThread
-    KsContentPage loadContentPageByPush(KsScene ksScene, String str);
-
-    @KsAdSdkApi
-    @Keep
     @MainThread
     void loadDrawAd(KsScene ksScene, @NonNull DrawAdListener drawAdListener);
-
-    @KsAdSdkApi
-    @Keep
-    @MainThread
-    void loadEntryElement(KsScene ksScene, @NonNull EntryElementListener<KsEntryElement> entryElementListener);
-
-    @KsAdSdkApi
-    @Keep
-    @MainThread
-    void loadEntryElement(KsScene ksScene, @NonNull EntryElementListener<KsEntryElement> entryElementListener, boolean z);
 
     @KsAdSdkApi
     @Keep
@@ -160,17 +150,22 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    @MainThread
-    KsFeedPage loadFeedPage(KsScene ksScene);
-
-    @KsAdSdkApi
-    @Keep
     void loadFullScreenVideoAd(KsScene ksScene, @NonNull FullScreenVideoAdListener fullScreenVideoAdListener);
 
     @KsAdSdkApi
     @Keep
     @MainThread
+    void loadInterstitialAd(@NonNull KsScene ksScene, @NonNull InterstitialAdListener interstitialAdListener);
+
+    @KsAdSdkApi
+    @Keep
+    @MainThread
     void loadNativeAd(KsScene ksScene, @NonNull NativeAdListener nativeAdListener);
+
+    @KsAdSdkApi
+    @Keep
+    @MainThread
+    void loadNativeAd(String str, @NonNull NativeAdListener nativeAdListener);
 
     @KsAdSdkApi
     @Keep

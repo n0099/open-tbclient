@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.internal.ETAG;
 import com.bytedance.embedapplog.AppLog;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.BufferedReader;
@@ -31,24 +33,24 @@ import java.util.zip.GZIPInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f71703a;
+    public static final String[] f68806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f71704b;
+    public static JSONObject f68807b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f71705c;
+    public static final String[] f68808c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f71706d;
+    public static final String[] f68809d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f71707e;
+    public static final String[] f68810e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,10 +66,10 @@ public class n {
                 return;
             }
         }
-        f71703a = new String[]{"GET", "POST"};
-        f71705c = new String[]{"aid", "app_version", "tt_data"};
-        f71706d = new String[]{"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", CommonUrlParamManager.PARAM_IID, "device_platform"};
-        f71707e = new String[]{"tt_data", "device_platform"};
+        f68806a = new String[]{"GET", "POST"};
+        f68808c = new String[]{"aid", "app_version", "tt_data"};
+        f68809d = new String[]{"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", CommonUrlParamManager.PARAM_IID, "device_platform"};
+        f68810e = new String[]{"tt_data", "device_platform"};
     }
 
     /* JADX WARN: Removed duplicated region for block: B:73:0x008d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -107,7 +109,7 @@ public class n {
             }
             jSONObject = new JSONObject(str);
             try {
-                i2 = jSONObject.optInt("http_code");
+                i2 = jSONObject.optInt(ETAG.KEY_HTTP_CODE);
                 if (i2 == 200) {
                     if ("ss_app_log".equals(jSONObject.optString("magic_tag"))) {
                         i2 = "success".equals(jSONObject.optString("message")) ? 200 : Integer.valueOf("101").intValue();
@@ -130,7 +132,7 @@ public class n {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("server_time", optLong);
                         jSONObject2.put("local_time", System.currentTimeMillis() / 1000);
-                        f71704b = jSONObject2;
+                        f68807b = jSONObject2;
                     }
                 } catch (Exception e4) {
                     h0.b(e4);
@@ -181,7 +183,7 @@ public class n {
         String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), str, hashMap, bArr})) == null) {
-            if (h0.f71677b) {
+            if (h0.f68780b) {
                 h0.a("http: " + str, null);
                 if (hashMap != null) {
                     for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -203,7 +205,7 @@ public class n {
                 } else {
                     h0.b(null);
                 }
-                httpURLConnection.setRequestMethod(f71703a[i2]);
+                httpURLConnection.setRequestMethod(f68806a[i2]);
                 if (hashMap != null && !hashMap.isEmpty()) {
                     for (Map.Entry<String, String> entry2 : hashMap.entrySet()) {
                         if (!TextUtils.isEmpty(entry2.getKey()) && !TextUtils.isEmpty(entry2.getValue())) {
@@ -230,7 +232,7 @@ public class n {
                         try {
                             h0.b(th);
                             str3 = str2;
-                            if (h0.f71677b) {
+                            if (h0.f68780b) {
                             }
                             return str3;
                         } finally {
@@ -270,7 +272,7 @@ public class n {
                             }
                             try {
                                 JSONObject jSONObject = new JSONObject(sb.toString());
-                                jSONObject.put("http_code", 200);
+                                jSONObject.put(ETAG.KEY_HTTP_CODE, 200);
                                 str3 = jSONObject.toString();
                             } catch (Throwable th2) {
                                 bufferedReader3 = bufferedReader2;
@@ -280,7 +282,7 @@ public class n {
                                 bufferedReader = bufferedReader3;
                                 h0.b(th);
                                 str3 = str2;
-                                if (h0.f71677b) {
+                                if (h0.f68780b) {
                                 }
                                 return str3;
                             }
@@ -296,7 +298,7 @@ public class n {
                         str3 = null;
                     }
                 } else {
-                    String jSONObject2 = new JSONObject().put("http_code", responseCode).toString();
+                    String jSONObject2 = new JSONObject().put(ETAG.KEY_HTTP_CODE, responseCode).toString();
                     try {
                         new RuntimeException("HttpCode:" + responseCode).printStackTrace();
                         str3 = jSONObject2;
@@ -314,7 +316,7 @@ public class n {
                             }
                         }
                         str3 = str2;
-                        if (h0.f71677b) {
+                        if (h0.f68780b) {
                         }
                         return str3;
                     }
@@ -337,7 +339,7 @@ public class n {
                 bufferedReader = null;
                 str2 = null;
             }
-            if (h0.f71677b) {
+            if (h0.f68780b) {
                 h0.a("http response: " + str3, null);
             }
             return str3;
@@ -354,7 +356,7 @@ public class n {
                 Uri parse = Uri.parse(str);
                 String query = parse.getQuery();
                 ArrayList<Pair> arrayList = new ArrayList();
-                for (String str2 : f71705c) {
+                for (String str2 : f68808c) {
                     String queryParameter = parse.getQueryParameter(str2);
                     if (!TextUtils.isEmpty(queryParameter)) {
                         arrayList.add(new Pair(str2, queryParameter));
@@ -376,7 +378,7 @@ public class n {
     public static String d(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }

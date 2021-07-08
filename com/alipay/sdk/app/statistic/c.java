@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -47,35 +48,35 @@ public class c {
     public static final String Z = "ParseSchemeQueryError";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1822a = "net";
+    public static final String f1823a = "net";
     public static final String aa = "tid_context_null";
     public static final String ab = "partner";
     public static final String ac = "out_trade_no";
     public static final String ad = "trade_no";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1823b = "biz";
+    public static final String f1824b = "biz";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1824c = "cp";
+    public static final String f1825c = "cp";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1825d = "auth";
+    public static final String f1826d = "auth";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1826e = "third";
+    public static final String f1827e = "third";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1827f = "tid";
+    public static final String f1828f = "tid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1828g = "FormatResultEx";
+    public static final String f1829g = "FormatResultEx";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1829h = "GetApdidEx";
+    public static final String f1830h = "GetApdidEx";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1830i = "GetApdidNull";
+    public static final String f1831i = "GetApdidNull";
     public static final String j = "GetApdidTimeout";
     public static final String k = "GetUtdidEx";
     public static final String l = "GetPackageInfoEx";
@@ -218,7 +219,7 @@ public class c {
     private String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) ? String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,-", b(com.alipay.sdk.util.a.d(context)), "android", b(Build.VERSION.RELEASE), b(Build.MODEL), "-", b(com.alipay.sdk.util.a.a(context).a()), b(com.alipay.sdk.util.a.b(context).b()), "gw", b(com.alipay.sdk.util.a.a(context).b())) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,-", b(com.alipay.sdk.util.a.d(context)), "android", b(Build.VERSION.RELEASE), b(Build.MODEL), "-", b(com.alipay.sdk.util.a.a(context).a()), b(com.alipay.sdk.util.a.b(context).b()), "gw", b(com.alipay.sdk.util.a.a(context).b())) : (String) invokeL.objValue;
     }
 
     public void a(String str, String str2, String str3) {

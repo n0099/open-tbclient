@@ -22,7 +22,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         IOException e2;
         ProtocolException e3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65540, this) != null) {
+        if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) {
             return;
         }
         try {

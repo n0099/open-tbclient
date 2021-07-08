@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.helper;
 import android.content.Context;
 import android.provider.Settings;
 import android.view.OrientationEventListener;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.utils.BdVideoLog;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OrientationHelper extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ORIENTATION_CIRCLE_ANGLE = 360;
@@ -24,7 +25,7 @@ public class OrientationHelper extends OrientationEventListener {
     public int mLastOrientation;
     public IOrientationChange mListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface IOrientationChange {
         void onOrientationChanged(int i2);
     }
@@ -71,7 +72,7 @@ public class OrientationHelper extends OrientationEventListener {
     public static boolean isReverseLandscape(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? Math.abs(i2 + (-90)) <= 23 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? Math.abs(i2 + (-90)) <= 23 : invokeI.booleanValue;
     }
 
     public static boolean isSystemOrientationLocked(Context context) {

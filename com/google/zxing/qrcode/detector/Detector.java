@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.detector;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import com.google.zxing.common.PerspectiveTransform;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.qrcode.decoder.Version;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Detector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +101,7 @@ public class Detector {
     public static BitMatrix sampleGrid(BitMatrix bitMatrix, PerspectiveTransform perspectiveTransform, int i2) throws NotFoundException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65540, null, bitMatrix, perspectiveTransform, i2)) == null) ? GridSampler.getInstance().sampleGrid(bitMatrix, i2, i2, perspectiveTransform) : (BitMatrix) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitMatrix, perspectiveTransform, i2)) == null) ? GridSampler.getInstance().sampleGrid(bitMatrix, i2, i2, perspectiveTransform) : (BitMatrix) invokeLLI.objValue;
     }
 
     private float sizeOfBlackWhiteBlackRun(int i2, int i3, int i4, int i5) {

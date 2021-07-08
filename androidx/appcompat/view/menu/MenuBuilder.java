@@ -170,7 +170,7 @@ public class MenuBuilder implements SupportMenu {
         SparseArray sparseParcelableArray;
         Parcelable parcelable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, bundle) == null) || (sparseParcelableArray = bundle.getSparseParcelableArray(PRESENTER_KEY)) == null || this.mPresenters.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bundle) == null) || (sparseParcelableArray = bundle.getSparseParcelableArray(PRESENTER_KEY)) == null || this.mPresenters.isEmpty()) {
             return;
         }
         Iterator<WeakReference<MenuPresenter>> it = this.mPresenters.iterator();

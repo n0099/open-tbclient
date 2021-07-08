@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.v0.a;
-/* loaded from: classes8.dex */
-public class i extends d.a.j.a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class i extends d.a.j.a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
     public static int s;
@@ -34,23 +34,23 @@ public class i extends d.a.j.a<d.a.r0.r.q.a> {
     public transient /* synthetic */ FieldHolder $fh;
     public View j;
     public TextView k;
-    public d.a.r0.r.q.a l;
+    public d.a.o0.r.q.a l;
     public RoundCornerFrameLayout m;
     public FakeVideoContainer n;
     public int o;
     public boolean p;
     public a.b q;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f45752e;
+        public final /* synthetic */ ViewGroup.LayoutParams f42644e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f45753f;
+        public final /* synthetic */ i f42645f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -67,28 +67,28 @@ public class i extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45753f = iVar;
-            this.f45752e = layoutParams;
+            this.f42645f = iVar;
+            this.f42644e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45752e.width = this.f45753f.j.getWidth();
-                this.f45752e.height = (this.f45753f.j.getWidth() / 16) * 9;
-                this.f45753f.m.setLayoutParams(this.f45752e);
+                this.f42644e.width = this.f42645f.j.getWidth();
+                this.f42644e.height = (this.f42645f.j.getWidth() / 16) * 9;
+                this.f42645f.m.setLayoutParams(this.f42644e);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f45754a;
+        public final /* synthetic */ i f42646a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -105,19 +105,19 @@ public class i extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45754a = iVar;
+            this.f42646a = iVar;
         }
 
         @Override // d.a.j.v0.a.b
-        public boolean a(a.C0645a c0645a) {
+        public boolean a(a.C0611a c0611a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0645a)) == null) {
-                if (c0645a.b() != 7 || (roundCornerFrameLayout = this.f45754a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0611a)) == null) {
+                if (c0611a.b() != 7 || (roundCornerFrameLayout = this.f42646a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.d(((Boolean) c0645a.c()).booleanValue());
+                roundCornerFrameLayout.d(((Boolean) c0611a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -175,11 +175,11 @@ public class i extends d.a.j.a<d.a.r0.r.q.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.j == null) {
-                View inflate = LayoutInflater.from(this.f45735f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                View inflate = LayoutInflater.from(this.f42627f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
                 this.j = inflate;
                 this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
                 this.m = (RoundCornerFrameLayout) this.j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f45735f);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f42627f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
@@ -208,14 +208,14 @@ public class i extends d.a.j.a<d.a.r0.r.q.a> {
         r8 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00bd, code lost:
-        r0 = d.a.r0.b.g.b.m(r11, r8, null, r0, r1);
+        r0 = d.a.o0.b.g.b.o(r11, r8, null, r0, r1);
      */
     @Override // d.a.j.p
     /* renamed from: o */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
@@ -285,12 +285,12 @@ public class i extends d.a.j.a<d.a.r0.r.q.a> {
 
     @Override // d.a.j.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        d.a.r0.r.q.a aVar;
+        d.a.o0.r.q.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        d.a.s0.a0.m.l(this.k, this.l.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        d.a.p0.a0.m.l(this.k, this.l.getThreadData().c0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.c(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

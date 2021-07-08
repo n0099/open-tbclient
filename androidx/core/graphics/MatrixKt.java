@@ -1,6 +1,7 @@
 package androidx.core.graphics;
 
 import android.graphics.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,7 @@ public final class MatrixKt {
     public static final Matrix times(Matrix matrix, Matrix matrix2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, matrix, matrix2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, matrix, matrix2)) == null) {
             Matrix matrix3 = new Matrix(matrix);
             matrix3.preConcat(matrix2);
             return matrix3;

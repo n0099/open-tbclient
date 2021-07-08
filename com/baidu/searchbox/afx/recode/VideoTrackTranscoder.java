@@ -12,12 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoTrackTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DRAIN_STATE_CONSUMED = 2;
@@ -222,14 +220,14 @@ public class VideoTrackTranscoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mp4Info) == null) {
             this.mExtractor.selectTrack(this.mTrackIndex);
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString(IMediaFormat.KEY_MIME));
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.mOutputFormat.getString("mime"));
             this.mEncoder = createEncoderByType;
             try {
                 createEncoderByType.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
             } catch (IllegalStateException e2) {
                 e2.printStackTrace();
                 this.mOutputFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 1);
-                this.mOutputFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate());
+                this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
                 this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
             }
             InputSurface inputSurface = new InputSurface(this.mEncoder.createInputSurface());
@@ -242,7 +240,7 @@ public class VideoTrackTranscoder {
             if (trackFormat.containsKey("rotation-degrees")) {
                 trackFormat.setInteger("rotation-degrees", 0);
             }
-            this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+            this.mDecoder = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
             OutputSurface outputSurface = new OutputSurface();
             this.mDecoderOutputSurfaceWrapper = outputSurface;
             this.mDecoder.configure(trackFormat, outputSurface.getSurface(), (MediaCrypto) null, 0);

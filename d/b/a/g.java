@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class g extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71672e;
+    public final Context f68775e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context) {
@@ -39,7 +39,7 @@ public class g extends s1 {
                 return;
             }
         }
-        this.f71672e = context;
+        this.f68775e = context;
     }
 
     @Override // d.b.a.s1
@@ -49,13 +49,13 @@ public class g extends s1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             try {
-                str = Settings.Secure.getString(this.f71672e.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                str = Settings.Secure.getString(this.f68775e.getContentResolver(), IAdRequestParam.ANDROID_ID);
             } catch (Exception e2) {
                 h0.d("", e2);
                 str = null;
             }
             if (!z1.q(str) || "9774d56d682e549c".equals(str)) {
-                SharedPreferences sharedPreferences = this.f71672e.getSharedPreferences("snssdk_openudid", 0);
+                SharedPreferences sharedPreferences = this.f68775e.getSharedPreferences("snssdk_openudid", 0);
                 String string = sharedPreferences.getString("openudid", null);
                 if (!z1.q(string)) {
                     string = new BigInteger(64, new SecureRandom()).toString(16);

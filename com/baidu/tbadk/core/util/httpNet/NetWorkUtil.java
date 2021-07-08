@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NetWorkUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NET_TYPE_NET = "1";

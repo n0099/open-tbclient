@@ -21,31 +21,31 @@ import com.baidu.wallet.core.utils.UAFilterUtil;
 import com.baidu.wallet.utils.NetUtils;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24019a = "a";
+    public static final String f24129a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f24020b;
+    public Pattern f24130b;
 
     /* renamed from: com.baidu.wallet.base.statistics.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0257a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24021a;
+        public static a f24131a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +61,7 @@ public class a {
                     return;
                 }
             }
-            f24021a = new a(null);
+            f24131a = new a(null);
         }
 
         public C0257a() {
@@ -101,7 +101,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0257a.f24021a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0257a.f24131a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -113,10 +113,10 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f24020b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f24130b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
-                LogUtil.d(f24019a, e.getMessage());
+                LogUtil.d(f24129a, e.getMessage());
                 return null;
             }
         }
@@ -143,7 +143,7 @@ public class a {
             try {
                 return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
             } catch (Exception e2) {
-                LogUtil.d(f24019a, e2.getMessage());
+                LogUtil.d(f24129a, e2.getMessage());
                 return null;
             }
         }
@@ -222,7 +222,7 @@ public class a {
                 return;
             }
         }
-        this.f24020b = Pattern.compile("\\s*|\t|\r|\n");
+        this.f24130b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -234,10 +234,10 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f24020b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f24130b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
-                LogUtil.d(f24019a, e.getMessage());
+                LogUtil.d(f24129a, e.getMessage());
                 return null;
             }
         }

@@ -12,25 +12,25 @@ import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements r, s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f72086e;
+    public final int f69189e;
 
     /* renamed from: f  reason: collision with root package name */
-    public t f72087f;
+    public t f69190f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f72088g;
+    public int f69191g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f72089h;
+    public int f69192h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.f.b.a.d0.o f72090i;
+    public d.f.b.a.d0.o f69193i;
     public long j;
     public boolean k;
     public boolean l;
@@ -50,11 +50,11 @@ public abstract class a implements r, s {
                 return;
             }
         }
-        this.f72086e = i2;
+        this.f69189e = i2;
         this.k = true;
     }
 
-    public static boolean D(@Nullable d.f.b.a.z.a<?> aVar, @Nullable DrmInitData drmInitData) {
+    public static boolean E(@Nullable d.f.b.a.z.a<?> aVar, @Nullable DrmInitData drmInitData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, aVar, drmInitData)) == null) {
@@ -69,28 +69,34 @@ public abstract class a implements r, s {
         return invokeLL.booleanValue;
     }
 
-    public void A(Format[] formatArr, long j) throws ExoPlaybackException {
+    public void A() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, formatArr, j) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public final int B(l lVar, d.f.b.a.y.e eVar, boolean z) {
+    public void B(Format[] formatArr, long j) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, formatArr, j) == null) {
+        }
+    }
+
+    public final int C(l lVar, d.f.b.a.y.e eVar, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, eVar, z)) == null) {
-            int f2 = this.f72090i.f(lVar, eVar, z);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, eVar, z)) == null) {
+            int f2 = this.f69193i.f(lVar, eVar, z);
             if (f2 == -4) {
                 if (eVar.j()) {
                     this.k = true;
                     return this.l ? -4 : -3;
                 }
-                eVar.f73653h += this.j;
+                eVar.f70756h += this.j;
             } else if (f2 == -5) {
-                Format format = lVar.f73492a;
+                Format format = lVar.f70595a;
                 long j = format.subsampleOffsetUs;
                 if (j != Long.MAX_VALUE) {
-                    lVar.f73492a = format.copyWithSubsampleOffsetUs(j + this.j);
+                    lVar.f70595a = format.copyWithSubsampleOffsetUs(j + this.j);
                 }
             }
             return f2;
@@ -98,36 +104,36 @@ public abstract class a implements r, s {
         return invokeLLZ.intValue;
     }
 
-    public int C(long j) {
+    public int D(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.f72090i.j(j - this.j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.f69193i.j(j - this.j) : invokeJ.intValue;
     }
 
-    @Override // d.f.b.a.r
-    public final boolean e() {
+    @Override // d.f.b.a.r, d.f.b.a.s
+    public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69189e : invokeV.intValue;
     }
 
     @Override // d.f.b.a.r
-    public final void f(t tVar, Format[] formatArr, d.f.b.a.d0.o oVar, long j, boolean z, long j2) throws ExoPlaybackException {
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{tVar, formatArr, oVar, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
-            d.f.b.a.i0.a.f(this.f72089h == 0);
-            this.f72087f = tVar;
-            this.f72089h = 1;
-            w(z);
-            r(formatArr, oVar, j2);
-            x(j, z);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.booleanValue;
     }
 
-    @Override // d.f.b.a.g.a
-    public void g(int i2, Object obj) throws ExoPlaybackException {
+    @Override // d.f.b.a.r
+    public final void g(t tVar, Format[] formatArr, d.f.b.a.d0.o oVar, long j, boolean z, long j2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{tVar, formatArr, oVar, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+            d.f.b.a.i0.a.f(this.f69192h == 0);
+            this.f69190f = tVar;
+            this.f69192h = 1;
+            x(z);
+            s(formatArr, oVar, j2);
+            y(j, z);
         }
     }
 
@@ -135,117 +141,111 @@ public abstract class a implements r, s {
     public final int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72089h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f69192h : invokeV.intValue;
     }
 
     @Override // d.f.b.a.r
     public final d.f.b.a.d0.o getStream() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f72090i : (d.f.b.a.d0.o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69193i : (d.f.b.a.d0.o) invokeV.objValue;
     }
 
-    @Override // d.f.b.a.r, d.f.b.a.s
-    public final int getTrackType() {
-        InterceptResult invokeV;
+    @Override // d.f.b.a.g.a
+    public void h(int i2, Object obj) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f72086e : invokeV.intValue;
-    }
-
-    @Override // d.f.b.a.r
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            d.f.b.a.i0.a.f(this.f72089h == 1);
-            this.f72089h = 0;
-            this.f72090i = null;
-            this.l = false;
-            v();
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, obj) == null) {
         }
     }
 
     @Override // d.f.b.a.r
-    public final boolean i() {
-        InterceptResult invokeV;
+    public final void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            d.f.b.a.i0.a.f(this.f69192h == 1);
+            this.f69192h = 0;
+            this.f69193i = null;
+            this.l = false;
+            w();
+        }
     }
 
     @Override // d.f.b.a.r
-    public final void k(long j) throws ExoPlaybackException {
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.booleanValue;
+    }
+
+    @Override // d.f.b.a.r
+    public final void l(long j) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
             this.l = false;
             this.k = false;
-            x(j, false);
+            y(j, false);
         }
     }
 
     @Override // d.f.b.a.r
-    public d.f.b.a.i0.h l() {
+    public d.f.b.a.i0.h m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return null;
         }
         return (d.f.b.a.i0.h) invokeV.objValue;
     }
 
     @Override // d.f.b.a.r
-    public final void m() {
+    public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.l = true;
         }
     }
 
     @Override // d.f.b.a.r
-    public final void n() throws IOException {
+    public final void o() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f72090i.a();
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.f69193i.a();
         }
     }
 
     @Override // d.f.b.a.r
-    public final s o() {
+    public final s p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this : (s) invokeV.objValue;
     }
 
-    public int q() throws ExoPlaybackException {
+    public int r() throws ExoPlaybackException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
     @Override // d.f.b.a.r
-    public final void r(Format[] formatArr, d.f.b.a.d0.o oVar, long j) throws ExoPlaybackException {
+    public final void s(Format[] formatArr, d.f.b.a.d0.o oVar, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{formatArr, oVar, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{formatArr, oVar, Long.valueOf(j)}) == null) {
             d.f.b.a.i0.a.f(!this.l);
-            this.f72090i = oVar;
+            this.f69193i = oVar;
             this.k = false;
             this.j = j;
-            A(formatArr, j);
+            B(formatArr, j);
         }
-    }
-
-    public final t s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f72087f : (t) invokeV.objValue;
     }
 
     @Override // d.f.b.a.r
     public final void setIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f72088g = i2;
+            this.f69191g = i2;
         }
     }
 
@@ -253,9 +253,9 @@ public abstract class a implements r, s {
     public final void start() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            d.f.b.a.i0.a.f(this.f72089h == 1);
-            this.f72089h = 2;
-            y();
+            d.f.b.a.i0.a.f(this.f69192h == 1);
+            this.f69192h = 2;
+            z();
         }
     }
 
@@ -263,39 +263,39 @@ public abstract class a implements r, s {
     public final void stop() throws ExoPlaybackException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            d.f.b.a.i0.a.f(this.f72089h == 2);
-            this.f72089h = 1;
-            z();
+            d.f.b.a.i0.a.f(this.f69192h == 2);
+            this.f69192h = 1;
+            A();
         }
     }
 
-    public final int t() {
+    public final t t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f72088g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f69190f : (t) invokeV.objValue;
     }
 
-    public final boolean u() {
+    public final int u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.k ? this.l : this.f72090i.isReady() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f69191g : invokeV.intValue;
     }
 
-    public abstract void v();
-
-    public void w(boolean z) throws ExoPlaybackException {
+    public final boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.k ? this.l : this.f69193i.isReady() : invokeV.booleanValue;
+    }
+
+    public abstract void w();
+
+    public void x(boolean z) throws ExoPlaybackException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
         }
     }
 
-    public abstract void x(long j, boolean z) throws ExoPlaybackException;
-
-    public void y() throws ExoPlaybackException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-        }
-    }
+    public abstract void y(long j, boolean z) throws ExoPlaybackException;
 
     public void z() throws ExoPlaybackException {
         Interceptable interceptable = $ic;

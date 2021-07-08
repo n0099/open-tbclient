@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f32024a;
+    public static volatile b f32134a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,15 +49,15 @@ public class b extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f32024a == null) {
+            if (f32134a == null) {
                 synchronized (b.class) {
-                    if (f32024a == null) {
+                    if (f32134a == null) {
                         Context applicationContext = context.getApplicationContext();
-                        f32024a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                        f32134a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                     }
                 }
             }
-            return f32024a;
+            return f32134a;
         }
         return (b) invokeL.objValue;
     }

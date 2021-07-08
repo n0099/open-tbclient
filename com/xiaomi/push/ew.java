@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,11 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.PlayerPostEvent;
-import com.kwai.video.player.PlayerProps;
 import com.tencent.connect.common.Constants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ew {
     public static /* synthetic */ Interceptable $ic;
     public static final ew A;
@@ -42,7 +41,7 @@ public final class ew {
     public static final ew Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ew f43071a;
+    public static final ew f40085a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ew[] f341a;
@@ -53,28 +52,28 @@ public final class ew {
     public static final ew ae;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ew f43072b;
+    public static final ew f40086b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ew f43073c;
+    public static final ew f40087c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ew f43074d;
+    public static final ew f40088d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ew f43075e;
+    public static final ew f40089e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ew f43076f;
+    public static final ew f40090f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ew f43077g;
+    public static final ew f40091g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ew f43078h;
+    public static final ew f40092h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ew f43079i;
+    public static final ew f40093i;
     public static final ew j;
     public static final ew k;
     public static final ew l;
@@ -110,23 +109,23 @@ public final class ew {
                 return;
             }
         }
-        f43071a = new ew("TCP_CONN_FAIL", 0, 1);
-        f43072b = new ew("TCP_CONN_TIME", 1, 2);
-        f43073c = new ew("PING_RTT", 2, 3);
-        f43074d = new ew("CHANNEL_CON_FAIL", 3, 4);
-        f43075e = new ew("CHANNEL_CON_OK", 4, 5);
-        f43076f = new ew("ICMP_PING_FAIL", 5, 6);
-        f43077g = new ew("ICMP_PING_OK", 6, 7);
-        f43078h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
-        f43079i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
+        f40085a = new ew("TCP_CONN_FAIL", 0, 1);
+        f40086b = new ew("TCP_CONN_TIME", 1, 2);
+        f40087c = new ew("PING_RTT", 2, 3);
+        f40088d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        f40089e = new ew("CHANNEL_CON_OK", 4, 5);
+        f40090f = new ew("ICMP_PING_FAIL", 5, 6);
+        f40091g = new ew("ICMP_PING_OK", 6, 7);
+        f40092h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        f40093i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
         j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
         k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
         l = new ew("GSLB_REQUEST_SUCCESS", 11, 10000);
-        m = new ew("GSLB_TCP_NOACCESS", 12, PlayerPostEvent.MEDIA_INFO_PLAY_TO_END);
+        m = new ew("GSLB_TCP_NOACCESS", 12, 10101);
         n = new ew("GSLB_TCP_NETUNREACH", 13, 10102);
         o = new ew("GSLB_TCP_CONNREFUSED", 14, 10103);
-        p = new ew("GSLB_TCP_NOROUTETOHOST", 15, 10104);
-        q = new ew("GSLB_TCP_TIMEOUT", 16, 10105);
+        p = new ew("GSLB_TCP_NOROUTETOHOST", 15, Constants.REQUEST_QZONE_SHARE);
+        q = new ew("GSLB_TCP_TIMEOUT", 16, Constants.REQUEST_QQ_FAVORITES);
         r = new ew("GSLB_TCP_INVALARG", 17, Constants.REQUEST_SEND_TO_MY_COMPUTER);
         s = new ew("GSLB_TCP_UKNOWNHOST", 18, Constants.REQUEST_SHARE_TO_TROOP_BAR);
         t = new ew("GSLB_TCP_ERR_OTHER", 19, 10199);
@@ -144,9 +143,9 @@ public final class ew {
         F = new ew("CONN_BOSH_UNKNOWNHOST", 31, 20407);
         G = new ew("CONN_BOSH_ERR", 32, 20499);
         H = new ew("BIND_SUCCESS", 33, 30000);
-        I = new ew("BIND_TCP_READ_TIMEOUT_DEPRECTED", 34, PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH);
-        J = new ew("BIND_TCP_CONNRESET_DEPRECTED", 35, PlayerProps.FFP_PROP_STRING_STREAM_ID);
-        K = new ew("BIND_TCP_BROKEN_PIPE_DEPRECTED", 36, PlayerProps.FFP_PROP_STRING_DOMAIN);
+        I = new ew("BIND_TCP_READ_TIMEOUT_DEPRECTED", 34, 30101);
+        J = new ew("BIND_TCP_CONNRESET_DEPRECTED", 35, 30102);
+        K = new ew("BIND_TCP_BROKEN_PIPE_DEPRECTED", 36, 30103);
         L = new ew("BIND_TCP_READ_TIMEOUT", 37, 30108);
         M = new ew("BIND_TCP_CONNRESET", 38, 30109);
         N = new ew("BIND_TCP_BROKEN_PIPE", 39, 30110);
@@ -168,7 +167,7 @@ public final class ew {
         ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
         ae = ewVar;
-        f341a = new ew[]{f43071a, f43072b, f43073c, f43074d, f43075e, f43076f, f43077g, f43078h, f43079i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+        f341a = new ew[]{f40085a, f40086b, f40087c, f40088d, f40089e, f40090f, f40091g, f40092h, f40093i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
     }
 
     public ew(String str, int i2, int i3) {
@@ -200,21 +199,21 @@ public final class ew {
                 if (i2 != 30502) {
                     switch (i2) {
                         case 1:
-                            return f43071a;
+                            return f40085a;
                         case 2:
-                            return f43072b;
+                            return f40086b;
                         case 3:
-                            return f43073c;
+                            return f40087c;
                         case 4:
-                            return f43074d;
+                            return f40088d;
                         case 5:
-                            return f43075e;
+                            return f40089e;
                         case 6:
-                            return f43076f;
+                            return f40090f;
                         case 7:
-                            return f43077g;
+                            return f40091g;
                         case 8:
-                            return f43078h;
+                            return f40092h;
                         default:
                             switch (i2) {
                                 case 8000:
@@ -257,15 +256,15 @@ public final class ew {
                                     return ae;
                                 default:
                                     switch (i2) {
-                                        case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
+                                        case 10101:
                                             return m;
                                         case 10102:
                                             return n;
                                         case 10103:
                                             return o;
-                                        case 10104:
+                                        case Constants.REQUEST_QZONE_SHARE /* 10104 */:
                                             return p;
-                                        case 10105:
+                                        case Constants.REQUEST_QQ_FAVORITES /* 10105 */:
                                             return q;
                                         case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
                                             return r;
@@ -289,11 +288,11 @@ public final class ew {
                                                     return C;
                                                 default:
                                                     switch (i2) {
-                                                        case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
+                                                        case 30101:
                                                             return I;
-                                                        case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
+                                                        case 30102:
                                                             return J;
-                                                        case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
+                                                        case 30103:
                                                             return K;
                                                         default:
                                                             switch (i2) {
@@ -346,7 +345,7 @@ public final class ew {
     public static ew[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ew[]) f341a.clone() : (ew[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ew[]) f341a.clone() : (ew[]) invokeV.objValue;
     }
 
     public int a() {

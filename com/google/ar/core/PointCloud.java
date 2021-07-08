@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PointCloud implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f32854e;
+    public long f32964e;
 
     public PointCloud() {
         Interceptable interceptable = $ic;
@@ -28,8 +28,8 @@ public class PointCloud implements Closeable {
                 return;
             }
         }
-        this.f32854e = 0L;
-        this.f32854e = 0L;
+        this.f32964e = 0L;
+        this.f32964e = 0L;
     }
 
     private native ByteBuffer nativeGetData(long j, long j2);
@@ -51,7 +51,7 @@ public class PointCloud implements Closeable {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f32854e;
+            long j = this.f32964e;
             if (j != 0) {
                 nativeReleasePointCloud(j);
             }
@@ -62,8 +62,8 @@ public class PointCloud implements Closeable {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            nativeReleasePointCloud(this.f32854e);
-            this.f32854e = 0L;
+            nativeReleasePointCloud(this.f32964e);
+            this.f32964e = 0L;
         }
     }
 }

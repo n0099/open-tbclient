@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.nio.Buffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IVlogEditViewManager {
     void cancelStickerSelected();
 

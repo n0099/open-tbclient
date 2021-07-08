@@ -27,17 +27,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.b.d;
-import d.a.r0.b.e;
-import d.a.r0.b.f.t;
-import d.a.r0.r.d0.b;
-import d.a.r0.s.b.a;
-import d.a.r0.z0.o0;
-import d.a.s0.q0.a.b.g;
+import d.a.o0.b.d;
+import d.a.o0.b.e;
+import d.a.o0.b.f.u;
+import d.a.o0.r.d0.b;
+import d.a.o0.s.b.a;
+import d.a.o0.z0.o0;
+import d.a.p0.q0.a.b.g;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto.HostGlobalStateSync {
     public static /* synthetic */ Interceptable $ic;
     public static boolean updatingLoginUserInfoByFlutter;
@@ -53,7 +53,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     public CustomMessageListener skinTypeChangeListener;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class GlobalStateSubType {
         public static final /* synthetic */ GlobalStateSubType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -127,7 +127,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class GlobalStateType {
         public static final /* synthetic */ GlobalStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -444,11 +444,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e b2 = d.b(t.f54797c);
-            if (b2 == null || k.isEmpty(b2.f54745a)) {
+            e b2 = d.b(u.f51502c);
+            if (b2 == null || k.isEmpty(b2.f51447a)) {
                 return "";
             }
-            String str = b2.f54745a;
+            String str = b2.f51447a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
@@ -522,7 +522,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap.put(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
             hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
             hashMap.put("model", Build.MODEL);
-            hashMap.put("teenMode", Boolean.valueOf(d.a.r0.c1.b.e.d()));
+            hashMap.put("teenMode", Boolean.valueOf(d.a.o0.c1.b.e.d()));
             hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
             hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
             hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -621,6 +621,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userSmallPhotoHost", TbConfig.getPhotoSmallAddress());
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
+            hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.j().k("key_video_works_progress_bar_waiting_time", 0)));
             hashMap.put("syncData", hashMap2);
             hashMap.put("configInfo", hashMap3);
             hashMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, hashMap4);

@@ -20,12 +20,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ag {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f43569a;
+    public static long f40583a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ThreadPoolExecutor f885a;
@@ -48,7 +48,7 @@ public class ag {
             }
         }
         f886a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
-        f43569a = 0L;
+        f40583a = 0L;
         f885a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
@@ -95,8 +95,8 @@ public class ag {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if ((f885a.getActiveCount() <= 0 || currentTimeMillis - f43569a >= 1800000) && gx.m363a().m368a() && (m616a = bi.a().m616a()) != null && m616a.e() > 0) {
-                f43569a = currentTimeMillis;
+            if ((f885a.getActiveCount() <= 0 || currentTimeMillis - f40583a >= 1800000) && gx.m363a().m368a() && (m616a = bi.a().m616a()) != null && m616a.e() > 0) {
+                f40583a = currentTimeMillis;
                 a(m616a.a(), true);
             }
         }

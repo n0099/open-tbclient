@@ -1,6 +1,7 @@
 package com.baidu.sofire.utility;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.protect.crypto.WBAESCipherImplement;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WbEncryptUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_LEN = 1024;
-    public static d.a.i0.a.a mWbaes;
+    public static d.a.f0.a.a mWbaes;
     public transient /* synthetic */ FieldHolder $fh;
 
     public WbEncryptUtil() {
@@ -84,7 +85,7 @@ public class WbEncryptUtil {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (WbEncryptUtil.class) {
                 if (mWbaes == null) {
-                    d.a.i0.a.a c2 = WBAESCipherImplement.c();
+                    d.a.f0.a.a c2 = WBAESCipherImplement.c();
                     byte[] loadAssertFile = loadAssertFile(context, "pass-key.face-android");
                     if (loadAssertFile != null && loadAssertFile.length > 0) {
                         mWbaes = c2;
@@ -132,7 +133,7 @@ public class WbEncryptUtil {
     public static byte[] wbEncrypt(Context context, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bArr)) == null) {
             if (bArr == null || bArr.length <= 0) {
                 return new byte[0];
             }

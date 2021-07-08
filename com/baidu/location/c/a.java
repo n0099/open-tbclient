@@ -8,37 +8,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6672a;
+    public int f6689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6673b;
+    public int f6690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6674c;
+    public int f6691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6675d;
+    public int f6692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6676e;
+    public int f6693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6677f;
+    public int f6694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f6678g;
+    public long f6695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6679h;
+    public int f6696h;
 
     /* renamed from: i  reason: collision with root package name */
-    public char f6680i;
+    public char f6697i;
     public int j;
     public String k;
     public boolean l;
@@ -56,19 +56,19 @@ public class a {
                 return;
             }
         }
-        this.f6672a = -1;
-        this.f6673b = -1;
-        this.f6674c = -1;
-        this.f6675d = -1;
-        this.f6676e = Integer.MAX_VALUE;
-        this.f6677f = Integer.MAX_VALUE;
-        this.f6678g = 0L;
-        this.f6679h = -1;
-        this.f6680i = '0';
+        this.f6689a = -1;
+        this.f6690b = -1;
+        this.f6691c = -1;
+        this.f6692d = -1;
+        this.f6693e = Integer.MAX_VALUE;
+        this.f6694f = Integer.MAX_VALUE;
+        this.f6695g = 0L;
+        this.f6696h = -1;
+        this.f6697i = '0';
         this.j = Integer.MAX_VALUE;
         this.k = null;
         this.l = false;
-        this.f6678g = System.currentTimeMillis();
+        this.f6695g = System.currentTimeMillis();
     }
 
     public a(int i2, int i3, int i4, int i5, int i6, char c2, int i7) {
@@ -86,31 +86,31 @@ public class a {
                 return;
             }
         }
-        this.f6672a = -1;
-        this.f6673b = -1;
-        this.f6674c = -1;
-        this.f6675d = -1;
-        this.f6676e = Integer.MAX_VALUE;
-        this.f6677f = Integer.MAX_VALUE;
-        this.f6678g = 0L;
-        this.f6679h = -1;
-        this.f6680i = '0';
+        this.f6689a = -1;
+        this.f6690b = -1;
+        this.f6691c = -1;
+        this.f6692d = -1;
+        this.f6693e = Integer.MAX_VALUE;
+        this.f6694f = Integer.MAX_VALUE;
+        this.f6695g = 0L;
+        this.f6696h = -1;
+        this.f6697i = '0';
         this.j = Integer.MAX_VALUE;
         this.k = null;
         this.l = false;
-        this.f6672a = i2;
-        this.f6673b = i3;
-        this.f6674c = i4;
-        this.f6675d = i5;
-        this.f6679h = i6;
-        this.f6680i = c2;
-        this.f6678g = System.currentTimeMillis();
+        this.f6689a = i2;
+        this.f6690b = i3;
+        this.f6691c = i4;
+        this.f6692d = i5;
+        this.f6696h = i6;
+        this.f6697i = c2;
+        this.f6695g = System.currentTimeMillis();
         this.j = i7;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(a aVar) {
-        this(aVar.f6672a, aVar.f6673b, aVar.f6674c, aVar.f6675d, aVar.f6679h, aVar.f6680i, aVar.j);
+        this(aVar.f6689a, aVar.f6690b, aVar.f6691c, aVar.f6692d, aVar.f6696h, aVar.f6697i, aVar.j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class a {
                 return;
             }
         }
-        this.f6678g = aVar.f6678g;
+        this.f6695g = aVar.f6695g;
     }
 
     public boolean a() {
@@ -135,7 +135,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f6678g;
+            long j = this.f6695g;
             return currentTimeMillis - j > 0 && currentTimeMillis - j < 3000;
         }
         return invokeV.booleanValue;
@@ -144,31 +144,31 @@ public class a {
     public boolean a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? this.f6672a == aVar.f6672a && this.f6673b == aVar.f6673b && this.f6675d == aVar.f6675d && this.f6674c == aVar.f6674c : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? this.f6689a == aVar.f6689a && this.f6690b == aVar.f6690b && this.f6692d == aVar.f6692d && this.f6691c == aVar.f6691c : invokeL.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6672a > -1 && this.f6673b > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f6689a > -1 && this.f6690b > 0 : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6672a == -1 && this.f6673b == -1 && this.f6675d == -1 && this.f6674c == -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6689a == -1 && this.f6690b == -1 && this.f6692d == -1 && this.f6691c == -1 : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6672a > -1 && this.f6673b > -1 && this.f6675d == -1 && this.f6674c == -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6689a > -1 && this.f6690b > -1 && this.f6692d == -1 && this.f6691c == -1 : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6672a > -1 && this.f6673b > -1 && this.f6675d > -1 && this.f6674c > -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6689a > -1 && this.f6690b > -1 && this.f6692d > -1 && this.f6691c > -1 : invokeV.booleanValue;
     }
 
     public void f() {
@@ -184,8 +184,8 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer(128);
             stringBuffer.append("&nw=");
-            stringBuffer.append(this.f6680i);
-            stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f6674c), Integer.valueOf(this.f6675d), Integer.valueOf(this.f6672a), Integer.valueOf(this.f6673b), Integer.valueOf(this.f6679h)));
+            stringBuffer.append(this.f6697i);
+            stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.f6691c), Integer.valueOf(this.f6692d), Integer.valueOf(this.f6689a), Integer.valueOf(this.f6690b), Integer.valueOf(this.f6696h)));
             if (this.j != Integer.MAX_VALUE) {
                 stringBuffer.append("&cl_cs=");
                 stringBuffer.append(this.j);
@@ -204,8 +204,8 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer(128);
             stringBuffer.append("&nw2=");
-            stringBuffer.append(this.f6680i);
-            stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.f6674c), Integer.valueOf(this.f6675d), Integer.valueOf(this.f6672a), Integer.valueOf(this.f6673b), Integer.valueOf(this.f6679h)));
+            stringBuffer.append(this.f6697i);
+            stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.f6691c), Integer.valueOf(this.f6692d), Integer.valueOf(this.f6689a), Integer.valueOf(this.f6690b), Integer.valueOf(this.f6696h)));
             if (this.j != Integer.MAX_VALUE) {
                 stringBuffer.append("&cl_cs2=");
                 stringBuffer.append(this.j);

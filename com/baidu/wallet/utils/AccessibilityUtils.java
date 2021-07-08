@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AccessibilityUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class AccessibilityUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f27220a;
+                public final /* synthetic */ View f27330a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -51,7 +51,7 @@ public class AccessibilityUtils {
                             return;
                         }
                     }
-                    this.f27220a = view;
+                    this.f27330a = view;
                 }
 
                 @Override // java.lang.Runnable
@@ -60,7 +60,7 @@ public class AccessibilityUtils {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 14) {
                         return;
                     }
-                    this.f27220a.sendAccessibilityEvent(128);
+                    this.f27330a.sendAccessibilityEvent(128);
                 }
             }, 100L);
         }

@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoPlayerProxy";
@@ -35,7 +35,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public final VideoPlayer mVideoPlayer;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.VideoPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;

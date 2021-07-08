@@ -12,7 +12,7 @@ import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class EventChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "EventChannel#";
@@ -22,13 +22,13 @@ public final class EventChannel {
     public final String name;
 
     /* renamed from: io.flutter.plugin.common.EventChannel$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface EventSink {
         void endOfStream();
 
@@ -37,7 +37,7 @@ public final class EventChannel {
         void success(Object obj);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class IncomingStreamRequestHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public final class EventChannel {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public final class EventSinkImplementation implements EventSink {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +178,7 @@ public final class EventChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface StreamHandler {
         void onCancel(Object obj);
 

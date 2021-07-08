@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SendLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static String END_REQUEST_TIME = "";
@@ -35,7 +35,7 @@ public class SendLogUtil {
     public static int TYPE_SEND_COOKIE = 425;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public static HashMap<String, String> mCommon;
@@ -113,7 +113,7 @@ public class SendLogUtil {
 
         private void initCommonArgs() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65540, this) == null) && mCommon.isEmpty()) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && mCommon.isEmpty()) {
                 mCommon.put("cuid", Base64.encode(DeviceUtils.getInstance().getCUID(this.mContext)));
                 mCommon.put(IAdRequestParam.SN, DeviceUtils.getInstance().getEncodedSN(this.mContext));
                 mCommon.put(IAdRequestParam.OS, "android");
@@ -362,7 +362,7 @@ public class SendLogUtil {
 
     public static void fireAdMetrics(String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, hashMap) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, hashMap) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         new OAdURLConnection(1, addParameters(str, hashMap)).asynLoad();

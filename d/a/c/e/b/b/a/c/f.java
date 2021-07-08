@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class f implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f44038a;
+    public Map<String, Object> f41054a;
 
     public f(Map<String, Object> map) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class f implements c {
                 return;
             }
         }
-        this.f44038a = map;
+        this.f41054a = map;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44038a.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41054a.keySet() : (Set) invokeV.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            this.f44038a.put(str, obj);
+            this.f41054a.put(str, obj);
         }
     }
 
@@ -69,6 +69,6 @@ public class f implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f44038a.get(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f41054a.get(str) : invokeL.objValue;
     }
 }

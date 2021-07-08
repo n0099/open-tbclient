@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f73770a;
+    public static final o f70873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final o f73771b;
+    public static final o f70874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final o f73772c;
+    public static final o f70875c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a extends o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,21 +68,21 @@ public abstract class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
                 if (i2 < 0) {
-                    return o.f73771b;
+                    return o.f70874b;
                 }
-                return i2 > 0 ? o.f73772c : o.f73770a;
+                return i2 > 0 ? o.f70875c : o.f70873a;
             }
             return (o) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f73773d;
+        public final int f70876d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2) {
@@ -102,7 +102,7 @@ public abstract class o {
                     return;
                 }
             }
-            this.f73773d = i2;
+            this.f70876d = i2;
         }
 
         @Override // d.f.d.c.o
@@ -116,7 +116,7 @@ public abstract class o {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73773d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70876d : invokeV.intValue;
         }
     }
 
@@ -133,9 +133,9 @@ public abstract class o {
                 return;
             }
         }
-        f73770a = new a();
-        f73771b = new b(-1);
-        f73772c = new b(1);
+        f70873a = new a();
+        f70874b = new b(-1);
+        f70875c = new b(1);
     }
 
     public /* synthetic */ o(a aVar) {
@@ -145,7 +145,7 @@ public abstract class o {
     public static o f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f73770a : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f70873a : (o) invokeV.objValue;
     }
 
     public abstract o d(Comparable<?> comparable, Comparable<?> comparable2);

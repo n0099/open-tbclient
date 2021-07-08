@@ -2,6 +2,7 @@ package com.alipay.sdk.data;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,31 +22,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1858a = 3500;
+    public static final int f1859a = 3500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1859b = "https://h5.m.taobao.com/mlapp/olist.html";
+    public static final String f1860b = "https://h5.m.taobao.com/mlapp/olist.html";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1860c = 10;
+    public static final int f1861c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f1861d = true;
+    public static final boolean f1862d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f1862e = true;
+    public static final boolean f1863e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1863f = 1000;
+    public static final int f1864f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1864g = 20000;
+    public static final int f1865g = 20000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1865h = "alipay_cashier_dynamic_config";
+    public static final String f1866h = "alipay_cashier_dynamic_config";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1866i = "timeout";
+    public static final String f1867i = "timeout";
     public static final String j = "st_sdk_config";
     public static final String k = "tbreturl";
     public static final String l = "launchAppSwitch";
@@ -77,7 +78,7 @@ public final class a {
             }
         }
         this.r = 3500;
-        this.s = f1859b;
+        this.s = f1860b;
         this.t = 10;
         this.u = true;
         this.v = true;
@@ -102,7 +103,7 @@ public final class a {
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            a(j.b(com.alipay.sdk.sys.b.a().b(), f1865h, null));
+            a(j.b(com.alipay.sdk.sys.b.a().b(), f1866h, null));
         }
     }
 
@@ -118,7 +119,7 @@ public final class a {
                 jSONObject.put(l, C0016a.a(f()));
                 jSONObject.put(o, b());
                 jSONObject.put(p, c());
-                j.a(com.alipay.sdk.sys.b.a().b(), f1865h, jSONObject.toString());
+                j.a(com.alipay.sdk.sys.b.a().b(), f1866h, jSONObject.toString());
             } catch (Exception e2) {
                 com.alipay.sdk.util.c.a(e2);
             }
@@ -158,20 +159,20 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(j);
             if (optJSONObject != null) {
                 this.r = optJSONObject.optInt("timeout", 3500);
-                this.s = optJSONObject.optString(k, f1859b).trim();
+                this.s = optJSONObject.optString(k, f1860b).trim();
                 this.t = optJSONObject.optInt(m, 10);
                 this.w = C0016a.a(optJSONObject.optJSONArray(l));
                 this.u = optJSONObject.optBoolean(o, true);
                 this.v = optJSONObject.optBoolean(p, true);
             } else {
-                com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1893a, "config is null");
+                com.alipay.sdk.util.c.d(com.alipay.sdk.net.a.f1894a, "config is null");
             }
         } catch (Throwable th) {
             com.alipay.sdk.util.c.a(th);
@@ -185,13 +186,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1867a;
+        public final String f1868a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f1868b;
+        public final int f1869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f1869c;
+        public final String f1870c;
 
         public C0016a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -208,9 +209,9 @@ public final class a {
                     return;
                 }
             }
-            this.f1867a = str;
-            this.f1868b = i2;
-            this.f1869c = str2;
+            this.f1868a = str;
+            this.f1869b = i2;
+            this.f1870c = str2;
         }
 
         public static C0016a a(JSONObject jSONObject) {
@@ -254,12 +255,12 @@ public final class a {
         public static JSONObject a(C0016a c0016a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, c0016a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, c0016a)) == null) {
                 if (c0016a == null) {
                     return null;
                 }
                 try {
-                    return new JSONObject().put(Config.PACKAGE_NAME, c0016a.f1867a).put("v", c0016a.f1868b).put("pk", c0016a.f1869c);
+                    return new JSONObject().put(Config.PACKAGE_NAME, c0016a.f1868a).put("v", c0016a.f1869b).put("pk", c0016a.f1870c);
                 } catch (JSONException e2) {
                     com.alipay.sdk.util.c.a(e2);
                     return null;
@@ -315,7 +316,7 @@ public final class a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.r = jSONObject.optInt("timeout", 3500);
-            this.s = jSONObject.optString(k, f1859b).trim();
+            this.s = jSONObject.optString(k, f1860b).trim();
             this.t = jSONObject.optInt(m, 10);
             this.w = C0016a.a(jSONObject.optJSONArray(l));
             this.u = jSONObject.optBoolean(o, true);

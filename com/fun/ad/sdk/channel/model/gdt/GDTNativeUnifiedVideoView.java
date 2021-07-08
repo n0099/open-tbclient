@@ -27,30 +27,30 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GDTNativeUnifiedVideoView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaView f32596d;
+    public MediaView f32706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f32597e;
+    public ImageView f32707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f32598f;
+    public View.OnClickListener f32708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f32599g;
+    public float f32709g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements NativeADMediaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GDTNativeUnifiedVideoView f32600a;
+        public final /* synthetic */ GDTNativeUnifiedVideoView f32710a;
 
         public a(GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class GDTNativeUnifiedVideoView extends b {
                     return;
                 }
             }
-            this.f32600a = gDTNativeUnifiedVideoView;
+            this.f32710a = gDTNativeUnifiedVideoView;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADMediaListener
@@ -75,10 +75,10 @@ public class GDTNativeUnifiedVideoView extends b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.b("GDTNativeUnifiedAd video onVideoClicked", new Object[0]);
-                GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView = this.f32600a;
-                View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f32598f;
+                GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView = this.f32710a;
+                View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f32708f;
                 if (onClickListener != null) {
-                    onClickListener.onClick(gDTNativeUnifiedVideoView.f32596d);
+                    onClickListener.onClick(gDTNativeUnifiedVideoView.f32706d);
                 }
             }
         }
@@ -225,7 +225,7 @@ public class GDTNativeUnifiedVideoView extends b {
                 return;
             }
         }
-        this.f32599g = 1.78f;
+        this.f32709g = 1.78f;
     }
 
     @Override // a.a.a.a.u.b.b.b
@@ -237,7 +237,7 @@ public class GDTNativeUnifiedVideoView extends b {
             arrayList.add(this.f1307c);
             arrayList.add(((b) this).f1306b);
             arrayList.add(((b) this).f1305a);
-            arrayList.add(this.f32597e);
+            arrayList.add(this.f32707e);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -250,7 +250,7 @@ public class GDTNativeUnifiedVideoView extends b {
             super.a(activity, nativeUnifiedADData);
             Context context = getContext();
             String iconUrl = nativeUnifiedADData.getIconUrl();
-            ImageView imageView = this.f32597e;
+            ImageView imageView = this.f32707e;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -264,8 +264,8 @@ public class GDTNativeUnifiedVideoView extends b {
                 Glide.with(context).load(iconUrl).into(imageView);
             }
             d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f32599g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            nativeUnifiedADData.bindMediaView(this.f32596d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this));
+            this.f32709g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            nativeUnifiedADData.bindMediaView(this.f32706d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this));
         }
     }
 
@@ -274,8 +274,8 @@ public class GDTNativeUnifiedVideoView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f32596d = (MediaView) findViewById(R.id.ad_video);
-            this.f32597e = (ImageView) findViewById(R.id.ad_icon);
+            this.f32706d = (MediaView) findViewById(R.id.ad_video);
+            this.f32707e = (ImageView) findViewById(R.id.ad_icon);
         }
     }
 
@@ -284,18 +284,18 @@ public class GDTNativeUnifiedVideoView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32596d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32706d.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f32599g);
-            this.f32596d.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f32709g);
+            this.f32706d.setLayoutParams(layoutParams);
         }
     }
 
     public void setVideoOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f32598f = onClickListener;
+            this.f32708f = onClickListener;
         }
     }
 }

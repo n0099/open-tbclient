@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class fk implements fo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ fj f43112a;
+    public final /* synthetic */ fj f40126a;
 
     public fk(fj fjVar) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class fk implements fo {
                 return;
             }
         }
-        this.f43112a = fjVar;
+        this.f40126a = fjVar;
     }
 
     @Override // com.xiaomi.push.fo
     public void a(fl flVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, flVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f43112a.f388a.format(new Date()) + " Connection started (" + this.f43112a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40126a.f388a.format(new Date()) + " Connection started (" + this.f40126a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -45,7 +45,7 @@ public class fk implements fo {
     public void a(fl flVar, int i2, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flVar, i2, exc) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f43112a.f388a.format(new Date()) + " Connection closed (" + this.f43112a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40126a.f388a.format(new Date()) + " Connection closed (" + this.f40126a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -53,7 +53,7 @@ public class fk implements fo {
     public void a(fl flVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, flVar, exc) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f43112a.f388a.format(new Date()) + " Reconnection failed due to an exception (" + this.f43112a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40126a.f388a.format(new Date()) + " Reconnection failed due to an exception (" + this.f40126a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
             exc.printStackTrace();
         }
     }
@@ -62,7 +62,7 @@ public class fk implements fo {
     public void b(fl flVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, flVar) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f43112a.f388a.format(new Date()) + " Connection reconnected (" + this.f43112a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.f40126a.f388a.format(new Date()) + " Connection reconnected (" + this.f40126a.f385a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 }

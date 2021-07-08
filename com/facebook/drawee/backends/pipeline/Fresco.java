@@ -1,6 +1,7 @@
 package com.facebook.drawee.backends.pipeline;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Fresco {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -26,7 +27,7 @@ public class Fresco {
     public static volatile boolean sIsInitialized;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DraweeControllerBuilderSupplierFactory implements Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public class Fresco {
     public static ImagePipelineFactory getImagePipelineFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? ImagePipelineFactory.getInstance() : (ImagePipelineFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ImagePipelineFactory.getInstance() : (ImagePipelineFactory) invokeV.objValue;
     }
 
     public static boolean hasBeenInitialized() {

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +57,13 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
             if (aVar == null) {
                 return null;
             }
-            if (this.f44824h == aVar.y()) {
+            if (this.f41840h == aVar.y()) {
                 Q = this.m.P(viewGroup, gVar.c());
-            } else if (this.f44824h == this.m.w()) {
+            } else if (this.f41840h == this.m.w()) {
                 Q = this.m.N(viewGroup, gVar.c());
-            } else if (this.f44824h == this.m.x()) {
+            } else if (this.f41840h == this.m.x()) {
                 Q = this.m.O(viewGroup, gVar.c());
-            } else if (this.f44824h == this.m.v()) {
+            } else if (this.f41840h == this.m.v()) {
                 Q = this.m.M(viewGroup, gVar.c());
             } else {
                 Q = this.m.Q(viewGroup);
@@ -88,16 +88,16 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
             if (aVar == null) {
                 return null;
             }
-            if (this.f44824h == aVar.y()) {
+            if (this.f41840h == aVar.y()) {
                 return this.m.W(i2, view, viewGroup, gVar.c(), v);
             }
-            if (this.f44824h == this.m.w()) {
+            if (this.f41840h == this.m.w()) {
                 return this.m.T(i2, view, viewGroup, gVar.c(), v);
             }
-            if (this.f44824h == this.m.x()) {
+            if (this.f41840h == this.m.x()) {
                 return this.m.U(i2, view, viewGroup, gVar.c(), v);
             }
-            if (this.f44824h == this.m.v()) {
+            if (this.f41840h == this.m.v()) {
                 return this.m.S(i2, view, viewGroup, gVar.c(), v);
             }
             return this.m.X(i2, view, viewGroup, gVar.c(), v);

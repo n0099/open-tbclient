@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.s0.i1.f.i.b;
-import d.a.s0.i1.t.d;
+import d.a.p0.i1.f.i.b;
+import d.a.p0.i1.t.d;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_TYPE = 12;

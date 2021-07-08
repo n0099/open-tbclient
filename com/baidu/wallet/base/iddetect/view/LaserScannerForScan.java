@@ -20,37 +20,37 @@ import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.baidu.wallet.base.iddetect.a;
 import com.baidu.wallet.base.iddetect.utils.b;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LaserScannerForScan extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f23971a;
+    public Bitmap f24081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Drawable f23972b;
+    public Drawable f24082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23973c;
+    public int f24083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f23974d;
+    public float f24084d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f23975e;
+    public float f24085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Matrix f23976f;
+    public Matrix f24086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f23977g;
+    public boolean f24087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f23978h;
+    public a f24088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23979i;
+    public int f24089i;
     public int j;
     public IdCardActivity k;
 
@@ -81,18 +81,18 @@ public class LaserScannerForScan extends ImageView {
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i2) == null) {
             try {
                 a a2 = b.a(context, 1, false);
-                this.f23978h = a2;
+                this.f24088h = a2;
                 if (a2 == null && (idCardActivity = this.k) != null) {
                     idCardActivity.dialogPermission();
                     return;
                 }
-                if (this.f23972b == null) {
-                    this.f23972b = getResources().getDrawable(ResUtils.drawable(context, "wallet_base_id_detect_scan_line"));
+                if (this.f24082b == null) {
+                    this.f24082b = getResources().getDrawable(ResUtils.drawable(context, "wallet_base_id_detect_scan_line"));
                 }
-                this.f23971a = ((BitmapDrawable) this.f23972b).getBitmap();
-                this.f23976f = new Matrix();
-                this.f23977g = true;
-                this.f23973c = 0;
+                this.f24081a = ((BitmapDrawable) this.f24082b).getBitmap();
+                this.f24086f = new Matrix();
+                this.f24087g = true;
+                this.f24083c = 0;
             } catch (Exception e2) {
                 String simpleName = LaserScannerForScan.class.getSimpleName();
                 LogUtil.errord(simpleName, "init failed exception = " + e2.getMessage());
@@ -110,7 +110,7 @@ public class LaserScannerForScan extends ImageView {
     public int getBankHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23979i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24089i : invokeV.intValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -118,15 +118,15 @@ public class LaserScannerForScan extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f23977g) {
-                this.f23976f.reset();
-                Matrix matrix = this.f23976f;
-                float f2 = this.f23975e;
+            if (this.f24087g) {
+                this.f24086f.reset();
+                Matrix matrix = this.f24086f;
+                float f2 = this.f24085e;
                 matrix.setScale(f2, f2);
-                this.f23976f.setTranslate(this.f23974d, this.f23973c + this.j);
-                canvas.drawBitmap(this.f23971a, this.f23976f, null);
+                this.f24086f.setTranslate(this.f24084d, this.f24083c + this.j);
+                canvas.drawBitmap(this.f24081a, this.f24086f, null);
                 int height = canvas.getHeight() - this.j;
-                this.f23973c = (this.f23973c + (height / 100)) % height;
+                this.f24083c = (this.f24083c + (height / 100)) % height;
                 postInvalidateDelayed(10L, 0, 0, canvas.getWidth(), canvas.getHeight());
             }
         }
@@ -137,9 +137,9 @@ public class LaserScannerForScan extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i2);
-            a aVar = this.f23978h;
-            int i4 = aVar == null ? (int) (size * 1.0f * 0.6306f) : (int) (size * 1.0f * aVar.f23958c);
-            this.f23979i = i4;
+            a aVar = this.f24088h;
+            int i4 = aVar == null ? (int) (size * 1.0f * 0.6306f) : (int) (size * 1.0f * aVar.f24068c);
+            this.f24089i = i4;
             setMeasuredDimension(size, i4);
         }
     }
@@ -148,11 +148,11 @@ public class LaserScannerForScan extends ImageView {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
-            this.f23975e = i2 / this.f23971a.getWidth();
-            Bitmap bitmap = this.f23971a;
+            this.f24085e = i2 / this.f24081a.getWidth();
+            Bitmap bitmap = this.f24081a;
             Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i2, bitmap.getHeight(), true);
-            this.f23971a = createScaledBitmap;
-            this.f23974d = 0.0f;
+            this.f24081a = createScaledBitmap;
+            this.f24084d = 0.0f;
             this.j = -createScaledBitmap.getHeight();
         }
     }
@@ -167,7 +167,7 @@ public class LaserScannerForScan extends ImageView {
     public void startScan() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f23977g = true;
+            this.f24087g = true;
             postInvalidate();
         }
     }
@@ -175,7 +175,7 @@ public class LaserScannerForScan extends ImageView {
     public void stopScan() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f23977g = false;
+            this.f24087g = false;
         }
     }
 
@@ -219,8 +219,8 @@ public class LaserScannerForScan extends ImageView {
                 return;
             }
         }
-        this.f23972b = null;
-        this.f23979i = -1;
+        this.f24082b = null;
+        this.f24089i = -1;
         this.j = -1;
         a(context, attributeSet, i2);
     }

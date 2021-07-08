@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OAdRemoteApkDownloader extends Observable implements Runnable, IDownloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_SIZE = 102400;
@@ -56,7 +56,7 @@ public class OAdRemoteApkDownloader extends Observable implements Runnable, IDow
     public boolean pausedManually;
     public String title;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class DownloadThread extends BaseTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "DownloadThread";

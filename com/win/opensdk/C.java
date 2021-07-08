@@ -14,22 +14,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class C {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f42312a;
+    public Handler f39326a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42313b;
+    public int f39327b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42314c;
+    public int f39328c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ E f42315d;
+    public final /* synthetic */ E f39329d;
 
     public C(E e2) {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public class C {
                 return;
             }
         }
-        this.f42315d = e2;
-        this.f42313b = 0;
-        this.f42314c = 0;
+        this.f39329d = e2;
+        this.f39327b = 0;
+        this.f39328c = 0;
         if (Looper.myLooper() != null) {
-            this.f42312a = new B(this, e2);
+            this.f39326a = new B(this, e2);
         }
     }
 
@@ -58,7 +58,7 @@ public class C {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, obj)) == null) {
-            Handler handler = this.f42312a;
+            Handler handler = this.f39326a;
             if (handler != null) {
                 return handler.obtainMessage(i2, obj);
             }
@@ -76,14 +76,14 @@ public class C {
             int i2 = message.what;
             if (i2 == 1) {
                 D d2 = (D) ((Object[]) message.obj)[0];
-                this.f42315d.f42336d.a();
+                this.f39329d.f39350d.a();
             } else if (i2 == 3) {
-                this.f42315d.f42336d.b();
+                this.f39329d.f39350d.b();
             } else if (i2 == 5) {
-                this.f42315d.f42336d.a(((Integer) ((Object[]) message.obj)[0]).intValue());
+                this.f39329d.f39350d.a(((Integer) ((Object[]) message.obj)[0]).intValue());
             } else if (i2 != 7) {
             } else {
-                this.f42315d.f42336d.c();
+                this.f39329d.f39350d.c();
             }
         }
     }
@@ -91,7 +91,7 @@ public class C {
     public void b(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-            Handler handler = this.f42312a;
+            Handler handler = this.f39326a;
             if (handler != null) {
                 handler.sendMessage(message);
             } else {
@@ -105,12 +105,12 @@ public class C {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) {
-            this.f42313b = 0;
+            this.f39327b = 0;
             try {
                 try {
                     try {
                         byte[] bArr = new byte[4096];
-                        FileOutputStream fileOutputStream = new FileOutputStream(new File(this.f42315d.f42335c));
+                        FileOutputStream fileOutputStream = new FileOutputStream(new File(this.f39329d.f39349c));
                         int i2 = 0;
                         while (true) {
                             int read = inputStream.read(bArr);
@@ -118,15 +118,15 @@ public class C {
                             if (read == -1) {
                                 z = false;
                                 break;
-                            } else if (this.f42315d.f42338f) {
+                            } else if (this.f39329d.f39352f) {
                                 fileOutputStream.write(bArr, 0, read);
-                                int i3 = this.f42313b + read;
-                                this.f42313b = i3;
-                                if (this.f42315d.f42333a + i3 < this.f42315d.f42339g + this.f42315d.f42333a) {
-                                    int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.f42315d.f42333a + i3) / ((float) (this.f42315d.f42339g + this.f42315d.f42333a)))) * 100.0f);
-                                    this.f42314c = parseFloat;
+                                int i3 = this.f39327b + read;
+                                this.f39327b = i3;
+                                if (this.f39329d.f39347a + i3 < this.f39329d.f39353g + this.f39329d.f39347a) {
+                                    int parseFloat = (int) (Float.parseFloat(new DecimalFormat("0.00").format((this.f39329d.f39347a + i3) / ((float) (this.f39329d.f39353g + this.f39329d.f39347a)))) * 100.0f);
+                                    this.f39328c = parseFloat;
                                     if (i2 % 30 == 0 || parseFloat == 100) {
-                                        b(a(5, new Object[]{Integer.valueOf(this.f42314c)}));
+                                        b(a(5, new Object[]{Integer.valueOf(this.f39328c)}));
                                     }
                                 }
                                 i2++;
@@ -137,14 +137,14 @@ public class C {
                         }
                         fileOutputStream.flush();
                         fileOutputStream.close();
-                        this.f42315d.f42338f = false;
+                        this.f39329d.f39352f = false;
                         if (!z) {
                             b(a(3, null));
                         }
                         inputStream.close();
                     } catch (Exception e2) {
                         b(a(7, null));
-                        this.f42315d.f42338f = false;
+                        this.f39329d.f39352f = false;
                         e2.printStackTrace();
                         if (inputStream == null) {
                             return;
@@ -156,14 +156,14 @@ public class C {
                         try {
                             inputStream.close();
                         } catch (IOException e3) {
-                            this.f42315d.f42338f = false;
+                            this.f39329d.f39352f = false;
                             e3.printStackTrace();
                         }
                     }
                     throw th;
                 }
             } catch (IOException e4) {
-                this.f42315d.f42338f = false;
+                this.f39329d.f39352f = false;
                 e4.printStackTrace();
             }
         }

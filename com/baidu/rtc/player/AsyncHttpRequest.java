@@ -15,7 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.Scanner;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_REQUEST_TIMEOUT_MS = 5000;
@@ -27,7 +27,7 @@ public class AsyncHttpRequest {
     public final String method;
     public final String url;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface AsyncHttpEvents {
         void onHttpComplete(String str);
 

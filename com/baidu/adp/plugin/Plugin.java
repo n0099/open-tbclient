@@ -113,7 +113,7 @@ public class Plugin {
         public void a(c cVar, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) && PluginPackageManager.O().c0()) {
-                if (cVar.f2206a) {
+                if (cVar.f2207a) {
                     d.a.c.h.h.a.b().t("plugin_load", str);
                 } else {
                     d.a.c.h.h.a.b().g("plugin_loaded_failed");
@@ -128,13 +128,13 @@ public class Plugin {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2203a;
+        public String f2204a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.c.h.k.c f2204b;
+        public d.a.c.h.k.c f2205b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Plugin f2205c;
+        public final /* synthetic */ Plugin f2206c;
 
         public b(Plugin plugin2, String str, d.a.c.h.k.c cVar) {
             Interceptable interceptable = $ic;
@@ -151,11 +151,11 @@ public class Plugin {
                     return;
                 }
             }
-            this.f2205c = plugin2;
-            this.f2203a = null;
-            this.f2204b = null;
-            this.f2203a = str;
-            this.f2204b = cVar;
+            this.f2206c = plugin2;
+            this.f2204a = null;
+            this.f2205b = null;
+            this.f2204a = str;
+            this.f2205b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +164,7 @@ public class Plugin {
         public c doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? this.f2205c.createPlugin(this.f2203a) : (c) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? this.f2206c.createPlugin(this.f2204a) : (c) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,19 +174,19 @@ public class Plugin {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
                 super.onPostExecute(cVar);
-                d.a.c.h.k.c cVar2 = this.f2204b;
+                d.a.c.h.k.c cVar2 = this.f2205b;
                 if (cVar2 != null) {
-                    cVar2.a(cVar, this.f2203a);
+                    cVar2.a(cVar, this.f2204a);
                 } else {
                     BdLog.e("listener is null");
                     if (PluginPackageManager.O().c0()) {
-                        d.a.c.h.h.a.b().q("plugin_load", "listener_null", this.f2203a);
+                        d.a.c.h.h.a.b().q("plugin_load", "listener_null", this.f2204a);
                     }
                 }
-                if (cVar.f2206a) {
-                    this.f2205c.initStaticBlock();
-                    this.f2205c.initApplication();
-                    this.f2205c.sendMessageForPluginLoaded(this.f2203a, 0, null);
+                if (cVar.f2207a) {
+                    this.f2206c.initStaticBlock();
+                    this.f2206c.initApplication();
+                    this.f2206c.sendMessageForPluginLoaded(this.f2204a, 0, null);
                 }
             }
         }
@@ -198,16 +198,16 @@ public class Plugin {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2206a;
+        public boolean f2207a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2207b;
+        public String f2208b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f2208c;
+        public String f2209c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f2209d;
+        public long f2210d;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class Plugin {
 
     private void addStaticClassToInitList(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) || TextUtils.isEmpty(str) || !str.endsWith(r.f44457a) || this.mStaticClassFiles == null || PluginPackageManager.O().a0(str)) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) || TextUtils.isEmpty(str) || !str.endsWith(r.f41473a) || this.mStaticClassFiles == null || PluginPackageManager.O().a0(str)) {
             return;
         }
         synchronized (this.mStaticClassFielsLock) {
@@ -285,9 +285,9 @@ public class Plugin {
             c cVar = new c();
             PluginSetting h2 = d.k().h(this.mPackageName);
             if (h2 == null) {
-                cVar.f2206a = false;
-                cVar.f2207b = "settingnull";
-                cVar.f2208c = "createClassLoader";
+                cVar.f2207a = false;
+                cVar.f2208b = "settingnull";
+                cVar.f2209c = "createClassLoader";
                 return cVar;
             }
             try {
@@ -301,7 +301,7 @@ public class Plugin {
                 } else {
                     this.mDexClassLoader = new DexClassLoader(this.mPluginApkFile.getAbsolutePath(), this.mPluginDataRoot.getAbsolutePath(), getPluginLibPath(), classLoader);
                 }
-                cVar.f2209d = System.currentTimeMillis() - currentTimeMillis;
+                cVar.f2210d = System.currentTimeMillis() - currentTimeMillis;
                 try {
                     if (this.mDexClassLoader != null) {
                         ClassLoader classLoader2 = this.mDexClassLoader;
@@ -309,8 +309,8 @@ public class Plugin {
                     }
                     z = true;
                 } catch (ClassNotFoundException e2) {
-                    cVar.f2207b = "loadR";
-                    cVar.f2208c = e2.getMessage();
+                    cVar.f2208b = "loadR";
+                    cVar.f2209c = e2.getMessage();
                     if (PluginPackageManager.O().c0()) {
                         d.a.c.h.h.a.b().r("plugin_load", "loadR", this.mPackageName, e2.getMessage());
                     }
@@ -321,7 +321,7 @@ public class Plugin {
                     d.a.c.h.h.a.b().g("plugin_class_notfind");
                 }
                 if (!z) {
-                    cVar.f2206a = false;
+                    cVar.f2207a = false;
                     return cVar;
                 }
                 if (h2.isPatch) {
@@ -333,24 +333,24 @@ public class Plugin {
                         }
                         ClassLoader classLoader4 = this.mDexClassLoader;
                         a.c k = d.a.c.h.k.a.k(classLoader3, classLoader4, this.mPackageName + ".Static", false, this.mPluginApkFile.getAbsolutePath());
-                        if (k == null || !k.f44744a) {
+                        if (k == null || !k.f41760a) {
                             d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
                             String str = this.mPackageName;
-                            b2.r("plugin_load", "createClassLoader_failed", str, "patch apk inject failed!" + k.f44745b);
-                            cVar.f2206a = false;
-                            cVar.f2207b = "patchClassLoaderInject_failed";
-                            cVar.f2208c = "inject failed, patch failed!";
+                            b2.r("plugin_load", "createClassLoader_failed", str, "patch apk inject failed!" + k.f41761b);
+                            cVar.f2207a = false;
+                            cVar.f2208b = "patchClassLoaderInject_failed";
+                            cVar.f2209c = "inject failed, patch failed!";
                             return cVar;
                         }
                     } else {
                         if (Build.VERSION.SDK_INT <= 23 && (!Util.q() || Build.VERSION.SDK_INT >= 21)) {
-                            cVar.f2206a = false;
-                            cVar.f2207b = "replace lib load failed!";
-                            cVar.f2208c = "patch replace failed!!";
-                            d.a.c.h.h.a.b().r("plugin_load", "create_patch_classloader_error", this.mPackageName, cVar.f2207b);
+                            cVar.f2207a = false;
+                            cVar.f2208b = "replace lib load failed!";
+                            cVar.f2209c = "patch replace failed!!";
+                            d.a.c.h.h.a.b().r("plugin_load", "create_patch_classloader_error", this.mPackageName, cVar.f2208b);
                             return cVar;
                         }
-                        cVar.f2206a = true;
+                        cVar.f2207a = true;
                         d.a.c.h.h.a.b().r("plugin_load", "create_patch_classloader_error", this.mPackageName, "system not support!");
                     }
                 }
@@ -362,13 +362,13 @@ public class Plugin {
                     this.mCurrentPluginMode = 1;
                     ClassLoader classLoader6 = this.mDexClassLoader;
                     a.c k2 = d.a.c.h.k.a.k(classLoader5, classLoader6, this.mPackageName + ".Static", true, this.mPluginApkFile.getAbsolutePath());
-                    if (k2 != null && !k2.f44744a) {
+                    if (k2 != null && !k2.f41760a) {
                         if (PluginPackageManager.O().c0()) {
                             d.a.c.h.h.a.b().g("plugin_inject_failed");
                         }
-                        cVar.f2207b = "inject_failed";
-                        cVar.f2208c = k2.f44745b;
-                        d.a.c.h.h.a.b().r("plugin_load", "inject_failed", this.mPackageName, k2.f44745b);
+                        cVar.f2208b = "inject_failed";
+                        cVar.f2209c = k2.f41761b;
+                        d.a.c.h.h.a.b().r("plugin_load", "inject_failed", this.mPackageName, k2.f41761b);
                         this.mCurrentPluginMode = 2;
                         StringBuilder sb = new StringBuilder();
                         StringBuilder sb2 = new StringBuilder();
@@ -388,27 +388,27 @@ public class Plugin {
                         DexClassLoader dexClassLoader = new DexClassLoader(sb.length() > 0 ? sb.substring(0, sb.length() - 1) : "", this.mPluginDataRoot.getAbsolutePath(), sb2.length() > 0 ? sb2.substring(0, sb2.length() - 1) : "", classLoader5);
                         Context context = this.mContext;
                         a.c l = d.a.c.h.k.a.l(context, dexClassLoader, this.mPackageName + ".Static");
-                        if (l != null && !l.f44744a) {
+                        if (l != null && !l.f41760a) {
                             if (PluginPackageManager.O().c0()) {
-                                d.a.c.h.h.a.b().r("plugin_load", "replaceparent_failed", this.mPackageName, l.f44745b);
+                                d.a.c.h.h.a.b().r("plugin_load", "replaceparent_failed", this.mPackageName, l.f41761b);
                             }
-                            cVar.f2206a = false;
-                            cVar.f2207b = "replaceparent_failed";
-                            cVar.f2208c = l.f44745b;
+                            cVar.f2207a = false;
+                            cVar.f2208b = "replaceparent_failed";
+                            cVar.f2209c = l.f41761b;
                             return cVar;
-                        } else if (l != null && l.f44744a) {
+                        } else if (l != null && l.f41760a) {
                             d.a.c.h.h.a.b().g("plugin_second_inject_succ");
                         }
                     }
                 }
                 this.mIsClassLoaderSucc = true;
-                cVar.f2206a = true;
+                cVar.f2207a = true;
                 return cVar;
             } catch (Exception e3) {
                 BdLog.e(e3);
-                cVar.f2206a = false;
-                cVar.f2207b = "new_dexloader_failed";
-                cVar.f2208c = e3.getMessage() + "---" + e3.getClass().getName();
+                cVar.f2207a = false;
+                cVar.f2208b = "new_dexloader_failed";
+                cVar.f2209c = e3.getMessage() + "---" + e3.getClass().getName();
                 if (PluginPackageManager.O().c0()) {
                     d.a.c.h.h.a b3 = d.a.c.h.h.a.b();
                     String str2 = this.mPackageName;
@@ -467,20 +467,20 @@ public class Plugin {
                         File file = new File(d.a.c.h.j.g.c.b().c());
                         str3 = "settingssize-" + size + "-filesize-" + file.length();
                     }
-                    cVar.f2207b = "apk_file_null";
-                    cVar.f2208c = str3;
+                    cVar.f2208b = "apk_file_null";
+                    cVar.f2209c = str3;
                     d.a.c.h.h.a.b().r("plugin_load", "apk_file_null", str, str3);
                 }
                 d.k().C(str);
-                cVar.f2206a = false;
+                cVar.f2207a = false;
                 return cVar;
             } else if (!assertApkFile()) {
                 d.k().C(str);
                 if (PluginPackageManager.O().c0()) {
                     d.a.c.h.h.a.b().r("plugin_load", "apk_file_illegal", str, this.mPluginApkFile.getAbsolutePath());
                 }
-                cVar.f2206a = false;
-                cVar.f2207b = "apk_file_illegal";
+                cVar.f2207a = false;
+                cVar.f2208b = "apk_file_illegal";
                 return cVar;
             } else {
                 createDataRoot();
@@ -510,11 +510,11 @@ public class Plugin {
                             z = exists && new File(sb2.toString()).exists();
                             createClassLoader = createClassLoader();
                             if (z2 && !z3) {
-                                d.a.c.h.h.a.b().o("plugin_load", "plugin_dex_oat_null", str, "processName_" + mProcessName + "-newTime_" + createClassLoader.f2209d);
+                                d.a.c.h.h.a.b().o("plugin_load", "plugin_dex_oat_null", str, "processName_" + mProcessName + "-newTime_" + createClassLoader.f2210d);
                             } else if (z2 && !z) {
-                                d.a.c.h.h.a.b().o("plugin_load", "plugin_oatfile_null", str, "processName_" + mProcessName + "-newTime_" + createClassLoader.f2209d);
+                                d.a.c.h.h.a.b().o("plugin_load", "plugin_oatfile_null", str, "processName_" + mProcessName + "-newTime_" + createClassLoader.f2210d);
                             }
-                            if (!createClassLoader.f2206a) {
+                            if (!createClassLoader.f2207a) {
                                 return createClassLoader;
                             }
                         }
@@ -526,13 +526,13 @@ public class Plugin {
                     if (z2) {
                     }
                     if (z2) {
-                        d.a.c.h.h.a.b().o("plugin_load", "plugin_oatfile_null", str, "processName_" + mProcessName + "-newTime_" + createClassLoader.f2209d);
+                        d.a.c.h.h.a.b().o("plugin_load", "plugin_oatfile_null", str, "processName_" + mProcessName + "-newTime_" + createClassLoader.f2210d);
                     }
-                    if (!createClassLoader.f2206a) {
+                    if (!createClassLoader.f2207a) {
                     }
                 }
                 c createPluginResource = createPluginResource();
-                if (createPluginResource.f2206a) {
+                if (createPluginResource.f2207a) {
                     this.mManifest = new d.a.c.h.b(this.mContext, this.mPluginApkFile, this.mPluginResource);
                     try {
                         Class<?> cls = Class.forName(this.mPackageName + ".PluginStaticClassesArray", true, this.mDexClassLoader);
@@ -550,7 +550,7 @@ public class Plugin {
                         if (!initStaticBlock()) {
                             throw new RuntimeException();
                         }
-                        createPluginResource.f2206a = true;
+                        createPluginResource.f2207a = true;
                         return createPluginResource;
                     }
                     throw new RuntimeException();
@@ -568,13 +568,13 @@ public class Plugin {
             c cVar = new c();
             PluginSetting h2 = d.k().h(this.mPackageName);
             if (h2 == null) {
-                cVar.f2206a = false;
-                cVar.f2207b = "settingnull";
-                cVar.f2208c = "createPluginResource";
+                cVar.f2207a = false;
+                cVar.f2208b = "settingnull";
+                cVar.f2209c = "createPluginResource";
                 return cVar;
             } else if (h2.isPatch) {
                 this.mIsPluginResourceSucc = true;
-                cVar.f2206a = true;
+                cVar.f2207a = true;
                 return cVar;
             } else if (h2.isThird) {
                 try {
@@ -583,7 +583,7 @@ public class Plugin {
                     Resources resources = this.mContext.getResources();
                     this.mPluginResource = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                     this.mIsPluginResourceSucc = true;
-                    cVar.f2206a = true;
+                    cVar.f2207a = true;
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }
@@ -597,7 +597,7 @@ public class Plugin {
                         try {
                             h.a().c(this.mPackageName, this.mPluginApkFile.getAbsolutePath());
                             this.mIsPluginResourceSucc = true;
-                            cVar.f2206a = true;
+                            cVar.f2207a = true;
                             if ("com.baidu.tieba.pluginPhotoLive".equals(this.mPackageName)) {
                                 try {
                                     h.a().b().getIdentifier("photo_live_activity", "layout", BdBaseApplication.getInst().getPackageName());
@@ -607,17 +607,17 @@ public class Plugin {
                             }
                             return cVar;
                         } catch (Error e3) {
-                            cVar.f2207b = "res_failed";
-                            cVar.f2208c = e3.getMessage();
-                            cVar.f2206a = false;
+                            cVar.f2208b = "res_failed";
+                            cVar.f2209c = e3.getMessage();
+                            cVar.f2207a = false;
                             if (PluginPackageManager.O().c0()) {
                                 d.a.c.h.h.a.b().r("plugin_load", "res_failed", this.mPackageName, e3.getMessage());
                                 d.a.c.h.h.a.b().g("plugin_res_inject_fail");
                             }
                         } catch (Exception e4) {
-                            cVar.f2207b = "res_failed";
-                            cVar.f2208c = e4.getMessage();
-                            cVar.f2206a = false;
+                            cVar.f2208b = "res_failed";
+                            cVar.f2209c = e4.getMessage();
+                            cVar.f2207a = false;
                             if (PluginPackageManager.O().c0()) {
                                 d.a.c.h.h.a.b().r("plugin_load", "res_failed", this.mPackageName, e4.getMessage());
                                 d.a.c.h.h.a.b().g("plugin_res_inject_fail");
@@ -627,7 +627,7 @@ public class Plugin {
                     return cVar;
                 }
                 this.mIsPluginResourceSucc = true;
-                cVar.f2206a = true;
+                cVar.f2207a = true;
                 return cVar;
             }
         }
@@ -1066,8 +1066,8 @@ public class Plugin {
             if (TextUtils.isEmpty(str)) {
                 if (!BdBaseApplication.getInst().isDebugMode()) {
                     sendMessageForPluginLoaded(str, 2, null);
-                    cVar.f2206a = true;
-                    cVar.f2207b = "packageName is null";
+                    cVar.f2207a = true;
+                    cVar.f2208b = "packageName is null";
                     this.isIniting = false;
                     return cVar;
                 }
@@ -1078,22 +1078,22 @@ public class Plugin {
             this.mLastLaunchTime = System.currentTimeMillis();
             if (isLoaded()) {
                 this.isIniting = false;
-                cVar.f2207b = "plugin has loaded";
-                cVar.f2206a = true;
+                cVar.f2208b = "plugin has loaded";
+                cVar.f2207a = true;
                 return cVar;
             }
             PluginSetting h2 = d.k().h(this.mPackageName);
             if (h2 != null && h2.isPatch && PluginPackageManager.O().Q() > 0) {
                 this.isIniting = false;
-                cVar.f2206a = true;
+                cVar.f2207a = true;
                 return cVar;
             }
             initApplication();
             c createPlugin = createPlugin(str);
-            if (PluginPackageManager.O().c0() && createPlugin.f2206a) {
+            if (PluginPackageManager.O().c0() && createPlugin.f2207a) {
                 d.a.c.h.h.a.b().t("plugin_load", str);
             }
-            if (!createPlugin.f2206a) {
+            if (!createPlugin.f2207a) {
                 sendMessageForPluginLoaded(str, 1, null);
                 this.isIniting = false;
                 return createPlugin;
@@ -1102,8 +1102,8 @@ public class Plugin {
                 if (this.mManifest.e()) {
                     createProviders();
                 } else {
-                    createPlugin.f2206a = false;
-                    if (createPlugin.f2206a && h2 != null) {
+                    createPlugin.f2207a = false;
+                    if (createPlugin.f2207a && h2 != null) {
                         this.mVersionCode = h2.versionCode;
                     }
                     sendMessageForPluginLoaded(str, i2, null);
@@ -1112,7 +1112,7 @@ public class Plugin {
                 }
             }
             i2 = 0;
-            if (createPlugin.f2206a) {
+            if (createPlugin.f2207a) {
                 this.mVersionCode = h2.versionCode;
             }
             sendMessageForPluginLoaded(str, i2, null);

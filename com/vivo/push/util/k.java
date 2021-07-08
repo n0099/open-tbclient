@@ -2,6 +2,7 @@ package com.vivo.push.util;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,36 +12,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42235a;
+    public static final boolean f39249a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f42236b;
+    public static final String f39250b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f42237c;
+    public static final boolean f39251c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f42238d;
+    public static final boolean f39252d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f42239e;
+    public static final boolean f39253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f42240f;
+    public static final boolean f39254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f42241g;
+    public static final boolean f39255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f42242h;
+    public static final boolean f39256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f42243i;
+    public static Method f39257i;
     public static String j;
     public static String k;
     public static String l;
@@ -61,19 +62,19 @@ public final class k {
                 return;
             }
         }
-        f42235a = z.b("ro.vivo.product.overseas", "no").equals("yes");
+        f39249a = z.b("ro.vivo.product.overseas", "no").equals("yes");
         if (Build.VERSION.SDK_INT >= 26) {
             b2 = z.b("ro.product.country.region", "N");
         } else {
             b2 = z.b("ro.product.customize.bbk", "N");
         }
-        f42236b = b2;
-        f42237c = "RU".equals(b2);
-        f42238d = "IN".equals(f42236b);
-        f42239e = b("rom_1.0");
-        f42240f = b("rom_2.0");
-        f42241g = b("rom_2.5");
-        f42242h = b("rom_3.0");
+        f39250b = b2;
+        f39251c = "RU".equals(b2);
+        f39252d = "IN".equals(f39250b);
+        f39253e = b("rom_1.0");
+        f39254f = b("rom_2.0");
+        f39255g = b("rom_2.5");
+        f39256h = b("rom_3.0");
         j = null;
         k = null;
         l = "";
@@ -88,10 +89,10 @@ public final class k {
                 if (j == null && k == null) {
                     try {
                         Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f42243i = declaredMethod;
+                        f39257i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        j = (String) f42243i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f42243i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        j = (String) f39257i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) f39257i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
@@ -114,7 +115,7 @@ public final class k {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             String b2 = z.b("ro.vivo.rom", "");
             String b3 = z.b("ro.vivo.rom.version", "");
             p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);

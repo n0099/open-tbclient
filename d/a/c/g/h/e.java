@@ -10,13 +10,13 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f44618a;
+    public boolean f41634a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public abstract class e {
                 return;
             }
         }
-        this.f44618a = false;
+        this.f41634a = false;
     }
 
     public abstract String a();
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f44618a) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f41634a) {
             return;
         }
-        this.f44618a = true;
+        this.f41634a = true;
         if (TextUtils.isEmpty(a())) {
             return;
         }

@@ -3,7 +3,7 @@ package d.l.a.e.b.g;
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface n {
     int a(String str, String str2);
 
@@ -35,8 +35,6 @@ public interface n {
 
     void a(List<String> list);
 
-    void a(boolean z, boolean z2);
-
     boolean a(DownloadInfo downloadInfo);
 
     DownloadInfo b(String str, String str2);
@@ -61,9 +59,9 @@ public interface n {
 
     void c(int i2);
 
-    void c(int i2, d.l.a.e.b.f.d dVar);
-
     void c(int i2, boolean z);
+
+    void c(boolean z, boolean z2);
 
     boolean c();
 
@@ -75,7 +73,7 @@ public interface n {
 
     void d(int i2);
 
-    void d(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2);
+    void d(int i2, d.l.a.e.b.f.d dVar);
 
     long e(int i2);
 
@@ -83,11 +81,11 @@ public interface n {
 
     void e();
 
-    void e(d.l.a.e.b.f.l lVar);
+    void e(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z, boolean z2);
 
     int f(int i2);
 
-    void f(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z);
+    void f(d.l.a.e.b.f.l lVar);
 
     boolean f();
 
@@ -98,6 +96,8 @@ public interface n {
     boolean g(int i2);
 
     DownloadInfo h(int i2);
+
+    void h(int i2, int i3, d.l.a.e.b.f.b bVar, com.ss.android.socialbase.downloader.constants.g gVar, boolean z);
 
     boolean h();
 

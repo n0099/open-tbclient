@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
 import com.xiaomi.push.db;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dd extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public al.b f42956a;
+    public al.b f39970a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f230a;
@@ -42,9 +42,9 @@ public class dd extends al.b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (db.b) this.f230a.f218a.peek()) != null && bVar.a()) {
             if (this.f230a.f218a.remove(bVar)) {
-                this.f42956a = bVar;
+                this.f39970a = bVar;
             }
-            al.b bVar2 = this.f42956a;
+            al.b bVar2 = this.f39970a;
             if (bVar2 != null) {
                 bVar2.b();
             }
@@ -56,7 +56,7 @@ public class dd extends al.b {
     public void mo242c() {
         al.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f42956a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f39970a) == null) {
             return;
         }
         bVar.mo242c();

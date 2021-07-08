@@ -7,7 +7,7 @@ import com.baidu.adp.lib.guide.MaskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,10 +18,10 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, bVar)) == null) {
             View c2 = bVar.c(layoutInflater);
             MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.f2186c = bVar.getXOffset();
-            layoutParams.f2187d = bVar.getYOffset();
-            layoutParams.f2184a = bVar.a();
-            layoutParams.f2185b = bVar.b();
+            layoutParams.f2187c = bVar.getXOffset();
+            layoutParams.f2188d = bVar.getYOffset();
+            layoutParams.f2185a = bVar.a();
+            layoutParams.f2186b = bVar.b();
             c2.setLayoutParams(layoutParams);
             return c2;
         }

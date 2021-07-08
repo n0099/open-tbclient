@@ -43,7 +43,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class NetworkBean<T> extends ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -62,14 +62,14 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.core.beans.NetworkBean$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class BizType {
         public static final /* synthetic */ BizType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -130,18 +130,18 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SessionCache implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap<Integer, BeanResponseBase.Session> mCache;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f24582a;
+            public static final SessionCache f24692a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -157,7 +157,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                         return;
                     }
                 }
-                f24582a = new SessionCache(null);
+                f24692a = new SessionCache(null);
             }
 
             public a() {
@@ -182,7 +182,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static SessionCache getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24582a : (SessionCache) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24692a : (SessionCache) invokeV.objValue;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
@@ -190,7 +190,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             if (interceptable == null || interceptable.invokeL(65539, null, sessionCache) == null) {
                 synchronized (SessionCache.class) {
                     if (sessionCache != null) {
-                        a.f24582a.mCache = sessionCache.mCache;
+                        a.f24692a.mCache = sessionCache.mCache;
                     }
                 }
             }

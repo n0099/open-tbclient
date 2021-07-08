@@ -41,7 +41,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MaterialCardViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
@@ -163,7 +163,7 @@ public class MaterialCardViewHelper {
     private float calculateHorizontalBackgroundPadding() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             return this.materialCardView.getMaxCardElevation() + (shouldAddCornerPaddingOutsideCardBackground() ? calculateActualCornerPadding() : 0.0f);
         }
         return invokeV.floatValue;

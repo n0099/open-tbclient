@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.n3.e.d;
-/* loaded from: classes5.dex */
+import d.a.p0.n3.e.d;
+/* loaded from: classes4.dex */
 public class BackgroundItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21384e;
+    public Context f21430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21385f;
+    public View f21431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21386g;
+    public TbImageView f21432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f21387h;
+    public TbImageView f21433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f21388i;
+    public TbImageView f21434i;
     public ImageView j;
     public TextView k;
     public SkinProgressView l;
@@ -49,13 +49,13 @@ public class BackgroundItemView extends LinearLayout {
     public d p;
     public View.OnClickListener q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundItemView f21389e;
+        public final /* synthetic */ BackgroundItemView f21435e;
 
         public a(BackgroundItemView backgroundItemView) {
             Interceptable interceptable = $ic;
@@ -72,21 +72,21 @@ public class BackgroundItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f21389e = backgroundItemView;
+            this.f21435e = backgroundItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f21389e.m == null || this.f21389e.p == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f21435e.m == null || this.f21435e.p == null) {
                 return;
             }
-            if (view == this.f21389e.l) {
-                TiebaStatic.log(new StatisticItem("c10280").param("obj_id", this.f21389e.m.getPropsId()));
-                this.f21389e.p.e(this.f21389e.m, false);
-            } else if (view == this.f21389e.f21386g) {
-                TiebaStatic.log(new StatisticItem("c10279").param("obj_id", this.f21389e.m.getPropsId()));
-                this.f21389e.p.b(this.f21389e.m);
+            if (view == this.f21435e.l) {
+                TiebaStatic.log(new StatisticItem("c10280").param("obj_id", this.f21435e.m.getPropsId()));
+                this.f21435e.p.e(this.f21435e.m, false);
+            } else if (view == this.f21435e.f21432g) {
+                TiebaStatic.log(new StatisticItem("c10279").param("obj_id", this.f21435e.m.getPropsId()));
+                this.f21435e.p.b(this.f21435e.m);
             }
         }
     }
@@ -110,7 +110,7 @@ public class BackgroundItemView extends LinearLayout {
             }
         }
         this.q = new a(this);
-        this.f21384e = context;
+        this.f21430e = context;
         g();
     }
 
@@ -122,10 +122,10 @@ public class BackgroundItemView extends LinearLayout {
         this.m = dressItemData;
         Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
         if (dressItemData.getPropsId() == 0) {
-            SkinManager.setImageResource(this.f21386g, R.drawable.pic_bg_moren);
+            SkinManager.setImageResource(this.f21432g, R.drawable.pic_bg_moren);
         } else {
-            this.f21386g.setImageBitmap(null);
-            this.f21386g.M(dressItemData.getExampleImgUrl(), 10, false);
+            this.f21432g.setImageBitmap(null);
+            this.f21432g.M(dressItemData.getExampleImgUrl(), 10, false);
         }
         this.k.setText(dressItemData.getTitle());
         if (valueOf.booleanValue()) {
@@ -134,8 +134,8 @@ public class BackgroundItemView extends LinearLayout {
         } else {
             this.j.setVisibility(8);
         }
-        this.f21387h.M(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f21388i.M(dressItemData.getPropsStateImg(), 10, false);
+        this.f21433h.M(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f21434i.M(dressItemData.getPropsStateImg(), 10, false);
         if (valueOf.booleanValue()) {
             this.l.c(0, 0.0f);
         } else {
@@ -154,30 +154,30 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = (l.k(this.f21384e) - l.g(this.f21384e, R.dimen.ds88)) / 3;
+            int k = (l.k(this.f21430e) - l.g(this.f21430e, R.dimen.ds88)) / 3;
             this.n = k;
             this.o = (int) (k / 0.66d);
-            View inflate = LayoutInflater.from(this.f21384e).inflate(R.layout.background_item, this);
-            this.f21385f = inflate;
-            this.f21386g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f21385f.findViewById(R.id.permission_icon);
-            this.f21387h = tbImageView;
+            View inflate = LayoutInflater.from(this.f21430e).inflate(R.layout.background_item, this);
+            this.f21431f = inflate;
+            this.f21432g = (TbImageView) inflate.findViewById(R.id.bg_image);
+            TbImageView tbImageView = (TbImageView) this.f21431f.findViewById(R.id.permission_icon);
+            this.f21433h = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f21387h.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.f21385f.findViewById(R.id.state_icon);
-            this.f21388i = tbImageView2;
+            this.f21433h.setDefaultBgResource(R.drawable.transparent_bg);
+            TbImageView tbImageView2 = (TbImageView) this.f21431f.findViewById(R.id.state_icon);
+            this.f21434i = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
-            this.f21388i.setDefaultBgResource(R.drawable.transparent_bg);
-            this.j = (ImageView) this.f21385f.findViewById(R.id.choosed_icon);
-            this.k = (TextView) this.f21385f.findViewById(R.id.text_bg_name);
-            SkinProgressView skinProgressView = (SkinProgressView) this.f21385f.findViewById(R.id.view_bg_use);
+            this.f21434i.setDefaultBgResource(R.drawable.transparent_bg);
+            this.j = (ImageView) this.f21431f.findViewById(R.id.choosed_icon);
+            this.k = (TextView) this.f21431f.findViewById(R.id.text_bg_name);
+            SkinProgressView skinProgressView = (SkinProgressView) this.f21431f.findViewById(R.id.view_bg_use);
             this.l = skinProgressView;
             skinProgressView.setOnClickListener(this.q);
-            this.f21386g.setOnClickListener(this.q);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21386g.getLayoutParams();
+            this.f21432g.setOnClickListener(this.q);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21432g.getLayoutParams();
             layoutParams.height = this.o;
             layoutParams.width = this.n;
-            this.f21386g.setLayoutParams(layoutParams);
+            this.f21432g.setLayoutParams(layoutParams);
         }
     }
 
@@ -208,7 +208,7 @@ public class BackgroundItemView extends LinearLayout {
             }
         }
         this.q = new a(this);
-        this.f21384e = context;
+        this.f21430e = context;
         g();
     }
 
@@ -232,7 +232,7 @@ public class BackgroundItemView extends LinearLayout {
             }
         }
         this.q = new a(this);
-        this.f21384e = context;
+        this.f21430e = context;
         g();
     }
 }

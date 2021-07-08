@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PerfClientReport extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_VALUE = -1;

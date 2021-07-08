@@ -35,6 +35,7 @@ import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
@@ -93,7 +94,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
@@ -175,7 +176,7 @@ public class SapiUtils implements NoProguard {
     public static String buildCookie(String str, String str2, String str3, Date date, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
             StringBuilder sb = new StringBuilder();
@@ -762,7 +763,7 @@ public class SapiUtils implements NoProguard {
                             case 12:
                             case 14:
                             case 15:
-                                return g.f3983b;
+                                return g.f3986b;
                             case 13:
                                 return "4G";
                             default:

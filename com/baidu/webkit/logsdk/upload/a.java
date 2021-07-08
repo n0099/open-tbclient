@@ -6,37 +6,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.logsdk.d.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f27422a;
+    public String f27532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27423b;
+    public int f27533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27424c;
+    public boolean f27534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f27425d;
+    public long f27535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f27426e;
+    public com.baidu.webkit.logsdk.b.a f27536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27427f;
+    public String f27537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27428g;
+    public String f27538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27429h;
+    public String f27539h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27430i;
+    public String f27540i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -74,16 +74,16 @@ public final class a {
                 return;
             }
         }
-        this.f27422a = str;
-        this.f27423b = 0;
-        this.f27424c = false;
-        this.f27426e = aVar;
+        this.f27532a = str;
+        this.f27533b = 0;
+        this.f27534c = false;
+        this.f27536e = aVar;
         int a2 = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
         if (a2 <= 1 && a2 >= 0) {
-            this.f27427f = str2;
+            this.f27537f = str2;
             return;
         }
-        this.f27427f = aVar.f27393c;
-        this.f27428g = aVar.f27394d;
+        this.f27537f = aVar.f27503c;
+        this.f27538g = aVar.f27504d;
     }
 }

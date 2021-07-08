@@ -7,30 +7,30 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f74684a = "";
+    public static volatile String f71736a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f74685b = "";
+    public static volatile String f71737b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile String f74686c = "";
+    public static volatile String f71738c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f74687d = 512000;
+    public static long f71739d = 512000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f74688e = 50;
+    public static long f71740e = 50;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f74689f = 5242880;
+    public static long f71741f = 5242880;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final JSONObject f74690g;
+    public static final JSONObject f71742g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class c {
                 return;
             }
         }
-        f74690g = new JSONObject();
+        f71742g = new JSONObject();
     }
 
     public static void a(String str) {
@@ -54,6 +54,6 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f74684a = str;
+        f71736a = str;
     }
 }

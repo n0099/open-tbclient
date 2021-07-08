@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PSCIMessageSendRequest extends RequestPacket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PSCIMessageRequest";

@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.transcoder;
 
 import android.graphics.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class JpegTranscoderUtils {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -90,7 +91,7 @@ public class JpegTranscoderUtils {
     public static int extractOrientationFromMetadata(EncodedImage encodedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, encodedImage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, encodedImage)) == null) {
             int rotationAngle = encodedImage.getRotationAngle();
             if (rotationAngle == 90 || rotationAngle == 180 || rotationAngle == 270) {
                 return encodedImage.getRotationAngle();

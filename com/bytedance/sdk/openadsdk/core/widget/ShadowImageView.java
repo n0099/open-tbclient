@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ShadowImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f30653a;
+    public Paint f30763a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f30654b;
+    public RectF f30764b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShadowImageView(Context context) {
@@ -51,12 +51,12 @@ public class ShadowImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             Paint paint = new Paint();
-            this.f30653a = paint;
+            this.f30763a = paint;
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f30653a.setColor(Color.parseColor("#99333333"));
-            this.f30653a.setAntiAlias(true);
-            this.f30653a.setStrokeWidth(0.0f);
-            this.f30654b = new RectF();
+            this.f30763a.setColor(Color.parseColor("#99333333"));
+            this.f30763a.setAntiAlias(true);
+            this.f30763a.setStrokeWidth(0.0f);
+            this.f30764b = new RectF();
         }
     }
 
@@ -64,8 +64,8 @@ public class ShadowImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            RectF rectF = this.f30654b;
-            canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f30653a);
+            RectF rectF = this.f30764b;
+            canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f30763a);
             super.onDraw(canvas);
         }
     }
@@ -75,10 +75,10 @@ public class ShadowImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f30654b.right == getMeasuredWidth() && this.f30654b.bottom == getMeasuredHeight()) {
+            if (this.f30764b.right == getMeasuredWidth() && this.f30764b.bottom == getMeasuredHeight()) {
                 return;
             }
-            this.f30654b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.f30764b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         }
     }
 

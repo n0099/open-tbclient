@@ -1,5 +1,6 @@
 package com.google.gson.internal.bind;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -51,7 +52,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TypeAdapters {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -109,7 +110,7 @@ public final class TypeAdapters {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -173,7 +174,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2079,7 +2080,7 @@ public final class TypeAdapters {
     public static <TT> TypeAdapterFactory newFactory(Class<TT> cls, Class<TT> cls2, TypeAdapter<? super TT> typeAdapter) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, cls, cls2, typeAdapter)) == null) ? new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.33
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, cls2, typeAdapter)) == null) ? new TypeAdapterFactory(cls, cls2, typeAdapter) { // from class: com.google.gson.internal.bind.TypeAdapters.33
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Class val$boxed;

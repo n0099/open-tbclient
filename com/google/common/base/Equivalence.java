@@ -14,12 +14,12 @@ import d.f.d.a.k;
 import d.f.d.a.n;
 import d.f.d.a.o;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Equivalence<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Equals extends Equivalence<Object> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Equals INSTANCE;
@@ -77,7 +77,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EquivalentToPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -145,7 +145,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Identity extends Equivalence<Object> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Identity INSTANCE;
@@ -206,7 +206,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Wrapper<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -282,7 +282,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

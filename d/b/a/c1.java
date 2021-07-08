@@ -14,37 +14,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c1<SERVICE, RESULT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CountDownLatch f71655a;
+    public final CountDownLatch f68758a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Intent f71656b;
+    public final Intent f68759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b<SERVICE, RESULT> f71657c;
+    public final b<SERVICE, RESULT> f68760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f71658d;
+    public final Context f68761d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final CountDownLatch f71659e;
+        public final CountDownLatch f68762e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final b<SERVICE, RESULT> f71660f;
+        public final b<SERVICE, RESULT> f68763f;
         @Nullable
 
         /* renamed from: g  reason: collision with root package name */
-        public SERVICE f71661g;
+        public SERVICE f68764g;
 
         public a(c1 c1Var, CountDownLatch countDownLatch, b<SERVICE, RESULT> bVar) {
             Interceptable interceptable = $ic;
@@ -61,8 +61,8 @@ public final class c1<SERVICE, RESULT> {
                     return;
                 }
             }
-            this.f71659e = countDownLatch;
-            this.f71660f = bVar;
+            this.f68762e = countDownLatch;
+            this.f68763f = bVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -72,8 +72,8 @@ public final class c1<SERVICE, RESULT> {
                 String str = u0.j;
                 o0.e(str, "ServiceBlockBinder#onServiceConnected " + componentName);
                 try {
-                    this.f71661g = this.f71660f.a(iBinder);
-                    this.f71659e.countDown();
+                    this.f68764g = this.f68763f.a(iBinder);
+                    this.f68762e.countDown();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -87,7 +87,7 @@ public final class c1<SERVICE, RESULT> {
                 String str = u0.j;
                 o0.e(str, "ServiceBlockBinder#onServiceDisconnected" + componentName);
                 try {
-                    this.f71659e.countDown();
+                    this.f68762e.countDown();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -95,7 +95,7 @@ public final class c1<SERVICE, RESULT> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface b<T, RESULT> {
         T a(IBinder iBinder);
 
@@ -117,10 +117,10 @@ public final class c1<SERVICE, RESULT> {
                 return;
             }
         }
-        this.f71658d = context;
-        this.f71656b = intent;
-        this.f71657c = bVar;
-        this.f71655a = new CountDownLatch(1);
+        this.f68761d = context;
+        this.f68759b = intent;
+        this.f68760c = bVar;
+        this.f68758a = new CountDownLatch(1);
     }
 
     public RESULT a() {
@@ -134,11 +134,11 @@ public final class c1<SERVICE, RESULT> {
             return null;
         }
         try {
-            aVar = new a(this, this.f71655a, this.f71657c);
-            this.f71658d.bindService(this.f71656b, aVar, 1);
-            this.f71655a.await();
+            aVar = new a(this, this.f68758a, this.f68760c);
+            this.f68761d.bindService(this.f68759b, aVar, 1);
+            this.f68758a.await();
             try {
-                return this.f71657c.a((b<SERVICE, RESULT>) aVar.f71661g);
+                return this.f68760c.a((b<SERVICE, RESULT>) aVar.f68764g);
             } catch (Throwable th) {
                 th = th;
                 try {
@@ -160,7 +160,7 @@ public final class c1<SERVICE, RESULT> {
             return;
         }
         try {
-            this.f71658d.unbindService(aVar);
+            this.f68761d.unbindService(aVar);
         } catch (Throwable th) {
             th.printStackTrace();
         }

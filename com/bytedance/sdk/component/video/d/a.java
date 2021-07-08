@@ -1,6 +1,7 @@
 package com.bytedance.sdk.component.video.d;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MessageDigest f28849a;
+    public static final MessageDigest f28959a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f28850b;
+    public static final char[] f28960b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +37,8 @@ public class a {
                 return;
             }
         }
-        f28849a = a();
-        f28850b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f28959a = a();
+        f28960b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public a() {
@@ -57,7 +58,7 @@ public class a {
     public static MessageDigest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 return MessageDigest.getInstance(PackageTable.MD5);
             } catch (NoSuchAlgorithmException unused) {
@@ -72,7 +73,7 @@ public class a {
         byte[] digest;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MessageDigest messageDigest = f28849a;
+            MessageDigest messageDigest = f28959a;
             if (messageDigest == null || TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -96,7 +97,7 @@ public class a {
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f28850b;
+                char[] cArr2 = f28960b;
                 cArr[i2] = cArr2[(b2 & 240) >> 4];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];

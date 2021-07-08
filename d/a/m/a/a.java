@@ -19,25 +19,25 @@ import d.a.m.c.g;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f46181d;
+    public static boolean f43179d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f46182e;
+    public static a f43180e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46183a;
+    public String f43181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46184b;
+    public String f43182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f46185c;
+    public SharedPreferences f43183c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        f46181d = AppConfig.isDebug();
+        f43179d = AppConfig.isDebug();
     }
 
     public a() {
@@ -75,14 +75,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f46182e == null) {
+            if (f43180e == null) {
                 synchronized (a.class) {
-                    if (f46182e == null) {
-                        f46182e = new a();
+                    if (f43180e == null) {
+                        f43180e = new a();
                     }
                 }
             }
-            return f46182e;
+            return f43180e;
         }
         return (a) invokeV.objValue;
     }
@@ -90,19 +90,19 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46184b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43182b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46183a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43181a : (String) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f46185c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            this.f43183c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
             f();
             e();
         }
@@ -112,11 +112,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String g2 = g();
-            this.f46184b = g2;
-            if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f46183a)) {
+            this.f43182b = g2;
+            if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.f43181a)) {
                 return;
             }
-            this.f46184b = this.f46183a;
+            this.f43182b = this.f43181a;
             j();
         }
     }
@@ -125,9 +125,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String i2 = i();
-            this.f46183a = i2;
+            this.f43181a = i2;
             if (TextUtils.isEmpty(i2)) {
-                this.f46183a = h();
+                this.f43181a = h();
             }
         }
     }
@@ -135,7 +135,7 @@ public class a {
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f46185c.getString("channel", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43183c.getString("channel", null) : (String) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:51:0x0084 A[Catch: Exception -> 0x0080, TRY_LEAVE, TryCatch #0 {Exception -> 0x0080, blocks: (B:47:0x007c, B:51:0x0084), top: B:61:0x007c }] */
@@ -183,7 +183,7 @@ public class a {
                     try {
                         inputStream.close();
                     } catch (Exception e4) {
-                        if (f46181d) {
+                        if (f43179d) {
                             Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e4);
                             return str2;
                         }
@@ -198,14 +198,14 @@ public class a {
                 inputStream2 = inputStream;
                 str = str3;
                 try {
-                    if (f46181d) {
+                    if (f43179d) {
                         Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
                     }
                     if (inputStream2 != null) {
                         try {
                             inputStream2.close();
                         } catch (Exception e6) {
-                            if (f46181d) {
+                            if (f43179d) {
                                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
                             }
                             return str;
@@ -223,7 +223,7 @@ public class a {
                         try {
                             inputStream.close();
                         } catch (Exception e7) {
-                            if (f46181d) {
+                            if (f43179d) {
                                 Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e7);
                             }
                             throw th;
@@ -247,13 +247,13 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x002f, code lost:
-        if (d.a.m.a.a.f46181d == false) goto L10;
+        if (d.a.m.a.a.f43179d == false) goto L10;
      */
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0031, code lost:
         android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x0049, code lost:
-        if (d.a.m.a.a.f46181d == false) goto L10;
+        if (d.a.m.a.a.f43179d == false) goto L10;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -275,7 +275,7 @@ public class a {
                         e = e2;
                     }
                 } catch (Exception e3) {
-                    if (f46181d) {
+                    if (f43179d) {
                         Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
                     }
                     try {
@@ -286,7 +286,7 @@ public class a {
                     }
                 }
             } catch (Exception e5) {
-                if (f46181d) {
+                if (f43179d) {
                     Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
                 }
             }
@@ -298,7 +298,7 @@ public class a {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f46185c.edit().putString("channel", this.f46184b).apply();
+            this.f43183c.edit().putString("channel", this.f43182b).apply();
         }
     }
 }

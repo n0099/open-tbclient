@@ -2,6 +2,7 @@ package com.baidu.searchbox.player.remote;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,21 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BDPlayerServiceProxyWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static IPlayerServiceProxy EMPTY;
     public static volatile IPlayerServiceProxy mHelper;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface IPlayerServiceProxy {
         long getNetHandle();
 
         void onServiceBind(Context context);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Impl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +119,7 @@ public class BDPlayerServiceProxyWrapper {
     @PublicMethod
     public static void setHelper(@NonNull IPlayerServiceProxy iPlayerServiceProxy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, iPlayerServiceProxy) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iPlayerServiceProxy) == null) {
             mHelper = iPlayerServiceProxy;
         }
     }

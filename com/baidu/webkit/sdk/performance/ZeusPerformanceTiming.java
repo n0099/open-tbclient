@@ -2,6 +2,7 @@ package com.baidu.webkit.sdk.performance;
 
 import android.os.Looper;
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +27,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ZeusPerformanceTiming {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "startup_timing_log";
@@ -130,7 +131,7 @@ public class ZeusPerformanceTiming {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -234,7 +235,7 @@ public class ZeusPerformanceTiming {
         InterceptResult invokeV;
         StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (WebKitFactory.getContext() == null) {
                 return false;
             }

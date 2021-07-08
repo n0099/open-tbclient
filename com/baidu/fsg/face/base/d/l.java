@@ -13,32 +13,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class l implements c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5667a = "ThreadPoolService";
+    public static final String f5684a = "ThreadPoolService";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5668d = 0;
+    public static final int f5685d = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f5669b;
+    public ExecutorService f5686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f5670c;
+    public ExecutorService f5687c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f5671e;
+    public Handler f5688e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f5673a;
+        public static l f5690a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class l implements c {
                     return;
                 }
             }
-            f5673a = new l();
+            f5690a = new l();
         }
 
         public a() {
@@ -75,15 +75,15 @@ public class l implements c {
     public static l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5673a : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5690a : (l) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void b(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-            d.a(f5667a, "runInUiThread()", kVar.f5665a);
-            this.f5671e.sendMessage(this.f5671e.obtainMessage(0, kVar));
+            d.a(f5684a, "runInUiThread()", kVar.f5682a);
+            this.f5688e.sendMessage(this.f5688e.obtainMessage(0, kVar));
         }
     }
 
@@ -91,8 +91,8 @@ public class l implements c {
     public void c(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, kVar) == null) {
-            d.a(f5667a, "runImport()", kVar.f5665a);
-            this.f5669b.submit(kVar);
+            d.a(f5684a, "runImport()", kVar.f5682a);
+            this.f5686b.submit(kVar);
         }
     }
 
@@ -109,12 +109,12 @@ public class l implements c {
                 return;
             }
         }
-        this.f5671e = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.fsg.face.base.d.l.1
+        this.f5688e = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.fsg.face.base.d.l.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ l f5672a;
+            public final /* synthetic */ l f5689a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -134,27 +134,27 @@ public class l implements c {
                         return;
                     }
                 }
-                this.f5672a = this;
+                this.f5689a = this;
             }
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Runnable runnable;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 0 && (runnable = ((k) message.obj).f5666b) != null) {
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 0 && (runnable = ((k) message.obj).f5683b) != null) {
                     runnable.run();
                 }
             }
         };
-        this.f5670c = Executors.newScheduledThreadPool(6);
-        this.f5669b = Executors.newScheduledThreadPool(3);
+        this.f5687c = Executors.newScheduledThreadPool(6);
+        this.f5686b = Executors.newScheduledThreadPool(3);
     }
 
     @Override // com.baidu.fsg.face.base.d.c
     public void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f5670c.submit(kVar);
+            this.f5687c.submit(kVar);
         }
     }
 
@@ -162,16 +162,16 @@ public class l implements c {
     public void a(k kVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar, j) == null) {
-            d.a(f5667a, "runDelay()", kVar.f5665a, Long.valueOf(j));
-            this.f5670c.submit(kVar, Long.valueOf(j));
+            d.a(f5684a, "runDelay()", kVar.f5682a, Long.valueOf(j));
+            this.f5687c.submit(kVar, Long.valueOf(j));
         }
     }
 
     public void c(k kVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048581, this, kVar, j) == null) {
-            d.a(f5667a, "runDelayImport()", kVar.f5665a, Long.valueOf(j));
-            this.f5669b.submit(kVar, Long.valueOf(j));
+            d.a(f5684a, "runDelayImport()", kVar.f5682a, Long.valueOf(j));
+            this.f5686b.submit(kVar, Long.valueOf(j));
         }
     }
 
@@ -179,8 +179,8 @@ public class l implements c {
     public void b(k kVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, kVar, j) == null) {
-            d.a(f5667a, "runInUiThreadDelay()", kVar.f5665a, Long.valueOf(j));
-            this.f5671e.sendMessageDelayed(this.f5671e.obtainMessage(0, kVar), j);
+            d.a(f5684a, "runInUiThreadDelay()", kVar.f5682a, Long.valueOf(j));
+            this.f5688e.sendMessageDelayed(this.f5688e.obtainMessage(0, kVar), j);
         }
     }
 }

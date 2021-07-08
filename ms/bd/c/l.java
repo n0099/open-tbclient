@@ -22,21 +22,21 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import ms.bd.c.n;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class l implements n.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ZipFile f76062a;
+        public ZipFile f73096a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ZipEntry f76063b;
+        public ZipEntry f73097b;
 
         public a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class l implements n.a {
                     return;
                 }
             }
-            this.f76062a = zipFile;
-            this.f76063b = zipEntry;
+            this.f73096a = zipFile;
+            this.f73097b = zipEntry;
         }
     }
 
@@ -171,7 +171,7 @@ public class l implements n.a {
                 if (i2 >= 5) {
                     oVar.d("FATAL! Couldn't extract the library from the APK!");
                     try {
-                        ZipFile zipFile = a2.f76062a;
+                        ZipFile zipFile = a2.f73096a;
                         if (zipFile != null) {
                             zipFile.close();
                             return;
@@ -185,7 +185,7 @@ public class l implements n.a {
                 try {
                     if (file.exists() || file.createNewFile()) {
                         try {
-                            inputStream = a2.f76062a.getInputStream(a2.f76063b);
+                            inputStream = a2.f73096a.getInputStream(a2.f73097b);
                         } catch (FileNotFoundException | IOException unused2) {
                             inputStream = null;
                         } catch (Throwable th3) {
@@ -222,7 +222,7 @@ public class l implements n.a {
                                 file.setExecutable(true, false);
                                 file.setWritable(true);
                                 try {
-                                    ZipFile zipFile2 = a2.f76062a;
+                                    ZipFile zipFile2 = a2.f73096a;
                                     if (zipFile2 != null) {
                                         zipFile2.close();
                                         return;
@@ -252,7 +252,7 @@ public class l implements n.a {
             aVar = a2;
             if (aVar != null) {
                 try {
-                    ZipFile zipFile3 = aVar.f76062a;
+                    ZipFile zipFile3 = aVar.f73096a;
                     if (zipFile3 != null) {
                         zipFile3.close();
                     }

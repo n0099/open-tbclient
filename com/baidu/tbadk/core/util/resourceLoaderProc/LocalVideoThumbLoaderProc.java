@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.k.d.a;
-import d.a.r0.a0.c;
+import d.a.o0.a0.c;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LocalVideoThumbLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

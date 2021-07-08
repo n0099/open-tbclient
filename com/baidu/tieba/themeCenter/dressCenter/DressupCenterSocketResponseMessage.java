@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.n3.h.a;
-import d.a.s0.n3.h.d;
-import d.a.s0.n3.h.e;
+import d.a.p0.n3.h.a;
+import d.a.p0.n3.h.d;
+import d.a.p0.n3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -19,7 +19,7 @@ import tbclient.GetThemeList.DataRes;
 import tbclient.GetThemeList.GetThemeListResIdl;
 import tbclient.GetThemeList.ThemeCarousel;
 import tbclient.GetThemeList.ThemeList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

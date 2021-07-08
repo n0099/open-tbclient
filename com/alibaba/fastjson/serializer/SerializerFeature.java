@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -135,7 +136,7 @@ public final class SerializerFeature {
     public static boolean isEnabled(int i2, SerializerFeature serializerFeature) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, serializerFeature)) == null) ? (i2 & serializerFeature.mask) != 0 : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, serializerFeature)) == null) ? (i2 & serializerFeature.mask) != 0 : invokeIL.booleanValue;
     }
 
     public static int of(SerializerFeature[] serializerFeatureArr) {

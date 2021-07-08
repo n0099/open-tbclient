@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -40,7 +41,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ActLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_APPKEY = 8;
@@ -67,17 +68,17 @@ public class ActLog {
     public static volatile String mUploadUrl;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface ActLogListener {
         void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface ILogConfigListener {
         JSONObject getLogConfig();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class LogWriter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUFFER_MAX_LEN = 50;
@@ -133,7 +134,7 @@ public class ActLog {
         /* JADX INFO: Access modifiers changed from: private */
         public void writeLine(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65540, this, str) == null) || this.bufferCount.get() > 50) {
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || this.bufferCount.get() > 50) {
                 return;
             }
             this.bufferCount.incrementAndGet();

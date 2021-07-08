@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class q1 extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71744e;
+    public final Context f68847e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final y1 f71745f;
+    public final y1 f68848f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q1(Context context, y1 y1Var) {
@@ -38,8 +38,8 @@ public class q1 extends s1 {
                 return;
             }
         }
-        this.f71744e = context;
-        this.f71745f = y1Var;
+        this.f68847e = context;
+        this.f68848f = y1Var;
     }
 
     @Override // d.b.a.s1
@@ -47,22 +47,22 @@ public class q1 extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (!TextUtils.isEmpty(this.f71745f.i())) {
-                jSONObject.put("ab_client", this.f71745f.i());
+            if (!TextUtils.isEmpty(this.f68848f.i())) {
+                jSONObject.put("ab_client", this.f68848f.i());
             }
-            if (!TextUtils.isEmpty(this.f71745f.U())) {
-                if (h0.f71677b) {
-                    h0.a("init config has abversion:" + this.f71745f.U(), null);
+            if (!TextUtils.isEmpty(this.f68848f.U())) {
+                if (h0.f68780b) {
+                    h0.a("init config has abversion:" + this.f68848f.U(), null);
                 }
-                jSONObject.put("ab_version", this.f71745f.U());
+                jSONObject.put("ab_version", this.f68848f.U());
             }
-            if (!TextUtils.isEmpty(this.f71745f.j())) {
-                jSONObject.put("ab_group", this.f71745f.j());
+            if (!TextUtils.isEmpty(this.f68848f.j())) {
+                jSONObject.put("ab_group", this.f68848f.j());
             }
-            if (TextUtils.isEmpty(this.f71745f.k())) {
+            if (TextUtils.isEmpty(this.f68848f.k())) {
                 return true;
             }
-            jSONObject.put("ab_feature", this.f71745f.k());
+            jSONObject.put("ab_feature", this.f68848f.k());
             return true;
         }
         return invokeL.booleanValue;

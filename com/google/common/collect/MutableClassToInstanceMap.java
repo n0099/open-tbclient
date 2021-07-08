@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +19,13 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SerializedForm<B> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -56,13 +57,13 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends e0<Class<? extends B>, B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f33288e;
+        public final /* synthetic */ Map.Entry f33398e;
 
         public a(Map.Entry entry) {
             Interceptable interceptable = $ic;
@@ -79,7 +80,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
                     return;
                 }
             }
-            this.f33288e = entry;
+            this.f33398e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +89,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         public Map.Entry<Class<? extends B>, B> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33288e : (Map.Entry) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33398e : (Map.Entry) invokeV.objValue;
         }
 
         @Override // d.f.d.c.e0, java.util.Map.Entry
@@ -99,15 +100,15 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b extends j0<Map.Entry<Class<? extends B>, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MutableClassToInstanceMap f33289e;
+        public final /* synthetic */ MutableClassToInstanceMap f33399e;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a extends m1<Map.Entry<Class<? extends B>, B>, Map.Entry<Class<? extends B>, B>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +158,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
                     return;
                 }
             }
-            this.f33289e = mutableClassToInstanceMap;
+            this.f33399e = mutableClassToInstanceMap;
         }
 
         @Override // d.f.d.c.y, java.util.Collection, java.lang.Iterable, java.util.Set
@@ -186,7 +187,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         public Set<Map.Entry<Class<? extends B>, B>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33289e.delegate().entrySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33399e.delegate().entrySet() : (Set) invokeV.objValue;
         }
     }
 
@@ -224,7 +225,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
     public static <B> MutableClassToInstanceMap<B> create() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new MutableClassToInstanceMap<>(new HashMap()) : (MutableClassToInstanceMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new MutableClassToInstanceMap<>(new HashMap()) : (MutableClassToInstanceMap) invokeV.objValue;
     }
 
     private Object writeReplace() {

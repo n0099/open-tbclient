@@ -2,6 +2,7 @@ package com.baidu.ala.view;
 
 import android.content.Intent;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -18,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.c.g.c;
-import d.a.r0.r.s.a;
-import d.a.r0.s.d.d;
+import d.a.o0.r.s.a;
+import d.a.o0.s.d.d;
 /* loaded from: classes.dex */
 public class AlaLivePushRemindDialog {
     public static /* synthetic */ Interceptable $ic;
@@ -92,7 +93,7 @@ public class AlaLivePushRemindDialog {
     /* JADX INFO: Access modifiers changed from: private */
     public void jumpSystemPermissionSetting() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName()));
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -145,7 +146,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // d.a.r0.r.s.a.e
+                @Override // d.a.o0.r.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -183,7 +184,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // d.a.r0.r.s.a.e
+                @Override // d.a.o0.r.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

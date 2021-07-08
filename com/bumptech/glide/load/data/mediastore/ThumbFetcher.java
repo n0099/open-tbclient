@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +25,7 @@ import com.bumptech.glide.load.data.ExifOrientationStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThumbFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaStoreThumbFetcher";
@@ -33,7 +34,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
     public final Uri mediaStoreImageUri;
     public final ThumbnailStreamOpener opener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ImageThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
@@ -83,7 +84,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class VideoThumbnailQuery implements ThumbnailQuery {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String[] PATH_PROJECTION;
@@ -174,7 +175,7 @@ public class ThumbFetcher implements DataFetcher<InputStream> {
     private InputStream openThumbInputStream() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             InputStream open = this.opener.open(this.mediaStoreImageUri);
             int orientation = open != null ? this.opener.getOrientation(this.mediaStoreImageUri) : -1;
             return orientation != -1 ? new ExifOrientationStream(open, orientation) : open;

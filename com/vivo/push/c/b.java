@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b extends com.vivo.push.v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,23 +34,23 @@ public final class b extends com.vivo.push.v {
         boolean b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f42277a);
+            com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39291a);
             try {
                 if (((com.vivo.push.b.d) yVar).d()) {
-                    b2 = f.a(this.f42277a);
+                    b2 = f.a(this.f39291a);
                 } else {
-                    b2 = f.b(this.f42277a);
+                    b2 = f.b(this.f39291a);
                 }
                 if (b2) {
-                    com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f42277a);
+                    com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f39291a);
                     if (a2 == null || a3 == null || a3.a() == null || !a3.a().equals(a2.a())) {
                         if (a2 != null && a2.a() != null) {
-                            com.vivo.push.a.a.a(this.f42277a, a2.a(), new com.vivo.push.b.ac(a2.a()));
+                            com.vivo.push.a.a.a(this.f39291a, a2.a(), new com.vivo.push.b.ac(a2.a()));
                         }
                         if (a3 == null || a3.a() == null) {
                             return;
                         }
-                        com.vivo.push.a.a.a(this.f42277a, a3.a(), new com.vivo.push.b.f());
+                        com.vivo.push.a.a.a(this.f39291a, a3.a(), new com.vivo.push.b.f());
                     }
                 }
             } catch (Exception e2) {

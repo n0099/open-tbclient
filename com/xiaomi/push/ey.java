@@ -15,21 +15,21 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43089a;
+    public static final iy f40103a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f43090b;
+    public static final iy f40104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f43091c;
+    public static final iy f40105c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -55,9 +55,9 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
             }
         }
         f355a = new jg("StatsEvents");
-        f43089a = new iy("", (byte) 11, (short) 1);
-        f43090b = new iy("", (byte) 11, (short) 2);
-        f43091c = new iy("", (byte) 15, (short) 3);
+        f40103a = new iy("", (byte) 11, (short) 1);
+        f40104b = new iy("", (byte) 11, (short) 2);
+        f40105c = new iy("", (byte) 15, (short) 3);
     }
 
     public ey() {
@@ -166,7 +166,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         jbVar.m524a();
         while (true) {
             iy m520a = jbVar.m520a();
-            byte b2 = m520a.f43494a;
+            byte b2 = m520a.f40508a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
@@ -247,17 +247,17 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
             a();
             jbVar.a(f355a);
             if (this.f356a != null) {
-                jbVar.a(f43089a);
+                jbVar.a(f40103a);
                 jbVar.a(this.f356a);
                 jbVar.b();
             }
             if (this.f358b != null && b()) {
-                jbVar.a(f43090b);
+                jbVar.a(f40104b);
                 jbVar.a(this.f358b);
                 jbVar.b();
             }
             if (this.f357a != null) {
-                jbVar.a(f43091c);
+                jbVar.a(f40105c);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f357a.size()));
                 for (ex exVar : this.f357a) {
                     exVar.b(jbVar);

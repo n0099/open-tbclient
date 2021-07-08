@@ -30,8 +30,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.b0.g.d;
-/* loaded from: classes5.dex */
+import d.a.o0.b0.g.d;
+/* loaded from: classes4.dex */
 public class PreviewVideoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static int q;
@@ -39,34 +39,34 @@ public class PreviewVideoView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f22862e;
+    public TbImageView f22922e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomVideoView f22863f;
+    public CustomVideoView f22923f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f22864g;
+    public ImageView f22924g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f22865h;
+    public TBSpecificationBtn f22925h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f22866i;
+    public TBSpecificationBtn f22926i;
     public float j;
-    public d.a.r0.b0.b k;
+    public d.a.o0.b0.b k;
     public Paint l;
     public Paint m;
     public String n;
     public Path o;
     public RectF p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PreviewVideoView f22867e;
+        public final /* synthetic */ PreviewVideoView f22927e;
 
         public a(PreviewVideoView previewVideoView) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class PreviewVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f22867e = previewVideoView;
+            this.f22927e = previewVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
@@ -94,13 +94,13 @@ public class PreviewVideoView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PreviewVideoView f22868e;
+        public final /* synthetic */ PreviewVideoView f22928e;
 
         public b(PreviewVideoView previewVideoView) {
             Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class PreviewVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f22868e = previewVideoView;
+            this.f22928e = previewVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
@@ -125,19 +125,19 @@ public class PreviewVideoView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 mediaPlayer.setVolume(0.0f, 0.0f);
-                this.f22868e.b(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
-                this.f22868e.f22862e.setVisibility(8);
+                this.f22928e.b(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
+                this.f22928e.f22922e.setVisibility(8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements d.a.r0.a0.b {
+    /* loaded from: classes4.dex */
+    public class c implements d.a.o0.a0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PreviewVideoView f22869e;
+        public final /* synthetic */ PreviewVideoView f22929e;
 
         public c(PreviewVideoView previewVideoView) {
             Interceptable interceptable = $ic;
@@ -154,17 +154,17 @@ public class PreviewVideoView extends FrameLayout {
                     return;
                 }
             }
-            this.f22869e = previewVideoView;
+            this.f22929e = previewVideoView;
         }
 
-        @Override // d.a.r0.a0.b
+        @Override // d.a.o0.a0.b
         public void a(d.a.c.k.d.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || this.f22869e.f22862e == null || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || this.f22929e.f22922e == null || aVar == null) {
                 return;
             }
-            this.f22869e.b(aVar.r(), aVar.m());
-            this.f22869e.f22862e.invalidate();
+            this.f22929e.b(aVar.r(), aVar.m());
+            this.f22929e.f22922e.invalidate();
         }
     }
 
@@ -205,15 +205,15 @@ public class PreviewVideoView extends FrameLayout {
                 i5 = l.g(getContext(), R.dimen.tbds650);
                 i4 = q;
             }
-            if (this.f22863f.getWidth() == i5 && this.f22863f.getHeight() == i4) {
+            if (this.f22923f.getWidth() == i5 && this.f22923f.getHeight() == i4) {
                 return;
             }
-            this.f22863f.setVideoHeight(i4);
-            this.f22863f.setVideoWidth(i5);
-            ViewGroup.LayoutParams layoutParams = this.f22862e.getLayoutParams();
+            this.f22923f.setVideoHeight(i4);
+            this.f22923f.setVideoWidth(i5);
+            ViewGroup.LayoutParams layoutParams = this.f22922e.getLayoutParams();
             layoutParams.width = i5;
             layoutParams.height = i4;
-            this.f22862e.setLayoutParams(layoutParams);
+            this.f22922e.setLayoutParams(layoutParams);
             getLayoutParams().height = i4;
             getLayoutParams().width = i5;
             invalidate();
@@ -223,7 +223,7 @@ public class PreviewVideoView extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f22864g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+            this.f22924g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
             this.l.setColor(SkinManager.getColor(R.color.CAM_X0618));
             this.m.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
@@ -232,11 +232,11 @@ public class PreviewVideoView extends FrameLayout {
     public void d() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbImageView = this.f22862e) == null || tbImageView.getTag() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbImageView = this.f22922e) == null || tbImageView.getTag() == null) {
             return;
         }
-        d.a.r0.a0.c.k().h(this.f22862e.getTag().toString());
-        d.a.r0.a0.c.k().g(this.f22862e.getTag().toString());
+        d.a.o0.a0.c.k().h(this.f22922e.getTag().toString());
+        d.a.o0.a0.c.k().g(this.f22922e.getTag().toString());
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -258,40 +258,40 @@ public class PreviewVideoView extends FrameLayout {
             q = l.g(getContext(), R.dimen.tbds866);
             r = l.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             f(context);
-            this.k = new d.a.r0.b0.b();
+            this.k = new d.a.o0.b0.b();
             TbImageView tbImageView = new TbImageView(context);
-            this.f22862e = tbImageView;
+            this.f22922e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f22862e, new FrameLayout.LayoutParams(-2, -2));
-            this.f22864g = new ImageView(context);
+            addView(this.f22922e, new FrameLayout.LayoutParams(-2, -2));
+            this.f22924g = new ImageView(context);
             int g2 = l.g(context, R.dimen.M_H_X001);
             int g3 = l.g(context, R.dimen.M_W_X003);
-            this.f22864g.setPadding(g3, g2, g3, g2);
+            this.f22924g.setPadding(g3, g2, g3, g2);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds94), l.g(context, R.dimen.tbds94));
             layoutParams.gravity = 53;
-            addView(this.f22864g, layoutParams);
-            d.a.r0.r.f0.m.b bVar = new d.a.r0.r.f0.m.b();
+            addView(this.f22924g, layoutParams);
+            d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
             bVar.p();
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds96), l.g(context, R.dimen.tbds48));
             layoutParams2.gravity = 83;
             layoutParams2.bottomMargin = l.g(context, R.dimen.M_H_X002);
             layoutParams2.leftMargin = l.g(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            this.f22865h = tBSpecificationBtn;
+            this.f22925h = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f22865h.setText(context.getString(R.string.edit));
-            this.f22865h.setTextSize(R.dimen.T_X10);
-            addView(this.f22865h, layoutParams2);
+            this.f22925h.setText(context.getString(R.string.edit));
+            this.f22925h.setTextSize(R.dimen.T_X10);
+            addView(this.f22925h, layoutParams2);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(l.g(context, R.dimen.tbds96), l.g(context, R.dimen.tbds48));
             layoutParams3.gravity = 85;
             layoutParams3.bottomMargin = l.g(context, R.dimen.M_H_X002);
             layoutParams3.rightMargin = l.g(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(context);
-            this.f22866i = tBSpecificationBtn2;
+            this.f22926i = tBSpecificationBtn2;
             tBSpecificationBtn2.setConfig(bVar);
-            this.f22866i.setText(context.getString(R.string.cover));
-            this.f22866i.setTextSize(R.dimen.T_X10);
-            addView(this.f22866i, layoutParams3);
+            this.f22926i.setText(context.getString(R.string.cover));
+            this.f22926i.setTextSize(R.dimen.T_X10);
+            addView(this.f22926i, layoutParams3);
             this.l = new Paint();
             this.m = new Paint();
             c();
@@ -302,10 +302,10 @@ public class PreviewVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             CustomVideoView customVideoView = new CustomVideoView(context);
-            this.f22863f = customVideoView;
+            this.f22923f = customVideoView;
             addView(customVideoView, new FrameLayout.LayoutParams(-2, -2));
-            this.f22863f.setOnCompletionListener(new a(this));
-            this.f22863f.setOnPreparedListener(new b(this));
+            this.f22923f.setOnCompletionListener(new a(this));
+            this.f22923f.setOnPreparedListener(new b(this));
         }
     }
 
@@ -317,11 +317,11 @@ public class PreviewVideoView extends FrameLayout {
             ImageOperation g2 = d.g(r, q);
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g2);
-            this.f22862e.setTag(imageFileInfo.toCachedKey(false));
+            this.f22922e.setTag(imageFileInfo.toCachedKey(false));
             d.a.c.k.d.a c2 = this.k.c(imageFileInfo, false);
             if (c2 != null) {
                 b(c2.r(), c2.m());
-                this.f22862e.invalidate();
+                this.f22922e.invalidate();
                 return;
             }
             this.k.d(imageFileInfo, new c(this), false);
@@ -340,13 +340,13 @@ public class PreviewVideoView extends FrameLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f22863f.getCurrentPosition();
-            CustomVideoView customVideoView = this.f22863f;
+            this.f22923f.getCurrentPosition();
+            CustomVideoView customVideoView = this.f22923f;
             if (customVideoView != null) {
                 customVideoView.stopPlayback();
-                this.f22863f.setVideoURI(null);
+                this.f22923f.setVideoURI(null);
             }
-            this.f22862e.setVisibility(0);
+            this.f22922e.setVisibility(0);
         }
     }
 
@@ -374,9 +374,9 @@ public class PreviewVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
             super.setOnClickListener(onClickListener);
-            this.f22864g.setOnClickListener(onClickListener);
-            this.f22865h.setOnClickListener(onClickListener);
-            this.f22866i.setOnClickListener(onClickListener);
+            this.f22924g.setOnClickListener(onClickListener);
+            this.f22925h.setOnClickListener(onClickListener);
+            this.f22926i.setOnClickListener(onClickListener);
         }
     }
 

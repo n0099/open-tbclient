@@ -2,14 +2,14 @@ package com.bytedance.sdk.component.a;
 
 import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface k {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
 
         /* renamed from: com.bytedance.sdk.component.a.k$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public interface InterfaceC0312a {
         }
 
@@ -18,7 +18,7 @@ public interface k {
         void a(@NonNull String str, @NonNull String str2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         boolean a(String str);
 

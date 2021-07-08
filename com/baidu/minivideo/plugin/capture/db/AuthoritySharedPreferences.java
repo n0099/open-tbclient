@@ -2,6 +2,7 @@ package com.baidu.minivideo.plugin.capture.db;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AuthoritySharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FIRSTSHOT_CONFIG = "firstshot_config";
@@ -82,7 +83,7 @@ public class AuthoritySharedPreferences {
     public static boolean getAuthorityCameraResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sPref.getBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, true) : invokeV.booleanValue;
     }
 
     public static long getAuthorityConfigTimestamp() {

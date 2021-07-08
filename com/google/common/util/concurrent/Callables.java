@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import d.f.d.a.r;
 import java.util.concurrent.Callable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Callables {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +181,7 @@ public final class Callables {
     public static Runnable threadRenaming(Runnable runnable, r<String> rVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, runnable, rVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, rVar)) == null) {
             n.p(rVar);
             n.p(runnable);
             return new Runnable(rVar, runnable) { // from class: com.google.common.util.concurrent.Callables.4

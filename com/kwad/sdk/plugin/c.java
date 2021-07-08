@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes7.dex */
-public class c implements e {
+/* loaded from: classes6.dex */
+public class c implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +27,17 @@ public class c implements e {
         }
     }
 
-    @Override // com.kwad.sdk.plugin.e
-    public void a(Context context, SdkConfig sdkConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, sdkConfig) == null) {
-        }
-    }
-
-    @Override // com.kwad.sdk.plugin.e
-    public Class b() {
+    @Override // com.kwad.sdk.plugin.d
+    public Class a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.class : (Class) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.plugin.d
+    public void a(Context context, SdkConfig sdkConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sdkConfig) == null) {
+        }
     }
 }

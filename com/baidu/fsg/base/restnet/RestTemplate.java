@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RestTemplate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RestTemplate";
@@ -37,13 +37,13 @@ public class RestTemplate {
     public List<RestHttpRequestInterceptor> requestInterceptors;
 
     /* renamed from: com.baidu.fsg.base.restnet.RestTemplate$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class RestTemplate {
     private e doExecuteForResponse(d dVar) throws RestRuntimeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, dVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, dVar)) == null) {
             try {
                 URL url = new URL(dVar.d());
                 String host = url.getHost();

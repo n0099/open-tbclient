@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class o implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.p f42123a;
+    public final /* synthetic */ com.vivo.push.b.p f39137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n f42124b;
+    public final /* synthetic */ n f39138b;
 
     public o(n nVar, com.vivo.push.b.p pVar) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class o implements Runnable {
                 return;
             }
         }
-        this.f42124b = nVar;
-        this.f42123a = pVar;
+        this.f39138b = nVar;
+        this.f39137a = pVar;
     }
 
     @Override // java.lang.Runnable
@@ -41,10 +41,10 @@ public final class o implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            n nVar = this.f42124b;
-            PushMessageCallback pushMessageCallback = ((ab) nVar).f42095b;
-            context = nVar.f42277a;
-            pushMessageCallback.onLog(context, this.f42123a.d(), this.f42123a.e(), this.f42123a.f());
+            n nVar = this.f39138b;
+            PushMessageCallback pushMessageCallback = ((ab) nVar).f39109b;
+            context = nVar.f39291a;
+            pushMessageCallback.onLog(context, this.f39137a.d(), this.f39137a.e(), this.f39137a.f());
         }
     }
 }

@@ -8,6 +8,7 @@ import android.util.Xml;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -41,7 +42,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiCoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";
@@ -255,7 +256,7 @@ public class SapiCoreUtil {
         InterceptResult invokeLL;
         InputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
                 if (str.startsWith("file:///android_asset/")) {
                     fileInputStream = context.getAssets().open(str.replace("file:///android_asset/", ""));
@@ -517,7 +518,7 @@ public class SapiCoreUtil {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(r.f7745a, 4);
+            hashMap.put(r.f7762a, 4);
             hashMap.put("w", 2);
             int i2 = 1;
             hashMap.put("x", 1);

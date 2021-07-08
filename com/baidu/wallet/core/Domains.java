@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Domains implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final EnumSet<Permission> ALL_PERMISSION;
@@ -28,18 +28,18 @@ public class Domains implements NoProguard {
     public Map<String, EnumSet<Permission>> mDomainsPermissionConfig;
 
     /* renamed from: com.baidu.wallet.core.Domains$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Domains f24554a;
+        public static final Domains f24664a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +55,7 @@ public class Domains implements NoProguard {
                     return;
                 }
             }
-            f24554a = new Domains(null);
+            f24664a = new Domains(null);
         }
 
         public a() {
@@ -106,7 +106,7 @@ public class Domains implements NoProguard {
     public static final Domains getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24554a : (Domains) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24664a : (Domains) invokeV.objValue;
     }
 
     public Map<String, EnumSet<Permission>> getDomainsPermissionConfig() {

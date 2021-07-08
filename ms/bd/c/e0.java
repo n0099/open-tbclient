@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONArray;
 @Keep
 @JProtect
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLIENT_TYPE_BUSINESS = 1;
@@ -26,37 +26,37 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f76047a;
+    public String f73081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f76048b;
+    public String f73082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f76049c;
+    public String f73083c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f76050d;
+    public String f73084d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f76051e;
+    public String f73085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f76052f;
+    public String f73086f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f76053g;
+    public String f73087g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f76054h;
+    public String f73088h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f76055i;
+    public String f73089i;
     public int j;
     public int k;
     public Map<String, String> l;
     public Map<String, String> m;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a<T extends b> extends e0 implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,9 +76,9 @@ public class e0 {
                     return;
                 }
             }
-            this.f76053g = str;
-            this.f76054h = str2;
-            this.f76055i = str3;
+            this.f73087g = str;
+            this.f73088h = str2;
+            this.f73089i = str3;
             if (TextUtils.isEmpty(str) || "0".equals(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 throw new IllegalArgumentException("sdkID or license must be set.");
             }
@@ -110,14 +110,14 @@ public class e0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f76049c = str;
+                this.f73083c = str;
                 return this;
             }
             return (T) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface b {
     }
 
@@ -134,15 +134,15 @@ public class e0 {
                 return;
             }
         }
-        this.f76047a = "";
-        this.f76048b = "";
-        this.f76049c = "";
-        this.f76050d = "";
-        this.f76051e = "";
-        this.f76052f = "";
-        this.f76053g = "";
-        this.f76054h = "";
-        this.f76055i = "";
+        this.f73081a = "";
+        this.f73082b = "";
+        this.f73083c = "";
+        this.f73084d = "";
+        this.f73085e = "";
+        this.f73086f = "";
+        this.f73087g = "";
+        this.f73088h = "";
+        this.f73089i = "";
         this.j = -1;
         this.k = -1;
         this.l = new HashMap();
@@ -154,15 +154,15 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(a(this.f76047a));
-            jSONArray.put(a(this.f76054h));
-            jSONArray.put(a(this.f76053g));
-            jSONArray.put(a(this.f76055i));
-            jSONArray.put(a(this.f76048b));
-            jSONArray.put(a(this.f76049c));
-            jSONArray.put(a(this.f76050d));
-            jSONArray.put(a(this.f76051e));
-            jSONArray.put(a(this.f76052f));
+            jSONArray.put(a(this.f73081a));
+            jSONArray.put(a(this.f73088h));
+            jSONArray.put(a(this.f73087g));
+            jSONArray.put(a(this.f73089i));
+            jSONArray.put(a(this.f73082b));
+            jSONArray.put(a(this.f73083c));
+            jSONArray.put(a(this.f73084d));
+            jSONArray.put(a(this.f73085e));
+            jSONArray.put(a(this.f73086f));
             jSONArray.put(String.valueOf(this.j));
             jSONArray.put(String.valueOf(this.k));
             JSONArray jSONArray2 = new JSONArray();

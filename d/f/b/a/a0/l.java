@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface l {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a implements l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f72125a;
+        public final long f69228a;
 
         public a(long j) {
             Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public interface l {
                     return;
                 }
             }
-            this.f72125a = j;
+            this.f69228a = j;
         }
 
         @Override // d.f.b.a.a0.l
@@ -59,7 +59,7 @@ public interface l {
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72125a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69228a : invokeV.longValue;
         }
     }
 

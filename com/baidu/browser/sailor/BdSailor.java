@@ -112,7 +112,7 @@ public class BdSailor implements INoProGuard {
     private void enableFeatureInternal(String str) {
         a featureByName;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, str) == null) || TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
             return;
         }
         featureByName.enable();
@@ -453,7 +453,7 @@ public class BdSailor implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            boolean z2 = BdWebkitManager.a.f4341a == BdSailorPlatform.getWebkitManager().getWebkitType();
+            boolean z2 = BdWebkitManager.a.f4346a == BdSailorPlatform.getWebkitManager().getWebkitType();
             ZeusPerformanceTiming.Stage stage = ZeusPerformanceTiming.Stage.Start;
             if (z2) {
                 ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
@@ -692,7 +692,7 @@ public class BdSailor implements INoProGuard {
             this.mClient = bdSailorClient;
             WebKitFactory.setWebKitClient(bdSailorClient);
             setSailorFeatureListener();
-            BdSailorPlatform.getStatic().f45712a = this.mClient;
+            BdSailorPlatform.getStatic().f42566a = this.mClient;
         }
     }
 

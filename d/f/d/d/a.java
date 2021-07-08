@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.d.a.n;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f73821a;
+    public final ByteBuffer f70924a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class a extends c {
                 return;
             }
         }
-        this.f73821a = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
+        this.f70924a = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
     }
 
     @Override // d.f.d.d.f, d.f.d.d.j
@@ -92,7 +92,7 @@ public abstract class a extends c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c2)})) == null) {
-            this.f73821a.putChar(c2);
+            this.f70924a.putChar(c2);
             l(2);
             return this;
         }
@@ -104,10 +104,10 @@ public abstract class a extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             try {
-                p(this.f73821a.array(), 0, i2);
+                p(this.f70924a.array(), 0, i2);
                 return this;
             } finally {
-                this.f73821a.clear();
+                this.f70924a.clear();
             }
         }
         return (f) invokeI.objValue;
@@ -143,7 +143,7 @@ public abstract class a extends c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f73821a.putInt(i2);
+            this.f70924a.putInt(i2);
             l(4);
             return this;
         }
@@ -155,7 +155,7 @@ public abstract class a extends c {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            this.f73821a.putLong(j);
+            this.f70924a.putLong(j);
             l(8);
             return this;
         }

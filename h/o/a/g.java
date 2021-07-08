@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class g<T, R> implements d.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f75412e;
+    public final d.a<T> f72446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b<? extends R, ? super T> f75413f;
+    public final d.b<? extends R, ? super T> f72447f;
 
     public g(d.a<T> aVar, d.b<? extends R, ? super T> bVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class g<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.f75412e = aVar;
-        this.f75413f = bVar;
+        this.f72446e = aVar;
+        this.f72447f = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,9 +42,9 @@ public final class g<T, R> implements d.a<R> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             try {
-                h.j<? super T> call = h.r.c.n(this.f75413f).call(jVar);
+                h.j<? super T> call = h.r.c.n(this.f72447f).call(jVar);
                 call.onStart();
-                this.f75412e.call(call);
+                this.f72446e.call(call);
             } catch (Throwable th) {
                 h.m.a.e(th);
                 jVar.onError(th);

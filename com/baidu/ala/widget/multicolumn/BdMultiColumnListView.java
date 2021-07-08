@@ -176,7 +176,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
             c bdIListPullView;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (bdIListPullView = getBdIListPullView()) == null || (view = bdIListPullView.getView()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (bdIListPullView = getBdIListPullView()) == null || (view = bdIListPullView.getView()) == null) {
                 return;
             }
             f fVar = new f(view.getContext(), 0, -bdIListPullView.q(), this.mAnimDurationTime);

@@ -17,49 +17,49 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13093e;
+    public boolean f13110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13094f;
+    public float f13111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13095g;
+    public float f13112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13096h;
+    public int f13113h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13097i;
+    public int f13114i;
     public ThemeColorInfo j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13098a;
+        public View f13115a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13099b;
+        public boolean f13116b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13100c;
+        public int f13117c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13101d;
+        public int f13118d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13102e;
+        public int f13119e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f13103f;
+        public TbFragmentTabIndicator f13120f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -74,8 +74,8 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                     return;
                 }
             }
-            this.f13099b = true;
-            this.f13102e = R.color.common_color_10225;
+            this.f13116b = true;
+            this.f13119e = R.color.common_color_10225;
         }
 
         public final int a(TextView textView) {
@@ -85,7 +85,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.f13098a).getText().toString();
+                String charSequence = ((TextView) this.f13115a).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
@@ -97,26 +97,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                int i3 = this.f13101d;
+                int i3 = this.f13118d;
                 if (i3 != 0) {
-                    SkinManager.setBackgroundResource(this.f13098a, i3);
+                    SkinManager.setBackgroundResource(this.f13115a, i3);
                 }
-                View view = this.f13098a;
+                View view = this.f13115a;
                 if (view instanceof TextView) {
-                    int i4 = this.f13102e;
+                    int i4 = this.f13119e;
                     if (i4 != 0) {
                         SkinManager.setViewTextColor(view, i4, 1);
                     }
-                    int a2 = a((TextView) this.f13098a);
+                    int a2 = a((TextView) this.f13115a);
                     if (a2 > 0 && a2 < 10) {
-                        SkinManager.setBackgroundResource(this.f13098a, R.drawable.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.f13115a, R.drawable.icon_news_head_prompt_one);
                     } else if (a2 >= 10 && a2 < 100) {
-                        SkinManager.setBackgroundResource(this.f13098a, R.drawable.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.f13115a, R.drawable.icon_news_head_prompt_two);
                     } else if (a2 >= 100) {
-                        SkinManager.setBackgroundResource(this.f13098a, R.drawable.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.f13115a, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view2 = this.f13098a;
+                View view2 = this.f13115a;
                 if (view2 instanceof MessageRedDotView) {
                     ((MessageRedDotView) view2).e();
                 }
@@ -142,11 +142,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.f13093e = false;
-        this.f13094f = 0.0f;
-        this.f13095g = 0.0f;
-        this.f13096h = 0;
-        this.f13097i = 0;
+        this.f13110e = false;
+        this.f13111f = 0.0f;
+        this.f13112g = 0.0f;
+        this.f13113h = 0;
+        this.f13114i = 0;
     }
 
     public void a(String str, a aVar) {
@@ -224,28 +224,28 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setContentDefaultTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f13097i = i2;
+            this.f13114i = i2;
         }
     }
 
     public void setContentDefaultTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.f13095g = f2;
+            this.f13112g = f2;
         }
     }
 
     public void setContentSelectTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f13096h = i2;
+            this.f13113h = i2;
         }
     }
 
     public void setContentSelectTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.f13094f = f2;
+            this.f13111f = f2;
         }
     }
 
@@ -276,7 +276,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setIsContentSelectBold(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f13093e = z;
+            this.f13110e = z;
         }
     }
 
@@ -342,11 +342,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.f13093e = false;
-        this.f13094f = 0.0f;
-        this.f13095g = 0.0f;
-        this.f13096h = 0;
-        this.f13097i = 0;
+        this.f13110e = false;
+        this.f13111f = 0.0f;
+        this.f13112g = 0.0f;
+        this.f13113h = 0;
+        this.f13114i = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -368,10 +368,10 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 return;
             }
         }
-        this.f13093e = false;
-        this.f13094f = 0.0f;
-        this.f13095g = 0.0f;
-        this.f13096h = 0;
-        this.f13097i = 0;
+        this.f13110e = false;
+        this.f13111f = 0.0f;
+        this.f13112g = 0.0f;
+        this.f13113h = 0;
+        this.f13114i = 0;
     }
 }

@@ -13,6 +13,7 @@ import android.os.Build;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,9 +28,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.q.h;
-import d.a.r0.s.d.b;
-import d.a.r0.s.d.d;
-/* loaded from: classes4.dex */
+import d.a.o0.s.d.b;
+import d.a.o0.s.d.d;
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes3.dex */
 public class NotificationHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
@@ -41,7 +43,7 @@ public class NotificationHelper {
     public static int lastProgressNotifiyId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class SwitchData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +120,7 @@ public class NotificationHelper {
     public static boolean cancelNotification(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
             if (context == null) {
                 return false;
             }
@@ -194,7 +196,7 @@ public class NotificationHelper {
             if (!b.M() && b.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
-                    AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                    AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                     boolean z = audioManager.getRingerMode() == 0;
                     boolean z2 = audioManager.getRingerMode() == 1;
                     if (d.d().u()) {

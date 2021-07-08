@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface NameValuePair {
     String getName();
 

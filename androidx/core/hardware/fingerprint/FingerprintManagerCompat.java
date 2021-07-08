@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RequiresPermission;
 import androidx.core.os.CancellationSignal;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,7 +171,7 @@ public class FingerprintManagerCompat {
     public static FingerprintManager.AuthenticationCallback wrapCallback(AuthenticationCallback authenticationCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, authenticationCallback)) == null) ? new FingerprintManager.AuthenticationCallback(authenticationCallback) { // from class: androidx.core.hardware.fingerprint.FingerprintManagerCompat.1
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, authenticationCallback)) == null) ? new FingerprintManager.AuthenticationCallback(authenticationCallback) { // from class: androidx.core.hardware.fingerprint.FingerprintManagerCompat.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AuthenticationCallback val$callback;

@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f43230a;
+    public static final byte[] f40244a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class h {
                 return;
             }
         }
-        f43230a = new byte[]{100, 23, 84, 114, 72, 0, 4, 97, 73, 97, 2, 52, 84, 102, 18, 32};
+        f40244a = new byte[]{100, 23, 84, 114, 72, 0, 4, 97, 73, 97, 2, 52, 84, 102, 18, 32};
     }
 
     public static Cipher a(byte[] bArr, int i2) {
@@ -37,7 +37,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i2)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f43230a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f40244a);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(i2, secretKeySpec, ivParameterSpec);
             return cipher;

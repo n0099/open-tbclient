@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.p;
+import d.a.o0.r.q.p;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveUserInfoData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3860430259513905402L;
@@ -79,7 +79,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.greatAnchorDescRole = alaUserInfoData.great_anchor_desc_role;
     }
 
-    @Override // d.a.r0.r.q.p
+    @Override // d.a.o0.r.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

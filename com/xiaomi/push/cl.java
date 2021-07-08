@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.text.SimpleDateFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class cl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42920a;
+    public static String f39934a;
 
     /* renamed from: a  reason: collision with other field name */
     public static SimpleDateFormat f188a;
@@ -34,7 +34,7 @@ public class cl {
         }
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
         f188a = simpleDateFormat;
-        f42920a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
+        f39934a = simpleDateFormat.format(Long.valueOf(System.currentTimeMillis()));
     }
 
     public static hj a(Context context, String str) {

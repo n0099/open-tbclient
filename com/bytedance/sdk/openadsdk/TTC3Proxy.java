@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +11,7 @@ import com.bytedance.sdk.openadsdk.component.reward.c;
 import com.bytedance.sdk.openadsdk.component.reward.d;
 import com.bytedance.sdk.openadsdk.component.reward.e;
 import com.bytedance.sdk.openadsdk.component.reward.h;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTC3Proxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +62,7 @@ public class TTC3Proxy {
 
     public static void verityPlayable(String str, int i2, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{str, Integer.valueOf(i2), str2, str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i2), str2, str3, str4}) == null) {
             d.a(str, i2, str2, str3, str4);
         }
     }

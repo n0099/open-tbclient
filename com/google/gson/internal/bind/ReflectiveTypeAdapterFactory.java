@@ -1,5 +1,6 @@
 package com.google.gson.internal.bind;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +32,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +42,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public final FieldNamingStrategy fieldNamingPolicy;
     public final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +122,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class BoundField {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -320,7 +321,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     private List<String> getFieldNames(Field field) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, field)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, field)) == null) {
             SerializedName serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
             if (serializedName == null) {
                 return Collections.singletonList(this.fieldNamingPolicy.translateName(field));

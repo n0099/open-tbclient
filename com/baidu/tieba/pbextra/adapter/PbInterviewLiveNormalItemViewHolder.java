@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f19887e;
+    public TbImageView f19927e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbRichTextView f19888f;
+    public TbRichTextView f19928f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f19889g;
+    public View f19929g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PbGiftListView f19890h;
+    public PbGiftListView f19930h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrsPraiseView f19891i;
+    public FrsPraiseView f19931i;
     public ImageView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,25 +55,25 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
             }
         }
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.interview_live_post_pic);
-        this.f19887e = tbImageView;
+        this.f19927e = tbImageView;
         tbImageView.setSupportNoImage(true);
-        this.f19887e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f19887e.setOnClickListener(this);
-        this.f19887e.setInterceptOnClick(true);
-        this.f19887e.setDefaultResource(R.drawable.icon_click);
-        this.f19888f = (TbRichTextView) view.findViewById(R.id.richText);
-        this.f19889g = view.findViewById(R.id.pb_item_praise_topline);
-        this.f19891i = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
+        this.f19927e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f19927e.setOnClickListener(this);
+        this.f19927e.setInterceptOnClick(true);
+        this.f19927e.setDefaultResource(R.drawable.icon_click);
+        this.f19928f = (TbRichTextView) view.findViewById(R.id.richText);
+        this.f19929g = view.findViewById(R.id.pb_item_praise_topline);
+        this.f19931i = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
         this.j = (ImageView) view.findViewById(R.id.pb_item_praise_bottomline);
-        this.f19890h = (PbGiftListView) view.findViewById(R.id.gift_list_view);
-        this.f19888f.getLayoutStrategy().t();
-        this.f19888f.getLayoutStrategy().k(true);
-        int min = Math.min(((((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f19888f.getPaddingLeft()) - this.f19888f.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
-        this.f19888f.getLayoutStrategy().q(min);
-        this.f19888f.getLayoutStrategy().p((int) (min * 1.618f));
-        this.f19888f.setTextSize(TbConfig.getContentSize());
-        this.f19888f.setDisplayImage(z2, false);
-        this.f19888f.setVoiceViewRes(R.layout.voice_play_btn);
+        this.f19930h = (PbGiftListView) view.findViewById(R.id.gift_list_view);
+        this.f19928f.getLayoutStrategy().t();
+        this.f19928f.getLayoutStrategy().k(true);
+        int min = Math.min(((((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f19928f.getPaddingLeft()) - this.f19928f.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
+        this.f19928f.getLayoutStrategy().q(min);
+        this.f19928f.getLayoutStrategy().p((int) (min * 1.618f));
+        this.f19928f.setTextSize(TbConfig.getContentSize());
+        this.f19928f.setDisplayImage(z2, false);
+        this.f19928f.setVoiceViewRes(R.layout.voice_play_btn);
     }
 
     @Override // android.view.View.OnClickListener

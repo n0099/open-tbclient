@@ -14,7 +14,7 @@ import androidx.annotation.StyleRes;
 import androidx.core.util.Pair;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface DateSelector<S> extends Parcelable {
     @StyleRes
     int getDefaultThemeResId(Context context);

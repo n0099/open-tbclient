@@ -1,26 +1,27 @@
 package d.a.o0.h;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class a extends HandlerThread {
+/* loaded from: classes7.dex */
+public abstract class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static a f46378e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static Handler f46379f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* renamed from: d.a.o0.h.a$a  reason: collision with other inner class name */
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1192a {
+        void a(boolean z, boolean z2, String str);
+    }
+
     public a() {
-        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,36 +29,51 @@ public class a extends HandlerThread {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
-        Handler handler;
+    public static a b(BaseActivity baseActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (a.class) {
-                b();
-                handler = f46379f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, a.class, baseActivity);
+            if (runTask == null || runTask.getData() == null) {
+                return null;
             }
-            return handler;
+            return (a) runTask.getData();
         }
-        return (Handler) invokeV.objValue;
+        return (a) invokeL.objValue;
     }
 
-    public static void b() {
+    public static a c(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f46378e == null) {
-            a aVar = new a();
-            f46378e = aVar;
-            aVar.start();
-            f46379f = new Handler(f46378e.getLooper());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, a.class, baseFragmentActivity);
+            if (runTask == null || runTask.getData() == null) {
+                return null;
+            }
+            return (a) runTask.getData();
         }
+        return (a) invokeL.objValue;
     }
+
+    public abstract void a();
+
+    public abstract void d();
+
+    public abstract boolean e();
+
+    public abstract MarkData f();
+
+    public abstract String g();
+
+    public abstract void h(boolean z);
+
+    public abstract void i(MarkData markData);
+
+    public abstract void j(InterfaceC1192a interfaceC1192a);
 }

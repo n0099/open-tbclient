@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class u extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f43694a;
+    public final /* synthetic */ ib f40708a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f977a;
@@ -40,7 +40,7 @@ public final class u extends XMPushService.i {
             }
         }
         this.f977a = xMPushService;
-        this.f43694a = ibVar;
+        this.f40708a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -55,7 +55,7 @@ public final class u extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a2 = q.a((Context) this.f977a, this.f43694a);
+                ib a2 = q.a((Context) this.f977a, this.f40708a);
                 a2.m450a().a("miui_message_unrecognized", "1");
                 y.a(this.f977a, a2);
             } catch (fw e2) {

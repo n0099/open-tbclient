@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ab implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ NotificationClickedActivity f42748a;
+    public final /* synthetic */ NotificationClickedActivity f39762a;
 
     public ab(NotificationClickedActivity notificationClickedActivity) {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class ab implements Runnable {
                 return;
             }
         }
-        this.f42748a = notificationClickedActivity;
+        this.f39762a = notificationClickedActivity;
     }
 
     @Override // java.lang.Runnable
@@ -35,7 +35,7 @@ public class ab implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.m70a("clicked activity finish by timeout.");
-            this.f42748a.finish();
+            this.f39762a.finish();
         }
     }
 }

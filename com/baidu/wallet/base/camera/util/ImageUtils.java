@@ -14,6 +14,7 @@ import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.imagemanager.ImageProcessor;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -30,7 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ImageUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = true;
@@ -63,7 +64,7 @@ public abstract class ImageUtils implements NoProguard {
                 options.inJustDecodeBounds = true;
                 ParcelFileDescriptor parcelFileDescriptor = null;
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7745a);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7762a);
                     if (openFileDescriptor != null) {
                         try {
                             BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
@@ -144,7 +145,7 @@ public abstract class ImageUtils implements NoProguard {
     public static Bitmap getBitmapFromRGB888(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
             Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
             int i4 = i2 * i3;
             int[] iArr = new int[i4];
@@ -180,7 +181,7 @@ public abstract class ImageUtils implements NoProguard {
             try {
                 try {
                     try {
-                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7745a);
+                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7762a);
                         if (parcelFileDescriptor != null) {
                             try {
                                 bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);

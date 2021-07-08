@@ -27,10 +27,10 @@ import com.baidu.wallet.paysdk.ui.PwdPayActivity;
 import com.baidu.wallet.paysdk.ui.WalletSmsActivity;
 import com.baidu.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface PwdPayContract {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,12 +234,12 @@ public interface PwdPayContract {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onProtocolClicked(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class protocolModel implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

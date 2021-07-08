@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelectorHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VALUE_NOT_SELECTED_ID = "-1";
@@ -36,7 +37,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
     public OnAddressSelectedListener mOnAddressSelectedListener;
     public OnHotCitySelectedListener mOnHotCitySelectedListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AddressSelectorHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,12 +86,12 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnAddressSelectedListener {
         void onAddressSelected(int i2, AddressBean addressBean);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnHotCitySelectedListener {
         void onHotCitySelected(AddressBean addressBean);
     }
@@ -207,7 +208,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
         ElementNode.AddressEntity addressEntity;
         ElementNode.AddressEntity addressEntity2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, elementNode, addressBean) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, elementNode, addressBean) == null) {
             ElementNode moveHeader = ElementNode.moveHeader(elementNode);
             String str = (moveHeader == null || (addressEntity2 = moveHeader.addressEntity) == null) ? "" : addressEntity2.selectedId;
             String str2 = (moveHeader == null || (elementNode2 = moveHeader.next) == null || (addressEntity = elementNode2.addressEntity) == null) ? "" : addressEntity.selectedId;

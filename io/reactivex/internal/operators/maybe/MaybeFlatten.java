@@ -14,13 +14,13 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class FlatMapMaybeObserver<T, R> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4375739915521278546L;
@@ -28,10 +28,10 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public final MaybeObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f75983d;
+        public Disposable f73017d;
         public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public final class InnerObserver implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
-                this.f75983d.dispose();
+                this.f73017d.dispose();
             }
         }
 
@@ -142,8 +142,8 @@ public final class MaybeFlatten<T, R> extends AbstractMaybeWithUpstream<T, R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f75983d, disposable)) {
-                this.f75983d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73017d, disposable)) {
+                this.f73017d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.s.b;
+import d.a.o0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_LIMIT = 2;
@@ -46,13 +46,13 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
     public ProgressBar mProgress;
     public e mSaveImageTask;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonImageActivity f20106e;
+        public final /* synthetic */ PersonImageActivity f20146e;
 
         public a(PersonImageActivity personImageActivity) {
             Interceptable interceptable = $ic;
@@ -69,25 +69,25 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                     return;
                 }
             }
-            this.f20106e = personImageActivity;
+            this.f20146e = personImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20106e.finish();
+                this.f20146e.finish();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonImageActivity f20107e;
+        public final /* synthetic */ PersonImageActivity f20147e;
 
         public b(PersonImageActivity personImageActivity) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                     return;
                 }
             }
-            this.f20107e = personImageActivity;
+            this.f20147e = personImageActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -112,23 +112,23 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                String[] strArr = {this.f20107e.getPageContext().getString(R.string.save)};
-                PersonImageActivity personImageActivity = this.f20107e;
+                String[] strArr = {this.f20147e.getPageContext().getString(R.string.save)};
+                PersonImageActivity personImageActivity = this.f20147e;
                 personImageActivity.createListMenu(strArr, personImageActivity.mDialogClickListener);
-                this.f20107e.showListMenu();
+                this.f20147e.showListMenu();
                 return false;
             }
             return invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonImageActivity f20108a;
+        public final /* synthetic */ PersonImageActivity f20148a;
 
         public c(PersonImageActivity personImageActivity) {
             Interceptable interceptable = $ic;
@@ -145,23 +145,23 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                     return;
                 }
             }
-            this.f20108a = personImageActivity;
+            this.f20148a = personImageActivity;
         }
 
-        @Override // d.a.r0.r.s.b.c
-        public void a(d.a.r0.r.s.b bVar, int i2, View view) {
+        @Override // d.a.o0.r.s.b.c
+        public void a(d.a.o0.r.s.b bVar, int i2, View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) && bVar == this.f20108a.getListMenu()) {
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) && bVar == this.f20148a.getListMenu()) {
                 if (i2 == 0) {
                     try {
-                        byte[] currentImageData = this.f20108a.mMultiImageView.getCurrentImageData();
+                        byte[] currentImageData = this.f20148a.mMultiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            String currentImageUrl = this.f20108a.mMultiImageView.getCurrentImageUrl();
-                            this.f20108a.mSaveImageTask = new e(this.f20108a, currentImageUrl, currentImageData);
-                            this.f20108a.mSaveImageTask.execute(new String[0]);
-                            this.f20108a.mProgress.setVisibility(0);
+                            String currentImageUrl = this.f20148a.mMultiImageView.getCurrentImageUrl();
+                            this.f20148a.mSaveImageTask = new e(this.f20148a, currentImageUrl, currentImageData);
+                            this.f20148a.mSaveImageTask.execute(new String[0]);
+                            this.f20148a.mProgress.setVisibility(0);
                         } else {
-                            this.f20108a.showToast(this.f20108a.getPageContext().getString(R.string.no_data));
+                            this.f20148a.showToast(this.f20148a.getPageContext().getString(R.string.no_data));
                         }
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
@@ -172,13 +172,13 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements BaseViewPager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonImageActivity f20109a;
+        public final /* synthetic */ PersonImageActivity f20149a;
 
         public d(PersonImageActivity personImageActivity) {
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                     return;
                 }
             }
-            this.f20109a = personImageActivity;
+            this.f20149a = personImageActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
@@ -206,19 +206,19 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20110a;
+        public String f20150a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f20111b;
+        public byte[] f20151b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PersonImageActivity f20112c;
+        public final /* synthetic */ PersonImageActivity f20152c;
 
         public e(PersonImageActivity personImageActivity, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -235,19 +235,19 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
                     return;
                 }
             }
-            this.f20112c = personImageActivity;
-            this.f20110a = null;
-            this.f20111b = null;
-            this.f20110a = str;
-            this.f20111b = bArr;
+            this.f20152c = personImageActivity;
+            this.f20150a = null;
+            this.f20151b = null;
+            this.f20150a = str;
+            this.f20151b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20112c.mSaveImageTask = null;
-                this.f20112c.mProgress.setVisibility(8);
+                this.f20152c.mSaveImageTask = null;
+                this.f20152c.mProgress.setVisibility(8);
                 super.cancel(true);
             }
         }
@@ -266,12 +266,12 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20110a, this.f20111b, this.f20112c.getPageContext().getPageActivity());
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f20150a, this.f20151b, this.f20152c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.f20112c.getPageContext().getString(R.string.save_fail);
+                        return this.f20152c.getPageContext().getString(R.string.save_fail);
                     }
-                    return this.f20112c.getPageContext().getString(R.string.save_image_to_album);
+                    return this.f20152c.getPageContext().getString(R.string.save_image_to_album);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -284,9 +284,9 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
                 super.onPostExecute((e) str);
-                this.f20112c.showToast(str);
-                this.f20112c.mSaveImageTask = null;
-                this.f20112c.mProgress.setVisibility(8);
+                this.f20152c.showToast(str);
+                this.f20152c.mSaveImageTask = null;
+                this.f20152c.mProgress.setVisibility(8);
             }
         }
     }

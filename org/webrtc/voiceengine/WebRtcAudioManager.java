@@ -4,6 +4,7 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,8 @@ import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-/* loaded from: classes10.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes9.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
@@ -48,7 +50,7 @@ public class WebRtcAudioManager {
     public int sampleRate;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class VolumeLogger {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
@@ -58,7 +60,7 @@ public class WebRtcAudioManager {
         @Nullable
         public Timer timer;
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes9.dex */
         public class LogVolumeTask extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +173,7 @@ public class WebRtcAudioManager {
         }
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
         this.nativeAudioManager = j;
-        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
+        AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         this.audioManager = audioManager;
         this.volumeLogger = new VolumeLogger(audioManager);
         storeAudioParameters();
@@ -210,7 +212,7 @@ public class WebRtcAudioManager {
         InterceptResult invokeV;
         String property;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             assertTrue(isLowLatencyOutputSupported());
             if (Build.VERSION.SDK_INT >= 17 && (property = this.audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER")) != null) {
                 return Integer.parseInt(property);

@@ -6,25 +6,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f implements Comparable<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44751e;
+    public int f41767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44752f;
+    public int f41768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44753g;
+    public int f41769g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44754h;
+    public int f41770h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44755i;
+    public int f41771i;
     public int j;
 
     public f() {
@@ -48,40 +48,40 @@ public class f implements Comparable<f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            int i2 = this.f44751e;
-            int i3 = fVar.f44751e;
+            int i2 = this.f41767e;
+            int i3 = fVar.f41767e;
             if (i2 - i3 > 0) {
                 return 1;
             }
             if (i2 - i3 < 0) {
                 return -1;
             }
-            int i4 = this.f44752f;
-            int i5 = fVar.f44752f;
+            int i4 = this.f41768f;
+            int i5 = fVar.f41768f;
             if (i4 - i5 > 0) {
                 return 1;
             }
             if (i4 - i5 < 0) {
                 return -1;
             }
-            int i6 = this.f44753g;
-            int i7 = fVar.f44753g;
+            int i6 = this.f41769g;
+            int i7 = fVar.f41769g;
             if (i6 - i7 > 0) {
                 return 1;
             }
             if (i6 - i7 < 0) {
                 return -1;
             }
-            int i8 = this.f44754h;
-            int i9 = fVar.f44754h;
+            int i8 = this.f41770h;
+            int i9 = fVar.f41770h;
             if (i8 - i9 > 0) {
                 return 1;
             }
             if (i8 - i9 < 0) {
                 return -1;
             }
-            int i10 = this.f44755i;
-            int i11 = fVar.f44755i;
+            int i10 = this.f41771i;
+            int i11 = fVar.f41771i;
             if (i10 - i11 > 0) {
                 return 1;
             }
@@ -101,11 +101,11 @@ public class f implements Comparable<f> {
     public final void b(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f44751e = i2;
-            this.f44752f = i3;
-            this.f44753g = i4;
-            this.f44754h = i5;
-            this.f44755i = i6;
+            this.f41767e = i2;
+            this.f41768f = i3;
+            this.f41769g = i4;
+            this.f41770h = i5;
+            this.f41771i = i6;
             this.j = i7;
         }
     }
@@ -120,7 +120,7 @@ public class f implements Comparable<f> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f44751e + "-" + this.f44752f + "-" + this.f44753g + " " + this.f44754h + ":" + this.f44755i + ":" + this.j;
+            return this.f41767e + "-" + this.f41768f + "-" + this.f41769g + " " + this.f41770h + ":" + this.f41771i + ":" + this.j;
         }
         return (String) invokeV.objValue;
     }

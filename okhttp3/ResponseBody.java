@@ -1,5 +1,6 @@
 package okhttp3;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +19,13 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class ResponseBody implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Reader reader;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class BomAwareReader extends Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +209,7 @@ public abstract class ResponseBody implements Closeable {
     public static ResponseBody create(@Nullable MediaType mediaType, ByteString byteString) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, mediaType, byteString)) == null) ? create(mediaType, byteString.size(), new Buffer().write(byteString)) : (ResponseBody) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, byteString)) == null) ? create(mediaType, byteString.size(), new Buffer().write(byteString)) : (ResponseBody) invokeLL.objValue;
     }
 
     public static ResponseBody create(@Nullable MediaType mediaType, long j, BufferedSource bufferedSource) {

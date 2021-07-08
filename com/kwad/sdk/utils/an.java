@@ -1,63 +1,78 @@
 package com.kwad.sdk.utils;
 
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+/* loaded from: classes6.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f39369a;
+    public static final SimpleDateFormat f36500a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f39370b;
+    public static final SimpleDateFormat f36501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f39371c;
+    public static final SimpleDateFormat f36502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f39372d;
+    public static final SimpleDateFormat f36503d;
 
-    public an(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: e  reason: collision with root package name */
+    public static final SimpleDateFormat f36504e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final SimpleDateFormat f36505f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final SimpleDateFormat f36506g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734421, "Lcom/kwad/sdk/utils/an;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(408734421, "Lcom/kwad/sdk/utils/an;");
                 return;
             }
         }
-        this.f39371c = new Point();
-        this.f39369a = new Rect();
-        this.f39370b = new Rect();
-        this.f39372d = view;
+        f36500a = new SimpleDateFormat("MM/dd", Locale.US);
+        f36501b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+        f36502c = new SimpleDateFormat("MM月dd日", Locale.US);
+        f36503d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+        f36504e = new SimpleDateFormat("HH:mm", Locale.US);
+        f36505f = new SimpleDateFormat("MM-dd", Locale.US);
+        f36506g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Deprecated
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean globalVisibleRect = this.f39372d.getGlobalVisibleRect(this.f39369a, this.f39371c);
-            Point point = this.f39371c;
-            if (point.x == 0 && point.y == 0 && this.f39369a.height() == this.f39372d.getHeight() && this.f39370b.height() != 0 && Math.abs(this.f39369a.top - this.f39370b.top) > this.f39372d.getHeight() / 2) {
-                this.f39369a.set(this.f39370b);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str) : invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.f39370b.set(this.f39369a);
-            return globalVisibleRect;
+            return str.matches(".*\\.kpg.*");
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

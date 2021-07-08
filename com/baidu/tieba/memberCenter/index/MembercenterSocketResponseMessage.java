@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.r0.r.r.a;
-import d.a.s0.v1.c.b.m;
+import d.a.o0.r.r.a;
+import d.a.p0.v1.c.b.m;
 import tbclient.Error;
 import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.GetVipInfoResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

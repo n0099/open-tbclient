@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonTabView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20224e;
+    public Context f20264e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20225f;
+    public TextView f20265f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20226g;
+    public TextView f20266g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20227h;
+    public View f20267h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f20228i;
+    public View f20268i;
     public View j;
     public View k;
     public int l;
@@ -40,13 +40,13 @@ public class PersonTabView extends LinearLayout {
     public b o;
     public View.OnClickListener p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonTabView f20229e;
+        public final /* synthetic */ PersonTabView f20269e;
 
         public a(PersonTabView personTabView) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class PersonTabView extends LinearLayout {
                     return;
                 }
             }
-            this.f20229e = personTabView;
+            this.f20269e = personTabView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,18 +71,18 @@ public class PersonTabView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.main_thread_btn) {
-                    this.f20229e.setCurrentTab(0);
+                    this.f20269e.setCurrentTab(0);
                 } else if (view.getId() == R.id.reply_btn) {
-                    this.f20229e.setCurrentTab(1);
+                    this.f20269e.setCurrentTab(1);
                 }
-                if (this.f20229e.o != null) {
-                    this.f20229e.o.onTabSelect(this.f20229e.l);
+                if (this.f20269e.o != null) {
+                    this.f20269e.o.onTabSelect(this.f20269e.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onTabSelect(int i2);
     }
@@ -115,16 +115,16 @@ public class PersonTabView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f20224e = context;
+            this.f20264e = context;
             LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
             TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-            this.f20225f = textView;
+            this.f20265f = textView;
             textView.setOnClickListener(this.p);
             TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-            this.f20226g = textView2;
+            this.f20266g = textView2;
             textView2.setOnClickListener(this.p);
-            this.f20227h = findViewById(R.id.main_thread_divider);
-            this.f20228i = findViewById(R.id.reply_btn_divider);
+            this.f20267h = findViewById(R.id.main_thread_divider);
+            this.f20268i = findViewById(R.id.reply_btn_divider);
             this.j = findViewById(R.id.main_thread_bottom_divider);
             this.k = findViewById(R.id.reply_btn_bottom_divider);
             setCurrentTab(0);
@@ -138,15 +138,15 @@ public class PersonTabView extends LinearLayout {
         }
         this.l = i2;
         if (i2 == 0) {
-            this.f20227h.setVisibility(0);
-            this.f20228i.setVisibility(4);
-            this.f20225f.setTextColor(this.m);
-            this.f20226g.setTextColor(this.n);
+            this.f20267h.setVisibility(0);
+            this.f20268i.setVisibility(4);
+            this.f20265f.setTextColor(this.m);
+            this.f20266g.setTextColor(this.n);
         } else if (i2 == 1) {
-            this.f20227h.setVisibility(4);
-            this.f20228i.setVisibility(0);
-            this.f20225f.setTextColor(this.n);
-            this.f20226g.setTextColor(this.m);
+            this.f20267h.setVisibility(4);
+            this.f20268i.setVisibility(0);
+            this.f20265f.setTextColor(this.n);
+            this.f20266g.setTextColor(this.m);
         }
     }
 

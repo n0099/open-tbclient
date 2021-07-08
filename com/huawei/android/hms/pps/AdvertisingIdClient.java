@@ -17,13 +17,13 @@ import com.huawei.android.hms.pps.a.a;
 import com.huawei.android.hms.pps.a.b;
 import java.io.IOException;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,11 +101,11 @@ public class AdvertisingIdClient {
                 Log.i(getTag(), "bind ok");
                 try {
                     try {
-                        if (aVar.f33477a) {
+                        if (aVar.f33587a) {
                             throw new IllegalStateException();
                         }
-                        aVar.f33477a = true;
-                        b.a.C0396a c0396a = new b.a.C0396a(aVar.f33478b.take());
+                        aVar.f33587a = true;
+                        b.a.C0396a c0396a = new b.a.C0396a(aVar.f33588b.take());
                         return new Info(c0396a.a(), c0396a.b());
                     } finally {
                         context.unbindService(aVar);

@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14147e;
+    public int f14186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14148f;
+    public int f14187f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerRecyclerView(Context context) {
@@ -72,8 +72,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        int i2 = y - this.f14147e;
-                        int i3 = x - this.f14148f;
+                        int i2 = y - this.f14186e;
+                        int i3 = x - this.f14187f;
                         if (Math.abs(i2) > ViewConfiguration.getTouchSlop() && Math.abs(i2) > Math.abs(i3)) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                         } else {
@@ -83,12 +83,12 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 getParent().requestDisallowInterceptTouchEvent(false);
             } else {
-                this.f14147e = y;
-                this.f14148f = x;
+                this.f14186e = y;
+                this.f14187f = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
-            this.f14147e = y;
-            this.f14148f = x;
+            this.f14186e = y;
+            this.f14187f = x;
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;

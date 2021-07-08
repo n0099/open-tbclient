@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.m.f;
+import d.a.o0.m.f;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public f<SpecialColumnItemData> mOnItemClickListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends GridLayoutManager.SpanSizeLookup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f16787a;
+        public final /* synthetic */ List f16826a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f16788b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f16827b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -62,25 +62,25 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f16788b = homePageTabFeedCollegeSecondActivity;
-            this.f16787a = list;
+            this.f16827b = homePageTabFeedCollegeSecondActivity;
+            this.f16826a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
         public int getSpanSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.f16787a.size() ? 2 : 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.f16826a.size() ? 2 : 1 : invokeI.intValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements f<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f16789e;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f16828e;
 
         public b(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity) {
             Interceptable interceptable = $ic;
@@ -97,11 +97,11 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f16789e = homePageTabFeedCollegeSecondActivity;
+            this.f16828e = homePageTabFeedCollegeSecondActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.m.f
+        @Override // d.a.o0.m.f
         /* renamed from: b */
         public void c(View view, SpecialColumnItemData specialColumnItemData, int i2, long j) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.m.f
+        @Override // d.a.o0.m.f
         /* renamed from: d */
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i2, long j) {
             Interceptable interceptable = $ic;
@@ -122,13 +122,13 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 if (i3 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
-                    this.f16789e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f16789e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
+                    this.f16828e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f16828e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
                 } else if (i3 != 4) {
                     return;
                 }
             }
-            this.f16789e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f16789e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
+            this.f16828e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f16828e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
         }
     }
 

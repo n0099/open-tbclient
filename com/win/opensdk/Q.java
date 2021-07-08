@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public P f42440a;
+    public P f39454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set f42441b;
+    public Set f39455b;
 
     public Q(P p) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class Q {
                 return;
             }
         }
-        this.f42441b = new HashSet();
-        this.f42440a = p;
+        this.f39455b = new HashSet();
+        this.f39454a = p;
     }
 }

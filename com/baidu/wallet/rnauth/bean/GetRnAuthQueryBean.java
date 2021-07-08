@@ -15,7 +15,7 @@ import com.baidu.wallet.rnauth.datamodel.RnAuthQueryBeanResponse;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GetRnAuthQueryBean extends BaseBean<RnAuthQueryBeanResponse> implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

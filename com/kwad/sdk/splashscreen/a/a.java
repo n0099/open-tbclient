@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.utils.ao;
+import com.kwad.sdk.utils.av;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f39212a;
+    public com.kwad.sdk.splashscreen.d f36391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f39213b;
+    public KsLogoView f36392b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class a extends Presenter {
                 ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    marginLayoutParams.leftMargin = ao.a(viewGroup.getContext(), 12.0f);
-                    marginLayoutParams.topMargin = ao.a(viewGroup.getContext(), 12.0f);
+                    marginLayoutParams.leftMargin = av.a(viewGroup.getContext(), 12.0f);
+                    marginLayoutParams.topMargin = av.a(viewGroup.getContext(), 12.0f);
                 }
             }
         }
@@ -58,28 +58,28 @@ public class a extends Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) n();
-            this.f39212a = cVar;
-            KsLogoView ksLogoView = (KsLogoView) cVar.f39277d.findViewById(R.id.ksad_splash_logo_container);
-            this.f39213b = ksLogoView;
+            com.kwad.sdk.splashscreen.d dVar = (com.kwad.sdk.splashscreen.d) l();
+            this.f36391a = dVar;
+            KsLogoView ksLogoView = (KsLogoView) dVar.f36478e.findViewById(R.id.ksad_splash_logo_container);
+            this.f36392b = ksLogoView;
             a((ViewGroup) ksLogoView);
-            if (this.f39212a.f39276c.adInfoList.isEmpty() || (adSplashInfo = this.f39212a.f39276c.adInfoList.get(0).adSplashInfo) == null) {
+            if (this.f36391a.f36477d.adInfoList.isEmpty() || (adSplashInfo = this.f36391a.f36477d.adInfoList.get(0).adSplashInfo) == null) {
                 return;
             }
             if (adSplashInfo.logoPosition == 0) {
-                this.f39213b.setVisibility(8);
+                this.f36392b.setVisibility(8);
                 return;
             }
-            this.f39213b.setVisibility(0);
-            this.f39213b.a(this.f39212a.f39276c);
+            this.f36392b.setVisibility(0);
+            this.f36392b.a(this.f36391a.f36477d);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.c();
+            super.b();
         }
     }
 }

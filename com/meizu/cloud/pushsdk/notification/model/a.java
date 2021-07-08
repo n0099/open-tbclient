@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,19 +25,19 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40519a;
+    public int f37533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40520b;
+    public String f37534b;
 
     public a() {
-        this.f40519a = 0;
+        this.f37533a = 0;
     }
 
     public a(Parcel parcel) {
-        this.f40519a = 0;
-        this.f40519a = parcel.readInt();
-        this.f40520b = parcel.readString();
+        this.f37533a = 0;
+        this.f37533a = parcel.readInt();
+        this.f37534b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -108,19 +108,19 @@ public class a implements Parcelable {
     }
 
     public int a() {
-        return this.f40519a;
+        return this.f37533a;
     }
 
     public void a(int i2) {
-        this.f40519a = i2;
+        this.f37533a = i2;
     }
 
     public void a(String str) {
-        this.f40520b = str;
+        this.f37534b = str;
     }
 
     public String b() {
-        return this.f40520b;
+        return this.f37534b;
     }
 
     @Override // android.os.Parcelable
@@ -129,12 +129,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f40519a + ", notifyKey='" + this.f40520b + "'}";
+        return "NotifyOption{notifyId=" + this.f37533a + ", notifyKey='" + this.f37534b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f40519a);
-        parcel.writeString(this.f40520b);
+        parcel.writeInt(this.f37533a);
+        parcel.writeString(this.f37534b);
     }
 }

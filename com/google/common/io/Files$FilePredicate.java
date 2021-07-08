@@ -1,5 +1,6 @@
 package com.google.common.io;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import d.f.d.a.o;
 import d.f.d.e.a;
 import java.io.File;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Files$FilePredicate implements o<File> {
     public static final /* synthetic */ Files$FilePredicate[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -145,7 +146,7 @@ public abstract class Files$FilePredicate implements o<File> {
     public static Files$FilePredicate[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (Files$FilePredicate[]) $VALUES.clone() : (Files$FilePredicate[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (Files$FilePredicate[]) $VALUES.clone() : (Files$FilePredicate[]) invokeV.objValue;
     }
 
     @Override // d.f.d.a.o

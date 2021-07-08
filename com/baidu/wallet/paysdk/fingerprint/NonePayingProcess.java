@@ -1,6 +1,6 @@
 package com.baidu.wallet.paysdk.fingerprint;
 
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface NonePayingProcess extends NoProguard {
 }

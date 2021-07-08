@@ -9,7 +9,7 @@ import com.yy.hiidostatis.message.HostManager;
 import com.yy.hiidostatis.message.sender.HostInfo;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HostManagerProvider implements Provider<HostManager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

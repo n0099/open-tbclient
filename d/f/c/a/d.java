@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicReference f73672a;
+    public final /* synthetic */ AtomicReference f70775a;
 
     public d(AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class d implements ArCoreApk.a {
                 return;
             }
         }
-        this.f73672a = atomicReference;
+        this.f70775a = atomicReference;
     }
 
     @Override // com.google.ar.core.ArCoreApk.a
     public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            this.f73672a.set(availability);
+            this.f70775a.set(availability);
         }
     }
 }

@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
-import d.a.y0.t.l;
-import d.a.y0.t.w;
+import d.a.v0.t.l;
+import d.a.v0.t.w;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TextWordsEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<TextFontEntity> mCoverFontList;
     public List<TextStyleEntity> mCoverStyleList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StyleBackgroudInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StyleShadowInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StyleStrokeInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,7 +344,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class StyleTextInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -406,7 +406,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TextFontEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -525,7 +525,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TextStyleEntity {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TEXT_TYPE_HORIZONTAL = "1";

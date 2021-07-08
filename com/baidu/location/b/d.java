@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.location.Location;
 import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,12 +45,12 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6541f = "0";
+    public static String f6558f = "0";
     public static d j;
     public transient /* synthetic */ FieldHolder $fh;
     public a A;
@@ -68,28 +69,28 @@ public class d {
     public boolean N;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6542a;
+    public long f6559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Location f6543b;
+    public Location f6560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Location f6544c;
+    public Location f6561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuilder f6545d;
+    public StringBuilder f6562d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f6546e;
+    public long f6563e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6547g;
+    public int f6564g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f6548h;
+    public double f6565h;
 
     /* renamed from: i  reason: collision with root package name */
-    public double f6549i;
+    public double f6566i;
     public int k;
     public double l;
     public String m;
@@ -107,16 +108,16 @@ public class d {
     public int y;
     public long z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a extends com.baidu.location.e.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f6550a;
+        public String f6567a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f6551b;
+        public final /* synthetic */ d f6568b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -133,8 +134,8 @@ public class d {
                     return;
                 }
             }
-            this.f6551b = dVar;
-            this.f6550a = null;
+            this.f6568b = dVar;
+            this.f6567a = null;
             this.k = new HashMap();
         }
 
@@ -142,9 +143,9 @@ public class d {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6780h = "http://loc.map.baidu.com/cc.php";
-                String encode = Jni.encode(this.f6550a);
-                this.f6550a = null;
+                this.f6797h = "http://loc.map.baidu.com/cc.php";
+                String encode = Jni.encode(this.f6567a);
+                this.f6567a = null;
                 this.k.put(IAdRequestParam.COST_NAME, encode);
             }
         }
@@ -152,7 +153,7 @@ public class d {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f6550a = str;
+                this.f6567a = str;
                 b(v.a().c());
             }
         }
@@ -165,9 +166,9 @@ public class d {
                 if (z && (str = this.j) != null) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        jSONObject.put("prod", com.baidu.location.e.b.f6749e);
+                        jSONObject.put("prod", com.baidu.location.e.b.f6766e);
                         jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
-                        this.f6551b.e(jSONObject.toString());
+                        this.f6568b.e(jSONObject.toString());
                     } catch (Exception unused) {
                     }
                 }
@@ -231,20 +232,20 @@ public class d {
         this.F = 0.0f;
         this.G = 0L;
         this.H = 500;
-        this.f6542a = 0L;
-        this.f6543b = null;
-        this.f6544c = null;
-        this.f6545d = null;
-        this.f6546e = 0L;
+        this.f6559a = 0L;
+        this.f6560b = null;
+        this.f6561c = null;
+        this.f6562d = null;
+        this.f6563e = 0L;
         this.I = null;
         this.J = new byte[4];
         this.K = null;
         this.L = 0;
         this.M = null;
         this.N = false;
-        this.f6547g = 0;
-        this.f6548h = 116.22345545d;
-        this.f6549i = 40.245667323d;
+        this.f6564g = 0;
+        this.f6565h = 116.22345545d;
+        this.f6566i = 40.245667323d;
         this.I = new Handler();
     }
 
@@ -264,7 +265,7 @@ public class d {
     public String a(File file, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, file, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, file, str)) == null) {
             String uuid = UUID.randomUUID().toString();
             try {
                 HttpsURLConnection httpsURLConnection = (HttpsURLConnection) new URL(str).openConnection();
@@ -412,7 +413,7 @@ public class d {
             return;
         }
         this.N = true;
-        d(com.baidu.location.e.b.f6749e);
+        d(com.baidu.location.e.b.f6766e);
         j();
         d();
     }
@@ -423,9 +424,9 @@ public class d {
             return;
         }
         try {
-            File file = new File(com.baidu.location.e.j.f6790a + "/grtcf.dat");
+            File file = new File(com.baidu.location.e.j.f6807a + "/grtcf.dat");
             if (!file.exists()) {
-                File file2 = new File(com.baidu.location.e.j.f6790a);
+                File file2 = new File(com.baidu.location.e.j.f6807a);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
@@ -457,7 +458,7 @@ public class d {
 
     private void c(Location location) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, location) == null) || System.currentTimeMillis() - this.f6542a < this.H || location == null) {
+        if (!(interceptable == null || interceptable.invokeL(65551, this, location) == null) || System.currentTimeMillis() - this.f6559a < this.H || location == null) {
             return;
         }
         if (location != null && location.hasSpeed() && location.getSpeed() > this.E) {
@@ -552,14 +553,14 @@ public class d {
                 } catch (Exception unused) {
                 }
             }
-            this.K = a(com.baidu.location.e.b.f6749e + ":" + com.baidu.location.e.b.a().f6756c);
+            this.K = a(com.baidu.location.e.b.f6766e + ":" + com.baidu.location.e.b.a().f6773c);
         }
     }
 
     private void d(Location location) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, location) == null) {
-            this.f6546e = System.currentTimeMillis();
+            this.f6563e = System.currentTimeMillis();
             b((int) (location.getTime() / 1000));
             b((int) (location.getLongitude() * 1000000.0d));
             b((int) (location.getLatitude() * 1000000.0d));
@@ -567,7 +568,7 @@ public class d {
             int i3 = !location.hasSpeed();
             this.M.add(Byte.valueOf(i2 > 0 ? (byte) 32 : (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
             this.M.add(Byte.valueOf(i3 > 0 ? ByteCompanionObject.MIN_VALUE : (byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE)));
-            this.f6543b = location;
+            this.f6560b = location;
         }
     }
 
@@ -575,7 +576,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, str) == null) {
             try {
-                File file = new File(com.baidu.location.e.j.f6790a + "/grtcf.dat");
+                File file = new File(com.baidu.location.e.j.f6807a + "/grtcf.dat");
                 if (file.exists()) {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                     randomAccessFile.seek(2L);
@@ -635,8 +636,8 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65556, this, location) == null) || location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.f6543b.getLongitude()) * 1000000.0d);
-        int latitude = (int) ((location.getLatitude() - this.f6543b.getLatitude()) * 1000000.0d);
+        int longitude = (int) ((location.getLongitude() - this.f6560b.getLongitude()) * 1000000.0d);
+        int latitude = (int) ((location.getLatitude() - this.f6560b.getLatitude()) * 1000000.0d);
         int i2 = !location.hasBearing();
         int i3 = !location.hasSpeed();
         char c2 = longitude > 0 ? (char) 0 : (char) 1;
@@ -644,15 +645,15 @@ public class d {
         char c3 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.f6544c = null;
-            this.f6544c = this.f6543b;
+            this.f6561c = null;
+            this.f6561c = this.f6560b;
         }
-        this.f6543b = location;
-        if (location != null && this.f6544c != null && location.getTime() > this.f6544c.getTime() && this.f6543b.getTime() - this.f6544c.getTime() < 5000) {
-            long time = this.f6543b.getTime() - this.f6544c.getTime();
+        this.f6560b = location;
+        if (location != null && this.f6561c != null && location.getTime() > this.f6561c.getTime() && this.f6560b.getTime() - this.f6561c.getTime() < 5000) {
+            long time = this.f6560b.getTime() - this.f6561c.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.f6543b.getAltitude(), this.f6543b.getLongitude(), this.f6544c.getLatitude(), this.f6544c.getLongitude(), fArr);
-            double speed = ((fArr[0] - (this.f6544c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
+            Location.distanceBetween(this.f6560b.getAltitude(), this.f6560b.getLongitude(), this.f6561c.getLatitude(), this.f6561c.getLongitude(), fArr);
+            double speed = ((fArr[0] - (this.f6561c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
             if (speed > this.F) {
                 this.F = (float) speed;
             }
@@ -682,9 +683,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, this, str) == null) {
             try {
-                File file = new File(com.baidu.location.e.j.f6790a + "/grtcf.dat");
+                File file = new File(com.baidu.location.e.j.f6807a + "/grtcf.dat");
                 if (!file.exists()) {
-                    File file2 = new File(com.baidu.location.e.j.f6790a);
+                    File file2 = new File(com.baidu.location.e.j.f6807a);
                     if (!file2.exists()) {
                         file2.mkdirs();
                     }
@@ -713,7 +714,7 @@ public class d {
                     int readInt2 = randomAccessFile2.readInt();
                     byte[] bArr = new byte[readInt2];
                     randomAccessFile2.read(bArr, 0, readInt2);
-                    if (new String(bArr).contains(com.baidu.location.e.b.f6749e)) {
+                    if (new String(bArr).contains(com.baidu.location.e.b.f6766e)) {
                         break;
                     }
                     i2++;
@@ -836,10 +837,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
             this.M = null;
-            this.f6546e = 0L;
+            this.f6563e = 0L;
             this.L = 0;
-            this.f6543b = null;
-            this.f6544c = null;
+            this.f6560b = null;
+            this.f6561c = null;
             this.E = 0.0f;
             this.F = 0.0f;
         }
@@ -847,7 +848,7 @@ public class d {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || this.f6546e == 0 || System.currentTimeMillis() - this.f6546e < this.p * 1000) {
+        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || this.f6563e == 0 || System.currentTimeMillis() - this.f6563e < this.p * 1000) {
             return;
         }
         if (com.baidu.location.f.getServiceContext().getSharedPreferences("loc_navi_mode", 4).getBoolean("is_navi_on", false)) {
@@ -855,12 +856,12 @@ public class d {
         } else if (this.n == 1 && !f()) {
             g();
         } else {
-            if (com.baidu.location.e.b.f6749e.equals("com.ubercab.driver")) {
+            if (com.baidu.location.e.b.f6766e.equals("com.ubercab.driver")) {
                 if (e()) {
                     g();
                     return;
                 }
-            } else if (!a(com.baidu.location.e.b.f6749e, com.baidu.location.f.getServiceContext())) {
+            } else if (!a(com.baidu.location.e.b.f6766e, com.baidu.location.f.getServiceContext())) {
                 g();
                 return;
             }
@@ -905,7 +906,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             this.M.add((byte) 0);
             this.M.add((byte) 0);
-            if (f6541f.equals("0")) {
+            if (f6558f.equals("0")) {
                 list = this.M;
                 b2 = -82;
             } else {

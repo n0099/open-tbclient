@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             com.bytedance.sdk.component.d.c.a.b b2 = aVar.b();
             if (b2 != null) {
-                if (b2.f28656a) {
+                if (b2.f28766a) {
                     aVar.a(new i());
                     return;
-                } else if (b2.f28657b) {
+                } else if (b2.f28767b) {
                     aVar.a(new e());
                     return;
                 }

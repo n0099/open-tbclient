@@ -21,22 +21,22 @@ public class d implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f3912a;
+    public InputStream f3915a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3913b;
+    public int f3916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3914c;
+    public String f3917c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<String>> f3915d;
+    public Map<String, List<String>> f3918d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.apollon.restnet.http.a f3916e;
+    public com.baidu.apollon.restnet.http.a f3919e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f3917f;
+    public InputStream f3920f;
 
     public d(InputStream inputStream, int i2, String str, Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
@@ -53,10 +53,10 @@ public class d implements e {
                 return;
             }
         }
-        this.f3912a = inputStream;
-        this.f3913b = i2;
-        this.f3914c = str;
-        this.f3915d = map;
+        this.f3915a = inputStream;
+        this.f3916b = i2;
+        this.f3917c = str;
+        this.f3918d = map;
     }
 
     private boolean g() {
@@ -73,14 +73,14 @@ public class d implements e {
     public int a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3913b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3916b : invokeV.intValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
     public String b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3914c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3917c : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.apollon.restnet.rest.e
@@ -89,9 +89,9 @@ public class d implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (g()) {
-                return a(this.f3912a);
+                return a(this.f3915a);
             }
-            return this.f3912a;
+            return this.f3915a;
         }
         return (InputStream) invokeV.objValue;
     }
@@ -101,10 +101,10 @@ public class d implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f3916e == null) {
-                this.f3916e = new com.baidu.apollon.restnet.http.a(this.f3915d, false);
+            if (this.f3919e == null) {
+                this.f3919e = new com.baidu.apollon.restnet.http.a(this.f3918d, false);
             }
-            return this.f3916e;
+            return this.f3919e;
         }
         return (com.baidu.apollon.restnet.http.a) invokeV.objValue;
     }
@@ -120,7 +120,7 @@ public class d implements e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            InputStream inputStream = this.f3917f;
+            InputStream inputStream = this.f3920f;
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -128,7 +128,7 @@ public class d implements e {
                     e2.printStackTrace();
                 }
             }
-            InputStream inputStream2 = this.f3912a;
+            InputStream inputStream2 = this.f3915a;
             if (inputStream2 != null) {
                 try {
                     inputStream2.close();
@@ -143,10 +143,10 @@ public class d implements e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
-            if (this.f3917f == null) {
-                this.f3917f = new GZIPInputStream(inputStream);
+            if (this.f3920f == null) {
+                this.f3920f = new GZIPInputStream(inputStream);
             }
-            return this.f3917f;
+            return this.f3920f;
         }
         return (InputStream) invokeL.objValue;
     }

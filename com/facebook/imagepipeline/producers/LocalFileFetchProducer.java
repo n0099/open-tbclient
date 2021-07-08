@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LocalFileFetchProducer extends LocalFetchProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "LocalFileFetchProducer";

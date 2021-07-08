@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5237a = "f";
+    public static final String f5254a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f5238b;
+    public final Class<T> f5255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f5239c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f5256c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,8 +57,8 @@ public class f<T> {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (aVar != null) {
-            this.f5238b = cls;
-            this.f5239c = aVar;
+            this.f5255b = cls;
+            this.f5256c = aVar;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -79,10 +79,10 @@ public class f<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (b(eVar)) {
-                if (eVar.d().i() == null && Log.isLoggable(f5237a, 3)) {
-                    Log.d(f5237a, "No Content-Type header found, defaulting to application/octet-stream");
+                if (eVar.d().i() == null && Log.isLoggable(f5254a, 3)) {
+                    Log.d(f5254a, "No Content-Type header found, defaulting to application/octet-stream");
                 }
-                return (T) this.f5239c.a(this.f5238b, eVar);
+                return (T) this.f5256c.a(this.f5255b, eVar);
             }
             return null;
         }

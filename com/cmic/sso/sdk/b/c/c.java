@@ -16,37 +16,37 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32506a;
+    public String f32616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f32507b;
+    public final String f32617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f32508c;
+    public final Map<String, String> f32618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f32509d;
+    public final String f32619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32510e;
+    public boolean f32620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f32511f;
+    public final String f32621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Network f32512g;
+    public Network f32622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f32513h;
+    public long f32623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f32514i;
+    public final String f32624i;
     public int j;
     public final g k;
 
@@ -65,82 +65,82 @@ public class c {
                 return;
             }
         }
-        this.f32510e = false;
-        this.f32507b = str;
+        this.f32620e = false;
+        this.f32617b = str;
         this.k = gVar;
-        this.f32508c = map == null ? new HashMap<>() : map;
-        this.f32506a = gVar == null ? "" : gVar.b().toString();
-        this.f32509d = str2;
-        this.f32511f = str3;
-        this.f32514i = gVar != null ? gVar.a() : "";
+        this.f32618c = map == null ? new HashMap<>() : map;
+        this.f32616a = gVar == null ? "" : gVar.b().toString();
+        this.f32619d = str2;
+        this.f32621f = str3;
+        this.f32624i = gVar != null ? gVar.a() : "";
         l();
     }
 
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f32508c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
-            this.f32508c.put("Content-Type", "application/json");
-            this.f32508c.put("CMCC-EncryptType", "STD");
-            this.f32508c.put("traceId", this.f32511f);
-            this.f32508c.put("appid", this.f32514i);
-            this.f32508c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
+            this.f32618c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
+            this.f32618c.put("Content-Type", "application/json");
+            this.f32618c.put("CMCC-EncryptType", "STD");
+            this.f32618c.put("traceId", this.f32621f);
+            this.f32618c.put("appid", this.f32624i);
+            this.f32618c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f32508c.put(str, str2);
+            this.f32618c.put(str, str2);
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32510e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32620e : invokeV.booleanValue;
     }
 
     public Map<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32508c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32618c : (Map) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32506a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32616a : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32509d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32619d : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32511f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f32621f : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !e.a(this.f32511f) || this.f32507b.contains("logReport") || this.f32507b.contains("uniConfig") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !e.a(this.f32621f) || this.f32617b.contains("logReport") || this.f32617b.contains("uniConfig") : invokeV.booleanValue;
     }
 
     public Network h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f32512g : (Network) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f32622g : (Network) invokeV.objValue;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f32513h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f32623h : invokeV.longValue;
     }
 
     public boolean j() {
@@ -163,27 +163,27 @@ public class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32507b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32617b : (String) invokeV.objValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f32510e = z;
+            this.f32620e = z;
         }
     }
 
     public void a(Network network) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, network) == null) {
-            this.f32512g = network;
+            this.f32622g = network;
         }
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f32513h = j;
+            this.f32623h = j;
         }
     }
 

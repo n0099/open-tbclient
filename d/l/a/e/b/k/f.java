@@ -2,7 +2,7 @@ package d.l.a.e.b.k;
 
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import d.l.a.e.b.o.i;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface f {
     com.ss.android.socialbase.downloader.model.b a(int i2);
 

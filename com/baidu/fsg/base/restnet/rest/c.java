@@ -12,37 +12,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c implements b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5228a = 30000;
+    public static final int f5245a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5229b = 30000;
+    public static final int f5246b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5230c = 10;
+    public static final int f5247c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5231d = 10;
+    public static final int f5248d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5232e = 8192;
+    public static final int f5249e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5233f = 3;
+    public static final int f5250f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5234g = 1000;
+    public static final int f5251g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5235h = "RestHttpNetwork";
+    public static final String f5252h = "RestHttpNetwork";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b f5236i;
+    public final b f5253i;
     public final g j;
 
     public c(b bVar) {
@@ -60,7 +60,7 @@ public class c implements b {
                 return;
             }
         }
-        this.f5236i = bVar;
+        this.f5253i = bVar;
         this.j = new g(3, 1000);
     }
 
@@ -119,7 +119,7 @@ public class c implements b {
             r6 = 0
         L11:
             if (r5 == 0) goto Le2
-            com.baidu.fsg.base.restnet.rest.b r4 = r10.f5236i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            com.baidu.fsg.base.restnet.rest.b r4 = r10.f5253i     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             com.baidu.fsg.base.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             if (r4 == 0) goto L30
             com.baidu.fsg.base.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
@@ -230,7 +230,7 @@ public class c implements b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f5236i.a();
+            this.f5253i.a();
         }
     }
 }

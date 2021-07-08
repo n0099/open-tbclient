@@ -1,6 +1,7 @@
 package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,11 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
-import com.kwai.player.qos.KwaiQosInfo;
-import d.a.q0.d.g.a;
-import d.a.q0.d.g.b;
+import d.a.n0.d.g.a;
+import d.a.n0.d.g.b;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ConfigNode {
     public static final /* synthetic */ ConfigNode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -40,10 +40,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, KwaiQosInfo.HOST_INFO, a.class, b.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", d.a.q0.d.f.a.class, d.a.q0.d.f.b.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, d.a.q0.d.e.a.class, d.a.q0.d.e.b.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", d.a.q0.d.h.a.class, d.a.q0.d.h.b.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", a.class, b.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", d.a.n0.d.f.a.class, d.a.n0.d.f.b.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, d.a.n0.d.e.a.class, d.a.n0.d.e.b.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", d.a.n0.d.h.a.class, d.a.n0.d.h.b.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }
@@ -95,7 +95,7 @@ public final class ConfigNode {
     public static ConfigNode[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ConfigNode[]) $VALUES.clone() : (ConfigNode[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ConfigNode[]) $VALUES.clone() : (ConfigNode[]) invokeV.objValue;
     }
 
     public String getName() {

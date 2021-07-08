@@ -14,19 +14,19 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25838a;
+    public int f25948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25839b;
+    public String f25949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25840c;
+    public String f25950c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UserInfoBean(Context context) {
@@ -46,9 +46,9 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
                 return;
             }
         }
-        this.f25838a = 0;
-        this.f25839b = "";
-        this.f25840c = "";
+        this.f25948a = 0;
+        this.f25949b = "";
+        this.f25950c = "";
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -65,12 +65,12 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("is_unify_account", String.valueOf(this.f25838a)));
-            if (!TextUtils.isEmpty(this.f25839b)) {
-                arrayList.add(new RestNameValuePair("sdk_from", this.f25839b));
+            arrayList.add(new RestNameValuePair("is_unify_account", String.valueOf(this.f25948a)));
+            if (!TextUtils.isEmpty(this.f25949b)) {
+                arrayList.add(new RestNameValuePair("sdk_from", this.f25949b));
             }
-            if (!TextUtils.isEmpty(this.f25840c)) {
-                arrayList.add(new RestNameValuePair("sdk_service", this.f25840c));
+            if (!TextUtils.isEmpty(this.f25950c)) {
+                arrayList.add(new RestNameValuePair("sdk_service", this.f25950c));
             }
             return arrayList;
         }
@@ -100,15 +100,15 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
     public void setCheckPrePassSign(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            this.f25838a = i2;
-            this.f25839b = str;
+            this.f25948a = i2;
+            this.f25949b = str;
         }
     }
 
     public void setSdkServiceForMyBankFragment(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f25840c = str;
+            this.f25950c = str;
         }
     }
 }

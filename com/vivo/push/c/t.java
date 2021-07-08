@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class t extends ab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +46,7 @@ public final class t extends ab {
     public static Intent b(Intent intent, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, intent, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, intent, map)) == null) {
             if (map != null && map.entrySet() != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     if (entry != null && entry.getKey() != null) {
@@ -71,17 +72,17 @@ public final class t extends ab {
                 return;
             }
             UPSNotificationMessage a2 = com.vivo.push.util.q.a(f2);
-            boolean equals = this.f42277a.getPackageName().equals(rVar.d());
+            boolean equals = this.f39291a.getPackageName().equals(rVar.d());
             if (equals) {
-                NotifyAdapterUtil.cancelNotify(this.f42277a);
+                NotifyAdapterUtil.cancelNotify(this.f39291a);
             }
             if (equals) {
                 com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(1030L);
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("type", "2");
                 hashMap.put("messageID", String.valueOf(rVar.e()));
-                hashMap.put(Constants.PARAM_PLATFORM, this.f42277a.getPackageName());
-                Context context = this.f42277a;
+                hashMap.put(Constants.PARAM_PLATFORM, this.f39291a.getPackageName());
+                Context context = this.f39291a;
                 String b2 = com.vivo.push.util.z.b(context, context.getPackageName());
                 if (!TextUtils.isEmpty(b2)) {
                     hashMap.put("remoteAppId", b2);
@@ -92,7 +93,7 @@ public final class t extends ab {
                 int skipType = a2.getSkipType();
                 boolean z = true;
                 if (skipType == 1) {
-                    new Thread(new y(this, this.f42277a, a2.getParams())).start();
+                    new Thread(new y(this, this.f39291a, a2.getParams())).start();
                     com.vivo.push.w.b(new u(this, a2));
                     return;
                 } else if (skipType == 2) {
@@ -106,7 +107,7 @@ public final class t extends ab {
                         intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                         b(intent, a2.getParams());
                         try {
-                            this.f42277a.startActivity(intent);
+                            this.f39291a.startActivity(intent);
                         } catch (Exception unused) {
                             com.vivo.push.util.p.a("OnNotificationClickTask", "startActivity error : " + parse);
                         }
@@ -129,19 +130,19 @@ public final class t extends ab {
                     } catch (Exception e2) {
                         com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : " + skipContent2, e2);
                     }
-                    if (!TextUtils.isEmpty(str) && !this.f42277a.getPackageName().equals(str)) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.f42277a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                    if (!TextUtils.isEmpty(str) && !this.f39291a.getPackageName().equals(str)) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.f39291a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                         return;
                     }
                     String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
-                    if (!TextUtils.isEmpty(packageName) && !this.f42277a.getPackageName().equals(packageName)) {
-                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.f42277a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                    if (!TextUtils.isEmpty(packageName) && !this.f39291a.getPackageName().equals(packageName)) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.f39291a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
                         return;
                     }
-                    parseUri.setPackage(this.f42277a.getPackageName());
+                    parseUri.setPackage(this.f39291a.getPackageName());
                     parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     b(parseUri, a2.getParams());
-                    this.f42277a.startActivity(parseUri);
+                    this.f39291a.startActivity(parseUri);
                     com.vivo.push.w.b(new x(this, a2));
                     return;
                 }

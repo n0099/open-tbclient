@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.al;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, context, adInstallProxy, z)) == null) {
             try {
-                return com.kwad.sdk.core.download.b.e.a(context, ad.c(context), adInstallProxy, z);
+                return com.kwad.sdk.core.download.b.e.a(context, al.c(context), adInstallProxy, z);
             } catch (Throwable unused) {
                 return null;
             }
@@ -38,9 +38,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                return com.kwad.sdk.core.network.a.b.a() != null ? new com.kwad.sdk.core.network.b.b() : new com.kwad.sdk.core.network.b.a();
+                return com.kwad.sdk.core.network.a.b.a() != null ? new com.kwad.sdk.core.network.c.b() : new com.kwad.sdk.core.network.c.a();
             } catch (Throwable unused) {
-                return new com.kwad.sdk.core.network.b.a();
+                return new com.kwad.sdk.core.network.c.a();
             }
         }
         return (AdHttpProxy) invokeV.objValue;

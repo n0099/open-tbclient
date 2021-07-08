@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f44640d;
+    public static volatile e f41656d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Class<?>> f44641a;
+    public HashMap<String, Class<?>> f41657a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44642b;
+    public int f41658b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44643c;
+    public int f41659c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,24 +57,24 @@ public class e {
                 return;
             }
         }
-        this.f44641a = null;
-        this.f44642b = 0;
-        this.f44643c = 0;
-        this.f44641a = new HashMap<>();
+        this.f41657a = null;
+        this.f41658b = 0;
+        this.f41659c = 0;
+        this.f41657a = new HashMap<>();
     }
 
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f44640d == null) {
+            if (f41656d == null) {
                 synchronized (e.class) {
-                    if (f44640d == null) {
-                        f44640d = new e();
+                    if (f41656d == null) {
+                        f41656d = new e();
                     }
                 }
             }
-            return f44640d;
+            return f41656d;
         }
         return (e) invokeV.objValue;
     }
@@ -84,30 +84,30 @@ public class e {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            Class<?> cls2 = this.f44641a.get(cls.getName());
+            Class<?> cls2 = this.f41657a.get(cls.getName());
             if (cls2 == null) {
                 if (PluginBaseRemoteService.class.isAssignableFrom(cls)) {
-                    int i2 = this.f44643c;
+                    int i2 = this.f41659c;
                     if (i2 == 10) {
                         BdLog.e("can not find service,Has started 10 Remoteservice");
                         return null;
                     }
-                    this.f44643c = i2 + 1;
-                    str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f44643c;
+                    this.f41659c = i2 + 1;
+                    str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f41659c;
                 } else if (PluginBaseService.class.isAssignableFrom(cls)) {
-                    int i3 = this.f44642b;
+                    int i3 = this.f41658b;
                     if (i3 == 20) {
                         BdLog.e("can not find service,Has started 20 service");
                         return null;
                     }
-                    this.f44642b = i3 + 1;
-                    str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f44642b;
+                    this.f41658b = i3 + 1;
+                    str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f41658b;
                 } else {
                     str = PluginBaseThirdService.class.isAssignableFrom(cls) ? "com.baidu.adp.plugin.proxy.service.ThirdServiceProxy" : "";
                 }
                 try {
                     cls2 = Class.forName(str);
-                    this.f44641a.put(cls.getName(), cls2);
+                    this.f41657a.put(cls.getName(), cls2);
                     return cls2;
                 } catch (Exception e2) {
                     BdLog.e(e2);

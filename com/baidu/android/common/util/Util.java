@@ -15,10 +15,10 @@ public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2581a = false;
+    public static final boolean f2584a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2582b = "Util";
+    public static final String f2585b = "Util";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Util() {

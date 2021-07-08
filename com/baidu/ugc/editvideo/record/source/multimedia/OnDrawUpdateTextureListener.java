@@ -4,8 +4,8 @@ import android.graphics.SurfaceTexture;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
-import d.a.c0.b.a.e;
-/* loaded from: classes6.dex */
+import d.a.z.b.a.e;
+/* loaded from: classes5.dex */
 public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvailableListener, EffectChangeObserver, MediaTrackChangeObserver {
     FullFrameRect getFullFrameRect2D();
 

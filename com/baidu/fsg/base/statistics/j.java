@@ -3,6 +3,7 @@ package com.baidu.fsg.base.statistics;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.NetUtils;
@@ -20,45 +21,45 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5314a = "cu";
+    public static final String f5331a = "cu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5315b = "cu2";
+    public static final String f5332b = "cu2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5316c = "ua";
+    public static final String f5333c = "ua";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5317d = "op";
+    public static final String f5334d = "op";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5318e = "bs";
+    public static final String f5335e = "bs";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5319f = "bk";
+    public static final String f5336f = "bk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5320g = "lc";
+    public static final String f5337g = "lc";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5321h = "sd";
+    public static final String f5338h = "sd";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5322i = "j";
+    public static final String f5339i = "j";
     public transient /* synthetic */ FieldHolder $fh;
     public Pattern j;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f5323a;
+        public static j f5340a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -74,7 +75,7 @@ public class j {
                     return;
                 }
             }
-            f5323a = new j(null);
+            f5340a = new j(null);
         }
 
         public a() {
@@ -114,7 +115,7 @@ public class j {
     public static j c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f5323a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f5340a : (j) invokeV.objValue;
     }
 
     private String d(Context context) {
@@ -204,7 +205,7 @@ public class j {
             try {
                 return new JSONObject().toString();
             } catch (Throwable th) {
-                LogUtil.d(f5322i, th.toString());
+                LogUtil.d(f5339i, th.toString());
                 return null;
             }
         }
@@ -231,7 +232,7 @@ public class j {
         String str;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             try {
                 try {
                     return this.j.matcher(PhoneUtils.getCUID(context)).replaceAll("");

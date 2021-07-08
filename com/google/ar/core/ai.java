@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.Session;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public enum ai extends Session.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,6 +36,6 @@ public enum ai extends Session.c {
     public final d.f.c.a.b a(long j, Session session) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? session.f32856b.a(j, session) : (d.f.c.a.b) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) ? session.f32966b.a(j, session) : (d.f.c.a.b) invokeJL.objValue;
     }
 }

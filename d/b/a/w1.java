@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class w1 extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71767e;
+    public final Context f68870e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w1(Context context) {
@@ -36,7 +36,7 @@ public class w1 extends s1 {
                 return;
             }
         }
-        this.f71767e = context;
+        this.f68870e = context;
     }
 
     @Override // d.b.a.s1
@@ -44,7 +44,7 @@ public class w1 extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            SharedPreferences sharedPreferences = this.f71767e.getSharedPreferences("snssdk_openudid", 0);
+            SharedPreferences sharedPreferences = this.f68870e.getSharedPreferences("snssdk_openudid", 0);
             String string = sharedPreferences.getString("clientudid", null);
             if (!z1.q(string)) {
                 try {

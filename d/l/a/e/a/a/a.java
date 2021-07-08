@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f74516a;
+    public final Context f71568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.l.a.e.b.j.a f74517b;
+    public final d.l.a.e.b.j.a f71569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f74518c;
+    public final String f71570c;
 
     public a(Context context, d.l.a.e.b.j.a aVar, String str) {
         Interceptable interceptable = $ic;
@@ -36,16 +36,16 @@ public abstract class a implements e {
                 return;
             }
         }
-        this.f74516a = context;
-        this.f74517b = aVar;
-        this.f74518c = str;
+        this.f71568a = context;
+        this.f71569b = aVar;
+        this.f71570c = str;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f74516a == null) {
+            if (this.f71568a == null) {
                 return false;
             }
             try {
@@ -54,7 +54,7 @@ public abstract class a implements e {
                     Log.e("AbsDevicePlan", "check is valid failed!", th);
                 }
             }
-            return b().resolveActivity(this.f74516a.getPackageManager()) != null;
+            return b().resolveActivity(this.f71568a.getPackageManager()) != null;
         }
         return invokeV.booleanValue;
     }

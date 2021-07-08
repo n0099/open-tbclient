@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
-import com.kwad.sdk.utils.y;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.utils.ac;
+/* loaded from: classes6.dex */
 public class b implements AdInstallProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class b implements AdInstallProxy {
     public void installApp(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            y.c(context, str);
+            ac.d(context, str);
         }
     }
 }

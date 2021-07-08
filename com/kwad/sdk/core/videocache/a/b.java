@@ -11,19 +11,19 @@ import com.kwad.sdk.core.videocache.ProxyCacheException;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements com.kwad.sdk.core.videocache.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f36657a;
+    public File f35005a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f36658b;
+    public final a f35006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RandomAccessFile f36659c;
+    public RandomAccessFile f35007c;
 
     public b(File file, a aVar) {
         File file2;
@@ -45,7 +45,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
             if (aVar == null) {
                 throw new NullPointerException();
             }
-            this.f36658b = aVar;
+            this.f35006b = aVar;
             d.a(file.getParentFile());
             boolean exists = file.exists();
             if (exists) {
@@ -54,8 +54,8 @@ public class b implements com.kwad.sdk.core.videocache.a {
                 File parentFile = file.getParentFile();
                 file2 = new File(parentFile, file.getName() + ".download");
             }
-            this.f36657a = file2;
-            this.f36659c = new RandomAccessFile(this.f36657a, exists ? r.f7745a : "rw");
+            this.f35005a = file2;
+            this.f35007c = new RandomAccessFile(this.f35005a, exists ? r.f7762a : "rw");
         } catch (IOException e2) {
             throw new ProxyCacheException("Error using file " + file + " as disc cache", e2);
         }
@@ -75,8 +75,8 @@ public class b implements com.kwad.sdk.core.videocache.a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             synchronized (this) {
                 try {
-                    this.f36659c.seek(j);
-                    read = this.f36659c.read(bArr, 0, i2);
+                    this.f35007c.seek(j);
+                    read = this.f35007c.read(bArr, 0, i2);
                 } catch (IOException e2) {
                     throw new ProxyCacheException(String.format("Error reading %d bytes with offset %d from file[%d bytes] to buffer[%d bytes]", Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(a()), Integer.valueOf(bArr.length)), e2);
                 }
@@ -94,9 +94,9 @@ public class b implements com.kwad.sdk.core.videocache.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
                 try {
-                    length = (int) this.f36659c.length();
+                    length = (int) this.f35007c.length();
                 } catch (IOException e2) {
-                    throw new ProxyCacheException("Error reading length of file " + this.f36657a, e2);
+                    throw new ProxyCacheException("Error reading length of file " + this.f35005a, e2);
                 }
             }
             return length;
@@ -111,12 +111,12 @@ public class b implements com.kwad.sdk.core.videocache.a {
             synchronized (this) {
                 try {
                     if (d()) {
-                        throw new ProxyCacheException("Error append cache: cache file " + this.f36657a + " is completed!");
+                        throw new ProxyCacheException("Error append cache: cache file " + this.f35005a + " is completed!");
                     }
-                    this.f36659c.seek(a());
-                    this.f36659c.write(bArr, 0, i2);
+                    this.f35007c.seek(a());
+                    this.f35007c.write(bArr, 0, i2);
                 } catch (IOException e2) {
-                    throw new ProxyCacheException(String.format("Error writing %d bytes to %s from buffer with size %d", Integer.valueOf(i2), this.f36659c, Integer.valueOf(bArr.length)), e2);
+                    throw new ProxyCacheException(String.format("Error writing %d bytes to %s from buffer with size %d", Integer.valueOf(i2), this.f35007c, Integer.valueOf(bArr.length)), e2);
                 }
             }
         }
@@ -128,10 +128,10 @@ public class b implements com.kwad.sdk.core.videocache.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
                 try {
-                    this.f36659c.close();
-                    this.f36658b.a(this.f36657a);
+                    this.f35007c.close();
+                    this.f35006b.a(this.f35005a);
                 } catch (IOException e2) {
-                    throw new ProxyCacheException("Error closing file " + this.f36657a, e2);
+                    throw new ProxyCacheException("Error closing file " + this.f35005a, e2);
                 }
             }
         }
@@ -146,16 +146,16 @@ public class b implements com.kwad.sdk.core.videocache.a {
                     return;
                 }
                 b();
-                File file = new File(this.f36657a.getParentFile(), this.f36657a.getName().substring(0, this.f36657a.getName().length() - 9));
-                if (!this.f36657a.renameTo(file)) {
-                    throw new ProxyCacheException("Error renaming file " + this.f36657a + " to " + file + " for completion!");
+                File file = new File(this.f35005a.getParentFile(), this.f35005a.getName().substring(0, this.f35005a.getName().length() - 9));
+                if (!this.f35005a.renameTo(file)) {
+                    throw new ProxyCacheException("Error renaming file " + this.f35005a + " to " + file + " for completion!");
                 }
-                this.f36657a = file;
+                this.f35005a = file;
                 try {
-                    this.f36659c = new RandomAccessFile(this.f36657a, r.f7745a);
-                    this.f36658b.a(this.f36657a);
+                    this.f35007c = new RandomAccessFile(this.f35005a, r.f7762a);
+                    this.f35006b.a(this.f35005a);
                 } catch (IOException e2) {
-                    throw new ProxyCacheException("Error opening " + this.f36657a + " as disc cache", e2);
+                    throw new ProxyCacheException("Error opening " + this.f35005a + " as disc cache", e2);
                 }
             }
         }
@@ -168,7 +168,7 @@ public class b implements com.kwad.sdk.core.videocache.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                z = !a(this.f36657a);
+                z = !a(this.f35005a);
             }
             return z;
         }

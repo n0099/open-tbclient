@@ -17,6 +17,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.WrappedDrawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -127,7 +128,7 @@ public class DrawableUtils {
 
     public static void fixVectorDrawableTinting(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, drawable) == null) {
             int[] state = drawable.getState();
             if (state != null && state.length != 0) {
                 drawable.setState(EMPTY_STATE_SET);

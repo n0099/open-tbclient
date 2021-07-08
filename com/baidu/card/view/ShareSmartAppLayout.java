@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.p;
-import d.a.r0.r.q.a;
-import d.a.r0.r.q.b2;
-import d.a.s0.a0.b0;
-/* loaded from: classes3.dex */
+import d.a.o0.r.q.a;
+import d.a.o0.r.q.b2;
+import d.a.p0.a0.b0;
+/* loaded from: classes2.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AppletsCellView f4561e;
+    public AppletsCellView f4578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b0<a> f4562f;
+    public b0<a> f4579f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ShareSmartAppLayout(Context context) {
@@ -56,7 +56,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
             LayoutInflater.from(getContext()).inflate(R.layout.share_smart_app_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f4561e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
+            this.f4578e = (AppletsCellView) findViewById(R.id.card_home_page_normal_thread_share_info);
         }
     }
 
@@ -69,9 +69,9 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().Z0() != null) {
                 setVisibility(0);
                 b2 threadData = aVar.getThreadData();
-                this.f4561e.setData(threadData.Z0());
-                this.f4561e.setForumId(String.valueOf(threadData.Q()));
-                this.f4561e.setFrom("frs_card");
+                this.f4578e.setData(threadData.Z0());
+                this.f4578e.setForumId(String.valueOf(threadData.Q()));
+                this.f4578e.setFrom("frs_card");
                 return;
             }
             setVisibility(8);
@@ -81,7 +81,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public b0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4562f : (b0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4579f : (b0) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
@@ -93,7 +93,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public void setSubClickListener(b0<a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, b0Var) == null) {
-            this.f4562f = b0Var;
+            this.f4579f = b0Var;
         }
     }
 

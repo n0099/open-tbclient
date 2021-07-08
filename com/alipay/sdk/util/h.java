@@ -19,7 +19,7 @@ public class h extends IRemoteServiceCallback.Stub {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f1978a;
+    public final /* synthetic */ e f1979a;
 
     public h(e eVar) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class h extends IRemoteServiceCallback.Stub {
                 return;
             }
         }
-        this.f1978a = eVar;
+        this.f1979a = eVar;
     }
 
     @Override // com.alipay.android.app.IRemoteServiceCallback
@@ -73,12 +73,12 @@ public class h extends IRemoteServiceCallback.Stub {
             } catch (Exception unused) {
             }
             intent.setClassName(str, str2);
-            activity = this.f1978a.f1968c;
+            activity = this.f1979a.f1969c;
             if (activity != null) {
-                activity2 = this.f1978a.f1968c;
+                activity2 = this.f1979a.f1969c;
                 activity2.startActivity(intent);
             }
-            aVar = this.f1978a.f1972g;
+            aVar = this.f1979a.f1973g;
             aVar.b();
         }
     }

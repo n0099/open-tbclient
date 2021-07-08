@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class e implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public char f44047a;
+    public char f41063a;
 
     public e(char c2) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class e implements h {
                 return;
             }
         }
-        this.f44047a = c2;
+        this.f41063a = c2;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
@@ -46,16 +46,16 @@ public class e implements h {
                                 if (a2 != Double.class && a2 != Double.TYPE) {
                                     if (a2 != Character.class && a2 != Character.TYPE) {
                                         if (a2 == Boolean.class || a2 == Boolean.TYPE) {
-                                            return Boolean.valueOf(((byte) this.f44047a) == 0);
+                                            return Boolean.valueOf(((byte) this.f41063a) == 0);
                                         } else if (a2 == String.class) {
-                                            return String.valueOf(this.f44047a);
+                                            return String.valueOf(this.f41063a);
                                         } else {
                                             if (a2 == char[].class) {
-                                                return String.valueOf(this.f44047a).toCharArray();
+                                                return String.valueOf(this.f41063a).toCharArray();
                                             }
                                             if (a2 == byte[].class) {
                                                 try {
-                                                    return d.a.c.e.p.c.e(String.valueOf(this.f44047a), 0);
+                                                    return d.a.c.e.p.c.e(String.valueOf(this.f41063a), 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;
@@ -64,19 +64,19 @@ public class e implements h {
                                             return null;
                                         }
                                     }
-                                    return Character.valueOf(this.f44047a);
+                                    return Character.valueOf(this.f41063a);
                                 }
-                                return Double.valueOf(this.f44047a);
+                                return Double.valueOf(this.f41063a);
                             }
-                            return Float.valueOf(this.f44047a);
+                            return Float.valueOf(this.f41063a);
                         }
-                        return Long.valueOf(this.f44047a);
+                        return Long.valueOf(this.f41063a);
                     }
-                    return Integer.valueOf(this.f44047a);
+                    return Integer.valueOf(this.f41063a);
                 }
-                return Short.valueOf((short) this.f44047a);
+                return Short.valueOf((short) this.f41063a);
             }
-            return Byte.valueOf((byte) this.f44047a);
+            return Byte.valueOf((byte) this.f41063a);
         }
         return invokeL.objValue;
     }

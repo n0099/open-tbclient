@@ -1,6 +1,7 @@
 package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -17,9 +18,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.record.entity.EffectInfo;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.y0.j.b;
-import d.a.y0.t.h;
-import d.a.y0.t.w;
+import d.a.v0.j.b;
+import d.a.v0.t.h;
+import d.a.v0.t.w;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TemplateInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TEMPLATE_FILE_NAME = "theme_config.json";
@@ -44,7 +45,7 @@ public class TemplateInfo implements Serializable {
     public String version;
     public String zipPath;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class TemplateFiler implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +142,7 @@ public class TemplateInfo implements Serializable {
 
     public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || h.f(mediaTrackConfig.effectResourceMap)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || h.f(mediaTrackConfig.effectResourceMap)) {
             return;
         }
         if (mediaTrackConfig.effectConfigMap == null) {

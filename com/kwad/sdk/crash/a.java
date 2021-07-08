@@ -1,8 +1,5 @@
 package com.kwad.sdk.crash;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
 import androidx.annotation.NonNull;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,19 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
+import com.kwad.sdk.utils.g;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerThread f36916a;
+    public static volatile boolean f35287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36917b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f36918c;
+    public static volatile boolean f35288b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,59 +38,58 @@ public class a {
         }
     }
 
-    public static void a() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || f36917b) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            synchronized (a.class) {
+                if (!f35287a) {
+                    f35287a = true;
+                    com.kwad.sdk.core.i.a.a().postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                }
+                            }
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                try {
+                                    a.d();
+                                } catch (Throwable unused) {
+                                }
+                            }
+                        }
+                    }, TimeUnit.SECONDS.toMillis(c.f35317f));
+                }
+            }
         }
-        f36917b = true;
-        HandlerThread handlerThread = new HandlerThread("ex-uploader");
-        f36916a = handlerThread;
-        handlerThread.start();
-        new Handler(f36916a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    try {
-                        a.f();
-                    } catch (Throwable unused) {
-                    }
-                    a.e();
-                }
-            }
-        }, TimeUnit.SECONDS.toMillis(c.f36947f));
     }
 
     public static void a(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar.f36928g == null || f36918c) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, bVar) == null) || bVar.f35298g == null || f35288b) {
             return;
         }
-        f36918c = true;
+        f35288b = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f36928g);
-            com.kwad.sdk.crash.a.a.a(bVar.f36928g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f35298g);
+            com.kwad.sdk.crash.a.a.a(bVar.f35298g, bVar.n);
             d.a().a(bVar);
-            d();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.c.d(bVar.f36928g));
+            c();
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.c.d(bVar.f35298g));
             a();
         } catch (Throwable unused) {
         }
@@ -104,12 +98,12 @@ public class a {
     public static void a(@NonNull Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, th) == null) {
-            com.kwad.sdk.utils.f.a(new Runnable(th) { // from class: com.kwad.sdk.crash.a.1
+            g.a(new Runnable(th) { // from class: com.kwad.sdk.crash.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Throwable f36919a;
+                public final /* synthetic */ Throwable f35289a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -126,7 +120,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f36919a = th;
+                    this.f35289a = th;
                 }
 
                 @Override // java.lang.Runnable
@@ -134,8 +128,8 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (com.kwad.sdk.crash.b.a.a(this.f36919a)) {
-                                com.kwad.sdk.crash.c.a.a(new SdkCaughtException(this.f36919a));
+                            if (com.kwad.sdk.crash.b.a.a(this.f35289a)) {
+                                com.kwad.sdk.crash.c.a.a(new SdkCaughtException(this.f35289a));
                             }
                         } catch (Throwable th2) {
                             com.kwad.sdk.core.d.a.a(th2);
@@ -146,9 +140,9 @@ public class a {
         }
     }
 
-    public static void d() {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             com.kwad.sdk.crash.c.c.d().a(com.kwad.sdk.crash.a.a.b(), new e() { // from class: com.kwad.sdk.crash.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -203,33 +197,16 @@ public class a {
         }
     }
 
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+            e();
+        }
+    }
+
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            try {
-                if (f36916a == null || !f36916a.isAlive()) {
-                    return;
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    f36916a.quitSafely();
-                } else {
-                    f36916a.quit();
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            g();
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             com.kwad.sdk.crash.report.d dVar = new com.kwad.sdk.crash.report.d();
             dVar.a(com.kwad.sdk.crash.c.c.d().a());
             dVar.a(com.kwad.sdk.crash.a.a.b());

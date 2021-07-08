@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.e0.b;
-import d.a.r0.e0.c;
-import d.a.s0.u0.i0;
-/* loaded from: classes5.dex */
+import d.a.o0.e0.b;
+import d.a.o0.e0.c;
+import d.a.p0.u0.i0;
+/* loaded from: classes4.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-            fragmentTabStructure.f55251a.setArguments(bundle);
+            fragmentTabStructure.f51956a.setArguments(bundle);
         }
     }
 
@@ -104,21 +104,21 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         }
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f55251a = new FrsGameStrategyMainFragment();
-            cVar.f55255e = 3;
-            cVar.f55259i = c.k;
+            cVar.f51956a = new FrsGameStrategyMainFragment();
+            cVar.f51960e = 3;
+            cVar.f51964i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // d.a.r0.e0.b
+    @Override // d.a.o0.e0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

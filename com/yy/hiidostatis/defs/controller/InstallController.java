@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +14,13 @@ import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.Packer;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class InstallController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IStatisAPI statisAPI;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class InstUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_VERSIONNAME = "";
@@ -32,7 +33,7 @@ public class InstallController {
         public static InstInfo instInfo;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes6.dex */
         public static class InstInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +125,7 @@ public class InstallController {
 
         public static void save(Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
                 getInstInfo(context).isReport = true;
                 int versionNo = ArdUtil.getVersionNo(context);
                 String versionName = ArdUtil.getVersionName(context);

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f42569a;
+    public final /* synthetic */ String f39583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f42570b;
+    public final /* synthetic */ PBSplash f39584b;
 
     public h(PBSplash pBSplash, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class h extends AsyncTask {
                 return;
             }
         }
-        this.f42570b = pBSplash;
-        this.f42569a = str;
+        this.f39584b = pBSplash;
+        this.f39583a = str;
     }
 
     @Override // android.os.AsyncTask
@@ -64,34 +64,34 @@ public class h extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             byte[] bArr = (byte[]) obj;
             if (bArr == null) {
-                PBSplash pBSplash = this.f42570b;
-                PBSplashListener pBSplashListener = pBSplash.f42432e;
+                PBSplash pBSplash = this.f39584b;
+                PBSplashListener pBSplashListener = pBSplash.f39446e;
                 if (pBSplashListener != null && !pBSplash.j) {
                     pBSplashListener.onFail(PBError.NO_RESUOURCE);
-                    this.f42570b.f42436i = true;
+                    this.f39584b.f39450i = true;
                 }
             } else {
-                PBSplash pBSplash2 = this.f42570b;
-                PBSplashListener pBSplashListener2 = pBSplash2.f42432e;
+                PBSplash pBSplash2 = this.f39584b;
+                PBSplashListener pBSplashListener2 = pBSplash2.f39446e;
                 if (pBSplashListener2 != null && !pBSplash2.j) {
                     pBSplash2.m = bArr;
                     pBSplashListener2.onLoaded();
-                    this.f42570b.f42436i = true;
+                    this.f39584b.f39450i = true;
                 }
             }
             if (bArr != null) {
-                PBSplash pBSplash3 = this.f42570b;
+                PBSplash pBSplash3 = this.f39584b;
                 if (pBSplash3.j) {
                     StringBuilder sb = new StringBuilder();
-                    context = this.f42570b.f42428a;
+                    context = this.f39584b.f39442a;
                     sb.append(z.a(context));
                     sb.append(File.separator);
                     sb.append("win");
                     sb.append(File.separator);
-                    sb.append(z.c(this.f42569a));
+                    sb.append(z.c(this.f39583a));
                     sb.append(".gif");
                     pBSplash3.p = new File(sb.toString());
-                    new Thread(new Z0(bArr, this.f42570b.p.getPath())).start();
+                    new Thread(new Z0(bArr, this.f39584b.p.getPath())).start();
                 }
             }
         }

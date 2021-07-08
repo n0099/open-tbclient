@@ -33,15 +33,15 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.c0.a.f.a;
-import d.a.c0.b.a.j;
-import d.a.y0.b;
-import d.a.y0.t.c;
-import d.a.y0.t.d;
-import d.a.y0.t.h;
-import d.a.y0.t.m;
-import d.a.y0.t.n;
-import d.a.y0.t.u;
+import d.a.v0.b;
+import d.a.v0.t.c;
+import d.a.v0.t.d;
+import d.a.v0.t.h;
+import d.a.v0.t.m;
+import d.a.v0.t.n;
+import d.a.v0.t.u;
+import d.a.z.a.f.a;
+import d.a.z.b.a.j;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -49,7 +49,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ComposeThemeVideoModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

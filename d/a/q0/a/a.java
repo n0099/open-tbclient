@@ -1,76 +1,143 @@
 package d.a.q0.a;
 
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public final class a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int abc_fade_in = 2130771968;
-    public static final int abc_fade_out = 2130771969;
-    public static final int abc_grow_fade_in_from_bottom = 2130771970;
-    public static final int abc_popup_enter = 2130771971;
-    public static final int abc_popup_exit = 2130771972;
-    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
-    public static final int abc_slide_in_bottom = 2130771974;
-    public static final int abc_slide_in_top = 2130771975;
-    public static final int abc_slide_out_bottom = 2130771976;
-    public static final int abc_slide_out_top = 2130771977;
-    public static final int abc_tooltip_enter = 2130771978;
-    public static final int abc_tooltip_exit = 2130771979;
-    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771986;
-    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771987;
-    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771988;
-    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771989;
-    public static final int aiapps_accelerate_quad = 2130771990;
-    public static final int aiapps_action_sheet_enter = 2130771991;
-    public static final int aiapps_action_sheet_exit = 2130771992;
-    public static final int aiapps_big_pic_toast_enter = 2130771993;
-    public static final int aiapps_big_pic_toast_exit = 2130771994;
-    public static final int aiapps_brower_menu_close = 2130771995;
-    public static final int aiapps_brower_menu_open = 2130771996;
-    public static final int aiapps_highlight_toast_show = 2130771997;
-    public static final int aiapps_highlight_toast_show_d20 = 2130771998;
-    public static final int aiapps_hold = 2130771999;
-    public static final int aiapps_loading_progress = 2130772000;
-    public static final int aiapps_pop_window_dismiss_anim = 2130772001;
-    public static final int aiapps_pop_window_show_anim = 2130772002;
-    public static final int aiapps_slide_in_from_right = 2130772005;
-    public static final int aiapps_slide_out_to_bottom = 2130772006;
-    public static final int aiapps_slide_out_to_right = 2130772008;
-    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772009;
-    public static final int aiapps_toast_enter = 2130772010;
-    public static final int aiapps_toast_exit = 2130772011;
-    public static final int aiapps_update_loading_progressbar_anim = 2130772012;
-    public static final int aiapps_wx_pay_loading_anim = 2130772019;
-    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772038;
-    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772039;
-    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772041;
-    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772042;
-    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772043;
-    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772044;
-    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772045;
-    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772046;
-    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772047;
-    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772048;
-    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772049;
-    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772050;
-    public static final int loading_rotate = 2130772119;
-    public static final int ng_game_ad_close = 2130772129;
-    public static final int ng_game_ad_open = 2130772130;
-    public static final int popupwindow_grow_fade_in = 2130772154;
-    public static final int popupwindow_grow_fade_in_from_bottom = 2130772155;
-    public static final int popupwindow_shrink_fade_out = 2130772156;
-    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772157;
-    public static final int slide_in_bottom = 2130772246;
-    public static final int slide_out_bottom = 2130772247;
-    public static final int swanapp_album_checkshake = 2130772261;
-    public static final int swanapp_album_floating_layer_in_animation = 2130772262;
-    public static final int swanapp_album_floating_layer_out_animation = 2130772263;
-    public static final int swanapp_album_preview_enter = 2130772264;
-    public static final int swanapp_album_preview_img_enter = 2130772265;
-    public static final int swanapp_album_preview_img_exit = 2130772266;
-    public static final int swanapp_album_rotate_loading = 2130772267;
-    public static final int swanapp_album_slide_bottom_in = 2130772268;
-    public static final int swanapp_album_slide_bottom_out = 2130772269;
+public class a {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            b(str, str2, new Object[0]);
+        }
+    }
+
+    public static void b(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, objArr) == null) {
+            String e2 = e(str2, objArr);
+            Throwable g2 = g(objArr);
+            if (g2 != null) {
+                Log.d(i(str), e2, g2);
+            } else {
+                Log.d(i(str), e2);
+            }
+        }
+    }
+
+    public static void c(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
+            String d2 = d(str2, objArr);
+            Throwable g2 = g(objArr);
+            if (g2 != null) {
+                Log.e(i(str), d2, g2);
+            } else {
+                Log.e(i(str), d2);
+            }
+        }
+    }
+
+    public static String d(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr)) == null) ? (objArr == null || objArr.length == 0) ? str : String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
+    }
+
+    public static String e(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, objArr)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            String name = a.class.getName();
+            int i2 = 0;
+            while (true) {
+                if (i2 >= stackTrace.length) {
+                    break;
+                } else if (stackTrace[i2].getClassName().equals(name)) {
+                    i2 += 4;
+                    break;
+                } else {
+                    i2++;
+                }
+            }
+            return stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static Throwable g(Object[] objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, objArr)) == null) {
+            if (objArr == null || objArr.length == 0) {
+                return null;
+            }
+            Object obj = objArr[objArr.length - 1];
+            if (obj instanceof Throwable) {
+                return (Throwable) obj;
+            }
+            return null;
+        }
+        return (Throwable) invokeL.objValue;
+    }
+
+    public static void h(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, objArr) == null) {
+            String d2 = d(str2, objArr);
+            Throwable g2 = g(objArr);
+            if (g2 != null) {
+                Log.i(i(str), d2, g2);
+            } else {
+                Log.i(i(str), d2);
+            }
+        }
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str.startsWith("cr_")) {
+                return str;
+            }
+            int i2 = str.startsWith("cr.") ? 3 : 0;
+            return "cr_" + str.substring(i2, str.length());
+        }
+        return (String) invokeL.objValue;
+    }
 }

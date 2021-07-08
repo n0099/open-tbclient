@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AuthStateResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -21,7 +21,7 @@ public class AuthStateResponse implements IBeanResponse, Serializable {
     public SignPay sign_pay;
     public UserInfo user_info;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AccountInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class AuthStateResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Auth implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3571683889059744265L;
@@ -65,7 +65,7 @@ public class AuthStateResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SignPay implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4172817358569160671L;
@@ -87,7 +87,7 @@ public class AuthStateResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class UserInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -89954795900468223L;

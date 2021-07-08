@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -110,7 +111,7 @@ public class DuzhanUpMsgCreator {
     public static JSONObject getMsgExtContent(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, chatMsg)) == null) {
             try {
                 String jsonContent = chatMsg.getJsonContent();
                 if (!TextUtils.isEmpty(jsonContent)) {

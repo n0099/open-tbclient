@@ -19,42 +19,42 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Application f74657a;
+    public Application f71709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f74658b;
+    public final List<b> f71710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f74659c;
+    public int f71711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<Activity> f74660d;
+    public WeakReference<Activity> f71712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f74661e;
+    public volatile int f71713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f74662f;
+    public volatile boolean f71714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Application.ActivityLifecycleCallbacks f74663g;
+    public final Application.ActivityLifecycleCallbacks f71715g;
 
     /* renamed from: d.l.a.e.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C2072a implements Application.ActivityLifecycleCallbacks {
+    /* loaded from: classes8.dex */
+    public class C2040a implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f74664e;
+        public final /* synthetic */ a f71716e;
 
-        public C2072a(a aVar) {
+        public C2040a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,7 +69,7 @@ public class a {
                     return;
                 }
             }
-            this.f74664e = aVar;
+            this.f71716e = aVar;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -90,11 +90,11 @@ public class a {
         public void onActivityPaused(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                this.f74664e.f74662f = true;
-                if (this.f74664e.f74659c != 0 || activity == null) {
+                this.f71716e.f71714f = true;
+                if (this.f71716e.f71711c != 0 || activity == null) {
                     return;
                 }
-                this.f74664e.f74659c = activity.hashCode();
+                this.f71716e.f71711c = activity.hashCode();
             }
         }
 
@@ -102,11 +102,11 @@ public class a {
         public void onActivityResumed(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                int i2 = this.f74664e.f74659c;
-                this.f74664e.f74662f = false;
-                this.f74664e.f74659c = activity != null ? activity.hashCode() : i2;
+                int i2 = this.f71716e.f71711c;
+                this.f71716e.f71714f = false;
+                this.f71716e.f71711c = activity != null ? activity.hashCode() : i2;
                 if (i2 == 0) {
-                    this.f74664e.o();
+                    this.f71716e.o();
                 }
             }
         }
@@ -122,12 +122,12 @@ public class a {
         public void onActivityStarted(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                this.f74664e.f74660d = new WeakReference(activity);
-                int i2 = this.f74664e.f74659c;
-                this.f74664e.f74659c = activity != null ? activity.hashCode() : i2;
-                this.f74664e.f74662f = false;
+                this.f71716e.f71712d = new WeakReference(activity);
+                int i2 = this.f71716e.f71711c;
+                this.f71716e.f71711c = activity != null ? activity.hashCode() : i2;
+                this.f71716e.f71714f = false;
                 if (i2 == 0) {
-                    this.f74664e.o();
+                    this.f71716e.o();
                 }
             }
         }
@@ -136,16 +136,16 @@ public class a {
         public void onActivityStopped(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                if (activity != null && activity.hashCode() == this.f74664e.f74659c) {
-                    this.f74664e.f74659c = 0;
-                    this.f74664e.p();
+                if (activity != null && activity.hashCode() == this.f71716e.f71711c) {
+                    this.f71716e.f71711c = 0;
+                    this.f71716e.p();
                 }
-                this.f74664e.f74662f = false;
+                this.f71716e.f71714f = false;
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         @MainThread
         void b();
@@ -154,12 +154,12 @@ public class a {
         void c();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f74665a;
+        public static final a f71717a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -175,32 +175,32 @@ public class a {
                     return;
                 }
             }
-            f74665a = new a(null);
+            f71717a = new a(null);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface d {
     }
 
-    public /* synthetic */ a(C2072a c2072a) {
+    public /* synthetic */ a(C2040a c2040a) {
         this();
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? c.f74665a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f71717a : (a) invokeV.objValue;
     }
 
     public void e(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f74657a == null && (context instanceof Application)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f71709a == null && (context instanceof Application)) {
             synchronized (this) {
-                if (this.f74657a == null) {
+                if (this.f71709a == null) {
                     Application application = (Application) context;
-                    this.f74657a = application;
-                    application.registerActivityLifecycleCallbacks(this.f74663g);
+                    this.f71709a = application;
+                    application.registerActivityLifecycleCallbacks(this.f71715g);
                 }
             }
         }
@@ -211,9 +211,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
-        synchronized (this.f74658b) {
-            if (!this.f74658b.contains(bVar)) {
-                this.f74658b.add(bVar);
+        synchronized (this.f71710b) {
+            if (!this.f71710b.contains(bVar)) {
+                this.f71710b.add(bVar);
             }
         }
     }
@@ -227,22 +227,22 @@ public class a {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            synchronized (this.f74658b) {
-                this.f74658b.remove(bVar);
+            synchronized (this.f71710b) {
+                this.f71710b.remove(bVar);
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v4, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [boolean, int] */
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f74661e;
+            int i2 = this.f71713e;
             int i3 = i2;
             if (i2 == -1) {
                 ?? q = q();
-                this.f74661e = q;
+                this.f71713e = q;
                 i3 = q;
             }
             return i3 == 1;
@@ -253,7 +253,7 @@ public class a {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && !this.f74662f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && !this.f71714f : invokeV.booleanValue;
     }
 
     public final Object[] n() {
@@ -261,8 +261,8 @@ public class a {
         Object[] array;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.f74658b) {
-                array = this.f74658b.size() > 0 ? this.f74658b.toArray() : null;
+            synchronized (this.f71710b) {
+                array = this.f71710b.size() > 0 ? this.f71710b.toArray() : null;
             }
             return array;
         }
@@ -272,7 +272,7 @@ public class a {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f74661e = 1;
+            this.f71713e = 1;
             Object[] n = n();
             if (n != null) {
                 for (Object obj : n) {
@@ -285,7 +285,7 @@ public class a {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f74661e = 0;
+            this.f71713e = 0;
             Object[] n = n();
             if (n != null) {
                 for (Object obj : n) {
@@ -300,7 +300,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                Application application = this.f74657a;
+                Application application = this.f71709a;
                 if (application == null) {
                     return false;
                 }
@@ -336,9 +336,9 @@ public class a {
                 return;
             }
         }
-        this.f74658b = new ArrayList();
-        this.f74661e = -1;
-        this.f74662f = false;
-        this.f74663g = new C2072a(this);
+        this.f71710b = new ArrayList();
+        this.f71713e = -1;
+        this.f71714f = false;
+        this.f71715g = new C2040a(this);
     }
 }

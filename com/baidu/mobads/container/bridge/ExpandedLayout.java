@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ExpandedLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CLOSE_BUTTON_PADDING_DP = 8.0f;
@@ -43,14 +43,14 @@ public class ExpandedLayout extends FrameLayout {
     public UnsetPressedState mUnsetPressedState;
 
     /* renamed from: com.baidu.mobads.container.bridge.ExpandedLayout$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ClosePosition {
         public static final /* synthetic */ ClosePosition[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,17 +128,17 @@ public class ExpandedLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface KeyDownListener {
         boolean handleKeyDown(int i2, KeyEvent keyEvent);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnCloseListener {
         void onClose();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public final class UnsetPressedState implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +224,7 @@ public class ExpandedLayout extends FrameLayout {
 
     private void performClose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             playSoundEffect(0);
             OnCloseListener onCloseListener = this.mOnCloseListener;
             if (onCloseListener != null) {

@@ -1,5 +1,6 @@
 package com.google.common.base;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,31 +12,31 @@ import d.f.d.a.r;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Optional<T> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f32897e;
+        public final /* synthetic */ Iterable f33007e;
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class C0379a extends AbstractIterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<? extends Optional<? extends T>> f32898g;
+            public final Iterator<? extends Optional<? extends T>> f33008g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ a f32899h;
+            public final /* synthetic */ a f33009h;
 
             /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
             public C0379a(a aVar) {
@@ -53,10 +54,10 @@ public abstract class Optional<T> implements Serializable {
                         return;
                     }
                 }
-                this.f32899h = aVar;
-                Iterator it = this.f32899h.f32897e.iterator();
+                this.f33009h = aVar;
+                Iterator it = this.f33009h.f33007e.iterator();
                 n.p(it);
-                this.f32898g = (Iterator<T>) it;
+                this.f33008g = (Iterator<T>) it;
             }
 
             @Override // com.google.common.base.AbstractIterator
@@ -64,8 +65,8 @@ public abstract class Optional<T> implements Serializable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    while (this.f32898g.hasNext()) {
-                        Optional<? extends T> next = this.f32898g.next();
+                    while (this.f33008g.hasNext()) {
+                        Optional<? extends T> next = this.f33008g.next();
                         if (next.isPresent()) {
                             return next.get();
                         }
@@ -91,7 +92,7 @@ public abstract class Optional<T> implements Serializable {
                     return;
                 }
             }
-            this.f32897e = iterable;
+            this.f33007e = iterable;
         }
 
         @Override // java.lang.Iterable
@@ -141,7 +142,7 @@ public abstract class Optional<T> implements Serializable {
     public static <T> Iterable<T> presentInstances(Iterable<? extends Optional<? extends T>> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iterable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iterable)) == null) {
             n.p(iterable);
             return new a(iterable);
         }

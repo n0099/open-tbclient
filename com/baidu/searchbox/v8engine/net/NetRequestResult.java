@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetRequestResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_REQUEST = 0;

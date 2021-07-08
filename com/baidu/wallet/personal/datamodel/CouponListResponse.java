@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CouponListResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NEED_SHOW_MORE_COUPON = 1;
@@ -26,7 +26,7 @@ public class CouponListResponse implements IBeanResponse, Serializable {
     public String txt_pushed_coupon_issued_over;
     public String url_pushed_coupon_list;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class CodeCoupon implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class CouponListResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class CouponListPushed implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

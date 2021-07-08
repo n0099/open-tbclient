@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import d.a.c.k.e.n;
-import d.a.r0.g0.b.a;
+import d.a.o0.g0.b.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.s0.l0.l.d.a enterForumTabFeedData;
+    public d.a.p0.l0.l.d.a enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -67,7 +67,7 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                d.a.s0.l0.l.d.a aVar = new d.a.s0.l0.l.d.a();
+                d.a.p0.l0.l.d.a aVar = new d.a.p0.l0.l.d.a();
                 this.enterForumTabFeedData = aVar;
                 aVar.g(tabfeedlistResIdl.data);
             }

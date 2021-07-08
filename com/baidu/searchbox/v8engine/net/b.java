@@ -1,6 +1,7 @@
 package com.baidu.searchbox.v8engine.net;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,12 +15,12 @@ import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f10194a;
+    public static final Charset f10211a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        f10194a = Charset.forName("UTF-8");
+        f10211a = Charset.forName("UTF-8");
     }
 
     public static int a(char c2) {
@@ -208,7 +209,7 @@ public final class b {
     public static int a(String str, int i2, int i3, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
             while (i2 < i3) {
                 if (str2.indexOf(str.charAt(i2)) != -1) {
                     return i2;

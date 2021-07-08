@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FiltersView extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f12864e;
+    public Runnable f12881e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f12865f;
+    public View f12882f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f12866g;
+    public View f12883g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FiltersView f12867e;
+        public final /* synthetic */ FiltersView f12884e;
 
         public a(FiltersView filtersView) {
             Interceptable interceptable = $ic;
@@ -48,34 +48,34 @@ public class FiltersView extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f12867e = filtersView;
+            this.f12884e = filtersView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12867e.f12865f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f12884e.f12882f == null) {
                 return;
             }
-            int childCount = ((LinearLayout) this.f12867e.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.f12884e.getChildAt(0)).getChildCount();
             int i3 = 0;
             while (true) {
                 if (i3 >= childCount) {
                     i2 = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.f12867e.getChildAt(0)).getChildAt(i3);
-                if (childAt == this.f12867e.f12865f) {
+                View childAt = ((LinearLayout) this.f12884e.getChildAt(0)).getChildAt(i3);
+                if (childAt == this.f12884e.f12882f) {
                     i2 = childAt.getRight();
                     break;
                 }
                 i3++;
             }
-            this.f12867e.f12865f = null;
-            int width = i2 - this.f12867e.getWidth();
+            this.f12884e.f12882f = null;
+            int width = i2 - this.f12884e.getWidth();
             if (width > 0) {
-                this.f12867e.scrollBy(width, 0);
+                this.f12884e.scrollBy(width, 0);
             }
         }
     }
@@ -99,16 +99,16 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f12864e = new a(this);
-        this.f12865f = null;
-        this.f12866g = null;
+        this.f12881e = new a(this);
+        this.f12882f = null;
+        this.f12883g = null;
     }
 
     public String getSelectedFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.f12866g;
+            View view = this.f12883g;
             return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
         }
         return (String) invokeV.objValue;
@@ -119,8 +119,8 @@ public class FiltersView extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f12865f != null) {
-                post(this.f12864e);
+            if (this.f12882f != null) {
+                post(this.f12881e);
             }
         }
     }

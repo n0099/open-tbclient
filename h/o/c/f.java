@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f extends h.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadFactory f75593a;
+    public final ThreadFactory f72627a;
 
     public f(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public final class f extends h.g {
                 return;
             }
         }
-        this.f75593a = threadFactory;
+        this.f72627a = threadFactory;
     }
 
     @Override // h.g
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(this.f75593a) : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(this.f72627a) : (g.a) invokeV.objValue;
     }
 }

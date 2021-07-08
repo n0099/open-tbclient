@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.common.Logger;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
@@ -21,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public class c extends k {
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, jSONArray, jSONArray2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONArray, jSONArray2)) == null) {
             if (jSONArray == null || (length = jSONArray.length()) <= 0) {
                 return null;
             }

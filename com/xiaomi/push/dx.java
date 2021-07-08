@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class dx implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f43031a;
+    public final /* synthetic */ int f40045a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Context f308a;
@@ -20,7 +20,7 @@ public final class dx implements Runnable {
     public final /* synthetic */ String f309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f43032b;
+    public final /* synthetic */ String f40046b;
 
     public dx(Context context, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public final class dx implements Runnable {
         }
         this.f308a = context;
         this.f309a = str;
-        this.f43031a = i2;
-        this.f43032b = str2;
+        this.f40045a = i2;
+        this.f40046b = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dw.c(this.f308a, this.f309a, this.f43031a, this.f43032b);
+            dw.c(this.f308a, this.f309a, this.f40045a, this.f40046b);
         }
     }
 }

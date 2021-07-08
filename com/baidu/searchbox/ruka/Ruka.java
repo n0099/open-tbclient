@@ -2,6 +2,7 @@ package com.baidu.searchbox.ruka;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Ruka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_THRESHOLD = 2000;
@@ -72,7 +73,7 @@ public final class Ruka {
 
     public static void setProcessLaunchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
             sProcessLaunchTime = j;
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Formatter;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DetectionResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADJUST_ROW_NUMBER_SKIP = 2;
@@ -81,7 +81,7 @@ public final class DetectionResult {
     private int adjustRowNumbers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int adjustRowNumbersByRow = adjustRowNumbersByRow();
             if (adjustRowNumbersByRow == 0) {
                 return 0;

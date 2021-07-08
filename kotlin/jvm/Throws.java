@@ -12,7 +12,7 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER, AnnotationTarget.CONSTRUCTOR})
 @Retention(RetentionPolicy.SOURCE)
 @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public @interface Throws {
     Class<? extends Throwable>[] exceptionClasses();
 }

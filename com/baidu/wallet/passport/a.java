@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,37 +25,37 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f25718a;
+    public static final String[] f25828a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f25719b = 8;
+    public static final int f25829b = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25720c;
+    public Context f25830c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25721d;
+    public String f25831d;
 
     /* renamed from: com.baidu.wallet.passport.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.passport.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0275a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f25722a;
+        public static final a f25832a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -70,7 +71,7 @@ public class a {
                     return;
                 }
             }
-            f25722a = new a(null);
+            f25832a = new a(null);
         }
 
         public C0275a() {
@@ -101,7 +102,7 @@ public class a {
                 return;
             }
         }
-        f25718a = new String[]{Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com"};
+        f25828a = new String[]{Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN, Domains.BAIFUBAO, ".8.baidu.com"};
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -110,15 +111,15 @@ public class a {
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(1, i2);
             Date time = calendar.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            this.f25721d = simpleDateFormat.format(time);
-            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f25721d);
+            this.f25831d = simpleDateFormat.format(time);
+            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f25831d);
         }
     }
 
@@ -142,7 +143,7 @@ public class a {
                 return;
             }
         }
-        this.f25720c = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f25830c = BaiduWalletDelegate.getInstance().getAppContext();
     }
 
     private String[] b(String str) {
@@ -161,7 +162,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0275a.f25722a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0275a.f25832a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -176,15 +177,15 @@ public class a {
         if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, str) == null) {
             try {
                 a(i2);
-                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f25720c));
+                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f25830c));
                 if (b2 == null) {
-                    b2 = f25718a;
+                    b2 = f25828a;
                 }
-                CookieSyncManager.createInstance(this.f25720c);
+                CookieSyncManager.createInstance(this.f25830c);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 String str2 = "OPENBDUSS=" + str;
-                String str3 = ";expires=" + this.f25721d;
+                String str3 = ";expires=" + this.f25831d;
                 LogUtil.d("------------------DxmCookieManager start setCookie--------------");
                 for (String str4 : b2) {
                     if (!str4.startsWith(".")) {

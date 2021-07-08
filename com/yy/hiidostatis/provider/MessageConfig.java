@@ -15,7 +15,7 @@ import com.yy.hiidostatis.defs.listener.ActListener;
 import com.yy.hiidostatis.defs.listener.HiidoSdkAdditionDelegate;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MessageConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_INTERVAL = 5;

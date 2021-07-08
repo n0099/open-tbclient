@@ -78,7 +78,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SapiAccountService implements ISAccountService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
@@ -152,7 +152,7 @@ public final class SapiAccountService implements ISAccountService {
     public static boolean asyncStoken2Web(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
                     ArrayList arrayList = new ArrayList();

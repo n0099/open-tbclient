@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class N0 implements r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ O0 f42413a;
+    public final /* synthetic */ O0 f39427a;
 
     public N0(O0 o0) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class N0 implements r0 {
                 return;
             }
         }
-        this.f42413a = o0;
+        this.f39427a = o0;
     }
 
     @Override // com.win.opensdk.r0
     public void a() {
         r0 r0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (r0Var = this.f42413a.f42415a.f42419d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (r0Var = this.f39427a.f39429a.f39433d) == null) {
             return;
         }
         r0Var.a();
@@ -46,7 +46,7 @@ public class N0 implements r0 {
     public void a(int i2, String str) {
         r0 r0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (r0Var = this.f42413a.f42415a.f42419d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (r0Var = this.f39427a.f39429a.f39433d) == null) {
             return;
         }
         r0Var.a(i2, str);
@@ -56,16 +56,16 @@ public class N0 implements r0 {
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            w a2 = Q0.a(((R0) obj).f42455c);
-            P0 p0 = this.f42413a.f42415a;
-            r0 r0Var = p0.f42419d;
+            w a2 = Q0.a(((R0) obj).f39469c);
+            P0 p0 = this.f39427a.f39429a;
+            r0 r0Var = p0.f39433d;
             if (r0Var != null) {
                 if (a2 == null) {
                     r0Var.a(101, "");
-                } else if (TextUtils.isEmpty(p0.f42417b) || !this.f42413a.f42415a.f42417b.equalsIgnoreCase(a2.a())) {
-                    this.f42413a.f42415a.f42419d.a(2003, "");
+                } else if (TextUtils.isEmpty(p0.f39431b) || !this.f39427a.f39429a.f39431b.equalsIgnoreCase(a2.a())) {
+                    this.f39427a.f39429a.f39433d.a(2003, "");
                 } else {
-                    this.f42413a.f42415a.f42419d.a(a2);
+                    this.f39427a.f39429a.f39433d.a(a2);
                 }
             }
         }

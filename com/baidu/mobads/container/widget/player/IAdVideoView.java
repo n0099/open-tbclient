@@ -2,7 +2,7 @@ package com.baidu.mobads.container.widget.player;
 
 import android.content.res.Configuration;
 import com.baidu.mobads.container.widget.player.AdVideoViewListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IAdVideoView {
     int getCurrentPosition();
 

@@ -25,7 +25,7 @@ import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlutterSplashView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "FlutterSplashView";

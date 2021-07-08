@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class l1 implements LocationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,8 +18,8 @@ public class l1 implements LocationListener {
     public void onLocationChanged(Location location) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-            m1.f42610c.f42611a = location.getLatitude();
-            m1.f42610c.f42612b = location.getLongitude();
+            m1.f39624c.f39625a = location.getLatitude();
+            m1.f39624c.f39626b = location.getLongitude();
         }
     }
 

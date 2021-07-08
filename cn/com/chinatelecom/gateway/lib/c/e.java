@@ -25,26 +25,26 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1590a = "e";
+    public static final String f1591a = "e";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1591b;
+    public boolean f1592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConnectivityManager f1592c;
+    public ConnectivityManager f1593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f1593d;
+    public ConnectivityManager.NetworkCallback f1594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f1594e;
+    public a f1595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1595f;
+    public long f1596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f1596g;
+    public long f1597g;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -83,11 +83,11 @@ public class e {
                 return;
             }
         }
-        this.f1591b = false;
-        this.f1592c = null;
-        this.f1593d = null;
-        this.f1595f = 0L;
-        this.f1596g = 0L;
+        this.f1592b = false;
+        this.f1593c = null;
+        this.f1594d = null;
+        this.f1596f = 0L;
+        this.f1597g = 0L;
     }
 
     public static int a(String str) {
@@ -98,7 +98,7 @@ public class e {
                 byte[] address = InetAddress.getByName(str).getAddress();
                 return (address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8);
             } catch (Throwable th) {
-                CtAuth.warn(f1590a, "When InetAddress.getByName(),throws exception", th);
+                CtAuth.warn(f1591a, "When InetAddress.getByName(),throws exception", th);
                 return -1;
             }
         }
@@ -109,9 +109,9 @@ public class e {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
-            this.f1595f = 0L;
-            this.f1592c = (ConnectivityManager) context.getSystemService("connectivity");
-            this.f1596g = System.currentTimeMillis();
+            this.f1596f = 0L;
+            this.f1593c = (ConnectivityManager) context.getSystemService("connectivity");
+            this.f1597g = System.currentTimeMillis();
             NetworkRequest.Builder builder = new NetworkRequest.Builder();
             builder.addCapability(12);
             builder.addTransportType(0);
@@ -121,7 +121,7 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f1599a;
+                public final /* synthetic */ e f1600a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,7 +138,7 @@ public class e {
                             return;
                         }
                     }
-                    this.f1599a = this;
+                    this.f1600a = this;
                 }
 
                 @Override // android.net.ConnectivityManager.NetworkCallback
@@ -146,25 +146,25 @@ public class e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        e eVar = this.f1599a;
-                        eVar.f1595f = currentTimeMillis - eVar.f1596g;
-                        this.f1599a.f1591b = true;
-                        if (this.f1599a.f1594e != null) {
-                            this.f1599a.f1594e.a(network, this.f1599a.f1595f);
+                        e eVar = this.f1600a;
+                        eVar.f1596f = currentTimeMillis - eVar.f1597g;
+                        this.f1600a.f1592b = true;
+                        if (this.f1600a.f1595e != null) {
+                            this.f1600a.f1595e.a(network, this.f1600a.f1596f);
                         }
-                        if (this.f1599a.f1592c != null) {
+                        if (this.f1600a.f1593c != null) {
                             try {
-                                this.f1599a.f1592c.unregisterNetworkCallback(this);
-                                this.f1599a.f1592c = null;
+                                this.f1600a.f1593c.unregisterNetworkCallback(this);
+                                this.f1600a.f1593c = null;
                             } catch (Throwable th) {
-                                CtAuth.warn(e.f1590a, "switchToMobileForAboveL", th);
+                                CtAuth.warn(e.f1591a, "switchToMobileForAboveL", th);
                             }
                         }
                     }
                 }
             };
-            this.f1593d = networkCallback;
-            this.f1592c.requestNetwork(build, networkCallback);
+            this.f1594d = networkCallback;
+            this.f1593c.requestNetwork(build, networkCallback);
         }
     }
 
@@ -195,15 +195,15 @@ public class e {
         ConnectivityManager connectivityManager;
         ConnectivityManager.NetworkCallback networkCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || Build.VERSION.SDK_INT < 21 || (connectivityManager = this.f1592c) == null || (networkCallback = this.f1593d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || Build.VERSION.SDK_INT < 21 || (connectivityManager = this.f1593c) == null || (networkCallback = this.f1594d) == null) {
             return;
         }
         try {
             connectivityManager.unregisterNetworkCallback(networkCallback);
         } catch (Throwable th) {
-            CtAuth.warn(f1590a, "unregisterNetworkCallback", th);
+            CtAuth.warn(f1591a, "unregisterNetworkCallback", th);
         }
-        this.f1592c = null;
+        this.f1593c = null;
     }
 
     private boolean b(Context context, String str) {
@@ -213,32 +213,32 @@ public class e {
             boolean z = false;
             try {
                 Class<?> cls = Class.forName("android.net.ConnectivityManager");
-                this.f1595f = 0L;
-                this.f1596g = System.currentTimeMillis();
+                this.f1596f = 0L;
+                this.f1597g = System.currentTimeMillis();
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                this.f1592c = connectivityManager;
+                this.f1593c = connectivityManager;
                 if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0) {
                     Method method = cls.getMethod("startUsingNetworkFeature", Integer.TYPE, String.class);
-                    ConnectivityManager connectivityManager2 = this.f1592c;
+                    ConnectivityManager connectivityManager2 = this.f1593c;
                     Object[] objArr = new Object[2];
                     objArr[0] = 0;
                     objArr[1] = "enableHIPRI";
                     method.invoke(connectivityManager2, objArr);
-                    for (int i2 = 0; i2 < 5 && this.f1592c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i2++) {
+                    for (int i2 = 0; i2 < 5 && this.f1593c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i2++) {
                         Thread.sleep(500L);
                     }
                 }
-                z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.f1592c, 5, Integer.valueOf(a(b(str))))).booleanValue();
-                this.f1595f = System.currentTimeMillis() - this.f1596g;
-                String str2 = f1590a;
+                z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.f1593c, 5, Integer.valueOf(a(b(str))))).booleanValue();
+                this.f1596f = System.currentTimeMillis() - this.f1597g;
+                String str2 = f1591a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("Switch network result ： ");
                 sb.append(z);
                 sb.append(" (4.x) , expendTime ：");
-                sb.append(this.f1595f);
+                sb.append(this.f1596f);
                 CtAuth.info(str2, sb.toString());
             } catch (Throwable th) {
-                CtAuth.warn(f1590a, "4.x网络切换异常", th);
+                CtAuth.warn(f1591a, "4.x网络切换异常", th);
             }
             return z;
         }
@@ -253,10 +253,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f1597a;
+                public final /* synthetic */ int f1598a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f1598b;
+                public final /* synthetic */ e f1599b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -273,36 +273,36 @@ public class e {
                             return;
                         }
                     }
-                    this.f1598b = this;
-                    this.f1597a = i2;
+                    this.f1599b = this;
+                    this.f1598a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f1597a > 2500) {
+                        if (this.f1598a > 2500) {
                             try {
                                 Thread.sleep(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                             } catch (Throwable th) {
-                                CtAuth.warn(e.f1590a, "timeoutCheckRunnable exception!", th);
+                                CtAuth.warn(e.f1591a, "timeoutCheckRunnable exception!", th);
                             }
-                            if (!this.f1598b.f1591b) {
-                                if (this.f1598b.f1594e != null) {
-                                    this.f1598b.f1594e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                            if (!this.f1599b.f1592b) {
+                                if (this.f1599b.f1595e != null) {
+                                    this.f1599b.f1595e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                                 }
-                                CtAuth.info(e.f1590a, "切换网络超时(L)");
-                                this.f1598b.b();
+                                CtAuth.info(e.f1591a, "切换网络超时(L)");
+                                this.f1599b.b();
                                 return;
                             }
                         }
                         try {
-                            Thread.sleep(this.f1597a <= 2500 ? this.f1597a : this.f1597a - 2500);
+                            Thread.sleep(this.f1598a <= 2500 ? this.f1598a : this.f1598a - 2500);
                         } catch (Throwable th2) {
-                            CtAuth.warn(e.f1590a, "timeoutCheckRunnable exception!", th2);
+                            CtAuth.warn(e.f1591a, "timeoutCheckRunnable exception!", th2);
                         }
-                        if (this.f1598b.f1594e != null) {
-                            this.f1598b.f1594e.a();
+                        if (this.f1599b.f1595e != null) {
+                            this.f1599b.f1595e.a();
                         }
                     }
                 }
@@ -313,12 +313,12 @@ public class e {
     public void a(Context context, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aVar) == null) {
-            this.f1594e = aVar;
+            this.f1595e = aVar;
             try {
                 a(context);
             } catch (Throwable th) {
-                CtAuth.warn(f1590a, "switchToMobileForAboveL", th);
-                a aVar2 = this.f1594e;
+                CtAuth.warn(f1591a, "switchToMobileForAboveL", th);
+                a aVar2 = this.f1595e;
                 if (aVar2 != null) {
                     aVar2.a(80801, "WIFI切换异常", -1L);
                 }

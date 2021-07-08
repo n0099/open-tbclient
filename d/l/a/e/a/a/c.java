@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f74519d;
+    public final JSONObject f71571d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context, d.l.a.e.b.j.a aVar, String str, JSONObject jSONObject) {
@@ -39,7 +39,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f74519d = jSONObject;
+        this.f71571d = jSONObject;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -107,13 +107,13 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String optString = this.f74519d.optString("action");
-            String optString2 = this.f74519d.optString("category");
-            int optInt = this.f74519d.optInt("flags", 1342210048);
-            String optString3 = this.f74519d.optString("path_extra_key");
-            String optString4 = this.f74519d.optString("path_data_key");
-            JSONObject optJSONObject = this.f74519d.optJSONObject("extra");
-            JSONObject optJSONObject2 = this.f74519d.optJSONObject("extra_type");
+            String optString = this.f71571d.optString("action");
+            String optString2 = this.f71571d.optString("category");
+            int optInt = this.f71571d.optInt("flags", 1342210048);
+            String optString3 = this.f71571d.optString("path_extra_key");
+            String optString4 = this.f71571d.optString("path_data_key");
+            JSONObject optJSONObject = this.f71571d.optJSONObject("extra");
+            JSONObject optJSONObject2 = this.f71571d.optJSONObject("extra_type");
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
@@ -123,13 +123,13 @@ public class c extends a {
             }
             if (!TextUtils.isEmpty(optString4)) {
                 try {
-                    intent.setData(Uri.parse(String.format(optString4, this.f74518c)));
+                    intent.setData(Uri.parse(String.format(optString4, this.f71570c)));
                 } catch (Throwable unused) {
                 }
             }
             intent.setFlags(optInt);
             if (!TextUtils.isEmpty(optString3)) {
-                intent.putExtra(optString3, this.f74518c);
+                intent.putExtra(optString3, this.f71570c);
             }
             b(intent, optJSONObject, optJSONObject2);
             return intent;

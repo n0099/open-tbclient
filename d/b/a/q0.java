@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,15 +22,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.embedapplog.cb;
 import d.b.a.c1;
 import d.b.a.v0;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class q0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j0<Boolean> f71742a;
+    public static final j0<Boolean> f68845a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a extends j0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +59,7 @@ public final class q0 implements v0 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements c1.b<cb, Pair<String, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,13 +103,13 @@ public final class q0 implements v0 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class c extends v0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f71743c;
+        public long f68846c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -123,7 +124,7 @@ public final class q0 implements v0 {
                     return;
                 }
             }
-            this.f71743c = 0L;
+            this.f68846c = 0L;
         }
     }
 
@@ -140,7 +141,7 @@ public final class q0 implements v0 {
                 return;
             }
         }
-        f71742a = new a();
+        f68845a = new a();
     }
 
     public q0() {
@@ -164,7 +165,7 @@ public final class q0 implements v0 {
             if (context == null) {
                 return false;
             }
-            return f71742a.b(context).booleanValue();
+            return f68845a.b(context).booleanValue();
         }
         return invokeL.booleanValue;
     }
@@ -191,7 +192,7 @@ public final class q0 implements v0 {
     public static Pair<String, Boolean> f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? (Pair) new c1(context, new Intent("com.uodis.opendevice.OPENIDS_SERVICE").setPackage("com.huawei.hwid"), new b()).a() : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? (Pair) new c1(context, new Intent("com.uodis.opendevice.OPENIDS_SERVICE").setPackage("com.huawei.hwid"), new b()).a() : (Pair) invokeL.objValue;
     }
 
     @Override // d.b.a.v0
@@ -216,9 +217,9 @@ public final class q0 implements v0 {
                     String string = Settings.Global.getString(context.getContentResolver(), "pps_oaid");
                     String string2 = Settings.Global.getString(context.getContentResolver(), "pps_track_limit");
                     if (!TextUtils.isEmpty(string)) {
-                        cVar.f71764a = string;
-                        cVar.f71765b = Boolean.parseBoolean(string2);
-                        cVar.f71743c = 202003021704L;
+                        cVar.f68867a = string;
+                        cVar.f68868b = Boolean.parseBoolean(string2);
+                        cVar.f68846c = 202003021704L;
                         return cVar;
                     }
                 } catch (Throwable th) {
@@ -227,9 +228,9 @@ public final class q0 implements v0 {
             }
             Pair<String, Boolean> f2 = f(context);
             if (f2 != null) {
-                cVar.f71764a = (String) f2.first;
-                cVar.f71765b = ((Boolean) f2.second).booleanValue();
-                cVar.f71743c = e(context);
+                cVar.f68867a = (String) f2.first;
+                cVar.f68868b = ((Boolean) f2.second).booleanValue();
+                cVar.f68846c = e(context);
             }
             return cVar;
         }

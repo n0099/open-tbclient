@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_DEPTH = 4;

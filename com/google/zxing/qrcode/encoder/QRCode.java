@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Mode;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class QRCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUM_MASK_PATTERNS = 8;

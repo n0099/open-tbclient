@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.os.Messenger;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +27,7 @@ import com.xiaomi.push.iv;
 import com.xiaomi.push.service.av;
 import java.nio.ByteBuffer;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +61,7 @@ public final class y {
                 String str = lVar.f962a;
                 ibVar.f633a.f558a = str.substring(0, str.indexOf(TNCManager.TNC_PROBE_HEADER_SECEPTOR));
                 ibVar.f633a.f562c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f43675c);
+                faVar.a(ip.a(ibVar), lVar.f40689c);
                 faVar.a((short) 1);
                 com.xiaomi.channel.commonutils.logger.b.m70a("try send mi push message. packagename:" + ibVar.f638b + " action:" + ibVar.f631a);
                 return faVar;
@@ -81,7 +82,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f43244i);
+            return a(str, str2, ieVar, hf.f40258i);
         }
         return (ib) invokeLL.objValue;
     }
@@ -95,7 +96,7 @@ public final class y {
     public static <T extends iq<T, ?>> ib a(String str, String str2, T t, hf hfVar, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, str2, t, hfVar, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, t, hfVar, Boolean.valueOf(z)})) == null) {
             byte[] a2 = ip.a(t);
             ib ibVar = new ib();
             hu huVar = new hu();

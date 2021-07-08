@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.pixel;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,7 +95,7 @@ public final class PixelType {
     public static PixelType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (PixelType[]) $VALUES.clone() : (PixelType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PixelType[]) $VALUES.clone() : (PixelType[]) invokeV.objValue;
     }
 
     public int getValue() {

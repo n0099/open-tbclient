@@ -11,31 +11,32 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.JanusConnection;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.rtc.RTCAudioSamples;
+import com.baidu.rtc.RTCCommStatesReport;
 import com.baidu.rtc.RTCLoadManager;
 import com.baidu.rtc.RTCVideoView;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
 import com.baidu.rtc.RtcParameterSettings;
+import com.baidu.rtc.config.Constraints;
+import com.baidu.rtc.logreport.HUDStatistics;
 import com.baidu.rtc.logreport.RtcReportHandle;
 import com.baidu.rtc.player.AsyncHttpRequest;
 import com.baidu.rtc.player.BRTCPlayer;
 import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.rtc.record.RTCMediaRecorderImpl;
 import com.baidu.rtc.record.RecorderCallback;
+import com.baidu.rtc.signalling.play.RemoteSdpRequest;
+import com.baidu.rtc.signalling.play.RemoteSdpResponse;
 import com.baidu.rtc.snapshot.SnapShotCallback;
 import com.baidu.rtc.snapshot.SnapShotHelper;
+import com.baidu.rtc.utils.CommonUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ABTestConstants;
-import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
-import java.util.Random;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.webrtc.AudioTrack;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase_CC;
@@ -46,21 +47,30 @@ import org.webrtc.SessionDescription;
 import org.webrtc.StatsReport;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConnectionEvents {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEFAULT_STREAMING_INTERRUPT_PERIOD = 3;
+    public static final int DEFAULT_AUDIO_BUFFER_MAINTAINABLE_MS = 50;
+    public static final int DEFAULT_AUDIO_BUFFER_UNDER_LOAD_MS = 20;
+    public static final int DEFAULT_BUFFERING_DETECT_MS = 200;
+    public static final int DEFAULT_BUFFERING_DETECT_PERIOD = 1;
+    public static final int DEFAULT_STATS_REPORT_PERIOD = 5;
+    public static final int DEFAULT_STREAMING_INTERRUPT_PERIOD = 30;
     public static final String STREAM_URL_PREFIX = "webrtc://";
     public static final String TAG = "BRTCPlayer";
     public transient /* synthetic */ FieldHolder $fh;
     public String mAppId;
+    public int mAudioBufferMaintainableLevel;
+    public int mAudioBufferUnderLoadLevel;
     public AudioTrack mAudioTrack;
+    public volatile int mBufferingDetectCount;
+    public int mBufferingDetectPeriod;
     public final Context mContext;
     public volatile BRTCPlayer.PlayerState mCurrentState;
     public RtcParameterSettings mDefaultSettings;
-    public boolean mEnablePullQualityMonitor;
     public BRTCPlayerEvents mEventObserver;
     public Handler mHandler;
+    public volatile boolean mIsBuffing;
     public RTCLoadManager.LoadListener mLoadListener;
     public long mLocalUserId;
     public BigInteger mPlayTransactionId;
@@ -75,6 +85,8 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     public RtcReportHandle mReportHandler;
     public String mRoomId;
     public EglBase mRootEglBase;
+    public volatile int mStatsReportCount;
+    public int mStatsReportPeriod;
     public String mStreamUrl;
     public int mStreamingInterruptDetectPeriod;
     public volatile int mStreamingValidityDetectCount;
@@ -98,15 +110,19 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                 return;
             }
         }
-        this.mStreamingInterruptDetectPeriod = 3;
+        this.mStreamingInterruptDetectPeriod = 30;
+        this.mStatsReportPeriod = 5;
+        this.mBufferingDetectPeriod = 5;
         this.mHandler = new Handler(Looper.getMainLooper());
         this.peerConnectionClient = null;
         this.peerConnectionParameters = null;
         this.mDefaultSettings = new RtcParameterSettings();
-        this.mEnablePullQualityMonitor = true;
         this.mPlayTransactionId = null;
         this.mCurrentState = BRTCPlayer.PlayerState.STATE_IDLE;
         this.mLocalUserId = -1L;
+        this.mIsBuffing = false;
+        this.mAudioBufferUnderLoadLevel = 20;
+        this.mAudioBufferMaintainableLevel = 50;
         this.mRendererEvents = new RendererCommon.RendererEvents(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +166,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                 this.this$0.mEventObserver.onResolutionChanged(i4, i5);
             }
         };
-        this.mLoadListener = new RTCLoadManager.LoadListener(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.3
+        this.mLoadListener = new RTCLoadManager.LoadListener(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BRTCPlayerImpl this$0;
@@ -177,10 +193,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             public void onLoadError(int i4, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str) == null) {
-                    if (this.this$0.mEventObserver != null) {
-                        this.this$0.mEventObserver.onError(10010, "Libraries load fail");
-                    }
-                    this.this$0.setCurrentState(BRTCPlayer.PlayerState.STATE_ERROR);
+                    this.this$0.reportError(10010, "Libraries load fail");
                 }
             }
 
@@ -239,88 +252,66 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         this.mLocalUserId = -1L;
         this.mRootEglBase = EglBase_CC.create();
         this.mReportHandler = RtcReportHandle.getInstance(this.mContext);
-        RtcReportHandle.enablePullQualityMonitor(true);
+        RtcReportHandle.enableMonitor(true, true, false);
     }
 
     private void closePeer(BigInteger bigInteger) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, bigInteger) == null) {
-            this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ BRTCPlayerImpl this$0;
-                public final /* synthetic */ BigInteger val$handleId;
+        if (!(interceptable == null || interceptable.invokeL(65556, this, bigInteger) == null) || bigInteger == null) {
+            return;
+        }
+        this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BRTCPlayerImpl this$0;
+            public final /* synthetic */ BigInteger val$handleId;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bigInteger};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$handleId = bigInteger;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.peerConnectionClient == null) {
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, bigInteger};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
-                    this.this$0.peerConnectionClient.closePeer(this.val$handleId);
                 }
-            });
-        }
+                this.this$0 = this;
+                this.val$handleId = bigInteger;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.peerConnectionClient == null) {
+                    return;
+                }
+                this.this$0.peerConnectionClient.closePeer(this.val$handleId);
+            }
+        });
     }
 
     private BigInteger createPlayerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? BigInteger.valueOf(new Random().nextInt(ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT)) : (BigInteger) invokeV.objValue;
-    }
-
-    private String formatPlayInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
-            if (this.mPlayTransactionId == null || this.mRoomId == null || this.mUserId == null || this.mRemoteHandleId == null) {
-                return "";
-            }
-            return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + "\n";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? BigInteger.valueOf(Long.valueOf(CommonUtils.randomNumber(14)).longValue()) : (BigInteger) invokeV.objValue;
     }
 
     private boolean isCanPlayState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) ? (this.mCurrentState == BRTCPlayer.PlayerState.STATE_IDLE || this.mCurrentState == BRTCPlayer.PlayerState.STATE_PLAYING || this.mCurrentState == BRTCPlayer.PlayerState.STATE_PREPARED) ? false : true : invokeV.booleanValue;
-    }
-
-    private void jsonPut(JSONObject jSONObject, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65560, this, jSONObject, str, obj) == null) {
-            try {
-                jSONObject.put(str, obj);
-            } catch (JSONException e2) {
-                throw new RuntimeException(e2);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) ? (this.mCurrentState == BRTCPlayer.PlayerState.STATE_IDLE || this.mCurrentState == BRTCPlayer.PlayerState.STATE_PLAYING || this.mCurrentState == BRTCPlayer.PlayerState.STATE_PREPARED) ? false : true : invokeV.booleanValue;
     }
 
     private void offerPeerConnection(BigInteger bigInteger) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, this, bigInteger) == null) {
-            this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.4
+        if (interceptable == null || interceptable.invokeL(65559, this, bigInteger) == null) {
+            this.mHandler.post(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BRTCPlayerImpl this$0;
@@ -360,14 +351,10 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
 
     private void prepareSdp(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65562, this, j, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jsonPut(jSONObject, "sdktag", "BRTC.HTTP.PULL.SDK");
-            jsonPut(jSONObject, "sdp", str);
-            jsonPut(jSONObject, "transaction", String.valueOf(j));
-            jsonPut(jSONObject, "streamurl", this.mStreamUrl);
+        if (interceptable == null || interceptable.invokeJL(65560, this, j, str) == null) {
+            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j, this.mStreamUrl);
             Logging.d(TAG, "Connecting to signaling server: " + this.mPullUrl + "\n offer sdp:" + str);
-            AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest("POST", this.mPullUrl, jSONObject.toString(), "application/json", new AsyncHttpRequest.AsyncHttpEvents(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.6
+            AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest("POST", this.mPullUrl, remoteSdpRequest.toJSONString(), "application/json", new AsyncHttpRequest.AsyncHttpEvents(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BRTCPlayerImpl this$0;
@@ -400,35 +387,34 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                             bRTCPlayerImpl.reportError(10007, "Set remote sdp in invalid state: " + this.this$0.mCurrentState);
                             return;
                         }
-                        try {
-                            JSONObject jSONObject2 = new JSONObject(str2);
-                            String optString = jSONObject2.optString("sdp");
-                            this.this$0.mRemoteHandleId = jSONObject2.optString("handleid");
-                            String optString2 = jSONObject2.optString(BaseStatisContent.SESSIONID);
-                            JSONObject jSONObject3 = new JSONObject(jSONObject2.optString("data"));
-                            this.this$0.mAppId = jSONObject3.optString("appid");
-                            this.this$0.mRoomId = jSONObject3.optString("room");
-                            jSONObject3.optString("roomname");
-                            this.this$0.mUserId = jSONObject3.optString("id");
-                            if (this.this$0.mLocalUserId > 0) {
-                                this.this$0.mUserId = String.valueOf(this.this$0.mLocalUserId);
-                            }
-                            String optString3 = jSONObject3.optString("feed");
-                            Logging.d(BRTCPlayerImpl.TAG, "play response from signaling server: " + str2);
-                            if (optString == null || optString.length() <= 0) {
-                                return;
-                            }
-                            Logging.d(BRTCPlayerImpl.TAG, "obtain answer sdp : " + optString);
-                            this.this$0.setRemoteSdp(optString);
-                            this.this$0.mReportHandler.updateRoomInfo(this.this$0.mAppId, this.this$0.mRoomId, this.this$0.mUserId, optString3, this.this$0.mRemoteHandleId, optString2);
-                            if (!TextUtils.isEmpty(this.this$0.mRemoteHandleId)) {
-                                this.this$0.mReportHandler.startPeerPullReport(this.this$0.mPlayTransactionId, this.this$0.peerConnectionClient);
-                                this.this$0.mReportHandler.startDeviceInfoReport();
-                            }
-                            this.this$0.setCurrentState(BRTCPlayer.PlayerState.STATE_PREPARED);
-                        } catch (JSONException unused) {
-                            this.this$0.reportError(10007, "remote sdp parsing error.");
+                        RemoteSdpResponse newFromJsonStr = RemoteSdpResponse.newFromJsonStr(str2);
+                        String sdp = newFromJsonStr.getSdp();
+                        this.this$0.mRemoteHandleId = newFromJsonStr.getRemoteHandleId();
+                        String sessionId = newFromJsonStr.getSessionId();
+                        this.this$0.mAppId = newFromJsonStr.getAppId();
+                        this.this$0.mRoomId = newFromJsonStr.getRoomId();
+                        newFromJsonStr.getRoomName();
+                        this.this$0.mUserId = newFromJsonStr.getUserId();
+                        if (this.this$0.mLocalUserId > 0) {
+                            BRTCPlayerImpl bRTCPlayerImpl2 = this.this$0;
+                            bRTCPlayerImpl2.mUserId = String.valueOf(bRTCPlayerImpl2.mLocalUserId);
                         }
+                        String feed = newFromJsonStr.getFeed();
+                        Logging.d(BRTCPlayerImpl.TAG, "play response from signaling server: " + str2);
+                        if (sdp == null || sdp.length() <= 0) {
+                            this.this$0.reportError(10007, "remote sdp parsing error.");
+                            return;
+                        }
+                        Logging.d(BRTCPlayerImpl.TAG, "obtain answer sdp : " + sdp);
+                        this.this$0.setRemoteSdp(sdp);
+                        this.this$0.mReportHandler.updateRoomInfo(this.this$0.mAppId, this.this$0.mRoomId, this.this$0.mUserId, feed, this.this$0.mRemoteHandleId, sessionId);
+                        if (!TextUtils.isEmpty(this.this$0.mRemoteHandleId)) {
+                            RtcReportHandle rtcReportHandle = this.this$0.mReportHandler;
+                            BRTCPlayerImpl bRTCPlayerImpl3 = this.this$0;
+                            rtcReportHandle.startPeerPullReport(bRTCPlayerImpl3.mPlayTransactionId, bRTCPlayerImpl3.peerConnectionClient);
+                            this.this$0.mReportHandler.startDeviceInfoReport();
+                        }
+                        this.this$0.setCurrentState(BRTCPlayer.PlayerState.STATE_PREPARED);
                     }
                 }
 
@@ -450,9 +436,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     /* JADX INFO: Access modifiers changed from: private */
     public void reportError(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65563, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65561, this, i2, str) == null) {
             Logging.d(TAG, "report error: " + str);
-            if (getPlayerState() != BRTCPlayer.PlayerState.STATE_ERROR && getPlayerState() != BRTCPlayer.PlayerState.STATE_STOP) {
+            if (getPlayerState() != BRTCPlayer.PlayerState.STATE_ERROR && getPlayerState() != BRTCPlayer.PlayerState.STATE_IDLE) {
                 BRTCPlayerEvents bRTCPlayerEvents = this.mEventObserver;
                 if (bRTCPlayerEvents != null) {
                     bRTCPlayerEvents.onError(i2, str);
@@ -467,7 +453,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     /* JADX INFO: Access modifiers changed from: private */
     public void setCurrentState(BRTCPlayer.PlayerState playerState) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65564, this, playerState) == null) || this.mCurrentState == playerState) {
+        if (!(interceptable == null || interceptable.invokeL(65562, this, playerState) == null) || this.mCurrentState == playerState) {
             return;
         }
         this.mCurrentState = playerState;
@@ -475,6 +461,12 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         if (bRTCPlayerEvents != null) {
             bRTCPlayerEvents.onPlayerStateChanged(this.mCurrentState);
         }
+    }
+
+    public static String version() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) ? Constraints.version() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.rtc.player.BRTCPlayer
@@ -524,7 +516,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             RtcParameterSettings rtcParameterSettings2 = this.mDefaultSettings;
             this.peerConnectionParameters = new PeerConnectionClient.PeerConnectionParameters(false, -1, -1, i2, upperCase, true, 0, "", false, false, rtcParameterSettings2.DisableBuiltInAEC, true, true, rtcParameterSettings2.VideoMaxkbps, rtcParameterSettings2.VideoMinkbps, rtcParameterSettings2.MicPhoneMuted, rtcParameterSettings2.CameraMuted, true, rtcParameterSettings2.EnableFixedResolution, rtcParameterSettings2.EnableRequiredResolutionAligment32, rtcParameterSettings2.EnableHighProfile, rtcParameterSettings2.AudioMaxkbps, rtcParameterSettings2.audioBitrateMode, rtcParameterSettings2.TransportAudioChannel, rtcParameterSettings2.EncodeBitrateMode, rtcParameterSettings2.EnableHisiH264HW, rtcParameterSettings2.EnableMTKH264Decode, 0, rtcParameterSettings2.AudioBufferPackets, rtcParameterSettings2.AudioPlayoutDelay, rtcParameterSettings2.AudioCodecComplex, true, 2);
             this.peerConnectionClient.createPeerConnectionFactory((Context) weakReference.get(), this.peerConnectionParameters, this);
-            Log.i(TAG, " BRTCPlayer initilized :" + this);
+            Log.d(TAG, "Rtc Sdk Version  " + Constraints.sdkVersion());
             return true;
         }
         return invokeV.booleanValue;
@@ -538,11 +530,32 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             this.mPlayerParameters = bRTCPlayerParameters;
             this.mPullUrl = bRTCPlayerParameters.getPullUrl();
             this.mLocalUserId = this.mPlayerParameters.getUserId();
-            int streamingInterruptDetectInterval = (this.mPlayerParameters.getStreamingInterruptDetectInterval() * 1000) / 2000;
+            int streamingInterruptDetectInterval = this.mPlayerParameters.getStreamingInterruptDetectInterval() / 200;
             this.mStreamingInterruptDetectPeriod = streamingInterruptDetectInterval;
             if (streamingInterruptDetectInterval <= 0) {
-                this.mStreamingInterruptDetectPeriod = 3;
+                this.mStreamingInterruptDetectPeriod = 30;
             }
+            int statsReportIntervalMs = this.mPlayerParameters.getStatsReportIntervalMs() / 200;
+            this.mStatsReportPeriod = statsReportIntervalMs;
+            if (statsReportIntervalMs <= 0) {
+                this.mStatsReportPeriod = 5;
+            }
+            int bufferingDetectIntervalMs = this.mPlayerParameters.getBufferingDetectIntervalMs() / 200;
+            this.mBufferingDetectPeriod = bufferingDetectIntervalMs;
+            if (bufferingDetectIntervalMs <= 0) {
+                this.mBufferingDetectPeriod = 1;
+            }
+            int audioBufferUnderLoadLevel = this.mPlayerParameters.getAudioBufferUnderLoadLevel();
+            this.mAudioBufferUnderLoadLevel = audioBufferUnderLoadLevel;
+            if (audioBufferUnderLoadLevel < 0) {
+                this.mAudioBufferUnderLoadLevel = 20;
+            }
+            int audioBufferMaintainableLevel = this.mPlayerParameters.getAudioBufferMaintainableLevel();
+            this.mAudioBufferMaintainableLevel = audioBufferMaintainableLevel;
+            if (audioBufferMaintainableLevel < 0) {
+                this.mAudioBufferMaintainableLevel = 50;
+            }
+            this.mIsBuffing = false;
             initPeerConnectionClient();
             setCurrentState(BRTCPlayer.PlayerState.STATE_INITIALIZED);
         }
@@ -625,42 +638,63 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     public void onPeerConnectionError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            BRTCPlayerEvents bRTCPlayerEvents = this.mEventObserver;
-            if (bRTCPlayerEvents != null) {
-                bRTCPlayerEvents.onError(10003, str);
-            }
-            setCurrentState(BRTCPlayer.PlayerState.STATE_ERROR);
-            Logging.d(TAG, "peer connection error appear :" + str);
+            reportError(10003, str);
         }
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
     public void onPeerConnectionStatsReady(StatsReport[] statsReportArr, BigInteger bigInteger, PeerConnectionClient.StatsEventsType statsEventsType) {
+        RtcReportHandle rtcReportHandle;
+        HUDStatistics updateStatsData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048590, this, statsReportArr, bigInteger, statsEventsType) == null) {
-            RtcReportHandle rtcReportHandle = this.mReportHandler;
-            if (rtcReportHandle != null && bigInteger != null) {
-                rtcReportHandle.onPeerStatisticsReport(statsReportArr, bigInteger, statsEventsType);
+        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, statsReportArr, bigInteger, statsEventsType) == null) || (rtcReportHandle = this.mReportHandler) == null || bigInteger == null || (updateStatsData = rtcReportHandle.updateStatsData(statsReportArr, bigInteger)) == null) {
+            return;
+        }
+        if (statsEventsType != PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT) {
+            if (statsEventsType == PeerConnectionClient.StatsEventsType.GET_SLI_EVENT || statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
+                this.mReportHandler.onPeerStatisticsReport(statsEventsType);
+                return;
             }
-            if (statsEventsType == PeerConnectionClient.StatsEventsType.GET_QUALITY_MONITOR_EVENT) {
-                if (this.mReportHandler != null && this.mEventObserver != null) {
-                    this.mEventObserver.onInfoUpdated(1003, formatPlayInfo() + this.mReportHandler.getStreamingStatesInfo(bigInteger, 19));
+            return;
+        }
+        if (this.mEventObserver != null) {
+            int i2 = updateStatsData.mAudioJitterBufferMs;
+            if (i2 < this.mAudioBufferUnderLoadLevel) {
+                this.mBufferingDetectCount++;
+                if (this.mBufferingDetectCount < this.mBufferingDetectPeriod || this.mIsBuffing) {
+                    Logging.d(TAG, "Audio jitter buffer underflow " + i2 + " ms times " + this.mBufferingDetectCount);
+                } else {
+                    this.mIsBuffing = true;
+                    this.mBufferingDetectCount = 0;
+                    this.mEventObserver.onInfoUpdated(1004, "Buffering start with buffer capacity " + i2);
                 }
-                RtcReportHandle rtcReportHandle2 = this.mReportHandler;
-                if (rtcReportHandle2 == null || rtcReportHandle2.streamingValidityDetect(bigInteger)) {
-                    this.mStreamingValidityDetectCount = 0;
-                    return;
+            } else if (i2 > this.mAudioBufferMaintainableLevel) {
+                if (this.mIsBuffing) {
+                    this.mIsBuffing = false;
+                    this.mEventObserver.onInfoUpdated(1005, "Buffering end with buffer capacity " + i2);
                 }
-                int i2 = this.mStreamingValidityDetectCount + 1;
-                this.mStreamingValidityDetectCount = i2;
-                if (i2 != this.mStreamingInterruptDetectPeriod || getPlayerState() == BRTCPlayer.PlayerState.STATE_ERROR || getPlayerState() == BRTCPlayer.PlayerState.STATE_STOP) {
-                    return;
-                }
-                Logging.d(TAG, "streaming interrupt error appeared!");
-                stopPlay();
-                reportError(10009, "streaming interrupt");
+                this.mBufferingDetectCount = 0;
+            }
+            int i3 = this.mStatsReportCount + 1;
+            this.mStatsReportCount = i3;
+            if (i3 >= this.mStatsReportPeriod) {
+                RTCCommStatesReport rTCCommStatesReport = new RTCCommStatesReport(this.mPlayTransactionId, this.mRoomId, this.mUserId, this.mRemoteHandleId, updateStatsData);
+                rTCCommStatesReport.setDebugFlag(19);
+                this.mEventObserver.onInfoUpdated(1003, rTCCommStatesReport);
+                this.mStatsReportCount = 0;
             }
         }
+        if (!this.mReportHandler.streamingValidityDetect(bigInteger)) {
+            int i4 = this.mStreamingValidityDetectCount + 1;
+            this.mStreamingValidityDetectCount = i4;
+            if (i4 != this.mStreamingInterruptDetectPeriod || getPlayerState() == BRTCPlayer.PlayerState.STATE_ERROR || getPlayerState() == BRTCPlayer.PlayerState.STATE_STOP) {
+                return;
+            }
+            Logging.d(TAG, "streaming interrupt error appeared!");
+            stopPlay();
+            reportError(10009, "streaming interrupt");
+        }
+        this.mStreamingValidityDetectCount = 0;
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
@@ -717,7 +751,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         if (!(interceptable == null || interceptable.invokeLLL(1048594, this, bool, bool2, bigInteger) == null) || (bRTCPlayerEvents = this.mEventObserver) == null) {
             return;
         }
-        bRTCPlayerEvents.onRemoteStreamStats(bool, bool2, bigInteger);
+        bRTCPlayerEvents.onRemoteStreamStats(bool.booleanValue(), bool2.booleanValue(), bigInteger);
     }
 
     @Override // com.baidu.rtc.PeerConnectionClient.PeerConnectionEvents
@@ -920,18 +954,17 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                 if (this.mPlayTransactionId != null && getPlayerState() == BRTCPlayer.PlayerState.STATE_ERROR) {
                     stopPlay();
                 }
-                if (isCanPlayState()) {
-                    this.mPlayTransactionId = createPlayerHandler();
-                    Logging.d(TAG, "Create play transactionId:" + this.mPlayTransactionId);
-                    offerPeerConnection(this.mPlayTransactionId);
-                    this.mStreamingValidityDetectCount = 0;
-                    setCurrentState(BRTCPlayer.PlayerState.STATE_PREPARING);
+                if (!isCanPlayState()) {
+                    reportError(10008, "Play failed invalid state " + getPlayerState() + " with" + this.mStreamUrl);
                     return;
                 }
-                BRTCPlayerEvents bRTCPlayerEvents2 = this.mEventObserver;
-                if (bRTCPlayerEvents2 != null) {
-                    bRTCPlayerEvents2.onError(10008, "Play failed invalid state " + getPlayerState() + " with" + this.mStreamUrl);
-                }
+                this.mPlayTransactionId = createPlayerHandler();
+                Logging.d(TAG, "Create play transactionId:" + this.mPlayTransactionId);
+                offerPeerConnection(this.mPlayTransactionId);
+                this.mIsBuffing = false;
+                this.mBufferingDetectCount = 0;
+                this.mStreamingValidityDetectCount = 0;
+                setCurrentState(BRTCPlayer.PlayerState.STATE_PREPARING);
             }
         }
     }
@@ -978,6 +1011,8 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         closePeer(this.mPlayTransactionId);
         this.mPlayTransactionId = null;
         this.mStreamingValidityDetectCount = 0;
+        this.mIsBuffing = false;
+        this.mBufferingDetectCount = 0;
         setCurrentState(BRTCPlayer.PlayerState.STATE_STOP);
     }
 

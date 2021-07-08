@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.util;
 
 import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FormatTools";
@@ -106,7 +107,7 @@ public class FormatTools {
     public static String getDateStr(SimpleDateFormat simpleDateFormat, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65540, null, simpleDateFormat, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j)) == null) {
             try {
                 return simpleDateFormat.format(new Date(j));
             } catch (Exception e2) {

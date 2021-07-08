@@ -107,7 +107,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";
@@ -177,7 +177,7 @@ public class BosClient extends AbstractBceClient {
 
     private void assertStringNotNullOrEmpty(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2) == null) {
             if (str != null) {
                 if (str.isEmpty()) {
                     throw new IllegalArgumentException(str2);

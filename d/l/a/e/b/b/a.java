@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.e.b.g.e;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f74666b;
+    public static volatile a f71718b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f74667a;
+    public boolean f71719a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -40,21 +40,21 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f74667a = false;
+        this.f71719a = false;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f74666b == null) {
+            if (f71718b == null) {
                 synchronized (a.class) {
-                    if (f74666b == null) {
-                        f74666b = new a();
+                    if (f71718b == null) {
+                        f71718b = new a();
                     }
                 }
             }
-            return f74666b;
+            return f71718b;
         }
         return (a) invokeV.objValue;
     }
@@ -65,14 +65,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context n = e.n();
-            if (!this.f74667a && n != null) {
+            if (!this.f71719a && n != null) {
                 try {
                     File file = new File("/data/data/" + n.getPackageName() + "/database/main/");
                     if (!file.exists()) {
                         file.mkdir();
                     }
                     super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                    this.f74667a = true;
+                    this.f71719a = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

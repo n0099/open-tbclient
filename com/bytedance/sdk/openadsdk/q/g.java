@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f32186a;
+    public Context f32296a;
 
     public g(Context context) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class g implements f {
                 return;
             }
         }
-        this.f32186a = context;
+        this.f32296a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.q.f
@@ -47,7 +47,7 @@ public class g implements f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 linkedList = new LinkedList();
-                Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32186a, "trackurl", null, null, null, null, null, null);
+                Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", null, null, null, null, null, null);
                 if (a2 != null) {
                     while (a2.moveToNext()) {
                         linkedList.add(new e(a2.getString(a2.getColumnIndex("id")), a2.getString(a2.getColumnIndex("url")), a2.getInt(a2.getColumnIndex("replaceholder")) > 0, a2.getInt(a2.getColumnIndex(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM))));
@@ -72,7 +72,7 @@ public class g implements f {
                 contentValues.put("url", eVar.b());
                 contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
                 contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32186a, "trackurl", contentValues, "id=?", new String[]{eVar.a()});
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", contentValues, "id=?", new String[]{eVar.a()});
             }
         }
     }
@@ -82,7 +82,7 @@ public class g implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
             synchronized (this) {
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32186a, "trackurl", "id=?", new String[]{eVar.a()});
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", "id=?", new String[]{eVar.a()});
             }
         }
     }
@@ -106,7 +106,7 @@ public class g implements f {
                 contentValues.put("url", eVar.b());
                 contentValues.put("replaceholder", Integer.valueOf(eVar.c() ? 1 : 0));
                 contentValues.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, Integer.valueOf(eVar.d()));
-                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32186a, "trackurl", contentValues);
+                com.bytedance.sdk.openadsdk.multipro.a.a.a(this.f32296a, "trackurl", contentValues);
             }
         }
     }

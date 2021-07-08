@@ -59,7 +59,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES;
@@ -93,7 +93,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     public int[] tmpStatesArray;
     public int totalScrollRange;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
@@ -109,7 +109,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         public float offsetToChildIndexOnLayoutPerc;
         public BaseDragCallback onDragCallback;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static abstract class BaseDragCallback<T extends AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         private void addActionToExpand(CoordinatorLayout coordinatorLayout, @NonNull T t, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{coordinatorLayout, t, accessibilityActionCompat, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{coordinatorLayout, t, accessibilityActionCompat, Boolean.valueOf(z)}) == null) {
                 ViewCompat.replaceAccessibilityAction(coordinatorLayout, accessibilityActionCompat, null, new AccessibilityViewCommand(this, t, z) { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -898,7 +898,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             this.offsetToChildIndexOnLayout = -1;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static class SavedState extends AbsSavedState {
             public static /* synthetic */ Interceptable $ic;
             public static final Parcelable.Creator<SavedState> CREATOR;
@@ -1025,17 +1025,17 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface BaseOnOffsetChangedListener<T extends AppBarLayout> {
         void onOffsetChanged(T t, int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Behavior extends BaseBehavior<AppBarLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static abstract class DragCallback extends BaseBehavior.BaseDragCallback<AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1176,13 +1176,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener<AppBarLayout> {
         @Override // com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         void onOffsetChanged(AppBarLayout appBarLayout, int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1226,7 +1226,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         private void updateLiftedStateIfNeeded(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65540, this, view, view2) == null) && (view2 instanceof AppBarLayout)) {
+            if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view, view2) == null) && (view2 instanceof AppBarLayout)) {
                 AppBarLayout appBarLayout = (AppBarLayout) view2;
                 if (appBarLayout.isLiftOnScroll()) {
                     appBarLayout.setLiftedState(appBarLayout.shouldLift(view));
@@ -1453,7 +1453,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
     private void clearLiftOnScrollTargetView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             WeakReference<View> weakReference = this.liftOnScrollTargetView;
             if (weakReference != null) {
                 weakReference.clear();
@@ -2338,7 +2338,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSIBLE_FLAGS = 10;
@@ -2357,7 +2357,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public @interface ScrollFlags {
         }
 
@@ -2498,13 +2498,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }

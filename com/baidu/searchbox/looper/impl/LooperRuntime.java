@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.b.b;
-import d.a.j0.a.b.c;
-import d.a.j0.a.b.d;
+import d.a.g0.a.b.b;
+import d.a.g0.a.b.c;
+import d.a.g0.a.b.d;
 import d.e.b.a.j.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LooperRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT;
@@ -192,7 +192,7 @@ public class LooperRuntime {
     public void initmLooperNeedContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            d.a.j0.a.b.a b2 = d.a.j0.a.b.a.b();
+            d.a.g0.a.b.a b2 = d.a.g0.a.b.a.b();
             this.mLooperNeedContext = b2;
             b2.a(new ILooperNeedContext_LooperRuntime_Provider());
         }

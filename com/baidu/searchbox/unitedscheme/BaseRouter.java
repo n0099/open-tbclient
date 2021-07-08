@@ -3,6 +3,7 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BaseRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +98,7 @@ public class BaseRouter {
     public static boolean invokeScheme(Context context, Uri uri, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, uri, str)) == null) ? invokeScheme(context, uri, str, null) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uri, str)) == null) ? invokeScheme(context, uri, str, null) : invokeLLL.booleanValue;
     }
 
     @Deprecated

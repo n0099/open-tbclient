@@ -15,26 +15,26 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ExoSoSource extends UnpackingSoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.soloader.ExoSoSource$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public final class ExoUnpacker extends UnpackingSoSource.Unpacker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FileDso[] mDsos;
         public final /* synthetic */ ExoSoSource this$0;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public final class FileBackedInputDsoIterator extends UnpackingSoSource.InputDsoIterator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public final class ExoSoSource extends UnpackingSoSource {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class FileDso extends UnpackingSoSource.Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

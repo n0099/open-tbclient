@@ -1,6 +1,7 @@
 package com.baidu.searchbox.pms.init.response;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.db.PackageTable;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ParseUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class ParseUtils {
     public static List<PackageInfo> parseItems(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONObject)) == null) ? parseItems("aps", jSONObject) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) ? parseItems("aps", jSONObject) : (List) invokeL.objValue;
     }
 
     public static PackageInfo parsePkgItem(String str, String str2, JSONObject jSONObject) {

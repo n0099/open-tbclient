@@ -1,5 +1,6 @@
 package okhttp3.internal.http;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.response.ResponseException;
@@ -33,7 +34,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FOLLOW_UPS = 20;
@@ -182,7 +183,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
     private boolean recover(IOException iOException, StreamAllocation streamAllocation, boolean z, Request request) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{iOException, streamAllocation, Boolean.valueOf(z), request})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{iOException, streamAllocation, Boolean.valueOf(z), request})) == null) {
             streamAllocation.streamFailed(iOException);
             if (this.client.retryOnConnectionFailure()) {
                 return !(z && (request.body() instanceof UnrepeatableRequestBody)) && isRecoverable(iOException, z) && streamAllocation.hasMoreRoutes();

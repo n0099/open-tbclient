@@ -1,5 +1,6 @@
 package com.baidu.location.b;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,36 +9,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f6555a = null;
+    public static g f6572a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6556b = "Temp_in.dat";
+    public static String f6573b = "Temp_in.dat";
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f6557c;
+    public static File f6574c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static StringBuffer f6558d;
+    public static StringBuffer f6575d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f6559e;
+    public static boolean f6576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6560f;
+    public static int f6577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6561g;
+    public static int f6578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f6562h;
+    public static long f6579h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f6563i;
+    public static long f6580i;
     public static long j;
     public static double k;
     public static double l;
@@ -59,13 +60,13 @@ public class g {
                 return;
             }
         }
-        f6557c = new File(com.baidu.location.e.j.f6790a, f6556b);
-        f6558d = null;
-        f6559e = true;
-        f6560f = 0;
-        f6561g = 0;
-        f6562h = 0L;
-        f6563i = 0L;
+        f6574c = new File(com.baidu.location.e.j.f6807a, f6573b);
+        f6575d = null;
+        f6576e = true;
+        f6577f = 0;
+        f6578g = 0;
+        f6579h = 0L;
+        f6580i = 0L;
         j = 0L;
         k = 0.0d;
         l = 0.0d;
@@ -83,10 +84,10 @@ public class g {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = f6557c;
+            File file = f6574c;
             if (file != null && file.exists()) {
                 try {
-                    randomAccessFile = new RandomAccessFile(f6557c, "rw");
+                    randomAccessFile = new RandomAccessFile(f6574c, "rw");
                     randomAccessFile.seek(0L);
                     readInt = randomAccessFile.readInt();
                     readInt2 = randomAccessFile.readInt();
@@ -141,12 +142,12 @@ public class g {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f6559e = true;
-            f6558d = null;
-            f6560f = 0;
-            f6561g = 0;
-            f6562h = 0L;
-            f6563i = 0L;
+            f6576e = true;
+            f6575d = null;
+            f6577f = 0;
+            f6578g = 0;
+            f6579h = 0L;
+            f6580i = 0L;
             j = 0L;
             k = 0.0d;
             l = 0.0d;
@@ -159,23 +160,23 @@ public class g {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (f6557c.exists()) {
-                f6557c.delete();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f6574c.exists()) {
+                f6574c.delete();
             }
-            if (!f6557c.getParentFile().exists()) {
-                f6557c.getParentFile().mkdirs();
+            if (!f6574c.getParentFile().exists()) {
+                f6574c.getParentFile().mkdirs();
             }
             try {
-                f6557c.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f6557c, "rw");
+                f6574c.createNewFile();
+                RandomAccessFile randomAccessFile = new RandomAccessFile(f6574c, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(1);
                 randomAccessFile.close();
                 b();
-                return f6557c.exists();
+                return f6574c.exists();
             } catch (IOException unused) {
                 return false;
             }

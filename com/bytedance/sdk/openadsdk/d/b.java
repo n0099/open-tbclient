@@ -14,21 +14,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Callable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class b implements com.bytedance.sdk.openadsdk.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Callable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f30891a;
+        public final /* synthetic */ b f31001a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f30892b;
+        public final File f31002b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
@@ -37,7 +37,7 @@ public abstract class b implements com.bytedance.sdk.openadsdk.d.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f30891a.b(this.f30892b);
+                this.f31001a.b(this.f31002b);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -58,8 +58,8 @@ public abstract class b implements com.bytedance.sdk.openadsdk.d.a {
                     return;
                 }
             }
-            this.f30891a = bVar;
-            this.f30892b = file;
+            this.f31001a = bVar;
+            this.f31002b = file;
         }
     }
 
@@ -112,10 +112,10 @@ public abstract class b implements com.bytedance.sdk.openadsdk.d.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.e.f f30889a;
+                public final /* synthetic */ com.bytedance.sdk.component.e.f f30999a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f30890b;
+                public final /* synthetic */ b f31000b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -136,15 +136,15 @@ public abstract class b implements com.bytedance.sdk.openadsdk.d.a {
                             return;
                         }
                     }
-                    this.f30890b = this;
-                    this.f30889a = fVar;
+                    this.f31000b = this;
+                    this.f30999a = fVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f30889a.run();
+                        this.f30999a.run();
                     }
                 }
             });

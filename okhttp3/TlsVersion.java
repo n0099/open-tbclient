@@ -1,5 +1,6 @@
 package okhttp3;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class TlsVersion {
     public static final /* synthetic */ TlsVersion[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -148,7 +149,7 @@ public final class TlsVersion {
     public static TlsVersion valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (TlsVersion) Enum.valueOf(TlsVersion.class, str) : (TlsVersion) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TlsVersion) Enum.valueOf(TlsVersion.class, str) : (TlsVersion) invokeL.objValue;
     }
 
     public static TlsVersion[] values() {

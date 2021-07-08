@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_CRASHTIME_LIMIT = 10;
@@ -23,15 +23,15 @@ public abstract class a {
     public b.a mSwitchListener;
 
     /* renamed from: d.a.c.e.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0586a implements b.a {
+    /* loaded from: classes6.dex */
+    public class C0547a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44127a;
+        public final /* synthetic */ a f41143a;
 
-        public C0586a(a aVar) {
+        public C0547a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,14 +46,14 @@ public abstract class a {
                     return;
                 }
             }
-            this.f44127a = aVar;
+            this.f41143a = aVar;
         }
 
         @Override // d.a.c.e.f.b.a
         public void a(String str, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.f44127a.changeSettingByType(i2);
+                this.f41143a.changeSettingByType(i2);
             }
         }
     }
@@ -74,7 +74,7 @@ public abstract class a {
         this.mDefaultType = 0;
         this.mOffType = 1;
         this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new C0586a(this);
+        this.mSwitchListener = new C0547a(this);
         initData();
         addToManager();
     }

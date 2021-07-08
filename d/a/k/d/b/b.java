@@ -16,16 +16,16 @@ import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f45930b;
+    public static final int[] f42813b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f45931a;
+    public final int f42814a;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class b {
                 return;
             }
         }
-        f45930b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+        f42813b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, UtilsBlink.VER_TYPE_SEPARATOR, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
     public b(int i2) {
@@ -58,7 +58,7 @@ public class b {
                 return;
             }
         }
-        this.f45931a = i2;
+        this.f42814a = i2;
     }
 
     public static int b(int i2, int i3) {
@@ -85,7 +85,7 @@ public class b {
 
     public static void g(int[] iArr, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{iArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{iArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             iArr[i2] = iArr[i2] + iArr[i3];
             iArr[i5] = b(iArr[i5] ^ iArr[i2], 16);
             iArr[i4] = iArr[i4] + iArr[i5];
@@ -100,9 +100,9 @@ public class b {
     public static void h(int[] iArr, int[] iArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, iArr, iArr2) == null) {
-            int[] iArr3 = f45930b;
+            int[] iArr3 = f42813b;
             System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
-            System.arraycopy(iArr2, 0, iArr, f45930b.length, 8);
+            System.arraycopy(iArr2, 0, iArr, f42813b.length, 8);
         }
     }
 
@@ -165,7 +165,7 @@ public class b {
             int remaining = byteBuffer2.remaining();
             int i2 = (remaining / 64) + 1;
             for (int i3 = 0; i3 < i2; i3++) {
-                ByteBuffer c2 = c(bArr, bArr2, this.f45931a + i3);
+                ByteBuffer c2 = c(bArr, bArr2, this.f42814a + i3);
                 if (i3 == i2 - 1) {
                     a.a(byteBuffer, byteBuffer2, c2, remaining % 64);
                 } else {

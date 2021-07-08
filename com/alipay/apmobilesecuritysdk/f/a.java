@@ -2,6 +2,7 @@ package com.alipay.apmobilesecuritysdk.f;
 
 import android.content.Context;
 import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.b.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -91,7 +92,7 @@ public class a {
     /* JADX DEBUG: Throwable added to exception handler: 'Exception', keep only Throwable */
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) {
             synchronized (a.class) {
                 if (com.alipay.security.mobile.module.a.a.a(str) || com.alipay.security.mobile.module.a.a.a(str2)) {
                     return;

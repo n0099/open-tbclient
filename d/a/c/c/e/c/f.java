@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f43901b;
+    public static f f40917b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43902a;
+    public int f40918a;
 
     static {
         InterceptResult invokeClinit;
@@ -50,21 +50,21 @@ public class f {
                 return;
             }
         }
-        this.f43902a = 0;
+        this.f40918a = 0;
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43901b == null) {
+            if (f40917b == null) {
                 synchronized (f.class) {
-                    if (f43901b == null) {
-                        f43901b = new f();
+                    if (f40917b == null) {
+                        f40917b = new f();
                     }
                 }
             }
-            return f43901b;
+            return f40917b;
         }
         return (f) invokeV.objValue;
     }
@@ -75,11 +75,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f43902a == 0) {
-                    this.f43902a++;
+                if (this.f40918a == 0) {
+                    this.f40918a++;
                 }
-                i2 = this.f43902a;
-                this.f43902a = i2 + 1;
+                i2 = this.f40918a;
+                this.f40918a = i2 + 1;
             }
             return i2;
         }
@@ -92,12 +92,12 @@ public class f {
             synchronized (this) {
                 if (map != null) {
                     try {
-                        this.f43902a = Integer.valueOf(map.get("Seq-Id")).intValue();
+                        this.f40918a = Integer.valueOf(map.get("Seq-Id")).intValue();
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                         i.a("SequenceManager", 0, 0, "setSequenceId", h.x, "parser Seq-Id error");
-                        if (this.f43902a == 0) {
-                            this.f43902a = new Random().nextInt();
+                        if (this.f40918a == 0) {
+                            this.f40918a = new Random().nextInt();
                         }
                     }
                 }

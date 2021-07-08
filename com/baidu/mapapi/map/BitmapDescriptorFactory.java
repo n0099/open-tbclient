@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,15 +21,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BitmapDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f6883a;
+    public static final /* synthetic */ boolean f6900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6884b;
+    public static final String f6901b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +45,8 @@ public class BitmapDescriptorFactory {
                 return;
             }
         }
-        f6883a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f6884b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f6900a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f6901b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -73,7 +74,7 @@ public class BitmapDescriptorFactory {
             try {
                 Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
                 BitmapDescriptor fromBitmap = fromBitmap(a2);
-                if (!f6883a && a2 == null) {
+                if (!f6900a && a2 == null) {
                     throw new AssertionError();
                 }
                 a2.recycle();
@@ -139,7 +140,7 @@ public class BitmapDescriptorFactory {
     public static BitmapDescriptor fromBitmap(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -169,13 +170,13 @@ public class BitmapDescriptorFactory {
                 }
             } catch (FileNotFoundException e2) {
                 e = e2;
-                str2 = f6884b;
+                str2 = f6901b;
                 str3 = "FileNotFoundException happened";
                 Log.e(str2, str3, e);
                 return null;
             } catch (IOException e3) {
                 e = e3;
-                str2 = f6884b;
+                str2 = f6901b;
                 str3 = "IOException happened";
                 Log.e(str2, str3, e);
                 return null;
@@ -210,13 +211,13 @@ public class BitmapDescriptorFactory {
                 }
             } catch (FileNotFoundException e2) {
                 e = e2;
-                str2 = f6884b;
+                str2 = f6901b;
                 str3 = "FileNotFoundException happened";
                 Log.e(str2, str3, e);
                 return null;
             } catch (IOException e3) {
                 e = e3;
-                str2 = f6884b;
+                str2 = f6901b;
                 str3 = "IOException happened";
                 Log.e(str2, str3, e);
                 return null;
@@ -329,7 +330,7 @@ public class BitmapDescriptorFactory {
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache == null) {
-                Log.e(f6884b, "Get bitmap failed");
+                Log.e(f6901b, "Get bitmap failed");
                 return null;
             }
             if (i2 <= 0) {

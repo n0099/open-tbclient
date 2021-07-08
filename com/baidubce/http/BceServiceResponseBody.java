@@ -1,5 +1,6 @@
 package com.baidubce.http;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
     private Source source(BufferedSource bufferedSource) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, bufferedSource)) == null) ? new ForwardingSource(this, bufferedSource) { // from class: com.baidubce.http.BceServiceResponseBody.1
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bufferedSource)) == null) ? new ForwardingSource(this, bufferedSource) { // from class: com.baidubce.http.BceServiceResponseBody.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BceServiceResponseBody this$0;

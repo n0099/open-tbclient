@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SoftKeyBoardListener implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +18,7 @@ public class SoftKeyBoardListener implements NoProguard {
     public View rootView;
     public int rootViewVisibleHeight;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnSoftKeyBoardChangeListener {
         void keyBoardHide(int i2);
 
@@ -46,7 +47,7 @@ public class SoftKeyBoardListener implements NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SoftKeyBoardListener f27257a;
+            public final /* synthetic */ SoftKeyBoardListener f27367a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -63,7 +64,7 @@ public class SoftKeyBoardListener implements NoProguard {
                         return;
                     }
                 }
-                this.f27257a = this;
+                this.f27367a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -71,9 +72,9 @@ public class SoftKeyBoardListener implements NoProguard {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     Rect rect = new Rect();
-                    this.f27257a.rootView.getWindowVisibleDisplayFrame(rect);
+                    this.f27367a.rootView.getWindowVisibleDisplayFrame(rect);
                     int height = rect.height();
-                    SoftKeyBoardListener softKeyBoardListener = this.f27257a;
+                    SoftKeyBoardListener softKeyBoardListener = this.f27367a;
                     int i4 = softKeyBoardListener.rootViewVisibleHeight;
                     if (i4 == 0) {
                         softKeyBoardListener.rootViewVisibleHeight = height;
@@ -81,14 +82,14 @@ public class SoftKeyBoardListener implements NoProguard {
                     } else {
                         if (i4 - height > 200) {
                             if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
-                                this.f27257a.onSoftKeyBoardChangeListener.keyBoardShow(this.f27257a.rootViewVisibleHeight - height);
+                                this.f27367a.onSoftKeyBoardChangeListener.keyBoardShow(this.f27367a.rootViewVisibleHeight - height);
                             }
-                            this.f27257a.rootViewVisibleHeight = height;
+                            this.f27367a.rootViewVisibleHeight = height;
                         } else if (height - i4 > 200) {
                             if (softKeyBoardListener.onSoftKeyBoardChangeListener != null) {
-                                this.f27257a.onSoftKeyBoardChangeListener.keyBoardHide(height - this.f27257a.rootViewVisibleHeight);
+                                this.f27367a.onSoftKeyBoardChangeListener.keyBoardHide(height - this.f27367a.rootViewVisibleHeight);
                             }
-                            this.f27257a.rootViewVisibleHeight = height;
+                            this.f27367a.rootViewVisibleHeight = height;
                         }
                     }
                 }
@@ -105,7 +106,7 @@ public class SoftKeyBoardListener implements NoProguard {
 
     private void setOnSoftKeyBoardChangeListener(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, onSoftKeyBoardChangeListener) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, onSoftKeyBoardChangeListener) == null) {
             this.onSoftKeyBoardChangeListener = onSoftKeyBoardChangeListener;
         }
     }

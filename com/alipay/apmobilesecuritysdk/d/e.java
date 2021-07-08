@@ -1,6 +1,7 @@
 package com.alipay.apmobilesecuritysdk.d;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,10 +17,10 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f1701a;
+    public static Map<String, String> f1702a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f1702b;
+    public static final String[] f1703b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +36,7 @@ public final class e {
                 return;
             }
         }
-        f1702b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
+        f1703b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
     }
 
     public static String a(Map<String, String> map) {
@@ -73,11 +74,11 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, map)) == null) {
             synchronized (e.class) {
-                if (f1701a == null) {
+                if (f1702a == null) {
                     c(context, map);
                 }
-                f1701a.putAll(d.a());
-                map2 = f1701a;
+                f1702a.putAll(d.a());
+                map2 = f1702a;
             }
             return map2;
         }
@@ -88,7 +89,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (e.class) {
-                f1701a = null;
+                f1702a = null;
             }
         }
     }
@@ -98,13 +99,13 @@ public final class e {
         String[] strArr;
         String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, map)) == null) {
             synchronized (e.class) {
                 a(context, map);
                 TreeMap treeMap = new TreeMap();
-                for (String str : f1702b) {
-                    if (f1701a.containsKey(str)) {
-                        treeMap.put(str, f1701a.get(str));
+                for (String str : f1703b) {
+                    if (f1702a.containsKey(str)) {
+                        treeMap.put(str, f1702a.get(str));
                     }
                 }
                 a2 = com.alipay.security.mobile.module.a.a.b.a(a(treeMap));
@@ -119,11 +120,11 @@ public final class e {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, map) == null) {
             synchronized (e.class) {
                 TreeMap treeMap = new TreeMap();
-                f1701a = treeMap;
+                f1702a = treeMap;
                 treeMap.putAll(b.a(context, map));
-                f1701a.putAll(d.a(context));
-                f1701a.putAll(c.a(context));
-                f1701a.putAll(a.a(context, map));
+                f1702a.putAll(d.a(context));
+                f1702a.putAll(c.a(context));
+                f1702a.putAll(a.a(context, map));
             }
         }
     }

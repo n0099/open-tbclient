@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.memory.BitmapPoolType;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Process f46208e;
+    public final /* synthetic */ Process f43198e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f46209f;
+    public final /* synthetic */ String f43199f;
 
     public b(Process process, String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f46208e = process;
-        this.f46209f = str;
+        this.f43198e = process;
+        this.f43199f = str;
     }
 
     @Override // java.lang.Runnable
@@ -42,9 +42,9 @@ public final class b implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 do {
-                } while (this.f46208e.getErrorStream().read(new byte[8192]) >= 0);
+                } while (this.f43198e.getErrorStream().read(new byte[8192]) >= 0);
             } catch (IOException e2) {
-                com.baidu.crabsdk.lite.b.a.e(this.f46209f, BitmapPoolType.DUMMY, e2);
+                com.baidu.crabsdk.lite.b.a.e(this.f43199f, BitmapPoolType.DUMMY, e2);
             }
         }
     }

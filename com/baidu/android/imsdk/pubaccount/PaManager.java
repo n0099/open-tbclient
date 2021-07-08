@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.pubaccount;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -60,7 +61,7 @@ public class PaManager extends BaseManager {
     public static PaInfo getPaInfo(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65540, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return null;
             }

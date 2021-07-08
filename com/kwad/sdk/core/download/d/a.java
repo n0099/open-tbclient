@@ -13,15 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
-import com.kwad.sdk.utils.t;
+import com.kwad.sdk.utils.w;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements AdDownloadProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36073a;
+    public boolean f34381a;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class a implements AdDownloadProxy {
                 return;
             }
         }
-        this.f36073a = z;
+        this.f34381a = z;
     }
 
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            return t.a(str) + ".apk";
+            return w.a(str) + ".apk";
         }
         return (String) invokeL.objValue;
     }
@@ -91,7 +91,8 @@ public class a implements AdDownloadProxy {
             DownloadTask.DownloadRequest downloadRequest = new DownloadTask.DownloadRequest(downloadParams.mFileUrl);
             downloadRequest.setDestinationFileName(a(downloadParams.mFileUrl));
             downloadRequest.setTag(downloadParams);
-            downloadRequest.setNotificationVisibility(this.f36073a ? 3 : 0);
+            downloadRequest.setDownloadEnablePause(downloadParams.downloadEnablePause);
+            downloadRequest.setNotificationVisibility(this.f34381a ? 3 : 0);
             com.ksad.download.a.a.a(context, str, downloadRequest);
         }
     }

@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,24 +9,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class hm {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hm f43277a;
+    public static final hm f40291a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hm[] f496a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f43278b;
+    public static final hm f40292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f43279c;
+    public static final hm f40293c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f43280d;
+    public static final hm f40294d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -44,12 +45,12 @@ public final class hm {
                 return;
             }
         }
-        f43277a = new hm("INT", 0, 1);
-        f43278b = new hm("LONG", 1, 2);
-        f43279c = new hm("STRING", 2, 3);
+        f40291a = new hm("INT", 0, 1);
+        f40292b = new hm("LONG", 1, 2);
+        f40293c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f43280d = hmVar;
-        f496a = new hm[]{f43277a, f43278b, f43279c, hmVar};
+        f40294d = hmVar;
+        f496a = new hm[]{f40291a, f40292b, f40293c, hmVar};
     }
 
     public hm(String str, int i2, int i3) {
@@ -83,13 +84,13 @@ public final class hm {
                         if (i2 != 4) {
                             return null;
                         }
-                        return f43280d;
+                        return f40294d;
                     }
-                    return f43279c;
+                    return f40293c;
                 }
-                return f43278b;
+                return f40292b;
             }
-            return f43277a;
+            return f40291a;
         }
         return (hm) invokeI.objValue;
     }
@@ -103,6 +104,6 @@ public final class hm {
     public static hm[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (hm[]) f496a.clone() : (hm[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hm[]) f496a.clone() : (hm[]) invokeV.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IPlayer {
     void destroy();
 

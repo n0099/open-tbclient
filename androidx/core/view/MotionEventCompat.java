@@ -158,7 +158,7 @@ public final class MotionEventCompat {
     public static float getAxisValue(MotionEvent motionEvent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, motionEvent, i2)) == null) ? motionEvent.getAxisValue(i2) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i2)) == null) ? motionEvent.getAxisValue(i2) : invokeLI.floatValue;
     }
 
     @Deprecated

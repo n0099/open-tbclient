@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.g0.b.a;
-/* loaded from: classes5.dex */
+import d.a.o0.g0.b.a;
+/* loaded from: classes4.dex */
 public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;

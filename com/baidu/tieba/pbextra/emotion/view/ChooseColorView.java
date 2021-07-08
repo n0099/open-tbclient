@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ChooseColorView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19917e;
+    public int f19957e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19918f;
+    public int f19958f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f19919g;
+    public float f19959g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f19920h;
+    public Paint f19960h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f19921i;
+    public Paint f19961i;
     public int j;
     public boolean k;
     public Bitmap l;
@@ -62,15 +62,15 @@ public class ChooseColorView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f19921i = paint;
+            this.f19961i = paint;
             paint.setAntiAlias(true);
-            this.f19921i.setColor(this.f19917e);
+            this.f19961i.setColor(this.f19957e);
             Paint paint2 = new Paint();
-            this.f19920h = paint2;
-            paint2.setColor(this.f19918f);
-            this.f19920h.setAntiAlias(true);
-            this.f19920h.setStyle(Paint.Style.STROKE);
-            this.f19920h.setStrokeWidth(this.f19919g);
+            this.f19960h = paint2;
+            paint2.setColor(this.f19958f);
+            this.f19960h.setAntiAlias(true);
+            this.f19960h.setStyle(Paint.Style.STROKE);
+            this.f19960h.setStrokeWidth(this.f19959g);
             this.l = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
         }
     }
@@ -78,7 +78,7 @@ public class ChooseColorView extends View {
     public int getChooseColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19917e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19957e : invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -86,8 +86,8 @@ public class ChooseColorView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19921i);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19920h);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19961i);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f19960h);
             if (this.k) {
                 canvas.drawBitmap(this.l, getWidth() - this.l.getWidth(), 0.0f, (Paint) null);
             }
@@ -97,8 +97,8 @@ public class ChooseColorView extends View {
     public void setChooseColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f19917e = i2;
-            this.f19921i.setColor(i2);
+            this.f19957e = i2;
+            this.f19961i.setColor(i2);
         }
     }
 
@@ -157,9 +157,9 @@ public class ChooseColorView extends View {
                 return;
             }
         }
-        this.f19917e = -16777216;
-        this.f19918f = -1;
-        this.f19919g = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f19957e = -16777216;
+        this.f19958f = -1;
+        this.f19959g = getResources().getDimensionPixelSize(R.dimen.ds4);
         a();
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IBinderPool extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Default implements IBinderPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,21 +54,21 @@ public interface IBinderPool extends IInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IBinderPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class a implements IBinderPool {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static IBinderPool f28894a;
+            public static IBinderPool f29004a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f28895b;
+            public IBinder f29005b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public interface IBinderPool extends IInterface {
                         return;
                     }
                 }
-                this.f28895b = iBinder;
+                this.f29005b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28895b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29005b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IBinderPool
@@ -105,7 +105,7 @@ public interface IBinderPool extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IBinderPool");
                         obtain.writeInt(i2);
-                        if (!this.f28895b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29005b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             return Stub.getDefaultImpl().queryBinder(i2);
                         }
                         obtain2.readException();
@@ -154,17 +154,17 @@ public interface IBinderPool extends IInterface {
         public static IBinderPool getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f28894a : (IBinderPool) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29004a : (IBinderPool) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(IBinderPool iBinderPool) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iBinderPool)) == null) {
-                if (a.f28894a != null || iBinderPool == null) {
+                if (a.f29004a != null || iBinderPool == null) {
                     return false;
                 }
-                a.f28894a = iBinderPool;
+                a.f29004a = iBinderPool;
                 return true;
             }
             return invokeL.booleanValue;

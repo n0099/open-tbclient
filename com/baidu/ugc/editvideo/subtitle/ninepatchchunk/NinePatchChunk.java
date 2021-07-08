@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.Div;
-import d.a.y0.t.c;
+import d.a.v0.t.c;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +27,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NinePatchChunk implements Externalizable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DENSITY = 160;
@@ -80,7 +81,7 @@ public class NinePatchChunk implements Externalizable {
     public static NinePatchDrawable create9PatchDrawable(Context context, InputStream inputStream, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, inputStream, str)) == null) ? create9PatchDrawable(context, inputStream, 160, str) : (NinePatchDrawable) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, inputStream, str)) == null) ? create9PatchDrawable(context, inputStream, 160, str) : (NinePatchDrawable) invokeLLL.objValue;
     }
 
     public static ImageLoadingResult createChunkFromRawBitmap(Context context, Bitmap bitmap) {

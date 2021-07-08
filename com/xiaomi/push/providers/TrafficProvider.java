@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gq;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class TrafficProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final UriMatcher f43524a;
+    public static final UriMatcher f40538a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Uri f824a;
@@ -45,9 +45,9 @@ public class TrafficProvider extends ContentProvider {
         }
         f824a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
         UriMatcher uriMatcher = new UriMatcher(-1);
-        f43524a = uriMatcher;
+        f40538a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
-        f43524a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
+        f40538a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
     public TrafficProvider() {
@@ -89,7 +89,7 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            if (f43524a.match(uri) == 1) {
+            if (f40538a.match(uri) == 1) {
                 return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
             }
             throw new IllegalArgumentException("Unknown URI " + uri);
@@ -125,7 +125,7 @@ public class TrafficProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
             synchronized (a.f826a) {
-                if (f43524a.match(uri) != 1) {
+                if (f40538a.match(uri) != 1) {
                     throw new IllegalArgumentException("Unknown URI " + uri);
                 }
                 query = this.f825a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
@@ -140,7 +140,7 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
-            if (f43524a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
+            if (f40538a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
                 gq.m360a(contentValues.getAsString(BaseStatisContent.IMSI));
                 return 0;
             }

@@ -2,6 +2,7 @@ package androidx.fragment.app;
 
 import androidx.annotation.NonNull;
 import androidx.collection.SimpleArrayMap;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -81,7 +82,7 @@ public class FragmentFactory {
     public static Class<? extends Fragment> loadFragmentClass(@NonNull ClassLoader classLoader, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, classLoader, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
             try {
                 return loadClass(classLoader, str);
             } catch (ClassCastException e2) {

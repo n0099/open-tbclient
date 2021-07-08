@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MaskMessageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_ONLY_ATTENTION_SEND = 8;

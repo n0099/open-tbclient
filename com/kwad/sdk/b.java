@@ -1,24 +1,40 @@
 package com.kwad.sdk;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
-/* loaded from: classes7.dex */
-public class b {
+/* loaded from: classes6.dex */
+public final class b {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Boolean f33869a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Boolean f33870b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Boolean f33871c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.KsTrendsActivity.class, com.kwad.sdk.contentalliance.trends.b.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.ProfileHomeActivity.class, com.kwad.sdk.contentalliance.profile.home.a.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.ProfileVideoDetailActivity.class, com.kwad.sdk.contentalliance.profile.tabvideo.detail.b.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.TubeProfileActivity.class, com.kwad.sdk.contentalliance.tube.profile.b.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.TubeDetailActivity.class, com.kwad.sdk.contentalliance.tube.detail.b.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.EpisodeDetailActivity.class, com.kwad.sdk.contentalliance.tube.episode.a.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.FragmentActivity4.class, com.kwad.sdk.contentalliance.related.a.class);
-            KsAdSDKImpl.putComponentProxy(BaseFragmentActivity.FragmentActivity5.class, com.kwad.sdk.feed.detail.a.class);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1450433484, "Lcom/kwad/sdk/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1450433484, "Lcom/kwad/sdk/b;");
+                return;
+            }
         }
+        f33869a = Boolean.TRUE;
+        Boolean bool = Boolean.FALSE;
+        f33870b = bool;
+        f33871c = bool;
     }
 }

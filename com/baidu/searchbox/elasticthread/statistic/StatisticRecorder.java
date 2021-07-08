@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.internal.bind.TypeAdapters;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StatisticRecorder implements Recordable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -144,7 +144,7 @@ public class StatisticRecorder implements Recordable {
                 ArteryManager arteryManager = elasticTaskScheduler.getArteryManager();
                 jSONObject3.put(Config.TRACE_VISIT_FIRST, loadArteryExecutorData(arteryManager.getUserRelatedArteryExecutor()));
                 jSONObject3.put(TypeAdapters.AnonymousClass27.SECOND, loadArteryExecutorData(arteryManager.getInTimeArteryExecutor()));
-                jSONObject3.put(c.f1826e, loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
+                jSONObject3.put(c.f1827e, loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
                 jSONObject2.put("artery", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
                 DredgeManager dredgeManager = elasticTaskScheduler.getDredgeManager();
@@ -158,7 +158,7 @@ public class StatisticRecorder implements Recordable {
                 jSONObject5.put("immediate", loadSingleQueueData(queueManager.getQueue(0)));
                 jSONObject5.put(Config.TRACE_VISIT_FIRST, loadSingleQueueData(queueManager.getQueue(1)));
                 jSONObject5.put(TypeAdapters.AnonymousClass27.SECOND, loadSingleQueueData(queueManager.getQueue(2)));
-                jSONObject5.put(c.f1826e, loadSingleQueueData(queueManager.getQueue(3)));
+                jSONObject5.put(c.f1827e, loadSingleQueueData(queueManager.getQueue(3)));
                 jSONObject.put("queue", jSONObject5);
                 ElasticDataUploader.getInstance().uploadStatisticData(jSONObject);
             } catch (Exception unused) {

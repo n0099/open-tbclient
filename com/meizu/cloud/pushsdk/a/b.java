@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String A = "wb";
     public static String B = "lt";
@@ -8,31 +8,31 @@ public class b {
     public static String E = "wl";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40044a = "ui";
+    public static String f37058a = "ui";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40045b = "ie";
+    public static String f37059b = "ie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40046c = "is1";
+    public static String f37060c = "is1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40047d = "is2";
+    public static String f37061d = "is2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40048e = "phn";
+    public static String f37062e = "phn";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40049f = "di";
+    public static String f37063f = "di";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40050g = "br";
+    public static String f37064g = "br";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f40051h = "dc";
+    public static String f37065h = "dc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f40052i = "ma";
+    public static String f37066i = "ma";
     public static String j = "ot";
     public static String k = "ov";
     public static String l = "ss";

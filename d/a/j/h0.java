@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,13 +56,13 @@ public class h0 extends h {
         }
     }
 
-    public final boolean s(d.a.r0.r.q.a aVar) {
+    public final boolean s(d.a.o0.r.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().q2() || aVar.getThreadData().l1() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean t(d.a.r0.r.q.a aVar) {
+    public final boolean t(d.a.o0.r.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().D0() == null || aVar.getThreadData().D0().getOptions() == null || aVar.getThreadData().D0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
@@ -71,14 +71,14 @@ public class h0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: u */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             if (!t(aVar) && aVar != null && aVar.getThreadData() != null && !s(aVar) && ((!ListUtils.isEmpty(aVar.getThreadData().v0()) || ListUtils.getCount(aVar.getThreadData().Z()) == 1) && ((!ListUtils.isEmpty(aVar.getThreadData().Z()) || ListUtils.getCount(aVar.getThreadData().v0()) == 1) && ListUtils.getCount(aVar.getThreadData().v0()) + ListUtils.getCount(aVar.getThreadData().Z()) == 1))) {
                 if (aVar.getThreadData().v0().size() >= 1) {
-                    this.l.a((d.a.s0.a0.e0.c) ListUtils.getItem(aVar.getThreadData().v0(), 0));
+                    this.l.a((d.a.p0.a0.e0.c) ListUtils.getItem(aVar.getThreadData().v0(), 0));
                 } else if (aVar.getThreadData().Z().size() >= 1) {
-                    this.l.a((d.a.s0.a0.e0.c) ListUtils.getItem(aVar.getThreadData().Z(), 0));
+                    this.l.a((d.a.p0.a0.e0.c) ListUtils.getItem(aVar.getThreadData().Z(), 0));
                 }
                 this.l.setVisibility(0);
                 return;

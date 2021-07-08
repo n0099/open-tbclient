@@ -12,11 +12,11 @@ public final class RestDebugConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static RestDebugConfig f3813a;
+    public static RestDebugConfig f3816a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3814b;
+    public boolean f3817b;
 
     public RestDebugConfig() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class RestDebugConfig {
                 return;
             }
         }
-        this.f3814b = false;
+        this.f3817b = false;
     }
 
     public static synchronized RestDebugConfig getInstance() {
@@ -40,10 +40,10 @@ public final class RestDebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (RestDebugConfig.class) {
-                if (f3813a == null) {
-                    f3813a = new RestDebugConfig();
+                if (f3816a == null) {
+                    f3816a = new RestDebugConfig();
                 }
-                restDebugConfig = f3813a;
+                restDebugConfig = f3816a;
             }
             return restDebugConfig;
         }
@@ -53,7 +53,7 @@ public final class RestDebugConfig {
     public boolean isQAEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3814b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3817b : invokeV.booleanValue;
     }
 
     public void setDebugOn(boolean z) {
@@ -66,7 +66,7 @@ public final class RestDebugConfig {
     public void setQAEnv(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f3814b = z;
+            this.f3817b = z;
         }
     }
 }

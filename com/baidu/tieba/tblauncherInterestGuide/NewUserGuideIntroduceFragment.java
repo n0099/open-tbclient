@@ -26,37 +26,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NewUserGuideIntroduceFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21316e;
+    public boolean f21362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f21317f;
+    public ViewGroup f21363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f21318g;
+    public Bitmap f21364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NewUserGuideActivity f21319h;
+    public NewUserGuideActivity f21365h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f21320i;
+    public ImageView f21366i;
     public ImageView j;
     public ImageView k;
     public GoOnAnimView l;
     public Handler m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideIntroduceFragment f21321a;
+        public final /* synthetic */ NewUserGuideIntroduceFragment f21367a;
 
         public a(NewUserGuideIntroduceFragment newUserGuideIntroduceFragment) {
             Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f21321a = newUserGuideIntroduceFragment;
+            this.f21367a = newUserGuideIntroduceFragment;
         }
 
         @Override // android.os.Handler
@@ -82,22 +82,22 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    this.f21321a.K0();
+                    this.f21367a.L0();
                 } else if (i2 != 1) {
                 } else {
-                    this.f21321a.J0();
+                    this.f21367a.K0();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideIntroduceFragment f21322e;
+        public final /* synthetic */ NewUserGuideIntroduceFragment f21368e;
 
         public b(NewUserGuideIntroduceFragment newUserGuideIntroduceFragment) {
             Interceptable interceptable = $ic;
@@ -114,20 +114,20 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f21322e = newUserGuideIntroduceFragment;
+            this.f21368e = newUserGuideIntroduceFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21322e.f21319h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21368e.f21365h == null) {
                 return;
             }
-            if (this.f21322e.f21319h.getNewUserGuideModel().z()) {
-                this.f21322e.f21319h.startMainTabEnterFourm();
+            if (this.f21368e.f21365h.getNewUserGuideModel().z()) {
+                this.f21368e.f21365h.startMainTabEnterFourm();
                 return;
             }
-            RightSlideViewPager viewPager = this.f21322e.f21319h.getViewPager();
+            RightSlideViewPager viewPager = this.f21368e.f21365h.getViewPager();
             if (viewPager != null) {
                 viewPager.setCurrentItem(1, true);
             }
@@ -147,12 +147,12 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 return;
             }
         }
-        this.f21316e = false;
-        this.f21318g = null;
+        this.f21362e = false;
+        this.f21364g = null;
         this.m = new a(this);
     }
 
-    public final void I0(ImageView imageView, boolean z, long j) {
+    public final void J0(ImageView imageView, boolean z, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{imageView, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             TranslateAnimation translateAnimation = new TranslateAnimation(2, z ? 1.0f : -1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
@@ -164,19 +164,19 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         }
     }
 
-    public final void J0() {
+    public final void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21320i.setImageResource(R.drawable.pic_startpage1_one);
+            this.f21366i.setImageResource(R.drawable.pic_startpage1_one);
             this.j.setImageResource(R.drawable.pic_startpage1_two);
             this.k.setImageResource(R.drawable.pic_startpage1_three);
-            I0(this.f21320i, true, 0L);
-            I0(this.j, false, 100L);
-            I0(this.k, true, 250L);
+            J0(this.f21366i, true, 0L);
+            J0(this.j, false, 100L);
+            J0(this.k, true, 250L);
         }
     }
 
-    public void K0() {
+    public void L0() {
         GoOnAnimView goOnAnimView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (goOnAnimView = this.l) == null) {
@@ -185,19 +185,19 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         goOnAnimView.j();
     }
 
-    public final void L0() {
+    public final void M0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f21316e) {
-            this.f21317f.setBackgroundDrawable(null);
-            Bitmap bitmap = this.f21318g;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f21362e) {
+            this.f21363f.setBackgroundDrawable(null);
+            Bitmap bitmap = this.f21364g;
             if (bitmap != null) {
                 if (!bitmap.isRecycled()) {
-                    this.f21318g.recycle();
+                    this.f21364g.recycle();
                 }
-                this.f21318g = null;
+                this.f21364g = null;
             }
-            this.f21320i.clearAnimation();
-            this.f21320i.setImageDrawable(null);
+            this.f21366i.clearAnimation();
+            this.f21366i.setImageDrawable(null);
             this.j.clearAnimation();
             this.j.setImageDrawable(null);
             this.k.clearAnimation();
@@ -211,7 +211,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         }
     }
 
-    public void M0() {
+    public void N0() {
         GoOnAnimView goOnAnimView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (goOnAnimView = this.l) == null) {
@@ -225,7 +225,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f21319h = (NewUserGuideActivity) getBaseFragmentActivity();
+            this.f21365h = (NewUserGuideActivity) getBaseFragmentActivity();
         }
     }
 
@@ -236,15 +236,15 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             try {
                 ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.guide_introduce, (ViewGroup) null);
-                this.f21316e = true;
-                this.f21317f = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
-                this.f21320i = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
+                this.f21362e = true;
+                this.f21363f = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
+                this.f21366i = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
                 this.j = (ImageView) viewGroup2.findViewById(R.id.image_tip_2);
                 this.k = (ImageView) viewGroup2.findViewById(R.id.image_tip_3);
-                Bitmap resBitmap = BitmapHelper.getResBitmap(this.f21319h.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
-                this.f21318g = resBitmap;
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.f21365h.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
+                this.f21364g = resBitmap;
                 if (resBitmap != null) {
-                    this.f21317f.setBackgroundDrawable(new BitmapDrawable(this.f21319h.getResources(), this.f21318g));
+                    this.f21363f.setBackgroundDrawable(new BitmapDrawable(this.f21365h.getResources(), this.f21364g));
                 }
                 this.l = (GoOnAnimView) viewGroup2.findViewById(R.id.tip_go_on);
                 this.m.removeMessages(0);
@@ -254,10 +254,10 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
                 this.l.setOnClickListener(new b(this));
                 return viewGroup2;
             } catch (InflateException e2) {
-                this.f21316e = false;
+                this.f21362e = false;
                 if (!TbadkApplication.getInst().isDebugMode()) {
                     BdLog.e(e2);
-                    this.f21319h.startMainTabEnterFourm();
+                    this.f21365h.startMainTabEnterFourm();
                     TbadkApplication.getInst().onAppMemoryLow();
                     return new FrameLayout(layoutInflater.getContext());
                 }
@@ -272,7 +272,7 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            L0();
+            M0();
         }
     }
 }

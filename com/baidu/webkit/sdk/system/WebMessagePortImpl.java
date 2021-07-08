@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.os.Handler;
 import android.webkit.WebMessage;
 import android.webkit.WebMessagePort;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebMessagePort;
 @TargetApi(23)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class WebMessagePortImpl extends WebMessagePort {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final android.webkit.WebMessagePort mMsgPort;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class WebMessageCallbackWrapper extends WebMessagePort.WebMessageCallback {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;
@@ -120,7 +121,7 @@ public final class WebMessagePortImpl extends WebMessagePort {
     public static com.baidu.webkit.sdk.WebMessagePort[] from(android.webkit.WebMessagePort[] webMessagePortArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, webMessagePortArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webMessagePortArr)) == null) {
             if (webMessagePortArr == null) {
                 return null;
             }

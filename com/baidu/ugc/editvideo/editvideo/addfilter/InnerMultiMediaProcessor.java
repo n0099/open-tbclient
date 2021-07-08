@@ -36,12 +36,11 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
-import com.kwai.video.player.KsMediaMeta;
-import d.a.c0.b.a.g;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
-import d.a.y0.t.m;
-import d.a.y0.t.u;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
+import d.a.v0.t.m;
+import d.a.v0.t.u;
+import d.a.z.b.a.g;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -51,7 +50,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMultiMediaDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMultiMediaProcessor";
@@ -304,7 +303,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
         MediaSegment mediaSegment2;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65540, this, mediaCodec, inputSurface, baseOutputSurface) != null) {
+        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, mediaCodec, inputSurface, baseOutputSurface) != null) {
             return;
         }
         ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
@@ -595,7 +594,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                 }
                 mediaSegment.effectStart = subTitle.startTime;
                 mediaSegment.effectEnd = subTitle.endTime;
-                mediaSegment.mediaAEffect = d.a.c0.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
+                mediaSegment.mediaAEffect = d.a.z.b.a.k.c.i(MultiDataSourceUtil.getSubtitleAndStickerTrack(this.mediaTracks), this.mEditTrackConfig, mediaSegment.type, this.mSubTitleUnits.indexOf(subTitle), this.mSubTitleUnits.size(), subTitle.endTime - subTitle.startTime);
                 multiMediaData.width = 0;
                 multiMediaData.height = 0;
                 multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, subTitle.textBitmap.copy(Bitmap.Config.ARGB_8888, false));
@@ -689,7 +688,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
     private void log() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            d.a.c0.b.a.k.c.k();
+            d.a.z.b.a.k.c.k();
         }
     }
 
@@ -940,7 +939,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                     }
                     MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
                     createVideoFormat.setInteger("color-format", 2130708361);
-                    createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.mOutBitRate > 0 ? this.mOutBitRate : RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
+                    createVideoFormat.setInteger("bitrate", this.mOutBitRate > 0 ? this.mOutBitRate : RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                     if (this.mFrameRate == 0) {
                         this.mFrameRate = 30;
                     }

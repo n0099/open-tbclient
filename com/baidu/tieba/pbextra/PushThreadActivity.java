@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PushThreadActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,13 +46,13 @@ public class PushThreadActivity extends BaseActivity {
     public HttpMessageListener mPushThreadMessageListener;
     public List<PushTypeData> mPushTypeDatas;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PushThreadActivity f19885a;
+        public final /* synthetic */ PushThreadActivity f19925a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PushThreadActivity pushThreadActivity, int i2) {
@@ -71,7 +72,7 @@ public class PushThreadActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f19885a = pushThreadActivity;
+            this.f19925a = pushThreadActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,26 +82,26 @@ public class PushThreadActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && ((z = httpResponsedMessage instanceof PbPushHttpResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    this.f19885a.showToast(R.string.neterror);
+                    this.f19925a.showToast(R.string.neterror);
                 } else if (z) {
-                    if (this.f19885a.mCurrentPushType == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
-                        this.f19885a.setResult(-1, new Intent());
+                    if (this.f19925a.mCurrentPushType == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
+                        this.f19925a.setResult(-1, new Intent());
                     } else {
-                        this.f19885a.showToast(R.string.neterror);
+                        this.f19925a.showToast(R.string.neterror);
                     }
-                    this.f19885a.finish();
+                    this.f19925a.finish();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushThreadActivity f19886e;
+        public final /* synthetic */ PushThreadActivity f19926e;
 
         public b(PushThreadActivity pushThreadActivity) {
             Interceptable interceptable = $ic;
@@ -117,7 +118,7 @@ public class PushThreadActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f19886e = pushThreadActivity;
+            this.f19926e = pushThreadActivity;
             pushThreadActivity.mCurrentPushType = 0;
         }
 
@@ -125,7 +126,7 @@ public class PushThreadActivity extends BaseActivity {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f19886e.mPushTypeDatas) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f19926e.mPushTypeDatas) : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -153,15 +154,15 @@ public class PushThreadActivity extends BaseActivity {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.f19886e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f19926e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_item_icon);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.iv_item_hint);
                 TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
-                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f19886e.mPushTypeDatas, i2);
+                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f19926e.mPushTypeDatas, i2);
                 if (pushTypeData != null) {
                     tbImageView.M(pushTypeData.getIcon(), 10, false);
                     textView.setText(pushTypeData.getName());
-                    if (pushTypeData.getType() == this.f19886e.mCurrentPushType) {
+                    if (pushTypeData.getType() == this.f19926e.mCurrentPushType) {
                         SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                         SkinManager.setViewTextColor(textView, R.color.CAM_X0308);
                     } else {
@@ -193,7 +194,7 @@ public class PushThreadActivity extends BaseActivity {
 
     private void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             PushStatusData pushStatusData = (PushStatusData) getIntent().getSerializableExtra(PushThreadActivityConfig.KEY_PUSH_DATA);
             this.mPushStatusData = pushStatusData;
             if (pushStatusData != null) {

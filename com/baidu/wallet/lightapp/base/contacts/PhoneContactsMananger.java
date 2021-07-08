@@ -3,6 +3,7 @@ package com.baidu.wallet.lightapp.base.contacts;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,43 +21,43 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PhoneContactsMananger {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f25251a = "PhoneContactsMananger";
+    public static final String f25361a = "PhoneContactsMananger";
 
     /* renamed from: b  reason: collision with root package name */
-    public static PhoneContactsMananger f25252b;
+    public static PhoneContactsMananger f25362b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f25253c;
+    public Context f25363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f25254d;
+    public c f25364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f25255e;
+    public d f25365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f25256f;
+    public ConcurrentHashMap<String, ContractInfo> f25366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ConcurrentHashMap<String, ContractInfo> f25257g;
+    public ConcurrentHashMap<String, ContractInfo> f25367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<ContractInfo> f25258h;
+    public ArrayList<ContractInfo> f25368h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicBoolean f25259i;
+    public AtomicBoolean f25369i;
     public ContactStatus j;
     public List<ContactSelectModel.AllContact> k;
     public b l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ContactStatus {
         public static final /* synthetic */ ContactStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -117,12 +118,12 @@ public class PhoneContactsMananger {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(ArrayList<ContractInfo> arrayList);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface d {
         void a(List<ContactSelectModel.AllContact> list, int i2);
     }
@@ -157,10 +158,10 @@ public class PhoneContactsMananger {
                 return;
             }
         }
-        this.f25256f = new ConcurrentHashMap<>();
-        this.f25257g = new ConcurrentHashMap<>();
-        this.f25258h = new ArrayList<>();
-        this.f25259i = new AtomicBoolean(false);
+        this.f25366f = new ConcurrentHashMap<>();
+        this.f25367g = new ConcurrentHashMap<>();
+        this.f25368h = new ArrayList<>();
+        this.f25369i = new AtomicBoolean(false);
         this.j = ContactStatus.unload;
         this.k = null;
         this.l = null;
@@ -171,10 +172,10 @@ public class PhoneContactsMananger {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, context)) == null) {
-            if (this.f25253c == null && context != null) {
-                this.f25253c = context.getApplicationContext();
+            if (this.f25363c == null && context != null) {
+                this.f25363c = context.getApplicationContext();
             }
-            return this.f25253c != null;
+            return this.f25363c != null;
         }
         return invokeL.booleanValue;
     }
@@ -183,26 +184,26 @@ public class PhoneContactsMananger {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            for (String str : this.f25256f.keySet()) {
-                if (!this.f25258h.contains(this.f25256f.get(str))) {
-                    this.f25258h.add(this.f25256f.get(str));
+            for (String str : this.f25366f.keySet()) {
+                if (!this.f25368h.contains(this.f25366f.get(str))) {
+                    this.f25368h.add(this.f25366f.get(str));
                 }
             }
-            for (String str2 : this.f25257g.keySet()) {
-                if (!this.f25258h.contains(this.f25257g.get(str2))) {
-                    this.f25258h.add(this.f25257g.get(str2));
+            for (String str2 : this.f25367g.keySet()) {
+                if (!this.f25368h.contains(this.f25367g.get(str2))) {
+                    this.f25368h.add(this.f25367g.get(str2));
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends AsyncTask<Integer, Void, List<ContactSelectModel.AllContact>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PhoneContactsMananger f25260a;
+        public final /* synthetic */ PhoneContactsMananger f25370a;
 
         public a(PhoneContactsMananger phoneContactsMananger) {
             Interceptable interceptable = $ic;
@@ -219,7 +220,7 @@ public class PhoneContactsMananger {
                     return;
                 }
             }
-            this.f25260a = phoneContactsMananger;
+            this.f25370a = phoneContactsMananger;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -229,15 +230,15 @@ public class PhoneContactsMananger {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
-                this.f25260a.j = ContactStatus.loading;
+                this.f25370a.j = ContactStatus.loading;
                 int intValue = (numArr == null || 1 > numArr.length) ? 350 : numArr[0].intValue();
                 try {
-                    this.f25260a.k = this.f25260a.a(com.baidu.wallet.lightapp.base.contacts.a.c(this.f25260a.f25253c), intValue > 0 ? 1000 < intValue ? 1000 : intValue : 350);
+                    this.f25370a.k = this.f25370a.a(com.baidu.wallet.lightapp.base.contacts.a.c(this.f25370a.f25363c), intValue > 0 ? 1000 < intValue ? 1000 : intValue : 350);
                 } catch (Throwable unused) {
-                    this.f25260a.k = null;
+                    this.f25370a.k = null;
                 }
-                this.f25260a.j = ContactStatus.complited;
-                return this.f25260a.k;
+                this.f25370a.j = ContactStatus.complited;
+                return this.f25370a.k;
             }
             return (List) invokeL.objValue;
         }
@@ -247,10 +248,10 @@ public class PhoneContactsMananger {
         /* renamed from: a */
         public void onPostExecute(List<ContactSelectModel.AllContact> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f25260a.f25255e == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f25370a.f25365e == null) {
                 return;
             }
-            this.f25260a.f25255e.a(this.f25260a.k, this.f25260a.k == null ? 0 : this.f25260a.k.size());
+            this.f25370a.f25365e.a(this.f25370a.k, this.f25370a.k == null ? 0 : this.f25370a.k.size());
         }
     }
 
@@ -258,12 +259,12 @@ public class PhoneContactsMananger {
         InterceptResult invokeL;
         PhoneContactsMananger phoneContactsMananger;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (PhoneContactsMananger.class) {
-                if (f25252b == null) {
-                    f25252b = new PhoneContactsMananger(context);
+                if (f25362b == null) {
+                    f25362b = new PhoneContactsMananger(context);
                 }
-                phoneContactsMananger = f25252b;
+                phoneContactsMananger = f25362b;
             }
             return phoneContactsMananger;
         }
@@ -274,15 +275,15 @@ public class PhoneContactsMananger {
         List<ContactSelectModel.AllContact> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (this.f25259i.getAndSet(true) && z) {
-                if (this.f25255e == null || (list = this.k) == null || ContactStatus.complited != this.j) {
+            if (this.f25369i.getAndSet(true) && z) {
+                if (this.f25365e == null || (list = this.k) == null || ContactStatus.complited != this.j) {
                     return;
                 }
                 if (list.size() > i2) {
-                    this.f25255e.a(this.k.subList(0, i2), i2);
+                    this.f25365e.a(this.k.subList(0, i2), i2);
                     return;
                 } else {
-                    this.f25255e.a(this.k, i2);
+                    this.f25365e.a(this.k, i2);
                     return;
                 }
             }
@@ -291,16 +292,16 @@ public class PhoneContactsMananger {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends AsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PhoneContactsMananger f25261a;
+        public final /* synthetic */ PhoneContactsMananger f25371a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ContactStatus f25262b;
+        public ContactStatus f25372b;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.AsyncTask
@@ -309,25 +310,25 @@ public class PhoneContactsMananger {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.f25262b = ContactStatus.loading;
-                if (this.f25261a.f25256f.size() == 0) {
-                    PhoneContactsMananger phoneContactsMananger = this.f25261a;
-                    phoneContactsMananger.f25256f = com.baidu.wallet.lightapp.base.contacts.a.a(phoneContactsMananger.f25253c);
+                this.f25372b = ContactStatus.loading;
+                if (this.f25371a.f25366f.size() == 0) {
+                    PhoneContactsMananger phoneContactsMananger = this.f25371a;
+                    phoneContactsMananger.f25366f = com.baidu.wallet.lightapp.base.contacts.a.a(phoneContactsMananger.f25363c);
                 }
-                String str = PhoneContactsMananger.f25251a;
-                LogUtil.d(str, "手机里面的通讯：" + this.f25261a.f25256f.toString());
-                if (this.f25261a.f25257g.size() == 0) {
-                    PhoneContactsMananger phoneContactsMananger2 = this.f25261a;
-                    phoneContactsMananger2.f25257g = com.baidu.wallet.lightapp.base.contacts.a.b(phoneContactsMananger2.f25253c);
+                String str = PhoneContactsMananger.f25361a;
+                LogUtil.d(str, "手机里面的通讯：" + this.f25371a.f25366f.toString());
+                if (this.f25371a.f25367g.size() == 0) {
+                    PhoneContactsMananger phoneContactsMananger2 = this.f25371a;
+                    phoneContactsMananger2.f25367g = com.baidu.wallet.lightapp.base.contacts.a.b(phoneContactsMananger2.f25363c);
                 }
-                String str2 = PhoneContactsMananger.f25251a;
-                LogUtil.d(str2, "Sim里面的通讯：" + this.f25261a.f25257g.toString());
-                if (this.f25261a.f25258h == null || this.f25261a.f25258h.size() == 0) {
-                    this.f25261a.b();
+                String str2 = PhoneContactsMananger.f25361a;
+                LogUtil.d(str2, "Sim里面的通讯：" + this.f25371a.f25367g.toString());
+                if (this.f25371a.f25368h == null || this.f25371a.f25368h.size() == 0) {
+                    this.f25371a.b();
                 }
-                String str3 = PhoneContactsMananger.f25251a;
-                LogUtil.d(str3, "本地所有的通讯录信息：" + this.f25261a.f25258h.toString());
-                this.f25262b = ContactStatus.complited;
+                String str3 = PhoneContactsMananger.f25361a;
+                LogUtil.d(str3, "本地所有的通讯录信息：" + this.f25371a.f25368h.toString());
+                this.f25372b = ContactStatus.complited;
                 return null;
             }
             return (String) invokeL.objValue;
@@ -339,8 +340,8 @@ public class PhoneContactsMananger {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f25261a.f25254d != null) {
-                    this.f25261a.f25254d.a(this.f25261a.f25258h);
+                if (this.f25371a.f25364d != null) {
+                    this.f25371a.f25364d.a(this.f25371a.f25368h);
                 }
                 super.onPostExecute(str);
             }
@@ -350,7 +351,7 @@ public class PhoneContactsMananger {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f25255e = dVar;
+            this.f25365e = dVar;
         }
     }
 

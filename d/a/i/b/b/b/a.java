@@ -13,28 +13,28 @@ import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f45710e = 12323;
+    public static int f42564e = 12323;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f45711f = 12324;
+    public static int f42565f = 12324;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f45712a;
+    public b f42566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f45713b;
+    public JSONObject f42567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f45714c;
+    public JSONObject f42568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45715d;
+    public boolean f42569d;
 
     static {
         InterceptResult invokeClinit;
@@ -67,26 +67,26 @@ public final class a {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45714c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42568c == null) {
             return;
         }
-        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f45714c.toString());
-        this.f45714c = null;
+        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.f42568c.toString());
+        this.f42568c = null;
     }
 
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             try {
-                if (this.f45713b == null) {
+                if (this.f42567b == null) {
                     JSONObject jSONObject = new JSONObject();
-                    this.f45713b = jSONObject;
-                    jSONObject.put("type", f45710e);
+                    this.f42567b = jSONObject;
+                    jSONObject.put("type", f42564e);
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f45713b.put(str, str2);
+                this.f42567b.put(str, str2);
             } catch (Exception unused) {
                 Log.e("staticWebkitInit JSON error");
             }
@@ -97,15 +97,15 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             try {
-                if (this.f45714c == null) {
+                if (this.f42568c == null) {
                     JSONObject jSONObject = new JSONObject();
-                    this.f45714c = jSONObject;
-                    jSONObject.put("type", f45711f);
+                    this.f42568c = jSONObject;
+                    jSONObject.put("type", f42565f);
                 }
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return;
                 }
-                this.f45714c.put(str, str2);
+                this.f42568c.put(str, str2);
             } catch (Exception unused) {
                 Log.e("mWebkitDownloadStatics JSON error");
             }

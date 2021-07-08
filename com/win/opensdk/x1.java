@@ -17,12 +17,12 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class x1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42701a;
+    public static String f39715a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(Context context, Uri uri) {

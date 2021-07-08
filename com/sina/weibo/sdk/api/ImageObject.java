@@ -16,7 +16,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageObject extends BaseMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ImageObject> CREATOR;

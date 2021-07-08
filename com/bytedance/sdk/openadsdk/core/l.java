@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,36 +20,36 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f30232a;
+    public static volatile boolean f30342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f30233b;
+    public static volatile TTCustomController f30343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30234c;
+    public static volatile boolean f30344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f30235d;
+    public static int f30345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static AtomicBoolean f30236e;
+    public static AtomicBoolean f30346e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AtomicBoolean f30237f;
+    public static AtomicBoolean f30347f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile HandlerThread f30238g;
+    public static volatile HandlerThread f30348g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile Handler f30239h;
+    public static volatile Handler f30349h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile Handler f30240i;
+    public static volatile Handler f30350i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,13 +65,13 @@ public class l {
                 return;
             }
         }
-        f30238g = new HandlerThread("tt_pangle_thread_init", 10);
-        f30238g.start();
-        f30240i = new Handler(f30238g.getLooper());
-        f30234c = false;
-        f30235d = -1;
-        f30236e = new AtomicBoolean(false);
-        f30237f = new AtomicBoolean(false);
+        f30348g = new HandlerThread("tt_pangle_thread_init", 10);
+        f30348g.start();
+        f30350i = new Handler(f30348g.getLooper());
+        f30344c = false;
+        f30345d = -1;
+        f30346e = new AtomicBoolean(false);
+        f30347f = new AtomicBoolean(false);
     }
 
     public l() {
@@ -91,8 +92,8 @@ public class l {
         Context a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f30236e.set(true);
-            f30237f.set(true);
+            f30346e.set(true);
+            f30347f.set(true);
             if (o.h().e() && (a2 = o.a()) != null) {
                 try {
                     com.bytedance.sdk.openadsdk.l.e.b().c().tryInitTTAdNet(a2, com.bytedance.sdk.openadsdk.multipro.b.b(), true, new com.bytedance.sdk.openadsdk.l.d(a2));
@@ -104,7 +105,7 @@ public class l {
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             if (com.bytedance.sdk.openadsdk.r.d.g() == 0) {
                 com.bytedance.sdk.openadsdk.r.d.b(System.currentTimeMillis());
             }
@@ -128,14 +129,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f30239h == null) {
+            if (f30349h == null) {
                 synchronized (l.class) {
-                    if (f30239h == null) {
-                        f30239h = new Handler(Looper.getMainLooper());
+                    if (f30349h == null) {
+                        f30349h = new Handler(Looper.getMainLooper());
                     }
                 }
             }
-            return f30239h;
+            return f30349h;
         }
         return (Handler) invokeV.objValue;
     }
@@ -162,16 +163,16 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f30238g == null || !f30238g.isAlive()) {
+            if (f30348g == null || !f30348g.isAlive()) {
                 synchronized (l.class) {
-                    if (f30238g == null || !f30238g.isAlive()) {
-                        f30238g = new HandlerThread("tt_pangle_thread_init", 10);
-                        f30238g.start();
-                        f30240i = new Handler(f30238g.getLooper());
+                    if (f30348g == null || !f30348g.isAlive()) {
+                        f30348g = new HandlerThread("tt_pangle_thread_init", 10);
+                        f30348g.start();
+                        f30350i = new Handler(f30348g.getLooper());
                     }
                 }
             }
-            return f30240i;
+            return f30350i;
         }
         return (Handler) invokeV.objValue;
     }

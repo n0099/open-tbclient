@@ -1,6 +1,7 @@
 package com.alipay.android.phone.mrpc.core;
 
 import android.text.format.Time;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,10 +18,10 @@ public final class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1643a;
+    public static final Pattern f1644a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f1644b;
+    public static final Pattern f1645b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -29,13 +30,13 @@ public final class k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1645a;
+        public int f1646a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1646b;
+        public int f1647b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1647c;
+        public int f1648c;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -52,9 +53,9 @@ public final class k {
                     return;
                 }
             }
-            this.f1645a = i2;
-            this.f1646b = i3;
-            this.f1647c = i4;
+            this.f1646a = i2;
+            this.f1647b = i3;
+            this.f1648c = i4;
         }
     }
 
@@ -71,8 +72,8 @@ public final class k {
                 return;
             }
         }
-        f1643a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f1644b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f1644a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        f1645b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
     }
 
     public static long a(String str) {
@@ -86,14 +87,14 @@ public final class k {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Matcher matcher = f1643a.matcher(str);
+            Matcher matcher = f1644a.matcher(str);
             if (matcher.find()) {
                 i2 = b(matcher.group(1));
                 c2 = c(matcher.group(2));
                 d2 = d(matcher.group(3));
                 aVar = e(matcher.group(4));
             } else {
-                Matcher matcher2 = f1644b.matcher(str);
+                Matcher matcher2 = f1645b.matcher(str);
                 if (!matcher2.find()) {
                     throw new IllegalArgumentException();
                 }
@@ -114,7 +115,7 @@ public final class k {
                 i5 = d2;
             }
             Time time = new Time("UTC");
-            time.set(aVar.f1647c, aVar.f1646b, aVar.f1645a, i3, i4, i5);
+            time.set(aVar.f1648c, aVar.f1647b, aVar.f1646a, i3, i4, i5);
             return time.toMillis(false);
         }
         return invokeL.longValue;
@@ -175,7 +176,7 @@ public final class k {
     public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str.length() == 2) {
                 int charAt = ((str.charAt(0) - '0') * 10) + (str.charAt(1) - '0');
                 return charAt >= 70 ? charAt + FeatureCodes.SKY_SEG : charAt + 2000;

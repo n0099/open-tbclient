@@ -3,6 +3,7 @@ package com.baidu.down.loopj.android.http;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.utils.Utils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConnectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -27,7 +28,7 @@ public class ConnectManager {
     public boolean mUseWap;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class NetWorkType {
         public static final /* synthetic */ NetWorkType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -221,7 +222,7 @@ public class ConnectManager {
     private void checkNetworkType(Context context) {
         NetworkInfo activeNetworkInfoSafely;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, context) == null) || (activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) || (activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context)) == null) {
             return;
         }
         if ("wifi".equals(activeNetworkInfoSafely.getTypeName().toLowerCase())) {

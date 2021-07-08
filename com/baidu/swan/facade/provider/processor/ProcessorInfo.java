@@ -1,5 +1,6 @@
 package com.baidu.swan.facade.provider.processor;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.e.n.a.a;
-import d.a.q0.e.n.a.b;
-import d.a.q0.e.n.a.c;
-import d.a.q0.e.n.a.d;
+import d.a.n0.e.n.a.a;
+import d.a.n0.e.n.a.b;
+import d.a.n0.e.n.a.c;
+import d.a.n0.e.n.a.d;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ProcessorInfo {
     public static final /* synthetic */ ProcessorInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -87,7 +88,7 @@ public final class ProcessorInfo {
     public static ProcessorInfo valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (ProcessorInfo) Enum.valueOf(ProcessorInfo.class, str) : (ProcessorInfo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (ProcessorInfo) Enum.valueOf(ProcessorInfo.class, str) : (ProcessorInfo) invokeL.objValue;
     }
 
     public static ProcessorInfo[] values() {

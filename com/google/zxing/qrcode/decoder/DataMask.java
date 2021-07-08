@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitMatrix;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class DataMask {
     public static final /* synthetic */ DataMask[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -325,7 +326,7 @@ public abstract class DataMask {
     public static DataMask[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (DataMask[]) $VALUES.clone() : (DataMask[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DataMask[]) $VALUES.clone() : (DataMask[]) invokeV.objValue;
     }
 
     public abstract boolean isMasked(int i2, int i3);

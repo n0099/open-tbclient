@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f73275e;
+    public final e f70378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f73276f;
+    public final g f70379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final byte[] f73277g;
+    public final byte[] f70380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f73278h;
+    public boolean f70381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f73279i;
+    public boolean f70382i;
     public long j;
 
     public f(e eVar, g gVar) {
@@ -45,21 +45,21 @@ public final class f extends InputStream {
                 return;
             }
         }
-        this.f73278h = false;
-        this.f73279i = false;
-        this.f73275e = eVar;
-        this.f73276f = gVar;
-        this.f73277g = new byte[1];
+        this.f70381h = false;
+        this.f70382i = false;
+        this.f70378e = eVar;
+        this.f70379f = gVar;
+        this.f70380g = new byte[1];
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f73279i) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f70382i) {
             return;
         }
-        this.f73275e.close();
-        this.f73279i = true;
+        this.f70378e.close();
+        this.f70382i = true;
     }
 
     public long g() {
@@ -70,11 +70,11 @@ public final class f extends InputStream {
 
     public final void n() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f73278h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f70381h) {
             return;
         }
-        this.f73275e.a(this.f73276f);
-        this.f73278h = true;
+        this.f70378e.a(this.f70379f);
+        this.f70381h = true;
     }
 
     public void o() throws IOException {
@@ -89,10 +89,10 @@ public final class f extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (read(this.f73277g) == -1) {
+            if (read(this.f70380g) == -1) {
                 return -1;
             }
-            return this.f73277g[0] & 255;
+            return this.f70380g[0] & 255;
         }
         return invokeV.intValue;
     }
@@ -109,9 +109,9 @@ public final class f extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            d.f.b.a.i0.a.f(!this.f73279i);
+            d.f.b.a.i0.a.f(!this.f70382i);
             n();
-            int read = this.f73275e.read(bArr, i2, i3);
+            int read = this.f70378e.read(bArr, i2, i3);
             if (read == -1) {
                 return -1;
             }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,24 +16,24 @@ import com.kuaishou.aegon.Aegon;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.core.config.c;
-import com.kwad.sdk.core.report.m;
+import com.kwad.sdk.core.report.l;
 import com.kwad.sdk.crash.b;
 import com.kwad.sdk.crash.e;
 import com.kwad.sdk.crash.f;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.d;
-import com.kwad.sdk.utils.ah;
+import com.kwad.sdk.utils.ap;
 import com.kwai.CpuMemoryProfiler;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0423a {
+    /* loaded from: classes6.dex */
+    public static class C0410a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,9 +92,10 @@ public class a {
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("崩溃收集是否打开：");
-                sb.append(c.E());
+                sb.append(c.q());
                 com.kwad.sdk.core.d.a.a("KsAdExceptionCollectorHelper", sb.toString());
-                if (c.E()) {
+                com.kwad.sdk.core.d.a.a("ec init s=" + c.q());
+                if (c.q()) {
                     com.kwad.sdk.crash.a.a(b(context, sdkConfig));
                 }
             } catch (Throwable th) {
@@ -104,7 +106,7 @@ public class a {
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, th) == null) && c.E()) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, th) == null) && c.q()) {
             com.kwad.sdk.crash.a.a(th);
         }
     }
@@ -133,17 +135,17 @@ public class a {
     public static b b(@NonNull Context context, @NonNull SdkConfig sdkConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, sdkConfig)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sdkConfig)) == null) {
             Context applicationContext = context.getApplicationContext();
-            return new b.a().a(applicationContext).f("3.3.9").a(3030900).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f37023a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ah.l(applicationContext)).b(ah.m()).a("Android").c(sdkConfig.appId).d(C0423a.a(applicationContext)).a(new f(sdkConfig, applicationContext) { // from class: com.kwad.sdk.core.a.a.2
+            return new b.a().a(applicationContext).f("3.3.11").a(3031100).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f35393a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ap.p(applicationContext)).b(ap.n()).a("Android").c(sdkConfig.appId).d(C0410a.a(applicationContext)).a(new f(sdkConfig, applicationContext) { // from class: com.kwad.sdk.core.a.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SdkConfig f35895a;
+                public final /* synthetic */ SdkConfig f34151a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f35896b;
+                public final /* synthetic */ Context f34152b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -160,8 +162,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f35895a = sdkConfig;
-                    this.f35896b = applicationContext;
+                    this.f34151a = sdkConfig;
+                    this.f34152b = applicationContext;
                 }
 
                 @Override // com.kwad.sdk.crash.f
@@ -170,17 +172,17 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) {
                         com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();
-                        aVar.a(m.b());
-                        aVar.a("mKsadAppId", this.f35895a.appId);
-                        aVar.a("mKsadAppName", this.f35895a.appName);
-                        aVar.a("mKsadAppPackageName", this.f35896b.getPackageName());
-                        aVar.a("mKsadAppVersion", ah.l(this.f35896b));
+                        aVar.a(l.b());
+                        aVar.a("mKsadAppId", this.f34151a.appId);
+                        aVar.a("mKsadAppName", this.f34151a.appName);
+                        aVar.a("mKsadAppPackageName", this.f34152b.getPackageName());
+                        aVar.a("mKsadAppVersion", ap.p(this.f34152b));
                         aVar.a("mKsadSdkName", "com.kwad.sdk");
-                        aVar.a("mKsadSdkVersion", "3.3.9");
-                        aVar.a("mKsadSdKVersionCode", 3030900);
+                        aVar.a("mKsadSdkVersion", "3.3.11");
+                        aVar.a("mKsadSdKVersionCode", 3031100);
                         aVar.a("mKsadSdkApiVersion", KsAdSDKImpl.get().getApiVersion());
                         aVar.a("mKsadSdKApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-                        aVar.a("mKsadSdkType", d.f37023a);
+                        aVar.a("mKsadSdkType", d.f35393a);
                         return aVar;
                     }
                     return (com.kwad.sdk.crash.model.message.a) invokeI.objValue;

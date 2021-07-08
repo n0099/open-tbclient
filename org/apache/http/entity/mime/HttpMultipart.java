@@ -1,5 +1,6 @@
 package org.apache.http.entity.mime;
 
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class HttpMultipart {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteArrayBuffer CR_LF;
@@ -34,7 +35,7 @@ public class HttpMultipart {
     public final String subType;
 
     /* renamed from: org.apache.http.entity.mime.HttpMultipart$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$http$entity$mime$HttpMultipartMode;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +116,7 @@ public class HttpMultipart {
 
     private void doWriteTo(HttpMultipartMode httpMultipartMode, OutputStream outputStream, boolean z) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65540, this, httpMultipartMode, outputStream, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, httpMultipartMode, outputStream, z) == null) {
             ByteArrayBuffer encode = encode(this.charset, getBoundary());
             for (FormBodyPart formBodyPart : this.parts) {
                 writeBytes(TWO_DASHES, outputStream);

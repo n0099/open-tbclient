@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import com.google.zxing.qrcode.decoder.Version;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ALPHANUMERIC_TABLE;
@@ -28,7 +29,7 @@ public final class Encoder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -140,7 +141,7 @@ public final class Encoder {
 
     public static void appendBytes(String str, Mode mode, BitArray bitArray, String str2) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, str, mode, bitArray, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mode, bitArray, str2) == null) {
             int i2 = AnonymousClass1.$SwitchMap$com$google$zxing$qrcode$decoder$Mode[mode.ordinal()];
             if (i2 == 1) {
                 appendNumericBytes(str, bitArray);

@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.authoring.builder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -31,7 +32,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
     public Movie movie;
     public Track referenceTrack;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CacheTuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +165,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
     public static long[] getTimes(Track track, Movie movie) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65540, null, track, movie)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, track, movie)) != null) {
             return (long[]) invokeLL.objValue;
         }
         long[] syncSamples = track.getSyncSamples();

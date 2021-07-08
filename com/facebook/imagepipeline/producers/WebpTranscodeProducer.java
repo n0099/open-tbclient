@@ -21,7 +21,7 @@ import com.facebook.imagepipeline.nativecode.WebpTranscoderFactory;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_JPEG_QUALITY = 80;
@@ -31,7 +31,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

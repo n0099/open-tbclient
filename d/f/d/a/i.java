@@ -1,5 +1,6 @@
 package d.f.d.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,24 +10,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f73718a;
+    public final String f70821a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f73719b;
+        public final /* synthetic */ String f70822b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f73720c;
+        public final /* synthetic */ i f70823c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, i iVar2, String str) {
@@ -47,15 +48,15 @@ public class i {
                     return;
                 }
             }
-            this.f73720c = iVar;
-            this.f73719b = str;
+            this.f70823c = iVar;
+            this.f70822b = str;
         }
 
         @Override // d.f.d.a.i
         public CharSequence h(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f73719b : this.f73720c.h(obj) : (CharSequence) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f70822b : this.f70823c.h(obj) : (CharSequence) invokeL.objValue;
         }
 
         @Override // d.f.d.a.i
@@ -82,7 +83,7 @@ public class i {
     public static i g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? new i(str) : (i) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? new i(str) : (i) invokeL.objValue;
     }
 
     public <A extends Appendable> A a(A a2, Iterator<?> it) throws IOException {
@@ -93,7 +94,7 @@ public class i {
             if (it.hasNext()) {
                 a2.append(h(it.next()));
                 while (it.hasNext()) {
-                    a2.append(this.f73718a);
+                    a2.append(this.f70821a);
                     a2.append(h(it.next()));
                 }
             }
@@ -175,7 +176,7 @@ public class i {
             }
         }
         n.p(str);
-        this.f73718a = str;
+        this.f70821a = str;
     }
 
     public i(i iVar) {
@@ -193,6 +194,6 @@ public class i {
                 return;
             }
         }
-        this.f73718a = iVar.f73718a;
+        this.f70821a = iVar.f70821a;
     }
 }

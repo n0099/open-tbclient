@@ -1,5 +1,6 @@
 package com.baidu.pass.face.platform;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FaceEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OS = "android";
@@ -119,7 +120,7 @@ public final class FaceEnvironment {
     public static void setSoundId(FaceStatusNewEnum faceStatusNewEnum, int i2) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65540, null, faceStatusNewEnum, i2) == null) || (iArr = mSoundIds) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, faceStatusNewEnum, i2) == null) || (iArr = mSoundIds) == null) {
             return;
         }
         try {

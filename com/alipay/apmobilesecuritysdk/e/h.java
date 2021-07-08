@@ -2,6 +2,7 @@ package com.alipay.apmobilesecuritysdk.e;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1716a = "";
+    public static String f1717a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,7 +75,7 @@ public class h {
 
     public static void a(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             com.alipay.security.mobile.module.b.a.a(context, "vkeyid_settings", "vkey_valid" + str, String.valueOf(j));
         }
     }
@@ -156,19 +157,19 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             synchronized (h.class) {
-                if (com.alipay.security.mobile.module.a.a.a(f1716a)) {
+                if (com.alipay.security.mobile.module.a.a.a(f1717a)) {
                     String a2 = com.alipay.security.mobile.module.b.e.a(context, "alipay_vkey_random", "random", "");
-                    f1716a = a2;
+                    f1717a = a2;
                     if (com.alipay.security.mobile.module.a.a.a(a2)) {
                         String a3 = com.alipay.security.mobile.module.a.a.b.a(UUID.randomUUID().toString());
-                        f1716a = a3;
+                        f1717a = a3;
                         if (a3 != null && (edit = context.getSharedPreferences("alipay_vkey_random", 0).edit()) != null) {
                             edit.putString("random", a3);
                             edit.commit();
                         }
                     }
                 }
-                str = f1716a;
+                str = f1717a;
             }
             return str;
         }

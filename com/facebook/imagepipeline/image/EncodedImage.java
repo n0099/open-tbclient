@@ -33,7 +33,7 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EncodedImage implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;
@@ -100,7 +100,7 @@ public class EncodedImage implements Closeable {
 
     public static void closeSafely(@Nullable EncodedImage encodedImage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, encodedImage) == null) || encodedImage == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, encodedImage) == null) || encodedImage == null) {
             return;
         }
         encodedImage.close();

@@ -17,35 +17,35 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NavigationBarCoverTip extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation f22068e;
+    public Animation f22125e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f22069f;
+    public Animation f22126f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f22070g;
+    public Runnable f22127g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f22071h;
+    public e f22128h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Activity f22072i;
+    public Activity f22129i;
     public int j;
     public View k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f22073e;
+        public final /* synthetic */ NavigationBarCoverTip f22130e;
 
         public a(NavigationBarCoverTip navigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -62,26 +62,26 @@ public class NavigationBarCoverTip extends LinearLayout {
                     return;
                 }
             }
-            this.f22073e = navigationBarCoverTip;
+            this.f22130e = navigationBarCoverTip;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d.a.c.e.m.e.a().removeCallbacks(this.f22073e.f22070g);
-                this.f22073e.e();
+                d.a.c.e.m.e.a().removeCallbacks(this.f22130e.f22127g);
+                this.f22130e.e();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f22074a;
+        public final /* synthetic */ NavigationBarCoverTip f22131a;
 
         public b(NavigationBarCoverTip navigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class NavigationBarCoverTip extends LinearLayout {
                     return;
                 }
             }
-            this.f22074a = navigationBarCoverTip;
+            this.f22131a = navigationBarCoverTip;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -119,23 +119,23 @@ public class NavigationBarCoverTip extends LinearLayout {
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                if (this.f22074a.f22071h != null) {
-                    this.f22074a.f22071h.onShow();
+                if (this.f22131a.f22128h != null) {
+                    this.f22131a.f22128h.onShow();
                 }
-                if (this.f22074a.f22072i != null) {
-                    UtilHelper.changeStatusBarIconAndTextColor(true, this.f22074a.f22072i);
+                if (this.f22131a.f22129i != null) {
+                    UtilHelper.changeStatusBarIconAndTextColor(true, this.f22131a.f22129i);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f22075a;
+        public final /* synthetic */ NavigationBarCoverTip f22132a;
 
         public c(NavigationBarCoverTip navigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -152,17 +152,17 @@ public class NavigationBarCoverTip extends LinearLayout {
                     return;
                 }
             }
-            this.f22075a = navigationBarCoverTip;
+            this.f22132a = navigationBarCoverTip;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                if (this.f22075a.f22071h != null) {
-                    this.f22075a.f22071h.a();
+                if (this.f22132a.f22128h != null) {
+                    this.f22132a.f22128h.a();
                 }
-                this.f22075a.j();
+                this.f22132a.j();
             }
         }
 
@@ -181,13 +181,13 @@ public class NavigationBarCoverTip extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarCoverTip f22076e;
+        public final /* synthetic */ NavigationBarCoverTip f22133e;
 
         public d(NavigationBarCoverTip navigationBarCoverTip) {
             Interceptable interceptable = $ic;
@@ -204,19 +204,19 @@ public class NavigationBarCoverTip extends LinearLayout {
                     return;
                 }
             }
-            this.f22076e = navigationBarCoverTip;
+            this.f22133e = navigationBarCoverTip;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f22076e.e();
+                this.f22133e.e();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a();
 
@@ -248,7 +248,7 @@ public class NavigationBarCoverTip extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             clearAnimation();
-            startAnimation(this.f22069f);
+            startAnimation(this.f22126f);
         }
     }
 
@@ -271,12 +271,12 @@ public class NavigationBarCoverTip extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            this.f22068e = loadAnimation;
+            this.f22125e = loadAnimation;
             loadAnimation.setAnimationListener(new b(this));
             Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-            this.f22069f = loadAnimation2;
+            this.f22126f = loadAnimation2;
             loadAnimation2.setAnimationListener(new c(this));
-            this.f22070g = new d(this);
+            this.f22127g = new d(this);
         }
     }
 
@@ -299,13 +299,13 @@ public class NavigationBarCoverTip extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d.a.c.e.m.e.a().removeCallbacks(this.f22070g);
+            d.a.c.e.m.e.a().removeCallbacks(this.f22127g);
             clearAnimation();
             setVisibility(8);
-            Activity activity = this.f22072i;
+            Activity activity = this.f22129i;
             if (activity != null) {
                 UtilHelper.changeStatusBarIconAndTextColor(false, activity);
-                this.f22072i = null;
+                this.f22129i = null;
             }
         }
     }
@@ -313,15 +313,15 @@ public class NavigationBarCoverTip extends LinearLayout {
     public void k(Activity activity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, activity, i2) == null) {
-            this.f22072i = activity;
+            this.f22129i = activity;
             if (i2 < 0) {
                 i2 = 5000;
             }
             setVisibility(0);
             clearAnimation();
-            startAnimation(this.f22068e);
-            d.a.c.e.m.e.a().removeCallbacks(this.f22070g);
-            d.a.c.e.m.e.a().postDelayed(this.f22070g, i2);
+            startAnimation(this.f22125e);
+            d.a.c.e.m.e.a().removeCallbacks(this.f22127g);
+            d.a.c.e.m.e.a().postDelayed(this.f22127g, i2);
         }
     }
 
@@ -335,7 +335,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     public void m(Activity activity, View view, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, view, i2) == null) {
-            this.f22072i = activity;
+            this.f22129i = activity;
             if (view != this.k) {
                 removeAllViews();
                 addView(view);
@@ -346,16 +346,16 @@ public class NavigationBarCoverTip extends LinearLayout {
             }
             setVisibility(0);
             clearAnimation();
-            startAnimation(this.f22068e);
-            d.a.c.e.m.e.a().removeCallbacks(this.f22070g);
-            d.a.c.e.m.e.a().postDelayed(this.f22070g, i2);
+            startAnimation(this.f22125e);
+            d.a.c.e.m.e.a().removeCallbacks(this.f22127g);
+            d.a.c.e.m.e.a().postDelayed(this.f22127g, i2);
         }
     }
 
     public void setCoverTipListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
-            this.f22071h = eVar;
+            this.f22128h = eVar;
         }
     }
 

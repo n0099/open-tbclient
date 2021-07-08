@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushRequest;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.v.a;
+import d.a.t.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -259,7 +260,7 @@ public class BindStateManager {
         InterceptResult invokeL;
         int readIntData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (BindStateManager.class) {
                 readIntData = Utility.readIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, -1);
             }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.b.i;
 import com.bytedance.sdk.openadsdk.preload.b.l;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class j<IN, OUT> extends l<IN, OUT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31985d;
+    public String f32095d;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -45,22 +45,22 @@ public abstract class j<IN, OUT> extends l<IN, OUT> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, in)) == null) {
-            this.f31985d = a(new m(bVar), in);
-            l.a aVar = a().get(this.f31985d);
+            this.f32095d = a(new m(bVar), in);
+            l.a aVar = a().get(this.f32095d);
             while (aVar != null) {
-                List<h> list = aVar.f31988a;
+                List<h> list = aVar.f32098a;
                 try {
-                    Object a2 = c.a(list, bVar.f31981a, this).a((b) in);
+                    Object a2 = c.a(list, bVar.f32091a, this).a((b) in);
                     return !a(list) ? a2 : bVar.a((b<OUT>) a2);
                 } catch (i.a e2) {
-                    this.f31985d = a(new m(bVar), in, e2.getCause(), this.f31985d);
-                    aVar = a().get(this.f31985d);
+                    this.f32095d = a(new m(bVar), in, e2.getCause(), this.f32095d);
+                    aVar = a().get(this.f32095d);
                 } catch (Throwable th) {
-                    this.f31985d = a(new m(bVar), in, th, this.f31985d);
-                    aVar = a().get(this.f31985d);
+                    this.f32095d = a(new m(bVar), in, th, this.f32095d);
+                    aVar = a().get(this.f32095d);
                 }
             }
-            throw new IllegalArgumentException("can not found branch，branch name is：" + this.f31985d);
+            throw new IllegalArgumentException("can not found branch，branch name is：" + this.f32095d);
         }
         return invokeLL.objValue;
     }

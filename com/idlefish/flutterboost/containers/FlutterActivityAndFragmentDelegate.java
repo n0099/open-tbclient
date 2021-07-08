@@ -33,7 +33,7 @@ import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
-import d.a.s0.m3.a;
+import d.a.p0.m3.a;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterEngineConfigurator;
 import io.flutter.embedding.android.FlutterEngineProvider;
@@ -45,7 +45,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
@@ -64,7 +64,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     public XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
 
@@ -173,7 +173,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
     private void setupFlutterEngine() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             Log.d("FlutterActivityAndFragmentDelegate", "Setting up FlutterEngine.");
             Host host = this.host;
             FlutterEngine provideFlutterEngine = host.provideFlutterEngine(host.getContext());

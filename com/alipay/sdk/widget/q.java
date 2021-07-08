@@ -14,7 +14,7 @@ public class q implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2050a;
+    public final /* synthetic */ WebViewWindow f2051a;
 
     public q(WebViewWindow webViewWindow) {
         Interceptable interceptable = $ic;
@@ -31,11 +31,11 @@ public class q implements View.OnClickListener {
                 return;
             }
         }
-        this.f2050a = webViewWindow;
+        this.f2051a = webViewWindow;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-        r0 = r5.f2050a.f2012i;
+        r0 = r5.f2051a.f2013i;
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -51,17 +51,17 @@ public class q implements View.OnClickListener {
             return;
         }
         view.setEnabled(false);
-        handler = WebViewWindow.f2004f;
+        handler = WebViewWindow.f2005f;
         handler.postDelayed(new r(this, view), 256L);
-        imageView = this.f2050a.f2005a;
+        imageView = this.f2051a.f2006a;
         if (view != imageView) {
-            imageView2 = this.f2050a.f2007c;
+            imageView2 = this.f2051a.f2008c;
             if (view == imageView2) {
-                cVar.b(this.f2050a);
+                cVar.b(this.f2051a);
                 return;
             }
             return;
         }
-        cVar.a(this.f2050a);
+        cVar.a(this.f2051a);
     }
 }

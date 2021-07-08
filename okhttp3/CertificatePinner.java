@@ -1,5 +1,6 @@
 package okhttp3;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +22,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CertificatePinner {
     public static /* synthetic */ Interceptable $ic;
     public static final CertificatePinner DEFAULT;
@@ -30,7 +31,7 @@ public final class CertificatePinner {
     public final CertificateChainCleaner certificateChainCleaner;
     public final Set<Pin> pins;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public final class CertificatePinner {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Pin {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WILDCARD = "*.";
@@ -228,7 +229,7 @@ public final class CertificatePinner {
     public static ByteString sha256(X509Certificate x509Certificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, x509Certificate)) == null) ? ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256() : (ByteString) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) ? ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256() : (ByteString) invokeL.objValue;
     }
 
     public void check(String str, List<Certificate> list) throws SSLPeerUnverifiedException {

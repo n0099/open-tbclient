@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5665a;
+    public String f5682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Runnable f5666b;
+    public Runnable f5683b;
 
     public k(Runnable runnable) {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class k implements Runnable {
                 return;
             }
         }
-        this.f5665a = "EmptyName";
-        this.f5665a = "nullname";
-        this.f5666b = runnable;
+        this.f5682a = "EmptyName";
+        this.f5682a = "nullname";
+        this.f5683b = runnable;
     }
 
     @Override // java.lang.Runnable
@@ -45,7 +45,7 @@ public class k implements Runnable {
                     Looper.prepare();
                 }
                 System.currentTimeMillis();
-                this.f5666b.run();
+                this.f5683b.run();
                 System.currentTimeMillis();
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -68,8 +68,8 @@ public class k implements Runnable {
                 return;
             }
         }
-        this.f5665a = "EmptyName";
-        this.f5665a = str;
-        this.f5666b = runnable;
+        this.f5682a = "EmptyName";
+        this.f5682a = str;
+        this.f5683b = runnable;
     }
 }

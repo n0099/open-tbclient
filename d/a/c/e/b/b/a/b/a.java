@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f44015a;
+    public Object f41031a;
 
     public a(Object obj) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class a implements h {
         if (obj == null || !obj.getClass().isArray()) {
             return;
         }
-        this.f44015a = obj;
+        this.f41031a = obj;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -59,14 +59,14 @@ public class a implements h {
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f44015a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) ? this.f41031a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f44015a : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) ? this.f41031a : invokeL.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -74,40 +74,40 @@ public class a implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
-            Object obj = this.f44015a;
+            Object obj = this.f41031a;
             if (obj != null) {
                 Class<?> componentType = obj.getClass().getComponentType();
                 if (componentType == Boolean.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Byte.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Character.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Double.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Float.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Integer.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Long.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == Short.TYPE) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
                 if (componentType == String.class) {
-                    return this.f44015a;
+                    return this.f41031a;
                 }
-                int length = Array.getLength(this.f44015a);
+                int length = Array.getLength(this.f41031a);
                 JSONArray jSONArray = new JSONArray();
                 for (int i2 = 0; i2 < length; i2++) {
-                    Object f2 = d.a.c.e.b.b.a.e.f.a(Array.get(this.f44015a, i2)).f(new d.a.c.e.b.b.a.e.c(componentType));
+                    Object f2 = d.a.c.e.b.b.a.e.f.a(Array.get(this.f41031a, i2)).f(new d.a.c.e.b.b.a.e.c(componentType));
                     if (f2 != null) {
                         jSONArray.put(f2);
                     }
@@ -131,23 +131,23 @@ public class a implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-            Object obj = this.f44015a;
+            Object obj = this.f41031a;
             if (obj != null) {
                 Class<?> componentType = obj.getClass().getComponentType();
                 if (componentType == Character.TYPE) {
-                    return String.valueOf((char[]) this.f44015a);
+                    return String.valueOf((char[]) this.f41031a);
                 }
                 if (componentType == Byte.TYPE) {
                     try {
-                        d.a.c.e.p.c.k((byte[]) this.f44015a, 0);
+                        d.a.c.e.p.c.k((byte[]) this.f41031a, 0);
                     } catch (Exception unused) {
                         return null;
                     }
                 } else {
-                    int length = Array.getLength(this.f44015a);
+                    int length = Array.getLength(this.f41031a);
                     JSONArray jSONArray = new JSONArray();
                     for (int i2 = 0; i2 < length; i2++) {
-                        Object f2 = d.a.c.e.b.b.a.e.f.a(Array.get(this.f44015a, i2)).f(new d.a.c.e.b.b.a.e.c(componentType));
+                        Object f2 = d.a.c.e.b.b.a.e.f.a(Array.get(this.f41031a, i2)).f(new d.a.c.e.b.b.a.e.c(componentType));
                         if (f2 != null) {
                             jSONArray.put(f2);
                         }

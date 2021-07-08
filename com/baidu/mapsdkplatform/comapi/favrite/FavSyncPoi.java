@@ -5,37 +5,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FavSyncPoi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7607a;
+    public String f7624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7608b;
+    public String f7625b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f7609c;
+    public Point f7626c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7610d;
+    public String f7627d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7611e;
+    public String f7628e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7612f;
+    public String f7629f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7613g;
+    public int f7630g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7614h;
+    public String f7631h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7615i;
+    public boolean f7632i;
     public String j;
 
     public FavSyncPoi() {

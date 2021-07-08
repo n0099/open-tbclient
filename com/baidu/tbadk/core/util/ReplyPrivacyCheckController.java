@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.u1;
-import d.a.r0.r.s.a;
-import d.a.r0.s.e.a;
-/* loaded from: classes4.dex */
+import d.a.o0.r.q.u1;
+import d.a.o0.r.s.a;
+import d.a.o0.s.e.a;
+/* loaded from: classes3.dex */
 public class ReplyPrivacyCheckController {
     public static /* synthetic */ Interceptable $ic = null;
     public static int PRIVACY_MYSELF = 4;
@@ -38,12 +38,12 @@ public class ReplyPrivacyCheckController {
     public CustomMessageListener mAttentionListener;
     public a mAttentionModel;
     public TbPageContext mContext;
-    public d.a.r0.r.s.a mDialog;
+    public d.a.o0.r.s.a mDialog;
     public BdUniqueId mId;
     public AttentionHostData mLikeData;
     public int replyType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface IAfterAttentionCallBack {
         void sendAfterAttention(boolean z, int i2);
     }
@@ -111,7 +111,7 @@ public class ReplyPrivacyCheckController {
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                    if (this.this$0.mLikeData == null || StringUtils.isNull(this.this$0.mLikeData.uid) || data == null || !this.this$0.mLikeData.uid.equals(data.f12802c)) {
+                    if (this.this$0.mLikeData == null || StringUtils.isNull(this.this$0.mLikeData.uid) || data == null || !this.this$0.mLikeData.uid.equals(data.f12819c)) {
                         return;
                     }
                     boolean z = false;
@@ -123,14 +123,14 @@ public class ReplyPrivacyCheckController {
                         }
                         z = true;
                     }
-                    if (data.f12800a) {
+                    if (data.f12817a) {
                         this.this$0.mLikeData.likeStatus = data.m;
-                        this.this$0.mLikeData.isAttention = data.f12803d;
+                        this.this$0.mLikeData.isAttention = data.f12820d;
                     }
                     if (!z || this.this$0.mAttentionCallback == null) {
                         return;
                     }
-                    this.this$0.mAttentionCallback.sendAfterAttention(data.f12800a, this.this$0.replyType);
+                    this.this$0.mAttentionCallback.sendAfterAttention(data.f12817a, this.this$0.replyType);
                 }
             }
         };
@@ -162,7 +162,7 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             if (this.mDialog == null) {
-                d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(this.mContext.getPageActivity());
+                d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(this.mContext.getPageActivity());
                 this.mDialog = aVar;
                 aVar.setMessageId(R.string.message_privacy_fans_can_reply);
                 this.mDialog.setPositiveButton(R.string.attention_and_reply, new a.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.1
@@ -188,8 +188,8 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // d.a.r0.r.s.a.e
-                    public void onClick(d.a.r0.r.s.a aVar2) {
+                    @Override // d.a.o0.r.s.a.e
+                    public void onClick(d.a.o0.r.s.a aVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                             this.this$0.followHost();
@@ -220,8 +220,8 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // d.a.r0.r.s.a.e
-                    public void onClick(d.a.r0.r.s.a aVar2) {
+                    @Override // d.a.o0.r.s.a.e
+                    public void onClick(d.a.o0.r.s.a aVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                             this.this$0.mDialog.dismiss();
@@ -274,11 +274,11 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.mId);
-            d.a.r0.r.s.a aVar = this.mDialog;
+            d.a.o0.r.s.a aVar = this.mDialog;
             if (aVar != null) {
                 aVar.dismiss();
             }
-            d.a.r0.s.e.a aVar2 = this.mAttentionModel;
+            d.a.o0.s.e.a aVar2 = this.mAttentionModel;
             if (aVar2 != null) {
                 aVar2.g();
             }
@@ -323,10 +323,10 @@ public class ReplyPrivacyCheckController {
     public void showAttentionDialog(u1 u1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, u1Var) == null) {
-            if (u1Var != null && !StringUtils.isNull(u1Var.f56065a) && !StringUtils.isNull(u1Var.f56066b) && !StringUtils.isNull(u1Var.f56067c)) {
-                d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(this.mContext.getPageActivity());
-                aVar.setMessage(u1Var.f56065a);
-                aVar.setPositiveButton(u1Var.f56067c, new a.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.3
+            if (u1Var != null && !StringUtils.isNull(u1Var.f52784a) && !StringUtils.isNull(u1Var.f52785b) && !StringUtils.isNull(u1Var.f52786c)) {
+                d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(this.mContext.getPageActivity());
+                aVar.setMessage(u1Var.f52784a);
+                aVar.setPositiveButton(u1Var.f52786c, new a.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ReplyPrivacyCheckController this$0;
@@ -349,8 +349,8 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // d.a.r0.r.s.a.e
-                    public void onClick(d.a.r0.r.s.a aVar2) {
+                    @Override // d.a.o0.r.s.a.e
+                    public void onClick(d.a.o0.r.s.a aVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                             this.this$0.followHost();
@@ -358,7 +358,7 @@ public class ReplyPrivacyCheckController {
                         }
                     }
                 });
-                aVar.setNegativeButton(u1Var.f56066b, new a.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.4
+                aVar.setNegativeButton(u1Var.f52785b, new a.e(this) { // from class: com.baidu.tbadk.core.util.ReplyPrivacyCheckController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ReplyPrivacyCheckController this$0;
@@ -381,8 +381,8 @@ public class ReplyPrivacyCheckController {
                         this.this$0 = this;
                     }
 
-                    @Override // d.a.r0.r.s.a.e
-                    public void onClick(d.a.r0.r.s.a aVar2) {
+                    @Override // d.a.o0.r.s.a.e
+                    public void onClick(d.a.o0.r.s.a aVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                             aVar2.dismiss();

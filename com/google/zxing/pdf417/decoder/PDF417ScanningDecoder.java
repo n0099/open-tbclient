@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import com.google.zxing.pdf417.decoder.ec.ErrorCorrection;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Formatter;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417ScanningDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODEWORD_SKEW_SIZE = 2;
@@ -127,7 +128,7 @@ public final class PDF417ScanningDecoder {
     public static int adjustCodewordStartColumn(BitMatrix bitMatrix, int i2, int i3, boolean z, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
             int i6 = z ? -1 : 1;
             int i7 = i4;
             for (int i8 = 0; i8 < 2; i8++) {

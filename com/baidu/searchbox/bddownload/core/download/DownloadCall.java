@@ -37,7 +37,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadCall extends NamedRunnable implements Comparable<DownloadCall> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR;
@@ -101,7 +101,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
 
     private void inspectTaskEnd(DownloadCache downloadCache, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, downloadCache, endCause, exc) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, downloadCache, endCause, exc) == null) {
             if (endCause != EndCause.CANCELED) {
                 synchronized (this) {
                     if (this.canceled) {

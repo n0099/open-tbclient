@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
@@ -40,7 +41,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_RANGES = "Accept-Ranges";
@@ -61,7 +62,7 @@ public class Util {
     public static Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class EmptyLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +110,7 @@ public class Util {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface Logger {
         void d(String str, String str2);
 
@@ -171,7 +172,7 @@ public class Util {
 
     public static void addUserRequestHeaderField(@NonNull Map<String, List<String>> map, @NonNull DownloadConnection downloadConnection) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, map, downloadConnection) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, downloadConnection) == null) {
             inspectUserHeader(map);
             addRequestHeaderFields(map, downloadConnection);
         }
@@ -255,7 +256,7 @@ public class Util {
                 downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
             }
-            d(com.baidu.android.common.util.Util.f2582b, "Get final download store is " + downloadStore);
+            d(com.baidu.android.common.util.Util.f2585b, "Get final download store is " + downloadStore);
             return downloadStore;
         }
         return (DownloadStore) invokeL.objValue;
@@ -421,7 +422,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f2582b, "failed to get connectivity manager!");
+                w(com.baidu.android.common.util.Util.f2585b, "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -435,7 +436,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f2582b, "failed to get connectivity manager!");
+                w(com.baidu.android.common.util.Util.f2585b, "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -493,7 +494,7 @@ public class Util {
             try {
                 return Long.parseLong(str);
             } catch (NumberFormatException unused) {
-                d(com.baidu.android.common.util.Util.f2582b, "parseContentLength failed parse for '" + str + "'");
+                d(com.baidu.android.common.util.Util.f2585b, "parseContentLength failed parse for '" + str + "'");
                 return -1L;
             }
         }
@@ -511,7 +512,7 @@ public class Util {
                         return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                     }
                 } catch (Exception e2) {
-                    w(com.baidu.android.common.util.Util.f2582b, "parse content-length from content-range failed " + e2);
+                    w(com.baidu.android.common.util.Util.f2585b, "parse content-length from content-range failed " + e2);
                 }
             }
             return -1L;

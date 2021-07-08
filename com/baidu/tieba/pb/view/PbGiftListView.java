@@ -23,26 +23,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.j;
 import d.a.c.e.m.b;
-import d.a.r0.r.q.c1;
-/* loaded from: classes5.dex */
+import d.a.o0.r.q.c1;
+/* loaded from: classes4.dex */
 public class PbGiftListView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19852e;
+    public Context f19892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19853f;
+    public View f19893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f19854g;
+    public TbImageView f19894g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f19855h;
+    public TbImageView f19895h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f19856i;
+    public TbImageView f19896i;
     public TbImageView j;
     public TextView k;
     public TextView l;
@@ -53,13 +53,13 @@ public class PbGiftListView extends FrameLayout {
     public long q;
     public int r;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbGiftListView f19857e;
+        public final /* synthetic */ PbGiftListView f19897e;
 
         public a(PbGiftListView pbGiftListView) {
             Interceptable interceptable = $ic;
@@ -76,21 +76,21 @@ public class PbGiftListView extends FrameLayout {
                     return;
                 }
             }
-            this.f19857e = pbGiftListView;
+            this.f19897e = pbGiftListView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) j.a(this.f19857e.f19852e)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (tbPageContext = (TbPageContext) j.a(this.f19897e.f19892e)) == null) {
                 return;
             }
             if (TbadkCoreApplication.isLogin()) {
-                if (StringUtils.isNull(this.f19857e.m)) {
+                if (StringUtils.isNull(this.f19897e.m)) {
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(tbPageContext.getPageActivity(), this.f19857e.o, this.f19857e.m, this.f19857e.n, GiftTabActivityConfig.FROM_PB, this.f19857e.p, this.f19857e.q)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(tbPageContext.getPageActivity(), this.f19897e.o, this.f19897e.m, this.f19897e.n, GiftTabActivityConfig.FROM_PB, this.f19897e.p, this.f19897e.q)));
                 return;
             }
             ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity());
@@ -129,38 +129,38 @@ public class PbGiftListView extends FrameLayout {
             if (c1Var != null && c1Var.a() != null && c1Var.a().size() > 0) {
                 int size = c1Var.a().size() > 4 ? 4 : c1Var.a().size();
                 if (size == 1) {
-                    this.f19854g.M(c1Var.a().get(0).f55894a, 10, false);
-                    this.f19854g.setVisibility(0);
-                    this.f19855h.setVisibility(8);
-                    this.f19856i.setVisibility(8);
+                    this.f19894g.M(c1Var.a().get(0).f52609a, 10, false);
+                    this.f19894g.setVisibility(0);
+                    this.f19895h.setVisibility(8);
+                    this.f19896i.setVisibility(8);
                     this.j.setVisibility(8);
                 } else if (size == 2) {
-                    this.f19854g.M(c1Var.a().get(0).f55894a, 10, false);
-                    this.f19855h.M(c1Var.a().get(1).f55894a, 10, false);
-                    this.f19854g.setVisibility(0);
-                    this.f19855h.setVisibility(0);
-                    this.f19856i.setVisibility(8);
+                    this.f19894g.M(c1Var.a().get(0).f52609a, 10, false);
+                    this.f19895h.M(c1Var.a().get(1).f52609a, 10, false);
+                    this.f19894g.setVisibility(0);
+                    this.f19895h.setVisibility(0);
+                    this.f19896i.setVisibility(8);
                     this.j.setVisibility(8);
                 } else if (size == 3) {
-                    this.f19854g.M(c1Var.a().get(0).f55894a, 10, false);
-                    this.f19855h.M(c1Var.a().get(1).f55894a, 10, false);
-                    this.f19856i.M(c1Var.a().get(2).f55894a, 10, false);
-                    this.f19854g.setVisibility(0);
-                    this.f19855h.setVisibility(0);
-                    this.f19856i.setVisibility(0);
+                    this.f19894g.M(c1Var.a().get(0).f52609a, 10, false);
+                    this.f19895h.M(c1Var.a().get(1).f52609a, 10, false);
+                    this.f19896i.M(c1Var.a().get(2).f52609a, 10, false);
+                    this.f19894g.setVisibility(0);
+                    this.f19895h.setVisibility(0);
+                    this.f19896i.setVisibility(0);
                     this.j.setVisibility(8);
                 } else if (size == 4) {
-                    this.f19854g.M(c1Var.a().get(0).f55894a, 10, false);
-                    this.f19855h.M(c1Var.a().get(1).f55894a, 10, false);
-                    this.f19856i.M(c1Var.a().get(2).f55894a, 10, false);
-                    this.j.M(c1Var.a().get(3).f55894a, 10, false);
-                    this.f19854g.setVisibility(0);
-                    this.f19855h.setVisibility(0);
-                    this.f19856i.setVisibility(0);
+                    this.f19894g.M(c1Var.a().get(0).f52609a, 10, false);
+                    this.f19895h.M(c1Var.a().get(1).f52609a, 10, false);
+                    this.f19896i.M(c1Var.a().get(2).f52609a, 10, false);
+                    this.j.M(c1Var.a().get(3).f52609a, 10, false);
+                    this.f19894g.setVisibility(0);
+                    this.f19895h.setVisibility(0);
+                    this.f19896i.setVisibility(0);
                     this.j.setVisibility(0);
                 }
                 if (c1Var.b() > 0) {
-                    this.k.setText(String.format(this.f19852e.getResources().getString(R.string.gift_counts), Integer.valueOf(c1Var.b())));
+                    this.k.setText(String.format(this.f19892e.getResources().getString(R.string.gift_counts), Integer.valueOf(c1Var.b())));
                     this.k.setVisibility(0);
                 } else {
                     this.k.setVisibility(8);
@@ -192,22 +192,22 @@ public class PbGiftListView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = View.inflate(this.f19852e, R.layout.pb_gift_list_item, this);
-            this.f19853f = inflate;
-            this.f19854g = (TbImageView) inflate.findViewById(R.id.pb_gift_view1);
-            this.f19855h = (TbImageView) this.f19853f.findViewById(R.id.pb_gift_view2);
-            this.f19856i = (TbImageView) this.f19853f.findViewById(R.id.pb_gift_view3);
-            this.j = (TbImageView) this.f19853f.findViewById(R.id.pb_gift_view4);
-            this.f19854g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f19855h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f19856i.setDefaultBgResource(R.drawable.transparent_bg);
+            View inflate = View.inflate(this.f19892e, R.layout.pb_gift_list_item, this);
+            this.f19893f = inflate;
+            this.f19894g = (TbImageView) inflate.findViewById(R.id.pb_gift_view1);
+            this.f19895h = (TbImageView) this.f19893f.findViewById(R.id.pb_gift_view2);
+            this.f19896i = (TbImageView) this.f19893f.findViewById(R.id.pb_gift_view3);
+            this.j = (TbImageView) this.f19893f.findViewById(R.id.pb_gift_view4);
+            this.f19894g.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f19895h.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f19896i.setDefaultBgResource(R.drawable.transparent_bg);
             this.j.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f19854g.setDefaultResource(R.drawable.icon_gift_moren);
-            this.f19855h.setDefaultResource(R.drawable.icon_gift_moren);
-            this.f19856i.setDefaultResource(R.drawable.icon_gift_moren);
+            this.f19894g.setDefaultResource(R.drawable.icon_gift_moren);
+            this.f19895h.setDefaultResource(R.drawable.icon_gift_moren);
+            this.f19896i.setDefaultResource(R.drawable.icon_gift_moren);
             this.j.setDefaultResource(R.drawable.icon_gift_moren);
-            this.k = (TextView) this.f19853f.findViewById(R.id.pb_gift_number_view);
-            TextView textView = (TextView) this.f19853f.findViewById(R.id.pb_gift_send_view);
+            this.k = (TextView) this.f19893f.findViewById(R.id.pb_gift_number_view);
+            TextView textView = (TextView) this.f19893f.findViewById(R.id.pb_gift_send_view);
             this.l = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -258,7 +258,7 @@ public class PbGiftListView extends FrameLayout {
             }
         }
         this.r = 3;
-        this.f19852e = context;
+        this.f19892e = context;
         h();
     }
 
@@ -282,7 +282,7 @@ public class PbGiftListView extends FrameLayout {
             }
         }
         this.r = 3;
-        this.f19852e = context;
+        this.f19892e = context;
         h();
     }
 }

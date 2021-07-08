@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.IWalletListener;
-import d.a.r0.l.a;
-/* loaded from: classes5.dex */
+import d.a.o0.l.a;
+/* loaded from: classes4.dex */
 public class Login extends LightAppListenerImpl implements IWalletListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

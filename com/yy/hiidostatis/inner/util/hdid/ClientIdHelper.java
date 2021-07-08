@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ClientIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";
@@ -117,7 +118,7 @@ public class ClientIdHelper {
     private boolean checkBuild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? (((((this.boardDigit + this.brandDigit) + this.cpuAbiDigit) + this.deviceDigit) + this.manufacturerDigit) + this.modelDigit) + this.productDigit != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? (((((this.boardDigit + this.brandDigit) + this.cpuAbiDigit) + this.deviceDigit) + this.manufacturerDigit) + this.modelDigit) + this.productDigit != 0 : invokeV.booleanValue;
     }
 
     private void checkConfig() {

@@ -14,7 +14,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FdingControllerListener";
@@ -56,7 +56,7 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
 
     private synchronized void onException(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, th) == null) {
             synchronized (this) {
                 Log.e(TAG, str, th);
             }

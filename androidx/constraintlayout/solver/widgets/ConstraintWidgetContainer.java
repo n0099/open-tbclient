@@ -96,7 +96,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
 
     private void addVerticalChain(ConstraintWidget constraintWidget) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, constraintWidget) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, constraintWidget) == null) {
             int i2 = this.mVerticalChainsSize + 1;
             ChainHead[] chainHeadArr = this.mVerticalChainsArray;
             if (i2 >= chainHeadArr.length) {

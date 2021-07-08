@@ -1,5 +1,8 @@
 package com.kwad.sdk.core.g.a;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,21 +10,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.internal.api.SceneImpl;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
+import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SceneImpl f36138a;
+    public SceneImpl f34471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36139b;
+    public long f34472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36140c;
+    public long f34473c;
 
     public f(KsScene ksScene) {
         Interceptable interceptable = $ic;
@@ -38,19 +42,45 @@ public class f implements com.kwad.sdk.core.b {
                 return;
             }
         }
-        this.f36138a = (SceneImpl) ksScene;
-        this.f36139b = 0L;
-        this.f36140c = 0L;
+        this.f34471a = (SceneImpl) ksScene;
+        this.f34472b = 0L;
+        this.f34473c = 0L;
+    }
+
+    @Nullable
+    public String a(String str) {
+        InterceptResult invokeL;
+        SceneImpl sceneImpl;
+        Map<String, String> rewardCallbackExtraData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null || (sceneImpl = this.f34471a) == null || (rewardCallbackExtraData = sceneImpl.getRewardCallbackExtraData()) == null || !rewardCallbackExtraData.containsKey(str)) {
+                return null;
+            }
+            return rewardCallbackExtraData.get(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.kwad.sdk.core.b
+    public void parseJson(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        }
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject json = this.f36138a.toJson();
-            o.a(json, "pageScene", this.f36139b);
-            o.a(json, "subPageScene", this.f36140c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject json = this.f34471a.toJson();
+            q.a(json, "pageScene", this.f34472b);
+            q.a(json, "subPageScene", this.f34473c);
+            String a2 = a(PrefetchEvent.EVENT_DATA_EXTRA_DATA);
+            if (a2 != null) {
+                q.a(json, PrefetchEvent.EVENT_DATA_EXTRA_DATA, a2);
+            }
             return json;
         }
         return (JSONObject) invokeV.objValue;

@@ -1,6 +1,7 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.ddmlib.ByteBufferUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -112,7 +113,7 @@ public class VmTraceParser {
 
         private void copyBytes(int i2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65540, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
                 byte[] bArr = new byte[i2];
                 int read = this.mInputStream.read(bArr);
                 if (read == i2) {

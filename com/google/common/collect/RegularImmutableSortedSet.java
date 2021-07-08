@@ -19,7 +19,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RegularImmutableSortedSet<E> extends ImmutableSortedSet<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final RegularImmutableSortedSet<Comparable> NATURAL_EMPTY_SET;

@@ -12,25 +12,25 @@ import d.f.b.a.e0.h;
 import d.f.b.a.e0.i;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class d implements d.f.b.a.e0.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<h> f73071a;
+    public final LinkedList<h> f70174a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<i> f73072b;
+    public final LinkedList<i> f70175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final PriorityQueue<h> f73073c;
+    public final PriorityQueue<h> f70176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f73074d;
+    public h f70177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f73075e;
+    public long f70178e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,22 +45,22 @@ public abstract class d implements d.f.b.a.e0.f {
                 return;
             }
         }
-        this.f73071a = new LinkedList<>();
+        this.f70174a = new LinkedList<>();
         for (int i4 = 0; i4 < 10; i4++) {
-            this.f73071a.add(new h());
+            this.f70174a.add(new h());
         }
-        this.f73072b = new LinkedList<>();
+        this.f70175b = new LinkedList<>();
         for (int i5 = 0; i5 < 2; i5++) {
-            this.f73072b.add(new e(this));
+            this.f70175b.add(new e(this));
         }
-        this.f73073c = new PriorityQueue<>();
+        this.f70176c = new PriorityQueue<>();
     }
 
     @Override // d.f.b.a.e0.f
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f73075e = j;
+            this.f70178e = j;
         }
     }
 
@@ -72,14 +72,14 @@ public abstract class d implements d.f.b.a.e0.f {
     public void flush() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f73075e = 0L;
-            while (!this.f73073c.isEmpty()) {
-                k(this.f73073c.poll());
+            this.f70178e = 0L;
+            while (!this.f70176c.isEmpty()) {
+                k(this.f70176c.poll());
             }
-            h hVar = this.f73074d;
+            h hVar = this.f70177d;
             if (hVar != null) {
                 k(hVar);
-                this.f73074d = null;
+                this.f70177d = null;
             }
         }
     }
@@ -91,12 +91,12 @@ public abstract class d implements d.f.b.a.e0.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            d.f.b.a.i0.a.f(this.f73074d == null);
-            if (this.f73071a.isEmpty()) {
+            d.f.b.a.i0.a.f(this.f70177d == null);
+            if (this.f70174a.isEmpty()) {
                 return null;
             }
-            h pollFirst = this.f73071a.pollFirst();
-            this.f73074d = pollFirst;
+            h pollFirst = this.f70174a.pollFirst();
+            this.f70177d = pollFirst;
             return pollFirst;
         }
         return (h) invokeV.objValue;
@@ -109,13 +109,13 @@ public abstract class d implements d.f.b.a.e0.f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f73072b.isEmpty()) {
+            if (this.f70175b.isEmpty()) {
                 return null;
             }
-            while (!this.f73073c.isEmpty() && this.f73073c.peek().f73653h <= this.f73075e) {
-                h poll = this.f73073c.poll();
+            while (!this.f70176c.isEmpty() && this.f70176c.peek().f70756h <= this.f70178e) {
+                h poll = this.f70176c.poll();
                 if (poll.j()) {
-                    i pollFirst = this.f73072b.pollFirst();
+                    i pollFirst = this.f70175b.pollFirst();
                     pollFirst.e(4);
                     k(poll);
                     return pollFirst;
@@ -124,8 +124,8 @@ public abstract class d implements d.f.b.a.e0.f {
                 if (i()) {
                     d.f.b.a.e0.e e2 = e();
                     if (!poll.i()) {
-                        i pollFirst2 = this.f73072b.pollFirst();
-                        pollFirst2.n(poll.f73653h, e2, Long.MAX_VALUE);
+                        i pollFirst2 = this.f70175b.pollFirst();
+                        pollFirst2.n(poll.f70756h, e2, Long.MAX_VALUE);
                         k(poll);
                         return pollFirst2;
                     }
@@ -145,13 +145,13 @@ public abstract class d implements d.f.b.a.e0.f {
     public void d(h hVar) throws SubtitleDecoderException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
-            d.f.b.a.i0.a.a(hVar == this.f73074d);
+            d.f.b.a.i0.a.a(hVar == this.f70177d);
             if (hVar.i()) {
                 k(hVar);
             } else {
-                this.f73073c.add(hVar);
+                this.f70176c.add(hVar);
             }
-            this.f73074d = null;
+            this.f70177d = null;
         }
     }
 
@@ -159,7 +159,7 @@ public abstract class d implements d.f.b.a.e0.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, hVar) == null) {
             hVar.f();
-            this.f73071a.add(hVar);
+            this.f70174a.add(hVar);
         }
     }
 
@@ -167,7 +167,7 @@ public abstract class d implements d.f.b.a.e0.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
             iVar.f();
-            this.f73072b.add(iVar);
+            this.f70175b.add(iVar);
         }
     }
 

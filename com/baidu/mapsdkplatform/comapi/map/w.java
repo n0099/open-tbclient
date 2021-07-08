@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7761a = "w";
+    public static final String f7778a = "w";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public v f7762b;
+    public v f7779b;
 
     static {
         InterceptResult invokeClinit;
@@ -72,7 +72,7 @@ public class w {
                         return;
                 }
             }
-            v vVar = this.f7762b;
+            v vVar = this.f7779b;
             if (vVar != null) {
                 vVar.a(message.arg1, message.arg2);
             }
@@ -82,14 +82,14 @@ public class w {
     public void a(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) {
-            this.f7762b = vVar;
+            this.f7779b = vVar;
         }
     }
 
     public void b(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vVar) == null) {
-            this.f7762b = null;
+            this.f7779b = null;
         }
     }
 }

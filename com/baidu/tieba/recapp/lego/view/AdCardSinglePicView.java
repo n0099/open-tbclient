@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.w2.f0.b.c;
-import d.a.s0.w2.f0.c.a;
-/* loaded from: classes5.dex */
+import d.a.p0.w2.f0.b.c;
+import d.a.p0.w2.f0.c.a;
+/* loaded from: classes4.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,8 +61,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 K0(tbImageView, b2, i3);
                 return true;
             }
-            int i4 = cVar.f69142e;
-            int i5 = cVar.f69141d;
+            int i4 = cVar.f65914e;
+            int i5 = cVar.f65913d;
             if (i3 > 0 && i4 > 0 && i5 > 0) {
                 int i6 = (i4 * i3) / i5;
                 if (i6 > i3) {
@@ -99,8 +99,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
             c cVar = adCard.picInfo;
-            if (cVar != null && !d.a.s0.n1.o.k.a.e(cVar.f69140c)) {
-                String str = cVar.f69140c.get(0);
+            if (cVar != null && !d.a.p0.n1.o.k.a.e(cVar.f65912c)) {
+                String str = cVar.f65912c.get(0);
                 boolean J0 = J0(this.o0, adCard, cVar);
                 if (!TextUtils.isEmpty(str) && J0) {
                     this.t.setVisibility(0);

@@ -1,5 +1,6 @@
 package androidx.lifecycle;
 
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
@@ -73,6 +74,6 @@ public final class PausingDispatcherKt {
     public static final <T> Object whenStarted(Lifecycle lifecycle, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, lifecycle, function2, continuation)) == null) ? whenStateAtLeast(lifecycle, Lifecycle.State.STARTED, function2, continuation) : invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, lifecycle, function2, continuation)) == null) ? whenStateAtLeast(lifecycle, Lifecycle.State.STARTED, function2, continuation) : invokeLLL.objValue;
     }
 }

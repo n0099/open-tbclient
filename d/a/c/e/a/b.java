@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f43983a;
+    public final String f40999a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43984b;
+    public String f41000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43985c;
+    public String f41001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43986d;
+    public String f41002d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class b {
                 return;
             }
         }
-        this.f43983a = Environment.getExternalStorageDirectory().getAbsolutePath();
-        this.f43984b = this.f43983a + "/baidu/";
-        this.f43985c = null;
-        this.f43986d = null;
+        this.f40999a = Environment.getExternalStorageDirectory().getAbsolutePath();
+        this.f41000b = this.f40999a + "/baidu/";
+        this.f41001c = null;
+        this.f41002d = null;
         try {
-            this.f43985c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.f43986d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.f41001c = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.f41002d = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -63,26 +63,26 @@ public class b {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f43984b + str + "/";
+                    str3 = this.f41000b + str + "/";
                 } else {
-                    str3 = this.f43984b;
+                    str3 = this.f41000b;
                 }
             } else if (z3) {
-                str2 = this.f43986d;
+                str2 = this.f41002d;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f43986d + str + "/";
+                    str3 = this.f41002d + str + "/";
                 }
                 str3 = str2;
             } else {
-                str2 = this.f43985c;
+                str2 = this.f41001c;
                 if (str2 == null) {
                     return null;
                 }
                 if (str != null) {
-                    str3 = this.f43985c + str + "/";
+                    str3 = this.f41001c + str + "/";
                 }
                 str3 = str2;
             }
@@ -135,6 +135,6 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
             return;
         }
-        this.f43984b = this.f43983a + "/" + str + "/";
+        this.f41000b = this.f40999a + "/" + str + "/";
     }
 }

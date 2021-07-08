@@ -14,7 +14,7 @@ import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends PayBaseBean<RiskControlResponseForNoPwd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

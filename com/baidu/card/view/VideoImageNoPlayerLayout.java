@@ -23,28 +23,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.j.p;
-import d.a.r0.r.u.c;
-import d.a.s0.a0.b0;
+import d.a.o0.r.u.c;
+import d.a.p0.a0.b0;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0.r.q.a> {
+/* loaded from: classes2.dex */
+public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f4578e;
+    public Context f4595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4579f;
+    public int f4596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f4580g;
+    public TbImageView f4597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f4581h;
+    public View f4598h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f4582i;
+    public ImageView f4599i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -52,18 +52,18 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
     public RelativeLayout n;
     public RelativeLayout o;
     public boolean p;
-    public b0<d.a.r0.r.q.a> q;
-    public d.a.r0.r.q.a r;
+    public b0<d.a.o0.r.q.a> q;
+    public d.a.o0.r.q.a r;
     public View.OnClickListener s;
     public d.a.j.w0.a t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoImageNoPlayerLayout f4583e;
+        public final /* synthetic */ VideoImageNoPlayerLayout f4600e;
 
         public a(VideoImageNoPlayerLayout videoImageNoPlayerLayout) {
             Interceptable interceptable = $ic;
@@ -80,32 +80,32 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
                     return;
                 }
             }
-            this.f4583e = videoImageNoPlayerLayout;
+            this.f4600e = videoImageNoPlayerLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f4583e.q != null) {
-                    b0 b0Var = this.f4583e.q;
-                    VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.f4583e;
-                    b0Var.a(videoImageNoPlayerLayout.f4580g, videoImageNoPlayerLayout.r);
+                if (this.f4600e.q != null) {
+                    b0 b0Var = this.f4600e.q;
+                    VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.f4600e;
+                    b0Var.a(videoImageNoPlayerLayout.f4597g, videoImageNoPlayerLayout.r);
                 }
-                if (this.f4583e.s != null) {
-                    this.f4583e.s.onClick(this.f4583e.f4580g);
+                if (this.f4600e.s != null) {
+                    this.f4600e.s.onClick(this.f4600e.f4597g);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoImageNoPlayerLayout f4584e;
+        public final /* synthetic */ VideoImageNoPlayerLayout f4601e;
 
         public b(VideoImageNoPlayerLayout videoImageNoPlayerLayout) {
             Interceptable interceptable = $ic;
@@ -122,14 +122,14 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
                     return;
                 }
             }
-            this.f4584e = videoImageNoPlayerLayout;
+            this.f4601e = videoImageNoPlayerLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f4584e.t.a(this.f4584e.r);
+                this.f4601e.t.a(this.f4601e.r);
             }
         }
     }
@@ -152,9 +152,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
                 return;
             }
         }
-        this.f4579f = 3;
+        this.f4596f = 3;
         this.p = false;
-        this.f4578e = context;
+        this.f4595e = context;
         f();
     }
 
@@ -166,17 +166,17 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
             this.n = (RelativeLayout) findViewById(R.id.operable_video_container);
             this.o = (RelativeLayout) findViewById(R.id.video_container);
             new WeakReference(TbadkCoreApplication.getInst());
-            this.f4580g = (TbImageView) findViewById(R.id.video_thumbnail);
-            this.f4581h = findViewById(R.id.video_thumbnail_mask);
-            this.f4582i = (ImageView) findViewById(R.id.video_play);
+            this.f4597g = (TbImageView) findViewById(R.id.video_thumbnail);
+            this.f4598h = findViewById(R.id.video_thumbnail_mask);
+            this.f4599i = (ImageView) findViewById(R.id.video_play);
             this.j = (ImageView) findViewById(R.id.video_pause);
             this.k = (TextView) findViewById(R.id.video_play_count);
             this.l = (TextView) findViewById(R.id.video_play_flag);
             this.m = (TextView) findViewById(R.id.video_duration);
-            this.f4580g.setConrers(15);
-            this.f4580g.setRadiusById(R.string.J_X05);
-            this.f4580g.setDrawCorner(true);
-            this.f4580g.setPlaceHolder(3);
+            this.f4597g.setConrers(15);
+            this.f4597g.setRadiusById(R.string.J_X05);
+            this.f4597g.setDrawCorner(true);
+            this.f4597g.setPlaceHolder(3);
             setOnClickListener(new a(this));
             SkinManager.setBackgroundResource(this, R.color.CAM_X0206);
         }
@@ -185,21 +185,21 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: g */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || aVar.getThreadData().u1 == null) {
             return;
         }
         OriginalThreadInfo originalThreadInfo = aVar.getThreadData().u1;
         originalThreadInfo.r.is_vertical.intValue();
-        String str = originalThreadInfo.f12235f;
+        String str = originalThreadInfo.f12252f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
-        long j = originalThreadInfo.f12234e;
+        long j = originalThreadInfo.f12251e;
         this.m.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
-        this.k.setText(String.format(this.f4578e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
+        this.k.setText(String.format(this.f4595e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.l.setVisibility(8);
-        this.f4580g.M(originalThreadInfo.r.thumbnail_url, 10, false);
+        this.f4597g.M(originalThreadInfo.r.thumbnail_url, 10, false);
     }
 
     @Override // android.view.View
@@ -212,16 +212,16 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
     public void h(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            if (this.f4579f != i2) {
-                c.d(this.f4581h).r(R.array.Mask_X003);
-                c.d(this.f4581h).n(R.string.J_X05);
+            if (this.f4596f != i2) {
+                c.d(this.f4598h).r(R.array.Mask_X003);
+                c.d(this.f4598h).n(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.n, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.o, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-                this.f4582i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.f4599i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
                 this.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_pause44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             }
-            this.f4579f = i2;
+            this.f4596f = i2;
         }
     }
 
@@ -241,7 +241,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
         }
     }
 
-    public void setData(d.a.r0.r.q.a aVar) {
+    public void setData(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.r = aVar;
@@ -255,7 +255,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.a.r0
         }
     }
 
-    public void setOnCardSubClickListener(b0<d.a.r0.r.q.a> b0Var) {
+    public void setOnCardSubClickListener(b0<d.a.o0.r.q.a> b0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, b0Var) == null) {
             this.q = b0Var;

@@ -2,6 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.os.Build;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,30 +22,30 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Crypto {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5354a = 16;
+    public static final int f5371a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5355b = 8;
+    public static final int f5372b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5356c = 128;
+    public static final int f5373c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5357d = 64;
+    public static final int f5374d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5358e = 8;
+    public static final int f5375e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5359f = 1000;
+    public static final int f5376f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f5360g;
+    public static SecureRandom f5377g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,7 +61,7 @@ public class Crypto {
                 return;
             }
         }
-        f5360g = new SecureRandom();
+        f5377g = new SecureRandom();
     }
 
     public Crypto() {
@@ -80,9 +81,9 @@ public class Crypto {
     public static byte[] a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f5360g.nextBytes(bArr);
+            f5377g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;

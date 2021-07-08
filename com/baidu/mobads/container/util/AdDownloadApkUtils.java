@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.components.controller.InstallReceiver;
@@ -25,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AdDownloadApkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DL_STATUS_DONE = "DONE";
@@ -205,7 +206,7 @@ public class AdDownloadApkUtils {
     public static Uri getUriForFileByProvider(Context context, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, file)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file)) == null) {
             try {
                 return AppUtils.getUriForFile(context, context.getPackageName() + ".bd.provider", file);
             } catch (Exception unused) {

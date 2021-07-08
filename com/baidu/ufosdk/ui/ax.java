@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ax extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f23350a;
+    public final /* synthetic */ FeedbackHotActivity f23460a;
 
     public ax(FeedbackHotActivity feedbackHotActivity) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class ax extends Handler {
                 return;
             }
         }
-        this.f23350a = feedbackHotActivity;
+        this.f23460a = feedbackHotActivity;
     }
 
     @Override // android.os.Handler
@@ -50,23 +50,23 @@ public final class ax extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
             if (message.what == 3) {
-                webView = this.f23350a.j;
+                webView = this.f23460a.j;
                 if (webView.getProgress() < 100) {
-                    webView2 = this.f23350a.j;
+                    webView2 = this.f23460a.j;
                     webView2.stopLoading();
-                    view = this.f23350a.l;
+                    view = this.f23460a.l;
                     view.setVisibility(8);
-                    Context applicationContext = this.f23350a.getApplicationContext();
-                    textView2 = this.f23350a.m;
+                    Context applicationContext = this.f23460a.getApplicationContext();
+                    textView2 = this.f23460a.m;
                     com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                    linearLayout = this.f23350a.f23286h;
+                    linearLayout = this.f23460a.f23396h;
                     linearLayout.setVisibility(0);
-                    webView3 = this.f23350a.j;
+                    webView3 = this.f23460a.j;
                     webView3.setVisibility(8);
                 }
             }
             if (message.what == 0) {
-                textView = this.f23350a.n;
+                textView = this.f23460a.n;
                 textView.setText(com.baidu.ufosdk.f.s.a("8"));
             }
         }

@@ -80,7 +80,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventTyp
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class AppPayServiceImpl implements IAppPayService, IPayInnerLogic, IRevenueDataReceiver, IRevenueService.IRevenueServiceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -145,7 +145,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayInnerLogic, IReven
     private void doOrderRequest(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i2, int i3, int i4, IPayCallback iPayCallback) {
         String onUpdateToken;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iPayCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iPayCallback}) == null) {
             RLog.info("AppPayServiceImpl", "---doOrderRequest---");
             if (checkNotNull(chargeCurrencyReqParams, iPayCallback)) {
                 long currentTimeMillis = System.currentTimeMillis();

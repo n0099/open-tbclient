@@ -30,25 +30,25 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f29393a;
+    public static volatile f f29503a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f29394b;
+    public final Context f29504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final i f29395c;
+    public final i f29505c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<m, Long> f29396d;
+    public Map<m, Long> f29506d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a<T> {
         void a(boolean z, T t);
     }
@@ -68,10 +68,10 @@ public class f {
                 return;
             }
         }
-        this.f29396d = Collections.synchronizedMap(new HashMap());
+        this.f29506d = Collections.synchronizedMap(new HashMap());
         Context a2 = context == null ? o.a() : context.getApplicationContext();
-        this.f29394b = a2;
-        this.f29395c = new i(a2, "sp_reward_video");
+        this.f29504b = a2;
+        this.f29505c = new i(a2, "sp_reward_video");
     }
 
     private File d(String str) {
@@ -84,7 +84,7 @@ public class f {
     public AdSlot b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f29395c.e(str) : (AdSlot) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.f29505c.e(str) : (AdSlot) invokeL.objValue;
     }
 
     public m c(String str) {
@@ -92,13 +92,13 @@ public class f {
         m a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            long b2 = this.f29395c.b(str);
-            boolean c2 = this.f29395c.c(str);
+            long b2 = this.f29505c.b(str);
+            boolean c2 = this.f29505c.c(str);
             if (!(System.currentTimeMillis() - b2 < 10500000) || c2) {
                 return null;
             }
             try {
-                String a3 = this.f29395c.a(str);
+                String a3 = this.f29505c.a(str);
                 if (TextUtils.isEmpty(a3) || (a2 = com.bytedance.sdk.openadsdk.core.b.a(new JSONObject(a3))) == null) {
                     return null;
                 }
@@ -125,14 +125,14 @@ public class f {
     public void b(AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, adSlot) == null) {
-            this.f29395c.b(adSlot);
+            this.f29505c.b(adSlot);
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f29395c.d(str);
+            this.f29505c.d(str);
         }
     }
 
@@ -140,7 +140,7 @@ public class f {
     public AdSlot b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29395c.a() : (AdSlot) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29505c.a() : (AdSlot) invokeV.objValue;
     }
 
     public void a() {
@@ -152,16 +152,16 @@ public class f {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
-                    file = new File(this.f29394b.getDataDir(), "shared_prefs");
+                    file = new File(this.f29504b.getDataDir(), "shared_prefs");
                 } else {
-                    file = new File(this.f29394b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
+                    file = new File(this.f29504b.getDatabasePath("1").getParentFile().getParentFile(), "shared_prefs");
                 }
                 if (file.exists() && file.isDirectory() && (listFiles2 = file.listFiles(new FileFilter(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.f.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f29397a;
+                    public final /* synthetic */ f f29507a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -178,7 +178,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f29397a = this;
+                        this.f29507a = this;
                     }
 
                     @Override // java.io.FileFilter
@@ -198,9 +198,9 @@ public class f {
                         try {
                             String replace = file2.getName().replace(ActivityChooserModel.HISTORY_FILE_EXTENSION, "");
                             if (Build.VERSION.SDK_INT >= 24) {
-                                this.f29394b.deleteSharedPreferences(replace);
+                                this.f29504b.deleteSharedPreferences(replace);
                             } else {
-                                this.f29394b.getSharedPreferences(replace, 0).edit().clear().apply();
+                                this.f29504b.getSharedPreferences(replace, 0).edit().clear().apply();
                                 com.bytedance.sdk.component.utils.f.c(file2);
                             }
                         } catch (Throwable unused) {
@@ -210,17 +210,17 @@ public class f {
             } catch (Throwable unused2) {
             }
             try {
-                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f29394b.getExternalCacheDir() != null) {
-                    externalCacheDir = this.f29394b.getExternalCacheDir();
+                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && this.f29504b.getExternalCacheDir() != null) {
+                    externalCacheDir = this.f29504b.getExternalCacheDir();
                 } else {
-                    externalCacheDir = this.f29394b.getCacheDir();
+                    externalCacheDir = this.f29504b.getCacheDir();
                 }
                 if (externalCacheDir == null || !externalCacheDir.exists() || !externalCacheDir.isDirectory() || (listFiles = externalCacheDir.listFiles(new FileFilter(this) { // from class: com.bytedance.sdk.openadsdk.component.reward.f.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ f f29398a;
+                    public final /* synthetic */ f f29508a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -237,7 +237,7 @@ public class f {
                                 return;
                             }
                         }
-                        this.f29398a = this;
+                        this.f29508a = this;
                     }
 
                     @Override // java.io.FileFilter
@@ -272,7 +272,7 @@ public class f {
             a(adSlot);
             if (mVar != null) {
                 try {
-                    this.f29395c.a(adSlot.getCodeId(), mVar.aO().toString());
+                    this.f29505c.a(adSlot.getCodeId(), mVar.aO().toString());
                 } catch (Throwable unused) {
                 }
             }
@@ -282,7 +282,7 @@ public class f {
     public void a(AdSlot adSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adSlot) == null) {
-            this.f29395c.a(adSlot);
+            this.f29505c.a(adSlot);
         }
     }
 
@@ -290,14 +290,14 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f29393a == null) {
+            if (f29503a == null) {
                 synchronized (f.class) {
-                    if (f29393a == null) {
-                        f29393a = new f(context);
+                    if (f29503a == null) {
+                        f29503a = new f(context);
                     }
                 }
             }
-            return f29393a;
+            return f29503a;
         }
         return (f) invokeL.objValue;
     }
@@ -332,15 +332,15 @@ public class f {
         VAdError vAdError;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Boolean.valueOf(z), mVar, Long.valueOf(j), mVar2}) == null) {
-            Long remove = this.f29396d.remove(mVar);
-            com.bytedance.sdk.openadsdk.e.d.f(this.f29394b, mVar, "rewarded_video", z ? "load_video_success" : "load_video_error", com.bytedance.sdk.openadsdk.r.o.a(z, mVar, remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue(), j, (z || mVar2 == null || (vAdError = mVar2.f27923c) == null) ? null : vAdError.getMessage()));
+            Long remove = this.f29506d.remove(mVar);
+            com.bytedance.sdk.openadsdk.e.d.f(this.f29504b, mVar, "rewarded_video", z ? "load_video_success" : "load_video_error", com.bytedance.sdk.openadsdk.r.o.a(z, mVar, remove == null ? 0L : SystemClock.elapsedRealtime() - remove.longValue(), j, (z || mVar2 == null || (vAdError = mVar2.f28033c) == null) ? null : vAdError.getMessage()));
         }
     }
 
     public void a(m mVar, a<Object> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, mVar, aVar) == null) {
-            this.f29396d.put(mVar, Long.valueOf(SystemClock.elapsedRealtime()));
+            this.f29506d.put(mVar, Long.valueOf(SystemClock.elapsedRealtime()));
             if (mVar != null && mVar.V() != null && !TextUtils.isEmpty(mVar.V().i())) {
                 String i2 = mVar.V().i();
                 File d2 = d(mVar.V().l());
@@ -350,16 +350,16 @@ public class f {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ File f29399a;
+                    public final /* synthetic */ File f29509a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f29400b;
+                    public final /* synthetic */ a f29510b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ m f29401c;
+                    public final /* synthetic */ m f29511c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ f f29402d;
+                    public final /* synthetic */ f f29512d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -376,10 +376,10 @@ public class f {
                                 return;
                             }
                         }
-                        this.f29402d = this;
-                        this.f29399a = d2;
-                        this.f29400b = aVar;
-                        this.f29401c = mVar;
+                        this.f29512d = this;
+                        this.f29509a = d2;
+                        this.f29510b = aVar;
+                        this.f29511c = mVar;
                     }
 
                     @Override // com.bytedance.sdk.component.adnet.b.b.a
@@ -387,10 +387,10 @@ public class f {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) {
-                            if (!this.f29399a.exists() || this.f29399a.length() <= 0) {
+                            if (!this.f29509a.exists() || this.f29509a.length() <= 0) {
                                 return null;
                             }
-                            return this.f29399a;
+                            return this.f29509a;
                         }
                         return (File) invokeL.objValue;
                     }
@@ -406,18 +406,18 @@ public class f {
                     public File b(String str) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, str)) == null) ? this.f29399a : (File) invokeL.objValue;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, str)) == null) ? this.f29509a : (File) invokeL.objValue;
                     }
 
                     @Override // com.bytedance.sdk.component.adnet.core.m.a
                     public void b(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048581, this, mVar2) == null) {
-                            a aVar2 = this.f29400b;
+                            a aVar2 = this.f29510b;
                             if (aVar2 != null) {
                                 aVar2.a(false, null);
                             }
-                            this.f29402d.a(false, this.f29401c, mVar2 == null ? -2L : mVar2.f27928h, mVar2);
+                            this.f29512d.a(false, this.f29511c, mVar2 == null ? -2L : mVar2.f28038h, mVar2);
                         }
                     }
 
@@ -427,26 +427,26 @@ public class f {
                         if (!(interceptable2 == null || interceptable2.invokeLL(1048579, this, str, file) == null) || file == null) {
                             return;
                         }
-                        this.f29402d.a(file);
+                        this.f29512d.a(file);
                     }
 
                     @Override // com.bytedance.sdk.component.adnet.core.m.a
                     public void a(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar2) == null) {
-                            if (mVar2 != null && mVar2.f27921a != null && this.f29399a.exists()) {
-                                a aVar2 = this.f29400b;
+                            if (mVar2 != null && mVar2.f28031a != null && this.f29509a.exists()) {
+                                a aVar2 = this.f29510b;
                                 if (aVar2 != null) {
                                     aVar2.a(true, null);
                                 }
-                                this.f29402d.a(true, this.f29401c, 0L, mVar2);
+                                this.f29512d.a(true, this.f29511c, 0L, mVar2);
                                 return;
                             }
-                            a aVar3 = this.f29400b;
+                            a aVar3 = this.f29510b;
                             if (aVar3 != null) {
                                 aVar3.a(false, null);
                             }
-                            this.f29402d.a(false, this.f29401c, mVar2 == null ? -3L : mVar2.f27928h, mVar2);
+                            this.f29512d.a(false, this.f29511c, mVar2 == null ? -3L : mVar2.f28038h, mVar2);
                         }
                     }
                 });

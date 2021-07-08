@@ -16,7 +16,7 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AdElementInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_EXPIRED_TIME = 1800000;

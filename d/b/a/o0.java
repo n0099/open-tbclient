@@ -1,5 +1,6 @@
 package d.b.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -7,15 +8,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.embed_dr.DrLogWriter;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class o0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f71715a;
+    public static int f68818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DrLogWriter f71716b;
+    public static DrLogWriter f68819b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,14 +39,14 @@ public final class o0 {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            f71715a = i2;
+            f68818a = i2;
         }
     }
 
     public static void b(DrLogWriter drLogWriter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, drLogWriter) == null) {
-            f71716b = drLogWriter;
+            f68819b = drLogWriter;
         }
     }
 
@@ -59,7 +60,7 @@ public final class o0 {
     public static void d(String str, String str2, Throwable th) {
         DrLogWriter drLogWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65540, null, str, str2, th) == null) || (drLogWriter = f71716b) == null || f71715a > 2) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) || (drLogWriter = f68819b) == null || f68818a > 2) {
             return;
         }
         drLogWriter.logV(str, str2, th);
@@ -75,7 +76,7 @@ public final class o0 {
     public static void f(String str, String str2, Throwable th) {
         DrLogWriter drLogWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) || (drLogWriter = f71716b) == null || f71715a > 3) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) || (drLogWriter = f68819b) == null || f68818a > 3) {
             return;
         }
         drLogWriter.logD(str, str2, th);
@@ -91,7 +92,7 @@ public final class o0 {
     public static void h(String str, String str2, Throwable th) {
         DrLogWriter drLogWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) || (drLogWriter = f71716b) == null || f71715a > 6) {
+        if (!(interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) || (drLogWriter = f68819b) == null || f68818a > 6) {
             return;
         }
         drLogWriter.logE(str, str2, th);

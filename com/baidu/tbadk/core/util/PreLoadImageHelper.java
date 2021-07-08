@@ -22,7 +22,7 @@ import d.a.c.k.e.q;
 import d.a.c.k.e.r;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PreLoadImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;

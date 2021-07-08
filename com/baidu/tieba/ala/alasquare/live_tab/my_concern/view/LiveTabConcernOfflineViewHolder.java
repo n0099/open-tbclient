@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v.d.c.f.d.f;
-/* loaded from: classes5.dex */
+import d.a.p0.v.d.c.f.d.f;
+/* loaded from: classes4.dex */
 public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f13993a;
+    public f f14032a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveTabConcernOfflineViewHolder(f fVar) {
-        super(fVar.l());
+        super(fVar.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,6 +33,6 @@ public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f13993a = fVar;
+        this.f14032a = fVar;
     }
 }

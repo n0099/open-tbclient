@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,12 +24,12 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class InstalledAppInfoManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AppPackageInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -324393456884895874L;
@@ -87,8 +88,11 @@ public class InstalledAppInfoManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (com.kwad.sdk.core.config.c.a(16L)) {
+                return new JSONArray();
+            }
             Map<String, AppPackageInfo> b2 = b(context);
-            b2.putAll(b(context, com.kwad.sdk.core.config.c.n()));
+            b2.putAll(b(context, com.kwad.sdk.core.config.c.i()));
             return a(b2);
         }
         return (JSONArray) invokeL.objValue;
@@ -104,7 +108,7 @@ public class InstalledAppInfoManager {
                 for (String str : map.keySet()) {
                     AppPackageInfo appPackageInfo = map.get(str);
                     if (appPackageInfo != null && !TextUtils.isEmpty(appPackageInfo.packageName)) {
-                        o.a(jSONArray, a(appPackageInfo));
+                        q.a(jSONArray, a(appPackageInfo));
                     }
                 }
             } catch (Exception e2) {
@@ -120,13 +124,13 @@ public class InstalledAppInfoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, appPackageInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, appPackageInfo.packageName);
-            o.a(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
-            o.a(jSONObject, "appVersion", appPackageInfo.versionName);
-            o.a(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);
-            o.a(jSONObject, "lastUpdateTime", appPackageInfo.lastUpdateTime);
-            o.a(jSONObject, "reportMethod", appPackageInfo.reportMethod);
-            o.a(jSONObject, "appName", appPackageInfo.appName);
+            q.a(jSONObject, PushClientConstants.TAG_PKG_NAME, appPackageInfo.packageName);
+            q.a(jSONObject, "system_app", appPackageInfo.isSystemApp ? 1 : 0);
+            q.a(jSONObject, "appVersion", appPackageInfo.versionName);
+            q.a(jSONObject, "firstInstallTime", appPackageInfo.firstInstallTime);
+            q.a(jSONObject, "lastUpdateTime", appPackageInfo.lastUpdateTime);
+            q.a(jSONObject, "reportMethod", appPackageInfo.reportMethod);
+            q.a(jSONObject, "appName", appPackageInfo.appName);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
@@ -135,7 +139,7 @@ public class InstalledAppInfoManager {
     public static boolean a(ApplicationInfo applicationInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, applicationInfo)) == null) ? (applicationInfo.flags & 1) != 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, applicationInfo)) == null) ? (applicationInfo.flags & 1) != 0 : invokeL.booleanValue;
     }
 
     @NonNull
@@ -187,7 +191,7 @@ public class InstalledAppInfoManager {
                 Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
                 intent.addCategory("android.intent.category.LAUNCHER");
                 List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 32);
-                List<String> b2 = AppStatusHelper.b(context);
+                List<String> b2 = f.b(context);
                 for (ResolveInfo resolveInfo : queryIntentActivities) {
                     if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
                         String str = resolveInfo.activityInfo.packageName;

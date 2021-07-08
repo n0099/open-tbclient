@@ -177,7 +177,7 @@ public class SwitchCompat extends CompoundButton {
 
     private void animateThumbToCheckedState(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, THUMB_POS, z ? 1.0f : 0.0f);
             this.mPositionAnimator = ofFloat;
             ofFloat.setDuration(250L);

@@ -10,6 +10,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,24 +20,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Locale;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f41911a;
+    public static String f38925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f41912b;
+    public static String f38926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f41913c;
+    public static String f38927c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f41914d;
+    public static String f38928d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f41915e;
+    public static String f38929e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -81,20 +82,20 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            String str = f41912b;
+            String str = f38926b;
             if (str == null || str.length() <= 0) {
                 if (context == null) {
                     return "";
                 }
                 try {
                     String simSerialNumber = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-                    f41912b = simSerialNumber;
+                    f38926b = simSerialNumber;
                     return simSerialNumber;
                 } catch (Exception unused) {
                     return "";
                 }
             }
-            return f41912b;
+            return f38926b;
         }
         return (String) invokeL.objValue;
     }
@@ -103,20 +104,20 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            String str = f41913c;
+            String str = f38927c;
             if (str == null || str.length() <= 0) {
                 if (context == null) {
                     return "";
                 }
                 try {
                     String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                    f41913c = string;
+                    f38927c = string;
                     return string;
                 } catch (Exception unused) {
                     return "";
                 }
             }
-            return f41913c;
+            return f38927c;
         }
         return (String) invokeL.objValue;
     }
@@ -126,7 +127,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                if (f41915e == null) {
+                if (f38929e == null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                     StringBuilder sb = new StringBuilder();
@@ -162,9 +163,9 @@ public class c {
                     sb.append("&");
                     sb.append("wifi=");
                     sb.append(a.e(context));
-                    f41915e = sb.toString();
+                    f38929e = sb.toString();
                 }
-                return f41915e;
+                return f38929e;
             } catch (Exception unused) {
                 return null;
             }
@@ -175,21 +176,21 @@ public class c {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
-            String str = f41911a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String str = f38925a;
             if (str == null || str.length() <= 0) {
                 if (context == null) {
                     return "";
                 }
                 try {
                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                    f41911a = deviceId;
+                    f38925a = deviceId;
                     return deviceId;
                 } catch (Exception unused) {
                     return "";
                 }
             }
-            return f41911a;
+            return f38925a;
         }
         return (String) invokeL.objValue;
     }
@@ -198,20 +199,20 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f41914d)) {
+            if (TextUtils.isEmpty(f38928d)) {
                 if (context == null) {
                     return "";
                 }
-                f41914d = "";
+                f38928d = "";
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
                 if (windowManager != null) {
                     int width = windowManager.getDefaultDisplay().getWidth();
                     int height = windowManager.getDefaultDisplay().getHeight();
-                    f41914d = width + "x" + height;
+                    f38928d = width + "x" + height;
                 }
-                return f41914d;
+                return f38928d;
             }
-            return f41914d;
+            return f38928d;
         }
         return (String) invokeL.objValue;
     }

@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.data.mediastore;
 
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MediaStoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINI_THUMB_HEIGHT = 384;
@@ -50,7 +51,7 @@ public final class MediaStoreUtil {
     public static boolean isThumbnailSize(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? i2 != Integer.MIN_VALUE && i3 != Integer.MIN_VALUE && i2 <= 512 && i3 <= 384 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? i2 != Integer.MIN_VALUE && i3 != Integer.MIN_VALUE && i2 <= 512 && i3 <= 384 : invokeII.booleanValue;
     }
 
     public static boolean isVideoUri(Uri uri) {

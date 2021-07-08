@@ -1,5 +1,6 @@
 package d.a.k.d.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f45941a;
+    public static final SecureRandom f42824a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +31,7 @@ public final class b {
                 return;
             }
         }
-        f45941a = new SecureRandom();
+        f42824a = new SecureRandom();
     }
 
     public static int a(BigInteger bigInteger) {
@@ -79,7 +80,7 @@ public final class b {
     public static byte[] d(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
             if (i2 == 0 && i3 == bArr.length) {
                 return bArr;
             }

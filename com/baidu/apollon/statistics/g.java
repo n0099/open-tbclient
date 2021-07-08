@@ -2,6 +2,7 @@ package com.baidu.apollon.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
@@ -23,31 +24,31 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3982a = "wifi";
+    public static final String f3985a = "wifi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3983b = "3G";
+    public static final String f3986b = "3G";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3984c = "time";
+    public static final String f3987c = "time";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3985d = "count";
+    public static final String f3988d = "count";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3986e = "now";
+    public static final String f3989e = "now";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3987f = "never";
+    public static final String f3990f = "never";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3988g = "now";
+    public static final String f3991g = "now";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3989h = "strategy_timestamp";
+    public static final String f3992h = "strategy_timestamp";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f3990i = 0;
+    public static final int f3993i = 0;
     public static final int j = 200;
     public static final String k = "g";
     public static final int l = 1;
@@ -72,7 +73,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final g f3991a;
+        public static final g f3994a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,7 +89,7 @@ public class g {
                     return;
                 }
             }
-            f3991a = new g();
+            f3994a = new g();
         }
 
         public a() {
@@ -144,17 +145,17 @@ public class g {
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3991a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f3994a : (g) invokeV.objValue;
     }
 
     private void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             JSONObject jSONObject = (JSONObject) new JSONTokener(str).nextValue();
-            jSONObject.put(f3989h, System.currentTimeMillis());
+            jSONObject.put(f3992h, System.currentTimeMillis());
             BasicStoreTools.getInstance().setStrategy(this.q, jSONObject.toString());
             this.r = jSONObject;
         } catch (Exception e2) {
@@ -175,7 +176,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             JSONObject jSONObject = this.r;
-            if (jSONObject != null && jSONObject.has(f3989h)) {
+            if (jSONObject != null && jSONObject.has(f3992h)) {
                 synchronized (this.u) {
                     JSONObject optJSONObject = this.r.optJSONObject("data");
                     if (optJSONObject == null) {
@@ -184,7 +185,7 @@ public class g {
                     boolean z = true;
                     if (optJSONObject != null) {
                         this.v = optJSONObject.optInt("wifi", 1);
-                        this.w = optJSONObject.optInt(f3983b, 5);
+                        this.w = optJSONObject.optInt(f3986b, 5);
                         if (1 == optJSONObject.optInt(PackageTable.DISABLE, 0)) {
                             z = false;
                         }
@@ -197,7 +198,7 @@ public class g {
                             }
                         }
                         Arrays.sort(this.x);
-                        JSONArray optJSONArray2 = optJSONObject.optJSONArray(f3987f);
+                        JSONArray optJSONArray2 = optJSONObject.optJSONArray(f3990f);
                         this.y = optJSONArray2 == null ? new String[0] : new String[optJSONArray2.length()];
                         for (int i3 = 0; i3 < this.y.length; i3++) {
                             this.y[i3] = optJSONArray2.optString(i3);
@@ -227,11 +228,11 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject jSONObject = this.r;
-            if (jSONObject == null || !jSONObject.has(f3989h)) {
+            if (jSONObject == null || !jSONObject.has(f3992h)) {
                 return true;
             }
             try {
-                j2 = this.r.getLong(f3989h);
+                j2 = this.r.getLong(f3992h);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 j2 = 0;
@@ -358,11 +359,11 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
-            if (this.s != null && eVar != null && !TextUtils.isEmpty(eVar.f3978h)) {
+            if (this.s != null && eVar != null && !TextUtils.isEmpty(eVar.f3981h)) {
                 synchronized (this.u) {
-                    if (this.s.has(eVar.f3978h)) {
+                    if (this.s.has(eVar.f3981h)) {
                         try {
-                            JSONObject optJSONObject = this.s.optJSONObject(eVar.f3978h);
+                            JSONObject optJSONObject = this.s.optJSONObject(eVar.f3981h);
                             if (optJSONObject == null) {
                                 return true;
                             }

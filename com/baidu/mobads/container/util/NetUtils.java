@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT_IN_MILLIONS = 5000;

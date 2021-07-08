@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,18 +16,18 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ek {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f43046a;
+    public static a f40060a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hp> f320a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void uploader(Context context, hj hjVar);
     }
@@ -90,7 +91,7 @@ public class ek {
     public static EventClientReport a(Context context, String str, String str2, int i2, long j, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j), str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i2), Long.valueOf(j), str3})) == null) {
             EventClientReport a2 = a(str);
             a2.eventId = str2;
             a2.eventType = i2;
@@ -180,7 +181,7 @@ public class ek {
                 }
             }
             hp hpVar2 = f320a.get(str.toLowerCase());
-            return hpVar2 != null ? hpVar2 : hp.f43287a;
+            return hpVar2 != null ? hpVar2 : hp.f40301a;
         }
         return (hp) invokeL.objValue;
     }
@@ -214,7 +215,7 @@ public class ek {
                 com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
                 return;
             }
-            a aVar = f43046a;
+            a aVar = f40060a;
             if (aVar != null) {
                 aVar.uploader(context, hjVar);
             }
@@ -241,7 +242,7 @@ public class ek {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, aVar) == null) {
-            f43046a = aVar;
+            f40060a = aVar;
         }
     }
 

@@ -69,7 +69,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressEditActivity extends BaseAddressActivity<AddressEditPresenter> implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDRESS_4_ELEMENT = 15;

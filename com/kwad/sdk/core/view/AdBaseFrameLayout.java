@@ -16,17 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.s;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.core.d.a;
+import com.kwad.sdk.utils.v;
+/* loaded from: classes6.dex */
 public class AdBaseFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final s.a f36724b;
+    public static final v.a f35072b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f36725a;
+    public View.OnTouchListener f35073a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +42,7 @@ public class AdBaseFrameLayout extends FrameLayout {
                 return;
             }
         }
-        f36724b = new s.a();
+        f35072b = new v.a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -107,20 +108,40 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
+    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
+            try {
+                super.dispatchRestoreInstanceState(sparseArray);
+            } catch (Throwable th) {
+                a.a(th);
+                com.kwad.sdk.core.a.a.a(th);
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            View.OnTouchListener onTouchListener = this.f36725a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            View.OnTouchListener onTouchListener = this.f35073a;
             if (onTouchListener != null) {
                 onTouchListener.onTouch(this, motionEvent);
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                f36724b.a(getWidth(), getHeight());
-                f36724b.a(motionEvent.getX(), motionEvent.getY());
+                f35072b.a(getWidth(), getHeight());
+                f35072b.a(motionEvent.getX(), motionEvent.getY());
             } else if (action == 1) {
-                f36724b.b(motionEvent.getX(), motionEvent.getY());
+                f35072b.b(motionEvent.getX(), motionEvent.getY());
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -128,23 +149,23 @@ public class AdBaseFrameLayout extends FrameLayout {
     }
 
     @MainThread
-    public s.a getTouchCoords() {
+    public v.a getTouchCoords() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f36724b : (s.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f35072b : (v.a) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void saveHierarchyState(SparseArray<Parcelable> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sparseArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, sparseArray) == null) {
         }
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onTouchListener) == null) {
-            this.f36725a = onTouchListener;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onTouchListener) == null) {
+            this.f35073a = onTouchListener;
         }
     }
 }

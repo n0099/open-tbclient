@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.b;
-import d.a.g0.f;
-import d.a.g0.g;
-/* loaded from: classes3.dex */
+import d.a.d0.b;
+import d.a.d0.f;
+import d.a.d0.g;
+/* loaded from: classes2.dex */
 public class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9429e;
+    public ImageView f9446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9430f;
+    public TextView f9447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f9431g;
+    public Animation f9448g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f9432h;
+    public boolean f9449h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -60,9 +60,9 @@ public class c extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
-            this.f9429e = (ImageView) findViewById(f.toast_loading_view);
-            this.f9430f = (TextView) findViewById(f.toast_text_view);
-            this.f9431g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+            this.f9446e = (ImageView) findViewById(f.toast_loading_view);
+            this.f9447f = (TextView) findViewById(f.toast_text_view);
+            this.f9448g = AnimationUtils.loadAnimation(context, b.loading_rotate);
             setClickable(true);
         }
     }
@@ -83,20 +83,20 @@ public class c extends FrameLayout {
     public boolean getIsLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9432h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9449h : invokeV.booleanValue;
     }
 
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             b();
-            this.f9432h = z;
+            this.f9449h = z;
             if (z) {
                 setVisibility(0);
-                this.f9429e.startAnimation(this.f9431g);
+                this.f9446e.startAnimation(this.f9448g);
                 return;
             }
-            this.f9429e.clearAnimation();
+            this.f9446e.clearAnimation();
             setVisibility(8);
         }
     }
@@ -104,7 +104,7 @@ public class c extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f9430f.setText(str);
+            this.f9447f.setText(str);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.android.util.io.ZipUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,7 +17,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +198,7 @@ public class v {
     public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, file)) == null) ? file != null && (!file.exists() ? !file.mkdirs() : !file.isDirectory()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) ? file != null && (!file.exists() ? !file.mkdirs() : !file.isDirectory()) : invokeL.booleanValue;
     }
 
     public static File a(String str) {

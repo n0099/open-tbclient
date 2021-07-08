@@ -2,6 +2,7 @@ package com.baidu.webkit.internal;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CpuInfo implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_TYPE_ARM_AR = 2;
@@ -162,7 +163,7 @@ public class CpuInfo implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             r2 = 65540;
-            InterceptResult invokeLL = interceptable.invokeLL(65540, null, str, str2);
+            InterceptResult invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2);
             if (invokeLL != null) {
                 return invokeLL.booleanValue;
             }

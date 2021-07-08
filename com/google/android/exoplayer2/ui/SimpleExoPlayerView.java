@@ -38,25 +38,25 @@ import d.f.b.a.q;
 import d.f.b.a.v;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SimpleExoPlayerView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AspectRatioFrameLayout f32793e;
+    public final AspectRatioFrameLayout f32903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final View f32794f;
+    public final View f32904f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final View f32795g;
+    public final View f32905g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ImageView f32796h;
+    public final ImageView f32906h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SubtitleView f32797i;
+    public final SubtitleView f32907i;
     public final PlaybackControlView j;
     public final b k;
     public final FrameLayout l;
@@ -68,19 +68,19 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public boolean r;
     public boolean s;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public final class b extends q.a implements j, v.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleExoPlayerView f32798e;
+        public final /* synthetic */ SimpleExoPlayerView f32908e;
 
         public b(SimpleExoPlayerView simpleExoPlayerView) {
             Interceptable interceptable = $ic;
@@ -97,40 +97,40 @@ public final class SimpleExoPlayerView extends FrameLayout {
                     return;
                 }
             }
-            this.f32798e = simpleExoPlayerView;
+            this.f32908e = simpleExoPlayerView;
         }
 
         @Override // d.f.b.a.v.c
         public void h() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f32798e.f32794f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f32908e.f32904f == null) {
                 return;
             }
-            this.f32798e.f32794f.setVisibility(4);
+            this.f32908e.f32904f.setVisibility(4);
         }
 
         @Override // d.f.b.a.e0.j
         public void i(List<d.f.b.a.e0.b> list) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f32798e.f32797i == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f32908e.f32907i == null) {
                 return;
             }
-            this.f32798e.f32797i.i(list);
+            this.f32908e.f32907i.i(list);
         }
 
         @Override // d.f.b.a.q.a, d.f.b.a.q.b
         public void j(t tVar, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tVar, gVar) == null) {
-                this.f32798e.t();
+                this.f32908e.t();
             }
         }
 
         @Override // d.f.b.a.q.a, d.f.b.a.q.b
         public void l(int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f32798e.m()) {
-                this.f32798e.k();
+            if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f32908e.m()) {
+                this.f32908e.k();
             }
         }
 
@@ -138,10 +138,10 @@ public final class SimpleExoPlayerView extends FrameLayout {
         public void m(boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-                if (!this.f32798e.m()) {
-                    this.f32798e.n(false);
+                if (!this.f32908e.m()) {
+                    this.f32908e.n(false);
                 } else {
-                    this.f32798e.k();
+                    this.f32908e.k();
                 }
             }
         }
@@ -149,10 +149,10 @@ public final class SimpleExoPlayerView extends FrameLayout {
         @Override // d.f.b.a.v.c
         public void onVideoSizeChanged(int i2, int i3, int i4, float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) || this.f32798e.f32793e == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) || this.f32908e.f32903e == null) {
                 return;
             }
-            this.f32798e.f32793e.setAspectRatio(i3 == 0 ? 1.0f : (i2 * f2) / i3);
+            this.f32908e.f32903e.setAspectRatio(i3 == 0 ? 1.0f : (i2 * f2) / i3);
         }
 
         public /* synthetic */ b(SimpleExoPlayerView simpleExoPlayerView, a aVar) {
@@ -261,7 +261,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public SubtitleView getSubtitleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32797i : (SubtitleView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32907i : (SubtitleView) invokeV.objValue;
     }
 
     public boolean getUseArtwork() {
@@ -279,7 +279,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public View getVideoSurfaceView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f32795g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f32905g : (View) invokeV.objValue;
     }
 
     public boolean i(KeyEvent keyEvent) {
@@ -291,11 +291,11 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public final void j() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (imageView = this.f32796h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (imageView = this.f32906h) == null) {
             return;
         }
         imageView.setImageResource(17170445);
-        this.f32796h.setVisibility(4);
+        this.f32906h.setVisibility(4);
     }
 
     public void k() {
@@ -343,12 +343,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
                 if (width > 0 && height > 0) {
-                    AspectRatioFrameLayout aspectRatioFrameLayout = this.f32793e;
+                    AspectRatioFrameLayout aspectRatioFrameLayout = this.f32903e;
                     if (aspectRatioFrameLayout != null) {
                         aspectRatioFrameLayout.setAspectRatio(width / height);
                     }
-                    this.f32796h.setImageBitmap(bitmap);
-                    this.f32796h.setVisibility(0);
+                    this.f32906h.setImageBitmap(bitmap);
+                    this.f32906h.setVisibility(0);
                     return true;
                 }
             }
@@ -493,7 +493,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
             vVar2.f(this.k);
             this.m.Q(this.k);
             this.m.R(this.k);
-            View view = this.f32795g;
+            View view = this.f32905g;
             if (view instanceof TextureView) {
                 this.m.M((TextureView) view);
             } else if (view instanceof SurfaceView) {
@@ -504,12 +504,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
         if (this.n) {
             this.j.setPlayer(vVar);
         }
-        View view2 = this.f32794f;
+        View view2 = this.f32904f;
         if (view2 != null) {
             view2.setVisibility(0);
         }
         if (vVar != null) {
-            View view3 = this.f32795g;
+            View view3 = this.f32905g;
             if (view3 instanceof TextureView) {
                 vVar.W((TextureView) view3);
             } else if (view3 instanceof SurfaceView) {
@@ -537,8 +537,8 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public void setResizeMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            d.f.b.a.i0.a.f(this.f32793e != null);
-            this.f32793e.setResizeMode(i2);
+            d.f.b.a.i0.a.f(this.f32903e != null);
+            this.f32903e.setResizeMode(i2);
         }
     }
 
@@ -569,7 +569,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public void setShutterBackgroundColor(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048612, this, i2) == null) || (view = this.f32794f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048612, this, i2) == null) || (view = this.f32904f) == null) {
             return;
         }
         view.setBackgroundColor(i2);
@@ -578,7 +578,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
     public void setUseArtwork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
-            d.f.b.a.i0.a.f((z && this.f32796h == null) ? false : true);
+            d.f.b.a.i0.a.f((z && this.f32906h == null) ? false : true);
             if (this.o != z) {
                 this.o = z;
                 t();
@@ -611,7 +611,7 @@ public final class SimpleExoPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
             super.setVisibility(i2);
-            View view = this.f32795g;
+            View view = this.f32905g;
             if (view instanceof SurfaceView) {
                 view.setVisibility(i2);
             }
@@ -625,18 +625,18 @@ public final class SimpleExoPlayerView extends FrameLayout {
             return;
         }
         g n = vVar.n();
-        for (int i2 = 0; i2 < n.f73250a; i2++) {
+        for (int i2 = 0; i2 < n.f70353a; i2++) {
             if (this.m.o(i2) == 2 && n.a(i2) != null) {
                 j();
                 return;
             }
         }
-        View view = this.f32794f;
+        View view = this.f32904f;
         if (view != null) {
             view.setVisibility(0);
         }
         if (this.o) {
-            for (int i3 = 0; i3 < n.f73250a; i3++) {
+            for (int i3 = 0; i3 < n.f70353a; i3++) {
                 f a2 = n.a(i3);
                 if (a2 != null) {
                     for (int i4 = 0; i4 < a2.length(); i4++) {
@@ -705,16 +705,16 @@ public final class SimpleExoPlayerView extends FrameLayout {
             }
         }
         if (isInEditMode()) {
-            this.f32793e = null;
-            this.f32794f = null;
-            this.f32795g = null;
-            this.f32796h = null;
-            this.f32797i = null;
+            this.f32903e = null;
+            this.f32904f = null;
+            this.f32905g = null;
+            this.f32906h = null;
+            this.f32907i = null;
             this.j = null;
             this.k = null;
             this.l = null;
             ImageView imageView = new ImageView(context);
-            if (d.f.b.a.i0.v.f73412a >= 23) {
+            if (d.f.b.a.i0.v.f70515a >= 23) {
                 h(getResources(), imageView);
             } else {
                 g(getResources(), imageView);
@@ -757,36 +757,36 @@ public final class SimpleExoPlayerView extends FrameLayout {
         this.k = new b(this, null);
         setDescendantFocusability(262144);
         AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(d.f.b.a.g0.c.exo_content_frame);
-        this.f32793e = aspectRatioFrameLayout;
+        this.f32903e = aspectRatioFrameLayout;
         if (aspectRatioFrameLayout != null) {
             q(aspectRatioFrameLayout, i6);
         }
         View findViewById = findViewById(d.f.b.a.g0.c.exo_shutter);
-        this.f32794f = findViewById;
+        this.f32904f = findViewById;
         if (findViewById != null && z3) {
             findViewById.setBackgroundColor(i3);
         }
-        if (this.f32793e != null && i5 != 0) {
+        if (this.f32903e != null && i5 != 0) {
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
             View textureView = i5 == 2 ? new TextureView(context) : new SurfaceView(context);
-            this.f32795g = textureView;
+            this.f32905g = textureView;
             textureView.setLayoutParams(layoutParams);
-            this.f32793e.addView(this.f32795g, 0);
+            this.f32903e.addView(this.f32905g, 0);
         } else {
-            this.f32795g = null;
+            this.f32905g = null;
         }
         this.l = (FrameLayout) findViewById(d.f.b.a.g0.c.exo_overlay);
         ImageView imageView2 = (ImageView) findViewById(d.f.b.a.g0.c.exo_artwork);
-        this.f32796h = imageView2;
+        this.f32906h = imageView2;
         this.o = z4 && imageView2 != null;
         if (i4 != 0) {
             this.p = BitmapFactory.decodeResource(context.getResources(), i4);
         }
         SubtitleView subtitleView = (SubtitleView) findViewById(d.f.b.a.g0.c.exo_subtitles);
-        this.f32797i = subtitleView;
+        this.f32907i = subtitleView;
         if (subtitleView != null) {
             subtitleView.setUserDefaultStyle();
-            this.f32797i.setUserDefaultTextSize();
+            this.f32907i.setUserDefaultTextSize();
         }
         PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(d.f.b.a.g0.c.exo_controller);
         View findViewById2 = findViewById(d.f.b.a.g0.c.exo_controller_placeholder);

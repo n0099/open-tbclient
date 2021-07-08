@@ -1,67 +1,79 @@
 package com.kwad.sdk.utils;
 
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.annotation.MainThread;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final Handler f36517a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @MainThread
-    public static WebSettings a(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, webView)) == null) {
-            if (webView == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734545, "Lcom/kwad/sdk/utils/ar;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            WebSettings settings = webView.getSettings();
-            settings.setJavaScriptEnabled(true);
-            settings.setSavePassword(false);
-            settings.setAllowFileAccessFromFileURLs(false);
-            settings.setAllowUniversalAccessFromFileURLs(false);
-            settings.setAllowFileAccess(false);
-            if (Build.VERSION.SDK_INT >= 21) {
-                settings.setMixedContentMode(0);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(408734545, "Lcom/kwad/sdk/utils/ar;");
+                return;
             }
-            if (Build.VERSION.SDK_INT < 19) {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
-                webView.removeJavascriptInterface("accessibility");
-                webView.removeJavascriptInterface("accessibilityTraversal");
-            }
-            webView.setSaveEnabled(false);
-            return settings;
         }
-        return (WebSettings) invokeL.objValue;
+        f36517a = new Handler(Looper.getMainLooper());
     }
 
-    @MainThread
-    public static void b(WebView webView) {
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, webView) == null) || webView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                runnable.run();
+            } else {
+                f36517a.post(runnable);
+            }
         }
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);
-        settings.setAllowFileAccess(true);
-        settings.setAllowContentAccess(false);
-        settings.setAllowFileAccessFromFileURLs(false);
-        settings.setAllowUniversalAccessFromFileURLs(false);
-        settings.setCacheMode(1);
-        if (Build.VERSION.SDK_INT >= 21) {
-            settings.setMixedContentMode(0);
+    }
+
+    public static void a(Runnable runnable, Object obj, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, obj, Long.valueOf(j)}) == null) {
+            Message obtain = Message.obtain(f36517a, runnable);
+            obtain.obj = obj;
+            f36517a.sendMessageDelayed(obtain, j);
         }
-        if (Build.VERSION.SDK_INT < 19) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
+    }
+
+    public static boolean a(JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, jSONObject2)) == null) {
+            boolean z = false;
+            if (jSONObject != null && jSONObject2 != null) {
+                Iterator<String> keys = jSONObject2.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    try {
+                        jSONObject.put(next, jSONObject2.opt(next));
+                    } catch (JSONException e2) {
+                        com.kwad.sdk.core.d.a.b(e2);
+                    }
+                    z = true;
+                }
+            }
+            return z;
         }
-        webView.setSaveEnabled(false);
+        return invokeLL.booleanValue;
     }
 }

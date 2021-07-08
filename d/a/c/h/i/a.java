@@ -1,6 +1,7 @@
 package d.a.c.h.i;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,28 +20,28 @@ import d.a.c.h.j.g.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f44684b;
+    public static volatile a f41700b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, ArrayList<Message<?>>> f44685a;
+    public HashMap<String, ArrayList<Message<?>>> f41701a;
 
     /* renamed from: d.a.c.h.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0597a extends CustomMessageListener {
+    /* loaded from: classes7.dex */
+    public class C0558a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44686a;
+        public final /* synthetic */ a f41702a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0597a(a aVar, int i2) {
+        public C0558a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -57,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            this.f44686a = aVar;
+            this.f41702a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,24 +69,24 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                 PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                if (aVar.f2219b == 0 && this.f44686a.f44685a.size() > 0 && (arrayList = (ArrayList) this.f44686a.f44685a.get(aVar.f2218a)) != null && arrayList.size() > 0) {
+                if (aVar.f2220b == 0 && this.f41702a.f41701a.size() > 0 && (arrayList = (ArrayList) this.f41702a.f41701a.get(aVar.f2219a)) != null && arrayList.size() > 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         MessageManager.getInstance().sendMessage((Message) it.next());
                     }
                 }
-                this.f44686a.f44685a.remove(aVar.f2218a);
+                this.f41702a.f41701a.remove(aVar.f2219a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements d.a.c.c.g.b<Message<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44687a;
+        public final /* synthetic */ a f41703a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -102,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            this.f44687a = aVar;
+            this.f41703a = aVar;
         }
 
         @Override // d.a.c.c.g.b
@@ -118,12 +119,12 @@ public class a {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(g2)) {
-                    this.f44687a.c(g2, message);
-                    return PluginCenter.getInstance().launch(g2).f2206a;
+                    this.f41703a.c(g2, message);
+                    return PluginCenter.getInstance().launch(g2).f2207a;
                 } else if (PluginCenter.getInstance().isLoaded(g2)) {
                     return false;
                 } else {
-                    this.f44687a.c(g2, message);
+                    this.f41703a.c(g2, message);
                     return true;
                 }
             }
@@ -159,21 +160,21 @@ public class a {
                 return;
             }
         }
-        this.f44685a = null;
+        this.f41701a = null;
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (f44684b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (f41700b == null) {
                 synchronized (a.class) {
-                    if (f44684b == null) {
-                        f44684b = new a();
+                    if (f41700b == null) {
+                        f41700b = new a();
                     }
                 }
             }
-            return f44684b;
+            return f41700b;
         }
         return (a) invokeV.objValue;
     }
@@ -183,10 +184,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, message) == null) || TextUtils.isEmpty(str) || message == null) {
             return;
         }
-        ArrayList<Message<?>> arrayList = this.f44685a.get(str);
+        ArrayList<Message<?>> arrayList = this.f41701a.get(str);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f44685a.put(str, arrayList);
+            this.f41701a.put(str, arrayList);
         }
         arrayList.add(message);
     }
@@ -194,7 +195,7 @@ public class a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44685a = new HashMap<>();
+            this.f41701a = new HashMap<>();
             f();
             g();
         }
@@ -210,7 +211,7 @@ public class a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(2000997, new C0597a(this, 0));
+            MessageManager.getInstance().registerListener(2000997, new C0558a(this, 0));
         }
     }
 }

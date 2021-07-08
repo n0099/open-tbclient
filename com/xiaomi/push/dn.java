@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class dn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile dn f42968a;
+    public static volatile dn f39982a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,24 +52,24 @@ public class dn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f42968a == null) {
+            if (f39982a == null) {
                 synchronized (dn.class) {
-                    if (f42968a == null) {
-                        f42968a = new dn(context);
+                    if (f39982a == null) {
+                        f39982a = new dn(context);
                     }
                 }
             }
-            return f42968a;
+            return f39982a;
         }
         return (dn) invokeL.objValue;
     }
 
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65540, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f43266a.a(), true)) {
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f40280a.a(), true)) {
             ds dsVar = new ds(this.f240a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f43267b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f40281b.a(), 86400)));
             } else {
                 aiVar.m142a((ai.a) dsVar);
             }

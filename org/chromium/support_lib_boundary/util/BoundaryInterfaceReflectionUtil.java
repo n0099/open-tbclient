@@ -1,6 +1,7 @@
 package org.chromium.support_lib_boundary.util;
 
 import android.annotation.TargetApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +13,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @TargetApi(19)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +110,7 @@ public class BoundaryInterfaceReflectionUtil {
     public static Method dupeMethod(Method method, ClassLoader classLoader) throws ClassNotFoundException, NoSuchMethodException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, method, classLoader)) == null) ? Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes()) : (Method) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, method, classLoader)) == null) ? Class.forName(method.getDeclaringClass().getName(), true, classLoader).getDeclaredMethod(method.getName(), method.getParameterTypes()) : (Method) invokeLL.objValue;
     }
 
     public static Object getDelegateFromInvocationHandler(InvocationHandler invocationHandler) {

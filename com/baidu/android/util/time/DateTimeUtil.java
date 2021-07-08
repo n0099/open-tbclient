@@ -1,6 +1,7 @@
 package com.baidu.android.util.time;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -73,7 +74,7 @@ public final class DateTimeUtil {
     public static Date getCurrDate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new Date() : (Date) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new Date() : (Date) invokeV.objValue;
     }
 
     public static Timestamp getCurrTimestamp() {

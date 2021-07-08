@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.control;
 
 import android.preference.PreferenceManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SwitchController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTPS_LEVEL_CLOSE_SWITCH = -1;
@@ -100,7 +101,7 @@ public class SwitchController {
     private boolean readCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
                 int i2 = PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).getInt(SHARED_KEY, 1);
                 if (i2 == 0 || i2 == 1 || i2 == -1) {

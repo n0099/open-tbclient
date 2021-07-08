@@ -25,16 +25,16 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f36981a;
+    public c f35351a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36982b;
+    public String f35352b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public abstract class b {
                 return;
             }
         }
-        this.f36982b = "";
+        this.f35352b = "";
     }
 
     private String a(String str) {
@@ -63,7 +63,7 @@ public abstract class b {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f36981a = cVar;
+            this.f35351a = cVar;
         }
     }
 
@@ -77,7 +77,7 @@ public abstract class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f36983a;
+                public final /* synthetic */ b f35353a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,7 +94,7 @@ public abstract class b {
                             return;
                         }
                     }
-                    this.f36983a = this;
+                    this.f35353a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -179,7 +179,7 @@ public abstract class b {
             ArrayList<File> arrayList = new ArrayList();
             try {
                 ExceptionMessage a3 = a(file, file2, file3, a2);
-                this.f36981a.a(a3);
+                this.f35351a.a(a3);
                 f.a(file4);
                 ArrayList arrayList2 = new ArrayList();
                 Collections.addAll(arrayList2, file3, file4);
@@ -205,7 +205,7 @@ public abstract class b {
                     h.b(file8.getPath());
                 }
                 h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.c.b.f36950b);
+                f.b(com.kwad.sdk.crash.c.b.f35320b);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -304,15 +304,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f36982b + e + "\n";
-                        this.f36982b = str;
+                        str = this.f35352b + e + "\n";
+                        this.f35352b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f36982b + e + "\n";
-                        this.f36982b = str;
+                        str = this.f35352b + e + "\n";
+                        this.f35352b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import d.a.c.e.d.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class d<T> implements k<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f44083a;
+    public final boolean f41099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f44084b;
+    public final e f41100b;
 
     public d(e eVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public abstract class d<T> implements k<T> {
                 return;
             }
         }
-        this.f44084b = eVar;
-        this.f44083a = z;
+        this.f41100b = eVar;
+        this.f41099a = z;
     }
 
     @Override // d.a.c.e.d.k
     public e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44084b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41100b : (e) invokeV.objValue;
     }
 
     @Override // d.a.c.e.d.k
@@ -65,10 +65,10 @@ public abstract class d<T> implements k<T> {
                 return null;
             }
             l.b<T> bVar = new l.b<>();
-            bVar.f44106a = str2;
-            bVar.f44107b = k.f44090b;
-            long j = k.f44094f;
-            bVar.f44108c = k.f44092d;
+            bVar.f41122a = str2;
+            bVar.f41123b = k.f41106b;
+            long j = k.f41110f;
+            bVar.f41124c = k.f41108d;
             return bVar;
         }
         return (l.b) invokeLL.objValue;
@@ -83,7 +83,7 @@ public abstract class d<T> implements k<T> {
             if (k == null) {
                 return null;
             }
-            return k.f44090b;
+            return k.f41106b;
         }
         return (T) invokeLL.objValue;
     }
@@ -93,12 +93,12 @@ public abstract class d<T> implements k<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
             g<T> gVar = new g<>();
-            gVar.f44089a = h(str, str2);
-            gVar.f44091c = str;
-            gVar.f44094f = j;
-            gVar.f44090b = t;
-            gVar.f44093e = System.currentTimeMillis();
-            gVar.f44092d = System.currentTimeMillis();
+            gVar.f41105a = h(str, str2);
+            gVar.f41107c = str;
+            gVar.f41110f = j;
+            gVar.f41106b = t;
+            gVar.f41109e = System.currentTimeMillis();
+            gVar.f41108d = System.currentTimeMillis();
             j(gVar);
         }
     }
@@ -107,7 +107,7 @@ public abstract class d<T> implements k<T> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.f44083a) {
+            if (this.f41099a) {
                 return str + TNCManager.TNC_PROBE_HEADER_SECEPTOR + str2;
             }
             return str2;
@@ -128,13 +128,13 @@ public abstract class d<T> implements k<T> {
             if (i2 == null) {
                 BdLog.isDebugMode();
                 return null;
-            } else if (i2.f44094f < System.currentTimeMillis()) {
+            } else if (i2.f41110f < System.currentTimeMillis()) {
                 m(h2);
                 BdLog.isDebugMode();
                 return null;
             } else {
-                if (this.f44084b.a()) {
-                    i2.f44093e = System.currentTimeMillis();
+                if (this.f41100b.a()) {
+                    i2.f41109e = System.currentTimeMillis();
                     j(i2);
                 }
                 BdLog.isDebugMode();

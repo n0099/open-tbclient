@@ -71,7 +71,7 @@ public class KeyPath {
     private boolean isContainer(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) ? "__container".equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? "__container".equals(str) : invokeL.booleanValue;
     }
 
     @CheckResult

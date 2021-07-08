@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.f;
 import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class b {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public WeakHashMap<String, String> f28581a;
+            public WeakHashMap<String, String> f28691a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -36,7 +36,7 @@ public class b {
                         return;
                     }
                 }
-                this.f28581a = new WeakHashMap<>();
+                this.f28691a = new WeakHashMap<>();
             }
 
             @Override // com.bytedance.sdk.component.d.f
@@ -60,10 +60,10 @@ public class b {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, str)) == null) {
-                    String str2 = this.f28581a.get(str);
+                    String str2 = this.f28691a.get(str);
                     if (str2 == null) {
                         String a2 = com.bytedance.sdk.component.d.c.c.b.a(str);
-                        this.f28581a.put(str, a2);
+                        this.f28691a.put(str, a2);
                         return a2;
                     }
                     return str2;

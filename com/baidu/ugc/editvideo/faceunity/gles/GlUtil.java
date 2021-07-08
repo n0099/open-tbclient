@@ -2,6 +2,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.y0.t.c;
+import d.a.v0.t.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] HORI_FLIP_MATRIX;
@@ -88,7 +89,7 @@ public class GlUtil {
 
     public static void checkLocation(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65540, null, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str) == null) {
         }
     }
 

@@ -1,6 +1,7 @@
 package d.f.b.a.a0.q;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import com.google.android.exoplayer2.metadata.id3.CommentFrame;
 import com.google.android.exoplayer2.metadata.id3.Id3Frame;
 import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public static final int A;
@@ -25,31 +26,31 @@ public final class f {
     public static final String[] D;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f72271a;
+    public static final int f69374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f72272b;
+    public static final int f69375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f72273c;
+    public static final int f69376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f72274d;
+    public static final int f69377d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f72275e;
+    public static final int f69378e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f72276f;
+    public static final int f69379f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f72277g;
+    public static final int f69380g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f72278h;
+    public static final int f69381h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f72279i;
+    public static final int f69382i;
     public static final int j;
     public static final int k;
     public static final int l;
@@ -82,15 +83,15 @@ public final class f {
                 return;
             }
         }
-        f72271a = v.q("nam");
-        f72272b = v.q("trk");
-        f72273c = v.q("cmt");
-        f72274d = v.q(Config.TRACE_VISIT_RECENT_DAY);
-        f72275e = v.q("ART");
-        f72276f = v.q("too");
-        f72277g = v.q("alb");
-        f72278h = v.q("com");
-        f72279i = v.q("wrt");
+        f69374a = v.q("nam");
+        f69375b = v.q("trk");
+        f69376c = v.q("cmt");
+        f69377d = v.q(Config.TRACE_VISIT_RECENT_DAY);
+        f69378e = v.q("ART");
+        f69379f = v.q("too");
+        f69380g = v.q("alb");
+        f69381h = v.q("com");
+        f69382i = v.q("wrt");
         j = v.q("lyr");
         k = v.q("gen");
         l = v.q("covr");
@@ -216,21 +217,21 @@ public final class f {
                     }
                 } else {
                     int i4 = 16777215 & i2;
-                    if (i4 == f72273c) {
+                    if (i4 == f69376c) {
                         return a(i2, lVar);
                     }
-                    if (i4 != f72271a && i4 != f72272b) {
-                        if (i4 != f72278h && i4 != f72279i) {
-                            if (i4 == f72274d) {
+                    if (i4 != f69374a && i4 != f69375b) {
+                        if (i4 != f69381h && i4 != f69382i) {
+                            if (i4 == f69377d) {
                                 return g(i2, "TDRC", lVar);
                             }
-                            if (i4 == f72275e) {
+                            if (i4 == f69378e) {
                                 return g(i2, "TPE1", lVar);
                             }
-                            if (i4 == f72276f) {
+                            if (i4 == f69379f) {
                                 return g(i2, "TSSE", lVar);
                             }
-                            if (i4 == f72277g) {
+                            if (i4 == f69380g) {
                                 return g(i2, "TALB", lVar);
                             }
                             if (i4 == j) {
@@ -259,7 +260,7 @@ public final class f {
     public static TextInformationFrame d(int i2, String str, d.f.b.a.i0.l lVar) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65540, null, i2, str, lVar)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str, lVar)) == null) {
             int i3 = lVar.i();
             if (lVar.i() == a.F0 && i3 >= 22) {
                 lVar.K(10);

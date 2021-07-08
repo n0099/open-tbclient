@@ -2,6 +2,7 @@ package com.baidu.livesdk.sdk.im.live;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.livesdk.R;
 import com.baidu.livesdk.api.im.live.LiveMessageBean;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MessageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,7 @@ public class MessageUtils {
     public static String getReplyNamePre(Context context, LiveMessageBean liveMessageBean) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, liveMessageBean)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, liveMessageBean)) == null) {
             if (liveMessageBean == null || TextUtils.isEmpty(liveMessageBean.at_uid)) {
                 return "";
             }

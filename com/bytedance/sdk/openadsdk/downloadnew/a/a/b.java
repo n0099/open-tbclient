@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.downloadnew.a.a;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
@@ -21,27 +22,27 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements d.l.a.a.a.c.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f30986a;
+    public final WeakReference<Context> f31096a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.l.a.a.a.f.d f30987a;
+        public final d.l.a.a.a.f.d f31097a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f30988b;
+        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f31098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public m f30989c;
+        public m f31099c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d.l.a.a.a.f.d dVar) {
@@ -61,20 +62,20 @@ public class b implements d.l.a.a.a.c.f {
                     return;
                 }
             }
-            this.f30987a = dVar;
+            this.f31097a = dVar;
             if (dVar == null || dVar.d() == null) {
                 return;
             }
-            String optString = this.f30987a.d().optString("ad_extra_data");
+            String optString = this.f31097a.d().optString("ad_extra_data");
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
             try {
                 com.bytedance.sdk.openadsdk.downloadnew.a.b.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(new JSONObject(optString).optJSONObject("open_ad_sdk_download_extra"));
-                this.f30988b = a2;
-                a2.b(this.f30987a.b());
-                if (this.f30988b != null) {
-                    this.f30989c = this.f30988b.f31014a;
+                this.f31098b = a2;
+                a2.b(this.f31097a.b());
+                if (this.f31098b != null) {
+                    this.f31099c = this.f31098b.f31124a;
                 }
             } catch (Exception unused) {
             }
@@ -97,22 +98,22 @@ public class b implements d.l.a.a.a.c.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f30987a == null) {
+                    if (this.f31097a == null) {
                         return;
                     }
-                    String a2 = this.f30987a.a();
+                    String a2 = this.f31097a.a();
                     j.f("LibEventLogger", "tag " + a2);
-                    j.f("LibEventLogger", "label " + this.f30987a.b());
-                    if (this.f30988b != null && !TextUtils.isEmpty(this.f30988b.f31015b)) {
-                        a2 = this.f30988b.f31015b;
+                    j.f("LibEventLogger", "label " + this.f31097a.b());
+                    if (this.f31098b != null && !TextUtils.isEmpty(this.f31098b.f31125b)) {
+                        a2 = this.f31098b.f31125b;
                     }
-                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f30987a.b(), this.f30989c, new HashMap()) && this.f30988b != null && this.f30989c != null && !TextUtils.isEmpty(this.f30987a.a()) && !TextUtils.isEmpty(this.f30987a.b())) {
-                        JSONObject e2 = b.e(this.f30987a);
-                        String str = this.f30988b.f31015b;
-                        if (!a(this.f30987a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f30987a.b())) {
+                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f31097a.b(), this.f31099c, new HashMap()) && this.f31098b != null && this.f31099c != null && !TextUtils.isEmpty(this.f31097a.a()) && !TextUtils.isEmpty(this.f31097a.b())) {
+                        JSONObject e2 = b.e(this.f31097a);
+                        String str = this.f31098b.f31125b;
+                        if (!a(this.f31097a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f31097a.b())) {
                             return;
                         }
-                        com.bytedance.sdk.openadsdk.e.d.b(c(), this.f30989c, str, this.f30987a.b(), e2);
+                        com.bytedance.sdk.openadsdk.e.d.b(c(), this.f31099c, str, this.f31097a.b(), e2);
                     }
                 } catch (Throwable th) {
                     j.a("LibEventLogger", "upload event log error", th);
@@ -123,7 +124,7 @@ public class b implements d.l.a.a.a.c.f {
         private boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f30987a.a()) || "draw_ad".equals(this.f30987a.a()) || "draw_ad_landingpage".equals(this.f30987a.a()) || "banner_ad".equals(this.f30987a.a()) || "banner_call".equals(this.f30987a.a()) || "banner_ad_landingpage".equals(this.f30987a.a()) || "feed_call".equals(this.f30987a.a()) || "embeded_ad_landingpage".equals(this.f30987a.a()) || "interaction".equals(this.f30987a.a()) || "interaction_call".equals(this.f30987a.a()) || "interaction_landingpage".equals(this.f30987a.a()) || "slide_banner_ad".equals(this.f30987a.a()) || "splash_ad".equals(this.f30987a.a()) || "fullscreen_interstitial_ad".equals(this.f30987a.a()) || "splash_ad_landingpage".equals(this.f30987a.a()) || "rewarded_video".equals(this.f30987a.a()) || "rewarded_video_landingpage".equals(this.f30987a.a()) || "openad_sdk_download_complete_tag".equals(this.f30987a.a()) || "download_notification".equals(this.f30987a.a()) || "landing_h5_download_ad_button".equals(this.f30987a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f30987a.a()) || "feed_video_middle_page".equals(this.f30987a.a()) || "stream".equals(this.f30987a.a())) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f31097a.a()) || "draw_ad".equals(this.f31097a.a()) || "draw_ad_landingpage".equals(this.f31097a.a()) || "banner_ad".equals(this.f31097a.a()) || "banner_call".equals(this.f31097a.a()) || "banner_ad_landingpage".equals(this.f31097a.a()) || "feed_call".equals(this.f31097a.a()) || "embeded_ad_landingpage".equals(this.f31097a.a()) || "interaction".equals(this.f31097a.a()) || "interaction_call".equals(this.f31097a.a()) || "interaction_landingpage".equals(this.f31097a.a()) || "slide_banner_ad".equals(this.f31097a.a()) || "splash_ad".equals(this.f31097a.a()) || "fullscreen_interstitial_ad".equals(this.f31097a.a()) || "splash_ad_landingpage".equals(this.f31097a.a()) || "rewarded_video".equals(this.f31097a.a()) || "rewarded_video_landingpage".equals(this.f31097a.a()) || "openad_sdk_download_complete_tag".equals(this.f31097a.a()) || "download_notification".equals(this.f31097a.a()) || "landing_h5_download_ad_button".equals(this.f31097a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f31097a.a()) || "feed_video_middle_page".equals(this.f31097a.a()) || "stream".equals(this.f31097a.a())) : invokeL.booleanValue;
         }
     }
 
@@ -142,7 +143,7 @@ public class b implements d.l.a.a.a.c.f {
                 return;
             }
         }
-        this.f30986a = new WeakReference<>(context);
+        this.f31096a = new WeakReference<>(context);
     }
 
     private void d(d.l.a.a.a.f.d dVar) {
@@ -157,7 +158,7 @@ public class b implements d.l.a.a.a.c.f {
         InterceptResult invokeL;
         JSONObject d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, dVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, dVar)) == null) {
             if (dVar == null || (d2 = dVar.d()) == null) {
                 return null;
             }

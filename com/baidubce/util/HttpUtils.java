@@ -1,5 +1,6 @@
 package com.baidubce.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +21,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;
@@ -125,7 +126,7 @@ public class HttpUtils {
     public static String getCanonicalQueryString(Map<String, String> map, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, map, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, map, z)) == null) {
             if (map.isEmpty()) {
                 return "";
             }
@@ -136,9 +137,9 @@ public class HttpUtils {
                     CheckUtils.isNotNull(key, "parameter key should not be null");
                     String value = entry.getValue();
                     if (value != null) {
-                        arrayList.add(normalize(key) + a.f1889h + normalize(value));
+                        arrayList.add(normalize(key) + a.f1890h + normalize(value));
                     } else if (z) {
-                        arrayList.add(normalize(key) + a.f1889h);
+                        arrayList.add(normalize(key) + a.f1890h);
                     } else {
                         arrayList.add(normalize(key));
                     }

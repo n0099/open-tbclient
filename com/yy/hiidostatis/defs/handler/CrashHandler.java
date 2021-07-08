@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.defs.handler;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,7 +22,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public static Context mContext;
@@ -31,7 +32,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static IStatisAPI mStatisAPI;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface OnHandlerListener {
         void handler(int i2, String str, String str2);
     }
@@ -75,7 +76,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     private void dealJavaException(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, th) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, th) == null) {
             String str = getDmpPath() + File.separator + "J-" + UUID.randomUUID().toString() + ".dmp";
             FileUtil.writeFile(str, getStackTrace(th));
             crashCallBack(1, str);

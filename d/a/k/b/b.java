@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, d.a.k.b.a> f45867a;
+    public Map<String, d.a.k.b.a> f42750a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         List<d.a.k.b.a> a();
     }
@@ -38,21 +38,21 @@ public class b {
                 return;
             }
         }
-        this.f45867a = new HashMap();
+        this.f42750a = new HashMap();
         for (d.a.k.b.a aVar2 : aVar.a()) {
-            this.f45867a.put(aVar2.c(), aVar2);
+            this.f42750a.put(aVar2.c(), aVar2);
         }
     }
 
     public d.a.k.b.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f45867a.get(str) : (d.a.k.b.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f42750a.get(str) : (d.a.k.b.a) invokeL.objValue;
     }
 
     public List<d.a.k.b.a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.f45867a.values()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.f42750a.values()) : (List) invokeV.objValue;
     }
 }

@@ -11,19 +11,19 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class k implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f74803a;
+    public final i f71855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.l.a.e.b.n.c f74804b;
+    public final d.l.a.e.b.n.c f71856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f74805c;
+    public final e f71857c;
 
     public k(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
         Interceptable interceptable = $ic;
@@ -40,23 +40,23 @@ public class k implements e {
                 return;
             }
         }
-        this.f74803a = iVar;
-        this.f74804b = c(downloadInfo, iVar);
-        this.f74805c = new h(bVar, this);
+        this.f71855a = iVar;
+        this.f71856b = c(downloadInfo, iVar);
+        this.f71857c = new h(bVar, this);
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74805c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71857c : (e) invokeV.objValue;
     }
 
     @Override // d.l.a.e.b.i.e
     public void b(@NonNull a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f74804b.a(aVar.f74759a, 0, aVar.f74761c);
-            this.f74803a.g(aVar.f74761c);
+            this.f71856b.a(aVar.f71811a, 0, aVar.f71813c);
+            this.f71855a.g(aVar.f71813c);
         }
     }
 
@@ -78,27 +78,27 @@ public class k implements e {
     public void d() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f74804b.n();
+            this.f71856b.n();
         }
     }
 
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f74804b.r();
+            this.f71856b.r();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d.l.a.e.b.l.f.E(this.f74804b);
+            d.l.a.e.b.l.f.E(this.f71856b);
         }
     }
 
     public i g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f74803a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71855a : (i) invokeV.objValue;
     }
 }

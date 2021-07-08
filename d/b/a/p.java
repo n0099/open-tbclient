@@ -19,26 +19,26 @@ import java.util.Date;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class p implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final SimpleDateFormat l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f71720e;
+    public long f68823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f71721f;
+    public long f68824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f71722g;
+    public String f68825g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f71723h;
+    public String f68826h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f71724i;
+    public String f68827i;
     public String j;
     public String k;
 
@@ -71,7 +71,7 @@ public abstract class p implements Cloneable {
                 return;
             }
         }
-        this.f71720e = System.currentTimeMillis();
+        this.f68823e = System.currentTimeMillis();
     }
 
     public static p b(String str) {
@@ -80,7 +80,7 @@ public abstract class p implements Cloneable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                return q.f71738e.get(jSONObject.optString("k_cls", "")).clone().h(jSONObject);
+                return q.f68841e.get(jSONObject.optString("k_cls", "")).clone().h(jSONObject);
             } catch (Throwable th) {
                 h0.b(th);
                 return null;
@@ -174,7 +174,7 @@ public abstract class p implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             try {
-                this.k = c(this.f71720e);
+                this.k = c(this.f68823e);
                 return i();
             } catch (JSONException e2) {
                 h0.b(e2);
@@ -204,7 +204,7 @@ public abstract class p implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "sid:" + this.f71722g;
+            return "sid:" + this.f68825g;
         }
         return (String) invokeV.objValue;
     }
@@ -214,12 +214,12 @@ public abstract class p implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (h0.f71677b) {
+            if (h0.f68780b) {
                 String k = k();
                 if (!getClass().getSimpleName().equalsIgnoreCase(k)) {
                     k = k + StringUtil.ARRAY_ELEMENT_SEPARATOR + getClass().getSimpleName();
                 }
-                String str = this.f71722g;
+                String str = this.f68825g;
                 String str2 = "-";
                 if (str != null) {
                     int indexOf = str.indexOf("-");
@@ -228,7 +228,7 @@ public abstract class p implements Cloneable {
                     }
                     str2 = str;
                 }
-                return StringUtil.ARRAY_START + k + StringUtil.ARRAY_ELEMENT_SEPARATOR + o() + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f71720e + "}";
+                return StringUtil.ARRAY_START + k + StringUtil.ARRAY_ELEMENT_SEPARATOR + o() + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f68823e + "}";
             }
             return super.toString();
         }

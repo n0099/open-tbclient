@@ -1,6 +1,7 @@
 package com.baidu.mapapi;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SDKInitializer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
@@ -23,7 +24,7 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
 
     /* renamed from: a  reason: collision with root package name */
-    public static CoordType f6807a;
+    public static CoordType f6824a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +40,7 @@ public class SDKInitializer {
                 return;
             }
         }
-        f6807a = CoordType.BD09LL;
+        f6824a = CoordType.BD09LL;
     }
 
     public SDKInitializer() {
@@ -59,7 +60,7 @@ public class SDKInitializer {
     public static CoordType getCoordType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6807a : (CoordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6824a : (CoordType) invokeV.objValue;
     }
 
     public static void initialize(Context context) {
@@ -71,7 +72,7 @@ public class SDKInitializer {
 
     public static void initialize(Context context, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
             c.a(context, z, str, str2, null);
         }
     }
@@ -92,7 +93,7 @@ public class SDKInitializer {
     public static void setCoordType(CoordType coordType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, coordType) == null) {
-            f6807a = coordType;
+            f6824a = coordType;
         }
     }
 

@@ -11,76 +11,76 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f74046a;
+    public Context f71098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f74047b;
+    public String f71099b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f74048c;
+    public String f71100c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f74049d;
+    public String f71101d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f74050e;
+    public String f71102e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f74051f;
+    public boolean f71103f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f74052g;
+    public Drawable f71104g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC2044c f74053h;
+    public InterfaceC2012c f71105h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f74054i;
+    public View f71106i;
     public int j;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f74055a;
+        public Context f71107a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f74056b;
+        public String f71108b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f74057c;
+        public String f71109c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f74058d;
+        public String f71110d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f74059e;
+        public String f71111e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f74060f;
+        public boolean f71112f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Drawable f74061g;
+        public Drawable f71113g;
 
         /* renamed from: h  reason: collision with root package name */
-        public InterfaceC2044c f74062h;
+        public InterfaceC2012c f71114h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f74063i;
+        public View f71115i;
         public int j;
 
         public b(Context context) {
@@ -98,7 +98,7 @@ public class c {
                     return;
                 }
             }
-            this.f74055a = context;
+            this.f71107a = context;
         }
 
         public b b(int i2) {
@@ -115,17 +115,17 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-                this.f74061g = drawable;
+                this.f71113g = drawable;
                 return this;
             }
             return (b) invokeL.objValue;
         }
 
-        public b d(InterfaceC2044c interfaceC2044c) {
+        public b d(InterfaceC2012c interfaceC2012c) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2044c)) == null) {
-                this.f74062h = interfaceC2044c;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2012c)) == null) {
+                this.f71114h = interfaceC2012c;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -135,7 +135,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f74056b = str;
+                this.f71108b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -145,7 +145,7 @@ public class c {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f74060f = z;
+                this.f71112f = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -161,7 +161,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f74057c = str;
+                this.f71109c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -171,7 +171,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f74058d = str;
+                this.f71110d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -181,7 +181,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f74059e = str;
+                this.f71111e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -189,8 +189,8 @@ public class c {
     }
 
     /* renamed from: d.l.a.a.a.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC2044c {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC2012c {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -217,16 +217,16 @@ public class c {
                 return;
             }
         }
-        this.f74051f = true;
-        this.f74046a = bVar.f74055a;
-        this.f74047b = bVar.f74056b;
-        this.f74048c = bVar.f74057c;
-        this.f74049d = bVar.f74058d;
-        this.f74050e = bVar.f74059e;
-        this.f74051f = bVar.f74060f;
-        this.f74052g = bVar.f74061g;
-        this.f74053h = bVar.f74062h;
-        this.f74054i = bVar.f74063i;
+        this.f71103f = true;
+        this.f71098a = bVar.f71107a;
+        this.f71099b = bVar.f71108b;
+        this.f71100c = bVar.f71109c;
+        this.f71101d = bVar.f71110d;
+        this.f71102e = bVar.f71111e;
+        this.f71103f = bVar.f71112f;
+        this.f71104g = bVar.f71113g;
+        this.f71105h = bVar.f71114h;
+        this.f71106i = bVar.f71115i;
         this.j = bVar.j;
     }
 }

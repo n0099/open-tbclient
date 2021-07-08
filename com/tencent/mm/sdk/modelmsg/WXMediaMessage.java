@@ -2,6 +2,7 @@ package com.tencent.mm.sdk.modelmsg;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.a;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WXMediaMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
@@ -31,7 +32,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
@@ -109,7 +110,7 @@ public final class WXMediaMessage {
         public static Bundle toBundle(WXMediaMessage wXMediaMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, wXMediaMessage)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, wXMediaMessage)) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("_wxobject_sdkVer", wXMediaMessage.sdkVer);
                 bundle.putString("_wxobject_title", wXMediaMessage.title);
@@ -129,7 +130,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface IMediaObject {
         public static final int TYPE_APPDATA = 7;
         public static final int TYPE_EMOJI = 8;

@@ -23,10 +23,9 @@ import com.baidu.ugc.editvideo.magicmusic.EffectType;
 import com.baidu.ugc.editvideo.magicmusic.EffectUtil;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import com.kwai.video.player.misc.IMediaFormat;
-import d.a.y0.b;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
+import d.a.v0.b;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -34,7 +33,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(17)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoKeyFrameModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoKeyFrameModel";
@@ -56,7 +55,7 @@ public class VideoKeyFrameModel {
     public VideoEffectData mVideoEffectData;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel$4  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$magicmusic$EffectType;
         public static /* synthetic */ Interceptable $ic;
@@ -84,14 +83,14 @@ public class VideoKeyFrameModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnAPeriodOfTimeFrameAvailableListener extends OnDecodeFrameAvailableListener {
         void onDecodeFrameEnd();
 
         void onDecodeFrameError();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnDecodeFrameAvailableListener {
         void onFrameAvailable(long j, Bitmap bitmap);
     }
@@ -357,7 +356,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:55:0x00fd, code lost:
-        d.a.y0.t.c.g(r0);
+        d.a.v0.t.c.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x0100, code lost:
         if (r1 != null) goto L38;
@@ -474,7 +473,7 @@ public class VideoKeyFrameModel {
                     hasEffect = outputSurfaceWithoutFilter;
                 }
                 BaseOutputSurface baseOutputSurface2 = hasEffect;
-                mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+                mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
                 mediaCodec.configure(trackFormat, baseOutputSurface2.getSurface(), (MediaCrypto) null, 0);
                 mediaCodec.start();
                 doExtract(mediaExtractor, andSelectVideoTrackIndex, mediaCodec, baseOutputSurface2, list, z);
@@ -491,7 +490,7 @@ public class VideoKeyFrameModel {
             if (hasEffect == 0) {
             }
             BaseOutputSurface baseOutputSurface22 = hasEffect;
-            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
+            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
             mediaCodec.configure(trackFormat, baseOutputSurface22.getSurface(), (MediaCrypto) null, 0);
             mediaCodec.start();
             doExtract(mediaExtractor, andSelectVideoTrackIndex, mediaCodec, baseOutputSurface22, list, z);

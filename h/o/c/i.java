@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i implements h.n.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.a f75599e;
+    public final h.n.a f72633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g.a f75600f;
+    public final g.a f72634f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f75601g;
+    public final long f72635g;
 
     public i(h.n.a aVar, g.a aVar2, long j) {
         Interceptable interceptable = $ic;
@@ -34,18 +34,18 @@ public class i implements h.n.a {
                 return;
             }
         }
-        this.f75599e = aVar;
-        this.f75600f = aVar2;
-        this.f75601g = j;
+        this.f72633e = aVar;
+        this.f72634f = aVar2;
+        this.f72635g = j;
     }
 
     @Override // h.n.a
     public void call() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f75600f.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72634f.isUnsubscribed()) {
             return;
         }
-        long a2 = this.f75601g - this.f75600f.a();
+        long a2 = this.f72635g - this.f72634f.a();
         if (a2 > 0) {
             try {
                 Thread.sleep(a2);
@@ -55,9 +55,9 @@ public class i implements h.n.a {
                 throw null;
             }
         }
-        if (this.f75600f.isUnsubscribed()) {
+        if (this.f72634f.isUnsubscribed()) {
             return;
         }
-        this.f75599e.call();
+        this.f72633e.call();
     }
 }

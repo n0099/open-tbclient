@@ -45,22 +45,22 @@ public class we implements bv {
     public Object a(Class cls, File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) ? a.a((Class<?>) cls, (Class<?>[]) new Class[]{File.class, Boolean.TYPE, File.class, DexFile.class}, new Object[]{file, Boolean.TRUE, null, null}) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, file)) == null) ? shuoy.a((Class<?>) cls, (Class<?>[]) new Class[]{File.class, Boolean.TYPE, File.class, DexFile.class}, new Object[]{file, Boolean.TRUE, null, null}) : invokeLL.objValue;
     }
 
     @Override // a.a.a.d.a.bv
     public void a(Context context, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, file) == null) {
-            Object b2 = a.b(context.getClassLoader(), "pathList");
+            Object b2 = shuoy.b(context.getClassLoader(), "pathList");
             Class a2 = a();
             if (a2 != null) {
-                Object[] objArr = (Object[]) a.b(b2, "nativeLibraryPathElements");
+                Object[] objArr = (Object[]) shuoy.b(b2, "nativeLibraryPathElements");
                 Object a3 = a(a2, file);
                 if (objArr == null || a3 == null) {
                     return;
                 }
-                a.a(b2, "nativeLibraryPathElements", a.a(a2, objArr, a3));
+                shuoy.a(b2, "nativeLibraryPathElements", shuoy.a(a2, objArr, a3));
             }
         }
     }
@@ -70,9 +70,9 @@ public class we implements bv {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, file)) == null) {
-            Object b2 = a.b(context.getClassLoader(), "pathList");
+            Object b2 = shuoy.b(context.getClassLoader(), "pathList");
             if (a() != null) {
-                for (Object obj : (Object[]) a.b(b2, "nativeLibraryPathElements")) {
+                for (Object obj : (Object[]) shuoy.b(b2, "nativeLibraryPathElements")) {
                     if (obj.toString().contains(file.toString())) {
                         return true;
                     }

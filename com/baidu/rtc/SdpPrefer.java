@@ -1,6 +1,7 @@
 package com.baidu.rtc;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SdpPrefer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_CODEC_PARAM_BITRATE = "maxaveragebitrate";
@@ -22,7 +23,7 @@ public class SdpPrefer {
     public static final String TAG = "SdpPrefer";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AudioSdpAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +118,7 @@ public class SdpPrefer {
         String str3;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, audioSdpAttribute)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, audioSdpAttribute)) == null) {
             String[] split = str2.split(Part.CRLF);
             Pattern compile = Pattern.compile("^a=rtpmap:(\\d+) " + str + "(/\\d+)+[\r]?$");
             int i2 = 0;

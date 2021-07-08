@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BusLineSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IBusLineSearch f7217a;
+    public IBusLineSearch f7234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7218b;
+    public boolean f7235b;
 
     public BusLineSearch() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class BusLineSearch extends l {
                 return;
             }
         }
-        this.f7218b = false;
-        this.f7217a = new c();
+        this.f7235b = false;
+        this.f7234a = new c();
     }
 
     public static BusLineSearch newInstance() {
@@ -50,11 +50,11 @@ public class BusLineSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f7218b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f7235b) {
             return;
         }
-        this.f7218b = true;
-        this.f7217a.a();
+        this.f7235b = true;
+        this.f7234a.a();
         BMapManager.destroy();
     }
 
@@ -62,7 +62,7 @@ public class BusLineSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, busLineSearchOption)) == null) {
-            IBusLineSearch iBusLineSearch = this.f7217a;
+            IBusLineSearch iBusLineSearch = this.f7234a;
             if (iBusLineSearch != null) {
                 if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or city or uid can not be null");
@@ -77,7 +77,7 @@ public class BusLineSearch extends l {
     public void setOnGetBusLineSearchResultListener(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onGetBusLineSearchResultListener) == null) {
-            IBusLineSearch iBusLineSearch = this.f7217a;
+            IBusLineSearch iBusLineSearch = this.f7234a;
             if (iBusLineSearch == null) {
                 throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
             }

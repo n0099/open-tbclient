@@ -1844,7 +1844,7 @@ public final class ViewPager2 extends ViewGroup {
 
         private void readValues(Parcel parcel, ClassLoader classLoader) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65540, this, parcel, classLoader) == null) {
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, parcel, classLoader) == null) {
                 this.mRecyclerViewId = parcel.readInt();
                 this.mCurrentItem = parcel.readInt();
                 this.mAdapterState = parcel.readParcelable(classLoader);
@@ -2069,14 +2069,14 @@ public final class ViewPager2 extends ViewGroup {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiTinyDataClient;
 import java.util.concurrent.ScheduledFuture;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class aa implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C0568a f42747a;
+    public final /* synthetic */ MiTinyDataClient.a.C0529a f39761a;
 
-    public aa(MiTinyDataClient.a.C0568a c0568a) {
+    public aa(MiTinyDataClient.a.C0529a c0529a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0568a};
+            Object[] objArr = {c0529a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,7 +29,7 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.f42747a = c0568a;
+        this.f39761a = c0529a;
     }
 
     @Override // java.lang.Runnable
@@ -38,15 +38,15 @@ public class aa implements Runnable {
         ScheduledFuture scheduledFuture2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f42747a.f54a.size() != 0) {
-                this.f42747a.b();
+            if (this.f39761a.f54a.size() != 0) {
+                this.f39761a.b();
                 return;
             }
-            scheduledFuture = this.f42747a.f55a;
+            scheduledFuture = this.f39761a.f55a;
             if (scheduledFuture != null) {
-                scheduledFuture2 = this.f42747a.f55a;
+                scheduledFuture2 = this.f39761a.f55a;
                 scheduledFuture2.cancel(false);
-                this.f42747a.f55a = null;
+                this.f39761a.f55a = null;
             }
         }
     }

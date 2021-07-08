@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.j.a.d;
 import d.a.c.e.j.a.e;
 import d.a.c.e.p.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +91,9 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
         statisticsData.mMode = getMode(j.I());
-        statisticsData.mSize = dVar.f44187b;
-        statisticsData.mTime = dVar.f44191f;
-        statisticsData.mTimesNum = dVar.f44190e;
+        statisticsData.mSize = dVar.f41203b;
+        statisticsData.mTime = dVar.f41207f;
+        statisticsData.mTimesNum = dVar.f41206e;
         statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }

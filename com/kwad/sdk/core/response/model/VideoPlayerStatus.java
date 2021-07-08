@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
-public class VideoPlayerStatus implements Serializable {
+/* loaded from: classes6.dex */
+public class VideoPlayerStatus extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -9021213312245598171L;
     public transient /* synthetic */ FieldHolder $fh;

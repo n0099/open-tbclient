@@ -42,7 +42,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BoostFlutterActivity extends Activity implements FlutterActivityAndFragmentDelegate.Host, LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BACKGROUND_MODE;
@@ -64,7 +64,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     public LifecycleRegistry lifecycle;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class BackgroundMode {
         public static final /* synthetic */ BackgroundMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +165,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SerializableMap implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     public static Intent createDefaultIntent(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) ? withNewEngine().build(context) : (Intent) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? withNewEngine().build(context) : (Intent) invokeL.objValue;
     }
 
     @Nullable

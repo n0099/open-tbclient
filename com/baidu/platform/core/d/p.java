@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class p extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,22 +35,22 @@ public class p extends com.baidu.platform.base.e {
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
-            this.f9391a.a("qt", "walk2");
-            this.f9391a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
-            this.f9391a.a("en", a(walkingRoutePlanOption.mTo));
+            this.f9408a.a("qt", "walk2");
+            this.f9408a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
+            this.f9408a.a("en", a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {
-                this.f9391a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
+                this.f9408a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
             }
             PlanNode planNode2 = walkingRoutePlanOption.mTo;
             if (planNode2 != null) {
-                this.f9391a.a("ec", planNode2.getCity());
+                this.f9408a.a("ec", planNode2.getCity());
             }
-            this.f9391a.a("ie", "utf-8");
-            this.f9391a.a("lrn", "20");
-            this.f9391a.a("version", "3");
-            this.f9391a.a("rp_format", "json");
-            this.f9391a.a("rp_filter", "mobile");
+            this.f9408a.a("ie", "utf-8");
+            this.f9408a.a("lrn", "20");
+            this.f9408a.a("version", "3");
+            this.f9408a.a("rp_format", "json");
+            this.f9408a.a("rp_filter", "mobile");
         }
     }
 

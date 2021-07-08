@@ -7,6 +7,7 @@ import android.opengl.EGLContext;
 import android.opengl.EGLDisplay;
 import android.opengl.EGLSurface;
 import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import org.webrtc.EglBase10;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OutputSurface";
@@ -100,7 +101,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
 
     private void setup() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             TextureRender textureRender = new TextureRender();
             this.mTextureRender = textureRender;
             textureRender.surfaceCreated();

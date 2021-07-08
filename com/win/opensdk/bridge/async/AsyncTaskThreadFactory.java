@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AsyncTaskThreadFactory implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class AsyncTaskThreadFactory implements ThreadFactory {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Runnable f42535a;
+                public final /* synthetic */ Runnable f39549a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -53,7 +53,7 @@ public class AsyncTaskThreadFactory implements ThreadFactory {
                             return;
                         }
                     }
-                    this.f42535a = runnable;
+                    this.f39549a = runnable;
                 }
 
                 @Override // java.lang.Runnable
@@ -65,7 +65,7 @@ public class AsyncTaskThreadFactory implements ThreadFactory {
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
-                        this.f42535a.run();
+                        this.f39549a.run();
                     }
                 }
             }, "JsBridge AsyncTaskExecutor");

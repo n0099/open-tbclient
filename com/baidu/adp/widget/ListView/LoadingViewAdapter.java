@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import d.a.c.k.e.a;
 import d.a.c.k.e.t;
-import d.a.r0.d0.g;
+import d.a.o0.d0.g;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
@@ -35,7 +35,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public g f2392a;
+        public g f2393a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TabLoadingViewHolder(View view) {
@@ -60,7 +60,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f44916e);
+        super(tbPageContext.getPageActivity(), t.f41932e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,13 +102,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f44821e);
+            RelativeLayout relativeLayout = new RelativeLayout(this.f41837e);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = -1;
             relativeLayout.setLayoutParams(u);
             relativeLayout.setGravity(1);
-            g gVar = new g(this.f44821e, 0);
+            g gVar = new g(this.f41837e, 0);
             gVar.attachView(relativeLayout);
             gVar.q(this.n);
             gVar.o(this.o);
@@ -120,7 +120,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
             view.setLayoutParams(layoutParams);
             this.m.add(new Pair<>(relativeLayout, gVar));
             TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-            tabLoadingViewHolder.f2392a = gVar;
+            tabLoadingViewHolder.f2393a = gVar;
             return tabLoadingViewHolder;
         }
         return (TabLoadingViewHolder) invokeL.objValue;
@@ -131,7 +131,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, tVar, tabLoadingViewHolder})) == null) {
-            if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2392a) != null) {
+            if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2393a) != null) {
                 gVar.l(TbadkCoreApplication.getInst().getSkinType());
             }
             return view;

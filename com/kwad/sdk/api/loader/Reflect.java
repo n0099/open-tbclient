@@ -17,18 +17,18 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Reflect {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class<?> f34164a;
+    public final Class<?> f33778a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f34165b;
+    public final Object f33779b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ReflectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6213149635297151442L;
@@ -110,36 +110,36 @@ public class Reflect {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Method f34166a;
+        public static final Method f33780a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Method f34167b;
+        public static final Method f33781b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final Method f34168c;
+        public static final Method f33782c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final Method f34169d;
+        public static final Method f33783d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final Method f34170e;
+        public static final Method f33784e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final Method f34171f;
+        public static final Method f33785f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final Method f34172g;
+        public static final Method f33786g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final Method f34173h;
+        public static final Method f33787h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final Method f34174i;
+        public static final Method f33788i;
         public static final Method j;
         public static final Method k;
         public static final Method l;
@@ -161,15 +161,15 @@ public class Reflect {
                 }
             }
             try {
-                f34166a = Class.class.getDeclaredMethod("forName", String.class);
-                f34167b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
-                f34168c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-                f34169d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
-                f34170e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-                f34171f = Class.class.getDeclaredMethod("getDeclaredMethods", new Class[0]);
-                f34172g = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-                f34173h = Class.class.getDeclaredMethod("getDeclaredConstructors", new Class[0]);
-                f34174i = Class.class.getDeclaredMethod("getField", String.class);
+                f33780a = Class.class.getDeclaredMethod("forName", String.class);
+                f33781b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
+                f33782c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+                f33783d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
+                f33784e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+                f33785f = Class.class.getDeclaredMethod("getDeclaredMethods", new Class[0]);
+                f33786g = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+                f33787h = Class.class.getDeclaredMethod("getDeclaredConstructors", new Class[0]);
+                f33788i = Class.class.getDeclaredMethod("getField", String.class);
                 j = Class.class.getDeclaredMethod("getFields", new Class[0]);
                 k = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
                 l = Class.class.getDeclaredMethod("getMethods", new Class[0]);
@@ -185,7 +185,7 @@ public class Reflect {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
                 try {
-                    return (Class) f34166a.invoke(null, str);
+                    return (Class) f33780a.invoke(null, str);
                 } catch (Exception e2) {
                     ClassNotFoundException classNotFoundException = new ClassNotFoundException();
                     classNotFoundException.initCause(e2);
@@ -200,7 +200,7 @@ public class Reflect {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
                 try {
-                    return (Constructor) f34172g.invoke(cls, clsArr);
+                    return (Constructor) f33786g.invoke(cls, clsArr);
                 } catch (Exception e2) {
                     NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
                     noSuchMethodException.initCause(e2);
@@ -215,7 +215,7 @@ public class Reflect {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, str)) == null) {
                 try {
-                    return (Field) f34168c.invoke(cls, str);
+                    return (Field) f33782c.invoke(cls, str);
                 } catch (Exception e2) {
                     NoSuchFieldException noSuchFieldException = new NoSuchFieldException();
                     noSuchFieldException.initCause(e2);
@@ -228,9 +228,9 @@ public class Reflect {
         public static Method a(Class cls, String str, Class<?>... clsArr) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, cls, str, clsArr)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, clsArr)) == null) {
                 try {
-                    return (Method) f34170e.invoke(cls, str, clsArr);
+                    return (Method) f33784e.invoke(cls, str, clsArr);
                 } catch (Exception e2) {
                     NoSuchMethodException noSuchMethodException = new NoSuchMethodException();
                     noSuchMethodException.initCause(e2);
@@ -245,7 +245,7 @@ public class Reflect {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
                 try {
-                    return (Method[]) f34171f.invoke(cls, new Object[0]);
+                    return (Method[]) f33785f.invoke(cls, new Object[0]);
                 } catch (Exception e2) {
                     throw new ReflectException(e2);
                 }
@@ -258,7 +258,7 @@ public class Reflect {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str)) == null) {
                 try {
-                    return (Field) f34174i.invoke(cls, str);
+                    return (Field) f33788i.invoke(cls, str);
                 } catch (Exception e2) {
                     NoSuchFieldException noSuchFieldException = new NoSuchFieldException();
                     noSuchFieldException.initCause(e2);
@@ -301,7 +301,7 @@ public class Reflect {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cls)) == null) {
                 try {
-                    return (Constructor[]) f34173h.invoke(cls, new Object[0]);
+                    return (Constructor[]) f33787h.invoke(cls, new Object[0]);
                 } catch (Exception e2) {
                     throw new ReflectException(e2);
                 }
@@ -310,7 +310,7 @@ public class Reflect {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -366,8 +366,8 @@ public class Reflect {
                 return;
             }
         }
-        this.f34164a = cls;
-        this.f34165b = obj;
+        this.f33778a = cls;
+        this.f33779b = obj;
     }
 
     public static Reflect a(Class<?> cls) {
@@ -385,7 +385,7 @@ public class Reflect {
     public static Reflect a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
             return new Reflect(obj == null ? Object.class : obj.getClass(), obj);
         }
         return (Reflect) invokeL.objValue;
@@ -607,7 +607,7 @@ public class Reflect {
                     } catch (NoSuchFieldException unused) {
                     }
                 }
-                e2.set(this.f34165b, b(obj));
+                e2.set(this.f33779b, b(obj));
                 return this;
             } catch (Exception e3) {
                 throw new ReflectException(e3);
@@ -622,12 +622,12 @@ public class Reflect {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, clsArr, objArr)) == null) {
             try {
                 try {
-                    return a(a(str, clsArr), this.f34165b, objArr);
+                    return a(a(str, clsArr), this.f33779b, objArr);
                 } catch (NoSuchMethodException e2) {
                     throw new ReflectException(e2);
                 }
             } catch (NoSuchMethodException unused) {
-                return a(b(str, clsArr), this.f34165b, objArr);
+                return a(b(str, clsArr), this.f33779b, objArr);
             }
         }
         return (Reflect) invokeLLL.objValue;
@@ -667,7 +667,7 @@ public class Reflect {
     public <T> T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (T) this.f34165b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (T) this.f33779b : (T) invokeV.objValue;
     }
 
     public Reflect b() {
@@ -688,7 +688,7 @@ public class Reflect {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             try {
                 Field e2 = e(str);
-                return a(e2.getType(), e2.get(this.f34165b));
+                return a(e2.getType(), e2.get(this.f33779b));
             } catch (Exception e3) {
                 throw new ReflectException(e3);
             }
@@ -699,7 +699,7 @@ public class Reflect {
     public Class<?> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f34164a : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33778a : (Class) invokeV.objValue;
     }
 
     public Reflect d(String str) {
@@ -713,7 +713,7 @@ public class Reflect {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
             if (obj instanceof Reflect) {
-                return this.f34165b.equals(((Reflect) obj).a());
+                return this.f33779b.equals(((Reflect) obj).a());
             }
             return false;
         }
@@ -723,12 +723,12 @@ public class Reflect {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f34165b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33779b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? String.valueOf(this.f34165b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? String.valueOf(this.f33779b) : (String) invokeV.objValue;
     }
 }

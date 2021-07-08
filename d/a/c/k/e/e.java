@@ -21,36 +21,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e extends BaseAdapter implements o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44840e;
+    public Context f41856e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListAdapter f44841f;
+    public ListAdapter f41857f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<c> f44842g;
+    public ArrayList<c> f41858g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<c> f44843h;
+    public ArrayList<c> f41859h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f44844i;
+    public boolean f41860i;
     public DataSetObserver j;
     public DataSetObserver k;
     public b l;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f44845a;
+        public final /* synthetic */ e f41861a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class e extends BaseAdapter implements o {
                     return;
                 }
             }
-            this.f44845a = eVar;
+            this.f41861a = eVar;
         }
 
         @Override // android.database.DataSetObserver
@@ -75,11 +75,11 @@ public class e extends BaseAdapter implements o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onChanged();
-                if (this.f44845a.j != null) {
-                    this.f44845a.j.onChanged();
+                if (this.f41861a.j != null) {
+                    this.f41861a.j.onChanged();
                 }
-                if (this.f44845a.l != null) {
-                    this.f44845a.l.onPreLoad();
+                if (this.f41861a.l != null) {
+                    this.f41861a.l.onPreLoad();
                 }
             }
         }
@@ -89,31 +89,31 @@ public class e extends BaseAdapter implements o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.onInvalidated();
-                if (this.f44845a.j != null) {
-                    this.f44845a.j.onInvalidated();
+                if (this.f41861a.j != null) {
+                    this.f41861a.j.onInvalidated();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onPreLoad();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f44846a;
+        public View f41862a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f44847b;
+        public Object f41863b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f44848c;
+        public boolean f41864c;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -147,22 +147,22 @@ public class e extends BaseAdapter implements o {
                 return;
             }
         }
-        this.f44840e = null;
-        this.f44841f = null;
-        this.f44842g = null;
-        this.f44843h = null;
+        this.f41856e = null;
+        this.f41857f = null;
+        this.f41858g = null;
+        this.f41859h = null;
         boolean z = false;
-        this.f44844i = false;
+        this.f41860i = false;
         this.j = null;
         this.k = null;
         this.l = null;
-        this.f44840e = context;
-        this.f44842g = new ArrayList<>();
-        this.f44843h = new ArrayList<>();
-        if (i(this.f44842g) && i(this.f44843h)) {
+        this.f41856e = context;
+        this.f41858g = new ArrayList<>();
+        this.f41859h = new ArrayList<>();
+        if (i(this.f41858g) && i(this.f41859h)) {
             z = true;
         }
-        this.f44844i = z;
+        this.f41860i = z;
         this.k = new a(this);
     }
 
@@ -171,9 +171,9 @@ public class e extends BaseAdapter implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
-                return this.f44844i && listAdapter.areAllItemsEnabled();
+                return this.f41860i && listAdapter.areAllItemsEnabled();
             }
             return super.areAllItemsEnabled();
         }
@@ -193,13 +193,13 @@ public class e extends BaseAdapter implements o {
             return;
         }
         c cVar = new c(this);
-        cVar.f44846a = view;
-        cVar.f44847b = obj;
-        cVar.f44848c = z;
-        if (i2 >= 0 && i2 <= this.f44843h.size()) {
-            this.f44843h.add(i2, cVar);
+        cVar.f41862a = view;
+        cVar.f41863b = obj;
+        cVar.f41864c = z;
+        if (i2 >= 0 && i2 <= this.f41859h.size()) {
+            this.f41859h.add(i2, cVar);
         } else {
-            this.f44843h.add(cVar);
+            this.f41859h.add(cVar);
         }
         notifyDataSetChanged();
     }
@@ -218,9 +218,9 @@ public class e extends BaseAdapter implements o {
         int n;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f44841f != null) {
+            if (this.f41857f != null) {
                 l = l() + n();
-                n = this.f44841f.getCount();
+                n = this.f41857f.getCount();
             } else {
                 l = l();
                 n = n();
@@ -237,19 +237,19 @@ public class e extends BaseAdapter implements o {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             int n = n();
             if (i2 < n) {
-                return this.f44842g.get(i2).f44847b;
+                return this.f41858g.get(i2).f41863b;
             }
             int i3 = i2 - n;
             int i4 = 0;
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
-                return this.f44841f.getItem(i3);
+                return this.f41857f.getItem(i3);
             }
             int i5 = i3 - i4;
-            if (i5 < 0 || i5 >= this.f44843h.size()) {
+            if (i5 < 0 || i5 >= this.f41859h.size()) {
                 return null;
             }
-            return this.f44843h.get(i5).f44847b;
+            return this.f41859h.get(i5).f41863b;
         }
         return invokeI.objValue;
     }
@@ -261,11 +261,11 @@ public class e extends BaseAdapter implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             int n = n();
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter == null || i2 < n || (i3 = i2 - n) >= listAdapter.getCount()) {
                 return Long.MIN_VALUE;
             }
-            return this.f44841f.getItemId(i3);
+            return this.f41857f.getItemId(i3);
         }
         return invokeI.longValue;
     }
@@ -277,11 +277,11 @@ public class e extends BaseAdapter implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
             int n = n();
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter == null || i2 < n || (i3 = i2 - n) >= listAdapter.getCount()) {
                 return -2;
             }
-            return this.f44841f.getItemViewType(i3);
+            return this.f41857f.getItemViewType(i3);
         }
         return invokeI.intValue;
     }
@@ -293,16 +293,16 @@ public class e extends BaseAdapter implements o {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
             int n = n();
             if (i2 < n) {
-                View view2 = this.f44842g.get(i2).f44846a;
+                View view2 = this.f41858g.get(i2).f41862a;
                 return view2 == null ? j() : view2;
             }
             int i3 = i2 - n;
             int i4 = 0;
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             View view3 = null;
             if (listAdapter != null && i3 < (i4 = listAdapter.getCount())) {
                 try {
-                    view3 = this.f44841f.getView(i3, view, viewGroup);
+                    view3 = this.f41857f.getView(i3, view, viewGroup);
                 } catch (Exception e2) {
                     if (e2.getMessage() != null) {
                         BdLog.detailException(e2);
@@ -311,12 +311,12 @@ public class e extends BaseAdapter implements o {
                     }
                 } catch (OutOfMemoryError unused) {
                     BdBaseApplication.getInst().onAppMemoryLow();
-                    view3 = this.f44841f.getView(i3, view, viewGroup);
+                    view3 = this.f41857f.getView(i3, view, viewGroup);
                 }
                 return view3 == null ? j() : view3;
             }
             try {
-                view3 = this.f44843h.get(i3 - i4).f44846a;
+                view3 = this.f41859h.get(i3 - i4).f41862a;
             } catch (Exception e3) {
                 BdLog.detailException(e3);
             }
@@ -330,7 +330,7 @@ public class e extends BaseAdapter implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
                 return listAdapter.getViewTypeCount() + 1;
             }
@@ -342,7 +342,7 @@ public class e extends BaseAdapter implements o {
     public ListAdapter getWrappedAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44841f : (ListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41857f : (ListAdapter) invokeV.objValue;
     }
 
     public void h(View view, Object obj, boolean z, int i2) {
@@ -351,13 +351,13 @@ public class e extends BaseAdapter implements o {
             return;
         }
         c cVar = new c(this);
-        cVar.f44846a = view;
-        cVar.f44847b = obj;
-        cVar.f44848c = z;
-        if (i2 >= 0 && i2 <= this.f44842g.size()) {
-            this.f44842g.add(i2, cVar);
+        cVar.f41862a = view;
+        cVar.f41863b = obj;
+        cVar.f41864c = z;
+        if (i2 >= 0 && i2 <= this.f41858g.size()) {
+            this.f41858g.add(i2, cVar);
         } else {
-            this.f44842g.add(cVar);
+            this.f41858g.add(cVar);
         }
         notifyDataSetChanged();
     }
@@ -367,7 +367,7 @@ public class e extends BaseAdapter implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
                 return listAdapter.hasStableIds();
             }
@@ -383,7 +383,7 @@ public class e extends BaseAdapter implements o {
             if (arrayList != null) {
                 Iterator<c> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    if (!it.next().f44848c) {
+                    if (!it.next().f41864c) {
                         return false;
                     }
                 }
@@ -399,7 +399,7 @@ public class e extends BaseAdapter implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             return listAdapter == null || listAdapter.isEmpty();
         }
         return invokeV.booleanValue;
@@ -413,23 +413,23 @@ public class e extends BaseAdapter implements o {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
             int n = n();
             if (i2 < n) {
-                return this.f44842g.get(i2).f44848c;
+                return this.f41858g.get(i2).f41864c;
             }
             int i4 = i2 - n;
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
                 i3 = listAdapter.getCount();
                 if (i4 < i3) {
-                    return this.f44841f.isEnabled(i4);
+                    return this.f41857f.isEnabled(i4);
                 }
             } else {
                 i3 = 0;
             }
             int i5 = i4 - i3;
-            if (i5 < 0 || i5 >= this.f44843h.size()) {
+            if (i5 < 0 || i5 >= this.f41859h.size()) {
                 return false;
             }
-            return this.f44843h.get(i5).f44848c;
+            return this.f41859h.get(i5).f41864c;
         }
         return invokeI.booleanValue;
     }
@@ -438,9 +438,9 @@ public class e extends BaseAdapter implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            TextView textView = new TextView(this.f44840e);
+            TextView textView = new TextView(this.f41856e);
             textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
-            int e2 = d.a.c.e.p.l.e(this.f44840e, 15.0f);
+            int e2 = d.a.c.e.p.l.e(this.f41856e, 15.0f);
             textView.setPadding(e2, e2, e2, e2);
             return textView;
         }
@@ -450,25 +450,25 @@ public class e extends BaseAdapter implements o {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f44843h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f41859h.size() : invokeV.intValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f44843h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f41859h.size() : invokeV.intValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f44842g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f41858g.size() : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f44842g.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f41858g.size() : invokeV.intValue;
     }
 
     @Override // android.widget.BaseAdapter, d.a.c.k.e.o
@@ -483,7 +483,7 @@ public class e extends BaseAdapter implements o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
                 return listAdapter.getCount();
             }
@@ -500,13 +500,13 @@ public class e extends BaseAdapter implements o {
             if (view == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f44843h.size(); i2++) {
-                if (this.f44843h.get(i2).f44846a == view) {
-                    this.f44843h.remove(i2);
-                    if (i(this.f44842g) && i(this.f44843h)) {
+            for (int i2 = 0; i2 < this.f41859h.size(); i2++) {
+                if (this.f41859h.get(i2).f41862a == view) {
+                    this.f41859h.remove(i2);
+                    if (i(this.f41858g) && i(this.f41859h)) {
                         z = true;
                     }
-                    this.f44844i = z;
+                    this.f41860i = z;
                     notifyDataSetChanged();
                     return true;
                 }
@@ -524,13 +524,13 @@ public class e extends BaseAdapter implements o {
             if (view == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f44842g.size(); i2++) {
-                if (this.f44842g.get(i2).f44846a == view) {
-                    this.f44842g.remove(i2);
-                    if (i(this.f44842g) && i(this.f44843h)) {
+            for (int i2 = 0; i2 < this.f41858g.size(); i2++) {
+                if (this.f41858g.get(i2).f41862a == view) {
+                    this.f41858g.remove(i2);
+                    if (i(this.f41858g) && i(this.f41859h)) {
                         z = true;
                     }
-                    this.f44844i = z;
+                    this.f41860i = z;
                     notifyDataSetChanged();
                     return true;
                 }
@@ -543,8 +543,8 @@ public class e extends BaseAdapter implements o {
     public void r(ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, listAdapter) == null) {
-            ListAdapter listAdapter2 = this.f44841f;
-            this.f44841f = listAdapter;
+            ListAdapter listAdapter2 = this.f41857f;
+            this.f41857f = listAdapter;
             if (listAdapter != null) {
                 boolean z = listAdapter instanceof Filterable;
             }
@@ -558,7 +558,7 @@ public class e extends BaseAdapter implements o {
         if (interceptable == null || interceptable.invokeL(1048602, this, dataSetObserver) == null) {
             super.registerDataSetObserver(dataSetObserver);
             this.j = dataSetObserver;
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
                 listAdapter.registerDataSetObserver(this.k);
             }
@@ -578,7 +578,7 @@ public class e extends BaseAdapter implements o {
         if (interceptable == null || interceptable.invokeL(1048604, this, dataSetObserver) == null) {
             super.unregisterDataSetObserver(dataSetObserver);
             this.j = dataSetObserver;
-            ListAdapter listAdapter = this.f44841f;
+            ListAdapter listAdapter = this.f41857f;
             if (listAdapter != null) {
                 listAdapter.unregisterDataSetObserver(this.k);
             }

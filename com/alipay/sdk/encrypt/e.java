@@ -1,5 +1,6 @@
 package com.alipay.sdk.encrypt;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1892a = "DESede/CBC/PKCS5Padding";
+    public static String f1893a = "DESede/CBC/PKCS5Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +56,7 @@ public class e {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-                Cipher cipher = Cipher.getInstance(f1892a);
+                Cipher cipher = Cipher.getInstance(f1893a);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
@@ -72,7 +73,7 @@ public class e {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
                 IvParameterSpec ivParameterSpec = new IvParameterSpec(new byte[8]);
-                Cipher cipher = Cipher.getInstance(f1892a);
+                Cipher cipher = Cipher.getInstance(f1893a);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
@@ -98,7 +99,7 @@ public class e {
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
                 return new String(b(str, a.a(str2)));
             } catch (Exception unused) {

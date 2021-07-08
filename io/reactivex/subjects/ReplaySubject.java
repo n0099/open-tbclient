@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ReplaySubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final ReplayDisposable[] EMPTY;
@@ -36,7 +36,7 @@ public final class ReplaySubject<T> extends Subject<T> {
     public boolean done;
     public final AtomicReference<ReplayDisposable<T>[]> observers;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -62,7 +62,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface ReplayBuffer<T> {
         void add(T t);
 
@@ -84,7 +84,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         void trimHead();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ReplayDisposable<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 466549804534799122L;
@@ -131,7 +131,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> extends AtomicReference<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8056260896137901749L;
@@ -420,7 +420,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SizeBoundReplayBuffer<T> extends AtomicReference<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1107649250281456395L;
@@ -622,7 +622,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -650,7 +650,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class UnboundedReplayBuffer<T> extends AtomicReference<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -733876083048047795L;
@@ -875,7 +875,7 @@ public final class ReplaySubject<T> extends Subject<T> {
     public static <T> ReplaySubject<T> createUnbounded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new ReplaySubject<>(new SizeBoundReplayBuffer(Integer.MAX_VALUE)) : (ReplaySubject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new ReplaySubject<>(new SizeBoundReplayBuffer(Integer.MAX_VALUE)) : (ReplaySubject) invokeV.objValue;
     }
 
     @CheckReturnValue

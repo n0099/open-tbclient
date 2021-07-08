@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.core.os.CancellationSignal;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewGroupCompat;
@@ -94,7 +95,7 @@ public abstract class FragmentTransitionImpl {
     public static boolean isNullOrEmpty(List list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, list)) == null) ? list == null || list.isEmpty() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) ? list == null || list.isEmpty() : invokeL.booleanValue;
     }
 
     public abstract void addTarget(Object obj, View view);

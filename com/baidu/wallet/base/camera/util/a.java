@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23893a;
+    public int f24003a;
 
     /* renamed from: com.baidu.wallet.base.camera.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class C0256a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f23894a;
+        public Pattern f24004a;
 
         public C0256a() {
             Interceptable interceptable = $ic;
@@ -40,23 +40,23 @@ public class a {
                     return;
                 }
             }
-            this.f23894a = Pattern.compile("cpu\\d{1,2}");
+            this.f24004a = Pattern.compile("cpu\\d{1,2}");
         }
 
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f23894a.matcher(file.getName()).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f24004a.matcher(file.getName()).matches() : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f23895a;
+        public static a f24005a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -72,7 +72,7 @@ public class a {
                     return;
                 }
             }
-            f23895a = new a();
+            f24005a = new a();
         }
 
         public b() {
@@ -103,22 +103,22 @@ public class a {
                 return;
             }
         }
-        this.f23893a = -1;
+        this.f24003a = -1;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (-1 == b.f23895a.f23893a) {
+            if (-1 == b.f24005a.f24003a) {
                 try {
-                    b.f23895a.f23893a = new File("/sys/devices/system/cpu/").listFiles(new C0256a()).length;
+                    b.f24005a.f24003a = new File("/sys/devices/system/cpu/").listFiles(new C0256a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    b.f23895a.f23893a = 1;
+                    b.f24005a.f24003a = 1;
                 }
             }
-            return b.f23895a.f23893a;
+            return b.f24005a.f24003a;
         }
         return invokeV.intValue;
     }

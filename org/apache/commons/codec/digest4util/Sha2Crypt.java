@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Sha2Crypt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ROUNDS_DEFAULT = 5000;
@@ -71,7 +72,7 @@ public class Sha2Crypt {
         byte[] bArr2;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{bArr, str, str2, Integer.valueOf(i2), str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, str, str2, Integer.valueOf(i2), str3})) == null) {
             int length = bArr.length;
             if (str != null) {
                 Matcher matcher = SALT_PATTERN.matcher(str);

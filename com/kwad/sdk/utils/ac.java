@@ -1,176 +1,192 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.alibaba.fastjson.asm.Label;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.core.fragment.FileProvider;
+import java.io.File;
+/* loaded from: classes6.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f39314a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f39315b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a("MIUI") : invokeV.booleanValue;
-    }
-
-    public static boolean a(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        String upperCase;
+        PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = f39314a;
-            if (str2 != null) {
-                return str2.contains(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!new File(str).exists()) {
+                com.kwad.sdk.core.d.a.d("PackageUtil", "cannot save package, download apk is not exists.");
+                return null;
             }
-            String b2 = b("ro.build.version.opporom");
-            f39315b = b2;
-            if (TextUtils.isEmpty(b2)) {
-                String b3 = b("ro.vivo.os.version");
-                f39315b = b3;
-                if (TextUtils.isEmpty(b3)) {
-                    String b4 = b("ro.build.version.emui");
-                    f39315b = b4;
-                    if (TextUtils.isEmpty(b4)) {
-                        String b5 = b("ro.miui.ui.version.name");
-                        f39315b = b5;
-                        if (TextUtils.isEmpty(b5)) {
-                            String b6 = b("ro.product.system.manufacturer");
-                            f39315b = b6;
-                            if (TextUtils.isEmpty(b6)) {
-                                String b7 = b("ro.smartisan.version");
-                                f39315b = b7;
-                                if (TextUtils.isEmpty(b7)) {
-                                    String str3 = "SAMSUNG";
-                                    if (!b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
-                                        String str4 = Build.DISPLAY;
-                                        f39315b = str4;
-                                        str3 = "FLYME";
-                                        if (!str4.toUpperCase().contains("FLYME")) {
-                                            f39315b = "unknown";
-                                            upperCase = Build.MANUFACTURER.toUpperCase();
-                                        }
-                                    }
-                                    f39314a = str3;
-                                    return f39314a.contains(str);
-                                }
-                                upperCase = "SMARTISAN";
-                            } else {
-                                upperCase = "OnePlus";
-                            }
-                        } else {
-                            upperCase = "MIUI";
-                        }
-                    } else {
-                        upperCase = "EMUI";
-                    }
-                } else {
-                    upperCase = "VIVO";
-                }
-            } else {
-                upperCase = "OPPO";
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 1)) == null) {
+                return null;
             }
-            f39314a = upperCase;
-            return f39314a.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(6:3|(2:4|5)|6|7|(6:11|12|14|15|16|17)|9) */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x003e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @SuppressLint({"PrivateApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
-            } catch (ClassNotFoundException e2) {
-                e2.printStackTrace();
-                str2 = null;
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return str2;
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-                str2 = null;
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return str2;
-            } catch (NoSuchMethodException e4) {
-                e4.printStackTrace();
-                str2 = null;
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return str2;
-            } catch (InvocationTargetException e5) {
-                e5.printStackTrace();
-                str2 = null;
-                if (TextUtils.isEmpty(str2)) {
-                }
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                try {
-                    try {
-                        bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-                    } catch (IOException e6) {
-                        e = e6;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    str2 = bufferedReader.readLine();
-                    bufferedReader.close();
-                } catch (IOException e7) {
-                    e = e7;
-                    bufferedReader2 = bufferedReader;
-                    e.printStackTrace();
-                    if (bufferedReader2 != null) {
-                        bufferedReader2.close();
-                    }
-                    return str2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader2 = bufferedReader;
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (IOException unused) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return str2;
+            return packageArchiveInfo.applicationInfo.packageName;
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a("FLYME") : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            com.kwad.sdk.core.d.a.d("PackageUtil", "saveDownloadFile " + str2);
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                str3 = "cannot save package, has no download apk info.";
+            } else {
+                File file = new File(str);
+                if (file.exists()) {
+                    Context context = KsAdSDKImpl.get().getContext();
+                    if (context == null) {
+                        return;
+                    }
+                    am.b(context, str2, file.length());
+                    try {
+                        am.a(context, str2, c.b(file));
+                        return;
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
+                        return;
+                    }
+                }
+                str3 = "cannot save package, download apk is not exists.";
+            }
+            com.kwad.sdk.core.d.a.d("PackageUtil", str3);
+        }
+    }
+
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0) != null;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int b(@Nullable Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            if (context == null || str == null || ContextCompat.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") != 0) {
+                return -1;
+            }
+            String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            File file = new File(absolutePath + "/Android/data/" + str);
+            return (file.exists() && file.isDirectory()) ? 1 : 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        ApplicationInfo applicationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            com.kwad.sdk.core.d.a.d("PackageUtil", "isPackageChanged " + str + " packageName " + str2);
+            Context context = KsAdSDKImpl.get().getContext();
+            if (context == null) {
+                return 0;
+            }
+            long b2 = am.b(context, str);
+            String c2 = am.c(context, str);
+            if (TextUtils.isEmpty(c2) || b2 <= 0) {
+                str3 = "cannot judge package, has no download apk info.";
+            } else {
+                try {
+                    PackageInfo packageInfo = context.getApplicationContext().getPackageManager().getPackageInfo(str2, 0);
+                    if (TextUtils.isEmpty(str2) || packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null || TextUtils.isEmpty(applicationInfo.publicSourceDir)) {
+                        str3 = "cannot judge package, cannot get installed apk info.";
+                    } else {
+                        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+                        if (!file.exists()) {
+                            str3 = "cannot judge package, insgtalled apk is not exists.";
+                        } else if (b2 != file.length()) {
+                            return 1;
+                        } else {
+                            if (TextUtils.isEmpty(c2)) {
+                                str3 = "cannot judge package, cannot calculate md5 of download file.";
+                            } else {
+                                String b3 = c.b(file);
+                                if (!TextUtils.isEmpty(b3)) {
+                                    return c2.equalsIgnoreCase(b3) ? 2 : 1;
+                                }
+                                str3 = "cannot judge package, cannot calculate md5 of installed file.";
+                            }
+                        }
+                    }
+                } catch (PackageManager.NameNotFoundException e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    return 0;
+                }
+            }
+            com.kwad.sdk.core.d.a.d("PackageUtil", str3);
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
+                if (launchIntentForPackage == null) {
+                    return false;
+                }
+                launchIntentForPackage.setFlags(337641472);
+                context.startActivity(launchIntentForPackage);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) && context != null && !TextUtils.isEmpty(str)) {
+            try {
+                File file = new File(str);
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(3);
+                Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
+                intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");
+                for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 65536)) {
+                    context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 3);
+                }
+                context.startActivity(intent);
+            } catch (Exception unused) {
+            }
+        }
     }
 }

@@ -40,7 +40,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes2.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDVideoPlayer";
@@ -65,7 +66,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public VideoSession mVideoSession;
     public VideoTask mVideoTask;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +137,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     private void bindSession() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             bindSession(requireVideoSession());
         }
     }
@@ -857,7 +858,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             return;
         }
         if (this.mAudioManager == null) {
-            this.mAudioManager = (AudioManager) getAppContext().getSystemService("audio");
+            this.mAudioManager = (AudioManager) getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         }
         if (this.mAudioManager != null) {
             if (this.mAudioFocusListener == null) {

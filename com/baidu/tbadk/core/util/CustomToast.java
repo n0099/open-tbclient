@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.os.Handler;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CustomToast {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TOAST_DURATION = 2000;
@@ -93,7 +94,7 @@ public class CustomToast {
     public static CustomToast newInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? new CustomToast() : (CustomToast) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new CustomToast() : (CustomToast) invokeV.objValue;
     }
 
     public void onPause() {

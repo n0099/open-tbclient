@@ -20,7 +20,7 @@ import d.a.c.e.l.d;
 import d.a.c.e.m.e;
 import d.a.c.e.p.k;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrameAnimationView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public class FrameAnimationView extends TbImageView {
     public Bitmap y0;
     public Rect z0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f22013e;
+        public final /* synthetic */ FrameAnimationView f22070e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f22013e = frameAnimationView;
+            this.f22070e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f22013e.F0);
-                if (this.f22013e.B0 != null) {
-                    this.f22013e.W();
+                e.a().removeCallbacks(this.f22070e.F0);
+                if (this.f22070e.B0 != null) {
+                    this.f22070e.W();
                 }
             }
         }

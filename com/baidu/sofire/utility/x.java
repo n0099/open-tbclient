@@ -21,51 +21,51 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f10526a;
+    public static final int f10543a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile x f10527d;
+    public static volatile x f10544d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f10528e;
+    public static final int f10545e;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f10529h;
+    public static long f10546h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ThreadPoolExecutor f10530b;
+    public ThreadPoolExecutor f10547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f10531c;
+    public ThreadPoolExecutor f10548c;
 
     /* renamed from: f  reason: collision with root package name */
-    public BlockingQueue<Runnable> f10532f;
+    public BlockingQueue<Runnable> f10549f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BlockingQueue<Runnable> f10533g;
+    public BlockingQueue<Runnable> f10550g;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f10534i;
+    public Context f10551i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f10535a;
+        public final AtomicInteger f10552a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f10536b;
+        public final String f10553b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f10537c;
+        public final int f10554c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -82,9 +82,9 @@ public class x {
                     return;
                 }
             }
-            this.f10535a = new AtomicInteger(1);
-            this.f10536b = str;
-            this.f10537c = i2;
+            this.f10552a = new AtomicInteger(1);
+            this.f10553b = str;
+            this.f10554c = i2;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -92,11 +92,11 @@ public class x {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f10536b + this.f10535a.getAndIncrement());
+                Thread thread = new Thread(runnable, this.f10553b + this.f10552a.getAndIncrement());
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
-                thread.setPriority(this.f10537c);
+                thread.setPriority(this.f10554c);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -117,9 +117,9 @@ public class x {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f10526a = availableProcessors;
-        f10528e = (availableProcessors * 2) + 1;
-        f10529h = 0L;
+        f10543a = availableProcessors;
+        f10545e = (availableProcessors * 2) + 1;
+        f10546h = 0L;
     }
 
     public x(Context context) {
@@ -138,14 +138,14 @@ public class x {
                 return;
             }
         }
-        this.f10532f = new LinkedBlockingQueue(100);
-        this.f10533g = new LinkedBlockingQueue(10);
-        int max = (context == null || (i2 = com.baidu.sofire.h.a.a(context).f10393a.getInt("s_t_p_c_s", -1)) <= 0) ? Math.max(4, f10526a) : i2;
-        this.f10530b = new ThreadPoolExecutor(max, Math.max(max, (f10526a * 2) + 1), 10L, TimeUnit.SECONDS, this.f10532f, new a("sofire_pool_thread_", 5), new ThreadPoolExecutor.AbortPolicy());
-        this.f10531c = new ThreadPoolExecutor(2, f10528e, 10L, TimeUnit.SECONDS, this.f10533g, new a("sofire_pool_core_thread_", 6), new ThreadPoolExecutor.DiscardOldestPolicy());
+        this.f10549f = new LinkedBlockingQueue(100);
+        this.f10550g = new LinkedBlockingQueue(10);
+        int max = (context == null || (i2 = com.baidu.sofire.h.a.a(context).f10410a.getInt("s_t_p_c_s", -1)) <= 0) ? Math.max(4, f10543a) : i2;
+        this.f10547b = new ThreadPoolExecutor(max, Math.max(max, (f10543a * 2) + 1), 10L, TimeUnit.SECONDS, this.f10549f, new a("sofire_pool_thread_", 5), new ThreadPoolExecutor.AbortPolicy());
+        this.f10548c = new ThreadPoolExecutor(2, f10545e, 10L, TimeUnit.SECONDS, this.f10550g, new a("sofire_pool_core_thread_", 6), new ThreadPoolExecutor.DiscardOldestPolicy());
         if (Build.VERSION.SDK_INT >= 9) {
-            this.f10530b.allowCoreThreadTimeOut(true);
-            this.f10531c.allowCoreThreadTimeOut(true);
+            this.f10547b.allowCoreThreadTimeOut(true);
+            this.f10548c.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -154,21 +154,21 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             try {
-                if (this.f10530b != null) {
-                    this.f10530b.execute(runnable);
+                if (this.f10547b != null) {
+                    this.f10547b.execute(runnable);
                     return 1;
                 }
                 return -2;
             } catch (RejectedExecutionException e2) {
                 try {
-                    if (this.f10534i != null && System.currentTimeMillis() - f10529h >= 86400000) {
+                    if (this.f10551i != null && System.currentTimeMillis() - f10546h >= 86400000) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("0", Integer.valueOf(f10526a));
-                        hashMap.put("1", Integer.valueOf(this.f10530b.getCorePoolSize()));
-                        hashMap.put("2", Integer.valueOf(this.f10530b.getMaximumPoolSize()));
+                        hashMap.put("0", Integer.valueOf(f10543a));
+                        hashMap.put("1", Integer.valueOf(this.f10547b.getCorePoolSize()));
+                        hashMap.put("2", Integer.valueOf(this.f10547b.getMaximumPoolSize()));
                         hashMap.put("3", Base64.encodeToString(com.baidu.sofire.b.a(e2).getBytes(), 0).replace("\n", "").replace(TrackUI.SEPERATOR, "").replace("\r", ""));
-                        c.a(this.f10534i.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
-                        f10529h = System.currentTimeMillis();
+                        c.a(this.f10551i.getApplicationContext(), "1003147", (Map<String, Object>) hashMap, true);
+                        f10546h = System.currentTimeMillis();
                     }
                 } catch (Throwable unused) {
                     c.a();
@@ -189,8 +189,8 @@ public class x {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
             if (runnable != null) {
                 try {
-                    if (this.f10531c != null) {
-                        this.f10531c.execute(runnable);
+                    if (this.f10548c != null) {
+                        this.f10548c.execute(runnable);
                         return 1;
                     }
                     return -2;
@@ -208,21 +208,21 @@ public class x {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f10527d == null) {
+            if (f10544d == null) {
                 try {
                     synchronized (x.class) {
-                        if (f10527d == null) {
-                            f10527d = new x(context);
+                        if (f10544d == null) {
+                            f10544d = new x(context);
                         }
                     }
                 } catch (Throwable unused) {
                     c.a();
                 }
             }
-            if (f10527d != null && f10527d.f10534i == null && context != null) {
-                f10527d.f10534i = context;
+            if (f10544d != null && f10544d.f10551i == null && context != null) {
+                f10544d.f10551i = context;
             }
-            return f10527d;
+            return f10544d;
         }
         return (x) invokeL.objValue;
     }

@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.e;
 import d.a.c.e.p.l;
-import d.a.s0.g1.a.j;
-import d.a.s0.g1.f.d;
+import d.a.p0.g1.a.j;
+import d.a.p0.g1.f.d;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public String topicId;
     public CustomMessageListener unLikeForumListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f17046a;
+        public final /* synthetic */ RelateTopicForumActivity f17085a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RelateTopicForumActivity relateTopicForumActivity, int i2) {
@@ -62,25 +62,25 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f17046a = relateTopicForumActivity;
+            this.f17085a = relateTopicForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f17046a.dataList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f17085a.dataList.isEmpty()) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Long) {
-                RelateForumItemData itemByForumId = this.f17046a.getItemByForumId(((Long) data).longValue());
+                RelateForumItemData itemByForumId = this.f17085a.getItemByForumId(((Long) data).longValue());
                 if (itemByForumId != null) {
                     itemByForumId.followNum++;
                     itemByForumId.setIsLiked(true);
-                    j f2 = this.f17046a.mHotTopicMoreView.f();
+                    j f2 = this.f17085a.mHotTopicMoreView.f();
                     if (f2 != null) {
-                        f2.d(this.f17046a.dataList, this.f17046a.topicId);
+                        f2.d(this.f17085a.dataList, this.f17085a.topicId);
                         f2.notifyDataSetChanged();
                     }
                 }
@@ -88,13 +88,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f17047a;
+        public final /* synthetic */ RelateTopicForumActivity f17086a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RelateTopicForumActivity relateTopicForumActivity, int i2) {
@@ -114,25 +114,25 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f17047a = relateTopicForumActivity;
+            this.f17086a = relateTopicForumActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f17047a.dataList.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f17086a.dataList.isEmpty()) {
                 return;
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Long) {
-                RelateForumItemData itemByForumId = this.f17047a.getItemByForumId(((Long) data).longValue());
+                RelateForumItemData itemByForumId = this.f17086a.getItemByForumId(((Long) data).longValue());
                 if (itemByForumId != null) {
                     itemByForumId.followNum--;
                     itemByForumId.setIsLiked(false);
-                    j f2 = this.f17047a.mHotTopicMoreView.f();
+                    j f2 = this.f17086a.mHotTopicMoreView.f();
                     if (f2 != null) {
-                        f2.d(this.f17047a.dataList, this.f17047a.topicId);
+                        f2.d(this.f17086a.dataList, this.f17086a.topicId);
                         f2.notifyDataSetChanged();
                     }
                 }
@@ -140,13 +140,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RelateTopicForumActivity f17048a;
+        public final /* synthetic */ RelateTopicForumActivity f17087a;
 
         public c(RelateTopicForumActivity relateTopicForumActivity) {
             Interceptable interceptable = $ic;
@@ -163,18 +163,18 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     return;
                 }
             }
-            this.f17048a = relateTopicForumActivity;
+            this.f17087a = relateTopicForumActivity;
         }
 
         @Override // d.a.c.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (AntiHelper.m(this.f17048a.likeModel.getErrorCode(), this.f17048a.likeModel.getErrorString())) {
-                    AntiHelper.u(this.f17048a.getActivity(), this.f17048a.likeModel.getErrorString());
-                } else if (StringUtils.isNull(this.f17048a.likeModel.getErrorString())) {
+                if (AntiHelper.m(this.f17087a.likeModel.getErrorCode(), this.f17087a.likeModel.getErrorString())) {
+                    AntiHelper.u(this.f17087a.getActivity(), this.f17087a.likeModel.getErrorString());
+                } else if (StringUtils.isNull(this.f17087a.likeModel.getErrorString())) {
                 } else {
-                    l.M(TbadkCoreApplication.getInst(), this.f17048a.likeModel.getErrorString());
+                    l.M(TbadkCoreApplication.getInst(), this.f17087a.likeModel.getErrorString());
                 }
             }
         }
@@ -206,9 +206,9 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
             return;
         }
         if (this.dataList.isEmpty()) {
-            this.mHotTopicMoreView.h();
+            this.mHotTopicMoreView.g();
         } else {
-            this.mHotTopicMoreView.k();
+            this.mHotTopicMoreView.j();
         }
     }
 

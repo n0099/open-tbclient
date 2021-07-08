@@ -3,6 +3,7 @@ package com.baidu.android.util.io;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,7 +125,7 @@ public final class AssetUtils {
     public static String loadAssetsFile(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) ? loadFile(context, str) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? loadFile(context, str) : (String) invokeLL.objValue;
     }
 
     public static String loadFile(Context context, String str) {

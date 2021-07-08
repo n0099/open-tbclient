@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CameraIntrinsics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32848a;
+    public long f32958a;
 
     public CameraIntrinsics() {
         Interceptable interceptable = $ic;
@@ -25,8 +25,8 @@ public class CameraIntrinsics {
                 return;
             }
         }
-        this.f32848a = 0L;
-        this.f32848a = 0L;
+        this.f32958a = 0L;
+        this.f32958a = 0L;
     }
 
     private native long nativeCreateIntrinsics(long j, float f2, float f3, float f4, float f5, int i2, int i3);
@@ -42,7 +42,7 @@ public class CameraIntrinsics {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f32848a;
+            long j = this.f32958a;
             if (j != 0) {
                 nativeDestroyCameraIntrinsics(j);
             }

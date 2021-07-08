@@ -545,7 +545,7 @@ public abstract class JobIntentService extends Service {
         InterceptResult invokeCommon;
         WorkEnqueuer compatWorkEnqueuer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, componentName, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, componentName, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             WorkEnqueuer workEnqueuer = sClassWorkEnqueuer.get(componentName);
             if (workEnqueuer == null) {
                 if (Build.VERSION.SDK_INT < 26) {

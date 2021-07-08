@@ -1,6 +1,7 @@
 package com.baidu.apollon.utils.reflect;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f4106a;
+    public static Map<String, Field> f4109a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public class FieldUtils {
                 return;
             }
         }
-        f4106a = new HashMap();
+        f4109a = new HashMap();
     }
 
     public FieldUtils() {
@@ -65,7 +66,7 @@ public class FieldUtils {
     public static Field getDeclaredField(Class<?> cls, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, null, cls, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str, z)) == null) {
             b.a(cls != null, "The class must not be null", new Object[0]);
             b.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             try {
@@ -158,8 +159,8 @@ public class FieldUtils {
             b.a(cls != null, "The class must not be null", new Object[0]);
             b.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String a2 = a(cls, str);
-            synchronized (f4106a) {
-                field = f4106a.get(a2);
+            synchronized (f4109a) {
+                field = f4109a.get(a2);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -179,8 +180,8 @@ public class FieldUtils {
                         continue;
                     }
                 }
-                synchronized (f4106a) {
-                    f4106a.put(a2, declaredField);
+                synchronized (f4109a) {
+                    f4109a.put(a2, declaredField);
                 }
                 return declaredField;
             }
@@ -193,8 +194,8 @@ public class FieldUtils {
                 } catch (NoSuchFieldException unused2) {
                 }
             }
-            synchronized (f4106a) {
-                f4106a.put(a2, field2);
+            synchronized (f4109a) {
+                f4109a.put(a2, field2);
             }
             return field2;
         }

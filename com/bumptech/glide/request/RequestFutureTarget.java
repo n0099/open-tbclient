@@ -24,7 +24,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final Waiter DEFAULT_WAITER;
@@ -45,7 +45,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     public final int width;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Waiter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     private synchronized R doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, l)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, l)) == null) {
             synchronized (this) {
                 if (this.assertBackgroundThread && !isDone()) {
                     Util.assertBackgroundThread();

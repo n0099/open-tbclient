@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ m0 f42599a;
+    public final /* synthetic */ m0 f39613a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j0(m0 m0Var, Looper looper) {
@@ -33,7 +33,7 @@ public class j0 extends Handler {
                 return;
             }
         }
-        this.f42599a = m0Var;
+        this.f39613a = m0Var;
     }
 
     @Override // android.os.Handler
@@ -44,17 +44,17 @@ public class j0 extends Handler {
             if (message.what != 1101) {
                 return;
             }
-            this.f42599a.f42609e.removeMessages(1101);
-            m0 m0Var = this.f42599a;
-            if (!m0Var.f42606b && m0Var.a(m0Var.f42605a)) {
-                l0 l0Var = this.f42599a.f42607c;
+            this.f39613a.f39623e.removeMessages(1101);
+            m0 m0Var = this.f39613a;
+            if (!m0Var.f39620b && m0Var.a(m0Var.f39619a)) {
+                l0 l0Var = this.f39613a.f39621c;
                 if (l0Var != null) {
                     l0Var.a();
                 }
-                this.f42599a.f42606b = true;
+                this.f39613a.f39620b = true;
                 return;
             }
-            this.f42599a.f42609e.sendEmptyMessageDelayed(1101, 300L);
+            this.f39613a.f39623e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

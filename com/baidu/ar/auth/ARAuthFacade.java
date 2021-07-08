@@ -122,7 +122,7 @@ public class ARAuthFacade implements j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, f fVar, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, this, str, fVar, context) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, fVar, context) == null) {
             if (this.iZ != null) {
                 this.iZ.U(str);
             }

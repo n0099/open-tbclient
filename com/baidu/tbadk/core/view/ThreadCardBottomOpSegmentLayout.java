@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AgreeView.d p0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements AgreeView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCardBottomOpSegmentLayout f12532a;
+        public final /* synthetic */ ThreadCardBottomOpSegmentLayout f12549a;
 
         public a(ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout) {
             Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                     return;
                 }
             }
-            this.f12532a = threadCardBottomOpSegmentLayout;
+            this.f12549a = threadCardBottomOpSegmentLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.f12532a.R(this.f12532a.X(), z);
+                this.f12549a.R(this.f12549a.X(), z);
             }
         }
     }
@@ -83,10 +83,11 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12537h.setVisibilityListener(this.p0);
+            super.I();
+            this.f12554h.setVisibilityListener(this.p0);
             boolean X = X();
             if (W(X) || U(X)) {
-                this.f12537h.j(X);
+                this.f12554h.j(X);
                 S(X());
             }
         }
@@ -95,7 +96,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public final void R(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12554h.getLayoutParams();
             int i2 = layoutParams.width;
             float f2 = layoutParams.weight;
             if (!z) {
@@ -106,7 +107,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 layoutParams.weight = 0.0f;
                 layoutParams.leftMargin = l.g(this.F, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
-                this.f12537h.setLayoutParams(layoutParams);
+                this.f12554h.setLayoutParams(layoutParams);
                 return;
             }
             float f3 = z2 ? 1.0f : 2.0f;
@@ -117,7 +118,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             layoutParams.weight = f3;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f12537h.setLayoutParams(layoutParams);
+            this.f12554h.setLayoutParams(layoutParams);
         }
     }
 
@@ -125,10 +126,10 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                T(0, -1, 0, 1.0f, true, this.f12537h.q());
+                T(0, -1, 0, 1.0f, true, this.f12554h.q());
                 return;
             }
-            T(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.f12537h.q());
+            T(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.f12554h.q());
         }
     }
 
@@ -159,8 +160,8 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            boolean q = this.f12537h.q();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+            boolean q = this.f12554h.q();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12554h.getLayoutParams();
             int i2 = layoutParams.width;
             float f2 = layoutParams.weight;
             if (z) {
@@ -201,7 +202,8 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
             super.p(view);
-            this.f12537h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+            this.f12554h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+            this.f12554h.s(true);
         }
     }
 
@@ -209,7 +211,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            R(X(), this.f12537h.q());
+            R(X(), this.f12554h.q());
         }
     }
 

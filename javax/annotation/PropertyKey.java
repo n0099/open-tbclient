@@ -8,7 +8,7 @@ import javax.annotation.meta.When;
 @TypeQualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public @interface PropertyKey {
     When when() default When.ALWAYS;
 }

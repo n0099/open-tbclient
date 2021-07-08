@@ -27,7 +27,7 @@ import d.a.c.a.h;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbFlutterFragment extends FlutterFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

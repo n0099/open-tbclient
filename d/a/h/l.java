@@ -9,16 +9,16 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile l f45557b;
+    public static volatile l f42411b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f45558a;
+    public final Executor f42412a;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public final class l {
                 return;
             }
         }
-        this.f45558a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
+        this.f42412a = new ThreadPoolExecutor(5, 25, 20L, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
     }
 
     public static l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f45557b == null) {
+            if (f42411b == null) {
                 synchronized (l.class) {
-                    if (f45557b == null) {
-                        f45557b = new l();
+                    if (f42411b == null) {
+                        f42411b = new l();
                     }
                 }
             }
-            return f45557b;
+            return f42411b;
         }
         return (l) invokeV.objValue;
     }
@@ -55,6 +55,6 @@ public final class l {
     public Executor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45558a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42412a : (Executor) invokeV.objValue;
     }
 }

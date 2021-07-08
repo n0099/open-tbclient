@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f23217a;
+    public Context f23327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f23218b;
+    public SharedPreferences f23328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences.Editor f23219c;
+    public SharedPreferences.Editor f23329c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -37,23 +37,23 @@ public final class d {
                 return;
             }
         }
-        this.f23217a = context;
+        this.f23327a = context;
         SharedPreferences sharedPreferences = context.getSharedPreferences("UfoSharePreference", 0);
-        this.f23218b = sharedPreferences;
-        this.f23219c = sharedPreferences.edit();
+        this.f23328b = sharedPreferences;
+        this.f23329c = sharedPreferences.edit();
     }
 
     private int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? this.f23218b.getInt(str, 0) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? this.f23328b.getInt(str, 0) : invokeL.intValue;
     }
 
     private void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, this, str, i2) == null) {
-            this.f23219c.putInt(str, i2);
-            this.f23219c.commit();
+            this.f23329c.putInt(str, i2);
+            this.f23329c.commit();
         }
     }
 

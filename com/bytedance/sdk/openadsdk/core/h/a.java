@@ -35,54 +35,54 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f30119a;
+    public static volatile a f30229a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30120b;
+    public String f30230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<m, b> f30121c;
+    public Map<m, b> f30231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, JSONObject> f30122d;
+    public Map<String, JSONObject> f30232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f30123e;
+    public AtomicBoolean f30233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f30124f;
+    public Set<String> f30234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f30125g;
+    public Handler f30235g;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0339a {
         void a(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f30139a;
+        public long f30249a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f30140b;
+        public long f30250b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f30141c;
+        public long f30251c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f30142d;
+        public long f30252d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -101,20 +101,20 @@ public class a {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30140b - this.f30139a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30250b - this.f30249a : invokeV.longValue;
         }
 
         public long b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30142d - this.f30141c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30252d - this.f30251c : invokeV.longValue;
         }
 
         public b c(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                this.f30141c = j;
+                this.f30251c = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -124,7 +124,7 @@ public class a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-                this.f30142d = j;
+                this.f30252d = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -134,7 +134,7 @@ public class a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f30139a = j;
+                this.f30249a = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -144,7 +144,7 @@ public class a {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                this.f30140b = j;
+                this.f30250b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -164,11 +164,11 @@ public class a {
                 return;
             }
         }
-        this.f30121c = Collections.synchronizedMap(new HashMap());
-        this.f30122d = Collections.synchronizedMap(new HashMap());
-        this.f30123e = new AtomicBoolean(false);
-        this.f30124f = Collections.synchronizedSet(new HashSet());
-        this.f30125g = new Handler(Looper.getMainLooper());
+        this.f30231c = Collections.synchronizedMap(new HashMap());
+        this.f30232d = Collections.synchronizedMap(new HashMap());
+        this.f30233e = new AtomicBoolean(false);
+        this.f30234f = Collections.synchronizedSet(new HashSet());
+        this.f30235g = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -217,7 +217,7 @@ public class a {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f30123e.get()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f30233e.get()) {
             return;
         }
         e.a(new g(this, "PlayableCache") { // from class: com.bytedance.sdk.openadsdk.core.h.a.1
@@ -225,7 +225,7 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f30126a;
+            public final /* synthetic */ a f30236a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -245,7 +245,7 @@ public class a {
                         return;
                     }
                 }
-                this.f30126a = this;
+                this.f30236a = this;
             }
 
             @Override // java.lang.Runnable
@@ -254,13 +254,13 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        String c2 = this.f30126a.c();
+                        String c2 = this.f30236a.c();
                         if (!TextUtils.isEmpty(c2)) {
                             File file = new File(c2);
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
                                     try {
-                                        this.f30126a.a(this.f30126a.a(file2), true);
+                                        this.f30236a.a(this.f30236a.a(file2), true);
                                     } catch (Throwable unused) {
                                     }
                                 }
@@ -268,7 +268,7 @@ public class a {
                         }
                     } catch (Throwable unused2) {
                     }
-                    this.f30126a.f30123e.set(true);
+                    this.f30236a.f30233e.set(true);
                 }
             }
         }, 5);
@@ -292,14 +292,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30119a == null) {
+            if (f30229a == null) {
                 synchronized (a.class) {
-                    if (f30119a == null) {
-                        f30119a = new a();
+                    if (f30229a == null) {
+                        f30229a = new a();
                     }
                 }
             }
-            return f30119a;
+            return f30229a;
         }
         return (a) invokeV.objValue;
     }
@@ -316,7 +316,7 @@ public class a {
         File externalCacheDir;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
-            if (TextUtils.isEmpty(this.f30120b)) {
+            if (TextUtils.isEmpty(this.f30230b)) {
                 try {
                     if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && o.a().getExternalCacheDir() != null) {
                         externalCacheDir = o.a().getExternalCacheDir();
@@ -327,12 +327,12 @@ public class a {
                     if (!file.exists()) {
                         file.mkdirs();
                     }
-                    this.f30120b = file.getAbsolutePath();
+                    this.f30230b = file.getAbsolutePath();
                 } catch (Throwable th) {
                     j.f("PlayableCache", "init root path error: " + th);
                 }
             }
-            return this.f30120b;
+            return this.f30230b;
         }
         return (String) invokeV.objValue;
     }
@@ -341,10 +341,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar)) == null) {
-            if (this.f30123e.get() && mVar != null && mVar.V() != null && mVar.V().k() != null) {
+            if (this.f30233e.get() && mVar != null && mVar.V() != null && mVar.V().k() != null) {
                 try {
                     String a2 = com.bytedance.sdk.component.utils.e.a(mVar.V().k());
-                    if (this.f30122d.get(a2) == null) {
+                    if (this.f30232d.get(a2) == null) {
                         return false;
                     }
                     return e(new File(c(), a2));
@@ -377,7 +377,7 @@ public class a {
                 }
                 JSONObject jSONObject = new JSONObject(a2);
                 if (z && jSONObject.length() > 0) {
-                    this.f30122d.put(file.getParentFile().getName(), jSONObject);
+                    this.f30232d.put(file.getParentFile().getName(), jSONObject);
                 }
                 return jSONObject;
             } catch (Throwable unused) {
@@ -406,7 +406,7 @@ public class a {
             } catch (Throwable th) {
                 j.c("PlayableCache", "playable intercept error: ", th);
             }
-            if (!this.f30123e.get() || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+            if (!this.f30233e.get() || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 return null;
             }
             try {
@@ -472,7 +472,7 @@ public class a {
         JSONObject jSONObject;
         String optString;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, this, str, str2, file)) == null) ? (file == null || !file.exists() || (jSONObject = this.f30122d.get(str)) == null || (optString = jSONObject.optString(str2)) == null || !optString.equalsIgnoreCase(com.bytedance.sdk.component.utils.e.a(file))) ? false : true : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, this, str, str2, file)) == null) ? (file == null || !file.exists() || (jSONObject = this.f30232d.get(str)) == null || (optString = jSONObject.optString(str2)) == null || !optString.equalsIgnoreCase(com.bytedance.sdk.component.utils.e.a(file))) ? false : true : invokeLLL.booleanValue;
     }
 
     public void a(m mVar, InterfaceC0339a interfaceC0339a) {
@@ -480,17 +480,17 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar, interfaceC0339a) == null) {
             if (mVar != null && mVar.V() != null && !TextUtils.isEmpty(mVar.V().k())) {
                 String k = mVar.V().k();
-                if (this.f30124f.contains(k)) {
+                if (this.f30234f.contains(k)) {
                     return;
                 }
-                this.f30121c.put(mVar, new b().a(System.currentTimeMillis()));
+                this.f30231c.put(mVar, new b().a(System.currentTimeMillis()));
                 com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), mVar);
                 String a2 = com.bytedance.sdk.component.utils.e.a(k);
                 File file = new File(c(), a2);
                 if (e(file)) {
                     com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), mVar, -702, (String) null);
                     d(file);
-                    this.f30121c.remove(mVar);
+                    this.f30231c.remove(mVar);
                     a(interfaceC0339a, true);
                     return;
                 }
@@ -498,28 +498,28 @@ public class a {
                     f.c(file);
                 } catch (Throwable unused) {
                 }
-                this.f30124f.add(k);
+                this.f30234f.add(k);
                 com.bytedance.sdk.openadsdk.l.e.b().a(k, new b.a(this, a2, k, mVar, file, interfaceC0339a) { // from class: com.bytedance.sdk.openadsdk.core.h.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f30127a;
+                    public final /* synthetic */ String f30237a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f30128b;
+                    public final /* synthetic */ String f30238b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ m f30129c;
+                    public final /* synthetic */ m f30239c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ File f30130d;
+                    public final /* synthetic */ File f30240d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ InterfaceC0339a f30131e;
+                    public final /* synthetic */ InterfaceC0339a f30241e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ a f30132f;
+                    public final /* synthetic */ a f30242f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -536,12 +536,12 @@ public class a {
                                 return;
                             }
                         }
-                        this.f30132f = this;
-                        this.f30127a = a2;
-                        this.f30128b = k;
-                        this.f30129c = mVar;
-                        this.f30130d = file;
-                        this.f30131e = interfaceC0339a;
+                        this.f30242f = this;
+                        this.f30237a = a2;
+                        this.f30238b = k;
+                        this.f30239c = mVar;
+                        this.f30240d = file;
+                        this.f30241e = interfaceC0339a;
                     }
 
                     @Override // com.bytedance.sdk.component.adnet.b.b.a
@@ -565,24 +565,24 @@ public class a {
                     public void a(com.bytedance.sdk.component.adnet.core.m<File> mVar2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar2) == null) {
-                            this.f30132f.f30124f.remove(this.f30128b);
-                            b bVar = (b) this.f30132f.f30121c.remove(this.f30129c);
+                            this.f30242f.f30234f.remove(this.f30238b);
+                            b bVar = (b) this.f30242f.f30231c.remove(this.f30239c);
                             if (bVar != null) {
                                 bVar.b(System.currentTimeMillis());
                             }
-                            if (mVar2 != null && mVar2.f27921a != null) {
+                            if (mVar2 != null && mVar2.f28031a != null) {
                                 e.a(new g(this, "downloadZip", bVar, mVar2) { // from class: com.bytedance.sdk.openadsdk.core.h.a.2.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ b f30133a;
+                                    public final /* synthetic */ b f30243a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ com.bytedance.sdk.component.adnet.core.m f30134b;
+                                    public final /* synthetic */ com.bytedance.sdk.component.adnet.core.m f30244b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass2 f30135c;
+                                    public final /* synthetic */ AnonymousClass2 f30245c;
 
                                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                     {
@@ -602,9 +602,9 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        this.f30135c = this;
-                                        this.f30133a = bVar;
-                                        this.f30134b = mVar2;
+                                        this.f30245c = this;
+                                        this.f30243a = bVar;
+                                        this.f30244b = mVar2;
                                     }
 
                                     @Override // java.lang.Runnable
@@ -615,38 +615,38 @@ public class a {
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             boolean z = true;
                                             try {
-                                                if (this.f30133a != null) {
-                                                    this.f30133a.c(System.currentTimeMillis());
+                                                if (this.f30243a != null) {
+                                                    this.f30243a.c(System.currentTimeMillis());
                                                 }
-                                                v.a(((File) this.f30134b.f27921a).getAbsolutePath(), this.f30135c.f30132f.c());
-                                                if (this.f30133a != null) {
-                                                    this.f30133a.d(System.currentTimeMillis());
+                                                v.a(((File) this.f30244b.f28031a).getAbsolutePath(), this.f30245c.f30242f.c());
+                                                if (this.f30243a != null) {
+                                                    this.f30243a.d(System.currentTimeMillis());
                                                 }
-                                                if (this.f30133a != null) {
-                                                    long a3 = this.f30133a.a();
-                                                    j = this.f30133a.b();
+                                                if (this.f30243a != null) {
+                                                    long a3 = this.f30243a.a();
+                                                    j = this.f30243a.b();
                                                     j2 = a3;
                                                 } else {
                                                     j = 0;
                                                     j2 = 0;
                                                 }
-                                                com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30135c.f30129c, j2, j);
-                                                this.f30135c.f30132f.c(this.f30135c.f30130d);
+                                                com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30245c.f30239c, j2, j);
+                                                this.f30245c.f30242f.c(this.f30245c.f30240d);
                                                 try {
-                                                    this.f30135c.f30132f.a(this.f30135c.f30132f.a(this.f30135c.f30130d), true);
+                                                    this.f30245c.f30242f.a(this.f30245c.f30242f.a(this.f30245c.f30240d), true);
                                                 } catch (Throwable unused2) {
                                                 }
                                             } catch (Throwable th) {
                                                 j.c("PlayableCache", "unzip error: ", th);
-                                                com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30135c.f30129c, -704, th.getMessage());
+                                                com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30245c.f30239c, -704, th.getMessage());
                                                 z = false;
                                             }
                                             try {
-                                                ((File) this.f30134b.f27921a).delete();
+                                                ((File) this.f30244b.f28031a).delete();
                                             } catch (Throwable unused3) {
                                             }
-                                            AnonymousClass2 anonymousClass2 = this.f30135c;
-                                            anonymousClass2.f30132f.a(anonymousClass2.f30131e, z);
+                                            AnonymousClass2 anonymousClass2 = this.f30245c;
+                                            anonymousClass2.f30242f.a(anonymousClass2.f30241e, z);
                                         }
                                     }
                                 }, 5);
@@ -654,13 +654,13 @@ public class a {
                             }
                             int i2 = -700;
                             if (mVar2 != null) {
-                                long j = mVar2.f27928h;
+                                long j = mVar2.f28038h;
                                 if (j != 0) {
                                     i2 = Long.valueOf(j).intValue();
                                 }
                             }
-                            com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30129c, i2, (String) null);
-                            this.f30132f.a(this.f30131e, false);
+                            com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30239c, i2, (String) null);
+                            this.f30242f.a(this.f30241e, false);
                         }
                     }
 
@@ -676,8 +676,8 @@ public class a {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, str)) == null) {
-                            String d2 = this.f30132f.d();
-                            return new File(d2, this.f30127a + ".zip");
+                            String d2 = this.f30242f.d();
+                            return new File(d2, this.f30237a + ".zip");
                         }
                         return (File) invokeL.objValue;
                     }
@@ -688,27 +688,27 @@ public class a {
                         int i2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048581, this, mVar2) == null) {
-                            this.f30132f.f30124f.remove(this.f30128b);
-                            this.f30132f.f30121c.remove(this.f30129c);
+                            this.f30242f.f30234f.remove(this.f30238b);
+                            this.f30242f.f30231c.remove(this.f30239c);
                             int i3 = -700;
                             String str = null;
                             if (mVar2 != null) {
-                                long j = mVar2.f27928h;
+                                long j = mVar2.f28038h;
                                 if (j != 0) {
                                     i3 = Long.valueOf(j).intValue();
                                 } else {
-                                    VAdError vAdError = mVar2.f27923c;
-                                    if (vAdError != null && (iVar = vAdError.networkResponse) != null && (i2 = iVar.f27904a) != 0) {
+                                    VAdError vAdError = mVar2.f28033c;
+                                    if (vAdError != null && (iVar = vAdError.networkResponse) != null && (i2 = iVar.f28014a) != 0) {
                                         i3 = i2;
                                     }
                                 }
-                                VAdError vAdError2 = mVar2.f27923c;
+                                VAdError vAdError2 = mVar2.f28033c;
                                 if (vAdError2 != null) {
                                     str = vAdError2.getMessage();
                                 }
                             }
-                            com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30129c, i3, str);
-                            this.f30132f.a(this.f30131e, false);
+                            com.bytedance.sdk.openadsdk.core.h.b.a(o.a(), this.f30239c, i3, str);
+                            this.f30242f.a(this.f30241e, false);
                         }
                     }
                 });
@@ -728,18 +728,18 @@ public class a {
                     interfaceC0339a.a(z);
                 }
             } else if (interfaceC0339a != null) {
-                this.f30125g.post(new Runnable(this, interfaceC0339a, z) { // from class: com.bytedance.sdk.openadsdk.core.h.a.3
+                this.f30235g.post(new Runnable(this, interfaceC0339a, z) { // from class: com.bytedance.sdk.openadsdk.core.h.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InterfaceC0339a f30136a;
+                    public final /* synthetic */ InterfaceC0339a f30246a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ boolean f30137b;
+                    public final /* synthetic */ boolean f30247b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f30138c;
+                    public final /* synthetic */ a f30248c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -756,19 +756,19 @@ public class a {
                                 return;
                             }
                         }
-                        this.f30138c = this;
-                        this.f30136a = interfaceC0339a;
-                        this.f30137b = z;
+                        this.f30248c = this;
+                        this.f30246a = interfaceC0339a;
+                        this.f30247b = z;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         InterfaceC0339a interfaceC0339a2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (interfaceC0339a2 = this.f30136a) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (interfaceC0339a2 = this.f30246a) == null) {
                             return;
                         }
-                        interfaceC0339a2.a(this.f30137b);
+                        interfaceC0339a2.a(this.f30247b);
                     }
                 });
             }

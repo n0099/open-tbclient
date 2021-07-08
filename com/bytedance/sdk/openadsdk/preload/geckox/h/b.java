@@ -1,19 +1,20 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.h;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32113a;
+    public static boolean f32223a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f32114b;
+    public static c f32224b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,20 +30,20 @@ public class b {
                 return;
             }
         }
-        f32114b = new a();
+        f32224b = new a();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f32113a = true;
+            f32223a = true;
         }
     }
 
     public static void b(String str, String str2, Throwable th) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65540, null, str, str2, th) == null) && f32113a && (cVar = f32114b) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f32223a && (cVar = f32224b) != null) {
             cVar.b(str, str2, th);
         }
     }
@@ -50,7 +51,7 @@ public class b {
     public static void a(String str, Object... objArr) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f32113a && (cVar = f32114b) != null) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f32223a && (cVar = f32224b) != null) {
             cVar.a(str, objArr);
         }
     }
@@ -58,7 +59,7 @@ public class b {
     public static void a(String str, String str2, Throwable th) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && f32113a && (cVar = f32114b) != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && f32223a && (cVar = f32224b) != null) {
             cVar.a(str, str2, th);
         }
     }

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import android.system.Os;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,12 +23,12 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CarUUID {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f8490a;
+    public static final Pattern f8507a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +44,7 @@ public class CarUUID {
                 return;
             }
         }
-        f8490a = Pattern.compile("(\\w{32})");
+        f8507a = Pattern.compile("(\\w{32})");
     }
 
     public CarUUID() {
@@ -92,7 +93,7 @@ public class CarUUID {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
-                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f5570g), "libdueros_uuid.so"))) != null) {
+                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f5587g), "libdueros_uuid.so"))) != null) {
                     return a2;
                 }
             }
@@ -134,7 +135,7 @@ public class CarUUID {
     public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             boolean z = false;
             FileOutputStream fileOutputStream = null;
             try {
@@ -217,7 +218,7 @@ public class CarUUID {
                     try {
                         byte[] bArr = new byte[1024];
                         String str = new String(bArr, 0, fileInputStream.read(bArr));
-                        String str2 = f8490a.matcher(str).matches() ? str : null;
+                        String str2 = f8507a.matcher(str).matches() ? str : null;
                         bu.a(fileInputStream);
                         return str2;
                     } catch (Exception unused) {

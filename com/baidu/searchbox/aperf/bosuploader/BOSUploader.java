@@ -3,6 +3,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.config.AppConfig;
@@ -31,7 +32,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BOSUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -110,7 +111,7 @@ public class BOSUploader {
     private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65540, this, sTSInfo, str, str2, file)) != null) {
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sTSInfo, str, str2, file)) != null) {
             return (BOSResponseEntity) invokeLLLL.objValue;
         }
         int i2 = 0;

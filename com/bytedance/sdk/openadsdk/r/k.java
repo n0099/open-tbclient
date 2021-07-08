@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32228a = false;
+    public static boolean f32338a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32229b = null;
+    public static String f32339b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f32230c = null;
+    public static String f32340c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f32231d = null;
+    public static String f32341d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f32232e = true;
+    public static boolean f32342e = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,18 +48,18 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (!f32228a) {
+                if (!f32338a) {
                     c();
                 }
                 Configuration configuration = com.bytedance.sdk.openadsdk.core.o.a().getResources().getConfiguration();
-                String valueOf = configuration.mcc != 0 ? String.valueOf(configuration.mcc) : f32230c;
-                com.bytedance.sdk.component.utils.j.f("MCC", "config=" + configuration.mcc + ",sMCC=" + f32230c);
-                if (f32232e) {
+                String valueOf = configuration.mcc != 0 ? String.valueOf(configuration.mcc) : f32340c;
+                com.bytedance.sdk.component.utils.j.f("MCC", "config=" + configuration.mcc + ",sMCC=" + f32340c);
+                if (f32342e) {
                     return valueOf;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("getMCC");
-                sb.append(f32232e ? "有SIM卡" : "无SIM卡,MCC返回null");
+                sb.append(f32342e ? "有SIM卡" : "无SIM卡,MCC返回null");
                 com.bytedance.sdk.component.utils.j.f("MCC", sb.toString());
                 return null;
             } catch (Throwable th) {
@@ -74,10 +74,10 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!f32228a) {
+            if (!f32338a) {
                 c();
             }
-            return f32231d;
+            return f32341d;
         }
         return (String) invokeV.objValue;
     }
@@ -87,18 +87,18 @@ public class k {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || com.bytedance.sdk.openadsdk.core.o.a() == null || f32228a) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || com.bytedance.sdk.openadsdk.core.o.a() == null || f32338a) {
             return;
         }
         try {
             TelephonyManager telephonyManager = (TelephonyManager) com.bytedance.sdk.openadsdk.core.o.a().getSystemService("phone");
             int simState = telephonyManager.getSimState();
             if (simState == 0) {
-                f32232e = false;
+                f32342e = false;
             } else if (simState == 1) {
-                f32232e = false;
+                f32342e = false;
             }
-            com.bytedance.sdk.component.utils.j.f("MCC", f32232e ? "有SIM卡" : "无SIM卡");
+            com.bytedance.sdk.component.utils.j.f("MCC", f32342e ? "有SIM卡" : "无SIM卡");
             String str4 = null;
             try {
                 str = telephonyManager.getSimOperatorName();
@@ -123,16 +123,16 @@ public class k {
                 str3 = str2.substring(3);
             }
             if (!TextUtils.isEmpty(str)) {
-                f32229b = str;
+                f32339b = str;
             }
             if (!TextUtils.isEmpty(str4)) {
-                f32230c = str4;
+                f32340c = str4;
             }
             if (!TextUtils.isEmpty(str3)) {
-                f32231d = str3;
+                f32341d = str3;
             }
         } catch (Throwable unused4) {
         }
-        f32228a = true;
+        f32338a = true;
     }
 }

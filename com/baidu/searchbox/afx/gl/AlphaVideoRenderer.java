@@ -5,6 +5,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AlphaVideoRenderer";
@@ -44,7 +45,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     public int uMVPMatrixHandle;
     public int uSTMatrixHandle;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }
@@ -140,7 +141,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
 
     private void prepareSurface() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             int i2 = iArr[0];

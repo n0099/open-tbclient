@@ -18,7 +18,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static byte ESCAPE_CHAR;
@@ -69,7 +69,7 @@ public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, St
     public static final byte[] encodeUrl(BitSet bitSet, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bitSet, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitSet, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (byte[]) invokeLL.objValue;

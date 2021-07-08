@@ -1,6 +1,7 @@
 package d.a.h;
 
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,15 +19,15 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f45536a;
+    public static Pattern f42390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f45537b;
+    public static String f42391b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +43,8 @@ public final class e {
                 return;
             }
         }
-        f45537b = a();
-        f45536a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+        f42391b = a();
+        f42390a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
     }
 
     public static String a() {
@@ -95,7 +96,7 @@ public final class e {
 
     public static void d(StringBuffer stringBuffer, byte b2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{stringBuffer, Byte.valueOf(b2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{stringBuffer, Byte.valueOf(b2)}) == null) {
             stringBuffer.append("0123456789ABCDEF".charAt((b2 >> 4) & 15));
             stringBuffer.append("0123456789ABCDEF".charAt(b2 & 15));
         }
@@ -104,7 +105,7 @@ public final class e {
     public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f45536a.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? f42390a.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static String f(String str, byte[] bArr) {
@@ -173,13 +174,13 @@ public final class e {
     public static String k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f45537b, str.getBytes()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f42391b, str.getBytes()) : (String) invokeL.objValue;
     }
 
     public static String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f45537b, Base64.decode(str, 0)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f42391b, Base64.decode(str, 0)) : (String) invokeL.objValue;
     }
 
     public static Key m(String str) {

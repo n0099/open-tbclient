@@ -13,13 +13,13 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends PayBaseBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26005a;
+    public String f26115a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -39,13 +39,13 @@ public class a extends PayBaseBean {
                 return;
             }
         }
-        this.f26005a = null;
+        this.f26115a = null;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f26005a = str;
+            this.f26115a = str;
         }
     }
 
@@ -63,8 +63,8 @@ public class a extends PayBaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f26005a != null) {
-                arrayList.add(new RestNameValuePair("serial_num", SafePay.getInstance().encryptProxy(this.f26005a)));
+            if (this.f26115a != null) {
+                arrayList.add(new RestNameValuePair("serial_num", SafePay.getInstance().encryptProxy(this.f26115a)));
             }
             arrayList.add(new RestNameValuePair("pay_type", "1"));
             return arrayList;

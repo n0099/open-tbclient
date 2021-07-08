@@ -22,7 +22,7 @@ import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class UnicastSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class UnicastSubject<T> extends Subject<T> {
     public final SpscLinkedArrayQueue<T> queue;
     public final BasicIntQueueDisposable<T> wip;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7926949470189395511L;
@@ -380,7 +380,7 @@ public final class UnicastSubject<T> extends Subject<T> {
     public static <T> UnicastSubject<T> create(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? new UnicastSubject<>(i2, true) : (UnicastSubject) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new UnicastSubject<>(i2, true) : (UnicastSubject) invokeI.objValue;
     }
 
     @CheckReturnValue

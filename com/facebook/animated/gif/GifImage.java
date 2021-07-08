@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOOP_COUNT_FOREVER = 0;
@@ -46,7 +46,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static GifImage create(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             ensure();
             Preconditions.checkNotNull(bArr);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);

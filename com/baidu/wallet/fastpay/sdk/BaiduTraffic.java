@@ -3,6 +3,7 @@ package com.baidu.wallet.fastpay.sdk;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.PayCallBack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,34 +22,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 @SuppressLint({"UseSparseArrays", "StaticFieldLeak"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BaiduTraffic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24714a = "BaiduTraffic";
+    public static final String f24824a = "BaiduTraffic";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24715b;
+    public Context f24825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, a> f24716c;
+    public final Map<Integer, a> f24826c;
 
     /* renamed from: com.baidu.wallet.fastpay.sdk.BaiduTraffic$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class AnonymousClass1 implements PayCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetTrafficOrderResponse f24717a;
+        public final /* synthetic */ GetTrafficOrderResponse f24827a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f24718b;
+        public final /* synthetic */ int f24828b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaiduTraffic f24719c;
+        public final /* synthetic */ BaiduTraffic f24829c;
 
         @Override // com.baidu.android.pay.PayCallBack
         public boolean isHideLoadingDialog() {
@@ -65,26 +66,26 @@ public class BaiduTraffic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 if (i2 != 0 && i2 != 1) {
-                    a a2 = this.f24719c.a(this.f24718b);
+                    a a2 = this.f24829c.a(this.f24828b);
                     if (a2 != null) {
-                        a2.a(this.f24718b, 0, new a.C0263a(i2, ""));
-                        this.f24719c.b(this.f24718b);
+                        a2.a(this.f24828b, 0, new a.C0263a(i2, ""));
+                        this.f24829c.b(this.f24828b);
                         return;
                     }
                     return;
                 }
-                GetTrafficOrderResponse getTrafficOrderResponse = this.f24717a;
-                if (getTrafficOrderResponse != null && !TextUtils.isEmpty(getTrafficOrderResponse.orderNo) && this.f24717a.isGotoResultActivity()) {
-                    GetTrafficOrderResponse.Params params = this.f24717a.params;
-                    WalletMobileResultActivity.gotoBusniessResultPage(this.f24719c.f24715b, false, this.f24717a.orderNo, params != null ? params.pay_desc : "", i2 == 1, new ResultPageStateListener(this, i2) { // from class: com.baidu.wallet.fastpay.sdk.BaiduTraffic.1.1
+                GetTrafficOrderResponse getTrafficOrderResponse = this.f24827a;
+                if (getTrafficOrderResponse != null && !TextUtils.isEmpty(getTrafficOrderResponse.orderNo) && this.f24827a.isGotoResultActivity()) {
+                    GetTrafficOrderResponse.Params params = this.f24827a.params;
+                    WalletMobileResultActivity.gotoBusniessResultPage(this.f24829c.f24825b, false, this.f24827a.orderNo, params != null ? params.pay_desc : "", i2 == 1, new ResultPageStateListener(this, i2) { // from class: com.baidu.wallet.fastpay.sdk.BaiduTraffic.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f24720a;
+                        public final /* synthetic */ int f24830a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f24721b;
+                        public final /* synthetic */ AnonymousClass1 f24831b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -101,21 +102,21 @@ public class BaiduTraffic {
                                     return;
                                 }
                             }
-                            this.f24721b = this;
-                            this.f24720a = i2;
+                            this.f24831b = this;
+                            this.f24830a = i2;
                         }
 
                         @Override // com.baidu.wallet.api.ResultPageStateListener
                         public void onConfirm() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(this.f24720a);
-                                AnonymousClass1 anonymousClass1 = this.f24721b;
-                                a a3 = anonymousClass1.f24719c.a(anonymousClass1.f24718b);
+                                PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(this.f24830a);
+                                AnonymousClass1 anonymousClass1 = this.f24831b;
+                                a a3 = anonymousClass1.f24829c.a(anonymousClass1.f24828b);
                                 if (a3 != null) {
-                                    a3.a(this.f24721b.f24718b, 1, payStateTrafficModle);
-                                    AnonymousClass1 anonymousClass12 = this.f24721b;
-                                    anonymousClass12.f24719c.b(anonymousClass12.f24718b);
+                                    a3.a(this.f24831b.f24828b, 1, payStateTrafficModle);
+                                    AnonymousClass1 anonymousClass12 = this.f24831b;
+                                    anonymousClass12.f24829c.b(anonymousClass12.f24828b);
                                 }
                             }
                         }
@@ -123,16 +124,16 @@ public class BaiduTraffic {
                     return;
                 }
                 PayStateTrafficModle payStateTrafficModle = new PayStateTrafficModle(i2);
-                a a3 = this.f24719c.a(this.f24718b);
+                a a3 = this.f24829c.a(this.f24828b);
                 if (a3 != null) {
-                    a3.a(this.f24718b, 1, payStateTrafficModle);
-                    this.f24719c.b(this.f24718b);
+                    a3.a(this.f24828b, 1, payStateTrafficModle);
+                    this.f24829c.b(this.f24828b);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PayStateTrafficModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -161,19 +162,19 @@ public class BaiduTraffic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i2, int i3, a.C0263a c0263a);
 
         void a(int i2, int i3, Object obj);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduTraffic f24722a;
+        public static BaiduTraffic f24832a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -189,7 +190,7 @@ public class BaiduTraffic {
                     return;
                 }
             }
-            f24722a = new BaiduTraffic(null);
+            f24832a = new BaiduTraffic(null);
         }
     }
 
@@ -215,10 +216,10 @@ public class BaiduTraffic {
     public void b(int i2) {
         Map<Integer, a> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (map = this.f24716c) == null || map.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (map = this.f24826c) == null || map.size() <= 0) {
             return;
         }
-        this.f24716c.remove(Integer.valueOf(i2));
+        this.f24826c.remove(Integer.valueOf(i2));
     }
 
     public BaiduTraffic() {
@@ -234,13 +235,13 @@ public class BaiduTraffic {
                 return;
             }
         }
-        this.f24716c = new HashMap();
+        this.f24826c = new HashMap();
     }
 
     public static BaiduTraffic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? b.f24722a : (BaiduTraffic) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.f24832a : (BaiduTraffic) invokeV.objValue;
     }
 
     public boolean a(String str) {
@@ -253,11 +254,11 @@ public class BaiduTraffic {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Map<Integer, a> map = this.f24716c;
+            Map<Integer, a> map = this.f24826c;
             if (map == null || map.size() <= 0) {
                 return null;
             }
-            return this.f24716c.get(Integer.valueOf(i2));
+            return this.f24826c.get(Integer.valueOf(i2));
         }
         return (a) invokeI.objValue;
     }

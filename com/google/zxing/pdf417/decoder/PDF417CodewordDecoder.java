@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417.decoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417CodewordDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final float[][] RATIOS_TABLE;
@@ -131,7 +132,7 @@ public final class PDF417CodewordDecoder {
     public static int getDecodedCodewordValue(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr)) == null) {
             int bitValue = getBitValue(iArr);
             if (PDF417Common.getCodeword(bitValue) == -1) {
                 return -1;

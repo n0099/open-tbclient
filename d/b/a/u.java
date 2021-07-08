@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class u extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public class u extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cursor)) == null) {
-            this.f71720e = cursor.getLong(0);
-            this.f71721f = cursor.getLong(1);
-            this.f71722g = cursor.getString(2);
+            this.f68823e = cursor.getLong(0);
+            this.f68824f = cursor.getLong(1);
+            this.f68825g = cursor.getString(2);
             this.n = cursor.getString(3);
             this.m = cursor.getInt(4);
-            this.f71724i = cursor.getString(5);
+            this.f68827i = cursor.getString(5);
             this.j = cursor.getString(6);
             return this;
         }
@@ -56,12 +56,12 @@ public class u extends p {
     public void d(@NonNull ContentValues contentValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentValues) == null) {
-            contentValues.put("local_time_ms", Long.valueOf(this.f71720e));
-            contentValues.put("tea_event_index", Long.valueOf(this.f71721f));
-            contentValues.put("session_id", this.f71722g);
+            contentValues.put("local_time_ms", Long.valueOf(this.f68823e));
+            contentValues.put("tea_event_index", Long.valueOf(this.f68824f));
+            contentValues.put("session_id", this.f68825g);
             contentValues.put("ver_name", this.n);
             contentValues.put("ver_code", Integer.valueOf(this.m));
-            contentValues.put("ab_version", this.f71724i);
+            contentValues.put("ab_version", this.f68827i);
             contentValues.put("ab_sdk_version", this.j);
         }
     }
@@ -70,10 +70,10 @@ public class u extends p {
     public void e(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            jSONObject.put("local_time_ms", this.f71720e);
-            jSONObject.put("tea_event_index", this.f71721f);
-            jSONObject.put("session_id", this.f71722g);
-            jSONObject.put("ab_version", this.f71724i);
+            jSONObject.put("local_time_ms", this.f68823e);
+            jSONObject.put("tea_event_index", this.f68824f);
+            jSONObject.put("session_id", this.f68825g);
+            jSONObject.put("ab_version", this.f68827i);
             jSONObject.put("ab_sdk_version", this.j);
         }
     }
@@ -90,10 +90,10 @@ public class u extends p {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            this.f71720e = jSONObject.optLong("local_time_ms", 0L);
-            this.f71721f = jSONObject.optLong("tea_event_index", 0L);
-            this.f71722g = jSONObject.optString("session_id", null);
-            this.f71724i = jSONObject.optString("ab_version", null);
+            this.f68823e = jSONObject.optLong("local_time_ms", 0L);
+            this.f68824f = jSONObject.optLong("tea_event_index", 0L);
+            this.f68825g = jSONObject.optString("session_id", null);
+            this.f68827i = jSONObject.optString("ab_version", null);
             this.j = jSONObject.optString("ab_sdk_version", null);
             return this;
         }
@@ -106,16 +106,16 @@ public class u extends p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("local_time_ms", this.f71720e);
-            jSONObject.put("tea_event_index", this.f71721f);
-            jSONObject.put("session_id", this.f71722g);
+            jSONObject.put("local_time_ms", this.f68823e);
+            jSONObject.put("tea_event_index", this.f68824f);
+            jSONObject.put("session_id", this.f68825g);
             boolean z = this.o;
             if (z) {
                 jSONObject.put("is_background", z);
             }
             jSONObject.put("datetime", this.k);
-            if (!TextUtils.isEmpty(this.f71724i)) {
-                jSONObject.put("ab_version", this.f71724i);
+            if (!TextUtils.isEmpty(this.f68827i)) {
+                jSONObject.put("ab_version", this.f68827i);
             }
             if (!TextUtils.isEmpty(this.j)) {
                 jSONObject.put("ab_sdk_version", this.j);

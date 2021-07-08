@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.m.g;
+import d.a.o0.m.g;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class InputMethodManagerLeaksFixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class InputMethodManagerLeaksFixer {
                 this.val$inputMethodManager = inputMethodManager;
             }
 
-            @Override // d.a.r0.m.g, android.app.Application.ActivityLifecycleCallbacks
+            @Override // d.a.o0.m.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {

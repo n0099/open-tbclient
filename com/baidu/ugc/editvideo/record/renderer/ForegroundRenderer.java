@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.c0.b.a.e;
-import d.a.c0.b.a.k.c;
-/* loaded from: classes6.dex */
+import d.a.z.b.a.e;
+import d.a.z.b.a.k.c;
+/* loaded from: classes5.dex */
 public class ForegroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

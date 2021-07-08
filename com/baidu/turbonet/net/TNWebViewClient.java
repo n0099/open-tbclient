@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.t0.b.e.d;
+import d.a.q0.b.e.d;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,13 +23,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TNWebViewClient extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TurbonetEngine f23104a;
+    public final TurbonetEngine f23214a;
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
@@ -67,9 +67,9 @@ public class TNWebViewClient extends WebViewClient {
             } catch (Exception e4) {
                 Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e4.toString());
             }
-            if (webResourceRequest.getMethod().equals("GET") && !this.f23104a.f()) {
+            if (webResourceRequest.getMethod().equals("GET") && !this.f23214a.f()) {
                 Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-                d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f23104a);
+                d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f23214a);
                 dVar.setRequestMethod(webResourceRequest.getMethod());
                 Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
                 if (requestHeaders != null) {

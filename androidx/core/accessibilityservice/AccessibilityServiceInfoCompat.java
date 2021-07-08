@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -113,7 +114,7 @@ public final class AccessibilityServiceInfoCompat {
     public static int getCapabilities(@NonNull AccessibilityServiceInfo accessibilityServiceInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, accessibilityServiceInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, accessibilityServiceInfo)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return accessibilityServiceInfo.getCapabilities();
             }

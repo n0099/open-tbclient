@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,39 +10,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class hh {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hh f43247a;
+    public static final hh f40261a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hh[] f475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f43248b;
+    public static final hh f40262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f43249c;
+    public static final hh f40263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f43250d;
+    public static final hh f40264d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f43251e;
+    public static final hh f40265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f43252f;
+    public static final hh f40266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f43253g;
+    public static final hh f40267g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f43254h;
+    public static final hh f40268h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f43255i;
+    public static final hh f40269i;
     public static final hh j;
     public static final hh k;
     public static final hh l;
@@ -75,15 +76,15 @@ public final class hh {
                 return;
             }
         }
-        f43247a = new hh("DeviceInfo", 0, 1);
-        f43248b = new hh("AppInstallList", 1, 2);
-        f43249c = new hh("AppActiveList", 2, 3);
-        f43250d = new hh("Bluetooth", 3, 4);
-        f43251e = new hh("Location", 4, 5);
-        f43252f = new hh("Account", 5, 6);
-        f43253g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f43254h = new hh("Cellular", 7, 8);
-        f43255i = new hh("TopApp", 8, 9);
+        f40261a = new hh("DeviceInfo", 0, 1);
+        f40262b = new hh("AppInstallList", 1, 2);
+        f40263c = new hh("AppActiveList", 2, 3);
+        f40264d = new hh("Bluetooth", 3, 4);
+        f40265e = new hh("Location", 4, 5);
+        f40266f = new hh("Account", 5, 6);
+        f40267g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f40268h = new hh("Cellular", 7, 8);
+        f40269i = new hh("TopApp", 8, 9);
         j = new hh("BroadcastAction", 9, 10);
         k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
@@ -100,7 +101,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f475a = new hh[]{f43247a, f43248b, f43249c, f43250d, f43251e, f43252f, f43253g, f43254h, f43255i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f475a = new hh[]{f40261a, f40262b, f40263c, f40264d, f40265e, f40266f, f40267g, f40268h, f40269i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -130,23 +131,23 @@ public final class hh {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return f43247a;
+                    return f40261a;
                 case 2:
-                    return f43248b;
+                    return f40262b;
                 case 3:
-                    return f43249c;
+                    return f40263c;
                 case 4:
-                    return f43250d;
+                    return f40264d;
                 case 5:
-                    return f43251e;
+                    return f40265e;
                 case 6:
-                    return f43252f;
+                    return f40266f;
                 case 7:
-                    return f43253g;
+                    return f40267g;
                 case 8:
-                    return f43254h;
+                    return f40268h;
                 case 9:
-                    return f43255i;
+                    return f40269i;
                 case 10:
                     return j;
                 case 11:
@@ -193,7 +194,7 @@ public final class hh {
     public static hh[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (hh[]) f475a.clone() : (hh[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hh[]) f475a.clone() : (hh[]) invokeV.objValue;
     }
 
     public int a() {

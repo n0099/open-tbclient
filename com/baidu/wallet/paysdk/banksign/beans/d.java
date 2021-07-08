@@ -22,13 +22,13 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends PayBaseBean<QueryResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25825a;
+    public String f25935a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -48,7 +48,7 @@ public class d extends PayBaseBean<QueryResponse> {
                 return;
             }
         }
-        this.f25825a = null;
+        this.f25935a = null;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -85,17 +85,17 @@ public class d extends PayBaseBean<QueryResponse> {
             }
             String b2 = com.baidu.wallet.paysdk.banksign.a.a.a().b();
             if (!TextUtils.isEmpty(b2)) {
-                this.f25825a = b2;
+                this.f25935a = b2;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f25825a = PayDataCache.getInstance().getSelectedCardNo();
+                this.f25935a = PayDataCache.getInstance().getSelectedCardNo();
             } else {
                 CardData.BondCard selectCard = PayRequestCache.getInstance().getSelectCard();
                 if (selectCard != null) {
-                    this.f25825a = selectCard.account_no;
+                    this.f25935a = selectCard.account_no;
                 }
             }
-            if (!TextUtils.isEmpty(this.f25825a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f25825a));
+            if (!TextUtils.isEmpty(this.f25935a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f25935a));
             }
             String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
             if (!TextUtils.isEmpty(sessionId)) {

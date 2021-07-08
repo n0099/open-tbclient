@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.nativeexpress;
 
 import com.bytedance.sdk.openadsdk.core.e.p;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface j {
     void a(int i2, com.bytedance.sdk.openadsdk.core.e.k kVar);
 

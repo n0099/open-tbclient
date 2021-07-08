@@ -7,6 +7,7 @@ import android.content.res.AssetManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -28,7 +29,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AppConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "searchbox_config.ini";
@@ -53,7 +54,7 @@ public class AppConfig {
     public File mConfigFile;
     public File mTimestampFile;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AppInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
@@ -126,7 +127,7 @@ public class AppConfig {
         public static String getVersionName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
                 if (TextUtils.isEmpty(sBoxVersionName)) {
                     try {
                         Context appContext = AppRuntime.getAppContext();
@@ -172,12 +173,12 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ConfigWhiteList {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] WHITE_LIST;
@@ -229,7 +230,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +256,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Downloads {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,7 +288,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class HTTPSConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TMP_USE_HTTP_DELTA = 518400000;
@@ -330,7 +331,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Speed {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -481,7 +482,7 @@ public class AppConfig {
     public static String getActiveDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? "2分钟" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "2分钟" : (String) invokeV.objValue;
     }
 
     public static final boolean getBooleanConfig(String str, boolean z) {

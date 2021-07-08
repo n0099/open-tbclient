@@ -12,18 +12,18 @@ import java.lang.ref.WeakReference;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JsCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference f42540a;
+    public WeakReference f39554a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42541b;
+    public String f39555b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class JsCallbackException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +64,8 @@ public class JsCallback {
                 return;
             }
         }
-        this.f42540a = new WeakReference(webView);
-        this.f42541b = str;
+        this.f39554a = new WeakReference(webView);
+        this.f39555b = str;
     }
 
     public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
@@ -89,7 +89,7 @@ public class JsCallback {
     public void call(boolean z, JSONObject jSONObject, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
-            WebView webView = (WebView) this.f42540a.get();
+            WebView webView = (WebView) this.f39554a.get();
             if (webView == null) {
                 throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
             }
@@ -109,7 +109,7 @@ public class JsCallback {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f42541b, jSONObject2.toString());
+            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f39555b, jSONObject2.toString());
             if (AsyncTaskExecutor.isMainThread()) {
                 webView.loadUrl(format);
             } else {
@@ -118,10 +118,10 @@ public class JsCallback {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ WebView f42542a;
+                    public final /* synthetic */ WebView f39556a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f42543b;
+                    public final /* synthetic */ String f39557b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -138,15 +138,15 @@ public class JsCallback {
                                 return;
                             }
                         }
-                        this.f42542a = webView;
-                        this.f42543b = format;
+                        this.f39556a = webView;
+                        this.f39557b = format;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f42542a.loadUrl(this.f42543b);
+                            this.f39556a.loadUrl(this.f39557b);
                         }
                     }
                 });

@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.face.base.b.c;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,7 +25,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiStatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
@@ -93,7 +94,7 @@ public class SapiStatUtil {
 
     public static void statLoadLogin(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             HashMap hashMap = new HashMap();
             if (!TextUtils.isEmpty(str)) {
                 hashMap.put("scene", str);

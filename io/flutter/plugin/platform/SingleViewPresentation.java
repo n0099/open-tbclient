@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +33,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
 @TargetApi(17)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SingleViewPresentation extends Presentation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +47,7 @@ public class SingleViewPresentation extends Presentation {
     public final PlatformViewFactory viewFactory;
     public int viewId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AccessibilityDelegatingFrameLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +84,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class FakeWindowViewGroup extends ViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +146,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class ImmContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,7 +216,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class PresentationContext extends ContextWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +272,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class PresentationState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -294,7 +295,7 @@ public class SingleViewPresentation extends Presentation {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class WindowManagerHandler implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "PlatformViewsController";
@@ -360,7 +361,7 @@ public class SingleViewPresentation extends Presentation {
 
         private void updateViewLayout(Object[] objArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65540, this, objArr) == null) {
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, objArr) == null) {
                 FakeWindowViewGroup fakeWindowViewGroup = this.fakeWindowRootView;
                 if (fakeWindowViewGroup == null) {
                     Log.w("PlatformViewsController", "Embedded view called updateViewLayout while detached from presentation");

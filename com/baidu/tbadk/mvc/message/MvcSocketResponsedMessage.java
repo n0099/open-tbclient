@@ -14,13 +14,13 @@ import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
 import d.a.c.e.p.b;
 import d.a.c.e.p.n;
-import d.a.r0.g0.b.d;
-import d.a.r0.g0.b.h;
-import d.a.r0.r.r.a;
+import d.a.o0.g0.b.d;
+import d.a.o0.g0.b.h;
+import d.a.o0.r.r.a;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

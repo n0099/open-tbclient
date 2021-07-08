@@ -17,7 +17,7 @@ public class s extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WebViewWindow f2053a;
+    public final /* synthetic */ WebViewWindow f2054a;
 
     public s(WebViewWindow webViewWindow) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class s extends WebChromeClient {
                 return;
             }
         }
-        this.f2053a = webViewWindow;
+        this.f2054a = webViewWindow;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -43,8 +43,8 @@ public class s extends WebChromeClient {
         WebViewWindow.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            aVar = this.f2053a.f2010g;
-            return aVar.a(this.f2053a, str, str2, str3, jsPromptResult);
+            aVar = this.f2054a.f2011g;
+            return aVar.a(this.f2054a, str, str2, str3, jsPromptResult);
         }
         return invokeLLLLL.booleanValue;
     }
@@ -58,16 +58,16 @@ public class s extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i2) == null) {
             if (i2 == 100) {
-                progressBar4 = this.f2053a.f2008d;
+                progressBar4 = this.f2054a.f2009d;
                 progressBar4.setVisibility(4);
                 return;
             }
-            progressBar = this.f2053a.f2008d;
+            progressBar = this.f2054a.f2009d;
             if (4 == progressBar.getVisibility()) {
-                progressBar3 = this.f2053a.f2008d;
+                progressBar3 = this.f2054a.f2009d;
                 progressBar3.setVisibility(0);
             }
-            progressBar2 = this.f2053a.f2008d;
+            progressBar2 = this.f2054a.f2009d;
             progressBar2.setProgress(i2);
         }
     }
@@ -77,8 +77,8 @@ public class s extends WebChromeClient {
         WebViewWindow.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-            aVar = this.f2053a.f2010g;
-            aVar.a(this.f2053a, str);
+            aVar = this.f2054a.f2011g;
+            aVar.a(this.f2054a, str);
         }
     }
 }

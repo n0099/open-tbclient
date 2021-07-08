@@ -59,7 +59,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     public static Map<String, String> createAliasMap(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, strArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
             HashMap hashMap = new HashMap();
             for (String str : strArr) {
                 hashMap.put(str, str);

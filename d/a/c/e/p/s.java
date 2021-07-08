@@ -1,5 +1,6 @@
 package d.a.c.e.p;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,12 +22,12 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f44458a;
+    public static final byte[] f41474a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +44,7 @@ public class s {
             }
         }
         Charset.forName("UTF-8");
-        f44458a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
+        f41474a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr, int i2, int i3) throws GeneralSecurityException {
@@ -82,7 +83,7 @@ public class s {
     public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, publicKey, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, publicKey, bArr)) == null) {
             Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
             cipher.init(1, publicKey);
             return cipher.doFinal(bArr);
@@ -106,7 +107,7 @@ public class s {
             for (int i2 = 0; i2 < length; i2++) {
                 cArr[i2] = (char) (((byte) str.charAt(i2)) & 255);
             }
-            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, f44458a, 5, 256));
+            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, f41474a, 5, 256));
         }
         return (SecretKey) invokeL.objValue;
     }

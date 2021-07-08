@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.v2.v;
-import d.a.q0.e.l.b;
-/* loaded from: classes5.dex */
+import d.a.n0.a.v2.v;
+import d.a.n0.e.l.b;
+/* loaded from: classes4.dex */
 public class SwanEntryActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCHER_URI = "SWAN_URI";
     public static final String SWAN_ACTION = "com.baidu.swan.launcher";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f13881e;
+        public final /* synthetic */ SwanEntryActivity f13920e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f13881e = swanEntryActivity;
+            this.f13920e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13881e.finish();
+                this.f13920e.finish();
             }
         }
     }

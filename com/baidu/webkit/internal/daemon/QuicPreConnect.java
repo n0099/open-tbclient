@@ -18,7 +18,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "QuicPreConnect";

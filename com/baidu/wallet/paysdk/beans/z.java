@@ -15,13 +15,13 @@ import com.baidu.wallet.paysdk.datamodel.QueryPayResponse;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class z extends PayBaseBean<QueryPayResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<RestNameValuePair> f25912a;
+    public List<RestNameValuePair> f26022a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> z(Context context) {
@@ -56,7 +56,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<RestNameValuePair> list = this.f25912a;
+            List<RestNameValuePair> list = this.f26022a;
             if (list != null) {
                 return list;
             }
@@ -71,7 +71,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
                 arrayList.add(new RestNameValuePair("bank_no", payQueryRequest.mBankNo));
             }
             arrayList.add(new RestNameValuePair("sign", payQueryRequest.getMd5Sign()));
-            this.f25912a = arrayList;
+            this.f26022a = arrayList;
             return arrayList;
         }
         return (List) invokeV.objValue;

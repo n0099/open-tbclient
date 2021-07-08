@@ -18,28 +18,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.r0.r.q.b2;
-import d.a.r0.r.q.q0;
-import d.a.s0.a0.m;
-/* loaded from: classes4.dex */
+import d.a.o0.r.q.b2;
+import d.a.o0.r.q.q0;
+import d.a.p0.a0.m;
+/* loaded from: classes3.dex */
 public class ThreadLinkView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f12577e;
+    public Context f12594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f12578f;
+    public TbImageView f12595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12579g;
+    public TextView f12596g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12580h;
+    public TextView f12597h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12581i;
+    public TextView f12598i;
     public ViewGroup j;
     public View k;
     public BdUniqueId l;
@@ -68,20 +68,20 @@ public class ThreadLinkView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f12577e = context;
+            this.f12594e = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.link_thread_item, (ViewGroup) this, true);
             this.j = (ViewGroup) inflate.findViewById(R.id.root_layout);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.link_thread_head_img);
-            this.f12578f = tbImageView;
+            this.f12595f = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.icon_card_url_n);
-            this.f12579g = (TextView) inflate.findViewById(R.id.link_thread_title);
-            this.f12580h = (TextView) inflate.findViewById(R.id.link_thread_abstract);
-            this.f12581i = (TextView) inflate.findViewById(R.id.link_thread_url);
+            this.f12596g = (TextView) inflate.findViewById(R.id.link_thread_title);
+            this.f12597h = (TextView) inflate.findViewById(R.id.link_thread_abstract);
+            this.f12598i = (TextView) inflate.findViewById(R.id.link_thread_url);
             this.k = inflate.findViewById(R.id.link_thread_content);
-            this.f12578f.setLongIconSupport(false);
-            this.f12578f.setGifIconSupport(false);
-            this.f12578f.setRadius(l.g(context, R.dimen.tbds10));
-            this.f12578f.setConrers(5);
+            this.f12595f.setLongIconSupport(false);
+            this.f12595f.setGifIconSupport(false);
+            this.f12595f.setRadius(l.g(context, R.dimen.tbds10));
+            this.f12595f.setConrers(5);
             d(inflate);
         }
     }
@@ -90,32 +90,32 @@ public class ThreadLinkView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this.k, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.f12578f, R.drawable.shape_link_thread_head_bg);
+            SkinManager.setBackgroundResource(this.f12595f, R.drawable.shape_link_thread_head_bg);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            m.l(this.f12579g, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            m.l(this.f12581i, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            m.l(this.f12580h, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            m.l(this.f12596g, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            m.l(this.f12598i, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            m.l(this.f12597h, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
     public final void d(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.j == null || this.f12578f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.j == null || this.f12595f == null) {
             return;
         }
-        int k = (((l.k(this.f12577e) - (l.g(this.f12577e, R.dimen.tbds44) * 2)) - (l.g(getContext(), R.dimen.tbds26) * 2)) - (l.g(getContext(), R.dimen.tbds10) * 4)) / 5;
+        int k = (((l.k(this.f12594e) - (l.g(this.f12594e, R.dimen.tbds44) * 2)) - (l.g(getContext(), R.dimen.tbds26) * 2)) - (l.g(getContext(), R.dimen.tbds10) * 4)) / 5;
         ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
         layoutParams.height = k;
         this.j.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.f12578f.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.f12595f.getLayoutParams();
         layoutParams2.width = k;
         layoutParams2.height = k;
-        this.f12578f.setLayoutParams(layoutParams2);
+        this.f12595f.setLayoutParams(layoutParams2);
     }
 
     public void setData(b2 b2Var) {
@@ -123,39 +123,39 @@ public class ThreadLinkView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, b2Var) == null) {
             if (b2Var != null && b2Var.w0() != null && !k.isEmpty(b2Var.w0().e())) {
                 q0 w0 = b2Var.w0();
-                if (!w0.f() && w0.c() != q0.f56030g) {
+                if (!w0.f() && w0.c() != q0.f52749g) {
                     setVisibility(8);
                     return;
                 }
                 setVisibility(0);
-                this.f12578f.setPageId(this.l);
+                this.f12595f.setPageId(this.l);
                 if (w0.f()) {
-                    this.f12581i.setVisibility(0);
-                    this.f12579g.setVisibility(8);
-                    this.f12580h.setVisibility(8);
-                    this.f12581i.setText(w0.e());
-                    this.f12578f.I();
+                    this.f12598i.setVisibility(0);
+                    this.f12596g.setVisibility(8);
+                    this.f12597h.setVisibility(8);
+                    this.f12598i.setText(w0.e());
+                    this.f12595f.I();
                 } else {
-                    this.f12581i.setVisibility(8);
+                    this.f12598i.setVisibility(8);
                     String d2 = w0.d();
                     String a2 = w0.a();
                     if (!k.isEmpty(d2)) {
-                        this.f12579g.setText(d2);
-                        this.f12579g.setVisibility(0);
-                        this.f12580h.setVisibility(8);
+                        this.f12596g.setText(d2);
+                        this.f12596g.setVisibility(0);
+                        this.f12597h.setVisibility(8);
                     } else {
-                        this.f12579g.setVisibility(8);
+                        this.f12596g.setVisibility(8);
                         if (!k.isEmpty(a2)) {
-                            this.f12580h.setText(a2);
-                            this.f12580h.setVisibility(0);
+                            this.f12597h.setText(a2);
+                            this.f12597h.setVisibility(0);
                         } else {
-                            this.f12580h.setVisibility(4);
+                            this.f12597h.setVisibility(4);
                         }
                     }
                     if (!k.isEmpty(w0.b())) {
-                        this.f12578f.M(w0.b(), 10, false);
+                        this.f12595f.M(w0.b(), 10, false);
                     } else {
-                        this.f12578f.I();
+                        this.f12595f.I();
                     }
                 }
                 c(b2Var.c0());

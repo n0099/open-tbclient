@@ -20,7 +20,7 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends PayBaseBean<PollingResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

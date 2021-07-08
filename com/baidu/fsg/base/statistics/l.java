@@ -2,6 +2,7 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.statistics.r;
 import com.baidu.fsg.base.utils.LogUtil;
@@ -16,26 +17,26 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5324a = "LogSender";
+    public static final String f5341a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5325b = 10000;
+    public static final int f5342b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5326c = 10001;
+    public static final int f5343c = 10001;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static l f5327a;
+        public static l f5344a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,7 +52,7 @@ public class l {
                     return;
                 }
             }
-            f5327a = new l(null);
+            f5344a = new l(null);
         }
 
         public a() {
@@ -76,7 +77,7 @@ public class l {
     public static l a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5327a : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5344a : (l) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -92,7 +93,7 @@ public class l {
             StringBuilder sb = new StringBuilder();
             sb.append("=====sendLogData=====");
             sb.append(str);
-            LogUtil.d(f5324a, sb.toString() == "normal_log" ? "normal" : "crash");
+            LogUtil.d(f5341a, sb.toString() == "normal_log" ? "normal" : "crash");
             if ((str.equals(b.o) && f.a().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.a(appContext)) {
                 return;
             }
@@ -154,7 +155,7 @@ public class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, hVarArr)) == null) {
             JSONArray jSONArray = new JSONArray();
             for (h hVar : hVarArr) {
-                LogUtil.d(f5324a, hVar.a().toString());
+                LogUtil.d(f5341a, hVar.a().toString());
                 jSONArray.put(hVar.a());
             }
             return jSONArray;
@@ -164,7 +165,7 @@ public class l {
 
     private void a(String str, r.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, this, str, aVar) == null) || str == null || str.trim().length() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, aVar) == null) || str == null || str.trim().length() == 0) {
             return;
         }
         String str2 = str.toString();

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.h.b;
 import d.a.c.k.e.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public boolean r;
     public int s;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f17267a;
+        public T f17306a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public MsgViewHolder(View view, T t) {
@@ -55,13 +55,13 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
                     return;
                 }
             }
-            this.f17267a = t;
+            this.f17306a = t;
         }
 
         public T b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17267a : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17306a : (T) invokeV.objValue;
         }
     }
 

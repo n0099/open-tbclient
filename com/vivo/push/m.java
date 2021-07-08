@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class m implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f42166a;
+    public final /* synthetic */ List f39180a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f42167b;
+    public final /* synthetic */ LocalAliasTagsManager f39181b;
 
     public m(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class m implements Runnable {
                 return;
             }
         }
-        this.f42167b = localAliasTagsManager;
-        this.f42166a = list;
+        this.f39181b = localAliasTagsManager;
+        this.f39180a = list;
     }
 
     @Override // java.lang.Runnable
@@ -42,14 +42,14 @@ public final class m implements Runnable {
         List list;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f42166a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f39180a) == null || list.size() <= 0) {
             return;
         }
         HashSet hashSet = new HashSet();
-        for (String str : this.f42166a) {
+        for (String str : this.f39180a) {
             hashSet.add(str);
         }
-        iSubscribeAppTagManager = this.f42167b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f39181b.mSubscribeAppTagManager;
         iSubscribeAppTagManager.delTagsSuccess(hashSet);
     }
 }

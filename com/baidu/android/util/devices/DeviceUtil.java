@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -70,7 +71,7 @@ public class DeviceUtil implements IDevices {
         public static String getManufacturer() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? RomUtils.getManufacturer() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? RomUtils.getManufacturer() : (String) invokeV.objValue;
         }
 
         public static boolean isMagicBoxDevice() {
@@ -166,7 +167,7 @@ public class DeviceUtil implements IDevices {
         public static String getPreferredABI() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? DeviceUtils.CPUInfo.getPreferredABI() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DeviceUtils.CPUInfo.getPreferredABI() : (String) invokeV.objValue;
         }
 
         public static CPUInfo getSystemCPUInfo() {
@@ -339,7 +340,7 @@ public class DeviceUtil implements IDevices {
         public static boolean hasFroyo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? DeviceUtils.OSInfo.hasFroyo() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DeviceUtils.OSInfo.hasFroyo() : invokeV.booleanValue;
         }
 
         public static boolean hasGingerbread() {
@@ -509,7 +510,7 @@ public class DeviceUtil implements IDevices {
         public static float getDensity(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
                 initDisplayMetrics(AppRuntime.getAppContext());
                 DisplayMetrics displayMetrics = sDisplayMetrics;
                 if (displayMetrics != null) {
@@ -728,7 +729,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isSamSungFolded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             String[] strArr = {"SM-F9000", "SM-F9160"};
             if ("SAMSUNG".equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i2 = 0; i2 < 2; i2++) {

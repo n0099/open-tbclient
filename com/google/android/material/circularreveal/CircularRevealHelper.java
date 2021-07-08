@@ -29,7 +29,7 @@ import com.google.android.material.circularreveal.CircularRevealWidget;
 import com.google.android.material.math.MathUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CircularRevealHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_SHADER = 0;
@@ -55,7 +55,7 @@ public class CircularRevealHelper {
     @NonNull
     public final View view;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Delegate {
         void actualDraw(Canvas canvas);
 
@@ -63,7 +63,7 @@ public class CircularRevealHelper {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Strategy {
     }
 
@@ -144,7 +144,7 @@ public class CircularRevealHelper {
 
     private void drawOverlayDrawable(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, this, canvas) == null) && shouldDrawOverlayDrawable()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && shouldDrawOverlayDrawable()) {
             Rect bounds = this.overlayDrawable.getBounds();
             float width = this.revealInfo.centerX - (bounds.width() / 2.0f);
             float height = this.revealInfo.centerY - (bounds.height() / 2.0f);

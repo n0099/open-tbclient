@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.systrace;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FrescoSystrace {
     public static /* synthetic */ Interceptable $ic;
     public static final ArgsBuilder NO_OP_ARGS_BUILDER;
@@ -19,13 +20,13 @@ public class FrescoSystrace {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ArgsBuilder {
         ArgsBuilder arg(String str, double d2);
 
@@ -38,7 +39,7 @@ public class FrescoSystrace {
         void flush();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class NoOpArgsBuilder implements ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +98,7 @@ public class FrescoSystrace {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Systrace {
         void beginSection(String str);
 
@@ -154,7 +155,7 @@ public class FrescoSystrace {
 
     public static void endSection() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             getInstance().endSection();
         }
     }

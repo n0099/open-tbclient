@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import org.webrtc.EglBase_CC;
 import org.webrtc.VideoTrack;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RTCMediaRecorderImpl implements IMediaRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RTCMediaRecorderImpl";

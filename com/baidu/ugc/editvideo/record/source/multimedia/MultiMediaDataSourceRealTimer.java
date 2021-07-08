@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.y0.t.i;
+import d.a.v0.t.i;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MultiMediaDataSourceRealTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceRealTimer";
@@ -40,7 +40,7 @@ public class MultiMediaDataSourceRealTimer {
     public Runnable startRunnable;
     public Runnable stopRunnable;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface AnimatorUpdateListener {
         void onAnimationUpdate(long j);
     }

@@ -14,19 +14,19 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap f23201a;
+    public HashMap f23311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23202b;
+    public String f23312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23203c;
+    public String f23313c;
 
     public b(String str, Class cls) {
         String a2;
@@ -48,38 +48,38 @@ public final class b {
             if (TextUtils.isEmpty(str)) {
                 throw new Exception("injected name can not be null");
             }
-            this.f23202b = str;
-            this.f23201a = new HashMap();
+            this.f23312b = str;
+            this.f23311a = new HashMap();
             Method[] declaredMethods = cls.getDeclaredMethods();
             StringBuilder sb = new StringBuilder("javascript:(function(b){console.log(\"");
-            sb.append(this.f23202b);
+            sb.append(this.f23312b);
             sb.append(" initialization begin\");");
             sb.append("var a={queue:[],callback:function(){");
             sb.append("var d=Array.prototype.slice.call(arguments,0);");
             sb.append("var c=d.shift();var e=d.shift();this.queue[c].apply(this,d);if(!e){delete this.queue[c]}}};");
             for (Method method : declaredMethods) {
                 if (method.getModifiers() == 9 && (a2 = a(method)) != null) {
-                    this.f23201a.put(a2, method);
+                    this.f23311a.put(a2, method);
                     sb.append(String.format("a.%s=", method.getName()));
                 }
             }
             sb.append("function(){var f=Array.prototype.slice.call(arguments,0);if(f.length<1){throw\"");
-            sb.append(this.f23202b);
+            sb.append(this.f23312b);
             sb.append(" call error, message:miss method name\"}var e=[];for(var h=1;h<f.length;h++)");
             sb.append("{var c=f[h];var j=typeof c;e[e.length]=j;if(j==\"function\")");
             sb.append("{var d=a.queue.length;a.queue[d]=c;f[h]=d}}");
             sb.append("var g=JSON.parse(prompt(JSON.stringify({method:f.shift(),types:e,args:f})));");
             sb.append("if(g.code!=200){throw\"");
-            sb.append(this.f23202b);
+            sb.append(this.f23312b);
             sb.append(" call error, code:\"+g.code+\", message:\"+g.result}return g.result};");
             sb.append("Object.getOwnPropertyNames(a).forEach(function(d){var c=a[d];");
             sb.append("if(typeof c===\"function\"&&d!==\"callback\"){a[d]=function(){");
             sb.append("return c.apply(a,[d].concat(Array.prototype.slice.call(arguments,0)))}}});b.");
-            sb.append(this.f23202b);
+            sb.append(this.f23312b);
             sb.append("=a;console.log(\"");
-            sb.append(this.f23202b);
+            sb.append(this.f23312b);
             sb.append(" initialization end\")})(window);");
-            this.f23203c = sb.toString();
+            this.f23313c = sb.toString();
         } catch (Exception e2) {
             com.baidu.ufosdk.f.c.d("JsCallJava--> init js error:" + e2.getMessage());
         }
@@ -99,7 +99,7 @@ public final class b {
                 }
             }
             String format = String.format("{\"code\": %d, \"result\": %s}", Integer.valueOf(i2), str2);
-            com.baidu.ufosdk.f.c.a("JsCallJava--> " + this.f23202b + " call json: " + str + " result:" + format);
+            com.baidu.ufosdk.f.c.a("JsCallJava--> " + this.f23312b + " call json: " + str + " result:" + format);
             return format;
         }
         return (String) invokeLIL.objValue;
@@ -156,7 +156,7 @@ public final class b {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23203c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23313c : (String) invokeV.objValue;
     }
 
     public final String a(WebView webView, String str) {
@@ -207,13 +207,13 @@ public final class b {
                             objArr[i5] = obj;
                         } else if ("function".equals(optString)) {
                             string = string + "_F";
-                            objArr[i2 + 1] = new c(webView, this.f23202b, jSONArray2.getInt(i2));
+                            objArr[i2 + 1] = new c(webView, this.f23312b, jSONArray2.getInt(i2));
                         } else {
                             string = string + "_P";
                         }
                         i2++;
                     }
-                    Method method = (Method) this.f23201a.get(string);
+                    Method method = (Method) this.f23311a.get(string);
                     if (method == null) {
                         return a(str, 500, "not found method(" + string + ") with valid parameters");
                     }

@@ -17,7 +17,7 @@ import io.flutter.Log;
 import io.flutter.embedding.android.FlutterTextureView;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class XFlutterTextureView extends TextureView implements RenderSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

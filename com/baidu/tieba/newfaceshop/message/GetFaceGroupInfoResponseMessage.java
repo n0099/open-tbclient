@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
-import d.a.s0.c2.f.a;
-import d.a.s0.c2.f.b;
+import d.a.p0.c2.f.a;
+import d.a.p0.c2.f.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,19 +71,19 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             }
             a aVar = new a();
             String optString = jSONObject.optString("id");
-            aVar.f57944a = optString;
+            aVar.f54689a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            aVar.f57945b = jSONObject.optString("name");
+            aVar.f54690b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            aVar.f57946c = jSONObject.optString("covername");
-            aVar.f57947d = jSONObject.optString("url");
-            aVar.f57948e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            aVar.f54691c = jSONObject.optString("covername");
+            aVar.f54692d = jSONObject.optString("url");
+            aVar.f54693e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -101,13 +101,13 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     b bVar = new b();
-                    bVar.f57950f = jSONObject.optString("id");
+                    bVar.f54695f = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    bVar.f57951g = jSONObject.optString("name");
-                    bVar.f57952h = jSONObject.optString("thumbname");
+                    bVar.f54696g = jSONObject.optString("name");
+                    bVar.f54697h = jSONObject.optString("thumbname");
                     bVar.j = jSONObject.optInt("width");
-                    bVar.f57953i = jSONObject.optInt("height");
+                    bVar.f54698i = jSONObject.optInt("height");
                     arrayList.add(bVar);
                 } catch (JSONException e2) {
                     e2.printStackTrace();

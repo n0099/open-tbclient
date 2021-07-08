@@ -3,6 +3,7 @@ package com.alibaba.fastjson.util;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -586,7 +587,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
         this.keySet = null;
         this.values = null;
-        this.random = new Random().nextInt(99999);
+        this.random = new Random().nextInt(VideoItemModel.TYPE_LOADING);
         this.entrySet = null;
         if (i2 >= 0) {
             i2 = i2 > 1073741824 ? 1073741824 : i2;
@@ -610,7 +611,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         InterceptResult invokeV;
         Entry<K, V>[] entryArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             for (Entry<K, V> entry : this.table) {
                 for (; entry != null; entry = entry.next) {
                     if (entry.value == null) {
@@ -1195,7 +1196,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
         this.keySet = null;
         this.values = null;
-        this.random = new Random().nextInt(99999);
+        this.random = new Random().nextInt(VideoItemModel.TYPE_LOADING);
         this.entrySet = null;
         this.loadFactor = 0.75f;
         this.threshold = 12;

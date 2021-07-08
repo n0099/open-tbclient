@@ -1,9 +1,11 @@
 package a.a.a.a.u.a.e;
 
+import android.content.DialogInterface;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsNativeAd;
@@ -42,9 +44,19 @@ public class i implements KsNativeAd.AdInteractionListener {
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
     public void onAdClicked(View view, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, ksNativeAd) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, ksNativeAd) == null) {
             this.f1277c.n.b(this.f1275a);
             this.f1277c.e();
         }
@@ -53,7 +65,7 @@ public class i implements KsNativeAd.AdInteractionListener {
     @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
     public void onAdShow(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksNativeAd) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
             this.f1277c.n.c(this.f1275a);
             this.f1277c.a((g) this.f1275a, this.f1276b);
         }

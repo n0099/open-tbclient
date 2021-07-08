@@ -1,5 +1,6 @@
 package com.facebook.common.references;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 @VisibleForTesting
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SharedReference<T> {
     public static /* synthetic */ Interceptable $ic;
     @GuardedBy("itself")
@@ -28,7 +29,7 @@ public class SharedReference<T> {
     @GuardedBy("this")
     public T mValue;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class NullReferenceException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +122,7 @@ public class SharedReference<T> {
 
     private void ensureValid() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && !isValid(this)) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && !isValid(this)) {
             throw new NullReferenceException();
         }
     }

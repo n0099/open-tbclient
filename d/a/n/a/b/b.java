@@ -11,13 +11,13 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ String f46212e;
+    public final /* synthetic */ String f43202e;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public final class b implements Runnable {
                 return;
             }
         }
-        this.f46212e = str;
+        this.f43202e = str;
     }
 
     @Override // java.lang.Runnable
@@ -49,7 +49,7 @@ public final class b implements Runnable {
             return;
         }
         try {
-            String str2 = this.f46212e;
+            String str2 = this.f43202e;
             DataOutputStream dataOutputStream2 = null;
             try {
                 try {
@@ -57,7 +57,7 @@ public final class b implements Runnable {
                     com.baidu.crabsdk.lite.b.a.c(str2, "sync json is " + f2);
                     URL url = new URL(com.baidu.crabsdk.lite.a.c(str2));
                     if (com.baidu.crabsdk.lite.a.l != null) {
-                        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4688a.get(str2);
+                        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4705a.get(str2);
                         if (hashMap != null) {
                             Object obj = hashMap.get("domain_proxy");
                             openConnection = obj != null ? url.openConnection((Proxy) obj) : url.openConnection();

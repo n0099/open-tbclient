@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class y extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ x f6670a;
+    public final /* synthetic */ x f6687a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
@@ -35,7 +35,7 @@ public class y extends Handler {
                 return;
             }
         }
-        this.f6670a = xVar;
+        this.f6687a = xVar;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:39:0x009e -> B:44:0x00a1). Please submit an issue!!! */
@@ -80,9 +80,9 @@ public class y extends Handler {
                         if (i3) {
                             h.a().d();
                         }
-                        handler = this.f6670a.f6668d;
+                        handler = this.f6687a.f6685d;
                         if (handler != null) {
-                            handler2 = this.f6670a.f6668d;
+                            handler2 = this.f6687a.f6685d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }

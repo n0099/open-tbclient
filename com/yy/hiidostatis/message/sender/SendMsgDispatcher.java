@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultListener, ISingleton {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_LIMIT_SIZE_THRESHOLD = 3;

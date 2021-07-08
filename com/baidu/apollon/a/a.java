@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<ArrayList<b>> f3589a;
+    public final SparseArray<ArrayList<b>> f3592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3590b;
+    public int f3593b;
 
     /* renamed from: com.baidu.apollon.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -31,19 +31,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3591a;
+        public int f3594a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f3592b;
+        public int f3595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f3593c;
+        public int f3596c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InterfaceC0059a f3594d;
+        public InterfaceC0059a f3597d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3595e;
+        public final /* synthetic */ a f3598e;
 
         public b(a aVar, int i2, int i3, int i4, InterfaceC0059a interfaceC0059a) {
             Interceptable interceptable = $ic;
@@ -60,11 +60,11 @@ public class a {
                     return;
                 }
             }
-            this.f3595e = aVar;
-            this.f3591a = i2;
-            this.f3592b = i3;
-            this.f3593c = i4;
-            this.f3594d = interfaceC0059a;
+            this.f3598e = aVar;
+            this.f3594a = i2;
+            this.f3595b = i3;
+            this.f3596c = i4;
+            this.f3597d = interfaceC0059a;
         }
     }
 
@@ -83,21 +83,21 @@ public class a {
                 return;
             }
         }
-        this.f3589a = new SparseArray<>();
-        this.f3590b = 0;
-        this.f3590b = i2;
+        this.f3592a = new SparseArray<>();
+        this.f3593b = 0;
+        this.f3593b = i2;
     }
 
     public void a(b bVar) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (i2 = bVar.f3591a) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (i2 = bVar.f3594a) < 0) {
             return;
         }
-        ArrayList<b> arrayList = this.f3589a.get(i2);
+        ArrayList<b> arrayList = this.f3592a.get(i2);
         if (arrayList == null) {
             arrayList = new ArrayList<>();
-            this.f3589a.put(bVar.f3591a, arrayList);
+            this.f3592a.put(bVar.f3594a, arrayList);
         }
         arrayList.add(bVar);
     }
@@ -105,15 +105,15 @@ public class a {
     public void b(int i2) {
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.f3589a.get(this.f3590b)) == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.f3592a.get(this.f3593b)) == null || arrayList.size() == 0) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.f3593c == i2) {
-                this.f3590b = next.f3592b;
-                next.f3594d.a();
+            if (next.f3596c == i2) {
+                this.f3593b = next.f3595b;
+                next.f3597d.a();
                 return;
             }
         }
@@ -122,7 +122,7 @@ public class a {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f3590b = i2;
+            this.f3593b = i2;
         }
     }
 }

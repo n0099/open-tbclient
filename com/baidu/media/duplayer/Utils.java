@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.Process;
 import android.os.StatFs;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.PathUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
@@ -27,30 +28,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8067a = "filecache-Utils";
+    public static String f8084a = "filecache-Utils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8068b = 536870912;
+    public static int f8085b = 536870912;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8069c = ".video_cache";
+    public static String f8086c = ".video_cache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile int f8070d = -1;
+    public static volatile int f8087d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f8071e = -1;
+    public static volatile int f8088e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f8072f = -1;
+    public static volatile int f8089f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f8073g;
+    public static volatile String f8090g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -76,7 +77,7 @@ public class Utils {
                 if ("mounted".equals(Environment.getExternalStorageState())) {
                     String path = Environment.getExternalStorageDirectory().getPath();
                     if (path == null || path.length() <= 0) {
-                        CyberLog.w(f8067a, "External path is null, so SDCard no free space");
+                        CyberLog.w(f8084a, "External path is null, so SDCard no free space");
                         return -1L;
                     }
                     StatFs statFs = new StatFs(path);
@@ -84,7 +85,7 @@ public class Utils {
                 }
                 return -1L;
             } catch (Exception unused) {
-                CyberLog.d(f8067a, "SDCard no free space");
+                CyberLog.d(f8084a, "SDCard no free space");
                 return -1L;
             }
         }
@@ -118,7 +119,7 @@ public class Utils {
 
     public static void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
             nativeCleanFilecacheWithTimeExpired(j);
         }
     }
@@ -136,7 +137,7 @@ public class Utils {
                     file.delete();
                 }
             } catch (Exception e2) {
-                CyberLog.w(f8067a, e2.toString());
+                CyberLog.w(f8084a, e2.toString());
             }
         }
     }
@@ -206,7 +207,7 @@ public class Utils {
                 str = b2 + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
             }
             String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-            CyberLog.i(f8067a, "Utils.getExternalStorageSpace():" + a());
+            CyberLog.i(f8084a, "Utils.getExternalStorageSpace():" + a());
             if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
                 str = str2;
             }
@@ -214,7 +215,7 @@ public class Utils {
             if (!r(context)) {
                 str = str + File.separator + "remote";
             }
-            CyberLog.i(f8067a, "getVideoStatisticsPath folder:" + str);
+            CyberLog.i(f8084a, "getVideoStatisticsPath folder:" + str);
             return str;
         }
         return (String) invokeL.objValue;
@@ -314,14 +315,14 @@ public class Utils {
             if (context == null) {
                 return false;
             }
-            if (f8070d < 0) {
+            if (f8087d < 0) {
                 if (context.getPackageName().equals(v(context))) {
-                    f8070d = 1;
+                    f8087d = 1;
                 } else {
-                    f8070d = 0;
+                    f8087d = 0;
                 }
             }
-            return f8070d == 1;
+            return f8087d == 1;
         }
         return invokeL.booleanValue;
     }
@@ -334,10 +335,10 @@ public class Utils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (f8072f < 0) {
-                f8072f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+            if (f8089f < 0) {
+                f8089f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
             }
-            return f8072f == 1 ? "arm64-v8a" : "armeabi-v7a";
+            return f8089f == 1 ? "arm64-v8a" : "armeabi-v7a";
         }
         return (String) invokeV.objValue;
     }
@@ -349,14 +350,14 @@ public class Utils {
             if (context == null) {
                 return false;
             }
-            if (f8071e < 0) {
+            if (f8088e < 0) {
                 if ((context.getPackageName() + ":media").equals(v(context))) {
-                    f8071e = 1;
+                    f8088e = 1;
                 } else {
-                    f8071e = 0;
+                    f8088e = 0;
                 }
             }
-            return f8071e == 1;
+            return f8088e == 1;
         }
         return invokeL.booleanValue;
     }
@@ -411,14 +412,14 @@ public class Utils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
-            if (TextUtils.isEmpty(f8073g)) {
-                f8073g = w(context);
-                if (TextUtils.isEmpty(f8073g)) {
-                    f8073g = u();
+            if (TextUtils.isEmpty(f8090g)) {
+                f8090g = w(context);
+                if (TextUtils.isEmpty(f8090g)) {
+                    f8090g = u();
                 }
-                return f8073g;
+                return f8090g;
             }
-            return f8073g;
+            return f8090g;
         }
         return (String) invokeL.objValue;
     }

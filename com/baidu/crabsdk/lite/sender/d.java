@@ -3,6 +3,7 @@ package com.baidu.crabsdk.lite.sender;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +194,7 @@ public final class d {
             synchronized (d.class) {
                 com.baidu.crabsdk.lite.b.a.f(str, "writeFile: " + str2);
                 c.i(str, str2);
-                if (com.baidu.crabsdk.lite.a.f4696i) {
+                if (com.baidu.crabsdk.lite.a.f4713i) {
                     try {
                         String b2 = com.baidu.crabsdk.lite.b.d.b(UUID.randomUUID().toString(), UUID.randomUUID().toString());
                         str3 = com.baidu.crabsdk.lite.b.d.d(str3, b2);
@@ -291,7 +292,7 @@ public final class d {
 
     public static synchronized void e(String str, Context context, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, str, context, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, str2) == null) {
             synchronized (d.class) {
                 d(str, context, "lite_crash_" + str + "_" + System.currentTimeMillis(), str2);
             }

@@ -218,7 +218,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
         private int getMaxDragScroll(RecyclerView recyclerView) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, recyclerView)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, recyclerView)) == null) {
                 if (this.mCachedMaxScrollSpeed == -1) {
                     this.mCachedMaxScrollSpeed = recyclerView.getResources().getDimensionPixelSize(R.dimen.item_touch_helper_max_drag_scroll_per_frame);
                 }
@@ -1146,7 +1146,7 @@ public class ItemTouchHelper extends RecyclerView.ItemDecoration implements Recy
 
     private void destroyCallbacks() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mRecyclerView.removeItemDecoration(this);
             this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.removeOnChildAttachStateChangeListener(this);

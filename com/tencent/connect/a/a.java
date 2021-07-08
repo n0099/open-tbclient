@@ -1,6 +1,7 @@
 package com.tencent.connect.a;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,30 +11,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.f;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class<?> f41690a;
+    public static Class<?> f38704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f41691b;
+    public static Class<?> f38705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f41692c;
+    public static Method f38706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f41693d;
+    public static Method f38707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f41694e;
+    public static Method f38708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Method f41695f;
+    public static Method f38709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f41696g;
+    public static boolean f38710g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,9 +63,9 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, qQToken) == null) {
             try {
                 if (a(context, qQToken)) {
-                    f41695f.invoke(f41690a, Boolean.TRUE);
+                    f38709f.invoke(f38704a, Boolean.TRUE);
                 } else {
-                    f41695f.invoke(f41690a, Boolean.FALSE);
+                    f38709f.invoke(f38704a, Boolean.FALSE);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -74,24 +75,24 @@ public class a {
 
     public static void c(Context context, QQToken qQToken) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, qQToken) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, qQToken) == null) {
             String str = "Aqc" + qQToken.getAppId();
             try {
-                f41690a = Class.forName("com.tencent.stat.StatConfig");
+                f38704a = Class.forName("com.tencent.stat.StatConfig");
                 Class<?> cls = Class.forName("com.tencent.stat.StatService");
-                f41691b = cls;
-                f41692c = cls.getMethod("reportQQ", Context.class, String.class);
-                f41693d = f41691b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
-                f41694e = f41691b.getMethod("commitEvents", Context.class, Integer.TYPE);
-                f41695f = f41690a.getMethod("setEnableStatService", Boolean.TYPE);
+                f38705b = cls;
+                f38706c = cls.getMethod("reportQQ", Context.class, String.class);
+                f38707d = f38705b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
+                f38708e = f38705b.getMethod("commitEvents", Context.class, Integer.TYPE);
+                f38709f = f38704a.getMethod("setEnableStatService", Boolean.TYPE);
                 b(context, qQToken);
-                f41690a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f41690a, Boolean.FALSE);
-                f41690a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f41690a, Boolean.TRUE);
-                f41690a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f41690a, 1440);
+                f38704a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f38704a, Boolean.FALSE);
+                f38704a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f38704a, Boolean.TRUE);
+                f38704a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f38704a, 1440);
                 Class<?> cls2 = Class.forName("com.tencent.stat.StatReportStrategy");
-                f41690a.getMethod("setStatSendStrategy", cls2).invoke(f41690a, cls2.getField("PERIOD").get(null));
-                f41691b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f41691b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
-                f41696g = true;
+                f38704a.getMethod("setStatSendStrategy", cls2).invoke(f38704a, cls2.getField("PERIOD").get(null));
+                f38705b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f38705b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
+                f38710g = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -100,11 +101,11 @@ public class a {
 
     public static void d(Context context, QQToken qQToken) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, qQToken) == null) && f41696g) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, qQToken) == null) && f38710g) {
             b(context, qQToken);
             if (qQToken.getOpenId() != null) {
                 try {
-                    f41692c.invoke(f41691b, context, qQToken.getOpenId());
+                    f38706c.invoke(f38705b, context, qQToken.getOpenId());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -114,10 +115,10 @@ public class a {
 
     public static void a(Context context, QQToken qQToken, String str, String... strArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && f41696g) {
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, context, qQToken, str, strArr) == null) && f38710g) {
             b(context, qQToken);
             try {
-                f41693d.invoke(f41691b, context, str, strArr);
+                f38707d.invoke(f38705b, context, str, strArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

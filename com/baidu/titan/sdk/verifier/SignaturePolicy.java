@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.verifier;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public enum SignaturePolicy {
     NO_SIGNATURE,
     V1_ONLY,

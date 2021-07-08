@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ScalingUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class AbstractScaleType implements ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class ScalingUtils {
         public abstract void getTransformImpl(Matrix matrix, Rect rect, int i2, int i3, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ScaleType {
         public static final ScaleType FIT_XY = ScaleTypeFitXY.INSTANCE;
         public static final ScaleType FIT_START = ScaleTypeFitStart.INSTANCE;
@@ -67,7 +67,7 @@ public class ScalingUtils {
         Matrix getTransform(Matrix matrix, Rect rect, int i2, int i3, float f2, float f3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -118,7 +118,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeCenterCrop extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -180,7 +180,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeCenterInside extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -235,7 +235,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeFitBottomStart extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -288,7 +288,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeFitCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -343,7 +343,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeFitEnd extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -396,7 +396,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeFitStart extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -449,7 +449,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeFitXY extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -501,7 +501,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleTypeFocusCrop extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -565,7 +565,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface StatefulScaleType {
         Object getState();
     }
@@ -613,7 +613,7 @@ public class ScalingUtils {
         return (ScaleTypeDrawable) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class InterpolatingScaleType implements ScaleType, StatefulScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

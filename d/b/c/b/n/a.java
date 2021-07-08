@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.l;
 import d.b.c.b.m;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f71935b;
+    public static volatile a f69038b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Context f71936a;
+    public volatile Context f69039a;
 
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -40,17 +40,17 @@ public class a {
                 return;
             }
         }
-        this.f71936a = context;
+        this.f69039a = context;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f71935b == null) {
-                f71935b = new a(m.e());
+            if (f69038b == null) {
+                f69038b = new a(m.e());
             }
-            return f71935b;
+            return f69038b;
         }
         return (a) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
             if (jSONObject != null && jSONObject.length() > 0) {
                 try {
-                    return l.e.b(l.i.a(this.f71936a), l.i.b(), com.bytedance.tea.crash.upload.b.f(m.a().a()), jSONObject, com.bytedance.tea.crash.upload.b.g());
+                    return l.e.b(l.i.a(this.f69039a), l.i.b(), com.bytedance.tea.crash.upload.b.f(m.a().a()), jSONObject, com.bytedance.tea.crash.upload.b.g());
                 } catch (Throwable unused) {
                 }
             }
@@ -76,7 +76,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null && jSONObject.length() > 0) {
             try {
                 String f2 = com.bytedance.tea.crash.upload.b.f(m.a().a());
-                String b2 = l.e.b(l.i.a(this.f71936a), l.i.d(), f2, jSONObject, com.bytedance.tea.crash.upload.b.k());
+                String b2 = l.e.b(l.i.a(this.f69039a), l.i.d(), f2, jSONObject, com.bytedance.tea.crash.upload.b.k());
                 jSONObject.put("upload_scene", "direct");
                 if (!com.bytedance.tea.crash.upload.b.j(f2, jSONObject.toString()).a()) {
                     return;

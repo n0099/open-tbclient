@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SimpleRatingBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,18 +27,18 @@ public class SimpleRatingBar extends LinearLayout {
     public ArrayList<ImageView> mStars;
     public float mVerticalPaddingDP;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnSimpleRatingBarChangeListener {
         void onRatingChanged(SimpleRatingBar simpleRatingBar, int i2, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class OnStarClickListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SimpleRatingBar f24296a;
+        public final /* synthetic */ SimpleRatingBar f24406a;
 
         public OnStarClickListener(SimpleRatingBar simpleRatingBar) {
             Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public class SimpleRatingBar extends LinearLayout {
                     return;
                 }
             }
-            this.f24296a = simpleRatingBar;
+            this.f24406a = simpleRatingBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int indexOf = this.f24296a.mStars.indexOf(view) + 1;
-                SimpleRatingBar simpleRatingBar = this.f24296a;
+                int indexOf = this.f24406a.mStars.indexOf(view) + 1;
+                SimpleRatingBar simpleRatingBar = this.f24406a;
                 if (indexOf == simpleRatingBar.mRate || indexOf <= 0 || indexOf > simpleRatingBar.mMaxRate) {
                     return;
                 }

@@ -403,7 +403,7 @@ public class MethodProfileData {
     private long getExclusiveTime(@Nullable MethodStats methodStats, ClockType clockType, TimeUnit timeUnit) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, this, methodStats, clockType, timeUnit)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, methodStats, clockType, timeUnit)) == null) {
             if (methodStats != null) {
                 return methodStats.getExclusiveTime(clockType, timeUnit);
             }

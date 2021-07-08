@@ -15,6 +15,7 @@ import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.Formatter;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
 import com.baidu.mobads.container.adrequest.XAdContainerContext;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PackageUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CONFIG_INTERVAL = 86400000;
@@ -150,7 +151,7 @@ public class PackageUtils {
     public static String encodePackage(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray)) == null) {
             String str = "";
             try {
                 for (int length = jSONArray.length() - 1; length >= 0; length--) {

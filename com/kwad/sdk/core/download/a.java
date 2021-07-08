@@ -6,36 +6,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36012a;
+    public static final String f34303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36013b;
+    public static final String f34304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36014c;
+    public static final String f34305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36015d;
+    public static final String f34306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36016e;
+    public static final String f34307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f36017f;
+    public static final String f34308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f36018g;
+    public static final String f34309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f36019h;
+    public static final String f34310h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f36020i;
+    public static final String f34311i;
     public static final String j;
     public static final String k;
     public static final String l;
@@ -56,19 +56,19 @@ public class a {
                 return;
             }
         }
-        f36012a = KsAdSDKImpl.get().getAppId() + "3.3.9";
-        f36013b = f36012a + "ACTION_DOWNLOAD_ONDOWNLOAD";
-        f36014c = f36012a + "ACTION_DOWNLOAD_ONPROGRESSUPDATE";
-        f36015d = f36012a + "ACTION_DOWNLOAD_ONDOWNLOADFINISHED";
-        f36016e = f36012a + "ACTION_DOWNLOAD_ONDOWNLOADFAILED";
-        f36017f = f36012a + "ACTION_DOWNLOAD_ONDOWNLOADPAUSEED";
-        f36018g = f36012a + "ACTION_DOWNLOAD_ONDOWNLOADRESUMEED";
-        f36019h = f36012a + "ACTION_DOWNLOAD_ONDOWNLOADCANCELED";
-        f36020i = f36012a + "ACTION_DOWNLOAD_ONSTARTINSTALLAPK";
-        j = f36012a + "ACTION_DOWNLOAD_ONINSTALLINGAPK";
-        k = f36012a + "ACTION_DOWNLOAD_ONAPKINSTALLED";
-        l = f36012a + "ACTION_DOWNLOAD_ONAPKINSTALLFAILED";
-        m = f36012a + "ACTION_DOWNLOAD_ONLOWSTORAGE";
-        n = f36012a + "ACTION_DOWNLOAD_TO_CANCEL";
+        f34303a = KsAdSDKImpl.get().getAppId() + "3.3.11";
+        f34304b = f34303a + "ACTION_DOWNLOAD_ONDOWNLOAD";
+        f34305c = f34303a + "ACTION_DOWNLOAD_ONPROGRESSUPDATE";
+        f34306d = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADFINISHED";
+        f34307e = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADFAILED";
+        f34308f = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADPAUSEED";
+        f34309g = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADRESUMEED";
+        f34310h = f34303a + "ACTION_DOWNLOAD_ONDOWNLOADCANCELED";
+        f34311i = f34303a + "ACTION_DOWNLOAD_ONSTARTINSTALLAPK";
+        j = f34303a + "ACTION_DOWNLOAD_ONINSTALLINGAPK";
+        k = f34303a + "ACTION_DOWNLOAD_ONAPKINSTALLED";
+        l = f34303a + "ACTION_DOWNLOAD_ONAPKINSTALLFAILED";
+        m = f34303a + "ACTION_DOWNLOAD_ONLOWSTORAGE";
+        n = f34303a + "ACTION_DOWNLOAD_TO_CANCEL";
     }
 }

@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ByteString {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString EMPTY;
@@ -141,7 +142,7 @@ public final class ByteString {
     public static ByteString of(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
             byte[] bArr2 = new byte[i3];
             System.arraycopy(bArr, i2, bArr2, 0, i3);
             return new ByteString(bArr2);

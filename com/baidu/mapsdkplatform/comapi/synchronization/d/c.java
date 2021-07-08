@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7838a = "c";
+    public static final String f7855a = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +59,7 @@ public final class c {
                 messageDigest.update(str.getBytes());
                 return a(messageDigest.digest());
             } catch (NoSuchAlgorithmException e2) {
-                a.a(f7838a, "NoSuchAlgorithmException happened when get MD5 string", e2);
+                a.a(f7855a, "NoSuchAlgorithmException happened when get MD5 string", e2);
                 return null;
             }
         }

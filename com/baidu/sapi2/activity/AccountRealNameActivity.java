@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -18,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.a.f;
-import d.a.e0.a.g;
+import d.a.b0.a.f;
+import d.a.b0.a.g;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -149,7 +150,7 @@ public class AccountRealNameActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountRealNameActivity f9669a;
+                public final /* synthetic */ AccountRealNameActivity f9686a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -166,7 +167,7 @@ public class AccountRealNameActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9669a = this;
+                    this.f9686a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -174,12 +175,12 @@ public class AccountRealNameActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        SapiWebView sapiWebView = this.f9669a.sapiWebView;
+                        SapiWebView sapiWebView = this.f9686a.sapiWebView;
                         if (sapiWebView != null && sapiWebView.canGoBack()) {
-                            this.f9669a.sapiWebView.goBack();
+                            this.f9686a.sapiWebView.goBack();
                             return false;
                         }
-                        this.f9669a.onClose();
+                        this.f9686a.onClose();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -190,7 +191,7 @@ public class AccountRealNameActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountRealNameActivity f9670a;
+                public final /* synthetic */ AccountRealNameActivity f9687a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -207,14 +208,14 @@ public class AccountRealNameActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9670a = this;
+                    this.f9687a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9670a.onClose();
+                        this.f9687a.onClose();
                     }
                 }
             });
@@ -223,7 +224,7 @@ public class AccountRealNameActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountRealNameActivity f9671a;
+                public final /* synthetic */ AccountRealNameActivity f9688a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -240,14 +241,14 @@ public class AccountRealNameActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9671a = this;
+                    this.f9688a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.RealNameStatusCallback
                 public void onFinish(AccountRealNameResult accountRealNameResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountRealNameResult) == null) {
-                        this.f9671a.x = accountRealNameResult;
+                        this.f9688a.x = accountRealNameResult;
                     }
                 }
             });
@@ -257,7 +258,7 @@ public class AccountRealNameActivity extends BaseActivity {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (!TextUtils.isEmpty(this.t)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add("pp");
@@ -266,7 +267,7 @@ public class AccountRealNameActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AccountRealNameActivity f9672a;
+                    public final /* synthetic */ AccountRealNameActivity f9689a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -283,7 +284,7 @@ public class AccountRealNameActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f9672a = this;
+                        this.f9689a = this;
                     }
 
                     @Override // com.baidu.sapi2.callback.SapiCallback
@@ -306,21 +307,21 @@ public class AccountRealNameActivity extends BaseActivity {
                         AccountRealNameActivity accountRealNameActivity;
                         SapiWebView sapiWebView;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) || (sapiWebView = (accountRealNameActivity = this.f9672a).sapiWebView) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, getTplStokenResult) == null) || (sapiWebView = (accountRealNameActivity = this.f9689a).sapiWebView) == null) {
                             return;
                         }
-                        sapiWebView.loadAccountRealName(null, accountRealNameActivity.u, this.f9672a.v, this.f9672a.w);
+                        sapiWebView.loadAccountRealName(null, accountRealNameActivity.u, this.f9689a.v, this.f9689a.w);
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.sapi2.callback.SapiCallback
                     public void onSuccess(GetTplStokenResult getTplStokenResult) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) || this.f9672a.sapiWebView == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, getTplStokenResult) == null) || this.f9689a.sapiWebView == null) {
                             return;
                         }
-                        AccountRealNameActivity accountRealNameActivity = this.f9672a;
-                        accountRealNameActivity.sapiWebView.loadAccountRealName(getTplStokenResult.tplStokenMap.get("pp"), accountRealNameActivity.u, this.f9672a.v, this.f9672a.w);
+                        AccountRealNameActivity accountRealNameActivity = this.f9689a;
+                        accountRealNameActivity.sapiWebView.loadAccountRealName(getTplStokenResult.tplStokenMap.get("pp"), accountRealNameActivity.u, this.f9689a.v, this.f9689a.w);
                     }
                 }, this.t, arrayList);
                 return;

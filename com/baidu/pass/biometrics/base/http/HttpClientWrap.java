@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.base.debug.Log;
@@ -39,34 +40,34 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpClientWrap {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9089c = "encode";
+    public static final String f9106c = "encode";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9090d = "ua";
+    public static final String f9107d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f9091e = "cuid_2";
+    public static final String f9108e = "cuid_2";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f9092f = "reqid";
+    public static final String f9109f = "reqid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f9093g = "sp_params";
+    public static final String f9110g = "sp_params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f9094h = "s1";
+    public static final String f9111h = "s1";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PassHttpClient f9095a;
+    public PassHttpClient f9112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9096b;
+    public Context f9113b;
 
     public HttpClientWrap(Context context) {
         Interceptable interceptable = $ic;
@@ -83,8 +84,8 @@ public class HttpClientWrap {
                 return;
             }
         }
-        this.f9095a = PassHttpClient.getInstance();
-        this.f9096b = context;
+        this.f9112a = PassHttpClient.getInstance();
+        this.f9113b = context;
     }
 
     private PassHttpParamDTO a(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2) {
@@ -101,7 +102,7 @@ public class HttpClientWrap {
     public static Map<String, String> appendCertification(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("encode", "utf-8");
             hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
@@ -186,15 +187,15 @@ public class HttpClientWrap {
     public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i2), httpHandlerWrap}) == null) {
-            this.f9095a.get(this.f9096b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
+            this.f9112a.get(this.f9113b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HttpHandlerWrap f9097a;
+                public final /* synthetic */ HttpHandlerWrap f9114a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HttpClientWrap f9098b;
+                public final /* synthetic */ HttpClientWrap f9115b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -215,15 +216,15 @@ public class HttpClientWrap {
                             return;
                         }
                     }
-                    this.f9098b = this;
-                    this.f9097a = httpHandlerWrap;
+                    this.f9115b = this;
+                    this.f9114a = httpHandlerWrap;
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        this.f9097a.onFailure(th, -1, str2);
+                        this.f9114a.onFailure(th, -1, str2);
                     }
                 }
 
@@ -231,7 +232,7 @@ public class HttpClientWrap {
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f9097a.onFinish();
+                        this.f9114a.onFinish();
                     }
                 }
 
@@ -239,7 +240,7 @@ public class HttpClientWrap {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f9097a.onStart();
+                        this.f9114a.onStart();
                     }
                 }
 
@@ -247,7 +248,7 @@ public class HttpClientWrap {
                 public void onSuccess(int i3, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, str2) == null) {
-                        this.f9097a.onSuccess(i3, str2);
+                        this.f9114a.onSuccess(i3, str2);
                     }
                 }
             });
@@ -269,7 +270,7 @@ public class HttpClientWrap {
             passHttpParamDTO.url = str;
             passHttpParamDTO.paramsMap = httpHashMap;
             passHttpParamDTO.cookie = list;
-            passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f9096b, BeanConstants.tpl);
+            passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f9113b, BeanConstants.tpl);
             passHttpParamDTO.connectTimeout = i2;
             passHttpParamDTO.asyncCookie = true;
             return passHttpParamDTO;
@@ -280,15 +281,15 @@ public class HttpClientWrap {
     public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i2), httpHandlerWrap}) == null) {
-            this.f9095a.post(this.f9096b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
+            this.f9112a.post(this.f9113b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HttpHandlerWrap f9101a;
+                public final /* synthetic */ HttpHandlerWrap f9118a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HttpClientWrap f9102b;
+                public final /* synthetic */ HttpClientWrap f9119b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -309,15 +310,15 @@ public class HttpClientWrap {
                             return;
                         }
                     }
-                    this.f9102b = this;
-                    this.f9101a = httpHandlerWrap;
+                    this.f9119b = this;
+                    this.f9118a = httpHandlerWrap;
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        this.f9101a.onFailure(th, -1, str2);
+                        this.f9118a.onFailure(th, -1, str2);
                     }
                 }
 
@@ -325,7 +326,7 @@ public class HttpClientWrap {
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f9101a.onFinish();
+                        this.f9118a.onFinish();
                     }
                 }
 
@@ -333,7 +334,7 @@ public class HttpClientWrap {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f9101a.onStart();
+                        this.f9118a.onStart();
                     }
                 }
 
@@ -341,7 +342,7 @@ public class HttpClientWrap {
                 public void onSuccess(int i3, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, str2) == null) {
-                        this.f9101a.onSuccess(i3, str2);
+                        this.f9118a.onSuccess(i3, str2);
                     }
                 }
             });
@@ -358,15 +359,15 @@ public class HttpClientWrap {
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, httpHashMap, list, Integer.valueOf(i2), binaryHttpHandlerWrap}) == null) {
-            this.f9095a.get(this.f9096b, a(str, httpHashMap, list, i2), new BinaryHttpResponseHandler(this, Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread(), binaryHttpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
+            this.f9112a.get(this.f9113b, a(str, httpHashMap, list, i2), new BinaryHttpResponseHandler(this, Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread(), binaryHttpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BinaryHttpHandlerWrap f9099a;
+                public final /* synthetic */ BinaryHttpHandlerWrap f9116a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HttpClientWrap f9100b;
+                public final /* synthetic */ HttpClientWrap f9117b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -387,15 +388,15 @@ public class HttpClientWrap {
                             return;
                         }
                     }
-                    this.f9100b = this;
-                    this.f9099a = binaryHttpHandlerWrap;
+                    this.f9117b = this;
+                    this.f9116a = binaryHttpHandlerWrap;
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        this.f9099a.onFailure(th, -1, str2);
+                        this.f9116a.onFailure(th, -1, str2);
                     }
                 }
 
@@ -403,7 +404,7 @@ public class HttpClientWrap {
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f9099a.onFinish();
+                        this.f9116a.onFinish();
                     }
                 }
 
@@ -411,7 +412,7 @@ public class HttpClientWrap {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f9099a.onStart();
+                        this.f9116a.onStart();
                     }
                 }
 
@@ -419,7 +420,7 @@ public class HttpClientWrap {
                 public void onSuccess(int i3, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, bArr) == null) {
-                        this.f9099a.onSuccess(i3, bArr);
+                        this.f9116a.onSuccess(i3, bArr);
                     }
                 }
             });

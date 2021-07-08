@@ -85,7 +85,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Completable implements CompletableSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public abstract class Completable implements CompletableSource {
     public static Completable concat(Iterable<? extends CompletableSource> iterable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, iterable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iterable)) == null) {
             ObjectHelper.requireNonNull(iterable, "sources is null");
             return RxJavaPlugins.onAssembly(new CompletableConcatIterable(iterable));
         }

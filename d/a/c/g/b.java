@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements DownloadCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IPackageDownloadCallback f44605a;
+    public IPackageDownloadCallback f41621a;
 
     public b(IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements DownloadCallback {
                 return;
             }
         }
-        this.f44605a = iPackageDownloadCallback;
+        this.f41621a = iPackageDownloadCallback;
     }
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
@@ -54,7 +54,7 @@ public class b implements DownloadCallback {
     public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
-            this.f44605a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
+            this.f41621a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
             d.a.c.g.h.b.b(packageInfo.packageName, 1, packageInfo.version);
         }
     }
@@ -70,7 +70,7 @@ public class b implements DownloadCallback {
     public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f44605a.onProgress(j, j2);
+            this.f41621a.onProgress(j, j2);
         }
     }
 
@@ -92,7 +92,7 @@ public class b implements DownloadCallback {
     public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, packageInfo, errorInfo) == null) {
-            this.f44605a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
+            this.f41621a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
             d.a.c.g.h.b.b(packageInfo.packageName, 0, packageInfo.version);
         }
     }

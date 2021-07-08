@@ -1,5 +1,6 @@
 package com.baidu.pass.ecommerce.adapter;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.pass.ecommerce.common.JsonFieldConverter;
 import com.baidu.pass.ecommerce.common.MapObject;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddressConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AddrInfoConverter";
@@ -102,7 +103,7 @@ public class AddressConverter {
     public static JSONObject createAddressJsonObj(MapObject mapObject, AddressSelectedBean addressSelectedBean) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, mapObject, addressSelectedBean)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mapObject, addressSelectedBean)) == null) {
             JSONObject convertMapObj2AddrJsonObj = convertMapObj2AddrJsonObj(mapObject);
             JSONObject convertRegion2RegionJsonObj = convertRegion2RegionJsonObj(addressSelectedBean);
             JsonFieldConverter.putStr(AddressField.KEY_DETAIL_ADDR, mapObject, convertRegion2RegionJsonObj);

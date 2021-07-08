@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,24 +26,24 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9331a = "d";
+    public static final String f9348a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9332b = "Set-Cookie";
+    public static final String f9349b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9333c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f9350c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f9334d = "Cookie";
+    public static final String f9351d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f9335e = "https://";
+    public static final String f9352e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -110,12 +111,12 @@ public class d {
                 sb.append("https://");
                 sb.append(uri.getHost());
                 String cookie = cookieManager.getCookie(sb.toString());
-                String str = f9331a;
+                String str = f9348a;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("asyncCookie");
                 sb2.append(passHttpParamDTO.asyncCookie);
                 e.a(str, sb2.toString());
-                String str2 = f9331a;
+                String str2 = f9348a;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("webviewCookies");
                 sb3.append(cookie);
@@ -144,7 +145,7 @@ public class d {
                                 if (!httpCookie.hasExpired()) {
                                     str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
                                 }
-                                String str5 = f9331a;
+                                String str5 = f9348a;
                                 StringBuilder sb4 = new StringBuilder();
                                 sb4.append("httpCookie webview item name:");
                                 sb4.append(httpCookie.getName());
@@ -166,14 +167,14 @@ public class d {
                     return;
                 }
                 String substring = str3.substring(0, str3.length() - 1);
-                String str6 = f9331a;
+                String str6 = f9348a;
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append("cookieStr");
                 sb5.append(substring);
                 e.a(str6, sb5.toString());
                 httpURLConnection.setRequestProperty("Cookie", substring);
             } catch (Exception e2) {
-                e.a(f9331a, "asyncWebviewCookie2NA:" + e2.toString());
+                e.a(f9348a, "asyncWebviewCookie2NA:" + e2.toString());
             }
         }
     }
@@ -185,7 +186,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, httpURLConnection, passHttpParamDTO) == null) {
             try {
-                String str = f9331a;
+                String str = f9348a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("asyncCookie");
                 sb.append(passHttpParamDTO.asyncCookie);
@@ -201,13 +202,13 @@ public class d {
                                 if (!parse.isEmpty()) {
                                     HttpCookie httpCookie = parse.get(0);
                                     if (a(passHttpParamDTO.url, httpCookie)) {
-                                        String str3 = f9331a;
+                                        String str3 = f9348a;
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("httpcookie:");
                                         sb2.append(httpCookie.toString());
                                         Log.e(str3, sb2.toString());
                                         String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), (httpCookie.getMaxAge() * 1000) + System.currentTimeMillis(), httpCookie.getSecure());
-                                        String str4 = f9331a;
+                                        String str4 = f9348a;
                                         StringBuilder sb3 = new StringBuilder();
                                         sb3.append("httpcookie build:");
                                         sb3.append(a2);
@@ -228,7 +229,7 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                String str5 = f9331a;
+                String str5 = f9348a;
                 e.a(str5, "asyncNaCookie2Webview:" + e2.toString());
             }
         }
@@ -283,7 +284,7 @@ public class d {
     public static boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             if (str.equals(str2)) {
                 return true;
             }

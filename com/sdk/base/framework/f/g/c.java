@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f41227a;
+    public static final c f38241a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f41228b;
+    public static final c f38242b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f41229c;
+    public static final c f38243c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public abstract class c {
                 return;
             }
         }
-        f41227a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
+        f38241a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +72,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f41228b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+        f38242b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f41229c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+        f38243c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -67,7 +67,7 @@ public final class MarginLayoutParamsCompat {
     public static boolean isMarginRelative(ViewGroup.MarginLayoutParams marginLayoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, marginLayoutParams)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, marginLayoutParams)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
                 return marginLayoutParams.isMarginRelative();
             }

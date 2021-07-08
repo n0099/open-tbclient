@@ -23,46 +23,46 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.k;
-import d.a.r0.r.f0.s.c;
-import d.a.s0.u0.z0;
-/* loaded from: classes5.dex */
+import d.a.o0.r.f0.t.c;
+import d.a.p0.u0.z0;
+/* loaded from: classes4.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f15376b;
+    public HeadImageView f15415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15377c;
+    public TextView f15416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15378d;
+    public TextView f15417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EntelechyUserLikeButton f15379e;
+    public EntelechyUserLikeButton f15418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f15380f;
+    public c f15419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f15381g;
+    public BdUniqueId f15420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public z0 f15382h;
+    public z0 f15421h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f15383i;
+    public int f15422i;
     public TbPageContext j;
     public View.OnClickListener k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsSchoolRecommendItemView f15384e;
+        public final /* synthetic */ FrsSchoolRecommendItemView f15423e;
 
         public a(FrsSchoolRecommendItemView frsSchoolRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -79,16 +79,16 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                     return;
                 }
             }
-            this.f15384e = frsSchoolRecommendItemView;
+            this.f15423e = frsSchoolRecommendItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15384e.f15382h == null || k.isEmpty(this.f15384e.f15382h.f67237a.getUserName()) || k.isEmpty(this.f15384e.f15382h.f67237a.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15423e.f15421h == null || k.isEmpty(this.f15423e.f15421h.f64020a.getUserName()) || k.isEmpty(this.f15423e.f15421h.f64020a.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f15384e.a().getContext(), this.f15384e.f15382h.f67237a.getUserId(), this.f15384e.f15382h.f67237a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f15423e.a().getContext(), this.f15423e.f15421h.f64020a.getUserId(), this.f15423e.f15421h.f64020a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 
@@ -110,39 +110,39 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                 return;
             }
         }
-        this.f15383i = 3;
+        this.f15422i = 3;
         this.k = new a(this);
-        this.f15381g = bdUniqueId;
+        this.f15420g = bdUniqueId;
         this.j = tbPageContext;
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.rec_usr_header);
-        this.f15376b = headImageView;
-        headImageView.setPageId(this.f15381g);
-        this.f15376b.setIsRound(true);
-        this.f15377c = (TextView) view.findViewById(R.id.rec_user_name);
-        this.f15378d = (TextView) view.findViewById(R.id.rec_user_describe);
+        this.f15415b = headImageView;
+        headImageView.setPageId(this.f15420g);
+        this.f15415b.setIsRound(true);
+        this.f15416c = (TextView) view.findViewById(R.id.rec_user_name);
+        this.f15417d = (TextView) view.findViewById(R.id.rec_user_describe);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
-        this.f15379e = entelechyUserLikeButton;
+        this.f15418e = entelechyUserLikeButton;
         c cVar = new c(tbPageContext, entelechyUserLikeButton);
-        this.f15380f = cVar;
+        this.f15419f = cVar;
         cVar.m("1");
-        this.f15380f.l(bdUniqueId);
+        this.f15419f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void b(d.a.s0.f1.b.c cVar) {
+    public void b(d.a.p0.f1.b.c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof z0)) {
             z0 z0Var = (z0) cVar;
-            this.f15382h = z0Var;
-            if (StringUtils.isNull(z0Var.f67237a.getUserId())) {
+            this.f15421h = z0Var;
+            if (StringUtils.isNull(z0Var.f64020a.getUserId())) {
                 return;
             }
-            this.f15376b.M(this.f15382h.f67237a.getPortrait(), 28, false);
-            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f15382h.f67237a.getUserName(), 5);
-            this.f15378d.setText(StringHelper.cutStringWithEllipsis(this.f15382h.f67237a.getGodUserData().getIntro(), 6));
-            this.f15377c.setText(cutStringWithEllipsis);
+            this.f15415b.M(this.f15421h.f64020a.getPortrait(), 28, false);
+            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f15421h.f64020a.getUserName(), 5);
+            this.f15417d.setText(StringHelper.cutStringWithEllipsis(this.f15421h.f64020a.getGodUserData().getIntro(), 6));
+            this.f15416c.setText(cutStringWithEllipsis);
             a().setOnClickListener(this.k);
-            this.f15380f.n(this.f15382h.f67237a);
+            this.f15419f.n(this.f15421h.f64020a);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -151,19 +151,19 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public ItemViewHolder c(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.j, this.f15381g) : (ItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.j, this.f15420g) : (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f15383i != i2) {
-                SkinManager.setViewTextColor(this.f15377c, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f15378d, R.color.CAM_X0109);
-                this.f15379e.g(i2);
+            if (this.f15422i != i2) {
+                SkinManager.setViewTextColor(this.f15416c, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f15417d, R.color.CAM_X0109);
+                this.f15418e.g(i2);
             }
-            this.f15383i = i2;
+            this.f15422i = i2;
         }
     }
 }

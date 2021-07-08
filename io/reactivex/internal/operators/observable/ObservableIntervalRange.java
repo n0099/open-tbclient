@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.schedulers.TrampolineScheduler;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ObservableIntervalRange extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ObservableIntervalRange extends Observable<Long> {
     public final long start;
     public final TimeUnit unit;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class IntervalRangeObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1891866368734007884L;

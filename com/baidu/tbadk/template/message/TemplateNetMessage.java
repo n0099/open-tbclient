@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.x0.c.a;
-import d.a.r0.x0.c.b;
-import d.a.r0.x0.c.c;
-/* loaded from: classes4.dex */
+import d.a.o0.x0.c.a;
+import d.a.o0.x0.c.b;
+import d.a.o0.x0.c.c;
+/* loaded from: classes3.dex */
 public class TemplateNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

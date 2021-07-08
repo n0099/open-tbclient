@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
-import d.a.s0.t.a.f.b;
-import d.a.s0.t.a.j.a;
+import d.a.p0.t.a.f.b;
+import d.a.p0.t.a.j.a;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -186,10 +186,10 @@ public class AdInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b b2 = b.b(a.d());
-            if (TextUtils.isEmpty(b2.f65483d)) {
+            if (TextUtils.isEmpty(b2.f62264d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b2.f65482c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f65482c.equals(this.adVideoUrl);
+            return TextUtils.isEmpty(b2.f62263c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f62263c.equals(this.adVideoUrl);
         }
         return invokeV.booleanValue;
     }

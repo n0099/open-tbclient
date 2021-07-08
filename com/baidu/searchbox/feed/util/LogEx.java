@@ -3,6 +3,7 @@ package com.baidu.searchbox.feed.util;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.IllegalFormatException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LogEx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_LOG = true;
@@ -57,7 +58,7 @@ public final class LogEx {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             println(6, str, str2);
         }
     }

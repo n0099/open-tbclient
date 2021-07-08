@@ -1,6 +1,7 @@
 package com.baidu.android.imrtc.request;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.request.BIMRtcTokenListener;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -92,7 +93,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     private String getMd5(String str) throws NoSuchAlgorithmException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             return byte2Hex(messageDigest.digest());

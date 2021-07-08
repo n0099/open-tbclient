@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BaiduYunPushSdkSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_YUN_PUSH_SDK_KEY = "android_baiduyun_push";

@@ -2,9 +2,10 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.kwad.sdk.api.core.RemoteViewBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,31 +24,31 @@ public class f implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40484a;
+    public String f37498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40485b;
+    public String f37499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40486c;
+    public boolean f37500c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40487d;
+    public String f37501d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40488e;
+    public String f37502e;
 
     public f() {
-        this.f40486c = false;
+        this.f37500c = false;
     }
 
     public f(Parcel parcel) {
-        this.f40486c = false;
-        this.f40484a = parcel.readString();
-        this.f40485b = parcel.readString();
-        this.f40486c = parcel.readByte() != 0;
-        this.f40487d = parcel.readString();
-        this.f40488e = parcel.readString();
+        this.f37500c = false;
+        this.f37498a = parcel.readString();
+        this.f37499b = parcel.readString();
+        this.f37500c = parcel.readByte() != 0;
+        this.f37501d = parcel.readString();
+        this.f37502e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -55,8 +56,8 @@ public class f implements Parcelable {
         f fVar = new f();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull("taskId")) {
-                    fVar.a(jSONObject.getString("taskId"));
+                if (!jSONObject.isNull(RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID)) {
+                    fVar.a(jSONObject.getString(RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID));
                 }
                 if (!jSONObject.isNull("time")) {
                     fVar.b(jSONObject.getString("time"));
@@ -75,39 +76,39 @@ public class f implements Parcelable {
     }
 
     public String a() {
-        return this.f40484a;
+        return this.f37498a;
     }
 
     public void a(String str) {
-        this.f40484a = str;
+        this.f37498a = str;
     }
 
     public void a(boolean z) {
-        this.f40486c = z;
+        this.f37500c = z;
     }
 
     public String b() {
-        return this.f40485b;
+        return this.f37499b;
     }
 
     public void b(String str) {
-        this.f40485b = str;
+        this.f37499b = str;
     }
 
     public void c(String str) {
-        this.f40487d = str;
+        this.f37501d = str;
     }
 
     public boolean c() {
-        return this.f40486c;
+        return this.f37500c;
     }
 
     public String d() {
-        return this.f40487d;
+        return this.f37501d;
     }
 
     public void d(String str) {
-        this.f40488e = str;
+        this.f37502e = str;
     }
 
     @Override // android.os.Parcelable
@@ -116,19 +117,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f40488e;
+        return this.f37502e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f40484a + "', time='" + this.f40485b + "', pushExtra=" + this.f40486c + ", deviceId='" + this.f40487d + "', seqId='" + this.f40488e + "'}";
+        return "Statics{taskId='" + this.f37498a + "', time='" + this.f37499b + "', pushExtra=" + this.f37500c + ", deviceId='" + this.f37501d + "', seqId='" + this.f37502e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f40484a);
-        parcel.writeString(this.f40485b);
-        parcel.writeByte(this.f40486c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f40487d);
-        parcel.writeString(this.f40488e);
+        parcel.writeString(this.f37498a);
+        parcel.writeString(this.f37499b);
+        parcel.writeByte(this.f37500c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f37501d);
+        parcel.writeString(this.f37502e);
     }
 }

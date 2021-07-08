@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class b<V> extends FutureTask<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdAsyncTask<?, ?, ?> f44073e;
+    public BdAsyncTask<?, ?, ?> f41089e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
@@ -35,8 +35,8 @@ public abstract class b<V> extends FutureTask<V> {
                 return;
             }
         }
-        this.f44073e = null;
-        this.f44073e = bdAsyncTask;
+        this.f41089e = null;
+        this.f41089e = bdAsyncTask;
     }
 
     public abstract void a();
@@ -44,6 +44,6 @@ public abstract class b<V> extends FutureTask<V> {
     public BdAsyncTask<?, ?, ?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44073e : (BdAsyncTask) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41089e : (BdAsyncTask) invokeV.objValue;
     }
 }

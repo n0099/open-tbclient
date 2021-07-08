@@ -3,6 +3,7 @@ package com.airbnb.lottie.utils;
 import android.graphics.Path;
 import android.graphics.PointF;
 import androidx.annotation.FloatRange;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.animation.content.KeyPathElementContent;
 import com.airbnb.lottie.model.CubicCurveData;
 import com.airbnb.lottie.model.KeyPath;
@@ -139,7 +140,7 @@ public class MiscUtils {
     public static float clamp(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? Math.max(f3, Math.min(f4, f2)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? Math.max(f3, Math.min(f4, f2)) : invokeCommon.floatValue;
     }
 
     public static int floorMod(int i2, int i3) {

@@ -16,20 +16,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import d.a.c.e.i.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a.c locationCallBack;
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements ReportUserInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateInfoService f20664a;
+        public final /* synthetic */ UpdateInfoService f20710a;
 
         public a(UpdateInfoService updateInfoService) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class UpdateInfoService extends BdBaseService {
                     return;
                 }
             }
-            this.f20664a = updateInfoService;
+            this.f20710a = updateInfoService;
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
@@ -60,7 +60,7 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i2 >= 32400) {
                     i2 = 32400;
                 }
-                this.f20664a.mModel.B(i2 * 1000);
+                this.f20710a.mModel.B(i2 * 1000);
             }
         }
 
@@ -69,18 +69,18 @@ public class UpdateInfoService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
-                this.f20664a.mModel.B(TTAdConstant.AD_MAX_EVENT_TIME);
+                this.f20710a.mModel.B(TTAdConstant.AD_MAX_EVENT_TIME);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UpdateInfoService f20665a;
+        public final /* synthetic */ UpdateInfoService f20711a;
 
         public b(UpdateInfoService updateInfoService) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class UpdateInfoService extends BdBaseService {
                     return;
                 }
             }
-            this.f20665a = updateInfoService;
+            this.f20711a = updateInfoService;
         }
 
         @Override // d.a.c.e.i.a.c
@@ -106,12 +106,12 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) && i2 == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                d.a.s0.w2.g0.a.e().j(String.valueOf(longitude));
-                d.a.s0.w2.g0.a.e().i(String.valueOf(latitude));
-                d.a.s0.w2.g0.a.e().k(System.currentTimeMillis());
-                if (this.f20665a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.f20665a.mModel.z(1, longitude, latitude);
-                    this.f20665a.mModel.A();
+                d.a.p0.w2.g0.a.e().j(String.valueOf(longitude));
+                d.a.p0.w2.g0.a.e().i(String.valueOf(latitude));
+                d.a.p0.w2.g0.a.e().k(System.currentTimeMillis());
+                if (this.f20711a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.f20711a.mModel.z(1, longitude, latitude);
+                    this.f20711a.mModel.A();
                 }
             }
         }

@@ -7,37 +7,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f29990a;
+    public final String f30100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29991b;
+    public int f30101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29992c;
+    public int f30102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONArray f29993d;
+    public JSONArray f30103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29994e;
+    public int f30104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29995f;
+    public long f30105f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29996g;
+    public long f30106g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f29997h;
+    public long f30107h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f29998i;
+    public long f30108i;
     public JSONObject j;
 
     public n() {
@@ -53,12 +53,12 @@ public class n {
                 return;
             }
         }
-        this.f29990a = com.bytedance.sdk.openadsdk.r.o.c();
-        this.f29991b = -1;
-        this.f29992c = -1;
-        this.f29993d = null;
-        this.f29994e = 1;
-        this.f29995f = System.currentTimeMillis();
+        this.f30100a = com.bytedance.sdk.openadsdk.r.o.c();
+        this.f30101b = -1;
+        this.f30102c = -1;
+        this.f30103d = null;
+        this.f30104e = 1;
+        this.f30105f = System.currentTimeMillis();
         this.j = null;
     }
 
@@ -67,14 +67,14 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             n nVar = new n();
-            nVar.f29991b = this.f29991b;
-            nVar.f29992c = this.f29992c;
-            nVar.f29993d = this.f29993d;
-            nVar.f29994e = this.f29994e;
-            nVar.f29995f = this.f29995f;
-            nVar.f29996g = this.f29996g;
-            nVar.f29997h = this.f29997h;
-            nVar.f29998i = this.f29998i;
+            nVar.f30101b = this.f30101b;
+            nVar.f30102c = this.f30102c;
+            nVar.f30103d = this.f30103d;
+            nVar.f30104e = this.f30104e;
+            nVar.f30105f = this.f30105f;
+            nVar.f30106g = this.f30106g;
+            nVar.f30107h = this.f30107h;
+            nVar.f30108i = this.f30108i;
             return nVar;
         }
         return (n) invokeV.objValue;

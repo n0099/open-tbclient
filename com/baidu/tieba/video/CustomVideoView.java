@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomVideoView extends VideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21488e;
+    public int f21534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21489f;
+    public int f21535f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomVideoView(Context context) {
@@ -43,10 +43,10 @@ public class CustomVideoView extends VideoView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            if (this.f21489f == 0 && this.f21488e == 0) {
+            if (this.f21535f == 0 && this.f21534e == 0) {
                 super.onMeasure(i2, i3);
             } else {
-                setMeasuredDimension(this.f21488e, this.f21489f);
+                setMeasuredDimension(this.f21534e, this.f21535f);
             }
         }
     }
@@ -54,14 +54,14 @@ public class CustomVideoView extends VideoView {
     public void setVideoHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f21489f = i2;
+            this.f21535f = i2;
         }
     }
 
     public void setVideoWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f21488e = i2;
+            this.f21534e = i2;
         }
     }
 

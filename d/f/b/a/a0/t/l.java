@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import d.f.b.a.a0.t.w;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class l implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d.f.b.a.i0.l f72494a;
+    public final d.f.b.a.i0.l f69597a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.f.b.a.a0.m f72495b;
+    public d.f.b.a.a0.m f69598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72496c;
+    public boolean f69599c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f72497d;
+    public long f69600d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72498e;
+    public int f69601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72499f;
+    public int f69602f;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -44,41 +44,41 @@ public final class l implements h {
                 return;
             }
         }
-        this.f72494a = new d.f.b.a.i0.l(10);
+        this.f69597a = new d.f.b.a.i0.l(10);
     }
 
     @Override // d.f.b.a.a0.t.h
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f72496c = false;
+            this.f69599c = false;
         }
     }
 
     @Override // d.f.b.a.a0.t.h
     public void c(d.f.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) && this.f72496c) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) && this.f69599c) {
             int a2 = lVar.a();
-            int i2 = this.f72499f;
+            int i2 = this.f69602f;
             if (i2 < 10) {
                 int min = Math.min(a2, 10 - i2);
-                System.arraycopy(lVar.f73386a, lVar.c(), this.f72494a.f73386a, this.f72499f, min);
-                if (this.f72499f + min == 10) {
-                    this.f72494a.J(0);
-                    if (73 == this.f72494a.x() && 68 == this.f72494a.x() && 51 == this.f72494a.x()) {
-                        this.f72494a.K(3);
-                        this.f72498e = this.f72494a.w() + 10;
+                System.arraycopy(lVar.f70489a, lVar.c(), this.f69597a.f70489a, this.f69602f, min);
+                if (this.f69602f + min == 10) {
+                    this.f69597a.J(0);
+                    if (73 == this.f69597a.x() && 68 == this.f69597a.x() && 51 == this.f69597a.x()) {
+                        this.f69597a.K(3);
+                        this.f69601e = this.f69597a.w() + 10;
                     } else {
                         Log.w("Id3Reader", "Discarding invalid ID3 tag");
-                        this.f72496c = false;
+                        this.f69599c = false;
                         return;
                     }
                 }
             }
-            int min2 = Math.min(a2, this.f72498e - this.f72499f);
-            this.f72495b.a(lVar, min2);
-            this.f72499f += min2;
+            int min2 = Math.min(a2, this.f69601e - this.f69602f);
+            this.f69598b.a(lVar, min2);
+            this.f69602f += min2;
         }
     }
 
@@ -86,9 +86,9 @@ public final class l implements h {
     public void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f72496c && (i2 = this.f72498e) != 0 && this.f72499f == i2) {
-            this.f72495b.c(this.f72497d, 1, i2, 0, null);
-            this.f72496c = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f69599c && (i2 = this.f69601e) != 0 && this.f69602f == i2) {
+            this.f69598b.c(this.f69600d, 1, i2, 0, null);
+            this.f69599c = false;
         }
     }
 
@@ -96,10 +96,10 @@ public final class l implements h {
     public void e(long j, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) && z) {
-            this.f72496c = true;
-            this.f72497d = j;
-            this.f72498e = 0;
-            this.f72499f = 0;
+            this.f69599c = true;
+            this.f69600d = j;
+            this.f69601e = 0;
+            this.f69602f = 0;
         }
     }
 
@@ -109,7 +109,7 @@ public final class l implements h {
         if (interceptable == null || interceptable.invokeLL(1048580, this, gVar, dVar) == null) {
             dVar.a();
             d.f.b.a.a0.m a2 = gVar.a(dVar.c(), 4);
-            this.f72495b = a2;
+            this.f69598b = a2;
             a2.b(Format.createSampleFormat(dVar.b(), "application/id3", null, -1, null));
         }
     }

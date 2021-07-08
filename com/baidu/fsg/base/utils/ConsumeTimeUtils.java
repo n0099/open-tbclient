@@ -8,39 +8,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ConsumeTimeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TimeResult f5346a;
+    public TimeResult f5363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5347b;
+    public String f5364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5348c;
+    public String f5365c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public final class TimeResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f5349a;
+        public long f5366a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f5350b;
+        public long f5367b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f5351c;
+        public long f5368c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f5352d;
+        public int f5369d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConsumeTimeUtils f5353e;
+        public final /* synthetic */ ConsumeTimeUtils f5370e;
 
         public TimeResult(ConsumeTimeUtils consumeTimeUtils) {
             Interceptable interceptable = $ic;
@@ -57,11 +57,11 @@ public class ConsumeTimeUtils {
                     return;
                 }
             }
-            this.f5353e = consumeTimeUtils;
-            this.f5349a = 0L;
-            this.f5350b = 0L;
-            this.f5351c = 0L;
-            this.f5352d = 0;
+            this.f5370e = consumeTimeUtils;
+            this.f5366a = 0L;
+            this.f5367b = 0L;
+            this.f5368c = 0L;
+            this.f5369d = 0;
         }
 
         public String buildLog() {
@@ -69,8 +69,8 @@ public class ConsumeTimeUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                if (this.f5353e.f5348c != null) {
-                    sb.append(this.f5353e.f5348c + ":");
+                if (this.f5370e.f5365c != null) {
+                    sb.append(this.f5370e.f5365c + ":");
                 }
                 sb.append(" task last " + getDurationMesc() + " millisecond about " + getDurationSecond() + " second");
                 return sb.toString();
@@ -81,7 +81,7 @@ public class ConsumeTimeUtils {
         public long getDurationMesc() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5350b - this.f5349a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5367b - this.f5366a : invokeV.longValue;
         }
 
         public int getDurationSecond() {
@@ -93,47 +93,47 @@ public class ConsumeTimeUtils {
         public long getEndTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5350b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5367b : invokeV.longValue;
         }
 
         public long getStartTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5349a : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5366a : invokeV.longValue;
         }
 
         public void logd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogUtil.d(this.f5353e.f5347b, buildLog());
+                LogUtil.d(this.f5370e.f5364b, buildLog());
             }
         }
 
         public void loge() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogUtil.e(this.f5353e.f5347b, buildLog(), new Throwable());
+                LogUtil.e(this.f5370e.f5364b, buildLog(), new Throwable());
             }
         }
 
         public void logi() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                LogUtil.i(this.f5353e.f5347b, buildLog());
+                LogUtil.i(this.f5370e.f5364b, buildLog());
             }
         }
 
         public void logv() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                LogUtil.v(this.f5353e.f5347b, buildLog());
+                LogUtil.v(this.f5370e.f5364b, buildLog());
             }
         }
 
         public void logw() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                LogUtil.w(this.f5353e.f5347b, buildLog());
+                LogUtil.w(this.f5370e.f5364b, buildLog());
             }
         }
 
@@ -142,7 +142,7 @@ public class ConsumeTimeUtils {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 String buildLog = buildLog();
-                LogUtil.v(this.f5353e.f5347b, buildLog);
+                LogUtil.v(this.f5370e.f5364b, buildLog);
                 return buildLog;
             }
             return (String) invokeV.objValue;
@@ -162,15 +162,15 @@ public class ConsumeTimeUtils {
                 return;
             }
         }
-        this.f5347b = "ConsumeTime";
+        this.f5364b = "ConsumeTime";
     }
 
     public TimeResult finish() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f5346a.f5350b = SystemClock.uptimeMillis();
-            return this.f5346a;
+            this.f5363a.f5367b = SystemClock.uptimeMillis();
+            return this.f5363a;
         }
         return (TimeResult) invokeV.objValue;
     }
@@ -178,14 +178,14 @@ public class ConsumeTimeUtils {
     public void setPrefix(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f5348c = str;
+            this.f5365c = str;
         }
     }
 
     public void setTAGString(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f5347b = str;
+            this.f5364b = str;
         }
     }
 
@@ -194,8 +194,8 @@ public class ConsumeTimeUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             TimeResult timeResult = new TimeResult(this);
-            this.f5346a = timeResult;
-            timeResult.f5349a = SystemClock.uptimeMillis();
+            this.f5363a = timeResult;
+            timeResult.f5366a = SystemClock.uptimeMillis();
             return this;
         }
         return (ConsumeTimeUtils) invokeV.objValue;

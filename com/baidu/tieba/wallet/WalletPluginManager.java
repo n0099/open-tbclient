@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.l0.f;
+import d.a.o0.l0.f;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WalletPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String NPS_MODE = "wallet";
+    public static final String NPS_MODE = "Wallet";
     public static final String PLUGIN_IMPL_CLASS = "com.baidu.tieba.wallet.WalletPluginImpl";
     public static final String PLUGIN_PKG_NAME = "com.baidu.tieba.plugin.wallet";
     public transient /* synthetic */ FieldHolder $fh;
     public IWalletPlugin mIWalletPlugin;
 
     /* renamed from: com.baidu.tieba.wallet.WalletPluginManager$14  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass14 implements IInstallCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class WalletPluginManager {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final WalletPluginManager instance;
@@ -110,7 +110,7 @@ public class WalletPluginManager {
     public static WalletPluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? SingletonHolder.instance : (WalletPluginManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? SingletonHolder.instance : (WalletPluginManager) invokeV.objValue;
     }
 
     private void invokePlugin(IInvokeCallback iInvokeCallback) {

@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f75949e;
+    public static long f72983e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -36,8 +36,8 @@ public abstract class a implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f75949e >= 1000) {
-                f75949e = currentTimeMillis;
+            if (currentTimeMillis - f72983e >= 1000) {
+                f72983e = currentTimeMillis;
                 a(view);
                 return;
             }

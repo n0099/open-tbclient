@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.k;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f75714e;
+    public final SequentialSubscription f72748e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class d implements k {
                 return;
             }
         }
-        this.f75714e = new SequentialSubscription();
+        this.f72748e = new SequentialSubscription();
     }
 
     public void a(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
             if (kVar != null) {
-                this.f75714e.update(kVar);
+                this.f72748e.update(kVar);
                 return;
             }
             throw new IllegalArgumentException("Subscription can not be null");
@@ -47,14 +47,14 @@ public final class d implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75714e.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72748e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // h.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f75714e.unsubscribe();
+            this.f72748e.unsubscribe();
         }
     }
 }

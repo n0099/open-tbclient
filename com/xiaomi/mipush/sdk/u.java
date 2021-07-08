@@ -9,6 +9,7 @@ import android.content.pm.PermissionInfo;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,12 +21,12 @@ import com.xiaomi.push.service.az;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,19 +52,19 @@ public class u {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42805a;
+        public String f39819a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f96a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42806b;
+        public String f39820b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f97b;
@@ -83,10 +84,10 @@ public class u {
                     return;
                 }
             }
-            this.f42805a = str;
+            this.f39819a = str;
             this.f96a = z;
             this.f97b = z2;
-            this.f42806b = str2;
+            this.f39820b = str2;
         }
     }
 
@@ -141,7 +142,7 @@ public class u {
 
     public static void a(ActivityInfo activityInfo, Boolean[] boolArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, activityInfo, boolArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activityInfo, boolArr) == null) {
             if (boolArr[0].booleanValue() != activityInfo.enabled) {
                 throw new a(String.format("<receiver android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", activityInfo.name, boolArr[0]));
             }
@@ -303,7 +304,7 @@ public class u {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
                         boolean z = bVar.f96a;
                         boolean z2 = bVar.f97b;
-                        String str = bVar.f42806b;
+                        String str = bVar.f39820b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

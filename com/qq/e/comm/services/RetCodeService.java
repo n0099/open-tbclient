@@ -1,5 +1,6 @@
 package com.qq.e.comm.services;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,33 +20,33 @@ import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RetCodeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41044a;
+    public final String f38058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41045b;
+    public final String f38059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Random f41046c;
+    public final Random f38060c;
 
     /* renamed from: com.qq.e.comm.services.RetCodeService$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RetCodeService f41047a;
+        public static final RetCodeService f38061a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +62,7 @@ public class RetCodeService {
                     return;
                 }
             }
-            f41047a = new RetCodeService((byte) 0);
+            f38061a = new RetCodeService((byte) 0);
         }
 
         public Holder() {
@@ -79,34 +80,34 @@ public class RetCodeService {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class RetCodeInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f41048a;
+        public final String f38062a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f41049b;
+        public final String f38063b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f41050c;
+        public final String f38064c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f41051d;
+        public final int f38065d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f41052e;
+        public final int f38066e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f41053f;
+        public final int f38067f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f41054g;
+        public final int f38068g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f41055h;
+        public final int f38069h;
 
         public RetCodeInfo(String str, String str2, String str3, int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
@@ -123,39 +124,39 @@ public class RetCodeService {
                     return;
                 }
             }
-            this.f41048a = str;
-            this.f41049b = str2;
-            this.f41050c = str3;
-            this.f41051d = i2;
-            this.f41052e = i3;
-            this.f41053f = i4;
-            this.f41054g = i5;
-            this.f41055h = i6;
+            this.f38062a = str;
+            this.f38063b = str2;
+            this.f38064c = str3;
+            this.f38065d = i2;
+            this.f38066e = i3;
+            this.f38067f = i4;
+            this.f38068g = i5;
+            this.f38069h = i6;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "RetCodeInfo [host=" + this.f41048a + ", commandid=" + this.f41049b + ", releaseversion=" + this.f41050c + ", resultcode=" + this.f41051d + ", tmcost=" + this.f41052e + ", reqsize=" + this.f41053f + ", rspsize=" + this.f41054g + PreferencesUtil.RIGHT_MOUNT;
+                return "RetCodeInfo [host=" + this.f38062a + ", commandid=" + this.f38063b + ", releaseversion=" + this.f38064c + ", resultcode=" + this.f38065d + ", tmcost=" + this.f38066e + ", reqsize=" + this.f38067f + ", rspsize=" + this.f38068g + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class SendTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public RetCodeInfo f41056a;
+        public RetCodeInfo f38070a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f41057b;
+        public int f38071b;
 
         /* renamed from: c  reason: collision with root package name */
-        public /* synthetic */ RetCodeService f41058c;
+        public /* synthetic */ RetCodeService f38072c;
 
         public SendTask(RetCodeService retCodeService, RetCodeInfo retCodeInfo, int i2) {
             Interceptable interceptable = $ic;
@@ -172,16 +173,16 @@ public class RetCodeService {
                     return;
                 }
             }
-            this.f41058c = retCodeService;
-            this.f41056a = retCodeInfo;
-            this.f41057b = 100;
+            this.f38072c = retCodeService;
+            this.f38070a = retCodeInfo;
+            this.f38071b = 100;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RetCodeService.a(this.f41058c, this.f41056a, this.f41057b);
+                RetCodeService.a(this.f38072c, this.f38070a, this.f38071b);
             }
         }
     }
@@ -199,9 +200,9 @@ public class RetCodeService {
                 return;
             }
         }
-        this.f41044a = "1000162";
-        this.f41045b = "http://wspeed.qq.com/w.cgi";
-        this.f41046c = new Random(System.currentTimeMillis());
+        this.f38058a = "1000162";
+        this.f38059b = "http://wspeed.qq.com/w.cgi";
+        this.f38060c = new Random(System.currentTimeMillis());
     }
 
     public /* synthetic */ RetCodeService(byte b2) {
@@ -225,17 +226,17 @@ public class RetCodeService {
         if (retCodeService.a(i2)) {
             PlainRequest plainRequest = new PlainRequest("http://wspeed.qq.com/w.cgi", Request.Method.GET, (byte[]) null);
             plainRequest.addQuery("appid", "1000162");
-            plainRequest.addQuery("resultcode", String.valueOf(retCodeInfo.f41051d));
+            plainRequest.addQuery("resultcode", String.valueOf(retCodeInfo.f38065d));
             plainRequest.addQuery("sdkversion", SDKStatus.getSDKVersion());
             plainRequest.addQuery("touin", "");
-            plainRequest.addQuery("tmcost", String.valueOf(retCodeInfo.f41052e));
-            plainRequest.addQuery("reqsize", String.valueOf(retCodeInfo.f41053f));
-            plainRequest.addQuery("rspsize", String.valueOf(retCodeInfo.f41054g));
+            plainRequest.addQuery("tmcost", String.valueOf(retCodeInfo.f38066e));
+            plainRequest.addQuery("reqsize", String.valueOf(retCodeInfo.f38067f));
+            plainRequest.addQuery("rspsize", String.valueOf(retCodeInfo.f38068g));
             plainRequest.addQuery("frequency", String.valueOf(i2));
             try {
-                plainRequest.addQuery("commandid", URLEncoder.encode(retCodeInfo.f41049b, "utf-8"));
-                plainRequest.addQuery("releaseversion", URLEncoder.encode(retCodeInfo.f41050c, "utf-8"));
-                plainRequest.addQuery("serverip", URLEncoder.encode(a(retCodeInfo.f41048a), "utf-8"));
+                plainRequest.addQuery("commandid", URLEncoder.encode(retCodeInfo.f38063b, "utf-8"));
+                plainRequest.addQuery("releaseversion", URLEncoder.encode(retCodeInfo.f38064c, "utf-8"));
+                plainRequest.addQuery("serverip", URLEncoder.encode(a(retCodeInfo.f38062a), "utf-8"));
                 NetworkClientImpl.getInstance().submit(plainRequest, NetworkClient.Priority.Low);
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
@@ -243,11 +244,11 @@ public class RetCodeService {
         }
         if (retCodeService.a(i2)) {
             PlainRequest plainRequest2 = new PlainRequest("http://c.isdspeed.qq.com/code.cgi", Request.Method.GET, (byte[]) null);
-            plainRequest2.addQuery("domain", retCodeInfo.f41048a);
-            plainRequest2.addQuery("cgi", retCodeInfo.f41049b);
-            plainRequest2.addQuery("type", String.valueOf(retCodeInfo.f41055h));
-            plainRequest2.addQuery("code", String.valueOf(retCodeInfo.f41051d));
-            plainRequest2.addQuery("time", String.valueOf(retCodeInfo.f41052e));
+            plainRequest2.addQuery("domain", retCodeInfo.f38062a);
+            plainRequest2.addQuery("cgi", retCodeInfo.f38063b);
+            plainRequest2.addQuery("type", String.valueOf(retCodeInfo.f38069h));
+            plainRequest2.addQuery("code", String.valueOf(retCodeInfo.f38065d));
+            plainRequest2.addQuery("time", String.valueOf(retCodeInfo.f38066e));
             plainRequest2.addQuery("rate", String.valueOf(i2));
             NetworkClientImpl.getInstance().submit(plainRequest2, NetworkClient.Priority.Low);
         }
@@ -256,13 +257,13 @@ public class RetCodeService {
     private boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) ? this.f41046c.nextDouble() < 1.0d / ((double) i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? this.f38060c.nextDouble() < 1.0d / ((double) i2) : invokeI.booleanValue;
     }
 
     public static RetCodeService getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Holder.f41047a : (RetCodeService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Holder.f38061a : (RetCodeService) invokeV.objValue;
     }
 
     public void send(RetCodeInfo retCodeInfo) {

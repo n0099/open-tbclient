@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f72518a;
+    public final int f69621a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f72519b;
+    public boolean f69622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f72520c;
+    public boolean f69623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f72521d;
+    public byte[] f69624d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f72522e;
+    public int f69625e;
 
     public o(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -42,24 +42,24 @@ public final class o {
                 return;
             }
         }
-        this.f72518a = i2;
+        this.f69621a = i2;
         byte[] bArr = new byte[i3 + 3];
-        this.f72521d = bArr;
+        this.f69624d = bArr;
         bArr[2] = 1;
     }
 
     public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.f72519b) {
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.f69622b) {
             int i4 = i3 - i2;
-            byte[] bArr2 = this.f72521d;
+            byte[] bArr2 = this.f69624d;
             int length = bArr2.length;
-            int i5 = this.f72522e;
+            int i5 = this.f69625e;
             if (length < i5 + i4) {
-                this.f72521d = Arrays.copyOf(bArr2, (i5 + i4) * 2);
+                this.f69624d = Arrays.copyOf(bArr2, (i5 + i4) * 2);
             }
-            System.arraycopy(bArr, i2, this.f72521d, this.f72522e, i4);
-            this.f72522e += i4;
+            System.arraycopy(bArr, i2, this.f69624d, this.f69625e, i4);
+            this.f69625e += i4;
         }
     }
 
@@ -67,10 +67,10 @@ public final class o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f72519b) {
-                this.f72522e -= i2;
-                this.f72519b = false;
-                this.f72520c = true;
+            if (this.f69622b) {
+                this.f69625e -= i2;
+                this.f69622b = false;
+                this.f69623c = true;
                 return true;
             }
             return false;
@@ -81,26 +81,26 @@ public final class o {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72520c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69623c : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f72519b = false;
-            this.f72520c = false;
+            this.f69622b = false;
+            this.f69623c = false;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            d.f.b.a.i0.a.f(!this.f72519b);
-            boolean z = i2 == this.f72518a;
-            this.f72519b = z;
+            d.f.b.a.i0.a.f(!this.f69622b);
+            boolean z = i2 == this.f69621a;
+            this.f69622b = z;
             if (z) {
-                this.f72522e = 3;
-                this.f72520c = false;
+                this.f69625e = 3;
+                this.f69623c = false;
             }
         }
     }

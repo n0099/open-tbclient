@@ -22,7 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RequestParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ENCODING = "UTF-8";
@@ -31,7 +31,7 @@ public class RequestParams {
     public ConcurrentHashMap<String, String> urlParams;
     public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class FileWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,12 +275,12 @@ public class RequestParams {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr2 = {objArr};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

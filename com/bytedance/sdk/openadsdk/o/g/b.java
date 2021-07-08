@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.o.g;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,15 +12,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final MessageDigest f31667a;
+    public static final MessageDigest f31777a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f31668b;
+    public static final char[] f31778b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +36,8 @@ public class b {
                 return;
             }
         }
-        f31667a = a();
-        f31668b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f31777a = a();
+        f31778b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public b() {
@@ -56,7 +57,7 @@ public class b {
     public static MessageDigest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 return MessageDigest.getInstance(PackageTable.MD5);
             } catch (NoSuchAlgorithmException unused) {
@@ -71,11 +72,11 @@ public class b {
         byte[] digest;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            MessageDigest messageDigest = f31667a;
+            MessageDigest messageDigest = f31777a;
             if (messageDigest == null || TextUtils.isEmpty(str)) {
                 return "";
             }
-            byte[] bytes = str.getBytes(d.f31674a);
+            byte[] bytes = str.getBytes(d.f31784a);
             synchronized (b.class) {
                 digest = messageDigest.digest(bytes);
             }
@@ -95,7 +96,7 @@ public class b {
             int i2 = 0;
             for (byte b2 : bArr) {
                 int i3 = i2 + 1;
-                char[] cArr2 = f31668b;
+                char[] cArr2 = f31778b;
                 cArr[i2] = cArr2[(b2 & 240) >> 4];
                 i2 = i3 + 1;
                 cArr[i3] = cArr2[b2 & 15];

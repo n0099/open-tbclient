@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.download.DownloadTask;
-import com.kwad.sdk.utils.t;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.utils.w;
+/* loaded from: classes6.dex */
 public class b extends com.ksad.download.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class b extends com.ksad.download.c {
     private String g(DownloadTask downloadTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, downloadTask)) == null) ? t.a(downloadTask.getUrl()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, downloadTask)) == null) ? w.a(downloadTask.getUrl()) : (String) invokeL.objValue;
     }
 
     @Override // com.ksad.download.c

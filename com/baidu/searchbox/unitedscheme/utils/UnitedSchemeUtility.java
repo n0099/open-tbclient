@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.InvokeSchemeInfo;
@@ -33,7 +34,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class UnitedSchemeUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -549,7 +550,7 @@ public final class UnitedSchemeUtility {
         InterceptResult invokeLLL;
         String path;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, callbackHandler, unitedSchemeEntity, jSONObject)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, unitedSchemeEntity, jSONObject)) == null) {
             if (callbackHandler == null || unitedSchemeEntity == null || jSONObject == null || (jSONObject.optInt("status") > 0 && ((path = unitedSchemeEntity.getUri().getPath()) == null || path.toLowerCase(Locale.getDefault()).startsWith("/feed/iswebp")))) {
                 return jSONObject;
             }

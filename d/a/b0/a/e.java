@@ -1,518 +1,253 @@
 package d.a.b0.a;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.SDKVersion;
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.downloader.SilentDownloaderManager;
-import com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager;
-import com.baidu.media.duplayer.LibsInfoDef;
-import com.baidu.media.duplayer.Utils;
-import com.baidu.media.duplayer.d;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
-import dalvik.system.BaseDexClassLoader;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-/* loaded from: classes8.dex */
-public class e {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static e f43814a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f43815b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43816c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Set<String> f43817d;
+/* loaded from: classes6.dex */
+public final class e {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int accessibility_action_clickable_span = 2131296296;
+    public static final int accessibility_custom_action_0 = 2131296297;
+    public static final int accessibility_custom_action_1 = 2131296298;
+    public static final int accessibility_custom_action_10 = 2131296299;
+    public static final int accessibility_custom_action_11 = 2131296300;
+    public static final int accessibility_custom_action_12 = 2131296301;
+    public static final int accessibility_custom_action_13 = 2131296302;
+    public static final int accessibility_custom_action_14 = 2131296303;
+    public static final int accessibility_custom_action_15 = 2131296304;
+    public static final int accessibility_custom_action_16 = 2131296305;
+    public static final int accessibility_custom_action_17 = 2131296306;
+    public static final int accessibility_custom_action_18 = 2131296307;
+    public static final int accessibility_custom_action_19 = 2131296308;
+    public static final int accessibility_custom_action_2 = 2131296309;
+    public static final int accessibility_custom_action_20 = 2131296310;
+    public static final int accessibility_custom_action_21 = 2131296311;
+    public static final int accessibility_custom_action_22 = 2131296312;
+    public static final int accessibility_custom_action_23 = 2131296313;
+    public static final int accessibility_custom_action_24 = 2131296314;
+    public static final int accessibility_custom_action_25 = 2131296315;
+    public static final int accessibility_custom_action_26 = 2131296316;
+    public static final int accessibility_custom_action_27 = 2131296317;
+    public static final int accessibility_custom_action_28 = 2131296318;
+    public static final int accessibility_custom_action_29 = 2131296319;
+    public static final int accessibility_custom_action_3 = 2131296320;
+    public static final int accessibility_custom_action_30 = 2131296321;
+    public static final int accessibility_custom_action_31 = 2131296322;
+    public static final int accessibility_custom_action_4 = 2131296323;
+    public static final int accessibility_custom_action_5 = 2131296324;
+    public static final int accessibility_custom_action_6 = 2131296325;
+    public static final int accessibility_custom_action_7 = 2131296326;
+    public static final int accessibility_custom_action_8 = 2131296327;
+    public static final int accessibility_custom_action_9 = 2131296328;
+    public static final int action_bar = 2131296341;
+    public static final int action_bar_activity_content = 2131296342;
+    public static final int action_bar_container = 2131296343;
+    public static final int action_bar_root = 2131296346;
+    public static final int action_bar_spinner = 2131296347;
+    public static final int action_bar_subtitle = 2131296348;
+    public static final int action_bar_title = 2131296349;
+    public static final int action_container = 2131296351;
+    public static final int action_context_bar = 2131296352;
+    public static final int action_divider = 2131296353;
+    public static final int action_image = 2131296355;
+    public static final int action_menu_divider = 2131296357;
+    public static final int action_menu_presenter = 2131296358;
+    public static final int action_mode_bar = 2131296359;
+    public static final int action_mode_bar_stub = 2131296360;
+    public static final int action_mode_close_button = 2131296361;
+    public static final int action_text = 2131296362;
+    public static final int actions = 2131296364;
+    public static final int activity_chooser_view_content = 2131296368;
+    public static final int add = 2131296464;
+    public static final int alertTitle = 2131296844;
+    public static final int async = 2131296938;
+    public static final int bg_layout = 2131297299;
+    public static final int blocking = 2131297367;
+    public static final int bottom = 2131297385;
+    public static final int btn_retry = 2131297530;
+    public static final int buttonPanel = 2131297564;
+    public static final int cancel_clip_btn = 2131297645;
+    public static final int check_code = 2131298106;
+    public static final int checkbox = 2131298109;
+    public static final int checked = 2131298113;
+    public static final int chronometer = 2131298184;
+    public static final int code_container = 2131298226;
+    public static final int content = 2131298320;
+    public static final int contentPanel = 2131298324;
+    public static final int custom = 2131298484;
+    public static final int customPanel = 2131298485;
+    public static final int decor_content_parent = 2131298538;
+    public static final int default_activity_button = 2131298541;
+    public static final int dialog_button = 2131298589;
+    public static final int dialog_loading_view = 2131298612;
+    public static final int dialog_msg = 2131298616;
+    public static final int dialog_title = 2131298626;
+    public static final int edit_query = 2131298872;
+    public static final int end = 2131298997;
+    public static final int expand_activities_button = 2131299106;
+    public static final int expanded_menu = 2131299117;
+    public static final int forever = 2131299348;
+    public static final int get_code = 2131299971;
+    public static final int gone = 2131300052;
+    public static final int group_divider = 2131300084;
+    public static final int home = 2131300210;
+    public static final int icon = 2131300402;
+    public static final int icon_group = 2131300422;
+    public static final int image = 2131300506;
+    public static final int info = 2131300656;
+    public static final int invisible = 2131300724;
+    public static final int italic = 2131300734;
+    public static final int iv_pick_up_arrow = 2131300887;
+    public static final int iv_pose_warning_tip = 2131300889;
+    public static final int iv_recog_circle = 2131300891;
+    public static final int iv_recog_logo = 2131300892;
+    public static final int layout_pose_warning = 2131301251;
+    public static final int left = 2131301295;
+    public static final int line1 = 2131301367;
+    public static final int line3 = 2131301369;
+    public static final int listMode = 2131301404;
+    public static final int list_item = 2131301409;
+    public static final int loading_container = 2131301516;
+    public static final int message = 2131301754;
+    public static final int msg_text = 2131301855;
+    public static final int multiply = 2131301894;
+    public static final int negative_btn = 2131302001;
+    public static final int neutral_btn = 2131302016;
+    public static final int none = 2131302130;
+    public static final int normal = 2131302139;
+    public static final int notification_background = 2131302155;
+    public static final int notification_main_column = 2131302157;
+    public static final int notification_main_column_container = 2131302158;
+    public static final int off = 2131302171;
+    public static final int on = 2131302202;
+    public static final int packed = 2131302281;
+    public static final int parent = 2131302289;
+    public static final int parentPanel = 2131302290;
+    public static final int pass_base_ui_dialog_content = 2131302294;
+    public static final int pass_base_ui_dialog_horizontal_split_line = 2131302295;
+    public static final int pass_base_ui_dialog_root_view = 2131302296;
+    public static final int pass_base_ui_dialog_title = 2131302297;
+    public static final int pass_base_ui_dialog_vertical_split_line = 2131302298;
+    public static final int pass_base_ui_first_btn_layout = 2131302299;
+    public static final int pass_bio_camera_pre_view = 2131302300;
+    public static final int pass_bio_circle_hide_view = 2131302301;
+    public static final int pass_bio_circle_image_view = 2131302302;
+    public static final int pass_bio_dialog_alert_ll_content = 2131302303;
+    public static final int pass_bio_dialog_ll_content = 2131302304;
+    public static final int pass_bio_dialog_time_center = 2131302305;
+    public static final int pass_bio_dialog_time_left = 2131302306;
+    public static final int pass_bio_dialog_time_right = 2131302307;
+    public static final int pass_bio_liveness_recog_close = 2131302308;
+    public static final int pass_bio_liveness_recog_cpv = 2131302309;
+    public static final int pass_bio_liveness_recog_tip_text = 2131302310;
+    public static final int pass_bio_loading_view = 2131302311;
+    public static final int percent = 2131302656;
+    public static final int phone = 2131302862;
+    public static final int positive_btn = 2131302966;
+    public static final int progressBar1 = 2131303110;
+    public static final int progress_bar = 2131303113;
+    public static final int progress_circular = 2131303114;
+    public static final int progress_horizontal = 2131303116;
+    public static final int prompt = 2131303133;
+    public static final int radio = 2131303286;
+    public static final int right = 2131303501;
+    public static final int right_icon = 2131303521;
+    public static final int right_side = 2131303527;
+    public static final int rim_base_toast_icon = 2131303535;
+    public static final int rim_base_toast_message = 2131303536;
+    public static final int root_view = 2131303627;
+    public static final int sapi_background_picture = 2131303686;
+    public static final int sapi_bottom_back = 2131303690;
+    public static final int sapi_clip_box = 2131303691;
+    public static final int sapi_layout_bottom_back = 2131303692;
+    public static final int sapi_sdk_bottom_divider_line = 2131303767;
+    public static final int sapi_sdk_fingerprint_icon = 2131303789;
+    public static final int sapi_sdk_fingerprint_negative_btn = 2131303790;
+    public static final int sapi_sdk_fingerprint_positive_btn = 2131303791;
+    public static final int sapi_sdk_fingerprint_sub_title = 2131303792;
+    public static final int sapi_sdk_fingerprint_title = 2131303793;
+    public static final int sapi_sdk_fl_ocr_camera_border = 2131303794;
+    public static final int sapi_sdk_fl_take_photo = 2131303795;
+    public static final int sapi_sdk_iv_ocr_id_card_emblem = 2131303806;
+    public static final int sapi_sdk_iv_ocr_id_card_people = 2131303807;
+    public static final int sapi_sdk_loading_logo = 2131303814;
+    public static final int sapi_sdk_loading_timeout_bg_layout = 2131303815;
+    public static final int sapi_sdk_loading_timeout_iv = 2131303816;
+    public static final int sapi_sdk_loading_timeout_tv = 2131303817;
+    public static final int sapi_sdk_ocr_frame_layout = 2131303832;
+    public static final int sapi_sdk_sweep_bg_view = 2131303850;
+    public static final int sapi_sdk_sweep_iv = 2131303851;
+    public static final int sapi_sdk_sweep_light_loading_bg_layout = 2131303852;
+    public static final int sapi_sdk_tv_light_tip = 2131303868;
+    public static final int sapi_sdk_tv_type_tip = 2131303869;
+    public static final int sapi_textview_back = 2131303874;
+    public static final int sapi_title_bg_layout = 2131303875;
+    public static final int sapi_title_layout = 2131303876;
+    public static final int sapi_webview = 2131303877;
+    public static final int sbl_root_view = 2131303892;
+    public static final int screen = 2131303901;
+    public static final int scrollIndicatorDown = 2131303912;
+    public static final int scrollIndicatorUp = 2131303913;
+    public static final int scrollView = 2131303914;
+    public static final int search_badge = 2131303934;
+    public static final int search_bar = 2131303935;
+    public static final int search_button = 2131303945;
+    public static final int search_close_btn = 2131303946;
+    public static final int search_edit_frame = 2131303949;
+    public static final int search_go_btn = 2131303955;
+    public static final int search_mag_icon = 2131303965;
+    public static final int search_plate = 2131303966;
+    public static final int search_src_text = 2131303971;
+    public static final int search_voice_btn = 2131303980;
+    public static final int select_dialog_listview = 2131304041;
+    public static final int separate_line = 2131304068;
+    public static final int shortcut = 2131304154;
+    public static final int spacer = 2131304278;
+    public static final int split_action_bar = 2131304302;
+    public static final int spread = 2131304303;
+    public static final int spread_inside = 2131304305;
+    public static final int src_atop = 2131304352;
+    public static final int src_in = 2131304353;
+    public static final int src_over = 2131304354;
+    public static final int start = 2131304364;
+    public static final int stub_bottom_back = 2131304408;
+    public static final int submenuarrow = 2131304428;
+    public static final int submit_area = 2131304429;
+    public static final int sure_clip_btn = 2131304449;
+    public static final int tabMode = 2131304494;
+    public static final int tag_accessibility_actions = 2131304536;
+    public static final int tag_accessibility_clickable_spans = 2131304537;
+    public static final int tag_accessibility_heading = 2131304538;
+    public static final int tag_accessibility_pane_title = 2131304539;
+    public static final int tag_screen_reader_focusable = 2131304600;
+    public static final int tag_transition_group = 2131304612;
+    public static final int tag_unhandled_key_event_manager = 2131304613;
+    public static final int tag_unhandled_key_listeners = 2131304614;
+    public static final int text = 2131304739;
+    public static final int text2 = 2131304740;
+    public static final int textSpacerNoButtons = 2131304744;
+    public static final int textSpacerNoTitle = 2131304745;
+    public static final int time = 2131304959;
+    public static final int time_out_dialog_msg = 2131304960;
+    public static final int tipTextView = 2131304969;
+    public static final int title = 2131305011;
+    public static final int titleDividerNoCustom = 2131305017;
+    public static final int title_btn_left_iv = 2131305038;
+    public static final int title_btn_left_tv = 2131305039;
+    public static final int title_btn_right = 2131305040;
+    public static final int title_divider_line = 2131305050;
+    public static final int title_left_btn_layout = 2131305059;
+    public static final int title_right_close = 2131305075;
+    public static final int title_template = 2131305088;
+    public static final int title_text = 2131305089;
+    public static final int top = 2131305159;
+    public static final int topPanel = 2131305162;
+    public static final int tv_pose_warning_tip = 2131305717;
+    public static final int unchecked = 2131305874;
+    public static final int uniform = 2131305879;
+    public static final int up = 2131305904;
+    public static final int view_switcher = 2131306237;
+    public static final int webview = 2131306533;
+    public static final int wrap = 2131306597;
+    public static final int wrap_content = 2131306598;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f43818e;
-
-        public a(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f43818e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            File[] listFiles;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    for (File file : new File(e.f43816c).listFiles()) {
-                        if (file.isFile()) {
-                            this.f43818e.h(file);
-                        } else if (file.getName().equals(e.f43815b)) {
-                            this.f43818e.n(file);
-                        } else {
-                            Utils.e(file);
-                        }
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(547516128, "Ld/a/b0/a/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(547516128, "Ld/a/b0/a/e;");
-                return;
-            }
-        }
-        f43817d = new LinkedHashSet();
-    }
-
-    public e() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized e b() {
-        InterceptResult invokeV;
-        e eVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (e.class) {
-                if (f43814a == null) {
-                    f43815b = Utils.s();
-                    f43814a = new e();
-                }
-                eVar = f43814a;
-            }
-            return eVar;
-        }
-        return (e) invokeV.objValue;
-    }
-
-    public boolean A(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (i2 & 896) == i2 : invokeI.booleanValue;
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-                cyberCfgManager.setPrefStr("build_in_" + dVar.a(), dVar.d());
-            }
-        }
-    }
-
-    public boolean C(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (i2 & 2048) == i2 : invokeI.booleanValue;
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
-            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                if (dVar != null && i(dVar)) {
-                    r(dVar);
-                    t(dVar);
-                    return;
-                }
-            }
-        }
-    }
-
-    public boolean E(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (i2 & 3) == i2 : invokeI.booleanValue;
-    }
-
-    public boolean F(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (i2 & CommandMessage.COMMAND_BASE) == i2 : invokeI.booleanValue;
-    }
-
-    public com.baidu.media.duplayer.d a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i2)) : (com.baidu.media.duplayer.d) invokeI.objValue;
-    }
-
-    public final String c(Context context, com.baidu.media.duplayer.d dVar) {
-        InterceptResult invokeLL;
-        StringBuilder sb;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, dVar)) == null) {
-            String str2 = null;
-            if (dVar.l() == d.a.f8083a) {
-                if (dVar.d().equals(d(dVar.a())) && d.a.b0.b.a.e(context.getClassLoader())) {
-                    return "apk_internal_jar";
-                }
-                sb = new StringBuilder();
-                sb.append(f43816c);
-                sb.append(File.separator);
-                sb.append(dVar.a());
-                sb.append("_");
-                sb.append(dVar.d());
-                str = ".jar";
-            } else if (dVar.l() != d.a.f8084b) {
-                return null;
-            } else {
-                if (dVar.d().equals(d(dVar.a())) && CyberCfgManager.getInstance().getCfgBoolValue("enable_libs_reuse", true)) {
-                    str2 = ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a());
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    dVar.i(true);
-                    return str2;
-                }
-                sb = new StringBuilder();
-                sb.append(f43816c);
-                sb.append(File.separator);
-                sb.append(f43815b);
-                sb.append(File.separator);
-                sb.append(dVar.a());
-                sb.append("_");
-                sb.append(dVar.d());
-                sb.append(File.separator);
-                sb.append("lib");
-                sb.append(dVar.a());
-                str = ".so";
-            }
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-            return cyberCfgManager.getPrefStr("build_in_" + str, "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Map<String, String> e(CyberPlayerCoreProvider.LibsVersionType libsVersionType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, libsVersionType)) == null) {
-            HashMap hashMap = new HashMap();
-            if (CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION == libsVersionType) {
-                for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                    hashMap.put(dVar.a(), dVar.d());
-                }
-            } else if (CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION == libsVersionType) {
-                for (com.baidu.media.duplayer.d dVar2 : LibsInfoDef.getAllGroupMap().values()) {
-                    if (c.d(dVar2.g())) {
-                        hashMap.put(dVar2.a(), dVar2.d());
-                    }
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
-            if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
-                B();
-            }
-            k(context, str);
-            D();
-        }
-    }
-
-    public final void h(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, file) == null) {
-            try {
-                if (!file.isFile() || file.getName().contains(SDKVersion.VERSION)) {
-                    return;
-                }
-                file.delete();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public final boolean i(com.baidu.media.duplayer.d dVar) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, dVar)) == null) {
-            if (dVar != null && !"cyber-player".equals(dVar.a()) && !"cyber-sdl".equals(dVar.a())) {
-                String cfgValue = CyberCfgManager.getInstance().getCfgValue(dVar.a(), "");
-                if (!TextUtils.isEmpty(cfgValue) && (split = cfgValue.split(";")) != null && split.length == 3 && CyberCfgManager.getInstance().isAllowUpdate(dVar.a(), split[1], dVar.d())) {
-                    dVar.h(dVar.d());
-                    dVar.k(dVar.j());
-                    CyberCfgManager.getInstance();
-                    dVar.b(CyberCfgManager.keepMainProcessVersion(dVar.a(), split[1]));
-                    dVar.e(c(CyberPlayerManager.getApplicationContext(), dVar));
-                    dVar.f("1".equals(split[2]));
-                    dVar.c(true);
-                    l(dVar);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int j(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            int i3 = (i2 & 2) == 2 ? 92 : 28;
-            if ((i2 & 4) == 4) {
-                i3 |= 32;
-            }
-            if ((i2 & 8) == 8) {
-                i3 |= 896;
-            }
-            if ((i2 & 16) == 16) {
-                i3 |= 3;
-            }
-            if ((i2 & 32) == 32) {
-                i3 |= 2048;
-            }
-            return (i2 & 64) == 64 ? i3 | CommandMessage.COMMAND_BASE : i3;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void k(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) {
-            f43816c = str + File.separator + "libs";
-            for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
-                String c2 = c(context, dVar);
-                dVar.e(c2);
-                if (dVar.l() == d.a.f8084b) {
-                    File parentFile = new File(c2).getParentFile();
-                    if (!parentFile.exists() || parentFile.isFile()) {
-                        parentFile.mkdirs();
-                    }
-                    f43817d.add(parentFile.getAbsolutePath());
-                }
-            }
-        }
-    }
-
-    public final void l(com.baidu.media.duplayer.d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, dVar) == null) && Utils.r(CyberPlayerManager.getApplicationContext())) {
-            String prefStr = CyberCfgManager.getInstance().getPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, dVar.a());
-            String prefStr2 = CyberCfgManager.getInstance().getPrefStr("update_version", dVar.d());
-            if (dVar.a().equals(prefStr) && CyberCfgManager.compareVersion(dVar.d(), prefStr2) == -1) {
-                return;
-            }
-            CyberCfgManager.getInstance().setPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE, dVar.a());
-            CyberCfgManager.getInstance().setPrefStr("update_version", dVar.d());
-        }
-    }
-
-    public final void n(File file) {
-        File[] listFiles;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, file) == null) {
-            try {
-                for (File file2 : file.listFiles()) {
-                    Iterator<String> it = f43817d.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().contains(file2.getAbsolutePath())) {
-                                z = false;
-                                break;
-                            }
-                        } else {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (z) {
-                        Utils.e(file2);
-                    }
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public String[] o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            Set<String> set = f43817d;
-            return (String[]) set.toArray(new String[set.size()]);
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? f43815b : (String) invokeV.objValue;
-    }
-
-    public String q(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            com.baidu.media.duplayer.d a2 = a(i2);
-            if (a2 == null) {
-                return null;
-            }
-            return f43815b + "_" + a2.a() + "_" + a2.d() + ".zip";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final boolean r(com.baidu.media.duplayer.d dVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, dVar)) == null) {
-            if (dVar == null || !dVar.q() || dVar.d().equals(dVar.n())) {
-                return false;
-            }
-            if (SilentDownloaderManager.getInstance().checkLibs(dVar.a(), dVar.d())) {
-                String latestLoadedVersion = CyberCoreLoaderManager.getLatestLoadedVersion(dVar.a());
-                if (CyberCfgManager.compareVersion(latestLoadedVersion, dVar.n()) != 1) {
-                    latestLoadedVersion = dVar.n();
-                }
-                dVar.b(latestLoadedVersion);
-                dVar.e(c(CyberPlayerManager.getApplicationContext(), dVar));
-                dVar.c(false);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, 0L);
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - prefLong > 432000000) {
-                CyberCfgManager.getInstance().setPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, currentTimeMillis);
-                CyberTaskExcutor.getInstance().execute(new a(this));
-            }
-        }
-    }
-
-    public final void t(com.baidu.media.duplayer.d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048598, this, dVar) == null) && dVar != null && dVar.l() == d.a.f8084b) {
-            try {
-                File parentFile = new File(dVar.j()).getParentFile();
-                if (!parentFile.exists() || parentFile.isFile()) {
-                    parentFile.mkdirs();
-                }
-                f43817d.add(parentFile.getAbsolutePath());
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public boolean u(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? (i2 & 28) == i2 : invokeI.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            int size = LibsInfoDef.getAllGroupMap().size();
-            for (int i2 = 0; i2 <= size; i2++) {
-                com.baidu.media.duplayer.d a2 = a(1 << i2);
-                if (a2 != null && a2.m()) {
-                    if (a2.q()) {
-                        a2.b(a2.n());
-                        a2.e(a2.o());
-                        a2.c(false);
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean w(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? (i2 & 32) == i2 : invokeI.booleanValue;
-    }
-
-    public boolean y(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? (i2 & 64) == i2 : invokeI.booleanValue;
-    }
 }

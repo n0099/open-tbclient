@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SkyDexFeedNetworkResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class SkyDexFeedNetworkResponse {
     public Object response;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class MaterialType {
         public static final /* synthetic */ MaterialType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,7 +109,7 @@ public class SkyDexFeedNetworkResponse {
         public static MaterialType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (MaterialType[]) $VALUES.clone() : (MaterialType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (MaterialType[]) $VALUES.clone() : (MaterialType[]) invokeV.objValue;
         }
 
         public String getValue() {

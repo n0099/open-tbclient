@@ -2,7 +2,7 @@ package i.a.a.e.k;
 
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface c {
     PayUIKitConfig getPayUIKitConfig();
 

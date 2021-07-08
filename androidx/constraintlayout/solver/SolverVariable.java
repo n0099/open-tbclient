@@ -247,7 +247,7 @@ public class SolverVariable {
 
     public static void increaseErrorId() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             uniqueErrorId++;
         }
     }

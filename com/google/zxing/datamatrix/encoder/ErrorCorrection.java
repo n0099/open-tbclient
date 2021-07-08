@@ -1,5 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.utils.ContactPermissionUtil;
 import com.facebook.imageutils.JfifUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ErrorCorrection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ALOG;
@@ -79,7 +80,7 @@ public final class ErrorCorrection {
     public static String encodeECC200(String str, SymbolInfo symbolInfo) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, symbolInfo)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, symbolInfo)) == null) {
             if (str.length() == symbolInfo.getDataCapacity()) {
                 StringBuilder sb = new StringBuilder(symbolInfo.getDataCapacity() + symbolInfo.getErrorCodewords());
                 sb.append(str);

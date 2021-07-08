@@ -3,6 +3,7 @@ package com.baidu.apollon.statistics;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,20 +24,20 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3956a = "c";
+    public static final String f3959a = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f3957b;
+    public JSONArray f3960b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3958c;
+    public int f3961c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f3959d;
+    public byte[] f3962d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f3960e;
+    public byte[] f3963e;
 
     /* renamed from: com.baidu.apollon.statistics.c$1  reason: invalid class name */
     /* loaded from: classes.dex */
@@ -51,10 +52,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3961a;
+        public int f3964a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3962b;
+        public String f3965b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -76,7 +77,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f3963a;
+        public static c f3966a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -92,7 +93,7 @@ public class c {
                     return;
                 }
             }
-            f3963a = new c(null);
+            f3966a = new c(null);
         }
 
         public b() {
@@ -132,24 +133,24 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f3963a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f3966a : (c) invokeV.objValue;
     }
 
     @SuppressLint({"NewApi"})
     private void d() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (i2 = this.f3958c) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (i2 = this.f3961c) <= 0) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 19) {
             while (true) {
                 int i3 = i2 - 1;
                 if (i2 > 0) {
-                    this.f3957b.remove(0);
+                    this.f3960b.remove(0);
                     i2 = i3;
                 } else {
-                    this.f3958c = 0;
+                    this.f3961c = 0;
                     return;
                 }
             }
@@ -157,8 +158,8 @@ public class c {
             try {
                 Field declaredField = JSONArray.class.getDeclaredField(SavedStateHandle.VALUES);
                 declaredField.setAccessible(true);
-                List list = (List) declaredField.get(this.f3957b);
-                int i4 = this.f3958c;
+                List list = (List) declaredField.get(this.f3960b);
+                int i4 = this.f3961c;
                 while (true) {
                     int i5 = i4 - 1;
                     if (i4 > 0) {
@@ -167,7 +168,7 @@ public class c {
                         }
                         i4 = i5;
                     } else {
-                        this.f3958c = 0;
+                        this.f3961c = 0;
                         return;
                     }
                 }
@@ -185,8 +186,8 @@ public class c {
                 return;
             }
             try {
-                synchronized (this.f3959d) {
-                    this.f3957b = new JSONArray(a2);
+                synchronized (this.f3962d) {
+                    this.f3960b = new JSONArray(a2);
                 }
             } catch (JSONException unused) {
             }
@@ -198,8 +199,8 @@ public class c {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.f3959d) {
-                z = this.f3957b.length() == 0;
+            synchronized (this.f3962d) {
+                z = this.f3960b.length() == 0;
             }
             return z;
         }
@@ -219,10 +220,10 @@ public class c {
                 return;
             }
         }
-        this.f3957b = new JSONArray();
-        this.f3958c = 0;
-        this.f3959d = new byte[0];
-        this.f3960e = new byte[0];
+        this.f3960b = new JSONArray();
+        this.f3961c = 0;
+        this.f3962d = new byte[0];
+        this.f3963e = new byte[0];
     }
 
     public void a(e eVar) {
@@ -230,12 +231,12 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) || eVar == null) {
             return;
         }
-        synchronized (this.f3959d) {
+        synchronized (this.f3962d) {
             try {
-                this.f3957b.put(this.f3957b.length(), eVar.a());
+                this.f3960b.put(this.f3960b.length(), eVar.a());
             } catch (JSONException unused) {
             }
-            a(g.a().a(eVar.f3978h));
+            a(g.a().a(eVar.f3981h));
             if (CustomerService.getInstance().isEnabled()) {
                 CustomerService.getInstance().enqueEvent(eVar);
             }
@@ -245,7 +246,7 @@ public class c {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && "normal_log".equals(str)) {
-            synchronized (this.f3959d) {
+            synchronized (this.f3962d) {
                 d();
             }
             a(false);
@@ -255,13 +256,13 @@ public class c {
     private void a(boolean z) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, this, z) == null) {
-            synchronized (this.f3959d) {
-                if (this.f3957b.length() == 0) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
+            synchronized (this.f3962d) {
+                if (this.f3960b.length() == 0) {
                     com.baidu.apollon.statistics.a.a(false, PayStatisticsUtil.c(), Config.v, "", false);
                     return;
                 }
-                String jSONArray = this.f3957b.toString();
+                String jSONArray = this.f3960b.toString();
                 try {
                     i2 = jSONArray.getBytes().length;
                 } catch (Throwable th) {
@@ -290,7 +291,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             a aVar = new a();
-            synchronized (this.f3960e) {
+            synchronized (this.f3963e) {
                 try {
                     StatisticsSettings a2 = PayStatisticsUtil.getInstance().a();
                     jSONObject = a2 != null ? new JSONObject(a2.getCommonHeader()) : null;
@@ -301,11 +302,11 @@ public class c {
             if (jSONObject == null) {
                 return aVar;
             }
-            synchronized (this.f3959d) {
+            synchronized (this.f3962d) {
                 try {
-                    jSONObject.put("array", this.f3957b);
-                    aVar.f3961a = this.f3957b.length();
-                    aVar.f3962b = jSONObject.toString();
+                    jSONObject.put("array", this.f3960b);
+                    aVar.f3964a = this.f3960b.length();
+                    aVar.f3965b = jSONObject.toString();
                 } catch (JSONException unused2) {
                 }
             }
@@ -317,7 +318,7 @@ public class c {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && "normal_log".equals(str)) {
-            this.f3958c = i2;
+            this.f3961c = i2;
         }
     }
 }

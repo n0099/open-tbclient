@@ -136,7 +136,7 @@ public class IMJoinCastMsg extends Message {
             if (r3 <= 0) goto L61
             int r3 = r3 * 1000
             com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r3     // Catch: java.lang.Exception -> Ld4
-            boolean r9 = d.a.v.a.f70712e     // Catch: java.lang.Exception -> Ld4
+            boolean r9 = d.a.t.a.f67515e     // Catch: java.lang.Exception -> Ld4
             if (r9 == 0) goto L68
             com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Ld4
             goto L68

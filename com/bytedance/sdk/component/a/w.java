@@ -1,6 +1,7 @@
 package com.bytedance.sdk.component.a;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,21 +11,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f27706a;
+    public static final w f27816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final w f27707b;
+    public static final w f27817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final w f27708c;
+    public static final w f27818c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ w[] f27709d;
+    public static final /* synthetic */ w[] f27819d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,11 +41,11 @@ public final class w {
                 return;
             }
         }
-        f27706a = new w("PUBLIC", 0);
-        f27707b = new w("PROTECTED", 1);
+        f27816a = new w("PUBLIC", 0);
+        f27817b = new w("PROTECTED", 1);
         w wVar = new w("PRIVATE", 2);
-        f27708c = wVar;
-        f27709d = new w[]{f27706a, f27707b, wVar};
+        f27818c = wVar;
+        f27819d = new w[]{f27816a, f27817b, wVar};
     }
 
     public w(String str, int i2) {
@@ -71,16 +72,16 @@ public final class w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f27706a;
+                return f27816a;
             }
             String lowerCase = str.toLowerCase();
             if (TextUtils.equals("protected", lowerCase)) {
-                return f27707b;
+                return f27817b;
             }
             if (TextUtils.equals(PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE, lowerCase)) {
-                return f27708c;
+                return f27818c;
             }
-            return f27706a;
+            return f27816a;
         }
         return (w) invokeL.objValue;
     }
@@ -94,13 +95,13 @@ public final class w {
     public static w[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (w[]) f27709d.clone() : (w[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (w[]) f27819d.clone() : (w[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f27708c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f27707b ? "protected" : "public" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == f27818c ? PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : this == f27817b ? "protected" : "public" : (String) invokeV.objValue;
     }
 }

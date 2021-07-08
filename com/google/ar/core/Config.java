@@ -1,5 +1,6 @@
 package com.google.ar.core;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32849a;
+    public long f32959a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AugmentedFaceMode {
         public static final /* synthetic */ AugmentedFaceMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -93,12 +94,12 @@ public class Config {
         public static AugmentedFaceMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (AugmentedFaceMode[]) $VALUES.clone() : (AugmentedFaceMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (AugmentedFaceMode[]) $VALUES.clone() : (AugmentedFaceMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CloudAnchorMode {
         public static final /* synthetic */ CloudAnchorMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -174,12 +175,12 @@ public class Config {
         public static CloudAnchorMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (CloudAnchorMode[]) $VALUES.clone() : (CloudAnchorMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CloudAnchorMode[]) $VALUES.clone() : (CloudAnchorMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FocusMode {
         public static final /* synthetic */ FocusMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -255,12 +256,12 @@ public class Config {
         public static FocusMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FocusMode[]) $VALUES.clone() : (FocusMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FocusMode[]) $VALUES.clone() : (FocusMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LightEstimationMode {
         public static final /* synthetic */ LightEstimationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -336,12 +337,12 @@ public class Config {
         public static LightEstimationMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (LightEstimationMode[]) $VALUES.clone() : (LightEstimationMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LightEstimationMode[]) $VALUES.clone() : (LightEstimationMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PlaneFindingMode {
         public static final /* synthetic */ PlaneFindingMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -421,12 +422,12 @@ public class Config {
         public static PlaneFindingMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (PlaneFindingMode[]) $VALUES.clone() : (PlaneFindingMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PlaneFindingMode[]) $VALUES.clone() : (PlaneFindingMode[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UpdateMode {
         public static final /* synthetic */ UpdateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -502,7 +503,7 @@ public class Config {
         public static UpdateMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (UpdateMode[]) $VALUES.clone() : (UpdateMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (UpdateMode[]) $VALUES.clone() : (UpdateMode[]) invokeV.objValue;
         }
     }
 
@@ -519,7 +520,7 @@ public class Config {
                 return;
             }
         }
-        this.f32849a = 0L;
+        this.f32959a = 0L;
     }
 
     public static native long nativeCreate(long j);
@@ -557,7 +558,7 @@ public class Config {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f32849a;
+            long j = this.f32959a;
             if (j != 0) {
                 nativeDestroy(j);
             }

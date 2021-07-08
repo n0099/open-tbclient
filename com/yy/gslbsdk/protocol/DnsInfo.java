@@ -11,7 +11,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class DnsInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsInfo";

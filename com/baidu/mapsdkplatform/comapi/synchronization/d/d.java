@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f7839a;
+    public Map<String, String> f7856a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public final class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f7839a == null) {
-                this.f7839a = new LinkedHashMap();
+            if (this.f7856a == null) {
+                this.f7856a = new LinkedHashMap();
             }
-            this.f7839a.put(str, str2);
+            this.f7856a.put(str, str2);
             return this;
         }
         return (d) invokeLL.objValue;
@@ -49,14 +49,14 @@ public final class d {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, String> map = this.f7839a;
+            Map<String, String> map = this.f7856a;
             if (map == null || map.isEmpty()) {
                 return null;
             }
             String str = new String();
             int i2 = 0;
-            for (String str2 : this.f7839a.keySet()) {
-                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f7839a.get(str2));
+            for (String str2 : this.f7856a.keySet()) {
+                String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.f7856a.get(str2));
                 if (i2 == 0) {
                     sb = new StringBuilder();
                 } else {

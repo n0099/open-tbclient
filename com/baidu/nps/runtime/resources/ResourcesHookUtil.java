@@ -3,6 +3,7 @@ package com.baidu.nps.runtime.resources;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d0.i.h;
+import d.a.a0.i.h;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ResourcesHookUtil {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Set<Integer>> sAddedAssetsMap;
@@ -141,7 +142,7 @@ public class ResourcesHookUtil {
     public static synchronized boolean hookResources(Resources resources, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, resources, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, str)) == null) {
             synchronized (ResourcesHookUtil.class) {
                 if (resources == null) {
                     return false;

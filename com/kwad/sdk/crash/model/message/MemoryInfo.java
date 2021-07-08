@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MemoryInfo implements b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4944913077323984734L;
@@ -84,6 +84,7 @@ public class MemoryInfo implements b, Serializable {
         }
     }
 
+    @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -153,19 +154,19 @@ public class MemoryInfo implements b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "mTotalMB", this.mTotalMB);
-            o.a(jSONObject, "mAvailableMB", this.mAvailableMB);
-            o.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
-            o.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
-            o.a(jSONObject, "mVssMB", this.mVssMB);
-            o.a(jSONObject, "mRssMB", this.mRssMB);
-            o.a(jSONObject, "mPssMB", this.mPssMB);
-            o.a(jSONObject, "mThreadsCount", this.mThreadsCount);
-            o.a(jSONObject, "mFdCount", this.mFdCount);
-            o.a(jSONObject, "mFds", this.mFds);
-            o.a(jSONObject, "mJavaThreads", this.mJavaThreads);
-            o.a(jSONObject, "mNativeThreads", this.mNativeThreads);
-            o.a(jSONObject, "mAllThreads", this.mAllThreads);
+            q.a(jSONObject, "mTotalMB", this.mTotalMB);
+            q.a(jSONObject, "mAvailableMB", this.mAvailableMB);
+            q.a(jSONObject, "mJavaHeapLimitMB", this.mJavaHeapLimitMB);
+            q.a(jSONObject, "mJavaHeapMB", this.mJavaHeapMB);
+            q.a(jSONObject, "mVssMB", this.mVssMB);
+            q.a(jSONObject, "mRssMB", this.mRssMB);
+            q.a(jSONObject, "mPssMB", this.mPssMB);
+            q.a(jSONObject, "mThreadsCount", this.mThreadsCount);
+            q.a(jSONObject, "mFdCount", this.mFdCount);
+            q.a(jSONObject, "mFds", this.mFds);
+            q.a(jSONObject, "mJavaThreads", this.mJavaThreads);
+            q.a(jSONObject, "mNativeThreads", this.mNativeThreads);
+            q.a(jSONObject, "mAllThreads", this.mAllThreads);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

@@ -26,7 +26,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +39,7 @@ import org.webrtc.EglBase14;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final MediaCodecProperties AllwinnerH264HwProperties;
@@ -131,13 +130,13 @@ public class MediaCodecVideoEncoder {
     public int width;
 
     /* renamed from: org.webrtc.MediaCodecVideoEncoder$1CaughtException  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f76131e;
+        public Exception f73165e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -160,7 +159,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class BitrateAdjustmentType {
         public static final /* synthetic */ BitrateAdjustmentType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -221,7 +220,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class EncoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +250,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class H264Profile {
         public static final /* synthetic */ H264Profile[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -325,7 +324,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class HwEncoderFactory implements VideoEncoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -467,7 +466,7 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class MediaCodecProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -496,12 +495,12 @@ public class MediaCodecVideoEncoder {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecVideoEncoderErrorCallback {
         void onMediaCodecVideoEncoderCriticalError(int i2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class OutputBufferInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -561,7 +560,7 @@ public class MediaCodecVideoEncoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -627,7 +626,7 @@ public class MediaCodecVideoEncoder {
         public static VideoCodecType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (VideoCodecType[]) $VALUES.clone() : (VideoCodecType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (VideoCodecType[]) $VALUES.clone() : (VideoCodecType[]) invokeV.objValue;
         }
     }
 
@@ -1450,7 +1449,7 @@ public class MediaCodecVideoEncoder {
                     this.mediaCodecThread = Thread.currentThread();
                     try {
                         MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str2, i3, i4);
-                        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.targetBitrateBps);
+                        createVideoFormat.setInteger("bitrate", this.targetBitrateBps);
                         createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, bitrateMode);
                         createVideoFormat.setInteger("color-format", encoderProperties.colorFormat);
                         createVideoFormat.setInteger("frame-rate", this.targetFps);
@@ -1552,7 +1551,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f76131e = e3;
+                                this.val$caughtException.f73165e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1583,12 +1582,12 @@ public class MediaCodecVideoEncoder {
             }
             runningInstance = null;
             if (!z) {
-                if (c1CaughtException.f76131e == null) {
+                if (c1CaughtException.f73165e == null) {
                     Logging.d(TAG, "Java releaseEncoder done");
                     return;
                 }
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f76131e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f76131e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f73165e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f73165e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
             codecErrors++;

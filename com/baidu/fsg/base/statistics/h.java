@@ -10,36 +10,36 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5296a = "en";
+    public static final String f5313a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5297b = "et";
+    public static final String f5314b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5298c = "ev";
+    public static final String f5315c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5299d = "eg";
+    public static final String f5316d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5300e = "lk";
+    public static final String f5317e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5301f = "nu";
+    public static final String f5318f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5302g = "extra1";
+    public static final String f5319g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5303h = "extra2";
+    public static final String f5320h = "extra2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5304i = "extra3";
+    public static final String f5321i = "extra3";
     public static final String j = "extra4";
     public static final String k = "extra5";
     public static final String l = "extra6";

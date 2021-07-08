@@ -20,7 +20,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MetricsHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class MetricsHandler {
     public Map<String, TimeWorker> timers;
     public String ver;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class TimeWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class MetricsHandler {
     private MetricsWorker addMetricsWorker(String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             MetricsWorker createMetricsWorker = createMetricsWorker(j, j2);
             if (createMetricsWorker != null) {
                 this.metricsWorkerMap.put(str, createMetricsWorker);

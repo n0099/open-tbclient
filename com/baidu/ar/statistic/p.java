@@ -1,6 +1,7 @@
 package com.baidu.ar.statistic;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -116,7 +117,7 @@ public class p {
 
     public static void o(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, hashMap) == null) || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap) == null) || hashMap == null) {
             return;
         }
         String str = (String) hashMap.get("id");

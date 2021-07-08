@@ -2,6 +2,7 @@ package com.baidu.apollon.statusbar;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,7 @@ public class ImmersiveOSUtils {
     public static String getMIUIVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? isMIUI() ? getSystemProperty("ro.miui.ui.version.name", "") : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? isMIUI() ? getSystemProperty("ro.miui.ui.version.name", "") : "" : (String) invokeV.objValue;
     }
 
     public static String getSystemProperty(String str, String str2) {

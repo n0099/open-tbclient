@@ -45,7 +45,7 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class YYPayUIKit implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "YYPayUiKit";
@@ -60,13 +60,13 @@ public class YYPayUIKit implements c {
     public int mUserChannel;
     public List<IYYPayListener> mYYPayListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a extends AppPayServiceListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayUIKit f76690a;
+        public final /* synthetic */ YYPayUIKit f73724a;
 
         public a(YYPayUIKit yYPayUIKit) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class YYPayUIKit implements c {
                     return;
                 }
             }
-            this.f76690a = yYPayUIKit;
+            this.f73724a = yYPayUIKit;
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.payapi.AppPayServiceListener, com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
@@ -91,7 +91,7 @@ public class YYPayUIKit implements c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, currencyChargeMessage) == null) {
                 super.onCurrencyChargeMessage(currencyChargeMessage);
-                this.f76690a.notifyYYPayListener(currencyChargeMessage);
+                this.f73724a.notifyYYPayListener(currencyChargeMessage);
             }
         }
     }
@@ -173,7 +173,7 @@ public class YYPayUIKit implements c {
     private b getPayController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.mIYYPayController == null) {
                 this.mIYYPayController = new g(this.mAppId, this.mUserChannel, this.mModelProvider, this);
             }

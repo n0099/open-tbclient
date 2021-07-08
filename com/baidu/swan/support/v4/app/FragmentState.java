@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.o.a.a.k;
-import d.a.q0.o.a.a.m;
-/* loaded from: classes4.dex */
+import d.a.n0.o.a.a.k;
+import d.a.n0.o.a.a.m;
+/* loaded from: classes3.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FragmentState> CREATOR;
@@ -32,7 +32,7 @@ public final class FragmentState implements Parcelable {
     public Bundle mSavedFragmentState;
     public final String mTag;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<FragmentState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public final class FragmentState implements Parcelable {
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(h2.getClassLoader());
-                this.mInstance.f12058h = this.mSavedFragmentState;
+                this.mInstance.f12075h = this.mSavedFragmentState;
             }
             this.mInstance.k1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
@@ -150,7 +150,7 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = kVar.f54153d;
+            fragment3.w = kVar.f50851d;
             if (m.x) {
                 Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
             }

@@ -3,6 +3,7 @@ package com.bumptech.glide;
 import android.widget.AbsListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ListPreloader<T> implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
     public final RequestManager requestManager;
     public int totalItemCount;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface PreloadModelProvider<U> {
         @NonNull
         List<U> getPreloadItems(int i2);
@@ -40,13 +41,13 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
         RequestBuilder<?> getPreloadRequestBuilder(@NonNull U u);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface PreloadSizeProvider<T> {
         @Nullable
         int[] getPreloadSize(@NonNull T t, int i2, int i3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class PreloadTarget extends BaseTarget<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +91,7 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class PreloadTargetQueue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +178,7 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
 
     private void preloadAdapterPosition(List<T> list, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{list, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{list, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             int size = list.size();
             if (z) {
                 for (int i3 = 0; i3 < size; i3++) {

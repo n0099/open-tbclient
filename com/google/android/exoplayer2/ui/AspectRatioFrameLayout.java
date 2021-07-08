@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.g0.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class AspectRatioFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f32777e;
+    public float f32887e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f32778f;
+    public int f32888f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AspectRatioFrameLayout(Context context) {
@@ -47,7 +47,7 @@ public final class AspectRatioFrameLayout extends FrameLayout {
     public int getResizeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32778f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32888f : invokeV.intValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -57,34 +57,34 @@ public final class AspectRatioFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f32778f == 3 || this.f32777e <= 0.0f) {
+            if (this.f32888f == 3 || this.f32887e <= 0.0f) {
                 return;
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             float f4 = measuredWidth;
             float f5 = measuredHeight;
-            float f6 = (this.f32777e / (f4 / f5)) - 1.0f;
+            float f6 = (this.f32887e / (f4 / f5)) - 1.0f;
             if (Math.abs(f6) <= 0.01f) {
                 return;
             }
-            int i4 = this.f32778f;
+            int i4 = this.f32888f;
             if (i4 == 1) {
-                f2 = this.f32777e;
+                f2 = this.f32887e;
             } else {
                 if (i4 == 2) {
-                    f3 = this.f32777e;
+                    f3 = this.f32887e;
                 } else {
                     if (i4 != 4) {
                         if (f6 > 0.0f) {
-                            f2 = this.f32777e;
+                            f2 = this.f32887e;
                         } else {
-                            f3 = this.f32777e;
+                            f3 = this.f32887e;
                         }
                     } else if (f6 > 0.0f) {
-                        f3 = this.f32777e;
+                        f3 = this.f32887e;
                     } else {
-                        f2 = this.f32777e;
+                        f2 = this.f32887e;
                     }
                     super.onMeasure(View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824));
                 }
@@ -98,19 +98,19 @@ public final class AspectRatioFrameLayout extends FrameLayout {
 
     public void setAspectRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || this.f32777e == f2) {
+        if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || this.f32887e == f2) {
             return;
         }
-        this.f32777e = f2;
+        this.f32887e = f2;
         requestLayout();
     }
 
     public void setResizeMode(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f32778f == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f32888f == i2) {
             return;
         }
-        this.f32778f = i2;
+        this.f32888f = i2;
         requestLayout();
     }
 
@@ -133,11 +133,11 @@ public final class AspectRatioFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f32778f = 0;
+        this.f32888f = 0;
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, f.AspectRatioFrameLayout, 0, 0);
             try {
-                this.f32778f = obtainStyledAttributes.getInt(f.AspectRatioFrameLayout_resize_mode, 0);
+                this.f32888f = obtainStyledAttributes.getInt(f.AspectRatioFrameLayout_resize_mode, 0);
             } finally {
                 obtainStyledAttributes.recycle();
             }

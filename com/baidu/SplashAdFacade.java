@@ -14,28 +14,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.b.f;
-import d.a.h0.b.g.g;
+import d.a.e0.b.f;
+import d.a.e0.b.g.g;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class SplashAdFacade {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SplashAdFacade f2118e;
+    public static final SplashAdFacade f2119e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f2119a;
+    public volatile boolean f2120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.h0.b.a f2120b;
+    public d.a.e0.b.a f2121b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2121c;
+    public long f2122c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f2122d;
+    public final Handler f2123d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -107,10 +107,10 @@ public class SplashAdFacade {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f2123e;
+        public final /* synthetic */ int f2124e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SplashAdFacade f2124f;
+        public final /* synthetic */ SplashAdFacade f2125f;
 
         public a(SplashAdFacade splashAdFacade, int i2) {
             Interceptable interceptable = $ic;
@@ -127,20 +127,20 @@ public class SplashAdFacade {
                     return;
                 }
             }
-            this.f2124f = splashAdFacade;
-            this.f2123e = i2;
+            this.f2125f = splashAdFacade;
+            this.f2124e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f2123e != 1 || ((float) (System.currentTimeMillis() - this.f2124f.f2121c)) >= g.d() * 60000.0f) {
-                    if (this.f2124f.f2120b == null) {
-                        this.f2124f.f2120b = new d.a.h0.b.a();
+                if (this.f2124e != 1 || ((float) (System.currentTimeMillis() - this.f2125f.f2122c)) >= g.d() * 60000.0f) {
+                    if (this.f2125f.f2121b == null) {
+                        this.f2125f.f2121b = new d.a.e0.b.a();
                     }
-                    this.f2124f.f2120b.l(d.a.h0.a.b.a.f45561a.get());
-                    this.f2124f.f2121c = System.currentTimeMillis();
+                    this.f2125f.f2121b.l(d.a.e0.a.b.a.f42209a.get());
+                    this.f2125f.f2122c = System.currentTimeMillis();
                 }
             }
         }
@@ -166,7 +166,7 @@ public class SplashAdFacade {
                 return;
             }
         }
-        f2118e = new SplashAdFacade();
+        f2119e = new SplashAdFacade();
     }
 
     public SplashAdFacade() {
@@ -184,25 +184,25 @@ public class SplashAdFacade {
         }
         AdLoadState adLoadState = AdLoadState.INIT;
         AdLoadState adLoadState2 = AdLoadState.INIT;
-        this.f2119a = false;
+        this.f2120a = false;
         new AtomicInteger(0);
-        this.f2122d = new Handler(Looper.myLooper());
+        this.f2123d = new Handler(Looper.myLooper());
     }
 
     public static SplashAdFacade e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f2118e : (SplashAdFacade) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f2119e : (SplashAdFacade) invokeV.objValue;
     }
 
-    public void f(d.a.h0.a.b.a aVar) {
+    public void f(d.a.e0.a.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             if (aVar == null) {
                 Log.e("SplashAdFacade", "appContext is null ,init failed");
                 return;
             }
-            d.a.h0.a.b.a.f45561a.set(aVar);
+            d.a.e0.a.b.a.f42209a.set(aVar);
             aVar.o().registerActivityLifecycleCallbacks(new f());
             new BDAdConfig.Builder().setAppName(aVar.u()).setAppsid(aVar.r()).build(aVar.o()).init();
             MobadsPermissionSettings.setPermissionReadDeviceID(true);
@@ -215,14 +215,14 @@ public class SplashAdFacade {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2119a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2120a : invokeV.booleanValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || d.a.h0.a.b.a.f45561a.get() == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || d.a.e0.a.b.a.f42209a.get() == null) {
             return;
         }
-        this.f2122d.postDelayed(new a(this, i2), 5000L);
+        this.f2123d.postDelayed(new a(this, i2), 5000L);
     }
 }

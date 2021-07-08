@@ -29,7 +29,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SapiContext implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
@@ -93,7 +93,7 @@ public final class SapiContext implements NoProguard {
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9285c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9302c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
@@ -145,7 +145,7 @@ public final class SapiContext implements NoProguard {
     private void setLoginAccounts(List<SapiAccount> list) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, list) == null) || (jSONArray = SapiAccount.toJSONArray(list)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list) == null) || (jSONArray = SapiAccount.toJSONArray(list)) == null) {
             return;
         }
         put(KEY_ENCRYPTED_LOGIN_ACCOUNTS, SapiDataEncryptor.encryptAccountInfo(jSONArray.toString(), getAccountEncryptKey()));

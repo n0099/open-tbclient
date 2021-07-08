@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SocialEncodeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;

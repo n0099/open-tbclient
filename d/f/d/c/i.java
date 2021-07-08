@@ -16,14 +16,14 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class i<R, C, V> implements k1<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public transient Set<k1.a<R, C, V>> cellSet;
     public transient Collection<V> values;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends m1<k1.a<R, C, V>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +58,13 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class b extends AbstractSet<k1.a<R, C, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f73758e;
+        public final /* synthetic */ i f70861e;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -81,14 +81,14 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
                     return;
                 }
             }
-            this.f73758e = iVar;
+            this.f70861e = iVar;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73758e.clear();
+                this.f70861e.clear();
             }
         }
 
@@ -99,7 +99,7 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof k1.a) {
                     k1.a aVar = (k1.a) obj;
-                    Map map = (Map) Maps.A(this.f73758e.rowMap(), aVar.getRowKey());
+                    Map map = (Map) Maps.A(this.f70861e.rowMap(), aVar.getRowKey());
                     return map != null && n.e(map.entrySet(), Maps.l(aVar.getColumnKey(), aVar.getValue()));
                 }
                 return false;
@@ -111,7 +111,7 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
         public Iterator<k1.a<R, C, V>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73758e.cellIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70861e.cellIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -121,7 +121,7 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                 if (obj instanceof k1.a) {
                     k1.a aVar = (k1.a) obj;
-                    Map map = (Map) Maps.A(this.f73758e.rowMap(), aVar.getRowKey());
+                    Map map = (Map) Maps.A(this.f70861e.rowMap(), aVar.getRowKey());
                     return map != null && n.f(map.entrySet(), Maps.l(aVar.getColumnKey(), aVar.getValue()));
                 }
                 return false;
@@ -133,17 +133,17 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f73758e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f70861e.size() : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class c extends AbstractCollection<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f73759e;
+        public final /* synthetic */ i f70862e;
 
         public c(i iVar) {
             Interceptable interceptable = $ic;
@@ -160,14 +160,14 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
                     return;
                 }
             }
-            this.f73759e = iVar;
+            this.f70862e = iVar;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73759e.clear();
+                this.f70862e.clear();
             }
         }
 
@@ -175,21 +175,21 @@ public abstract class i<R, C, V> implements k1<R, C, V> {
         public boolean contains(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f73759e.containsValue(obj) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? this.f70862e.containsValue(obj) : invokeL.booleanValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<V> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73759e.valuesIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70862e.valuesIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73759e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70862e.size() : invokeV.intValue;
         }
     }
 

@@ -10,6 +10,7 @@ import android.os.Parcel;
 import android.service.media.MediaBrowserService;
 import android.support.v4.media.session.MediaSessionCompat;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -211,7 +212,7 @@ public class MediaBrowserServiceCompatApi21 {
 
     public static void onCreate(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj) == null) {
             ((MediaBrowserService) obj).onCreate();
         }
     }

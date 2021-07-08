@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.track.Request;
@@ -267,7 +268,7 @@ public class BIMRtcTrackDatabase {
     public static SQLiteDatabase getDb(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (dbOpenHelper == null) {
                 dbOpenHelper = new DbOpenHelper(context, DB_NAME, 1);
             }

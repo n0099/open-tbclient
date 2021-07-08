@@ -34,30 +34,30 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.ChannelNativeAds_6;
 import com.fun.ad.sdk.FunNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
-import d.a.r0.b.d;
-import d.a.r0.r.u.c;
-import d.a.s0.h3.h0.n;
-import d.a.s0.v0.a;
-import d.a.s0.w0.b;
+import d.a.o0.b.d;
+import d.a.o0.r.u.c;
+import d.a.p0.h3.h0.n;
+import d.a.p0.v0.a;
+import d.a.p0.w0.b;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FunAdNativePbView extends FunAbsAdView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f16256f;
+    public RelativeLayout f16295f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16257g;
+    public View f16296g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f16258h;
+    public ViewGroup f16297h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FunAdSmallPicView f16259i;
+    public FunAdSmallPicView f16298i;
     public ViewGroup j;
     public CardView k;
     public FunAdNativePicView l;
@@ -111,7 +111,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f16256f.setVisibility(i2);
+            this.f16295f.setVisibility(i2);
         }
     }
 
@@ -136,22 +136,22 @@ public class FunAdNativePbView extends FunAbsAdView {
         FunNativeAd funNativeAd = (FunNativeAd) nVar.d();
         b.f(funNativeAd);
         String title = funNativeAd.getTitle();
-        this.f16224e = title;
-        if (StringUtils.isNull(title) || this.f16224e.equals(activity.getString(R.string.fun_ad_label))) {
-            this.f16224e = activity.getString(R.string.fun_ad_title_promotion);
+        this.f16263e = title;
+        if (StringUtils.isNull(title) || this.f16263e.equals(activity.getString(R.string.fun_ad_label))) {
+            this.f16263e = activity.getString(R.string.fun_ad_title_promotion);
         }
-        this.n.setText(this.f16224e);
+        this.n.setText(this.f16263e);
         this.m.setText(funNativeAd.getDescription());
         List<String> imageUrls = funNativeAd.getImageUrls();
         this.k.removeAllViews();
         if (b.k(funNativeAd, imageUrls)) {
-            this.f16258h.setVisibility(8);
-            this.f16259i.setVisibility(0);
-            this.f16259i.setData(funNativeAd, (String) ListUtils.getItem(imageUrls, 0));
+            this.f16297h.setVisibility(8);
+            this.f16298i.setVisibility(0);
+            this.f16298i.setData(funNativeAd, (String) ListUtils.getItem(imageUrls, 0));
             return;
         }
-        this.f16258h.setVisibility(0);
-        this.f16259i.setVisibility(8);
+        this.f16297h.setVisibility(0);
+        this.f16298i.setVisibility(8);
         if (funNativeAd.getVideoView() != null) {
             b.p(this.j, b.m(funNativeAd));
             this.k.addView(funNativeAd.getVideoView(), new ViewGroup.LayoutParams(-1, -1));
@@ -178,14 +178,14 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(getLayoutId(), (ViewGroup) this, true);
-            this.f16256f = (RelativeLayout) findViewById(R.id.fun_card_layout);
-            this.f16257g = findViewById(R.id.divider_with_reply_title);
+            this.f16295f = (RelativeLayout) findViewById(R.id.fun_card_layout);
+            this.f16296g = findViewById(R.id.divider_with_reply_title);
             this.m = (EMTextView) findViewById(R.id.fun_card_description);
-            this.f16258h = (ViewGroup) findViewById(R.id.fun_ad_container);
+            this.f16297h = (ViewGroup) findViewById(R.id.fun_ad_container);
             this.j = (ViewGroup) findViewById(R.id.media_container);
             this.k = (CardView) findViewById(R.id.media_video);
             this.l = (FunAdNativePicView) findViewById(R.id.medig_image);
-            this.f16259i = (FunAdSmallPicView) findViewById(R.id.media_small);
+            this.f16298i = (FunAdSmallPicView) findViewById(R.id.media_small);
             this.n = (TextView) findViewById(R.id.fun_ad_title);
             this.o = (LinearLayout) findViewById(R.id.fun_ad_lable_pb_layout);
             this.p = (ImageView) findViewById(R.id.fun_ad_lable_icon);
@@ -200,7 +200,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public List<View> getClickViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Arrays.asList(this, this.f16256f, this.k, this.n, this.t, this.s) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Arrays.asList(this, this.f16295f, this.k, this.n, this.t, this.s) : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAbsAdView
@@ -229,7 +229,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return a.a("pb", d.B() ? "1" : "0");
+            return a.a("pb", d.L() ? "1" : "0");
         }
         return (a.e) invokeV.objValue;
     }
@@ -246,7 +246,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             WebPManager.setPureDrawable(this.r, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            SkinManager.setBackgroundColor(this.f16257g, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f16296g, R.color.CAM_X0204);
             c.d(this.m).t(R.color.CAM_X0105);
             c.d(this.n).t(R.color.CAM_X0109);
             c.d(this.q).t(R.color.CAM_X0101);
@@ -256,7 +256,7 @@ public class FunAdNativePbView extends FunAbsAdView {
             this.s.g();
             this.t.d(TbadkCoreApplication.getInst().getSkinType());
             this.l.d();
-            this.f16259i.c();
+            this.f16298i.c();
         }
     }
 
@@ -289,7 +289,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         if (interceptable == null || interceptable.invokeLL(1048591, this, funNativeAd, nVar) == null) {
             ChannelNativeAds_6 channelNativeAds_6 = funNativeAd.getChannelNativeAds_6();
             this.u.setTag(nVar);
-            d.a.s0.w0.f.a aVar = new d.a.s0.w0.f.a(this.u, nVar);
+            d.a.p0.w0.f.a aVar = new d.a.p0.w0.f.a(this.u, nVar);
             if (channelNativeAds_6 != null && (ksNativeAd = channelNativeAds_6.ksNative) != null) {
                 ksNativeAd.setDownloadListener(aVar);
             } else if (channelNativeAds_6 != null && (tTNativeAd = channelNativeAds_6.csjNative) != null) {
@@ -305,7 +305,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void setFeedBackListener(View.OnClickListener onClickListener) {
         FunAdSmallPicView funAdSmallPicView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) || (funAdSmallPicView = this.f16259i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) || (funAdSmallPicView = this.f16298i) == null) {
             return;
         }
         funAdSmallPicView.setFeedBackListener(onClickListener);
@@ -315,7 +315,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void setFunAdViewVisible(boolean z) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (relativeLayout = this.f16256f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || (relativeLayout = this.f16295f) == null) {
             return;
         }
         relativeLayout.setVisibility(z ? 0 : 8);

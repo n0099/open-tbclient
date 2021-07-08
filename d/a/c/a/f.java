@@ -6,7 +6,7 @@ import android.content.res.Resources;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface f<T> {
     Context getContext();
 

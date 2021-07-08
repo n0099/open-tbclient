@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.l.c;
-import d.a.s0.v1.g.a;
+import d.a.o0.r.l.c;
+import d.a.p0.v1.g.a;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,12 +63,12 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.afterDispatchInBackGround(i2, (int) bArr);
             a aVar = this.mData;
-            if (aVar == null || (eVar = aVar.f68402a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f68416a)) {
+            if (aVar == null || (eVar = aVar.f65184a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f65198a)) {
                 return;
             }
-            a.b bVar = eVar.f68419d;
-            if (bVar != null && bVar.f68409b > bVar.f68410c && !StringUtils.isNull(bVar.f68411d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f68411d);
+            a.b bVar = eVar.f65201d;
+            if (bVar != null && bVar.f65191b > bVar.f65192c && !StringUtils.isNull(bVar.f65193d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f65193d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

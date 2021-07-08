@@ -30,18 +30,18 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.a.k.d.d.d f45963a;
+    public d.a.k.d.d.d f42846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f45964b;
+    public List<e> f42847b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements Comparator<e> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,15 +69,15 @@ public class f {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eVar, eVar2)) == null) {
-                int i2 = eVar2.f45960b - eVar.f45960b;
+                int i2 = eVar2.f42843b - eVar.f42843b;
                 if (i2 == 0) {
-                    if (eVar.f45962d && eVar2.f45962d) {
+                    if (eVar.f42845d && eVar2.f42845d) {
                         return 0;
                     }
-                    if (eVar.f45962d) {
+                    if (eVar.f42845d) {
                         return -1;
                     }
-                    if (eVar2.f45962d) {
+                    if (eVar2.f42845d) {
                         return 1;
                     }
                 }
@@ -87,12 +87,12 @@ public class f {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f45965a;
+        public static final byte[] f42848a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -108,7 +108,7 @@ public class f {
                     return;
                 }
             }
-            f45965a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+            f42848a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         }
 
         public static String a(byte[] bArr, String str) {
@@ -122,7 +122,7 @@ public class f {
                 int i3 = 0;
                 for (int i4 = 0; i4 < length2; i4 += 3) {
                     int i5 = i2 + 1;
-                    byte[] bArr3 = f45965a;
+                    byte[] bArr3 = f42848a;
                     bArr2[i2] = bArr3[(bArr[i4] & 255) >> 2];
                     int i6 = i5 + 1;
                     int i7 = i4 + 1;
@@ -141,7 +141,7 @@ public class f {
                 int length3 = bArr.length % 3;
                 if (length3 == 1) {
                     int i10 = i2 + 1;
-                    byte[] bArr4 = f45965a;
+                    byte[] bArr4 = f42848a;
                     bArr2[i2] = bArr4[(bArr[length2] & 255) >> 2];
                     int i11 = i10 + 1;
                     bArr2[i10] = bArr4[(bArr[length2] & 3) << 4];
@@ -151,7 +151,7 @@ public class f {
                     bArr2[i12] = 61;
                 } else if (length3 == 2) {
                     int i13 = i2 + 1;
-                    byte[] bArr5 = f45965a;
+                    byte[] bArr5 = f42848a;
                     bArr2[i2] = bArr5[(bArr[length2] & 255) >> 2];
                     int i14 = i13 + 1;
                     int i15 = length2 + 1;
@@ -249,7 +249,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,7 +292,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -384,10 +384,10 @@ public class f {
                                     byte[] b2 = b.b(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(b2));
                                     e eVar = new e();
-                                    eVar.f45960b = jSONObject.getInt("priority");
-                                    eVar.f45959a = resolveInfo.activityInfo.applicationInfo;
+                                    eVar.f42843b = jSONObject.getInt("priority");
+                                    eVar.f42842a = resolveInfo.activityInfo.applicationInfo;
                                     if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        eVar.f45962d = true;
+                                        eVar.f42845d = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -400,9 +400,9 @@ public class f {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (e(strArr, g(packageInfo.signatures))) {
-                                                byte[] f2 = f(b.b(string2.getBytes()), this.f45963a);
+                                                byte[] f2 = f(b.b(string2.getBytes()), this.f42846a);
                                                 if (f2 != null && Arrays.equals(f2, d.a(b2))) {
-                                                    eVar.f45961c = true;
+                                                    eVar.f42844c = true;
                                                 }
                                             }
                                         }
@@ -424,7 +424,7 @@ public class f {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f45963a = new d.a.k.d.d.e(h.a(), h.b());
+            this.f42846a = new d.a.k.d.d.e(h.a(), h.b());
         }
     }
 
@@ -439,7 +439,7 @@ public class f {
                 }
                 return false;
             }
-            boolean z = b2.get(0).f45961c;
+            boolean z = b2.get(0).f42844c;
             if (!z) {
                 for (int i3 = 0; i3 < 3; i3++) {
                     Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
@@ -488,13 +488,13 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<e> list = this.f45964b;
+            List<e> list = this.f42847b;
             if (list != null) {
                 return list;
             }
             d(context);
             List<e> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f45964b = b2;
+            this.f42847b = b2;
             return b2;
         }
         return (List) invokeL.objValue;

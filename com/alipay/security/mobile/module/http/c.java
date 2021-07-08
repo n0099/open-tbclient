@@ -13,10 +13,10 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ DataReportRequest f2092a;
+    public final /* synthetic */ DataReportRequest f2093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f2093b;
+    public final /* synthetic */ b f2094b;
 
     public c(b bVar, DataReportRequest dataReportRequest) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f2093b = bVar;
-        this.f2092a = dataReportRequest;
+        this.f2094b = bVar;
+        this.f2093a = dataReportRequest;
     }
 
     @Override // java.lang.Runnable
@@ -45,13 +45,13 @@ public class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                dataReportService = this.f2093b.f2091c;
-                DataReportResult unused = b.f2088e = dataReportService.reportData(this.f2092a);
+                dataReportService = this.f2094b.f2092c;
+                DataReportResult unused = b.f2089e = dataReportService.reportData(this.f2093a);
             } catch (Throwable th) {
-                DataReportResult unused2 = b.f2088e = new DataReportResult();
-                dataReportResult = b.f2088e;
+                DataReportResult unused2 = b.f2089e = new DataReportResult();
+                dataReportResult = b.f2089e;
                 dataReportResult.success = false;
-                dataReportResult2 = b.f2088e;
+                dataReportResult2 = b.f2089e;
                 dataReportResult2.resultCode = "static data rpc upload error, " + com.alipay.security.mobile.module.a.a.a(th);
                 new StringBuilder("rpc failed:").append(com.alipay.security.mobile.module.a.a.a(th));
             }

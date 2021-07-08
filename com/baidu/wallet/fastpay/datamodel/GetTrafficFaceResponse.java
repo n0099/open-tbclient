@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -9111183651727955558L;
@@ -23,7 +23,7 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
     public TrafficFaceModel[][] dmts;
     public String showMsg;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ContentDto implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4162913658702268232L;
@@ -53,22 +53,22 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetTrafficFaceResponse f24705a;
+        public final /* synthetic */ GetTrafficFaceResponse f24815a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24706b;
+        public String f24816b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24707c;
+        public String f24817c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<TrafficFaceModel> f24708d;
+        public ArrayList<TrafficFaceModel> f24818d;
 
         public a(GetTrafficFaceResponse getTrafficFaceResponse) {
             Interceptable interceptable = $ic;
@@ -85,29 +85,29 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
                     return;
                 }
             }
-            this.f24705a = getTrafficFaceResponse;
-            this.f24706b = "";
-            this.f24707c = "";
+            this.f24815a = getTrafficFaceResponse;
+            this.f24816b = "";
+            this.f24817c = "";
         }
 
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f24706b = str;
+                this.f24816b = str;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f24707c = str;
+                this.f24817c = str;
             }
         }
 
         public void a(ArrayList<TrafficFaceModel> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                this.f24708d = arrayList;
+                this.f24818d = arrayList;
             }
         }
     }

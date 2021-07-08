@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class m extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f38742h;
+    public int[] f35814h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(com.kwad.sdk.pngencrypt.k kVar) {
@@ -32,7 +32,7 @@ public class m extends aa {
                 return;
             }
         }
-        this.f38742h = new int[0];
+        this.f35814h = new int[0];
     }
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
@@ -41,17 +41,17 @@ public class m extends aa {
         if (interceptable != null && interceptable.invokeL(1048576, this, dVar) != null) {
             return;
         }
-        if (!this.f38698e.f38783g) {
+        if (!this.f35770e.f35855g) {
             throw new PngjException("only indexed images accept a HIST chunk");
         }
-        this.f38742h = new int[dVar.f38720d.length / 2];
+        this.f35814h = new int[dVar.f35792d.length / 2];
         int i2 = 0;
         while (true) {
-            int[] iArr = this.f38742h;
+            int[] iArr = this.f35814h;
             if (i2 >= iArr.length) {
                 return;
             }
-            iArr[i2] = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, i2 * 2);
+            iArr[i2] = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, i2 * 2);
             i2++;
         }
     }

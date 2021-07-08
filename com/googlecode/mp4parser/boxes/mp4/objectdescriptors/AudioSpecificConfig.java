@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypeMap;
@@ -175,7 +175,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
 
     private void parseErHvxcConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
             this.hvxcVarMode = bitReaderBuffer.readBits(1);
             this.hvxcRateMode = bitReaderBuffer.readBits(2);
             int readBits = bitReaderBuffer.readBits(1);

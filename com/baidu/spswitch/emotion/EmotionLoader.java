@@ -9,6 +9,7 @@ import android.text.SpannableString;
 import android.util.Log;
 import android.util.LruCache;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -23,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmotionLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -36,7 +37,7 @@ public class EmotionLoader {
     public LruCache<String, Bitmap> mLruCache;
     public Handler mUIHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class SpannableBeanHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +46,7 @@ public class EmotionLoader {
         public final /* synthetic */ EmotionLoader this$0;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f10539tv;
+        public TextView f10556tv;
 
         public SpannableBeanHolder(EmotionLoader emotionLoader) {
             Interceptable interceptable = $ic;
@@ -101,7 +102,7 @@ public class EmotionLoader {
     private void addBitmapToLruCache(String str, Bitmap bitmap) {
         LruCache<String, Bitmap> lruCache;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, this, str, bitmap) == null) || (lruCache = this.mLruCache) == null || bitmap == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, bitmap) == null) || (lruCache = this.mLruCache) == null || bitmap == null) {
             return;
         }
         lruCache.put(str, bitmap);
@@ -257,7 +258,7 @@ public class EmotionLoader {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                            TextView textView2 = spannableBeanHolder.f10539tv;
+                            TextView textView2 = spannableBeanHolder.f10556tv;
                             SpannableString spannableString = spannableBeanHolder.ss;
                             String str2 = spannableBeanHolder.content;
                             if (EmotionLoader.DEBUG) {
@@ -311,7 +312,7 @@ public class EmotionLoader {
                         SpannableString parseEmotion = this.this$0.parseEmotion(this.val$type, this.val$context, this.val$content, this.val$textView);
                         SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                         spannableBeanHolder.ss = parseEmotion;
-                        spannableBeanHolder.f10539tv = this.val$textView;
+                        spannableBeanHolder.f10556tv = this.val$textView;
                         spannableBeanHolder.content = this.val$content;
                         Message obtain = Message.obtain();
                         obtain.obj = spannableBeanHolder;

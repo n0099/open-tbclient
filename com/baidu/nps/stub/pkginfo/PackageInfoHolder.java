@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d0.i.c;
-import d.a.d0.i.e;
-/* loaded from: classes3.dex */
+import d.a.a0.i.c;
+import d.a.a0.i.e;
+/* loaded from: classes2.dex */
 public class PackageInfoHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

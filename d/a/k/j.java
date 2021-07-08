@@ -1,6 +1,7 @@
 package d.a.k;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,22 +15,22 @@ import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f45977a;
+    public String f42860a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f45978b;
+    public String f42861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45979c;
+    public int f42862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f45980d;
+    public int f42863d;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -44,8 +45,8 @@ public class j {
                 return;
             }
         }
-        this.f45979c = 2;
-        this.f45980d = 0;
+        this.f42862c = 2;
+        this.f42863d = 0;
     }
 
     public static j a(String str, String str2) {
@@ -56,14 +57,14 @@ public class j {
                 return null;
             }
             j jVar = new j();
-            jVar.f45977a = str;
+            jVar.f42860a = str;
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            jVar.f45980d = length;
+            jVar.f42863d = length;
             if (length < 14) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                jVar.f45978b = str2;
+                jVar.f42861b = str2;
             }
             return jVar;
         }
@@ -85,7 +86,7 @@ public class j {
     public static j e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? g(j(str)) : (j) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? g(j(str)) : (j) invokeL.objValue;
     }
 
     public static j g(String str) {
@@ -111,14 +112,14 @@ public class j {
                 int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                 if (!TextUtils.isEmpty(string)) {
                     j jVar = new j();
-                    jVar.f45977a = string;
-                    jVar.f45979c = i2;
-                    jVar.f45980d = length;
+                    jVar.f42860a = string;
+                    jVar.f42862c = i2;
+                    jVar.f42863d = length;
                     if (length < 14) {
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        jVar.f45978b = str2;
+                        jVar.f42861b = str2;
                     }
                     jVar.k();
                     return jVar;
@@ -176,13 +177,13 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.f45978b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.f42861b) : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f45980d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.f42863d) : invokeV.booleanValue;
     }
 
     public String h() {
@@ -203,7 +204,7 @@ public class j {
             } else {
                 str = "0";
             }
-            this.f45978b = str;
+            this.f42861b = str;
             return true;
         }
         return invokeV.booleanValue;
@@ -214,7 +215,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f45977a).put(i("aW1laQ=="), this.f45978b).put(i("dmVy"), this.f45979c).toString();
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f42860a).put(i("aW1laQ=="), this.f42861b).put(i("dmVy"), this.f42862c).toString();
             } catch (JSONException e2) {
                 d.a.k.i.c.c(e2);
                 return null;

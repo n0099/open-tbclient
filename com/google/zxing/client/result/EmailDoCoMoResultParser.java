@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EmailDoCoMoResultParser extends AbstractDoCoMoResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern ATEXT_ALPHANUMERIC;

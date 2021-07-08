@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,20 +21,20 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1993a f71800a;
+    public static InterfaceC1962a f68903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f71801b;
+    public static boolean f68904b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.b.c.a.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC1993a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC1962a {
         boolean a();
 
         boolean b();
@@ -111,7 +112,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, list)) == null) {
-            if (TextUtils.isEmpty(str) || f71800a == null || f71801b) {
+            if (TextUtils.isEmpty(str) || f68903a == null || f68904b) {
                 return str;
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -135,12 +136,12 @@ public class a {
                 }
                 String encodeToString = Base64.encodeToString(a2, 2);
                 LinkedList linkedList2 = new LinkedList();
-                if (f71800a.a()) {
+                if (f68903a.a()) {
                     LinkedList linkedList3 = new LinkedList();
                     linkedList3.add(encodeToString);
                     linkedList2.add(new Pair("ss_queries", linkedList3));
                 }
-                if (f71800a.b() && list != null) {
+                if (f68903a.b() && list != null) {
                     list.add(new Pair<>("X-SS-QUERIES", b(encodeToString, "UTF-8")));
                 }
                 if (!linkedHashMap.isEmpty()) {
@@ -162,7 +163,7 @@ public class a {
     public static String d(List<Pair<String, List<String>>> list, boolean z, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{list, Boolean.valueOf(z), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{list, Boolean.valueOf(z), str})) == null) {
             StringBuilder sb = new StringBuilder();
             for (Pair<String, List<String>> pair : list) {
                 Object obj = pair.first;
@@ -238,7 +239,7 @@ public class a {
                 return false;
             }
             list.add(new Pair<>(str, map.get(str)));
-            if (f71800a.c()) {
+            if (f68903a.c()) {
                 return true;
             }
             map.remove(str);

@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,21 +13,21 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bh {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f42882a;
+    public static final Map<Class<?>, Class<?>> f39896a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f42883a;
+        public final Class<? extends T> f39897a;
 
         /* renamed from: a  reason: collision with other field name */
         public final T f152a;
@@ -46,37 +47,37 @@ public class bh {
             }
         }
         HashMap hashMap = new HashMap();
-        f42882a = hashMap;
+        f39896a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f42882a.put(Byte.class, Byte.TYPE);
-        f42882a.put(Character.class, Character.TYPE);
-        f42882a.put(Short.class, Short.TYPE);
-        f42882a.put(Integer.class, Integer.TYPE);
-        f42882a.put(Float.class, Float.TYPE);
-        f42882a.put(Long.class, Long.TYPE);
-        f42882a.put(Double.class, Double.TYPE);
-        Map<Class<?>, Class<?>> map = f42882a;
+        f39896a.put(Byte.class, Byte.TYPE);
+        f39896a.put(Character.class, Character.TYPE);
+        f39896a.put(Short.class, Short.TYPE);
+        f39896a.put(Integer.class, Integer.TYPE);
+        f39896a.put(Float.class, Float.TYPE);
+        f39896a.put(Long.class, Long.TYPE);
+        f39896a.put(Double.class, Double.TYPE);
+        Map<Class<?>, Class<?>> map = f39896a;
         Class<?> cls = Boolean.TYPE;
         map.put(cls, cls);
-        Map<Class<?>, Class<?>> map2 = f42882a;
+        Map<Class<?>, Class<?>> map2 = f39896a;
         Class<?> cls2 = Byte.TYPE;
         map2.put(cls2, cls2);
-        Map<Class<?>, Class<?>> map3 = f42882a;
+        Map<Class<?>, Class<?>> map3 = f39896a;
         Class<?> cls3 = Character.TYPE;
         map3.put(cls3, cls3);
-        Map<Class<?>, Class<?>> map4 = f42882a;
+        Map<Class<?>, Class<?>> map4 = f39896a;
         Class<?> cls4 = Short.TYPE;
         map4.put(cls4, cls4);
-        Map<Class<?>, Class<?>> map5 = f42882a;
+        Map<Class<?>, Class<?>> map5 = f39896a;
         Class<?> cls5 = Integer.TYPE;
         map5.put(cls5, cls5);
-        Map<Class<?>, Class<?>> map6 = f42882a;
+        Map<Class<?>, Class<?>> map6 = f39896a;
         Class<?> cls6 = Float.TYPE;
         map6.put(cls6, cls6);
-        Map<Class<?>, Class<?>> map7 = f42882a;
+        Map<Class<?>, Class<?>> map7 = f39896a;
         Class<?> cls7 = Long.TYPE;
         map7.put(cls7, cls7);
-        Map<Class<?>, Class<?>> map8 = f42882a;
+        Map<Class<?>, Class<?>> map8 = f39896a;
         Class<?> cls8 = Double.TYPE;
         map8.put(cls8, cls8);
     }
@@ -142,7 +143,7 @@ public class bh {
     public static <T> T a(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) {
             try {
                 return (T) a((Class<? extends Object>) obj.getClass(), obj, str);
             } catch (Exception e2) {
@@ -252,7 +253,7 @@ public class bh {
                 return false;
             } else {
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f42882a.containsKey(clsArr[i2]) || !f42882a.get(clsArr[i2]).equals(f42882a.get(clsArr2[i2])))) {
+                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!f39896a.containsKey(clsArr[i2]) || !f39896a.get(clsArr[i2]).equals(f39896a.get(clsArr2[i2])))) {
                         return false;
                     }
                 }
@@ -275,7 +276,7 @@ public class bh {
                 if (obj == null || !(obj instanceof a)) {
                     clsArr[i2] = obj == null ? null : obj.getClass();
                 } else {
-                    clsArr[i2] = ((a) obj).f42883a;
+                    clsArr[i2] = ((a) obj).f39897a;
                 }
             }
             return clsArr;

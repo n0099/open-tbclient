@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42808a;
+    public int f39822a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f98a;
@@ -30,7 +30,7 @@ public class w {
                 return;
             }
         }
-        this.f42808a = 0;
+        this.f39822a = 0;
         this.f98a = "";
     }
 

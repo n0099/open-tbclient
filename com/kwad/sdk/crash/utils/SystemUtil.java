@@ -2,10 +2,13 @@ package com.kwad.sdk.crash.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.Process;
+import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
@@ -26,28 +29,31 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SystemUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f36989a;
+    public static volatile String f35358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f36990b;
+    public static volatile Boolean f35359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f36991c;
+    public static long f35360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f36992d;
+    public static long f35361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static LEVEL f36993e;
+    public static int f35362e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static LEVEL f35363f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LEVEL {
         public static final /* synthetic */ LEVEL[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,28 +129,28 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f36994a;
+        public long f35364a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f36995b;
+        public long f35365b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f36996c;
+        public long f35366c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f36997d;
+        public long f35367d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f36998e;
+        public long f35368e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f36999f;
+        public int f35369f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -250,7 +256,7 @@ public class SystemUtil {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x000f */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x0040 */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0037, code lost:
-        com.kwad.sdk.crash.utils.SystemUtil.f36989a = r1.processName;
+        com.kwad.sdk.crash.utils.SystemUtil.f35358a = r1.processName;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v12, types: [java.io.Reader] */
@@ -271,9 +277,9 @@ public class SystemUtil {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            ?? isEmpty = TextUtils.isEmpty(f36989a);
+            ?? isEmpty = TextUtils.isEmpty(f35358a);
             if (isEmpty == 0) {
-                return f36989a;
+                return f35358a;
             }
             try {
                 isEmpty = Process.myPid();
@@ -293,7 +299,7 @@ public class SystemUtil {
             } catch (Exception e3) {
                 com.kwad.sdk.core.d.a.b(e3);
             }
-            if (TextUtils.isEmpty(f36989a)) {
+            if (TextUtils.isEmpty(f35358a)) {
                 try {
                     try {
                         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ProcessUtils.CMD_LINE_NAME)));
@@ -323,21 +329,21 @@ public class SystemUtil {
                         }
                         sb.append((char) read);
                     }
-                    f36989a = sb.toString();
+                    f35358a = sb.toString();
                 } catch (FileNotFoundException e6) {
                     e2 = e6;
                     com.kwad.sdk.core.d.a.b(e2);
                     b.a((Reader) bufferedReader);
-                    return f36989a;
+                    return f35358a;
                 } catch (IOException e7) {
                     e2 = e7;
                     com.kwad.sdk.core.d.a.b(e2);
                     b.a((Reader) bufferedReader);
-                    return f36989a;
+                    return f35358a;
                 }
                 b.a((Reader) bufferedReader);
             }
-            return f36989a;
+            return f35358a;
         }
         return (String) invokeL.objValue;
     }
@@ -377,7 +383,7 @@ public class SystemUtil {
     public static boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) ? b() >= i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? b() >= i2 : invokeI.booleanValue;
     }
 
     public static int b() {
@@ -386,10 +392,23 @@ public class SystemUtil {
         return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
-    public static long b(Context context) {
+    public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            if (f35359b == null) {
+                String a2 = a(context);
+                f35359b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+            }
+            return f35359b.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static long c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
             ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
             return memoryInfo.availMem;
@@ -404,12 +423,12 @@ public class SystemUtil {
         String readLine;
         String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             a aVar = new a();
             RandomAccessFile randomAccessFile = null;
             try {
                 try {
-                    RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7745a);
+                    RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7762a);
                     while (true) {
                         try {
                             readLine = randomAccessFile2.readLine();
@@ -419,15 +438,15 @@ public class SystemUtil {
                                 if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                     String a3 = a(readLine, "VmSize");
                                     if (a3 != null) {
-                                        aVar.f36995b = Long.valueOf(a3).longValue();
+                                        aVar.f35365b = Long.valueOf(a3).longValue();
                                     }
                                 } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                     String a4 = a(readLine, "VmRSS:");
                                     if (a4 != null) {
-                                        aVar.f36996c = Long.valueOf(a4).longValue();
+                                        aVar.f35366c = Long.valueOf(a4).longValue();
                                     }
                                 } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                    aVar.f36999f = Integer.valueOf(a2).intValue();
+                                    aVar.f35369f = Integer.valueOf(a2).intValue();
                                 }
                             }
                         } catch (IOException e2) {
@@ -455,5 +474,44 @@ public class SystemUtil {
             return aVar;
         }
         return (a) invokeV.objValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        ApplicationInfo applicationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            if (context == null) {
+                return 0;
+            }
+            try {
+                applicationInfo = context.getApplicationInfo();
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+            }
+            if (applicationInfo != null) {
+                return applicationInfo.targetSdkVersion;
+            }
+            ApplicationInfo applicationInfo2 = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
+            if (applicationInfo2 != null) {
+                return applicationInfo2.targetSdkVersion;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 }

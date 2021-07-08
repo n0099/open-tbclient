@@ -2,6 +2,7 @@ package com.baidu.ar.arplay.core.renderer;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +75,7 @@ public class SnapShot {
     public static Bitmap rotateBitmap(Bitmap bitmap, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i2)) == null) {
             Matrix matrix = new Matrix();
             matrix.postScale(1.0f, -1.0f, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
             matrix.postRotate(i2, bitmap.getWidth() / 2, bitmap.getHeight() / 2);

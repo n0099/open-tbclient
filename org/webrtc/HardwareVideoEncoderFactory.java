@@ -3,6 +3,7 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final List<String> H264_HW_EXCEPTION_MODELS;
@@ -33,7 +34,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public final EglBase14.Context sharedContext;
 
     /* renamed from: org.webrtc.HardwareVideoEncoderFactory$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
@@ -144,7 +145,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     private MediaCodecInfo findCodecForType(VideoCodecType videoCodecType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, this, videoCodecType)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, videoCodecType)) != null) {
             return (MediaCodecInfo) invokeL.objValue;
         }
         int i2 = 0;

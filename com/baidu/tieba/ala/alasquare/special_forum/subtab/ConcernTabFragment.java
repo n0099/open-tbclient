@@ -38,21 +38,21 @@ import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.k.e.n;
 import d.a.c.k.e.w;
-import d.a.r0.d0.h;
-import d.a.r0.r.f0.f;
-import d.a.r0.r.f0.g;
+import d.a.o0.d0.h;
+import d.a.o0.r.f0.f;
+import d.a.o0.r.f0.g;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14064h;
+    public View f14103h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdTypeRecyclerView f14065i;
+    public BdTypeRecyclerView f14104i;
     public BdSwipeRefreshLayout j;
     public PbListView k;
     public g l;
@@ -67,13 +67,13 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     public BdListView.p u;
     public final f.g v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabFragment f14066a;
+        public final /* synthetic */ ConcernTabFragment f14105a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ConcernTabFragment concernTabFragment, int i2) {
@@ -93,27 +93,27 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f14066a = concernTabFragment;
+            this.f14105a = concernTabFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f14066a.o == null || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.f14105a.o == null || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 return;
             }
-            this.f14066a.a1();
+            this.f14105a.b1();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements SpecialConcernTabModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabFragment f14067a;
+        public final /* synthetic */ ConcernTabFragment f14106a;
 
         public b(ConcernTabFragment concernTabFragment) {
             Interceptable interceptable = $ic;
@@ -130,17 +130,17 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f14067a = concernTabFragment;
+            this.f14106a = concernTabFragment;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.b
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                ConcernTabFragment concernTabFragment = this.f14067a;
-                concernTabFragment.hideLoadingView(concernTabFragment.f14064h);
-                this.f14067a.X0();
-                this.f14067a.d1();
+                ConcernTabFragment concernTabFragment = this.f14106a;
+                concernTabFragment.hideLoadingView(concernTabFragment.f14103h);
+                this.f14106a.Y0();
+                this.f14106a.e1();
             }
         }
 
@@ -148,34 +148,34 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         public void b(List<n> list, boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-                this.f14067a.p = z;
-                this.f14067a.r = true;
-                this.f14067a.b1(false);
-                ConcernTabFragment concernTabFragment = this.f14067a;
-                concernTabFragment.hideLoadingView(concernTabFragment.f14064h);
+                this.f14106a.p = z;
+                this.f14106a.r = true;
+                this.f14106a.c1(false);
+                ConcernTabFragment concernTabFragment = this.f14106a;
+                concernTabFragment.hideLoadingView(concernTabFragment.f14103h);
                 if (ListUtils.getCount(list) == 0) {
-                    this.f14067a.d1();
+                    this.f14106a.e1();
                 } else {
-                    this.f14067a.f14065i.setData(list);
-                    if (!this.f14067a.p) {
-                        this.f14067a.e1();
+                    this.f14106a.f14104i.setData(list);
+                    if (!this.f14106a.p) {
+                        this.f14106a.f1();
                     } else {
-                        this.f14067a.c1();
+                        this.f14106a.d1();
                     }
-                    this.f14067a.Y0();
+                    this.f14106a.Z0();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_SPECIAL_CONCERN_TAB_TAB_ICON, Boolean.valueOf(i2 > 0)));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabFragment f14068e;
+        public final /* synthetic */ ConcernTabFragment f14107e;
 
         public c(ConcernTabFragment concernTabFragment) {
             Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f14068e = concernTabFragment;
+            this.f14107e = concernTabFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
@@ -200,21 +200,21 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!l.D()) {
-                    this.f14068e.X0();
-                } else if (this.f14068e.p) {
-                    this.f14068e.o.B();
+                    this.f14107e.Y0();
+                } else if (this.f14107e.p) {
+                    this.f14107e.o.B();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabFragment f14069e;
+        public final /* synthetic */ ConcernTabFragment f14108e;
 
         public d(ConcernTabFragment concernTabFragment) {
             Interceptable interceptable = $ic;
@@ -231,52 +231,52 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f14069e = concernTabFragment;
+            this.f14108e = concernTabFragment;
         }
 
-        @Override // d.a.r0.r.f0.f.g
+        @Override // d.a.o0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (j.z()) {
-                    this.f14069e.o.C();
+                    this.f14108e.o.C();
                 } else {
-                    this.f14069e.b1(false);
+                    this.f14108e.c1(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public d.a.s0.v.d.f.b.a f14070a;
+        public d.a.p0.v.d.f.b.a f14109a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.a.s0.v.d.f.b.b f14071b;
+        public d.a.p0.v.d.f.b.b f14110b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.a.s0.v.d.f.b.c f14072c;
+        public d.a.p0.v.d.f.b.c f14111c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<d.a.c.k.e.a> f14073d;
+        public List<d.a.c.k.e.a> f14112d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ConcernTabFragment f14074e;
+        public final /* synthetic */ ConcernTabFragment f14113e;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a implements w {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ConcernTabFragment f14075e;
+            public final /* synthetic */ ConcernTabFragment f14114e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f14076f;
+            public final /* synthetic */ e f14115f;
 
             public a(e eVar, ConcernTabFragment concernTabFragment) {
                 Interceptable interceptable = $ic;
@@ -293,38 +293,38 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                         return;
                     }
                 }
-                this.f14076f = eVar;
-                this.f14075e = concernTabFragment;
+                this.f14115f = eVar;
+                this.f14114e = concernTabFragment;
             }
 
             @Override // d.a.c.k.e.w
             public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && nVar != null && (nVar instanceof d.a.s0.v.d.f.c.f)) {
-                    d.a.s0.v.d.f.c.f fVar = (d.a.s0.v.d.f.c.f) nVar;
-                    if (fVar.f67744f == null) {
+                if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && nVar != null && (nVar instanceof d.a.p0.v.d.f.c.f)) {
+                    d.a.p0.v.d.f.c.f fVar = (d.a.p0.v.d.f.c.f) nVar;
+                    if (fVar.f64526f == null) {
                         return;
                     }
                     if (!l.D()) {
-                        this.f14076f.f14074e.getPageContext().showToast(R.string.neterror);
+                        this.f14115f.f14113e.getPageContext().showToast(R.string.neterror);
                         return;
                     }
-                    if (fVar.f67745g) {
+                    if (fVar.f64527g) {
                         TiebaStatic.log(new StatisticItem("c12896"));
                     } else {
                         StatisticItem statisticItem = new StatisticItem("c12894");
-                        if (fVar.f67744f.isLegalYYLiveData()) {
-                            TiebaStaticHelper.addYYParam(statisticItem, fVar.f67744f.mYyExtData);
+                        if (fVar.f64526f.isLegalYYLiveData()) {
+                            TiebaStaticHelper.addYYParam(statisticItem, fVar.f64526f.mYyExtData);
                         }
                         TiebaStatic.log(statisticItem);
                     }
-                    if (fVar.f67744f.isLegalYYLiveData()) {
-                        TbPageContext<BaseFragmentActivity> pageContext = this.f14076f.f14074e.getPageContext();
-                        YyExtData yyExtData = fVar.f67744f.mYyExtData;
+                    if (fVar.f64526f.isLegalYYLiveData()) {
+                        TbPageContext<BaseFragmentActivity> pageContext = this.f14115f.f14113e.getPageContext();
+                        YyExtData yyExtData = fVar.f64526f.mYyExtData;
                         String str = yyExtData.mSid;
                         String str2 = yyExtData.mSsid;
                         String str3 = yyExtData.mTemplateId;
-                        YYLiveUtil.jumpToYYLiveRoom(pageContext, str, str2, str3, "" + fVar.f67744f.roomId, YYLiveUtil.SOURCE_BAIDU_LIVE_FOLLOW_HEAD);
+                        YYLiveUtil.jumpToYYLiveRoom(pageContext, str, str2, str3, "" + fVar.f64526f.roomId, YYLiveUtil.SOURCE_BAIDU_LIVE_FOLLOW_HEAD);
                     }
                 }
             }
@@ -345,15 +345,15 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                     return;
                 }
             }
-            this.f14074e = concernTabFragment;
-            this.f14073d = new LinkedList();
-            this.f14070a = new d.a.s0.v.d.f.b.a(concernTabFragment.getPageContext());
-            this.f14071b = new d.a.s0.v.d.f.b.b(concernTabFragment.getPageContext());
-            this.f14072c = new d.a.s0.v.d.f.b.c(concernTabFragment.getPageContext());
-            this.f14071b.a0(new a(this, concernTabFragment));
-            this.f14073d.add(this.f14070a);
-            this.f14073d.add(this.f14071b);
-            this.f14073d.add(this.f14072c);
+            this.f14113e = concernTabFragment;
+            this.f14112d = new LinkedList();
+            this.f14109a = new d.a.p0.v.d.f.b.a(concernTabFragment.getPageContext());
+            this.f14110b = new d.a.p0.v.d.f.b.b(concernTabFragment.getPageContext());
+            this.f14111c = new d.a.p0.v.d.f.b.c(concernTabFragment.getPageContext());
+            this.f14110b.a0(new a(this, concernTabFragment));
+            this.f14112d.add(this.f14109a);
+            this.f14112d.add(this.f14110b);
+            this.f14112d.add(this.f14111c);
         }
     }
 
@@ -378,34 +378,34 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         this.v = new d(this);
     }
 
-    public static ConcernTabFragment Z0(int i2) {
+    public static ConcernTabFragment a1(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) ? new ConcernTabFragment() : (ConcernTabFragment) invokeI.objValue;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void I0() {
+    public void J0() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bdTypeRecyclerView = this.f14065i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bdTypeRecyclerView = this.f14104i) == null) {
             return;
         }
         bdTypeRecyclerView.getAdapter().notifyDataSetChanged();
     }
 
-    public final void X0() {
+    public final void Y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f14065i.setNextPage(null);
+            this.f14104i.setNextPage(null);
         }
     }
 
-    public final void Y0() {
+    public final void Z0() {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f14065i;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f14104i;
             if (bdTypeRecyclerView != null && (hVar = this.m) != null) {
                 bdTypeRecyclerView.removeHeaderView(hVar.b());
             }
@@ -413,15 +413,15 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         }
     }
 
-    public final void a1() {
+    public final void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.o.C();
-            showLoadingView(this.f14064h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
+            showLoadingView(this.f14103h, false, getResources().getDimensionPixelSize(R.dimen.ds230));
         }
     }
 
-    public void b1(boolean z) {
+    public void c1(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || z) {
             return;
@@ -429,15 +429,15 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         this.j.setRefreshing(false);
     }
 
-    public final void c1() {
+    public final void d1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f14065i.setNextPage(this.k);
+            this.f14104i.setNextPage(this.k);
             this.k.O();
         }
     }
 
-    public final void d1() {
+    public final void e1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.m == null) {
@@ -451,16 +451,16 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             this.m.l(getPageContext().getResources().getString(R.string.square_sub_list_no_data));
             this.m.onChangeSkinType();
             if (!this.q) {
-                this.f14065i.t(this.m.b(), 0);
+                this.f14104i.t(this.m.b(), 0);
             }
             this.q = true;
         }
     }
 
-    public final void e1() {
+    public final void f1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f14065i.setNextPage(this.k);
+            this.f14104i.setNextPage(this.k);
             this.k.A(getResources().getString(R.string.live_sub_tab_no_more_data));
             this.k.f();
         }
@@ -480,12 +480,12 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                 pbListView.C(SkinManager.getColor(R.color.CAM_X0107));
                 this.k.d(i2);
             }
-            BdTypeRecyclerView bdTypeRecyclerView = this.f14065i;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f14104i;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
             }
             SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f14065i, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f14104i, R.color.CAM_X0201);
         }
     }
 
@@ -508,15 +508,15 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f14064h == null) {
+            if (this.f14103h == null) {
                 View inflate = layoutInflater.inflate(R.layout.special_bar_concern_tab, viewGroup, false);
-                this.f14064h = inflate;
+                this.f14103h = inflate;
                 BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) inflate.findViewById(R.id.content_thread);
-                this.f14065i = bdTypeRecyclerView;
+                this.f14104i = bdTypeRecyclerView;
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                this.f14065i.setFadingEdgeLength(0);
-                this.f14065i.setOverScrollMode(2);
-                this.f14065i.setOnSrollToBottomListener(this.u);
+                this.f14104i.setFadingEdgeLength(0);
+                this.f14104i.setOverScrollMode(2);
+                this.f14104i.setOnSrollToBottomListener(this.u);
                 g gVar = new g(getPageContext());
                 this.l = gVar;
                 gVar.a(this.v);
@@ -530,21 +530,21 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
                 this.k.C(SkinManager.getColor(R.color.CAM_X0107));
                 this.k.y(R.color.CAM_X0110);
                 this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f14064h.findViewById(R.id.pull_refresh_layout);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f14103h.findViewById(R.id.pull_refresh_layout);
                 this.j = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.l);
                 e eVar = new e(this);
                 this.n = eVar;
-                this.f14065i.a(eVar.f14073d);
+                this.f14104i.a(eVar.f14112d);
             }
-            if (this.f14064h.getParent() != null) {
-                ((ViewGroup) this.f14064h.getParent()).removeView(this.f14064h);
+            if (this.f14103h.getParent() != null) {
+                ((ViewGroup) this.f14103h.getParent()).removeView(this.f14103h);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (TbadkCoreApplication.isLogin()) {
-                a1();
+                b1();
             }
-            return this.f14064h;
+            return this.f14103h;
         }
         return (View) invokeLLL.objValue;
     }
@@ -554,10 +554,10 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            this.f14065i.setOnSrollToBottomListener(null);
-            this.f14065i.setScrollable(null);
+            this.f14104i.setOnSrollToBottomListener(null);
+            this.f14104i.setScrollable(null);
             this.o.onDestroy();
-            hideLoadingView(this.f14064h);
+            hideLoadingView(this.f14103h);
             MessageManager.getInstance().unRegisterListener(this.s);
         }
     }
@@ -567,7 +567,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onNetRefreshButtonClicked();
-            a1();
+            b1();
         }
     }
 
@@ -576,7 +576,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.s();
-            BdTypeRecyclerView bdTypeRecyclerView = this.f14065i;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f14104i;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.scrollToPosition(0);
             }

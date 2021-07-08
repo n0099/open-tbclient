@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -23,7 +24,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 @RequiresApi(19)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
@@ -38,7 +39,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes;
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +80,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +210,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public static String getBitmapString(int i2, Bitmap.Config config) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, config)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, config)) == null) {
             return PreferencesUtil.LEFT_MOUNT + i2 + "](" + config + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeIL.objValue;
@@ -334,7 +335,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

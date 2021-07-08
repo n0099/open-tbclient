@@ -2,6 +2,7 @@ package com.baidu.mobads.container.gray;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.jar.JarFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RemoteVersionUtil {
     public static /* synthetic */ Interceptable $ic;
     public static volatile RemoteVersionUtil instance;
@@ -92,7 +93,7 @@ public class RemoteVersionUtil {
     private double getRemoteVersion(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
             try {
                 File file = new File(str);
                 if (isFileExistsAndCanRead(file)) {

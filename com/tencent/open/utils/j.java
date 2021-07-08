@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
@@ -43,45 +44,45 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f42013a = "";
+    public static String f39027a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42014b = "";
+    public static String f39028b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42015c = "";
+    public static String f39029c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f42016d = "";
+    public static String f39030d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f42017e = -1;
+    public static int f39031e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f42018f = null;
+    public static String f39032f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f42019g = "0123456789ABCDEF";
+    public static String f39033g = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42020a;
+        public String f39034a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42021b;
+        public long f39035b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42022c;
+        public long f39036c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -98,10 +99,10 @@ public class j {
                     return;
                 }
             }
-            this.f42020a = str;
-            this.f42021b = i2;
+            this.f39034a = str;
+            this.f39035b = i2;
             if (str != null) {
-                this.f42022c = str.length();
+                this.f39036c = str.length();
             }
         }
     }
@@ -280,7 +281,7 @@ public class j {
                 return "";
             }
             String d2 = d(context, str);
-            f42015c = d2;
+            f39029c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -337,7 +338,7 @@ public class j {
                 return "";
             }
             String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-            f42018f = str;
+            f39032f = str;
             return str;
         } catch (Exception e2) {
             com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
@@ -403,7 +404,7 @@ public class j {
                 return "";
             }
             b(context, str);
-            return f42013a;
+            return f39027a;
         }
         return (String) invokeLL.objValue;
     }
@@ -457,10 +458,10 @@ public class j {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f42014b = str2;
-            f42013a = str2.substring(0, str2.lastIndexOf(46));
-            f42016d = f42014b.substring(f42014b.lastIndexOf(46) + 1, f42014b.length());
-            f42017e = packageInfo.versionCode;
+            f39028b = str2;
+            f39027a = str2.substring(0, str2.lastIndexOf(46));
+            f39030d = f39028b.substring(f39028b.lastIndexOf(46) + 1, f39028b.length());
+            f39031e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -500,7 +501,7 @@ public class j {
                 return "";
             }
             b(context, str);
-            return f42014b;
+            return f39028b;
         }
         return (String) invokeLL.objValue;
     }
@@ -687,7 +688,7 @@ public class j {
     public static Bundle a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9})) == null) {
             Bundle bundle = new Bundle();
             bundle.putString(Constants.PARAM_PLATFORM, "1");
             bundle.putString("result", str);

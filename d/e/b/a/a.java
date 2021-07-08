@@ -6,30 +6,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AtomicBoolean f72038a;
+    public AtomicBoolean f69141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f72039b;
+    public long f69142b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f72040c;
+    public Runnable f69143c;
 
     /* renamed from: d.e.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class RunnableC2001a implements Runnable {
+    /* loaded from: classes8.dex */
+    public class RunnableC1970a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f72041e;
+        public final /* synthetic */ a f69144e;
 
-        public RunnableC2001a(a aVar) {
+        public RunnableC1970a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,16 +44,16 @@ public abstract class a {
                     return;
                 }
             }
-            this.f72041e = aVar;
+            this.f69144e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f72041e.b();
-                if (this.f72041e.f72038a.get()) {
-                    e.a().postDelayed(this.f72041e.f72040c, this.f72041e.f72039b);
+                this.f69144e.b();
+                if (this.f69144e.f69141a.get()) {
+                    e.a().postDelayed(this.f69144e.f69143c, this.f69144e.f69142b);
                 }
             }
         }
@@ -74,28 +74,28 @@ public abstract class a {
                 return;
             }
         }
-        this.f72038a = new AtomicBoolean(false);
-        this.f72040c = new RunnableC2001a(this);
-        this.f72039b = 0 == j ? 300L : j;
+        this.f69141a = new AtomicBoolean(false);
+        this.f69143c = new RunnableC1970a(this);
+        this.f69142b = 0 == j ? 300L : j;
     }
 
     public abstract void b();
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f72038a.get()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f69141a.get()) {
             return;
         }
-        this.f72038a.set(true);
-        e.a().removeCallbacks(this.f72040c);
-        e.a().postDelayed(this.f72040c, c.f().j());
+        this.f69141a.set(true);
+        e.a().removeCallbacks(this.f69143c);
+        e.a().postDelayed(this.f69143c, c.f().j());
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f72038a.get()) {
-            this.f72038a.set(false);
-            e.a().removeCallbacks(this.f72040c);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f69141a.get()) {
+            this.f69141a.set(false);
+            e.a().removeCallbacks(this.f69143c);
         }
     }
 }

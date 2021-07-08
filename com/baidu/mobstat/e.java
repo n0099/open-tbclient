@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.bm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,12 +20,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f8954a;
+    public static final e f8971a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +41,7 @@ public class e {
                 return;
             }
         }
-        f8954a = new e();
+        f8971a = new e();
     }
 
     public e() {
@@ -61,7 +62,7 @@ public class e {
         PackageManager packageManager;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65540, this, context, z) == null) || (packageManager = context.getPackageManager()) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, z) == null) || (packageManager = context.getPackageManager()) == null) {
             return;
         }
         List<PackageInfo> arrayList = new ArrayList<>(1);
@@ -99,7 +100,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f8974b.a(System.currentTimeMillis(), str);
+        k.f8991b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {

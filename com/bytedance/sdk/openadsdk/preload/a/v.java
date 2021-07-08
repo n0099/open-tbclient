@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class v<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public abstract class v<T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ v f31958a;
+            public final /* synthetic */ v f32068a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -51,7 +51,7 @@ public abstract class v<T> {
                         return;
                     }
                 }
-                this.f31958a = this;
+                this.f32068a = this;
             }
 
             @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -61,7 +61,7 @@ public abstract class v<T> {
                     if (t == null) {
                         cVar.f();
                     } else {
-                        this.f31958a.a(cVar, t);
+                        this.f32068a.a(cVar, t);
                     }
                 }
             }
@@ -71,11 +71,11 @@ public abstract class v<T> {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f31918i) {
+                    if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32028i) {
                         aVar.j();
                         return null;
                     }
-                    return (T) this.f31958a.b(aVar);
+                    return (T) this.f32068a.b(aVar);
                 }
                 return (T) invokeL.objValue;
             }

@@ -16,14 +16,14 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CHFinanceUserGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_LIMIT = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f25017a;
+    public List<BaseItemView> f25127a;
     public LinearLayout mList;
     public CHTitleView mTitle;
 
@@ -45,7 +45,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25017a = new ArrayList();
+        this.f25127a = new ArrayList();
     }
 
     private void a() {
@@ -59,7 +59,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
             CHFinanceUserItem cHFinanceUserItem = new CHFinanceUserItem(getContext());
             cHFinanceUserItem.setData(dataItemArr[i2], getWalletInterface());
             this.mList.addView(cHFinanceUserItem);
-            this.f25017a.add(cHFinanceUserItem);
+            this.f25127a.add(cHFinanceUserItem);
         }
     }
 
@@ -67,7 +67,7 @@ public class CHFinanceUserGroup extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25017a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25127a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -120,6 +120,6 @@ public class CHFinanceUserGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f25017a = new ArrayList();
+        this.f25127a = new ArrayList();
     }
 }

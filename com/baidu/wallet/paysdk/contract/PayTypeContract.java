@@ -32,10 +32,10 @@ import com.baidu.wallet.util.StatHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface PayTypeContract {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +279,7 @@ public interface PayTypeContract {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Presenter f25913a;
+                    public final /* synthetic */ Presenter f26023a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -296,7 +296,7 @@ public interface PayTypeContract {
                                 return;
                             }
                         }
-                        this.f25913a = this;
+                        this.f26023a = this;
                     }
 
                     @Override // java.util.Comparator

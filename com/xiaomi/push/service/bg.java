@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fa;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class bg extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public fa f43630a;
+    public fa f40644a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f928a;
@@ -40,7 +40,7 @@ public class bg extends XMPushService.i {
         }
         this.f928a = null;
         this.f928a = xMPushService;
-        this.f43630a = faVar;
+        this.f40644a = faVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -55,8 +55,8 @@ public class bg extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                if (this.f43630a != null) {
-                    this.f928a.a(this.f43630a);
+                if (this.f40644a != null) {
+                    this.f928a.a(this.f40644a);
                 }
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

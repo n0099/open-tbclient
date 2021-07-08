@@ -13,6 +13,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -46,7 +47,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FileHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final File CACHE_DIR;
@@ -66,7 +67,7 @@ public class FileHelper {
     public static final int FILE_TYPE_VOICE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class DataDir {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PACKAGE_DATA_DIR;
@@ -74,7 +75,7 @@ public class FileHelper {
         public static final String PACKAGE_VERSION_LAST_DIR = "/package.last";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class CompratorByLastModified implements Comparator<File> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +180,7 @@ public class FileHelper {
         public static boolean createFile(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
                 try {
                     File file = new File(PACKAGE_DATA_DIR + "/" + str);
                     if (file.exists()) {
@@ -272,7 +273,7 @@ public class FileHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface MediaScanCallback {
         void callBack(HashMap<String, String> hashMap);
     }
@@ -329,7 +330,7 @@ public class FileHelper {
     public static boolean CheckTempDir(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (checkSD()) {
                 File file = new File(str);
                 if (file.exists()) {

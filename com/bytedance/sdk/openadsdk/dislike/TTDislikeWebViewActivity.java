@@ -22,34 +22,34 @@ import com.bytedance.sdk.openadsdk.core.w;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import com.bytedance.sdk.openadsdk.core.widget.webview.c;
 import com.bytedance.sdk.openadsdk.e.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTDislikeWebViewActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f30902a;
+    public View f31012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f30903b;
+    public TextView f31013b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SSWebView f30904c;
+    public SSWebView f31014c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30905d;
+    public String f31015d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30906e;
+    public String f31016e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30907f;
+    public String f31017f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30908g;
+    public String f31018g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30909h;
+    public boolean f31019h;
 
     public TTDislikeWebViewActivity() {
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class TTDislikeWebViewActivity extends Activity {
                 return;
             }
         }
-        this.f30909h = false;
+        this.f31019h = false;
     }
 
     @Override // android.app.Activity
@@ -73,15 +73,15 @@ public class TTDislikeWebViewActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(r.f(this, "tt_activity_lite_web_layout"));
-            this.f30902a = findViewById(r.e(this, "tt_lite_web_back"));
-            this.f30903b = (TextView) findViewById(r.e(this, "tt_lite_web_title"));
-            this.f30904c = (SSWebView) findViewById(r.e(this, "tt_lite_web_view"));
-            this.f30902a.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
+            this.f31012a = findViewById(r.e(this, "tt_lite_web_back"));
+            this.f31013b = (TextView) findViewById(r.e(this, "tt_lite_web_title"));
+            this.f31014c = (SSWebView) findViewById(r.e(this, "tt_lite_web_view"));
+            this.f31012a.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeWebViewActivity f30910a;
+                public final /* synthetic */ TTDislikeWebViewActivity f31020a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -98,25 +98,25 @@ public class TTDislikeWebViewActivity extends Activity {
                             return;
                         }
                     }
-                    this.f30910a = this;
+                    this.f31020a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f30910a.onBackPressed();
+                        this.f31020a.onBackPressed();
                     }
                 }
             });
             if (getIntent() != null) {
                 a();
-                this.f30903b.setText(getIntent().getStringExtra("title"));
-                this.f30907f = getIntent().getStringExtra(LegoListActivityConfig.AD_ID);
-                this.f30906e = getIntent().getStringExtra("tag");
-                this.f30905d = getIntent().getStringExtra("log_extra");
-                this.f30908g = getIntent().getStringExtra(NotificationCompatJellybean.KEY_LABEL);
-                this.f30904c.loadUrl(getIntent().getStringExtra("url"));
+                this.f31013b.setText(getIntent().getStringExtra("title"));
+                this.f31017f = getIntent().getStringExtra(LegoListActivityConfig.AD_ID);
+                this.f31016e = getIntent().getStringExtra("tag");
+                this.f31015d = getIntent().getStringExtra("log_extra");
+                this.f31018g = getIntent().getStringExtra(NotificationCompatJellybean.KEY_LABEL);
+                this.f31014c.loadUrl(getIntent().getStringExtra("url"));
                 return;
             }
             finish();
@@ -126,15 +126,15 @@ public class TTDislikeWebViewActivity extends Activity {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f30904c.getSettings().setJavaScriptEnabled(true);
-            this.f30904c.getSettings().setDisplayZoomControls(false);
-            this.f30904c.getSettings().setCacheMode(2);
-            this.f30904c.setWebViewClient(new c(this, this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
+            this.f31014c.getSettings().setJavaScriptEnabled(true);
+            this.f31014c.getSettings().setDisplayZoomControls(false);
+            this.f31014c.getSettings().setCacheMode(2);
+            this.f31014c.setWebViewClient(new c(this, this, null, null) { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeWebViewActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeWebViewActivity f30911a;
+                public final /* synthetic */ TTDislikeWebViewActivity f31021a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -155,7 +155,7 @@ public class TTDislikeWebViewActivity extends Activity {
                             return;
                         }
                     }
-                    this.f30911a = this;
+                    this.f31021a = this;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
@@ -163,12 +163,12 @@ public class TTDislikeWebViewActivity extends Activity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView, str) == null) {
                         super.onPageFinished(webView, str);
-                        j.b("TTDislikeWebViewActivity", "onPageFinished result : " + this.f30911a.f30909h);
-                        if (this.f30911a.f30909h) {
+                        j.b("TTDislikeWebViewActivity", "onPageFinished result : " + this.f31021a.f31019h);
+                        if (this.f31021a.f31019h) {
                             return;
                         }
-                        TTDislikeWebViewActivity tTDislikeWebViewActivity = this.f30911a;
-                        d.a(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f30907f, this.f30911a.f30905d, this.f30911a.f30906e, this.f30911a.f30908g);
+                        TTDislikeWebViewActivity tTDislikeWebViewActivity = this.f31021a;
+                        d.a(tTDislikeWebViewActivity, tTDislikeWebViewActivity.f31017f, this.f31021a.f31015d, this.f31021a.f31016e, this.f31021a.f31018g);
                     }
                 }
 
@@ -178,7 +178,7 @@ public class TTDislikeWebViewActivity extends Activity {
                     if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, webResourceRequest, webResourceError) == null) {
                         super.onReceivedError(webView, webResourceRequest, webResourceError);
                         j.b("TTDislikeWebViewActivity", "onReceivedError error : " + webResourceError);
-                        this.f30911a.f30909h = true;
+                        this.f31021a.f31019h = true;
                     }
                 }
             });

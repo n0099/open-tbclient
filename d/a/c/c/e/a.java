@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class a<M extends Message<?>, T extends MessageTask> implements d.a.c.c.b<M, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageManager f43881a;
+    public MessageManager f40897a;
 
     public a(MessageManager messageManager) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class a<M extends Message<?>, T extends MessageTask> implements 
                 return;
             }
         }
-        this.f43881a = null;
-        this.f43881a = messageManager;
+        this.f40897a = null;
+        this.f40897a = messageManager;
     }
 }

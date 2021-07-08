@@ -734,7 +734,7 @@ public class AlertController {
     private ViewGroup resolvePanel(@Nullable View view, @Nullable View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, view, view2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view, view2)) == null) {
             if (view == null) {
                 if (view2 instanceof ViewStub) {
                     view2 = ((ViewStub) view2).inflate();

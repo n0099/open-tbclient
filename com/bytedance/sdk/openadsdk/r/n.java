@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,12 +13,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32235a;
+    public static String f32345a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Removed duplicated region for block: B:57:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -149,11 +150,11 @@ public class n {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
-            if (TextUtils.isEmpty(f32235a)) {
-                f32235a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(f32345a)) {
+                f32345a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
             }
-            return f32235a;
+            return f32345a;
         }
         return (String) invokeV.objValue;
     }

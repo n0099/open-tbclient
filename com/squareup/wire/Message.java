@@ -21,7 +21,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
@@ -31,7 +31,7 @@ public abstract class Message {
     public transient boolean haveCachedSerializedSize;
     public transient UnknownFieldMap unknownFields;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Builder<T extends Message> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Datatype {
         public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
         public static /* synthetic */ Interceptable $ic;
@@ -353,7 +353,7 @@ public abstract class Message {
         public static Datatype valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (Datatype) Enum.valueOf(Datatype.class, str) : (Datatype) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Datatype) Enum.valueOf(Datatype.class, str) : (Datatype) invokeL.objValue;
         }
 
         public static Datatype[] values() {
@@ -410,7 +410,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Label {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ Label[] ENUM$VALUES;
@@ -569,7 +569,7 @@ public abstract class Message {
     public static <T> List<T> asList(T... tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, tArr)) == null) ? Arrays.asList(tArr) : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tArr)) == null) ? Arrays.asList(tArr) : (List) invokeL.objValue;
     }
 
     public static <T> List<T> copyOf(List<T> list) {

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<BasicNameValuePair> f44708a;
+    public List<BasicNameValuePair> f41724a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -30,19 +30,19 @@ public class c {
                 return;
             }
         }
-        this.f44708a = new ArrayList();
+        this.f41724a = new ArrayList();
     }
 
     public List<BasicNameValuePair> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44708a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41724a : (List) invokeV.objValue;
     }
 
     public void b(List<BasicNameValuePair> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f44708a = list;
+            this.f41724a = list;
         }
     }
 }

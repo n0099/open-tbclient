@@ -2,6 +2,7 @@ package com.baidu.mobads.container.remote.tdid;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.downloader.IDownloader;
 import com.baidu.mobads.container.components.downloader.OAdRemoteDownloadManager;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XSecurityDexLoader implements Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SECURITY_SETTING_URL = "https://mobads.baidu.com/ads/sec.php";
@@ -53,7 +54,7 @@ public class XSecurityDexLoader implements Observer {
     public String optimizedDirectory;
     public String outputFolder;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MyTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +182,7 @@ public class XSecurityDexLoader implements Observer {
     private boolean checkVrJarMd5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             File file = this.file;
             if (file == null || !file.exists()) {
                 return false;

@@ -1,5 +1,6 @@
 package com.google.zxing.common;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class GridSampler {
     public static /* synthetic */ Interceptable $ic;
     public static GridSampler gridSampler;
@@ -119,7 +120,7 @@ public abstract class GridSampler {
 
     public static void setGridSampler(GridSampler gridSampler2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, gridSampler2) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gridSampler2) == null) {
             gridSampler = gridSampler2;
         }
     }

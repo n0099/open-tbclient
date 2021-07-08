@@ -5,6 +5,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;
 import androidx.collection.SparseArrayCompat;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.parser.moshi.JsonReader;
@@ -94,7 +95,7 @@ public class KeyframeParser {
         T t;
         Interpolator linearInterpolator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{lottieComposition, jsonReader, Float.valueOf(f2), valueParser})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{lottieComposition, jsonReader, Float.valueOf(f2), valueParser})) == null) {
             jsonReader.beginObject();
             PointF pointF = null;
             PointF pointF2 = null;

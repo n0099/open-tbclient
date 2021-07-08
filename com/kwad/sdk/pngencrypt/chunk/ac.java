@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ac extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38703h;
+    public int f35775h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38704i;
+    public int f35776i;
     public int j;
     public int k;
     public int l;
@@ -45,15 +45,15 @@ public class ac extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f38717a != 7) {
+            if (dVar.f35789a != 7) {
                 throw new PngjException("bad chunk " + dVar);
             }
-            this.f38703h = com.kwad.sdk.pngencrypt.n.b(dVar.f38720d, 0);
-            this.f38704i = com.kwad.sdk.pngencrypt.n.a(dVar.f38720d, 2);
-            this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f38720d, 3);
-            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f38720d, 4);
-            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f38720d, 5);
-            this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f38720d, 6);
+            this.f35775h = com.kwad.sdk.pngencrypt.n.b(dVar.f35792d, 0);
+            this.f35776i = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, 2);
+            this.j = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, 3);
+            this.k = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, 4);
+            this.l = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, 5);
+            this.m = com.kwad.sdk.pngencrypt.n.a(dVar.f35792d, 6);
         }
     }
 }

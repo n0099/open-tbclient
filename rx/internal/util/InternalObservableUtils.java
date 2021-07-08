@@ -1,5 +1,6 @@
 package rx.internal.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import rx.Notification;
 import rx.exceptions.OnErrorNotImplementedException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class InternalObservableUtils {
     public static final /* synthetic */ InternalObservableUtils[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -29,13 +30,13 @@ public final class InternalObservableUtils {
     public static final q TO_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a<T, R> implements h.n.g<R, T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final h.n.c<R, ? super T> f76244a;
+        public final h.n.c<R, ? super T> f73278a;
 
         public a(h.n.c<R, ? super T> cVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +53,7 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76244a = cVar;
+            this.f73278a = cVar;
         }
 
         @Override // h.n.g
@@ -60,20 +61,20 @@ public final class InternalObservableUtils {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r, t)) == null) {
-                this.f76244a.a(r, t);
+                this.f73278a.a(r, t);
                 return r;
             }
             return (R) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class b implements h.n.f<Object, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Object f76245e;
+        public final Object f73279e;
 
         public b(Object obj) {
             Interceptable interceptable = $ic;
@@ -90,7 +91,7 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76245e = obj;
+            this.f73279e = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,20 +101,20 @@ public final class InternalObservableUtils {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                Object obj2 = this.f76245e;
+                Object obj2 = this.f73279e;
                 return Boolean.valueOf(obj == obj2 || (obj != null && obj.equals(obj2)));
             }
             return (Boolean) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class d implements h.n.f<Object, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Class<?> f76246e;
+        public final Class<?> f73280e;
 
         public d(Class<?> cls) {
             Interceptable interceptable = $ic;
@@ -130,7 +131,7 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76246e = cls;
+            this.f73280e = cls;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -139,11 +140,11 @@ public final class InternalObservableUtils {
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? Boolean.valueOf(this.f76246e.isInstance(obj)) : (Boolean) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? Boolean.valueOf(this.f73280e.isInstance(obj)) : (Boolean) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class e implements h.n.f<Notification<?>, Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,13 +173,13 @@ public final class InternalObservableUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class i implements h.n.f<h.d<? extends Notification<?>>, h.d<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.f<? super h.d<? extends Void>, ? extends h.d<?>> f76247e;
+        public final h.n.f<? super h.d<? extends Void>, ? extends h.d<?>> f73281e;
 
         public i(h.n.f<? super h.d<? extends Void>, ? extends h.d<?>> fVar) {
             Interceptable interceptable = $ic;
@@ -195,7 +196,7 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76247e = fVar;
+            this.f73281e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -204,20 +205,20 @@ public final class InternalObservableUtils {
         public h.d<?> call(h.d<? extends Notification<?>> dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? this.f76247e.call(dVar.k(InternalObservableUtils.RETURNS_VOID)) : (h.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? this.f73281e.call(dVar.k(InternalObservableUtils.RETURNS_VOID)) : (h.d) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class j<T> implements h.n.e<h.p.a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.d<T> f76248e;
+        public final h.d<T> f73282e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f76249f;
+        public final int f73283f;
 
         public j(h.d<T> dVar, int i2) {
             Interceptable interceptable = $ic;
@@ -234,8 +235,8 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76248e = dVar;
-            this.f76249f = i2;
+            this.f73282e = dVar;
+            this.f73283f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -244,26 +245,26 @@ public final class InternalObservableUtils {
         public h.p.a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76248e.u(this.f76249f) : (h.p.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73282e.u(this.f73283f) : (h.p.a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class k<T> implements h.n.e<h.p.a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final TimeUnit f76250e;
+        public final TimeUnit f73284e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.d<T> f76251f;
+        public final h.d<T> f73285f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f76252g;
+        public final long f73286g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.g f76253h;
+        public final h.g f73287h;
 
         public k(h.d<T> dVar, long j, TimeUnit timeUnit, h.g gVar) {
             Interceptable interceptable = $ic;
@@ -280,10 +281,10 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76250e = timeUnit;
-            this.f76251f = dVar;
-            this.f76252g = j;
-            this.f76253h = gVar;
+            this.f73284e = timeUnit;
+            this.f73285f = dVar;
+            this.f73286g = j;
+            this.f73287h = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -292,17 +293,17 @@ public final class InternalObservableUtils {
         public h.p.a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76251f.w(this.f76252g, this.f76250e, this.f76253h) : (h.p.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73285f.w(this.f73286g, this.f73284e, this.f73287h) : (h.p.a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class l<T> implements h.n.e<h.p.a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.d<T> f76254e;
+        public final h.d<T> f73288e;
 
         public l(h.d<T> dVar) {
             Interceptable interceptable = $ic;
@@ -319,7 +320,7 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76254e = dVar;
+            this.f73288e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -328,29 +329,29 @@ public final class InternalObservableUtils {
         public h.p.a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76254e.t() : (h.p.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73288e.t() : (h.p.a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class m<T> implements h.n.e<h.p.a<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f76255e;
+        public final long f73289e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TimeUnit f76256f;
+        public final TimeUnit f73290f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final h.g f76257g;
+        public final h.g f73291g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f76258h;
+        public final int f73292h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final h.d<T> f76259i;
+        public final h.d<T> f73293i;
 
         public m(h.d<T> dVar, int i2, long j, TimeUnit timeUnit, h.g gVar) {
             Interceptable interceptable = $ic;
@@ -367,11 +368,11 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76255e = j;
-            this.f76256f = timeUnit;
-            this.f76257g = gVar;
-            this.f76258h = i2;
-            this.f76259i = dVar;
+            this.f73289e = j;
+            this.f73290f = timeUnit;
+            this.f73291g = gVar;
+            this.f73292h = i2;
+            this.f73293i = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -380,17 +381,17 @@ public final class InternalObservableUtils {
         public h.p.a<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76259i.v(this.f76258h, this.f76255e, this.f76256f, this.f76257g) : (h.p.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73293i.v(this.f73292h, this.f73289e, this.f73290f, this.f73291g) : (h.p.a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class n implements h.n.f<h.d<? extends Notification<?>>, h.d<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.f<? super h.d<? extends Throwable>, ? extends h.d<?>> f76260e;
+        public final h.n.f<? super h.d<? extends Throwable>, ? extends h.d<?>> f73294e;
 
         public n(h.n.f<? super h.d<? extends Throwable>, ? extends h.d<?>> fVar) {
             Interceptable interceptable = $ic;
@@ -407,7 +408,7 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76260e = fVar;
+            this.f73294e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -416,11 +417,11 @@ public final class InternalObservableUtils {
         public h.d<?> call(h.d<? extends Notification<?>> dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? this.f76260e.call(dVar.k(InternalObservableUtils.ERROR_EXTRACTOR)) : (h.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? this.f73294e.call(dVar.k(InternalObservableUtils.ERROR_EXTRACTOR)) : (h.d) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class o implements h.n.f<Object, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -452,16 +453,16 @@ public final class InternalObservableUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class p<T, R> implements h.n.f<h.d<T>, h.d<R>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.f<? super h.d<T>, ? extends h.d<R>> f76261e;
+        public final h.n.f<? super h.d<T>, ? extends h.d<R>> f73295e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.g f76262f;
+        public final h.g f73296f;
 
         public p(h.n.f<? super h.d<T>, ? extends h.d<R>> fVar, h.g gVar) {
             Interceptable interceptable = $ic;
@@ -478,8 +479,8 @@ public final class InternalObservableUtils {
                     return;
                 }
             }
-            this.f76261e = fVar;
-            this.f76262f = gVar;
+            this.f73295e = fVar;
+            this.f73296f = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -488,7 +489,7 @@ public final class InternalObservableUtils {
         public h.d<R> call(h.d<T> dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? this.f76261e.call(dVar).o(this.f76262f) : (h.d) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? this.f73295e.call(dVar).o(this.f73296f) : (h.d) invokeL.objValue;
         }
     }
 
@@ -692,7 +693,7 @@ public final class InternalObservableUtils {
     public static <T, R> h.n.f<h.d<T>, h.d<R>> createReplaySelectorAndObserveOn(h.n.f<? super h.d<T>, ? extends h.d<R>> fVar, h.g gVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, fVar, gVar)) == null) ? new p(fVar, gVar) : (h.n.f) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fVar, gVar)) == null) ? new p(fVar, gVar) : (h.n.f) invokeLL.objValue;
     }
 
     public static <T> h.n.e<h.p.a<T>> createReplaySupplier(h.d<T> dVar) {

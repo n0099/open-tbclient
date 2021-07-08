@@ -1,7 +1,7 @@
 package d.f.b.a.a0.o;
 
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface b {
     boolean a(d.f.b.a.a0.f fVar) throws IOException, InterruptedException;
 

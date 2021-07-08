@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.GlobalUtils;
@@ -22,25 +23,25 @@ import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.passport.LoginBackListenerProxy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SDKJumpManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f24238a;
+    public LoginBackListenerProxy f24348a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnJumpListener {
         void beforeJump(Context context, String str, String str2, String str3, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static SDKJumpManager f24243a;
+        public static SDKJumpManager f24353a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +57,7 @@ public class SDKJumpManager {
                     return;
                 }
             }
-            f24243a = new SDKJumpManager();
+            f24353a = new SDKJumpManager();
         }
 
         public a() {
@@ -77,7 +78,7 @@ public class SDKJumpManager {
     public static SDKJumpManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? a.f24243a : (SDKJumpManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f24353a : (SDKJumpManager) invokeV.objValue;
     }
 
     public void doSDKJump(Context context, String str, String str2, String str3, boolean z, OnJumpListener onJumpListener) {
@@ -92,18 +93,18 @@ public class SDKJumpManager {
                 if (!NetworkUtils.isNetworkAvailable(context)) {
                     GlobalUtils.toast(context, ResUtils.getString(context, "ebpay_no_network"));
                 } else if (z) {
-                    this.f24238a = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, str3) { // from class: com.baidu.wallet.base.widget.SDKJumpManager.1
+                    this.f24348a = new LoginBackListenerProxy(context, new ILoginBackListener(this, context, str3) { // from class: com.baidu.wallet.base.widget.SDKJumpManager.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f24239a;
+                        public final /* synthetic */ Context f24349a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f24240b;
+                        public final /* synthetic */ String f24350b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SDKJumpManager f24241c;
+                        public final /* synthetic */ SDKJumpManager f24351c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -120,16 +121,16 @@ public class SDKJumpManager {
                                     return;
                                 }
                             }
-                            this.f24241c = this;
-                            this.f24239a = context;
-                            this.f24240b = str3;
+                            this.f24351c = this;
+                            this.f24349a = context;
+                            this.f24350b = str3;
                         }
 
                         @Override // com.baidu.wallet.api.ILoginBackListener
                         public void onFail(int i2, String str4) {
                             Interceptable interceptable2 = $ic;
                             if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str4) == null) && i2 == 603) {
-                                WalletLoginHelper.getInstance().onlyLogin(this.f24241c.f24238a);
+                                WalletLoginHelper.getInstance().onlyLogin(this.f24351c.f24348a);
                             }
                         }
 
@@ -137,11 +138,11 @@ public class SDKJumpManager {
                         public void onSuccess(int i2, String str4) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str4) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f24239a, this.f24240b, true);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f24349a, this.f24350b, true);
                             }
                         }
                     });
-                    WalletLoginHelper.getInstance().login(this.f24238a);
+                    WalletLoginHelper.getInstance().login(this.f24348a);
                 } else {
                     BaiduWalletDelegate.getInstance().openH5Module(context, str3, true);
                 }
@@ -154,12 +155,12 @@ public class SDKJumpManager {
             } else if ("4".equals(str2) && !TextUtils.isEmpty(str3)) {
                 BaiduWalletDelegate.getInstance().invokeHostNative(str3, "");
             } else if ("5".equals(str2)) {
-                this.f24238a = new LoginBackListenerProxy(context, new ILoginBackListener(this) { // from class: com.baidu.wallet.base.widget.SDKJumpManager.2
+                this.f24348a = new LoginBackListenerProxy(context, new ILoginBackListener(this) { // from class: com.baidu.wallet.base.widget.SDKJumpManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ SDKJumpManager f24242a;
+                    public final /* synthetic */ SDKJumpManager f24352a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -176,14 +177,14 @@ public class SDKJumpManager {
                                 return;
                             }
                         }
-                        this.f24242a = this;
+                        this.f24352a = this;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str4) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str4) == null) && i2 == 603) {
-                            WalletLoginHelper.getInstance().onlyLogin(this.f24242a.f24238a);
+                            WalletLoginHelper.getInstance().onlyLogin(this.f24352a.f24348a);
                         }
                     }
 
@@ -194,7 +195,7 @@ public class SDKJumpManager {
                         }
                     }
                 });
-                WalletLoginHelper.getInstance().login(this.f24238a);
+                WalletLoginHelper.getInstance().login(this.f24348a);
             } else if (!"6".equals(str2) || a(context, str3)) {
             } else {
                 GlobalUtils.toast(context, ResUtils.getString(context, "wallet_base_string_service_forbidden"));

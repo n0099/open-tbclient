@@ -20,7 +20,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterNativeView implements BinaryMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterNativeView";
@@ -33,7 +33,7 @@ public class FlutterNativeView implements BinaryMessenger {
     public FlutterView mFlutterView;
     public final FlutterPluginRegistry mPluginRegistry;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class FlutterNativeView implements BinaryMessenger {
 
     private void attach(FlutterNativeView flutterNativeView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65540, this, flutterNativeView, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, flutterNativeView, z) == null) {
             this.mFlutterJNI.attachToNative(z);
             this.dartExecutor.onAttachedToJNI();
         }

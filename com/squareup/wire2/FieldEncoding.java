@@ -1,5 +1,6 @@
 package com.squareup.wire2;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ProtocolException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FieldEncoding {
     public static final /* synthetic */ FieldEncoding[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -21,12 +22,12 @@ public final class FieldEncoding {
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41284a;
+        public static final /* synthetic */ int[] f38298a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,21 +44,21 @@ public final class FieldEncoding {
                 }
             }
             int[] iArr = new int[FieldEncoding.values().length];
-            f41284a = iArr;
+            f38298a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41284a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f38298a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f41284a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f38298a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f41284a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f38298a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -135,14 +136,14 @@ public final class FieldEncoding {
     public static FieldEncoding[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (FieldEncoding[]) $VALUES.clone() : (FieldEncoding[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (FieldEncoding[]) $VALUES.clone() : (FieldEncoding[]) invokeV.objValue;
     }
 
     public ProtoAdapter<?> rawProtoAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.f41284a[ordinal()];
+            int i2 = a.f38298a[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RMFragment";
@@ -38,7 +38,7 @@ public class RequestManagerFragment extends Fragment {
     @Nullable
     public RequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class FragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class RequestManagerFragment extends Fragment {
     private boolean isDescendant(@NonNull Fragment fragment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, this, fragment)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragment)) != null) {
             return invokeL.booleanValue;
         }
         Fragment parentFragment = getParentFragment();

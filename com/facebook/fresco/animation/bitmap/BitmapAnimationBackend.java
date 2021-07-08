@@ -28,7 +28,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BitmapAnimationBackend implements AnimationBackend, AnimationBackendDelegateWithInactivityCheck.InactivityListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_TYPE_CACHED = 0;
@@ -55,7 +55,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     public final Paint mPaint;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface FrameListener {
         void onDrawFrameStart(BitmapAnimationBackend bitmapAnimationBackend, int i2);
 
@@ -65,7 +65,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface FrameType {
     }
 
@@ -184,7 +184,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     private boolean renderFrameInBitmap(int i2, @Nullable CloseableReference<Bitmap> closeableReference) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65540, this, i2, closeableReference)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, closeableReference)) == null) {
             if (CloseableReference.isValid(closeableReference)) {
                 boolean renderFrame = this.mBitmapFrameRenderer.renderFrame(i2, closeableReference.get());
                 if (!renderFrame) {

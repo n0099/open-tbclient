@@ -1,6 +1,7 @@
 package com.baidu.apollon.utils;
 
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -73,7 +74,7 @@ public final class EncodeUtils {
     public static String gbk2utf8(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? unicodeToUtf8(gbk2Unicode(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? unicodeToUtf8(gbk2Unicode(str)) : (String) invokeL.objValue;
     }
 
     public static String unicode2GBK(String str) {

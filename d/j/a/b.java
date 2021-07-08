@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.opensource.svgaplayer.SVGAVideoEntity;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f73937a;
+    public boolean f70989a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f73938b;
+    public int f70990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView.ScaleType f73939c;
+    public ImageView.ScaleType f70991c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.j.a.f.b f73940d;
+    public final d.j.a.f.b f70992d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SVGAVideoEntity f73941e;
+    public final SVGAVideoEntity f70993e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f73942f;
+    public final c f70994f;
 
     public b(SVGAVideoEntity sVGAVideoEntity, c cVar) {
         Interceptable interceptable = $ic;
@@ -50,56 +50,56 @@ public final class b extends Drawable {
                 return;
             }
         }
-        this.f73941e = sVGAVideoEntity;
-        this.f73942f = cVar;
-        this.f73937a = true;
-        this.f73939c = ImageView.ScaleType.MATRIX;
-        this.f73940d = new d.j.a.f.b(sVGAVideoEntity, cVar);
+        this.f70993e = sVGAVideoEntity;
+        this.f70994f = cVar;
+        this.f70989a = true;
+        this.f70991c = ImageView.ScaleType.MATRIX;
+        this.f70992d = new d.j.a.f.b(sVGAVideoEntity, cVar);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73938b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70990b : invokeV.intValue;
     }
 
     public final SVGAVideoEntity b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73941e : (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70993e : (SVGAVideoEntity) invokeV.objValue;
     }
 
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f73937a == z) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f70989a == z) {
             return;
         }
-        this.f73937a = z;
+        this.f70989a = z;
         invalidateSelf();
     }
 
     public final void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f73938b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f70990b == i2) {
             return;
         }
-        this.f73938b = i2;
+        this.f70990b = i2;
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.f73937a || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.f70989a || canvas == null) {
             return;
         }
-        this.f73940d.a(canvas, this.f73938b, this.f73939c);
+        this.f70992d.a(canvas, this.f70990b, this.f70991c);
     }
 
     public final void e(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.f73939c = scaleType;
+            this.f70991c = scaleType;
         }
     }
 

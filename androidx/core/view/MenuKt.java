@@ -75,7 +75,7 @@ public final class MenuKt {
     public static final Sequence<MenuItem> getChildren(final Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, menu)) == null) ? new Sequence<MenuItem>(menu) { // from class: androidx.core.view.MenuKt$children$1
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, menu)) == null) ? new Sequence<MenuItem>(menu) { // from class: androidx.core.view.MenuKt$children$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Menu $this_children;

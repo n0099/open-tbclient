@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DefaultExecutorSupplier implements ExecutorSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUM_IO_BOUND_THREADS = 2;

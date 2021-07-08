@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DF_SEG_SIZE = 524288;

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.platform.SingleViewPresentation;
 import io.flutter.view.TextureRegistry;
 @TargetApi(20)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class VirtualDisplayController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class VirtualDisplayController {
     public VirtualDisplay virtualDisplay;
 
     @TargetApi(16)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class OneTimeOnDrawListener implements ViewTreeObserver.OnDrawListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -2,6 +2,7 @@ package com.baidu.ar.plugin.helper;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -132,7 +133,7 @@ public class Utils {
 
     public static void deleteFile(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, file) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     deleteFile(file2);

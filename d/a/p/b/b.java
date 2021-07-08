@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f46499a = "1";
+    public static String f53763a = "1";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +55,7 @@ public class b implements PerfSampleManager.IPerfSampleCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            return uBCManager != null ? f46499a.equals(uBCManager.getUploadType("2301")) ? "2301" : "" : "";
+            return uBCManager != null ? f53763a.equals(uBCManager.getUploadType("2301")) ? "2301" : "" : "";
         }
         return (String) invokeV.objValue;
     }

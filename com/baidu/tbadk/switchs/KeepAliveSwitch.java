@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
 import d.a.c.e.f.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KeepAliveSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEEP_ALIVE_KEY = "android_new_keep_alive";

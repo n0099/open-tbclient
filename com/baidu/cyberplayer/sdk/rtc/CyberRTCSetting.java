@@ -9,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.misc.KsMediaFormat;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CyberRTCSetting {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +36,7 @@ public class CyberRTCSetting {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CyberRTCSettingType {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCSettingType CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP;
@@ -58,7 +57,7 @@ public class CyberRTCSetting {
         public static final CyberRTCSettingType CYBER_RTC_VIDEO_PARAM_SETTINGS_SESSION_MODE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CyberRTCSettingType[] f5009a;
+        public static final /* synthetic */ CyberRTCSettingType[] f5026a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -91,7 +90,7 @@ public class CyberRTCSetting {
             CYBER_RTC_PARAM_SETTINGS_ALL = new CyberRTCSettingType("CYBER_RTC_PARAM_SETTINGS_ALL", 14);
             CyberRTCSettingType cyberRTCSettingType = new CyberRTCSettingType("CYBER_RTC_PARAM_SETTINGS_OTHERS", 15);
             CYBER_RTC_PARAM_SETTINGS_OTHERS = cyberRTCSettingType;
-            f5009a = new CyberRTCSettingType[]{CYBER_RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO, CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP, CYBER_RTC_AUDIO_PARAM_SETTINGS_LEVEL_CONTROL, CYBER_RTC_AUDIO_PARAM_SETTINGS_MANUAL_CONFIG, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_RECORD, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_PLAYOUT, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_RECORD_PLAYOUT_MIX, CYBER_RTC_VIDEO_PARAM_SETTINGS_FPS, CYBER_RTC_VIDEO_PARAM_SETTINGS_RESOLUTION, CYBER_RTC_VIDEO_PARAM_SETTINGS_BITRATE, CYBER_RTC_VIDEO_PARAM_SETTINGS_CODECTYPE, CYBER_RTC_VIDEO_PARAM_SETTINGS_SESSION_MODE, CYBER_RTC_VIDEO_PARAM_SETTINGS_CAPTURE_MODE, CYBER_RTC_VIDEO_PARAM_SETTINGS_RENDER_MODE, CYBER_RTC_PARAM_SETTINGS_ALL, cyberRTCSettingType};
+            f5026a = new CyberRTCSettingType[]{CYBER_RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO, CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP, CYBER_RTC_AUDIO_PARAM_SETTINGS_LEVEL_CONTROL, CYBER_RTC_AUDIO_PARAM_SETTINGS_MANUAL_CONFIG, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_RECORD, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_PLAYOUT, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_RECORD_PLAYOUT_MIX, CYBER_RTC_VIDEO_PARAM_SETTINGS_FPS, CYBER_RTC_VIDEO_PARAM_SETTINGS_RESOLUTION, CYBER_RTC_VIDEO_PARAM_SETTINGS_BITRATE, CYBER_RTC_VIDEO_PARAM_SETTINGS_CODECTYPE, CYBER_RTC_VIDEO_PARAM_SETTINGS_SESSION_MODE, CYBER_RTC_VIDEO_PARAM_SETTINGS_CAPTURE_MODE, CYBER_RTC_VIDEO_PARAM_SETTINGS_RENDER_MODE, CYBER_RTC_PARAM_SETTINGS_ALL, cyberRTCSettingType};
         }
 
         public CyberRTCSettingType(String str, int i2) {
@@ -122,20 +121,20 @@ public class CyberRTCSetting {
         public static CyberRTCSettingType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRTCSettingType[]) f5009a.clone() : (CyberRTCSettingType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRTCSettingType[]) f5026a.clone() : (CyberRTCSettingType[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CyberRTCVideoRenderMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCVideoRenderMode CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL;
         public static final CyberRTCVideoRenderMode CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CyberRTCVideoRenderMode[] f5010a;
+        public static final /* synthetic */ CyberRTCVideoRenderMode[] f5027a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -154,7 +153,7 @@ public class CyberRTCSetting {
             CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL = new CyberRTCVideoRenderMode("CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL", 0);
             CyberRTCVideoRenderMode cyberRTCVideoRenderMode = new CyberRTCVideoRenderMode("CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL", 1);
             CYBER_RTC_VIDEO_RENDER_MODE_INTERNAL = cyberRTCVideoRenderMode;
-            f5010a = new CyberRTCVideoRenderMode[]{CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL, cyberRTCVideoRenderMode};
+            f5027a = new CyberRTCVideoRenderMode[]{CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL, cyberRTCVideoRenderMode};
         }
 
         public CyberRTCVideoRenderMode(String str, int i2) {
@@ -185,7 +184,7 @@ public class CyberRTCSetting {
         public static CyberRTCVideoRenderMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRTCVideoRenderMode[]) f5010a.clone() : (CyberRTCVideoRenderMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CyberRTCVideoRenderMode[]) f5027a.clone() : (CyberRTCVideoRenderMode[]) invokeV.objValue;
         }
     }
 
@@ -205,7 +204,7 @@ public class CyberRTCSetting {
         this.HasVideo = true;
         this.HasAudio = true;
         this.HasData = false;
-        this.VideoCodec = KsMediaFormat.CODEC_NAME_H264;
+        this.VideoCodec = "h264";
         this.AudioCodec = "opus";
         this.AudioFrequency = MediaEncodeParams.AUDIO_SAMPLE_RATE;
         this.AudioChannel = 1;

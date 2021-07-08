@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.a.g;
-/* loaded from: classes5.dex */
+import d.a.o0.a.g;
+/* loaded from: classes4.dex */
 public class AlaSchemeEmptyActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
                 return;
             }
-            String replace = uri.replace(g.f54632a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+            String replace = uri.replace(g.f51334a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
             if (StringUtils.isNull(replace)) {
                 return;
             }

@@ -38,7 +38,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class DiskLruCache implements Closeable, Flushable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -75,7 +75,7 @@ public final class DiskLruCache implements Closeable, Flushable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -252,7 +252,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,7 +363,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class Snapshot implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -554,7 +554,7 @@ public final class DiskLruCache implements Closeable, Flushable {
     private BufferedSink newJournalWriter() throws FileNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? Okio.buffer(new FaultHidingSink(this, this.fileSystem.appendingSink(this.journalFile)) { // from class: okhttp3.internal.cache.DiskLruCache.2
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? Okio.buffer(new FaultHidingSink(this, this.fileSystem.appendingSink(this.journalFile)) { // from class: okhttp3.internal.cache.DiskLruCache.2
             public static final /* synthetic */ boolean $assertionsDisabled = false;
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

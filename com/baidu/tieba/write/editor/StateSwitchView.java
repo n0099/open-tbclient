@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class StateSwitchView extends EditorInfoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22543h;
+    public String f22602h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22544i;
+    public String f22603i;
     public int j;
     public int k;
     public boolean l;
@@ -139,9 +139,9 @@ public class StateSwitchView extends EditorInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.o == 1) {
-                setText(this.f22544i);
+                setText(this.f22603i);
             } else {
-                setText(this.f22543h);
+                setText(this.f22602h);
             }
         }
     }
@@ -186,8 +186,8 @@ public class StateSwitchView extends EditorInfoView {
     public void setStateString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            this.f22543h = str;
-            this.f22544i = str2;
+            this.f22602h = str;
+            this.f22603i = str2;
             f();
         }
     }

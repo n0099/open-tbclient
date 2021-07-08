@@ -1,6 +1,7 @@
 package com.facebook.common.media;
 
 import android.webkit.MimeTypeMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MimeTypeMapWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, String> sExtensionToMimeTypeMap;
@@ -74,7 +75,7 @@ public class MimeTypeMapWrapper {
     public static boolean hasExtension(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? sExtensionToMimeTypeMap.containsKey(str) || sMimeTypeMap.hasExtension(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? sExtensionToMimeTypeMap.containsKey(str) || sMimeTypeMap.hasExtension(str) : invokeL.booleanValue;
     }
 
     public static boolean hasMimeType(String str) {

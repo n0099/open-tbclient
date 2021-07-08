@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MobileKInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: cn  reason: collision with root package name */
-    public String f41178cn;
+    public String f38192cn;
     public String ic;
     public boolean idfd;
     public String ie;
@@ -38,7 +38,7 @@ public class MobileKInfo {
     public String getCn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41178cn : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38192cn : (String) invokeV.objValue;
     }
 
     public String getIc() {
@@ -74,7 +74,7 @@ public class MobileKInfo {
     public void setCn(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f41178cn = str;
+            this.f38192cn = str;
         }
     }
 

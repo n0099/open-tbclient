@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.NinePatch;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,7 @@ import com.baidu.ugc.editvideo.data.Div;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BitmapType {
     public static final /* synthetic */ BitmapType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -253,7 +254,7 @@ public class BitmapType {
     public static NinePatchDrawable getNinePatchDrawable(Resources resources, Bitmap bitmap, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, resources, bitmap, str)) == null) ? determineBitmapType(bitmap).createNinePatchDrawable(resources, bitmap, str) : (NinePatchDrawable) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, bitmap, str)) == null) ? determineBitmapType(bitmap).createNinePatchDrawable(resources, bitmap, str) : (NinePatchDrawable) invokeLLL.objValue;
     }
 
     public static BitmapType valueOf(String str) {

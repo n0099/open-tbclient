@@ -11,13 +11,13 @@ import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class FlowableSwitchIfEmpty<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<? extends T> other;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class SwitchIfEmptySubscriber<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

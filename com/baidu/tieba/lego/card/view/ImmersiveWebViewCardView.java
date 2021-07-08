@@ -26,25 +26,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.w2.w;
+import d.a.p0.w2.w;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout r;
     public BaseWebView s;
-    public d.a.s0.h3.l0.a t;
+    public d.a.p0.h3.l0.a t;
     public XiubaTbJsBridge u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImmersiveWebViewCardView f18206a;
+        public final /* synthetic */ ImmersiveWebViewCardView f18246a;
 
         public a(ImmersiveWebViewCardView immersiveWebViewCardView) {
             Interceptable interceptable = $ic;
@@ -61,24 +61,24 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                     return;
                 }
             }
-            this.f18206a = immersiveWebViewCardView;
+            this.f18246a = immersiveWebViewCardView;
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f18206a.L(str2, jsPromptResult) : invokeLLLLL.booleanValue;
+            return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) ? this.f18246a.L(str2, jsPromptResult) : invokeLLLLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImmersiveWebViewCardView f18207e;
+        public final /* synthetic */ ImmersiveWebViewCardView f18247e;
 
         public b(ImmersiveWebViewCardView immersiveWebViewCardView) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                     return;
                 }
             }
-            this.f18207e = immersiveWebViewCardView;
+            this.f18247e = immersiveWebViewCardView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -103,7 +103,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                UrlManager.getInstance().dealOneLink(this.f18207e.m, new String[]{str}, true);
+                UrlManager.getInstance().dealOneLink(this.f18247e.m, new String[]{str}, true);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -129,7 +129,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.m = tbPageContext;
-        d.a.s0.h3.l0.a aVar = new d.a.s0.h3.l0.a();
+        d.a.p0.h3.l0.a aVar = new d.a.p0.h3.l0.a();
         this.t = aVar;
         aVar.a(new XiubaTbJsBridge(this.m));
         this.t.a(new CommonTbJsBridge(this.m.getPageActivity()));
@@ -229,7 +229,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.s, immersiveWebViewCard.getPageUrl());
         }
-        w.p().m().d(immersiveWebViewCard.getShowExtra(), this.f18190e);
+        w.o().l().d(immersiveWebViewCard.getShowExtra(), this.f18230e);
         immersiveWebViewCard.mHasShown = true;
     }
 

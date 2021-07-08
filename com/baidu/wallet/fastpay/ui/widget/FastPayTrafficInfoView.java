@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FastPayTrafficInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f24807a;
+    public TextView f24917a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f24808b;
+    public TextView f24918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24809c;
+    public TextView f24919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f24810d;
+    public TextView f24920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f24811e;
+    public TextView f24921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24812f;
+    public TextView f24922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f24813g;
+    public TextView f24923g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FastPayTrafficInfoView(Context context) {
@@ -66,73 +66,73 @@ public class FastPayTrafficInfoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_fp_traffic_info_item"), this);
-            this.f24813g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
-            this.f24807a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
-            this.f24808b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
-            this.f24809c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
-            this.f24810d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
-            this.f24811e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
-            this.f24812f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
+            this.f24923g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
+            this.f24917a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
+            this.f24918b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
+            this.f24919c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
+            this.f24920d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
+            this.f24921e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
+            this.f24922f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
         }
     }
 
     public void setActualPrice(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f24807a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f24917a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24807a.setText(str);
+        this.f24917a.setText(str);
     }
 
     public void setDiscountInfo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f24811e == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f24921e == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24811e.setVisibility(0);
-        this.f24811e.setText(str);
+        this.f24921e.setVisibility(0);
+        this.f24921e.setText(str);
     }
 
     public void setHuiDes(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f24812f == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f24922f == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24812f.setText(str);
-        this.f24812f.setVisibility(0);
+        this.f24922f.setText(str);
+        this.f24922f.setVisibility(0);
     }
 
     public void setOnBuyClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f24813g.setOnClickListener(onClickListener);
+            this.f24923g.setOnClickListener(onClickListener);
         }
     }
 
     public void setOriginalmalPrice(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f24808b == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f24918b == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24808b.setText(str);
-        this.f24808b.getPaint().setFlags(17);
+        this.f24918b.setText(str);
+        this.f24918b.getPaint().setFlags(17);
     }
 
     public void setUsePeriod(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f24810d == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f24920d == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24810d.setText(str);
+        this.f24920d.setText(str);
     }
 
     public void setUseProvince(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f24809c == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f24919c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f24809c.setVisibility(0);
-        TextView textView = this.f24809c;
+        this.f24919c.setVisibility(0);
+        TextView textView = this.f24919c;
         textView.setText(str + "，");
     }
 

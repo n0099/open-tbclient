@@ -17,7 +17,7 @@ import d.a.c.e.m.b;
 import d.a.c.k.e.n;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaEnterEffectData implements Serializable, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;

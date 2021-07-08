@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f10521a = -1;
+    public static int f10538a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,15 +35,15 @@ public final class t {
         if (!(interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) || context == null) {
             return;
         }
-        f10521a = z ? 1 : 2;
+        f10538a = z ? 1 : 2;
         c.a(context, ".ffnpp", !z ? 1 : 0);
         if (context != null) {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            a2.f10396d.putBoolean("s_a_pl", z);
+            a2.f10413d.putBoolean("s_a_pl", z);
             if (Build.VERSION.SDK_INT >= 9) {
-                a2.f10396d.apply();
+                a2.f10413d.apply();
             } else {
-                a2.f10396d.commit();
+                a2.f10413d.commit();
             }
         }
     }
@@ -57,10 +57,10 @@ public final class t {
                 return false;
             }
             int a2 = c.a(context);
-            if (a2 == 1 && (i2 = f10521a) != -1) {
+            if (a2 == 1 && (i2 = f10538a) != -1) {
                 return i2 == 1;
             }
-            boolean z = com.baidu.sofire.h.a.a(context).f10395c.getBoolean("s_a_pl", false);
+            boolean z = com.baidu.sofire.h.a.a(context).f10412c.getBoolean("s_a_pl", false);
             boolean z2 = !c.b(context, ".ffnpp");
             if (z && !z2 && a2 == 1) {
                 c.a(context, ".ffnpp", 0);
@@ -68,9 +68,9 @@ public final class t {
             }
             if (a2 == 1) {
                 if (z2) {
-                    f10521a = 1;
+                    f10538a = 1;
                 } else {
-                    f10521a = 2;
+                    f10538a = 2;
                 }
             }
             return z2;

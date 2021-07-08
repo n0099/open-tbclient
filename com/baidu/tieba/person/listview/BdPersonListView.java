@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BdPersonListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int n0 = 1;
@@ -44,7 +44,7 @@ public class BdPersonListView extends BdTypeListView {
     public boolean l0;
     public boolean m0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(float f2);
 
@@ -53,16 +53,16 @@ public class BdPersonListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19958a;
+        public int f19998a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19959b;
+        public int f19999b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class BdPersonListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f19958a = i3;
-            this.f19959b = i5;
+            this.f19998a = i3;
+            this.f19999b = i5;
         }
 
         public int a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f19958a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f19998a + (f2 / 2.5f)) : invokeF.intValue;
         }
     }
 
@@ -158,13 +158,13 @@ public class BdPersonListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f19959b - (this.i0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f19999b - (this.i0 / 2)) {
             J();
         } else {
             this.j0.b();
         }
-        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f19958a - this.Q.getHeight(), 200);
-        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f19958a - this.R.getHeight(), 200);
+        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f19998a - this.Q.getHeight(), 200);
+        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f19998a - this.R.getHeight(), 200);
         invalidate();
         this.W = false;
     }
@@ -217,7 +217,7 @@ public class BdPersonListView extends BdTypeListView {
                                 if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                     int a2 = this.U.a(this.T - this.S);
                                     b bVar = this.U;
-                                    if (a2 > bVar.f19958a && a2 <= bVar.f19959b) {
+                                    if (a2 > bVar.f19998a && a2 <= bVar.f19999b) {
                                         this.W = true;
                                         this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                         if (this.R != null) {
@@ -228,12 +228,12 @@ public class BdPersonListView extends BdTypeListView {
                                                 this.R.setLayoutParams(layoutParams);
                                             }
                                         }
-                                        I(a2 - this.U.f19958a);
+                                        I(a2 - this.U.f19998a);
                                     } else {
                                         b bVar2 = this.U;
-                                        if (a2 <= bVar2.f19958a) {
+                                        if (a2 <= bVar2.f19998a) {
                                             this.W = false;
-                                        } else if (a2 > bVar2.f19959b) {
+                                        } else if (a2 > bVar2.f19999b) {
                                             this.W = true;
                                         } else {
                                             this.W = false;

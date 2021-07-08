@@ -5,15 +5,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d.l.a.e.b.g.n f74919a;
+    public static volatile d.l.a.e.b.g.n f71971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d.l.a.e.b.g.n f74920b;
+    public static volatile d.l.a.e.b.g.n f71972b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public l() {
@@ -35,23 +35,23 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
             if (z && d.l.a.e.b.g.e.s()) {
-                if (f74920b == null) {
+                if (f71972b == null) {
                     synchronized (l.class) {
-                        if (f74920b == null) {
-                            f74920b = d.l.a.e.b.g.e.t().b();
+                        if (f71972b == null) {
+                            f71972b = d.l.a.e.b.g.e.t().b();
                         }
                     }
                 }
-                return f74920b;
+                return f71972b;
             }
-            if (f74919a == null) {
+            if (f71971a == null) {
                 synchronized (l.class) {
-                    if (f74919a == null) {
-                        f74919a = new o();
+                    if (f71971a == null) {
+                        f71971a = new o();
                     }
                 }
             }
-            return f74919a;
+            return f71971a;
         }
         return (d.l.a.e.b.g.n) invokeZ.objValue;
     }

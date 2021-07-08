@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     public final String url;
     public final boolean wifiRequired;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class TaskHideWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
 
         public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65540, null, downloadTask, j) == null) {
+            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j) == null) {
                 downloadTask.setSpeedIncreaseBytes(j);
             }
         }
@@ -205,7 +205,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
 
     public static void enqueue(DownloadTask[] downloadTaskArr, DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, downloadTaskArr, downloadListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTaskArr, downloadListener) == null) {
             for (DownloadTask downloadTask : downloadTaskArr) {
                 downloadTask.listener = downloadListener;
             }
@@ -614,7 +614,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.tag : invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
@@ -926,7 +926,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class MockTaskForCompare extends IdentifiedTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

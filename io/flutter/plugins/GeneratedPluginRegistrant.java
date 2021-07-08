@@ -12,7 +12,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin;
 @Keep
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class GeneratedPluginRegistrant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

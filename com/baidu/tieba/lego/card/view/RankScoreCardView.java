@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.h3.v;
+import d.a.p0.h3.v;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,16 +41,16 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public TextView y;
     public TextView z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f18234e;
+        public final /* synthetic */ RankScoreCard f18274e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCardView f18235f;
+        public final /* synthetic */ RankScoreCardView f18275f;
 
         public a(RankScoreCardView rankScoreCardView, RankScoreCard rankScoreCard) {
             Interceptable interceptable = $ic;
@@ -67,29 +67,29 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     return;
                 }
             }
-            this.f18235f = rankScoreCardView;
-            this.f18234e = rankScoreCard;
+            this.f18275f = rankScoreCardView;
+            this.f18274e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                v.c(this.f18235f.m, this.f18234e.getD2Scheme());
+                v.c(this.f18275f.m, this.f18274e.getD2Scheme());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f18236e;
+        public final /* synthetic */ RankScoreCard f18276e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCardView f18237f;
+        public final /* synthetic */ RankScoreCardView f18277f;
 
         public b(RankScoreCardView rankScoreCardView, RankScoreCard rankScoreCard) {
             Interceptable interceptable = $ic;
@@ -106,31 +106,31 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     return;
                 }
             }
-            this.f18237f = rankScoreCardView;
-            this.f18236e = rankScoreCard;
+            this.f18277f = rankScoreCardView;
+            this.f18276e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f18237f.getContext())) {
-                d.a.s0.n1.m.b a2 = d.a.s0.n1.m.b.a();
-                RankScoreCard rankScoreCard = this.f18236e;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f18277f.getContext())) {
+                d.a.p0.n1.m.b a2 = d.a.p0.n1.m.b.a();
+                RankScoreCard rankScoreCard = this.f18276e;
                 a2.e(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCard f18238e;
+        public final /* synthetic */ RankScoreCard f18278e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RankScoreCardView f18239f;
+        public final /* synthetic */ RankScoreCardView f18279f;
 
         public c(RankScoreCardView rankScoreCardView, RankScoreCard rankScoreCard) {
             Interceptable interceptable = $ic;
@@ -147,15 +147,15 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     return;
                 }
             }
-            this.f18239f = rankScoreCardView;
-            this.f18238e = rankScoreCard;
+            this.f18279f = rankScoreCardView;
+            this.f18278e = rankScoreCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18239f.o(this.f18238e);
+                this.f18279f.o(this.f18278e);
             }
         }
     }
@@ -221,7 +221,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     public void v(RankScoreCard rankScoreCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rankScoreCard, i2) == null) {
-            d.a.r0.s0.a.a(this.m, getRootView());
+            d.a.o0.s0.a.a(this.m, getRootView());
             SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0106);
             SkinManager.setViewTextColor(this.u, R.color.CAM_X0106);
@@ -296,7 +296,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
                     } else {
                         SkinManager.setViewTextColor(this.y, R.color.CAM_X0111);
                     }
-                    SkinManager.setBackgroundColor(this.y, d.a.s0.n1.a.f63733a[i2]);
+                    SkinManager.setBackgroundColor(this.y, d.a.p0.n1.a.f60499a[i2]);
                     this.y.setText(rankScoreCard.getRank() + "");
                 }
             }

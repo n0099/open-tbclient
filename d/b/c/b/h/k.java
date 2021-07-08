@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.b.c.b.m;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f71904a;
+    public SharedPreferences f69007a;
 
     public k(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class k {
                 return;
             }
         }
-        this.f71904a = context.getSharedPreferences("npth", 0);
+        this.f69007a = context.getSharedPreferences("npth", 0);
     }
 
     public String a() {
@@ -41,7 +41,7 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String f2 = m.a().f();
-            return (TextUtils.isEmpty(f2) || "0".equals(f2)) ? this.f71904a.getString("device_id", "0") : f2;
+            return (TextUtils.isEmpty(f2) || "0".equals(f2)) ? this.f69007a.getString("device_id", "0") : f2;
         }
         return (String) invokeV.objValue;
     }
@@ -49,7 +49,7 @@ public final class k {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f71904a.edit().putString("device_id", str).apply();
+            this.f69007a.edit().putString("device_id", str).apply();
         }
     }
 }

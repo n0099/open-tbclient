@@ -9,6 +9,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -80,7 +81,7 @@ public class VectorEnabledTintResources extends Resources {
     public static boolean shouldBeUsed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? isCompatVectorFromResourcesEnabled() && Build.VERSION.SDK_INT <= 20 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? isCompatVectorFromResourcesEnabled() && Build.VERSION.SDK_INT <= 20 : invokeV.booleanValue;
     }
 
     @Override // android.content.res.Resources

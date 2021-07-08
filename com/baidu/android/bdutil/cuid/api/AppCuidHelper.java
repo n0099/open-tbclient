@@ -2,6 +2,7 @@ package com.baidu.android.bdutil.cuid.api;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -87,7 +88,7 @@ public final class AppCuidHelper {
     private synchronized String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             synchronized (this) {
                 if (AppRuntime.getAppContext() == null) {
                     return null;

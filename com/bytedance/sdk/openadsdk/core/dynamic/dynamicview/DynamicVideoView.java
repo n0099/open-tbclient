@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DynamicVideoView extends DynamicBaseWidgetImp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class DynamicVideoView extends DynamicBaseWidgetImp {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
-            this.m.a(this.f29871a, this.f29872b, this.f29873c, this.f29874d, this.j.l());
+            this.m.a(this.f29981a, this.f29982b, this.f29983c, this.f29984d, this.j.l());
             return true;
         }
         return invokeV.booleanValue;

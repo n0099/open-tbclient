@@ -1,49 +1,121 @@
 package d.a.y.a;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-/* loaded from: classes9.dex */
-public abstract class b<V> extends FutureTask<V> {
+import d.a.y.a.a.a;
+import java.lang.reflect.Method;
+/* loaded from: classes8.dex */
+public class b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Object f68461a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Method f68462b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Method f68463c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static Method f68464d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdAsyncTask<?, ?, ?> f70993e;
+    public static Method f68465e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callable, bdAsyncTask};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Callable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: f  reason: collision with root package name */
+    public static boolean f68466f;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1124463518, "Ld/a/y/a/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1124463518, "Ld/a/y/a/b;");
                 return;
             }
         }
-        this.f70993e = null;
-        this.f70993e = bdAsyncTask;
+        try {
+            f68461a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
+            f68462b = a.a(cls, "doInit", Context.class, String[].class);
+            f68464d = a.a(cls, "setStatisticParam", String.class);
+            f68463c = a.a(cls, "setEnabled", Boolean.TYPE);
+            f68465e = a.a(cls, "setCrashKeyValue", String.class, String.class);
+            f68466f = true;
+        } catch (Error e2) {
+            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        }
     }
 
-    public abstract void a();
+    public static void a(Context context, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, strArr) == null) {
+            try {
+                if (f68466f) {
+                    f68462b.invoke(f68461a, context, strArr);
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
 
-    public BdAsyncTask<?, ?, ?> b() {
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            try {
+                if (f68466f) {
+                    f68464d.invoke(f68461a, str);
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            try {
+                if (f68466f) {
+                    f68465e.invoke(f68461a, str, str2);
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+            try {
+                if (f68466f) {
+                    f68463c.invoke(f68461a, Boolean.valueOf(z));
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70993e : (BdAsyncTask) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f68466f : invokeV.booleanValue;
     }
 }

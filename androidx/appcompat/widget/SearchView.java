@@ -785,7 +785,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     private Intent createIntent(String str, Uri uri, String str2, String str3, int i2, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i2), str4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i2), str4})) == null) {
             Intent intent = new Intent(str);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             if (uri != null) {

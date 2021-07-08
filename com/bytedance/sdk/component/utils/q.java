@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f28800a;
+    public static Object f28910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f28801b;
+    public static Method f28911b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class q {
             Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
             Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
             Class cls = (Class) declaredMethod.invoke(null, "dalvik.system.VMRuntime");
-            f28801b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
-            f28800a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
+            f28911b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
+            f28910a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
         } catch (Throwable th) {
             j.b("Reflection", "reflect bootstrap failed:", th);
         }
@@ -46,8 +46,8 @@ public class q {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, strArr)) == null) {
-            Object obj = f28800a;
-            if (obj != null && (method = f28801b) != null) {
+            Object obj = f28910a;
+            if (obj != null && (method = f28911b) != null) {
                 try {
                     method.invoke(obj, strArr);
                     return true;

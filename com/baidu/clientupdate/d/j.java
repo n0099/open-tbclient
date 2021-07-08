@@ -14,6 +14,7 @@ import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,15 +28,15 @@ import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f4657a;
+    public static final char[] f4674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4658b;
+    public static String f4675b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,8 +52,8 @@ public final class j {
                 return;
             }
         }
-        f4657a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f4658b = "";
+        f4674a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f4675b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -98,7 +99,7 @@ public final class j {
 
     public static void a(Context context, File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, file) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file) == null) {
             com.baidu.clientupdate.a.d a2 = com.baidu.clientupdate.a.d.a(context);
             com.baidu.clientupdate.c.a a3 = com.baidu.clientupdate.c.a.a(context);
             LogUtil.logD("Utility", "startSystemInstallUI安装文件存在:" + file.exists() + ":" + file.getPath());
@@ -108,8 +109,8 @@ public final class j {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(RouterCallback.CODE_ERROR);
-                    String str = f4658b;
-                    if (TextUtils.isEmpty(f4658b)) {
+                    String str = f4675b;
+                    if (TextUtils.isEmpty(f4675b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -131,7 +132,7 @@ public final class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f4658b = str;
+            f4675b = str;
         }
     }
 

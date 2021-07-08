@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.w.m;
-/* loaded from: classes8.dex */
+import d.a.o0.w.m;
+/* loaded from: classes7.dex */
 public class b extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,17 +36,17 @@ public class b extends m {
                 return;
             }
         }
-        this.f56775d = R.drawable.icon_pure_post_voice24;
-        this.f56776e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f56778g = false;
-        this.f56779h = true;
+        this.f53496d = R.drawable.icon_pure_post_voice24;
+        this.f53497e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.f53499g = false;
+        this.f53500h = true;
         this.l = 6;
         this.m = true;
         this.k = new NewVoiceRecordButton(context);
         this.n = new int[]{1, 9};
     }
 
-    @Override // d.a.r0.w.m
+    @Override // d.a.o0.w.m
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -11,21 +11,21 @@ import d.f.b.a.a0.f;
 import d.f.b.a.i0.l;
 import d.f.b.a.i0.v;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f72598a;
+        public final int f69701a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f72599b;
+        public final long f69702b;
 
         public a(int i2, long j) {
             Interceptable interceptable = $ic;
@@ -42,15 +42,15 @@ public final class c {
                     return;
                 }
             }
-            this.f72598a = i2;
-            this.f72599b = j;
+            this.f69701a = i2;
+            this.f69702b = j;
         }
 
         public static a a(f fVar, l lVar) throws IOException, InterruptedException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fVar, lVar)) == null) {
-                fVar.c(lVar.f73386a, 0, 8);
+                fVar.c(lVar.f70489a, 0, 8);
                 lVar.J(0);
                 return new a(lVar.i(), lVar.n());
             }
@@ -64,23 +64,23 @@ public final class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fVar)) == null) {
             d.f.b.a.i0.a.e(fVar);
             l lVar = new l(16);
-            if (a.a(fVar, lVar).f72598a != v.q(com.baidu.wallet.base.audio.b.f23840e)) {
+            if (a.a(fVar, lVar).f69701a != v.q(com.baidu.wallet.base.audio.b.f23950e)) {
                 return null;
             }
-            fVar.c(lVar.f73386a, 0, 4);
+            fVar.c(lVar.f70489a, 0, 4);
             lVar.J(0);
             int i2 = lVar.i();
-            if (i2 != v.q(com.baidu.wallet.base.audio.b.f23841f)) {
+            if (i2 != v.q(com.baidu.wallet.base.audio.b.f23951f)) {
                 Log.e("WavHeaderReader", "Unsupported RIFF format: " + i2);
                 return null;
             }
             a a2 = a.a(fVar, lVar);
-            while (a2.f72598a != v.q(com.baidu.wallet.base.audio.b.f23842g)) {
-                fVar.g((int) a2.f72599b);
+            while (a2.f69701a != v.q(com.baidu.wallet.base.audio.b.f23952g)) {
+                fVar.g((int) a2.f69702b);
                 a2 = a.a(fVar, lVar);
             }
-            d.f.b.a.i0.a.f(a2.f72599b >= 16);
-            fVar.c(lVar.f73386a, 0, 16);
+            d.f.b.a.i0.a.f(a2.f69702b >= 16);
+            fVar.c(lVar.f70489a, 0, 16);
             lVar.J(0);
             int p = lVar.p();
             int p2 = lVar.p();
@@ -98,7 +98,7 @@ public final class c {
                     Log.e("WavHeaderReader", "Unsupported WAV format type: " + p);
                     return null;
                 } else {
-                    fVar.g(((int) a2.f72599b) - 16);
+                    fVar.g(((int) a2.f69702b) - 16);
                     return new b(p2, o, o2, p3, p4, r);
                 }
             }
@@ -115,21 +115,21 @@ public final class c {
             fVar.e();
             l lVar = new l(8);
             a a2 = a.a(fVar, lVar);
-            while (a2.f72598a != v.q("data")) {
-                Log.w("WavHeaderReader", "Ignoring unknown WAV chunk: " + a2.f72598a);
-                long j = a2.f72599b + 8;
-                if (a2.f72598a == v.q(com.baidu.wallet.base.audio.b.f23840e)) {
+            while (a2.f69701a != v.q("data")) {
+                Log.w("WavHeaderReader", "Ignoring unknown WAV chunk: " + a2.f69701a);
+                long j = a2.f69702b + 8;
+                if (a2.f69701a == v.q(com.baidu.wallet.base.audio.b.f23950e)) {
                     j = 12;
                 }
                 if (j <= 2147483647L) {
                     fVar.h((int) j);
                     a2 = a.a(fVar, lVar);
                 } else {
-                    throw new ParserException("Chunk is too large (~2GB+) to skip; id: " + a2.f72598a);
+                    throw new ParserException("Chunk is too large (~2GB+) to skip; id: " + a2.f69701a);
                 }
             }
             fVar.h(8);
-            bVar.j(fVar.getPosition(), a2.f72599b);
+            bVar.j(fVar.getPosition(), a2.f69702b);
         }
     }
 }

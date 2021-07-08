@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SearchMajorModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f18411e;
+    public b f18451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f18412f;
+    public HttpMessageListener f18452f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchMajorModel f18413a;
+        public final /* synthetic */ SearchMajorModel f18453a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SearchMajorModel searchMajorModel, int i2) {
@@ -55,7 +55,7 @@ public class SearchMajorModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18413a = searchMajorModel;
+            this.f18453a = searchMajorModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,26 +66,26 @@ public class SearchMajorModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null) {
                 return;
             }
-            this.f18413a.mErrorCode = httpResponsedMessage.getError();
-            this.f18413a.mErrorString = httpResponsedMessage.getErrorString();
-            if (!StringUtils.isNull(this.f18413a.mErrorString)) {
-                str = this.f18413a.mErrorString;
+            this.f18453a.mErrorCode = httpResponsedMessage.getError();
+            this.f18453a.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(this.f18453a.mErrorString)) {
+                str = this.f18453a.mErrorString;
             } else {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
             }
             ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.f18413a.mErrorCode);
+            errorData.setError_code(this.f18453a.mErrorCode);
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
-            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f65583a)) {
-                this.f18413a.f18411e.onSuccess(searchMajorHttpResponsedMessage.getData().f65583a);
+            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f62364a)) {
+                this.f18453a.f18451e.onSuccess(searchMajorHttpResponsedMessage.getData().f62364a);
             } else {
-                this.f18413a.f18411e.onError(errorData);
+                this.f18453a.f18451e.onError(errorData);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onError(ErrorData errorData);
 
@@ -111,10 +111,10 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f18412f = aVar;
+        this.f18452f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f18412f);
-        this.f18411e = bVar;
+        registerListener(this.f18452f);
+        this.f18451e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -1,5 +1,6 @@
 package rx.internal.operators;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,25 +11,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.e;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class NotificationLite {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f76150a;
+    public static final Object f73184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f76151b;
+    public static final Object f73185b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class OnErrorSentinel implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f76152e;
+        public final Throwable f73186e;
 
         public OnErrorSentinel(Throwable th) {
             Interceptable interceptable = $ic;
@@ -45,14 +46,14 @@ public final class NotificationLite {
                     return;
                 }
             }
-            this.f76152e = th;
+            this.f73186e = th;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Notification=>Error:" + this.f76152e;
+                return "Notification=>Error:" + this.f73186e;
             }
             return (String) invokeV.objValue;
         }
@@ -71,7 +72,7 @@ public final class NotificationLite {
                 return;
             }
         }
-        f76150a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+        f73184a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 1;
             public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +97,7 @@ public final class NotificationLite {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? "Notification=>Completed" : (String) invokeV.objValue;
             }
         };
-        f76151b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+        f73185b = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2;
             public transient /* synthetic */ FieldHolder $fh;
@@ -127,15 +128,15 @@ public final class NotificationLite {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, eVar, obj)) == null) {
-            if (obj == f76150a) {
+            if (obj == f73184a) {
                 eVar.onCompleted();
                 return true;
-            } else if (obj == f76151b) {
+            } else if (obj == f73185b) {
                 eVar.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    eVar.onError(((OnErrorSentinel) obj).f76152e);
+                    eVar.onError(((OnErrorSentinel) obj).f73186e);
                     return true;
                 }
                 eVar.onNext(obj);
@@ -150,7 +151,7 @@ public final class NotificationLite {
     public static Object b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f76150a : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f73184a : invokeV.objValue;
     }
 
     public static Object c(Throwable th) {
@@ -162,7 +163,7 @@ public final class NotificationLite {
     public static Throwable d(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, obj)) == null) ? ((OnErrorSentinel) obj).f76152e : (Throwable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? ((OnErrorSentinel) obj).f73186e : (Throwable) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: java.lang.Object */
@@ -171,7 +172,7 @@ public final class NotificationLite {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) {
-            if (obj == f76151b) {
+            if (obj == f73185b) {
                 return null;
             }
             return obj;
@@ -182,7 +183,7 @@ public final class NotificationLite {
     public static boolean f(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? obj == f76150a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? obj == f73184a : invokeL.booleanValue;
     }
 
     public static boolean g(Object obj) {
@@ -194,6 +195,6 @@ public final class NotificationLite {
     public static <T> Object h(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, t)) == null) ? t == null ? f76151b : t : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, t)) == null) ? t == null ? f73185b : t : invokeL.objValue;
     }
 }

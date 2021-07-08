@@ -193,7 +193,7 @@ public abstract class OrientationHelper {
     public static OrientationHelper createVerticalHelper(RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, layoutManager)) == null) ? new OrientationHelper(layoutManager) { // from class: androidx.recyclerview.widget.OrientationHelper.2
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutManager)) == null) ? new OrientationHelper(layoutManager) { // from class: androidx.recyclerview.widget.OrientationHelper.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

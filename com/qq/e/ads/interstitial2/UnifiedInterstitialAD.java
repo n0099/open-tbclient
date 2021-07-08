@@ -26,37 +26,37 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UIADI f40758a;
+    public UIADI f37772a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40759b;
+    public boolean f37773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40760c;
+    public boolean f37774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40761d;
+    public boolean f37775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicInteger f40762e;
+    public AtomicInteger f37776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f40763f;
+    public AtomicInteger f37777f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile UnifiedInterstitialMediaListener f40764g;
+    public volatile UnifiedInterstitialMediaListener f37778g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile VideoOption f40765h;
+    public volatile VideoOption f37779h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile int f40766i;
+    public volatile int f37780i;
     public volatile int j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,11 +95,11 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                 return;
             }
         }
-        this.f40759b = false;
-        this.f40760c = false;
-        this.f40761d = false;
-        this.f40762e = new AtomicInteger(0);
-        this.f40763f = new AtomicInteger(0);
+        this.f37773b = false;
+        this.f37774c = false;
+        this.f37775d = false;
+        this.f37776e = new AtomicInteger(0);
+        this.f37777f = new AtomicInteger(0);
         if (GDTADManager.getInstance().isInitialized()) {
             a(activity, GDTADManager.getInstance().getAppStatus().getAPPID(), str, unifiedInterstitialADListener, map);
             return;
@@ -146,11 +146,11 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                 return;
             }
         }
-        this.f40759b = false;
-        this.f40760c = false;
-        this.f40761d = false;
-        this.f40762e = new AtomicInteger(0);
-        this.f40763f = new AtomicInteger(0);
+        this.f37773b = false;
+        this.f37774c = false;
+        this.f37775d = false;
+        this.f37776e = new AtomicInteger(0);
+        this.f37777f = new AtomicInteger(0);
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(activity, str, str2, unifiedInterstitialADListener, map);
     }
@@ -162,33 +162,33 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                 GDTLogger.e(String.format("UnifiedInterstitialAD Constructor paras error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedInterstitialADListener));
                 return;
             }
-            this.f40759b = true;
+            this.f37773b = true;
             if (!a.a(activity)) {
                 GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
                 return;
             }
-            this.f40760c = true;
+            this.f37774c = true;
             GDTADManager.INIT_EXECUTOR.execute(new Runnable(this, activity, str, str2, unifiedInterstitialADListener, map) { // from class: com.qq.e.ads.interstitial2.UnifiedInterstitialAD.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f40767a;
+                public final /* synthetic */ Activity f37781a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f40768b;
+                public final /* synthetic */ String f37782b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f40769c;
+                public final /* synthetic */ String f37783c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ UnifiedInterstitialADListener f40770d;
+                public final /* synthetic */ UnifiedInterstitialADListener f37784d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map f40771e;
+                public final /* synthetic */ Map f37785e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ UnifiedInterstitialAD f40772f;
+                public final /* synthetic */ UnifiedInterstitialAD f37786f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -205,19 +205,19 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                             return;
                         }
                     }
-                    this.f40772f = this;
-                    this.f40767a = activity;
-                    this.f40768b = str;
-                    this.f40769c = str2;
-                    this.f40770d = unifiedInterstitialADListener;
-                    this.f40771e = map;
+                    this.f37786f = this;
+                    this.f37781a = activity;
+                    this.f37782b = str;
+                    this.f37783c = str2;
+                    this.f37784d = unifiedInterstitialADListener;
+                    this.f37785e = map;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (!GDTADManager.getInstance().initWith(this.f40767a, this.f40768b)) {
+                        if (!GDTADManager.getInstance().initWith(this.f37781a, this.f37782b)) {
                             GDTLogger.e("Fail to init ADManager");
                             return;
                         }
@@ -227,10 +227,10 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public /* synthetic */ POFactory f40773a;
+                                public /* synthetic */ POFactory f37787a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public /* synthetic */ AnonymousClass1 f40774b;
+                                public /* synthetic */ AnonymousClass1 f37788b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -247,8 +247,8 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                                             return;
                                         }
                                     }
-                                    this.f40774b = this;
-                                    this.f40773a = r7;
+                                    this.f37788b = this;
+                                    this.f37787a = r7;
                                 }
 
                                 /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, IGET, IGET, INVOKE, MOVE_EXCEPTION] complete} */
@@ -257,19 +257,19 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         try {
-                                            if (this.f40773a != null) {
-                                                this.f40774b.f40772f.f40758a = this.f40773a.getUnifiedInterstitialADDelegate(this.f40774b.f40767a, this.f40774b.f40768b, this.f40774b.f40769c, this.f40774b.f40770d);
-                                                this.f40774b.f40772f.f40761d = true;
-                                                UnifiedInterstitialAD.a(this.f40774b.f40772f, this.f40774b.f40771e, this.f40774b.f40769c);
-                                                this.f40774b.f40772f.setVideoOption(this.f40774b.f40772f.f40765h);
-                                                this.f40774b.f40772f.setMediaListener(this.f40774b.f40772f.f40764g);
-                                                this.f40774b.f40772f.setMinVideoDuration(this.f40774b.f40772f.f40766i);
-                                                this.f40774b.f40772f.setMaxVideoDuration(this.f40774b.f40772f.j);
-                                                while (this.f40774b.f40772f.f40762e.getAndDecrement() > 0) {
-                                                    this.f40774b.f40772f.loadAD();
+                                            if (this.f37787a != null) {
+                                                this.f37788b.f37786f.f37772a = this.f37787a.getUnifiedInterstitialADDelegate(this.f37788b.f37781a, this.f37788b.f37782b, this.f37788b.f37783c, this.f37788b.f37784d);
+                                                this.f37788b.f37786f.f37775d = true;
+                                                UnifiedInterstitialAD.a(this.f37788b.f37786f, this.f37788b.f37785e, this.f37788b.f37783c);
+                                                this.f37788b.f37786f.setVideoOption(this.f37788b.f37786f.f37779h);
+                                                this.f37788b.f37786f.setMediaListener(this.f37788b.f37786f.f37778g);
+                                                this.f37788b.f37786f.setMinVideoDuration(this.f37788b.f37786f.f37780i);
+                                                this.f37788b.f37786f.setMaxVideoDuration(this.f37788b.f37786f.j);
+                                                while (this.f37788b.f37786f.f37776e.getAndDecrement() > 0) {
+                                                    this.f37788b.f37786f.loadAD();
                                                 }
-                                                while (this.f40774b.f40772f.f40763f.getAndDecrement() > 0) {
-                                                    this.f40774b.f40772f.loadFullScreenAD();
+                                                while (this.f37788b.f37786f.f37777f.getAndDecrement() > 0) {
+                                                    this.f37788b.f37786f.loadFullScreenAD();
                                                 }
                                             }
                                         } finally {
@@ -304,7 +304,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void close() {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.close();
@@ -313,7 +313,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void destroy() {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.destory();
@@ -323,7 +323,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.getAdNetWorkName();
             }
@@ -337,7 +337,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.getAdPatternType();
             }
@@ -352,7 +352,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.getApkInfoUrl();
             }
@@ -365,7 +365,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.getECPM();
             }
@@ -379,7 +379,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.getECPMLevel();
             }
@@ -394,7 +394,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                if (this.f40758a != null) {
+                if (this.f37772a != null) {
                     return UIADI.ext;
                 }
                 return null;
@@ -410,7 +410,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.getVideoDuration();
             }
@@ -424,7 +424,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 return uiadi.isValid();
             }
@@ -437,12 +437,12 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void loadAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.f40759b || !this.f40760c) {
+            if (!this.f37773b || !this.f37774c) {
                 GDTLogger.e("InterstitialAD init Paras OR Context error,See More logs while new InterstitialAD");
-            } else if (!this.f40761d) {
-                this.f40762e.incrementAndGet();
+            } else if (!this.f37775d) {
+                this.f37776e.incrementAndGet();
             } else {
-                UIADI uiadi = this.f40758a;
+                UIADI uiadi = this.f37772a;
                 if (uiadi != null) {
                     uiadi.loadAd();
                 } else {
@@ -455,12 +455,12 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void loadFullScreenAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (!this.f40759b || !this.f40760c) {
+            if (!this.f37773b || !this.f37774c) {
                 GDTLogger.e("InterstitialAD init Paras OR Context error,See More logs while new InterstitialAD");
-            } else if (!this.f40761d) {
-                this.f40763f.incrementAndGet();
+            } else if (!this.f37775d) {
+                this.f37777f.incrementAndGet();
             } else {
-                UIADI uiadi = this.f40758a;
+                UIADI uiadi = this.f37772a;
                 if (uiadi != null) {
                     uiadi.loadFullScreenAD();
                 } else {
@@ -474,7 +474,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, downloadConfirmListener) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, downloadConfirmListener) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.setDownloadConfirmListener(downloadConfirmListener);
@@ -484,10 +484,10 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             this.j = i2;
-            if (this.j > 0 && this.f40766i > this.j) {
+            if (this.j > 0 && this.f37780i > this.j) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 uiadi.setMaxVideoDuration(i2);
             }
@@ -497,8 +497,8 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, unifiedInterstitialMediaListener) == null) {
-            this.f40764g = unifiedInterstitialMediaListener;
-            UIADI uiadi = this.f40758a;
+            this.f37778g = unifiedInterstitialMediaListener;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 uiadi.setMediaListener(unifiedInterstitialMediaListener);
             }
@@ -508,11 +508,11 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void setMinVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f40766i = i2;
-            if (this.j > 0 && this.f40766i > this.j) {
+            this.f37780i = i2;
+            if (this.j > 0 && this.f37780i > this.j) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            UIADI uiadi = this.f40758a;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 uiadi.setMinVideoDuration(i2);
             }
@@ -522,8 +522,8 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void setVideoOption(VideoOption videoOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, videoOption) == null) {
-            this.f40765h = videoOption;
-            UIADI uiadi = this.f40758a;
+            this.f37779h = videoOption;
+            UIADI uiadi = this.f37772a;
             if (uiadi != null) {
                 uiadi.setVideoOption(videoOption);
             }
@@ -540,7 +540,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void show() {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.show();
@@ -549,7 +549,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void show(Activity activity) {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, activity) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, activity) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.show(activity);
@@ -558,7 +558,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void showAsPopupWindow() {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.showAsPopupWindow();
@@ -567,7 +567,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void showAsPopupWindow(Activity activity) {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, activity) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, activity) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.showAsPopupWindow(activity);
@@ -576,7 +576,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     public void showFullScreenAD(Activity activity) {
         UIADI uiadi;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, activity) == null) || (uiadi = this.f40758a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, activity) == null) || (uiadi = this.f37772a) == null) {
             return;
         }
         uiadi.showFullScreenAD(activity);

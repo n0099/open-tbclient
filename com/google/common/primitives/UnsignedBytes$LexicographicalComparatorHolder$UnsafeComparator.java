@@ -1,5 +1,6 @@
 package com.google.common.primitives;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +19,7 @@ import java.security.PrivilegedExceptionAction;
 import java.util.Comparator;
 import sun.misc.Unsafe;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator implements Comparator<byte[]> {
     public static final /* synthetic */ UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +29,7 @@ public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparato
     public static final Unsafe theUnsafe;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements PrivilegedExceptionAction<Unsafe> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +139,7 @@ public final class UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparato
     public static UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[]) $VALUES.clone() : (UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[]) $VALUES.clone() : (UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum

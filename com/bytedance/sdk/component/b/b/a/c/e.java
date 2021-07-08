@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b.a.c;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,12 +13,12 @@ import com.bytedance.sdk.component.b.b.s;
 import com.bytedance.sdk.component.b.b.t;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f28128a;
+    public static final Pattern f28238a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +34,7 @@ public final class e {
                 return;
             }
         }
-        f28128a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+        f28238a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
     }
 
     public static long a(ab abVar) {
@@ -58,7 +59,7 @@ public final class e {
     public static long a(s sVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, sVar)) == null) ? a(sVar.a("Content-Length")) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sVar)) == null) ? a(sVar.a("Content-Length")) : invokeL.longValue;
     }
 
     public static long a(String str) {
@@ -79,7 +80,7 @@ public final class e {
 
     public static void a(m mVar, t tVar, s sVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, mVar, tVar, sVar) == null) || mVar == m.f28479a) {
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, mVar, tVar, sVar) == null) || mVar == m.f28589a) {
             return;
         }
         List<com.bytedance.sdk.component.b.b.l> a2 = com.bytedance.sdk.component.b.b.l.a(tVar, sVar);

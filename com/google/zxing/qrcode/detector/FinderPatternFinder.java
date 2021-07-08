@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.detector;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FinderPatternFinder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER_QUORUM = 2;
@@ -32,13 +33,13 @@ public class FinderPatternFinder {
     public final ResultPointCallback resultPointCallback;
 
     /* renamed from: com.google.zxing.qrcode.detector.FinderPatternFinder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +87,7 @@ public class FinderPatternFinder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -421,7 +422,7 @@ public class FinderPatternFinder {
     private float crossCheckHorizontal(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65540, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, i4, i5)) == null) {
             BitMatrix bitMatrix = this.image;
             int width = bitMatrix.getWidth();
             int[] crossCheckStateCount = getCrossCheckStateCount();

@@ -6,19 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c extends s1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f71653e;
+    public final Context f68756e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -39,7 +38,7 @@ public class c extends s1 {
                 return;
             }
         }
-        this.f71653e = context;
+        this.f68756e = context;
     }
 
     @Override // d.b.a.s1
@@ -47,7 +46,7 @@ public class c extends s1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            z1.g(jSONObject, KsMediaMeta.KSM_KEY_LANGUAGE, this.f71653e.getResources().getConfiguration().locale.getLanguage());
+            z1.g(jSONObject, "language", this.f68756e.getResources().getConfiguration().locale.getLanguage());
             int rawOffset = TimeZone.getDefault().getRawOffset() / 3600000;
             if (rawOffset < -12) {
                 rawOffset = -12;

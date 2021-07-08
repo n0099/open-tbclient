@@ -12,7 +12,7 @@ import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseConsumer<T> implements Consumer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
     public static boolean statusHasAnyFlag(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65540, null, i2, i3)) == null) ? (i2 & i3) != 0 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? (i2 & i3) != 0 : invokeII.booleanValue;
     }
 
     public static boolean statusHasFlag(int i2, int i3) {

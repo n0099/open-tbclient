@@ -25,7 +25,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageBase64Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int JPEG_QUALITY = 70;
@@ -33,13 +33,13 @@ public class ImageBase64Utils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.utils.ImageBase64Utils$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class ImageBase64AsyncTask extends AsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class ImageBase64Utils {
                 Context context = this.mContext;
                 if (context != null && this.mImageUri != null) {
                     try {
-                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7745a);
+                        return context.getContentResolver().openFileDescriptor(this.mImageUri, r.f7762a);
                     } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }
@@ -161,12 +161,12 @@ public class ImageBase64Utils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ImageBase64Listener {
         void onBase64Result(String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static ImageBase64Utils sInstance;

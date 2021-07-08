@@ -2,7 +2,7 @@ package d.a.c.k;
 
 import android.graphics.Canvas;
 import android.view.MotionEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface j {
     boolean a(MotionEvent motionEvent);
 

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +85,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.t.setVisibility(z ? 0 : 8);
             this.l.setVisibility(z ? 8 : 0);
-            this.f20245h.setVisibility(z ? 8 : 0);
-            this.f20246i.setVisibility(z ? 8 : 0);
+            this.f20291h.setVisibility(z ? 8 : 0);
+            this.f20292i.setVisibility(z ? 8 : 0);
         }
     }
 
@@ -97,7 +97,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             super.setCurrentDuration(i2, z);
             if (!z) {
                 this.l.setProgress((int) (((i2 * 1.0f) / this.p) * 10000.0f));
-                TextView textView = this.f20245h;
+                TextView textView = this.f20291h;
                 if (textView != null) {
                     textView.setText(StringHelper.stringForVideoTime(i2));
                 }
@@ -115,8 +115,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
                 g2 = l.g(getContext(), R.dimen.tbds210);
             }
             layoutParams.height = g2;
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20245h.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f20246i.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20291h.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f20292i.getLayoutParams();
             layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
             layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
         }

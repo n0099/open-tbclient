@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
-import d.a.y0.t.q;
-import d.a.y0.t.w;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
+import d.a.v0.t.q;
+import d.a.v0.t.w;
 import java.io.Closeable;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     public String mPath;
     public VideoKeyFrameModel mVideoKeyFrameModel;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnGetFrameAtExactTimeListener {
         void onFinish(Bitmap bitmap);
     }

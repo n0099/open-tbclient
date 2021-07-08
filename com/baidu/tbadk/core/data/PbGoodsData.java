@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a0.e0.c;
+import d.a.p0.a0.e0.c;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbGoodsInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PbGoodsData extends c implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class PbGoodsData extends c implements Serializable {
         this.goodsUrlH5 = pbGoodsInfo.goods_url_h5;
     }
 
-    @Override // d.a.s0.a0.e0.c
+    @Override // d.a.p0.a0.e0.c
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

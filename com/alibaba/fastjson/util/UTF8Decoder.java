@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -160,7 +161,7 @@ public class UTF8Decoder extends CharsetDecoder {
     public static boolean isMalformed3(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65540, null, i2, i3, i4)) == null) ? ((i2 != -32 || (i3 & 224) != 128) && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) ? ((i2 != -32 || (i3 & 224) != 128) && (i3 & 192) == 128 && (i4 & 192) == 128) ? false : true : invokeIII.booleanValue;
     }
 
     public static boolean isMalformed4(int i2, int i3, int i4) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BetterImageSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALIGN_BASELINE = 1;
@@ -28,7 +28,7 @@ public class BetterImageSpan extends ReplacementSpan {
     public int mWidth;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface BetterImageSpanAlignment {
     }
 

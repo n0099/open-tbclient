@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CouponDiscountInfo;
 import java.util.List;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class CouponDiscountResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

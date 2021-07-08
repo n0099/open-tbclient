@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestService implements IRequestService {
     public static /* synthetic */ Interceptable $ic;
     public static IRequestService iRequestService;

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class bv implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f23378a;
+    public final /* synthetic */ View f23488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PopupWindow f23379b;
+    public final /* synthetic */ PopupWindow f23489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23380c;
+    public final /* synthetic */ FeedbackInputActivity f23490c;
 
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
@@ -37,17 +37,17 @@ public final class bv implements View.OnClickListener {
                 return;
             }
         }
-        this.f23380c = feedbackInputActivity;
-        this.f23378a = view;
-        this.f23379b = popupWindow;
+        this.f23490c = feedbackInputActivity;
+        this.f23488a = view;
+        this.f23489b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            ((ClipboardManager) this.f23380c.getSystemService("clipboard")).setText(((TextView) this.f23378a).getText().toString());
-            this.f23379b.dismiss();
+            ((ClipboardManager) this.f23490c.getSystemService("clipboard")).setText(((TextView) this.f23488a).getText().toString());
+            this.f23489b.dismiss();
         }
     }
 }

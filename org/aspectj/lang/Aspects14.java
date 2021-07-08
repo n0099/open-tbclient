@@ -1,5 +1,6 @@
 package org.aspectj.lang;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Aspects14 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASPECTOF = "aspectOf";
@@ -204,7 +205,7 @@ public class Aspects14 {
     public static Object aspectOf(Class cls, Object obj) throws NoAspectBoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj)) == null) {
             try {
                 return getPerObjectAspectOf(cls).invoke(null, obj);
             } catch (InvocationTargetException e2) {

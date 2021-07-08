@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.config;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ABTestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 1;
@@ -61,7 +62,7 @@ public final class ABTestHandler {
     public static boolean getAbBoolean(ABNameDefine aBNameDefine) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, aBNameDefine)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aBNameDefine)) == null) {
             Integer num = getInstance().map.get(aBNameDefine.getName());
             if (num == null) {
                 if (aBNameDefine.getDefaultValue() == 2) {

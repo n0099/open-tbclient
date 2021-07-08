@@ -2,6 +2,7 @@ package com.yy.hiidostatis.inner.util.hdid;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,7 +22,7 @@ import java.io.File;
 import java.util.Random;
 import java.util.UUID;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class DeviceManager {
     public static final /* synthetic */ DeviceManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -124,7 +125,7 @@ public final class DeviceManager {
     private Device getInner(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             try {
                 String readFile = FileUtil.readFile(getInnerPath(context));
                 if (readFile != null) {

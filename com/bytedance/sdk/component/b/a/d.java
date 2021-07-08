@@ -2,7 +2,7 @@ package com.bytedance.sdk.component.b.a;
 
 import java.io.IOException;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface d extends r, WritableByteChannel {
     d b(String str) throws IOException;
 

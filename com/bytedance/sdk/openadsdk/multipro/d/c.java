@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.o;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c implements com.bytedance.sdk.openadsdk.multipro.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31508a;
+    public Context f31618a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class c implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Context context = this.f31508a;
+            Context context = this.f31618a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -60,7 +60,7 @@ public class c implements com.bytedance.sdk.openadsdk.multipro.a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.f31508a = context;
+            this.f31618a = context;
         }
     }
 

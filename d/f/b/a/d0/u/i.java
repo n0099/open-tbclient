@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import d.f.b.a.i0.v;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,25 +48,25 @@ public class i extends a {
     public final void a() throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.f.b.a.h0.g b2 = this.f72757a.b(this.o);
+            d.f.b.a.h0.g b2 = this.f69860a.b(this.o);
             try {
-                d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.f72764h, b2.f73282c, this.f72764h.a(b2));
+                d.f.b.a.a0.b bVar = new d.f.b.a.a0.b(this.f69867h, b2.f70385c, this.f69867h.a(b2));
                 if (this.o == 0) {
                     b i2 = i();
                     i2.c(this.m);
                     this.n.d(i2);
                 }
-                d.f.b.a.a0.e eVar = this.n.f72765e;
+                d.f.b.a.a0.e eVar = this.n.f69868e;
                 int i3 = 0;
                 while (i3 == 0 && !this.p) {
                     i3 = eVar.e(bVar, null);
                 }
                 d.f.b.a.i0.a.f(i3 != 1);
-                this.o = (int) (bVar.getPosition() - this.f72757a.f73282c);
-                v.h(this.f72764h);
+                this.o = (int) (bVar.getPosition() - this.f69860a.f70385c);
+                v.h(this.f69867h);
                 this.q = true;
             } catch (Throwable th) {
-                v.h(this.f72764h);
+                v.h(this.f69867h);
                 throw th;
             }
         }
@@ -98,7 +98,7 @@ public class i extends a {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72788i + this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69891i + this.l : invokeV.intValue;
     }
 
     @Override // d.f.b.a.d0.u.l

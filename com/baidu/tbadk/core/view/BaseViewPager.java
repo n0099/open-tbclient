@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f12379i;
+    public GestureDetector f12396i;
     public a j;
     public a k;
     public boolean l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i2);
     }
@@ -46,17 +46,17 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
                 return;
             }
         }
-        this.f12379i = null;
+        this.f12396i = null;
         this.j = null;
         this.k = null;
         this.l = false;
-        c();
+        b();
     }
 
-    private void c() {
+    private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f12379i = new GestureDetector(this);
+            this.f12396i = new GestureDetector(this);
         }
     }
 
@@ -143,8 +143,8 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            if (this.f12379i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
-                this.f12379i.onTouchEvent(motionEvent);
+            if (this.f12396i != null && getAdapter() != null && getAdapter().getCount() != 0 && (getCurrentItem() == 0 || getAdapter().getCount() == getCurrentItem() + 1)) {
+                this.f12396i.onTouchEvent(motionEvent);
                 return super.onTouchEvent(motionEvent);
             }
             return super.onTouchEvent(motionEvent);
@@ -185,10 +185,10 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
                 return;
             }
         }
-        this.f12379i = null;
+        this.f12396i = null;
         this.j = null;
         this.k = null;
         this.l = false;
-        c();
+        b();
     }
 }

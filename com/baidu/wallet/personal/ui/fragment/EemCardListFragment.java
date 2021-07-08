@@ -15,13 +15,13 @@ import com.baidu.wallet.paysdk.datamodel.SourceFlag;
 import com.baidu.wallet.personal.storage.CardListCache;
 import com.baidu.wallet.personal.storage.a;
 import com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class EemCardListFragment extends CardListBaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public k f27044a;
+    public k f27154a;
 
     public EemCardListFragment() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class EemCardListFragment extends CardListBaseFragment {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ EemCardListFragment f27045a;
+                public final /* synthetic */ EemCardListFragment f27155a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -73,7 +73,7 @@ public class EemCardListFragment extends CardListBaseFragment {
                             return;
                         }
                     }
-                    this.f27045a = this;
+                    this.f27155a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -81,15 +81,15 @@ public class EemCardListFragment extends CardListBaseFragment {
                 public void a(CardListResponse cardListResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, cardListResponse) == null) {
-                        this.f27045a.mActivity.runOnUiThread(new Runnable(this, cardListResponse) { // from class: com.baidu.wallet.personal.ui.fragment.EemCardListFragment.1.1
+                        this.f27155a.mActivity.runOnUiThread(new Runnable(this, cardListResponse) { // from class: com.baidu.wallet.personal.ui.fragment.EemCardListFragment.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ CardListResponse f27046a;
+                            public final /* synthetic */ CardListResponse f27156a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f27047b;
+                            public final /* synthetic */ AnonymousClass1 f27157b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -106,20 +106,20 @@ public class EemCardListFragment extends CardListBaseFragment {
                                         return;
                                     }
                                 }
-                                this.f27047b = this;
-                                this.f27046a = cardListResponse;
+                                this.f27157b = this;
+                                this.f27156a = cardListResponse;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    EemCardListFragment eemCardListFragment = this.f27047b.f27045a;
-                                    CardListResponse cardListResponse2 = this.f27046a;
+                                    EemCardListFragment eemCardListFragment = this.f27157b.f27155a;
+                                    CardListResponse cardListResponse2 = this.f27156a;
                                     eemCardListFragment.mCardListResponse = cardListResponse2;
                                     if (cardListResponse2 != null) {
                                         eemCardListFragment.mLoadFailedView.setVisibility(8);
-                                        this.f27047b.f27045a.bindData(true);
+                                        this.f27157b.f27155a.bindData(true);
                                     }
                                 }
                             }
@@ -161,12 +161,12 @@ public class EemCardListFragment extends CardListBaseFragment {
             if (!a.d(activity, CardListBaseFragment.KEY_HAS_EEM_CARD_LIST_LOADED + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE)) {
                 showLoading();
             }
-            if (this.f27044a == null) {
-                this.f27044a = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), 607, "EemCardListFragment");
+            if (this.f27154a == null) {
+                this.f27154a = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), 607, "EemCardListFragment");
             }
-            this.f27044a.setResponseCallback(this);
-            this.f27044a.a(SourceFlag.SDK);
-            this.f27044a.execBean();
+            this.f27154a.setResponseCallback(this);
+            this.f27154a.a(SourceFlag.SDK);
+            this.f27154a.execBean();
         }
     }
 

@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.IntBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EnvDrawText {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f76041a = "EnvDrawText";
+    public static final String f73075a = "EnvDrawText";
     public static boolean bBmpChange;
     public static Bitmap bmp;
     public static int[] buffer;
@@ -122,7 +123,7 @@ public class EnvDrawText {
                 textPaint3.setSubpixelText(true);
                 textPaint3.setAntiAlias(true);
                 if (i22 != 0 && fontCache != null && (aVar = fontCache.get(i22)) != null) {
-                    textPaint3.setTypeface(aVar.f76042a);
+                    textPaint3.setTypeface(aVar.f73076a);
                 }
                 textPaint3.setTextSize(f2);
                 int indexOf2 = str.indexOf(92, 0);
@@ -478,7 +479,7 @@ public class EnvDrawText {
         Bitmap bitmap2;
         int desiredWidth;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
             synchronized (EnvDrawText.class) {
                 Canvas canvas = new Canvas();
                 TextPaint textPaint = new TextPaint();
@@ -746,11 +747,11 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i2);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f76042a = typeface;
-                    aVar2.f76043b++;
+                    aVar2.f73076a = typeface;
+                    aVar2.f73077b++;
                     fontCache.put(i2, aVar2);
                 } else {
-                    aVar.f76043b++;
+                    aVar.f73077b++;
                 }
             }
         }
@@ -764,8 +765,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i3 = aVar.f76043b - 1;
-                aVar.f76043b = i3;
+                int i3 = aVar.f73077b - 1;
+                aVar.f73077b = i3;
                 if (i3 == 0) {
                     fontCache.remove(i2);
                 }

@@ -12,13 +12,13 @@ import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class e implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f44037a;
+    public JSONObject f41053a;
 
     public e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e implements c {
                 return;
             }
         }
-        this.f44037a = jSONObject;
+        this.f41053a = jSONObject;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
@@ -43,7 +43,7 @@ public class e implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator<String> keys = this.f44037a.keys();
+            Iterator<String> keys = this.f41053a.keys();
             if (keys != null) {
                 HashSet hashSet = new HashSet();
                 while (keys.hasNext()) {
@@ -64,7 +64,7 @@ public class e implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             try {
-                this.f44037a.putOpt(str, obj);
+                this.f41053a.putOpt(str, obj);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -90,6 +90,6 @@ public class e implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f44037a.opt(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f41053a.opt(str) : invokeL.objValue;
     }
 }

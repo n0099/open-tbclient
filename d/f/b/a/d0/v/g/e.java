@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f72864a;
+    public final String f69967a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f72865b;
+    public final long f69968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<a> f72866c;
+    public final List<a> f69969c;
 
     public e(String str, long j, List<a> list) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public class e {
                 return;
             }
         }
-        this.f72864a = str;
-        this.f72865b = j;
-        this.f72866c = Collections.unmodifiableList(list);
+        this.f69967a = str;
+        this.f69968b = j;
+        this.f69969c = Collections.unmodifiableList(list);
     }
 
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int size = this.f72866c.size();
+            int size = this.f69969c.size();
             for (int i3 = 0; i3 < size; i3++) {
-                if (this.f72866c.get(i3).f72837b == i2) {
+                if (this.f69969c.get(i3).f69940b == i2) {
                     return i3;
                 }
             }

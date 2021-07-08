@@ -5,27 +5,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17577a;
+        public String f17616a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17578b;
+        public String f17617b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17579c;
+        public String f17618c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17580d;
+        public int f17619d;
 
         public a() {
             Interceptable interceptable = $ic;

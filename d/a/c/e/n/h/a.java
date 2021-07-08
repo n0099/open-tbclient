@@ -13,37 +13,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.n.m.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44334a;
+    public String f41350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuffer f44335b;
+    public StringBuffer f41351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuffer f44336c;
+    public StringBuffer f41352c;
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f44337d;
+    public StringBuffer f41353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44338e;
+    public int f41354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44339f;
+    public int f41355f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44340g;
+    public int f41356g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f44341h;
+    public long f41357h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f44342i;
+    public long f41358i;
     public long j;
     public long k;
     public long l;
@@ -73,14 +73,14 @@ public class a {
                 return;
             }
         }
-        this.f44335b = new StringBuffer();
-        this.f44336c = new StringBuffer();
-        this.f44337d = new StringBuffer();
-        this.f44338e = 0;
-        this.f44339f = 0;
-        this.f44340g = 0;
-        this.f44341h = 0L;
-        this.f44342i = 0L;
+        this.f41351b = new StringBuffer();
+        this.f41352c = new StringBuffer();
+        this.f41353d = new StringBuffer();
+        this.f41354e = 0;
+        this.f41355f = 0;
+        this.f41356g = 0;
+        this.f41357h = 0L;
+        this.f41358i = 0L;
         this.j = 0L;
         this.k = 0L;
         this.l = 0L;
@@ -156,7 +156,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f44334a = str;
+        this.f41350a = str;
     }
 
     public void J(boolean z) {
@@ -186,9 +186,9 @@ public class a {
             synchronized (this) {
                 if (aVar != null) {
                     try {
-                        this.f44335b.append(aVar.toString());
-                        this.f44335b.append(Part.CRLF);
-                        this.f44338e++;
+                        this.f41351b.append(aVar.toString());
+                        this.f41351b.append(Part.CRLF);
+                        this.f41354e++;
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     } catch (OutOfMemoryError e3) {
@@ -198,7 +198,7 @@ public class a {
                 if (this.v != null) {
                     this.v.a(this);
                 }
-                this.f44341h = System.currentTimeMillis();
+                this.f41357h = System.currentTimeMillis();
             }
         }
     }
@@ -209,9 +209,9 @@ public class a {
             synchronized (this) {
                 if (aVar != null) {
                     try {
-                        this.f44336c.append(aVar.toString());
-                        this.f44336c.append(Part.CRLF);
-                        this.f44339f++;
+                        this.f41352c.append(aVar.toString());
+                        this.f41352c.append(Part.CRLF);
+                        this.f41355f++;
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     } catch (OutOfMemoryError e3) {
@@ -221,7 +221,7 @@ public class a {
                 if (this.v != null) {
                     this.v.a(this);
                 }
-                this.f44342i = System.currentTimeMillis();
+                this.f41358i = System.currentTimeMillis();
             }
         }
     }
@@ -233,9 +233,9 @@ public class a {
                 if (aVar != null) {
                     try {
                         if (aVar.f() != null) {
-                            this.f44337d.append(aVar.f().c().toString());
-                            this.f44337d.append(Part.CRLF);
-                            this.f44340g++;
+                            this.f41353d.append(aVar.f().c().toString());
+                            this.f41353d.append(Part.CRLF);
+                            this.f41356g++;
                         }
                     } catch (Exception e2) {
                         BdLog.e(e2);
@@ -255,8 +255,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             synchronized (this) {
-                this.f44335b = new StringBuffer();
-                this.f44338e = 0;
+                this.f41351b = new StringBuffer();
+                this.f41354e = 0;
                 this.l = 0L;
             }
         }
@@ -266,8 +266,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             synchronized (this) {
-                this.f44336c = new StringBuffer();
-                this.f44339f = 0;
+                this.f41352c = new StringBuffer();
+                this.f41355f = 0;
                 this.m = 0L;
             }
         }
@@ -277,8 +277,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             synchronized (this) {
-                this.f44337d = new StringBuffer();
-                this.f44340g = 0;
+                this.f41353d = new StringBuffer();
+                this.f41356g = 0;
                 this.n = 0L;
             }
         }
@@ -293,13 +293,13 @@ public class a {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f44341h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f41357h : invokeV.longValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f44342i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f41358i : invokeV.longValue;
     }
 
     public long k() {
@@ -311,25 +311,25 @@ public class a {
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f44340g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f41356g : invokeV.intValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f44338e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f41354e : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f44339f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f41355f : invokeV.intValue;
     }
 
     public String o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f44334a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f41350a : (String) invokeV.objValue;
     }
 
     public String p() {
@@ -403,18 +403,18 @@ public class a {
     public StringBuffer x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f44335b : (StringBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f41351b : (StringBuffer) invokeV.objValue;
     }
 
     public StringBuffer y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f44336c : (StringBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f41352c : (StringBuffer) invokeV.objValue;
     }
 
     public StringBuffer z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f44337d : (StringBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f41353d : (StringBuffer) invokeV.objValue;
     }
 }

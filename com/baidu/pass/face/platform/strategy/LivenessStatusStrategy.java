@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LivenessStatusStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LivenessStatusStrategy";
@@ -38,7 +38,7 @@ public class LivenessStatusStrategy {
     public long mQualityDuration;
 
     /* renamed from: com.baidu.pass.face.platform.strategy.LivenessStatusStrategy$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$LivenessTypeEnum;
         public static /* synthetic */ Interceptable $ic;

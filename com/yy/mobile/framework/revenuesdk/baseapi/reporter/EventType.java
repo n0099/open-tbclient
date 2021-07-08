@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class EventType {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class GiftEventID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOAD_ALL_GIFT_FAIL = "35";
@@ -37,7 +37,7 @@ public class EventType {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class GiftSummaryEventID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SUMMARY_SEND_MULTI_FAIL = "203";
@@ -61,7 +61,7 @@ public class EventType {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class PayEventID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DO_HANG_JOB_FAIL = "9";
@@ -98,7 +98,7 @@ public class EventType {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class PaySummaryEventID {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SUMMARY_DOHANGDJOB_FAIL = "103";

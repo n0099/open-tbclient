@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorListener;
 import android.hardware.SensorManager;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +25,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_HEAD_LENGTH = 5;
@@ -60,7 +61,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int saveTime;
     public SensorManager sensorManager;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +114,7 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +212,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     private boolean compareFloats(float[] fArr, float[] fArr2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{fArr, fArr2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{fArr, fArr2, Float.valueOf(f2)})) == null) {
             if (fArr.length != fArr2.length) {
                 return true;
             }

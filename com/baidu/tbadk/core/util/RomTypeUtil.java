@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RomTypeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
@@ -159,7 +160,7 @@ public class RomTypeUtil {
     public static boolean isEmui() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? isUseForHuawei() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? isUseForHuawei() : invokeV.booleanValue;
     }
 
     public static boolean isFlyme() {

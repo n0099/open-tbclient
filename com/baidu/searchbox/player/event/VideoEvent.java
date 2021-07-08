@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VideoEvent implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRIORITY_AT_ONCE = 1;
@@ -41,12 +41,12 @@ public class VideoEvent implements IPoolItem {
     public int mType;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public @interface Type {
     }
 
@@ -102,7 +102,7 @@ public class VideoEvent implements IPoolItem {
     public static VideoEvent obtain(@NonNull String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
             VideoEvent acquire = sEventPool.acquire();
             acquire.setType(i2);
             acquire.setAction(str);

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.a.f.d;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44358a;
+    public long f41374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44359b;
+    public String f41375b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class b {
                 return;
             }
         }
-        this.f44358a = 0L;
-        this.f44359b = null;
+        this.f41374a = 0L;
+        this.f41375b = null;
     }
 
     public boolean a() {
@@ -53,8 +53,8 @@ public class b {
             }
             try {
                 JSONObject jSONObject = new JSONObject(a2);
-                this.f44358a = jSONObject.getLong("time");
-                this.f44359b = jSONObject.getString("data");
+                this.f41374a = jSONObject.getLong("time");
+                this.f41375b = jSONObject.getString("data");
                 return true;
             } catch (JSONException e2) {
                 e2.printStackTrace();

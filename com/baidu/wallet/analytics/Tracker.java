@@ -2,6 +2,7 @@ package com.baidu.wallet.analytics;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.NetworkUtils;
@@ -14,7 +15,7 @@ import com.baidu.wallet.api.WalletApiExt;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Tracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class Tracker {
 
     public static void send(@NonNull String str, @NonNull Map<String, String> map, @NonNull Context context, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, null, str, map, context, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map, context, str2) == null) {
             ArrayList arrayList = new ArrayList(map.size() + 2);
             arrayList.add(new RestNameValuePair("type", str));
             for (Map.Entry<String, String> entry : map.entrySet()) {

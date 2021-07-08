@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.r;
 
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -18,39 +19,39 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32219a = false;
+    public static boolean f32329a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32220b = false;
+    public static boolean f32330b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CharSequence f32221c;
+    public static final CharSequence f32331c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CharSequence f32222d;
+    public static final CharSequence f32332d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CharSequence f32223e;
+    public static final CharSequence f32333e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f32224f = null;
+    public static String f32334f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f32225g = Integer.MAX_VALUE;
+    public static int f32335g = Integer.MAX_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Callable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32227a;
+        public String f32337a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -67,7 +68,7 @@ public class j {
                     return;
                 }
             }
-            this.f32227a = str;
+            this.f32337a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +79,7 @@ public class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                String c2 = j.c(this.f32227a);
+                String c2 = j.c(this.f32337a);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 com.bytedance.sdk.component.utils.j.b("RomUtils", "property:" + c2 + ",getSystemProperty use time :" + currentTimeMillis2);
                 if (!TextUtils.isEmpty(c2)) {
@@ -112,26 +113,26 @@ public class j {
                 return;
             }
         }
-        f32221c = "sony";
-        f32222d = "amigo";
-        f32223e = "funtouch";
+        f32331c = "sony";
+        f32332d = "amigo";
+        f32333e = "funtouch";
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!TextUtils.isEmpty(f32224f)) {
-                return f32224f;
+            if (!TextUtils.isEmpty(f32334f)) {
+                return f32334f;
             }
             String a2 = com.bytedance.sdk.openadsdk.core.h.a("sdk_local_rom_info", 604800000L);
-            f32224f = a2;
+            f32334f = a2;
             if (TextUtils.isEmpty(a2)) {
                 String u = u();
-                f32224f = u;
+                f32334f = u;
                 com.bytedance.sdk.openadsdk.core.h.a("sdk_local_rom_info", u);
             }
-            return f32224f;
+            return f32334f;
         }
         return (String) invokeV.objValue;
     }
@@ -163,18 +164,18 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (!f32220b) {
+            if (!f32330b) {
                 try {
                     if (Class.forName("miui.os.Build") != null) {
-                        f32219a = true;
-                        f32220b = true;
+                        f32329a = true;
+                        f32330b = true;
                         return true;
                     }
                 } catch (Exception unused) {
                 }
-                f32220b = true;
+                f32330b = true;
             }
-            return f32219a;
+            return f32329a;
         }
         return invokeV.booleanValue;
     }
@@ -193,7 +194,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String d2 = d("ro.vivo.os.build.display.id");
-            return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f32223e);
+            return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f32333e);
         }
         return invokeV.booleanValue;
     }
@@ -201,7 +202,7 @@ public class j {
     public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f32222d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f32332d) : invokeV.booleanValue;
     }
 
     public static String i() {
@@ -298,16 +299,16 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            if (f32225g == Integer.MAX_VALUE) {
+            if (f32335g == Integer.MAX_VALUE) {
                 String str = Build.MANUFACTURER;
                 String n = o.n("kllk");
                 if (!TextUtils.isEmpty(str) && str.toLowerCase().contains(n)) {
-                    f32225g = 1;
+                    f32335g = 1;
                 } else {
-                    f32225g = 0;
+                    f32335g = 0;
                 }
             }
-            return f32225g == 1;
+            return f32335g == 1;
         }
         return invokeV.booleanValue;
     }
@@ -404,7 +405,7 @@ public class j {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.DISPLAY.contains("Flyme") || Build.USER.equals(ImmersiveOSUtils.FLYME) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.DISPLAY.contains("Flyme") || Build.USER.equals(ImmersiveOSUtils.FLYME) : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -485,7 +486,7 @@ public class j {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ com.bytedance.sdk.component.e.f f32226a;
+                            public final /* synthetic */ com.bytedance.sdk.component.e.f f32336a;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -505,14 +506,14 @@ public class j {
                                         return;
                                     }
                                 }
-                                this.f32226a = fVar;
+                                this.f32336a = fVar;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f32226a.run();
+                                    this.f32336a.run();
                                 }
                             }
                         });

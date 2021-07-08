@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ICommonDialogListener extends IInterface {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Default implements ICommonDialogListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,21 +65,21 @@ public interface ICommonDialogListener extends IInterface {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements ICommonDialogListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class a implements ICommonDialogListener {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonDialogListener f28896a;
+            public static ICommonDialogListener f29006a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f28897b;
+            public IBinder f29007b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public interface ICommonDialogListener extends IInterface {
                         return;
                     }
                 }
-                this.f28897b = iBinder;
+                this.f29007b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28897b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29007b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -114,7 +114,7 @@ public interface ICommonDialogListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                        if (!this.f28897b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29007b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDialogBtnNo();
                         } else {
                             obtain2.readException();
@@ -134,7 +134,7 @@ public interface ICommonDialogListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                        if (!this.f28897b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29007b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDialogBtnYes();
                         } else {
                             obtain2.readException();
@@ -154,7 +154,7 @@ public interface ICommonDialogListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonDialogListener");
-                        if (!this.f28897b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f29007b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onDialogCancel();
                         } else {
                             obtain2.readException();
@@ -202,17 +202,17 @@ public interface ICommonDialogListener extends IInterface {
         public static ICommonDialogListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f28896a : (ICommonDialogListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29006a : (ICommonDialogListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(ICommonDialogListener iCommonDialogListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iCommonDialogListener)) == null) {
-                if (a.f28896a != null || iCommonDialogListener == null) {
+                if (a.f29006a != null || iCommonDialogListener == null) {
                     return false;
                 }
-                a.f28896a = iCommonDialogListener;
+                a.f29006a = iCommonDialogListener;
                 return true;
             }
             return invokeL.booleanValue;

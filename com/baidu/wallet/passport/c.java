@@ -7,13 +7,14 @@ import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.utils.ResUtils;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,10 +49,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f25725a;
+                public final /* synthetic */ View f25835a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SapiWebView f25726b;
+                public final /* synthetic */ SapiWebView f25836b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -68,16 +69,16 @@ public class c {
                             return;
                         }
                     }
-                    this.f25725a = inflate;
-                    this.f25726b = sapiWebView;
+                    this.f25835a = inflate;
+                    this.f25836b = sapiWebView;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f25725a.setVisibility(4);
-                        this.f25726b.reload();
+                        this.f25835a.setVisibility(4);
+                        this.f25836b.reload();
                     }
                 }
             });
@@ -96,10 +97,10 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SapiWebView f25727a;
+                public final /* synthetic */ SapiWebView f25837a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f25728b;
+                public final /* synthetic */ View f25838b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -116,20 +117,20 @@ public class c {
                             return;
                         }
                     }
-                    this.f25727a = sapiWebView;
-                    this.f25728b = inflate;
+                    this.f25837a = sapiWebView;
+                    this.f25838b = inflate;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f25727a.post(new Runnable(this) { // from class: com.baidu.wallet.passport.c.2.1
+                        this.f25837a.post(new Runnable(this) { // from class: com.baidu.wallet.passport.c.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f25729a;
+                            public final /* synthetic */ AnonymousClass2 f25839a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -146,15 +147,15 @@ public class c {
                                         return;
                                     }
                                 }
-                                this.f25729a = this;
+                                this.f25839a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.f25729a.f25728b.setVisibility(4);
-                                    this.f25729a.f25727a.reload();
+                                    this.f25839a.f25838b.setVisibility(4);
+                                    this.f25839a.f25837a.reload();
                                 }
                             }
                         });
@@ -168,7 +169,7 @@ public class c {
 
     public static void d(Context context, SapiWebView sapiWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, context, sapiWebView) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sapiWebView) == null) {
             ProgressBar progressBar = new ProgressBar(context, null, 16842872);
             progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, 4, 0, 0));
             sapiWebView.setProgressBar(progressBar);

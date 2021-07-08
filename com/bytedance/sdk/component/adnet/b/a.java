@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.b.d;
 import com.bytedance.sdk.component.adnet.core.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LruCache<String, Pair<Bitmap, byte[]>> f27735a;
+    public LruCache<String, Pair<Bitmap, byte[]>> f27845a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,12 +34,12 @@ public class a implements d.b {
                 return;
             }
         }
-        this.f27735a = new LruCache<String, Pair<Bitmap, byte[]>>(this, Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16) { // from class: com.bytedance.sdk.component.adnet.b.a.1
+        this.f27845a = new LruCache<String, Pair<Bitmap, byte[]>>(this, Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16) { // from class: com.bytedance.sdk.component.adnet.b.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f27736a;
+            public final /* synthetic */ a f27846a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -59,7 +59,7 @@ public class a implements d.b {
                         return;
                     }
                 }
-                this.f27736a = this;
+                this.f27846a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -95,7 +95,7 @@ public class a implements d.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
-                Pair<Bitmap, byte[]> pair = this.f27735a.get(str);
+                Pair<Bitmap, byte[]> pair = this.f27845a.get(str);
                 byte[] bArr = pair != null ? (byte[]) pair.second : new byte[0];
                 return bArr == null ? new byte[0] : bArr;
             } catch (Throwable th) {
@@ -112,7 +112,7 @@ public class a implements d.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                Pair<Bitmap, byte[]> pair = this.f27735a.get(str);
+                Pair<Bitmap, byte[]> pair = this.f27845a.get(str);
                 if (pair != null) {
                     return (Bitmap) pair.first;
                 }
@@ -132,7 +132,7 @@ public class a implements d.b {
             return;
         }
         try {
-            this.f27735a.put(str, new Pair<>(bitmap, bArr));
+            this.f27845a.put(str, new Pair<>(bitmap, bArr));
         } catch (Throwable th) {
             o.a(th, "DefaultImageCache put bitmap error", new Object[0]);
         }

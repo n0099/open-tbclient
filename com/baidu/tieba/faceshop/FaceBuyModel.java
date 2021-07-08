@@ -16,36 +16,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
 import d.a.c.e.p.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FaceBuyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f14889e;
+    public c f14928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f14890f;
+    public b f14929f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14891g;
+    public int f14930g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14895a;
+        public NetWork f14934a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyModel f14896b;
+        public final /* synthetic */ FaceBuyModel f14935b;
 
         public c(FaceBuyModel faceBuyModel) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FaceBuyModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f14896b = faceBuyModel;
+            this.f14935b = faceBuyModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,9 +75,9 @@ public class FaceBuyModel extends BdBaseModel {
                 String obj = objArr[0].toString();
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                    this.f14895a = netWork;
+                    this.f14934a = netWork;
                     netWork.addPostData("pid", obj);
-                    return (FaceBuyData) OrmObject.objectWithJsonStr(this.f14895a.postNetData(), FaceBuyData.class);
+                    return (FaceBuyData) OrmObject.objectWithJsonStr(this.f14934a.postNetData(), FaceBuyData.class);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                     return null;
@@ -93,8 +93,8 @@ public class FaceBuyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceBuyData) == null) {
                 super.onPostExecute(faceBuyData);
-                this.f14896b.f14889e = null;
-                this.f14896b.mLoadDataCallBack.c(faceBuyData);
+                this.f14935b.f14928e = null;
+                this.f14935b.mLoadDataCallBack.c(faceBuyData);
             }
         }
 
@@ -103,12 +103,12 @@ public class FaceBuyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f14895a;
+                NetWork netWork = this.f14934a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f14896b.f14889e = null;
-                this.f14896b.mLoadDataCallBack.c(null);
+                this.f14935b.f14928e = null;
+                this.f14935b.mLoadDataCallBack.c(null);
             }
         }
 
@@ -135,28 +135,28 @@ public class FaceBuyModel extends BdBaseModel {
                 return;
             }
         }
-        this.f14891g = 3;
-        this.f14889e = null;
-        this.f14890f = null;
+        this.f14930g = 3;
+        this.f14928e = null;
+        this.f14929f = null;
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f14889e == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f14928e == null) {
             c cVar = new c(this, null);
-            this.f14889e = cVar;
+            this.f14928e = cVar;
             cVar.setPriority(3);
-            this.f14889e.execute(str);
+            this.f14928e.execute(str);
         }
     }
 
     public void E(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.f14890f == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.f14929f == null) {
             b bVar = new b(this, null);
-            this.f14890f = bVar;
+            this.f14929f = bVar;
             bVar.setPriority(3);
-            this.f14890f.execute(str);
+            this.f14929f.execute(str);
         }
     }
 
@@ -175,7 +175,7 @@ public class FaceBuyModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c cVar = this.f14889e;
+            c cVar = this.f14928e;
             if (cVar != null) {
                 cVar.cancel();
                 return true;
@@ -185,19 +185,19 @@ public class FaceBuyModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14892a;
+        public NetWork f14931a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f14893b;
+        public volatile boolean f14932b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FaceBuyModel f14894c;
+        public final /* synthetic */ FaceBuyModel f14933c;
 
         public b(FaceBuyModel faceBuyModel) {
             Interceptable interceptable = $ic;
@@ -214,8 +214,8 @@ public class FaceBuyModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f14894c = faceBuyModel;
-            this.f14893b = false;
+            this.f14933c = faceBuyModel;
+            this.f14932b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -230,10 +230,10 @@ public class FaceBuyModel extends BdBaseModel {
                 FaceBuyQueryData faceBuyQueryData = null;
                 if (!k.isEmpty(obj)) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                    this.f14892a = netWork;
+                    this.f14931a = netWork;
                     netWork.addPostData("order_id", obj);
-                    for (int i2 = 0; !this.f14893b && i2 < this.f14894c.f14891g; i2++) {
-                        faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f14892a.postNetData(), FaceBuyQueryData.class);
+                    for (int i2 = 0; !this.f14932b && i2 < this.f14933c.f14930g; i2++) {
+                        faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f14931a.postNetData(), FaceBuyQueryData.class);
                         if (faceBuyQueryData != null && (buyResult = faceBuyQueryData.buy_result) != null) {
                             if (buyResult.status == 2) {
                                 break;
@@ -264,9 +264,9 @@ public class FaceBuyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceBuyQueryData) == null) {
                 super.onPostExecute(faceBuyQueryData);
-                this.f14894c.f14890f = null;
-                this.f14893b = true;
-                this.f14894c.mLoadDataCallBack.c(faceBuyQueryData);
+                this.f14933c.f14929f = null;
+                this.f14932b = true;
+                this.f14933c.mLoadDataCallBack.c(faceBuyQueryData);
             }
         }
 
@@ -275,12 +275,12 @@ public class FaceBuyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f14892a;
+                NetWork netWork = this.f14931a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f14894c.f14890f = null;
-                this.f14894c.mLoadDataCallBack.c(null);
+                this.f14933c.f14929f = null;
+                this.f14933c.mLoadDataCallBack.c(null);
             }
         }
 

@@ -1,6 +1,7 @@
 package com.baidu.ar.audio;
 
 import android.media.AudioRecord;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -132,7 +133,7 @@ public class c {
 
     private void cs() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || this.iI.getFrameSize() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.iI.getFrameSize() <= 0) {
             return;
         }
         if (this.iK == null) {

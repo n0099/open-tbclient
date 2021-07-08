@@ -18,13 +18,13 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i extends BaseBean<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f25881a;
+    public PwdRequest f25991a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -44,7 +44,7 @@ public class i extends BaseBean<Void> {
                 return;
             }
         }
-        this.f25881a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f25991a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -61,14 +61,14 @@ public class i extends BaseBean<Void> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f25881a == null) {
+            if (this.f25991a == null) {
                 return arrayList;
             }
             String seed = PasswordController.getSeed();
-            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25881a.mPayPass, seed)));
+            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25991a.mPayPass, seed)));
             arrayList.add(new RestNameValuePair("seed", SafePay.getInstance().encryptProxy(seed)));
             arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
-            Map<String, String> map = this.f25881a.mExtData;
+            Map<String, String> map = this.f25991a.mExtData;
             if (map == null) {
                 return arrayList;
             }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class b implements d.l.a.e.b.g.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,10 +29,10 @@ public class b implements d.l.a.e.b.g.i {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, lVar)) == null) {
-            if (lVar.ordinal() <= com.ss.android.socialbase.downloader.network.l.f41626b.ordinal()) {
+            if (lVar.ordinal() <= com.ss.android.socialbase.downloader.network.l.f38640b.ordinal()) {
                 return 1;
             }
-            return lVar == com.ss.android.socialbase.downloader.network.l.f41627c ? i2 - 1 : i2;
+            return lVar == com.ss.android.socialbase.downloader.network.l.f38641c ? i2 - 1 : i2;
         }
         return invokeIL.intValue;
     }

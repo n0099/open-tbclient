@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class o1 extends h1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long[] f71717f;
+    public static final long[] f68820f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f71718d;
+    public long f68821d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f71719e;
+    public long f68822e;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class o1 extends h1 {
                 return;
             }
         }
-        f71717f = new long[]{60000};
+        f68820f = new long[]{60000};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,12 +76,12 @@ public class o1 extends h1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long Z = this.f71678a.i().Z();
+            long Z = this.f68781a.i().Z();
             if (Z > 60000 || Z <= 0) {
                 Z = 60000;
             }
-            f71717f[0] = Z;
-            return this.f71718d + Z;
+            f68820f[0] = Z;
+            return this.f68821d + Z;
         }
         return invokeV.longValue;
     }
@@ -90,7 +90,7 @@ public class o1 extends h1 {
     public long[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f71717f : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f68820f : (long[]) invokeV.objValue;
     }
 
     @Override // d.b.a.h1
@@ -99,23 +99,23 @@ public class o1 extends h1 {
         u c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (System.currentTimeMillis() > this.f71719e + this.f71678a.i().Z()) {
-                JSONObject j = this.f71678a.j().j();
-                p1 m = this.f71678a.m();
+            if (System.currentTimeMillis() > this.f68822e + this.f68781a.i().Z()) {
+                JSONObject j = this.f68781a.j().j();
+                p1 m = this.f68781a.m();
                 if (m != null && j != null && (c2 = m.c()) != null) {
-                    this.f71678a.h().n(j, c2, m.h());
-                    this.f71719e = System.currentTimeMillis();
+                    this.f68781a.h().n(j, c2, m.h());
+                    this.f68822e = System.currentTimeMillis();
                 }
             }
-            ArrayList<v> e2 = this.f71678a.h().e();
+            ArrayList<v> e2 = this.f68781a.h().e();
             ArrayList<v> arrayList = new ArrayList<>(e2.size());
             ArrayList<v> arrayList2 = new ArrayList<>(e2.size());
-            j1 j1Var = this.f71678a;
-            String[] b2 = o.b(j1Var, j1Var.f(), this.f71678a.j().c());
+            j1 j1Var = this.f68781a;
+            String[] b2 = o.b(j1Var, j1Var.f(), this.f68781a.j().c());
             Iterator<v> it = e2.iterator();
             while (it.hasNext()) {
                 v next = it.next();
-                int a2 = n.a(b2, next.m, this.f71678a.i());
+                int a2 = n.a(b2, next.m, this.f68781a.i());
                 if (a2 == 200) {
                     arrayList.add(next);
                 } else {
@@ -124,11 +124,11 @@ public class o1 extends h1 {
                 }
             }
             if (arrayList.size() > 0 || arrayList2.size() > 0) {
-                this.f71678a.h().k(arrayList, arrayList2);
+                this.f68781a.h().k(arrayList, arrayList2);
             }
             h0.e(e() + arrayList.size() + " " + e2.size(), null);
             if (arrayList.size() == e2.size()) {
-                this.f71718d = System.currentTimeMillis();
+                this.f68821d = System.currentTimeMillis();
                 return true;
             }
             return false;

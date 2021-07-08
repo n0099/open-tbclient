@@ -3,6 +3,7 @@ package com.baidu.minivideo.plugin.capture.db;
 import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.PreferenceUtils;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UgcSharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_ROINTS_LIST = "audio_points_list";
@@ -81,7 +82,7 @@ public class UgcSharedPreferences {
     public static Point getEncodeSupportMaxSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (sPref.contains(ENCODE_HARD_SUPPORT_MAX_W)) {
                 return new Point(sPref.getInt(ENCODE_HARD_SUPPORT_MAX_W, 0), sPref.getInt(ENCODE_HARD_SUPPORT_MAX_H, 0));
             }

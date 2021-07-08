@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,12 +20,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7604a;
+    public static final boolean f7621a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +41,7 @@ public class a {
                 return;
             }
         }
-        f7604a = Build.VERSION.SDK_INT >= 8;
+        f7621a = Build.VERSION.SDK_INT >= 8;
     }
 
     public a() {
@@ -113,7 +114,7 @@ public class a {
     public static void a(String str, String str2, Context context) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65540, null, str, str2, context) != null) {
+        if (interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, context) != null) {
             return;
         }
         InputStream inputStream = null;
@@ -209,7 +210,7 @@ public class a {
             try {
                 try {
                     try {
-                        zipFile = new ZipFile(f7604a ? context.getPackageCodePath() : "");
+                        zipFile = new ZipFile(f7621a ? context.getPackageCodePath() : "");
                     } catch (IOException unused) {
                     }
                 } catch (Exception e2) {

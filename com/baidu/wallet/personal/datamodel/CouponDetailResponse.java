@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CouponDetailResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,13 +55,13 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
     public String use_limit;
     public String use_limit_detail;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class AppSceneService implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: android  reason: collision with root package name */
-        public int f26978android;
+        public int f27088android;
         public String url;
 
         public AppSceneService() {
@@ -79,7 +79,7 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Detail implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7483625839289305699L;
@@ -102,7 +102,7 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class MarketingLabelDetail implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7483625839289305699L;
@@ -124,7 +124,7 @@ public class CouponDetailResponse implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Store implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7483625838372605699L;

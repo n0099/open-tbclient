@@ -15,31 +15,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.k;
-/* loaded from: classes5.dex */
+import d.a.p0.n1.k;
+/* loaded from: classes4.dex */
 public class LegoBottomView extends RelativeLayout implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f18307e;
+    public ObjectAnimator f18347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f18308f;
+    public Runnable f18348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18309g;
+    public boolean f18349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18310h;
+    public boolean f18350h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoBottomView f18311e;
+        public final /* synthetic */ LegoBottomView f18351e;
 
         public a(LegoBottomView legoBottomView) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class LegoBottomView extends RelativeLayout implements k {
                     return;
                 }
             }
-            this.f18311e = legoBottomView;
+            this.f18351e = legoBottomView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -84,18 +84,18 @@ public class LegoBottomView extends RelativeLayout implements k {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f18311e.setVisibility(0);
+                this.f18351e.setVisibility(0);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoBottomView f18312e;
+        public final /* synthetic */ LegoBottomView f18352e;
 
         public b(LegoBottomView legoBottomView) {
             Interceptable interceptable = $ic;
@@ -112,14 +112,14 @@ public class LegoBottomView extends RelativeLayout implements k {
                     return;
                 }
             }
-            this.f18312e = legoBottomView;
+            this.f18352e = legoBottomView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18312e.f18307e.start();
+                this.f18352e.f18347e.start();
             }
         }
     }
@@ -142,17 +142,17 @@ public class LegoBottomView extends RelativeLayout implements k {
                 return;
             }
         }
-        this.f18307e = null;
-        this.f18308f = null;
-        this.f18309g = false;
-        this.f18310h = false;
+        this.f18347e = null;
+        this.f18348f = null;
+        this.f18349g = false;
+        this.f18350h = false;
         d();
     }
 
     public void b(BaseCardView baseCardView, ICardInfo iCardInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, baseCardView, iCardInfo) == null) {
-            baseCardView.i(iCardInfo);
+            baseCardView.h(iCardInfo);
             if (baseCardView instanceof ButtonCardView) {
                 ((ButtonCardView) baseCardView).setBackgroundAlpha(0.3f);
             }
@@ -163,9 +163,9 @@ public class LegoBottomView extends RelativeLayout implements k {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18309g = false;
-            this.f18310h = false;
-            removeCallbacks(this.f18308f);
+            this.f18349g = false;
+            this.f18350h = false;
+            removeCallbacks(this.f18348f);
         }
     }
 
@@ -173,20 +173,20 @@ public class LegoBottomView extends RelativeLayout implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
-            this.f18307e = ofFloat;
+            this.f18347e = ofFloat;
             ofFloat.setDuration(1000L);
-            this.f18307e.addListener(new a(this));
-            this.f18308f = new b(this);
+            this.f18347e.addListener(new a(this));
+            this.f18348f = new b(this);
         }
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18309g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18349g : invokeV.booleanValue;
     }
 
-    @Override // d.a.s0.n1.k
+    @Override // d.a.p0.n1.k
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i2) == null) {
@@ -194,10 +194,10 @@ public class LegoBottomView extends RelativeLayout implements k {
                 if (i2 == 1 || i2 == 2) {
                     setVisibility(8);
                 }
-            } else if (getVisibility() == 0 || this.f18310h) {
+            } else if (getVisibility() == 0 || this.f18350h) {
             } else {
-                removeCallbacks(this.f18308f);
-                postDelayed(this.f18308f, 1000L);
+                removeCallbacks(this.f18348f);
+                postDelayed(this.f18348f, 1000L);
             }
         }
     }
@@ -205,15 +205,15 @@ public class LegoBottomView extends RelativeLayout implements k {
     public void setIsShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f18309g = z;
+            this.f18349g = z;
         }
     }
 
     public void setIsVideoLandscape(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            removeCallbacks(this.f18308f);
-            this.f18310h = z;
+            removeCallbacks(this.f18348f);
+            this.f18350h = z;
         }
     }
 
@@ -236,10 +236,10 @@ public class LegoBottomView extends RelativeLayout implements k {
                 return;
             }
         }
-        this.f18307e = null;
-        this.f18308f = null;
-        this.f18309g = false;
-        this.f18310h = false;
+        this.f18347e = null;
+        this.f18348f = null;
+        this.f18349g = false;
+        this.f18350h = false;
         d();
     }
 
@@ -262,10 +262,10 @@ public class LegoBottomView extends RelativeLayout implements k {
                 return;
             }
         }
-        this.f18307e = null;
-        this.f18308f = null;
-        this.f18309g = false;
-        this.f18310h = false;
+        this.f18347e = null;
+        this.f18348f = null;
+        this.f18349g = false;
+        this.f18350h = false;
         d();
     }
 }

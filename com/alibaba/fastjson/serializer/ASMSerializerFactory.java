@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.annotation.JSONType;
@@ -158,7 +159,7 @@ public class ASMSerializerFactory implements Opcodes {
 
     private void _before(MethodVisitor methodVisitor, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, methodVisitor, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, methodVisitor, context) == null) {
             methodVisitor.visitVarInsn(25, 0);
             methodVisitor.visitVarInsn(25, 1);
             methodVisitor.visitVarInsn(25, 2);

@@ -3,6 +3,7 @@ package com.bumptech.glide.load.model;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,14 +18,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class LazyHeaders implements Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Map<String, String> combinedHeaders;
     public final Map<String, List<LazyHeaderFactory>> headers;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
@@ -98,7 +99,7 @@ public final class LazyHeaders implements Headers {
         private List<LazyHeaderFactory> getFactories(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
                 List<LazyHeaderFactory> list = this.headers.get(str);
                 if (list == null) {
                     ArrayList arrayList = new ArrayList();
@@ -194,7 +195,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class StringHeaderFactory implements LazyHeaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

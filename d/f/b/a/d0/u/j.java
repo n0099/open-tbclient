@@ -10,13 +10,13 @@ import com.google.android.exoplayer2.Format;
 import d.f.b.a.i0.v;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class j extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public byte[] f72786i;
+    public byte[] f69889i;
     public int j;
     public volatile boolean k;
 
@@ -39,7 +39,7 @@ public abstract class j extends c {
                 return;
             }
         }
-        this.f72786i = bArr;
+        this.f69889i = bArr;
     }
 
     @Override // com.google.android.exoplayer2.upstream.Loader.c
@@ -47,21 +47,21 @@ public abstract class j extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f72764h.a(this.f72757a);
+                this.f69867h.a(this.f69860a);
                 int i2 = 0;
                 this.j = 0;
                 while (i2 != -1 && !this.k) {
                     h();
-                    i2 = this.f72764h.read(this.f72786i, this.j, 16384);
+                    i2 = this.f69867h.read(this.f69889i, this.j, 16384);
                     if (i2 != -1) {
                         this.j += i2;
                     }
                 }
                 if (!this.k) {
-                    f(this.f72786i, this.j);
+                    f(this.f69889i, this.j);
                 }
             } finally {
-                v.h(this.f72764h);
+                v.h(this.f69867h);
             }
         }
     }
@@ -93,17 +93,17 @@ public abstract class j extends c {
     public byte[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f72786i : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f69889i : (byte[]) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            byte[] bArr = this.f72786i;
+            byte[] bArr = this.f69889i;
             if (bArr == null) {
-                this.f72786i = new byte[16384];
+                this.f69889i = new byte[16384];
             } else if (bArr.length < this.j + 16384) {
-                this.f72786i = Arrays.copyOf(bArr, bArr.length + 16384);
+                this.f69889i = Arrays.copyOf(bArr, bArr.length + 16384);
             }
         }
     }

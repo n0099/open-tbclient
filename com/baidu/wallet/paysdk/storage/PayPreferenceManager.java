@@ -2,6 +2,7 @@ package com.baidu.wallet.paysdk.storage;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.utils.Md5Utils;
 import com.baidu.apollon.utils.SharedPreferencesUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class PayPreferenceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26226a = "_pay.preferences";
+    public static final String f26336a = "_pay.preferences";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f26227b = "wallet_interface.preferences";
+    public static final String f26337b = "wallet_interface.preferences";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PayPreferenceManager() {
@@ -89,7 +90,7 @@ public final class PayPreferenceManager {
     public static String getPpKey(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             Map<String, String> loginData = WalletLoginHelper.getInstance().getLoginData();
             if (loginData == null) {
                 return null;
@@ -122,7 +123,7 @@ public final class PayPreferenceManager {
     public static String getWalletInterfaceData(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f26227b, str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f26337b, str, str2) : (String) invokeLLL.objValue;
     }
 
     public static void setBoolean(Context context, String str, boolean z) {
@@ -157,7 +158,7 @@ public final class PayPreferenceManager {
     public static void setWalletInterfaceData(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            SharedPreferencesUtils.setParam(context, f26227b, str, str2);
+            SharedPreferencesUtils.setParam(context, f26337b, str, str2);
         }
     }
 }

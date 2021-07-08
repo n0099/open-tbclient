@@ -24,12 +24,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.WeakHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ao {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f43579a;
+    public static Context f40593a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Object f893a;
@@ -45,7 +45,7 @@ public class ao {
     public String f896a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43580b;
+    public String f40594b;
 
     static {
         InterceptResult invokeClinit;
@@ -87,7 +87,7 @@ public class ao {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
-                    return f43579a.getPackageManager().getPackageUid(str, 0);
+                    return f40593a.getPackageManager().getPackageUid(str, 0);
                 } catch (Exception unused) {
                     return -1;
                 }
@@ -100,13 +100,13 @@ public class ao {
     public static NotificationManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NotificationManager) f43579a.getSystemService(ActionJsonData.TAG_NOTIFICATION) : (NotificationManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NotificationManager) f40593a.getSystemService(ActionJsonData.TAG_NOTIFICATION) : (NotificationManager) invokeV.objValue;
     }
 
     public static ao a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             a(context);
             int hashCode = str.hashCode();
             ao aoVar = f894a.get(Integer.valueOf(hashCode));
@@ -163,8 +163,8 @@ public class ao {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, context) == null) && f43579a == null) {
-            f43579a = context.getApplicationContext();
+        if ((interceptable == null || interceptable.invokeL(65545, null, context) == null) && f40593a == null) {
+            f40593a = context.getApplicationContext();
             NotificationManager a2 = a();
             Boolean bool = (Boolean) com.xiaomi.push.bh.a((Object) a2, "isSystemConditionProviderEnabled", "xmsf_fake_condition_provider_path");
             m588a("fwk is support.init:" + bool);
@@ -190,7 +190,7 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (com.xiaomi.push.l.m535a() && aq.a(f43579a).a(hk.aZ.a(), true)) {
+            if (com.xiaomi.push.l.m535a() && aq.a(f40593a).a(hk.aZ.a(), true)) {
                 return f895a;
             }
             return false;
@@ -251,7 +251,7 @@ public class ao {
     public Context m592a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f43579a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f40593a : (Context) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -467,10 +467,10 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (TextUtils.isEmpty(this.f43580b)) {
-                this.f43580b = b("default");
+            if (TextUtils.isEmpty(this.f40594b)) {
+                this.f40594b = b("default");
             }
-            return this.f43580b;
+            return this.f40594b;
         }
         return (String) invokeV.objValue;
     }

@@ -3,6 +3,7 @@ package com.baidu.ar.h;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -176,7 +177,7 @@ public final class i {
         InterceptResult invokeLLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, file, file2, bool)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2, bool)) == null) {
             if (file != null && file.exists() && file.isFile() && file.canRead()) {
                 if (!file2.getParentFile().exists()) {
                     file2.getParentFile().mkdirs();

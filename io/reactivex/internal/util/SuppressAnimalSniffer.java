@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.TYPE})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public @interface SuppressAnimalSniffer {
 }

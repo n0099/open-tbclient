@@ -2,6 +2,7 @@ package com.facebook.imagepipeline.core;
 
 import android.content.ContentResolver;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -31,7 +32,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProducerSequenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +252,7 @@ public class ProducerSequenceFactory {
         InterceptResult invokeL;
         Producer<CloseableReference<CloseableImage>> producer2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, producer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, producer)) == null) {
             synchronized (this) {
                 producer2 = this.mBitmapPrepareSequences.get(producer);
                 if (producer2 == null) {

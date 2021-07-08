@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a0.b;
-/* loaded from: classes5.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.s0.v.e.b.b> {
+import d.a.p0.a0.b;
+/* loaded from: classes4.dex */
+public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.p0.v.e.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View m;
@@ -24,14 +24,14 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.s0.v.e.b.b> {
     public TbPageContext p;
     public int q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaFrsLiveListGatherRecommendTitleViewHolder(AlaFrsLiveListGatherRecommendTitleView alaFrsLiveListGatherRecommendTitleView) {
-            super(alaFrsLiveListGatherRecommendTitleView.l());
+            super(alaFrsLiveListGatherRecommendTitleView.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,22 +69,22 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.s0.v.e.b.b> {
             }
         }
         this.q = 3;
-        View l = l();
-        this.m = l.findViewById(R.id.frs_game_live_recommand_line1);
-        this.n = (TextView) l.findViewById(R.id.frs_game_live_recommand3);
-        this.o = l.findViewById(R.id.frs_game_live_recommand_line2);
-        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        View k = k();
+        this.m = k.findViewById(R.id.frs_game_live_recommand_line1);
+        this.n = (TextView) k.findViewById(R.id.frs_game_live_recommand3);
+        this.o = k.findViewById(R.id.frs_game_live_recommand_line2);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.s0.a0.b
-    public int h() {
+    @Override // d.a.p0.a0.b
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_recommend_title_view : invokeV.intValue;
     }
 
-    @Override // d.a.s0.a0.b
-    public void n(TbPageContext<?> tbPageContext, int i2) {
+    @Override // d.a.p0.a0.b
+    public void m(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.q == i2) {
             return;
@@ -103,12 +103,12 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<d.a.s0.v.e.b.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.s0.a0.b
-    /* renamed from: s */
-    public void m(d.a.s0.v.e.b.b bVar) {
+    @Override // d.a.p0.a0.b
+    /* renamed from: q */
+    public void l(d.a.p0.v.e.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            n(this.p, TbadkCoreApplication.getInst().getSkinType());
+            m(this.p, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class df implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f23450a;
+    public final /* synthetic */ Context f23560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f23451b;
+    public final /* synthetic */ String f23561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f23452c;
+    public final /* synthetic */ String f23562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f23453d;
+    public final /* synthetic */ FeedbackListActivity f23563d;
 
     public df(FeedbackListActivity feedbackListActivity, Context context, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public final class df implements View.OnClickListener {
                 return;
             }
         }
-        this.f23453d = feedbackListActivity;
-        this.f23450a = context;
-        this.f23451b = str;
-        this.f23452c = str2;
+        this.f23563d = feedbackListActivity;
+        this.f23560a = context;
+        this.f23561b = str;
+        this.f23562c = str2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -52,12 +52,12 @@ public final class df implements View.OnClickListener {
         PopupWindow popupWindow2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            view2 = this.f23453d.w;
+            view2 = this.f23563d.w;
             view2.setVisibility(0);
             new Thread(new dg(this)).start();
-            popupWindow = this.f23453d.z;
+            popupWindow = this.f23563d.z;
             if (popupWindow.isShowing()) {
-                popupWindow2 = this.f23453d.z;
+                popupWindow2 = this.f23563d.z;
                 popupWindow2.dismiss();
             }
         }

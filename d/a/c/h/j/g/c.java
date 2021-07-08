@@ -28,45 +28,45 @@ import java.util.concurrent.ConcurrentHashMap;
 import plugin.writeSettings.Plugin_setting;
 import plugin.writeSettings.ReqData;
 import plugin.writeSettings.WriteSettingsReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f44720e;
+    public static final BdUniqueId f41736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdAsyncTaskParallel f44721f;
+    public static final BdAsyncTaskParallel f41737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f44722g;
+    public static c f41738g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f44723a;
+    public a f41739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PluginSettings f44724b;
+    public PluginSettings f41740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f44725c;
+    public boolean f41741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f44726d;
+    public f f41742d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public PluginSettings f44727a;
+        public PluginSettings f41743a;
 
         /* renamed from: b  reason: collision with root package name */
-        public e f44728b;
+        public e f41744b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f44729c;
+        public final /* synthetic */ c f41745c;
 
         public a(c cVar, PluginSettings pluginSettings, e eVar) {
             Interceptable interceptable = $ic;
@@ -83,9 +83,9 @@ public class c {
                     return;
                 }
             }
-            this.f44729c = cVar;
-            this.f44727a = pluginSettings;
-            this.f44728b = eVar;
+            this.f41745c = cVar;
+            this.f41743a = pluginSettings;
+            this.f41744b = eVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -93,7 +93,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel();
-                e eVar = this.f44728b;
+                e eVar = this.f41744b;
                 if (eVar != null) {
                     eVar.a();
                 }
@@ -106,11 +106,11 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                PluginSettings pluginSettings = this.f44727a;
+                PluginSettings pluginSettings = this.f41743a;
                 if (pluginSettings != null && pluginSettings.getPlugins() != null) {
                     ReqData.Builder builder = new ReqData.Builder();
                     ArrayList arrayList = new ArrayList();
-                    for (Map.Entry<String, PluginSetting> entry : this.f44727a.getPlugins().entrySet()) {
+                    for (Map.Entry<String, PluginSetting> entry : this.f41743a.getPlugins().entrySet()) {
                         PluginSetting value = entry.getValue();
                         if (value != null) {
                             Plugin_setting.Builder builder2 = new Plugin_setting.Builder();
@@ -152,12 +152,12 @@ public class c {
                         }
                     }
                     builder.plugin_settings_list = arrayList;
-                    builder.container_version = this.f44727a.getContainerVersion();
-                    builder.forbidden_feature = this.f44727a.getForbiddenFeatures();
+                    builder.container_version = this.f41743a.getContainerVersion();
+                    builder.forbidden_feature = this.f41743a.getForbiddenFeatures();
                     WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
                     try {
                         builder3.data = builder.build(false);
-                        return Boolean.valueOf(this.f44729c.i(this.f44729c.c(), builder3.build(false).toByteArray()));
+                        return Boolean.valueOf(this.f41745c.i(this.f41745c.c(), builder3.build(false).toByteArray()));
                     } catch (Throwable th) {
                         d.a.c.h.h.a.b().g("plugin_settings_write_error");
                         d.a.c.h.h.a.b().o("plugin_setting", "settings_write_error", null, th.getMessage());
@@ -175,11 +175,11 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((a) bool);
-                if (this.f44728b != null) {
+                if (this.f41744b != null) {
                     if (bool != null && bool.booleanValue()) {
-                        this.f44728b.b();
+                        this.f41744b.b();
                     } else {
-                        this.f44728b.a();
+                        this.f41744b.a();
                     }
                 }
             }
@@ -199,8 +199,8 @@ public class c {
                 return;
             }
         }
-        f44720e = BdUniqueId.gen();
-        f44721f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f44720e);
+        f41736e = BdUniqueId.gen();
+        f41737f = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, f41736e);
     }
 
     public c() {
@@ -216,21 +216,21 @@ public class c {
                 return;
             }
         }
-        this.f44724b = new PluginSettings();
+        this.f41740b = new PluginSettings();
     }
 
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f44722g == null) {
+            if (f41738g == null) {
                 synchronized (c.class) {
-                    if (f44722g == null) {
-                        f44722g = new c();
+                    if (f41738g == null) {
+                        f41738g = new c();
                     }
                 }
             }
-            return f44722g;
+            return f41738g;
         }
         return (c) invokeV.objValue;
     }
@@ -250,7 +250,7 @@ public class c {
     public PluginSettings d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44724b : (PluginSettings) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41740b : (PluginSettings) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:58:0x0145, code lost:
@@ -427,10 +427,10 @@ public class c {
         PluginSettings e2;
         f fVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || this.f44725c) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) || this.f41741c) {
             return;
         }
-        this.f44726d = fVar;
+        this.f41742d = fVar;
         try {
         } catch (Exception e3) {
             e = e3;
@@ -441,26 +441,26 @@ public class c {
             e = e4;
             d.a.c.h.h.b.e("PluginSettingIOManager_readSettings", "path_" + ((String) null) + "-exception_" + e.getMessage());
             z = true;
-            this.f44725c = true;
+            this.f41741c = true;
             e2 = e();
-            this.f44725c = false;
+            this.f41741c = false;
             if (e2 == null) {
             }
-            fVar2 = this.f44726d;
+            fVar2 = this.f41742d;
             if (fVar2 == null) {
             }
         }
-        this.f44725c = true;
+        this.f41741c = true;
         e2 = e();
-        this.f44725c = false;
+        this.f41741c = false;
         if (e2 == null) {
-            this.f44724b = e2;
+            this.f41740b = e2;
         } else {
-            this.f44725c = true;
+            this.f41741c = true;
             e2 = e();
-            this.f44725c = false;
+            this.f41741c = false;
             if (e2 != null) {
-                this.f44724b = e2;
+                this.f41740b = e2;
             } else {
                 d.a.c.h.h.b.e("PluginSettingIOManager_readSettings", "isExist_" + z + "-PluginSettings_is_null");
                 if (z) {
@@ -469,10 +469,10 @@ public class c {
                 }
             }
         }
-        fVar2 = this.f44726d;
+        fVar2 = this.f41742d;
         if (fVar2 == null) {
             fVar2.a(e2);
-            this.f44726d = null;
+            this.f41742d = null;
         }
     }
 
@@ -482,24 +482,24 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, pluginSettings, eVar) == null) || pluginSettings == null) {
             return;
         }
-        this.f44724b = pluginSettings;
-        if (this.f44725c && (fVar = this.f44726d) != null) {
+        this.f41740b = pluginSettings;
+        if (this.f41741c && (fVar = this.f41742d) != null) {
             fVar.a(pluginSettings);
-            this.f44726d = null;
-            this.f44725c = false;
+            this.f41742d = null;
+            this.f41741c = false;
         }
-        a aVar = this.f44723a;
+        a aVar = this.f41739a;
         if (aVar != null) {
             aVar.cancel();
-            this.f44723a = null;
+            this.f41739a = null;
         }
         if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
             pluginSettings.setContainerSetting("");
         }
         a aVar2 = new a(this, pluginSettings, eVar);
-        this.f44723a = aVar2;
-        aVar2.setParallel(f44721f);
-        this.f44723a.execute(new String[0]);
+        this.f41739a = aVar2;
+        aVar2.setParallel(f41737f);
+        this.f41739a.execute(new String[0]);
     }
 
     public final boolean i(String str, byte[] bArr) {

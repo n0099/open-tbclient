@@ -22,32 +22,32 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.c1.b.e;
+import d.a.o0.c1.b.e;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f16767e;
+    public TextView f16806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16768f;
+    public ImageView f16807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f16769g;
+    public c f16808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f16770h;
+    public b f16809h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageYoungsterTopView f16771e;
+        public final /* synthetic */ HomePageYoungsterTopView f16810e;
 
         public a(HomePageYoungsterTopView homePageYoungsterTopView) {
             Interceptable interceptable = $ic;
@@ -64,31 +64,31 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f16771e = homePageYoungsterTopView;
+            this.f16810e = homePageYoungsterTopView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16771e.f16770h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f16810e.f16809h == null) {
                 return;
             }
-            this.f16771e.f16770h.onDelete();
+            this.f16810e.f16809h.onDelete();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onDelete();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<Context> f16772e;
+        public WeakReference<Context> f16811e;
 
         public c(Context context) {
             Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class HomePageYoungsterTopView extends RelativeLayout {
                     return;
                 }
             }
-            this.f16772e = new WeakReference<>(context);
+            this.f16811e = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Context context;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f16772e.get()) != null && e.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (context = this.f16811e.get()) != null && e.d()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
@@ -154,15 +154,15 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-            this.f16767e = (TextView) findViewById(R.id.youngster_top_text);
-            this.f16768f = (ImageView) findViewById(R.id.youngster_top_delete);
+            this.f16806e = (TextView) findViewById(R.id.youngster_top_text);
+            this.f16807f = (ImageView) findViewById(R.id.youngster_top_delete);
             SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
             c cVar = new c(getContext());
-            this.f16769g = cVar;
+            this.f16808g = cVar;
             spannableString.setSpan(cVar, 9, 13, 33);
-            this.f16767e.setText(spannableString);
-            this.f16767e.setMovementMethod(LinkMovementMethod.getInstance());
-            this.f16768f.setOnClickListener(new a(this));
+            this.f16806e.setText(spannableString);
+            this.f16806e.setMovementMethod(LinkMovementMethod.getInstance());
+            this.f16807f.setOnClickListener(new a(this));
             c();
         }
     }
@@ -171,15 +171,15 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.f16767e, R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f16768f, R.drawable.icon_home_card_delete);
+            SkinManager.setViewTextColor(this.f16806e, R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f16807f, R.drawable.icon_home_card_delete);
         }
     }
 
     public void setOnDeleteClick(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f16770h = bVar;
+            this.f16809h = bVar;
         }
     }
 

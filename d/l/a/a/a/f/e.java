@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f74082a;
+    public long f71134a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f74083b;
+    public int f71135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f74084c;
+    public long f71136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f74085d;
+    public long f71137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f74086e;
+    public String f71138e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class e {
                 return;
             }
         }
-        this.f74082a = -1L;
-        this.f74083b = -1;
-        this.f74084c = -1L;
-        this.f74085d = -1L;
+        this.f71134a = -1L;
+        this.f71135b = -1;
+        this.f71136c = -1L;
+        this.f71137d = -1L;
     }
 
     public void a(DownloadInfo downloadInfo) {
@@ -54,11 +54,11 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null) {
             return;
         }
-        this.f74082a = downloadInfo.getId();
-        this.f74083b = downloadInfo.getStatus();
-        this.f74085d = downloadInfo.getCurBytes();
-        this.f74084c = downloadInfo.getTotalBytes();
-        this.f74086e = downloadInfo.getTargetFilePath();
+        this.f71134a = downloadInfo.getId();
+        this.f71135b = downloadInfo.getStatus();
+        this.f71137d = downloadInfo.getCurBytes();
+        this.f71136c = downloadInfo.getTotalBytes();
+        this.f71138e = downloadInfo.getTargetFilePath();
         BaseException failedException = downloadInfo.getFailedException();
         if (failedException != null) {
             failedException.getErrorCode();
@@ -72,7 +72,7 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if ((obj instanceof e) && obj != null) {
                 e eVar = (e) obj;
-                return ((this.f74082a > eVar.f74082a ? 1 : (this.f74082a == eVar.f74082a ? 0 : -1)) == 0) && (this.f74083b == eVar.f74083b) && ((this.f74084c > eVar.f74084c ? 1 : (this.f74084c == eVar.f74084c ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.f74086e) && TextUtils.isEmpty(eVar.f74086e)) || (!TextUtils.isEmpty(this.f74086e) && !TextUtils.isEmpty(eVar.f74086e) && this.f74086e.equals(eVar.f74086e)));
+                return ((this.f71134a > eVar.f71134a ? 1 : (this.f71134a == eVar.f71134a ? 0 : -1)) == 0) && (this.f71135b == eVar.f71135b) && ((this.f71136c > eVar.f71136c ? 1 : (this.f71136c == eVar.f71136c ? 0 : -1)) == 0) && ((TextUtils.isEmpty(this.f71138e) && TextUtils.isEmpty(eVar.f71138e)) || (!TextUtils.isEmpty(this.f71138e) && !TextUtils.isEmpty(eVar.f71138e) && this.f71138e.equals(eVar.f71138e)));
             }
             return super.equals(obj);
         }
@@ -82,6 +82,6 @@ public class e {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.hashCode(new Object[]{Long.valueOf(this.f74082a), Integer.valueOf(this.f74083b), Long.valueOf(this.f74084c), this.f74086e}) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Arrays.hashCode(new Object[]{Long.valueOf(this.f71134a), Integer.valueOf(this.f71135b), Long.valueOf(this.f71136c), this.f71138e}) : invokeV.intValue;
     }
 }

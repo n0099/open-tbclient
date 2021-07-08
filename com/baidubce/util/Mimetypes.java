@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Mimetypes {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIMETYPE_OCTET_STREAM = "application/octet-stream";

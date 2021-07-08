@@ -15,16 +15,16 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.personal.datamodel.ApplyCouponResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseBean<ApplyCouponResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26951a;
+    public String f27061a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26952b;
+    public String f27062b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -60,8 +60,8 @@ public class a extends BaseBean<ApplyCouponResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("activity_id", this.f26951a));
-            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f26952b));
+            arrayList.add(new RestNameValuePair("activity_id", this.f27061a));
+            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27062b));
             return arrayList;
         }
         return (List) invokeV.objValue;

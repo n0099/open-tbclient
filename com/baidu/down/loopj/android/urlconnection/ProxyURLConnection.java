@@ -35,7 +35,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
 import kotlin.text.Typography;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ProxyURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
@@ -120,7 +120,7 @@ public class ProxyURLConnection {
 
     private void disableConnectionReuseIfNecessary() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || Integer.parseInt(Build.VERSION.SDK) >= 8) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || Integer.parseInt(Build.VERSION.SDK) >= 8) {
             return;
         }
         System.setProperty("http.keepAlive", "false");
@@ -209,7 +209,7 @@ public class ProxyURLConnection {
                     name = Uri.encode(name);
                 }
                 stringBuffer.append(name);
-                stringBuffer.append(a.f1889h);
+                stringBuffer.append(a.f1890h);
                 stringBuffer.append(Uri.encode(nameValuePair.getValue()));
             }
             return stringBuffer.toString();

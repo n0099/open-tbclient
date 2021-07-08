@@ -6,6 +6,7 @@ import android.media.browse.MediaBrowser;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -195,7 +196,7 @@ public class MediaBrowserCompatApi21 {
     public static Object createSubscriptionCallback(SubscriptionCallback subscriptionCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, subscriptionCallback)) == null) ? new SubscriptionCallbackProxy(subscriptionCallback) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, subscriptionCallback)) == null) ? new SubscriptionCallbackProxy(subscriptionCallback) : invokeL.objValue;
     }
 
     public static void disconnect(Object obj) {

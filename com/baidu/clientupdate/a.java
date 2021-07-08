@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ClientUpdater f4603a;
+    public final /* synthetic */ ClientUpdater f4620a;
 
     public a(ClientUpdater clientUpdater) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f4603a = clientUpdater;
+        this.f4620a = clientUpdater;
     }
 
     @Override // java.lang.Runnable
@@ -36,7 +36,7 @@ public class a implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogUtil.logD("ClientUpdater", "background Check ClientUpdate!");
-            this.f4603a.b();
+            this.f4620a.b();
         }
     }
 }

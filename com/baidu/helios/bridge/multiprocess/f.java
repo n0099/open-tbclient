@@ -11,31 +11,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements f {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f6246a = 1;
+        public static final int f6263a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f6247b = 2;
+        public static final int f6264b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f6248c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
+        public static final String f6265c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static class C0105a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f6249a;
+            public IBinder f6266a;
 
             public C0105a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -52,13 +52,13 @@ public interface f extends IInterface {
                         return;
                     }
                 }
-                this.f6249a = iBinder;
+                this.f6266a = iBinder;
             }
 
             public String a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f6248c : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f6265c : (String) invokeV.objValue;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.f
@@ -68,7 +68,7 @@ public interface f extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(a.f6248c);
+                        obtain.writeInterfaceToken(a.f6265c);
                         obtain.writeInt(i2);
                         if (bundle != null) {
                             obtain.writeInt(1);
@@ -76,7 +76,7 @@ public interface f extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f6249a.transact(2, obtain, obtain2, 0);
+                        this.f6266a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -92,7 +92,7 @@ public interface f extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(a.f6248c);
+                        obtain.writeInterfaceToken(a.f6265c);
                         obtain.writeString(str);
                         if (bundle != null) {
                             obtain.writeInt(1);
@@ -100,7 +100,7 @@ public interface f extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f6249a.transact(1, obtain, obtain2, 0);
+                        this.f6266a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -113,7 +113,7 @@ public interface f extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6249a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6266a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -130,7 +130,7 @@ public interface f extends IInterface {
                     return;
                 }
             }
-            attachInterface(this, f6248c);
+            attachInterface(this, f6265c);
         }
 
         public static f a(IBinder iBinder) {
@@ -140,7 +140,7 @@ public interface f extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(f6248c);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(f6265c);
                 return (queryLocalInterface == null || !(queryLocalInterface instanceof f)) ? new C0105a(iBinder) : (f) queryLocalInterface;
             }
             return (f) invokeL.objValue;
@@ -159,16 +159,16 @@ public interface f extends IInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1) {
-                    parcel.enforceInterface(f6248c);
+                    parcel.enforceInterface(f6265c);
                     a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 } else if (i2 != 2) {
                     if (i2 != 1598968902) {
                         return super.onTransact(i2, parcel, parcel2, i3);
                     }
-                    parcel2.writeString(f6248c);
+                    parcel2.writeString(f6265c);
                     return true;
                 } else {
-                    parcel.enforceInterface(f6248c);
+                    parcel.enforceInterface(f6265c);
                     a(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 }
                 parcel2.writeNoException();

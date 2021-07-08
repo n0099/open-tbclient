@@ -121,7 +121,7 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i3;
-                aVar.f4226tv = z;
+                aVar.f4229tv = z;
                 aVar.tw = new String[length2];
                 for (int i4 = 0; i4 < length2; i4++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i4);

@@ -15,18 +15,18 @@ import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.NoSuchElementException;
 import java.util.SortedSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class i1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a<E> extends Multisets.c<E> implements SortedSet<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h1<E> f73760e;
+        public final h1<E> f70863e;
 
         public a(h1<E> h1Var) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class i1 {
                     return;
                 }
             }
-            this.f73760e = h1Var;
+            this.f70863e = h1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public final class i1 {
         public final h1<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73760e : (h1) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70863e : (h1) invokeV.objValue;
         }
 
         @Override // java.util.SortedSet
@@ -105,7 +105,7 @@ public final class i1 {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b<E> extends a<E> implements NavigableSet<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

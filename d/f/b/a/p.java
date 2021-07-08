@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final p f73512d;
+    public static final p f70615d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f73513a;
+    public final float f70616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f73514b;
+    public final float f70617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f73515c;
+    public final int f70618c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class p {
                 return;
             }
         }
-        f73512d = new p(1.0f, 1.0f);
+        f70615d = new p(1.0f, 1.0f);
     }
 
     public p(float f2, float f3) {
@@ -56,15 +56,15 @@ public final class p {
                 return;
             }
         }
-        this.f73513a = f2;
-        this.f73514b = f3;
-        this.f73515c = Math.round(f2 * 1000.0f);
+        this.f70616a = f2;
+        this.f70617b = f3;
+        this.f70618c = Math.round(f2 * 1000.0f);
     }
 
     public long a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j * this.f73515c : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j * this.f70618c : invokeJ.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -78,7 +78,7 @@ public final class p {
                 return false;
             }
             p pVar = (p) obj;
-            return this.f73513a == pVar.f73513a && this.f73514b == pVar.f73514b;
+            return this.f70616a == pVar.f70616a && this.f70617b == pVar.f70617b;
         }
         return invokeL.booleanValue;
     }
@@ -86,6 +86,6 @@ public final class p {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((527 + Float.floatToRawIntBits(this.f73513a)) * 31) + Float.floatToRawIntBits(this.f73514b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((527 + Float.floatToRawIntBits(this.f70616a)) * 31) + Float.floatToRawIntBits(this.f70617b) : invokeV.intValue;
     }
 }

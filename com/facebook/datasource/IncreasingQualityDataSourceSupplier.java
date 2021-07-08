@@ -1,5 +1,6 @@
 package com.facebook.datasource;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +42,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         public int mNumberOfDataSources;
         public final /* synthetic */ IncreasingQualityDataSourceSupplier this$0;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +136,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
 
         private void ensureDataSourceInitialized() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(65540, this) == null) && this.mFinishedDataSources == null) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.mFinishedDataSources == null) {
                 synchronized (this) {
                     if (this.mFinishedDataSources == null) {
                         this.mFinishedDataSources = new AtomicInteger(0);
@@ -394,7 +395,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
     public static <T> IncreasingQualityDataSourceSupplier<T> create(List<Supplier<DataSource<T>>> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, list, z)) == null) ? new IncreasingQualityDataSourceSupplier<>(list, z) : (IncreasingQualityDataSourceSupplier) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, list, z)) == null) ? new IncreasingQualityDataSourceSupplier<>(list, z) : (IncreasingQualityDataSourceSupplier) invokeLZ.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

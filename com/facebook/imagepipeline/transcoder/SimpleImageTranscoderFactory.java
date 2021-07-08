@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imageformat.ImageFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SimpleImageTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

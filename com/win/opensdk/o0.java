@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class o0 implements L0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q0 f42615a;
+    public final /* synthetic */ q0 f39629a;
 
     public o0(q0 q0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class o0 implements L0 {
                 return;
             }
         }
-        this.f42615a = q0Var;
+        this.f39629a = q0Var;
     }
 
     @Override // com.win.opensdk.L0
@@ -43,7 +43,7 @@ public class o0 implements L0 {
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.f42615a.a((Info) obj);
+            this.f39629a.a((Info) obj);
         }
     }
 
@@ -51,7 +51,7 @@ public class o0 implements L0 {
     public void onFail(PBError pBError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
-            this.f42615a.f42628h.onFail(pBError);
+            this.f39629a.f39642h.onFail(pBError);
         }
     }
 }

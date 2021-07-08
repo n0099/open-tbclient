@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CloseableStaticBitmap extends CloseableBitmap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class CloseableStaticBitmap extends CloseableBitmap {
         InterceptResult invokeV;
         CloseableReference<Bitmap> closeableReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             synchronized (this) {
                 closeableReference = this.mBitmapReference;
                 this.mBitmapReference = null;

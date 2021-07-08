@@ -18,7 +18,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.Charsets;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Hex implements BinaryEncoder, BinaryDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Charset DEFAULT_CHARSET;
@@ -65,7 +65,7 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
     public static byte[] decodeHex(String str) throws DecoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? decodeHex(str.toCharArray()) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? decodeHex(str.toCharArray()) : (byte[]) invokeL.objValue;
     }
 
     public static char[] encodeHex(byte[] bArr) {

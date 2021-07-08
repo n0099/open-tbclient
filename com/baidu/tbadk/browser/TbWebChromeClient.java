@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.g;
 import d.a.c.e.p.k;
-import d.a.r0.s.c.z;
-import d.a.s0.h3.l0.c;
-/* loaded from: classes4.dex */
+import d.a.o0.s.c.z;
+import d.a.p0.h3.l0.c;
+/* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,8 +134,8 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!z.a(str) && str2.startsWith("tiebaapp")) {
-                d.a.s0.h3.l0.d.c cVar2 = new d.a.s0.h3.l0.d.c();
-                cVar2.s(d.a.s0.h3.l0.d.g.b(str2));
+                d.a.p0.h3.l0.d.c cVar2 = new d.a.p0.h3.l0.d.c();
+                cVar2.s(d.a.p0.h3.l0.d.g.b(str2));
                 cVar2.t(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }

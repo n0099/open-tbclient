@@ -2,6 +2,7 @@ package com.baidu.pass.face.platform.network;
 
 import android.os.Handler;
 import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NoMotionRequest extends BaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NoMotionRequest";
@@ -683,7 +684,7 @@ public class NoMotionRequest extends BaseRequest {
 
     public static void sendMessage(String str, Handler handler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, handler) == null) || str == null || str.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, handler) == null) || str == null || str.length() <= 0) {
             return;
         }
         new Thread(new Runnable(str, handler) { // from class: com.baidu.pass.face.platform.network.NoMotionRequest.1

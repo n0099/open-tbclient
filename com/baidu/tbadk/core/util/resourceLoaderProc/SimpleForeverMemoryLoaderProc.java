@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.k.d.a;
-import d.a.r0.a0.c;
-/* loaded from: classes4.dex */
+import d.a.o0.a0.c;
+/* loaded from: classes3.dex */
 public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -2,12 +2,13 @@ package com.baidu.tieba.compatible;
 
 import android.content.SharedPreferences;
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EditorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +71,7 @@ public class EditorHelper {
 
     public static void putLong(SharedPreferences sharedPreferences, String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{sharedPreferences, str, Long.valueOf(j)}) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sharedPreferences, str, Long.valueOf(j)}) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();

@@ -19,13 +19,13 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends PayBaseBean<GetJumpUrlResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25824a;
+    public String f25934a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -50,7 +50,7 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f25824a = str;
+            this.f25934a = str;
         }
     }
 
@@ -87,8 +87,8 @@ public class b extends PayBaseBean<GetJumpUrlResponse> {
             if (!TextUtils.isEmpty(sessionId)) {
                 arrayList.add(new RestNameValuePair("session_id", sessionId));
             }
-            if (!TextUtils.isEmpty(this.f25824a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f25824a));
+            if (!TextUtils.isEmpty(this.f25934a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f25934a));
             }
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new RestNameValuePair("serial_num", str2));

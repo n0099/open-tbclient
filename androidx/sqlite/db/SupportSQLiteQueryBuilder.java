@@ -1,5 +1,6 @@
 package androidx.sqlite.db;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -93,7 +94,7 @@ public final class SupportSQLiteQueryBuilder {
     public static SupportSQLiteQueryBuilder builder(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? new SupportSQLiteQueryBuilder(str) : (SupportSQLiteQueryBuilder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? new SupportSQLiteQueryBuilder(str) : (SupportSQLiteQueryBuilder) invokeL.objValue;
     }
 
     public static boolean isEmpty(String str) {

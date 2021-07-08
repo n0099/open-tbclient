@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.k.g;
-import d.a.q0.k.h;
-/* loaded from: classes4.dex */
+import d.a.n0.k.g;
+import d.a.n0.k.h;
+/* loaded from: classes3.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends WrapContentHeightViewPager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppMenuSlidableGridView f12053e;
+        public final /* synthetic */ SwanAppMenuSlidableGridView f12070e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppMenuSlidableGridView swanAppMenuSlidableGridView, Context context) {
@@ -46,7 +46,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
                     return;
                 }
             }
-            this.f12053e = swanAppMenuSlidableGridView;
+            this.f12070e = swanAppMenuSlidableGridView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager
@@ -85,7 +85,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e2 = new d.a.q0.k.r.a(context).e(h.menu_indicator_normal, h.menu_indicator_selected);
+            PointPageIndicator e2 = new d.a.n0.k.r.a(context).e(h.menu_indicator_normal, h.menu_indicator_selected);
             e2.f((int) getResources().getDimension(g.common_grid_indicator_margin));
             this.l = e2;
             this.m[0] = (int) getResources().getDimension(g.aiapp_menu_gridview_indicator_height);

@@ -351,7 +351,7 @@ public final class ShareCompat {
         public static IntentBuilder from(@NonNull Context context, @Nullable ComponentName componentName) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, componentName)) == null) ? new IntentBuilder(context, componentName) : (IntentBuilder) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, componentName)) == null) ? new IntentBuilder(context, componentName) : (IntentBuilder) invokeLL.objValue;
         }
 
         @NonNull
@@ -759,7 +759,7 @@ public final class ShareCompat {
     public static ComponentName getCallingActivity(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, intent)) == null) {
             ComponentName componentName = (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY);
             return componentName == null ? (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY_INTEROP) : componentName;
         }

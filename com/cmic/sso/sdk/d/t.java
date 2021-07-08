@@ -19,30 +19,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static t f32559a;
+    public static t f32669a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConnectivityManager f32560b;
+    public final ConnectivityManager f32670b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Network f32561c;
+    public Network f32671c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f32562d;
+    public ConnectivityManager.NetworkCallback f32672d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32563e;
+    public boolean f32673e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f32564f;
+    public volatile boolean f32674f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Network network);
     }
@@ -77,8 +77,8 @@ public class t {
                 return;
             }
         }
-        this.f32564f = false;
-        this.f32560b = (ConnectivityManager) context.getSystemService("connectivity");
+        this.f32674f = false;
+        this.f32670b = (ConnectivityManager) context.getSystemService("connectivity");
     }
 
     public static String c(String str) {
@@ -108,14 +108,14 @@ public class t {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT < 21) {
-                    this.f32564f = false;
-                    this.f32560b.stopUsingNetworkFeature(0, "enableHIPRI");
+                    this.f32674f = false;
+                    this.f32670b.stopUsingNetworkFeature(0, "enableHIPRI");
                     return;
                 }
-                if (this.f32560b != null && this.f32562d != null) {
-                    this.f32560b.unregisterNetworkCallback(this.f32562d);
-                    this.f32562d = null;
-                    this.f32561c = null;
+                if (this.f32670b != null && this.f32672d != null) {
+                    this.f32670b.unregisterNetworkCallback(this.f32672d);
+                    this.f32672d = null;
+                    this.f32671c = null;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -128,9 +128,9 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return this.f32561c != null;
+                return this.f32671c != null;
             }
-            return this.f32564f;
+            return this.f32674f;
         }
         return invokeV.booleanValue;
     }
@@ -139,14 +139,14 @@ public class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f32559a == null) {
+            if (f32669a == null) {
                 synchronized (t.class) {
-                    if (f32559a == null) {
-                        f32559a = new t(context);
+                    if (f32669a == null) {
+                        f32669a = new t(context);
                     }
                 }
             }
-            return f32559a;
+            return f32669a;
         }
         return (t) invokeL.objValue;
     }
@@ -179,19 +179,19 @@ public class t {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        Network network = this.f32561c;
-        if (network != null && !this.f32563e && (networkInfo = this.f32560b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
+        Network network = this.f32671c;
+        if (network != null && !this.f32673e && (networkInfo = this.f32670b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
             Log.e("HttpUtils", "reuse network: ");
-            aVar.a(this.f32561c);
+            aVar.a(this.f32671c);
             return;
         }
-        ConnectivityManager.NetworkCallback networkCallback = this.f32562d;
+        ConnectivityManager.NetworkCallback networkCallback = this.f32672d;
         if (networkCallback != null) {
             try {
-                this.f32560b.unregisterNetworkCallback(networkCallback);
+                this.f32670b.unregisterNetworkCallback(networkCallback);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                this.f32562d = null;
+                this.f32672d = null;
             }
             Log.e("HttpUtils", "clear: ");
         }
@@ -201,10 +201,10 @@ public class t {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f32565a;
+            public final /* synthetic */ a f32675a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ t f32566b;
+            public final /* synthetic */ t f32676b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -221,17 +221,17 @@ public class t {
                         return;
                     }
                 }
-                this.f32566b = this;
-                this.f32565a = aVar;
+                this.f32676b = this;
+                this.f32675a = aVar;
             }
 
             @Override // android.net.ConnectivityManager.NetworkCallback
             public void onAvailable(Network network2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, network2) == null) {
-                    this.f32566b.f32561c = network2;
-                    this.f32565a.a(network2);
-                    this.f32566b.f32563e = false;
+                    this.f32676b.f32671c = network2;
+                    this.f32675a.a(network2);
+                    this.f32676b.f32673e = false;
                 }
             }
 
@@ -239,22 +239,22 @@ public class t {
             public void onLost(Network network2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network2) == null) {
-                    this.f32566b.f32563e = true;
+                    this.f32676b.f32673e = true;
                 }
             }
         };
-        this.f32562d = networkCallback2;
-        this.f32560b.requestNetwork(build, networkCallback2);
+        this.f32672d = networkCallback2;
+        this.f32670b.requestNetwork(build, networkCallback2);
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f32560b.startUsingNetworkFeature(0, "enableHIPRI");
+            this.f32670b.startUsingNetworkFeature(0, "enableHIPRI");
             for (int i2 = 0; i2 < 30; i2++) {
                 try {
-                    if (this.f32560b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
+                    if (this.f32670b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                         break;
                     }
                     Thread.sleep(1000L);
@@ -262,9 +262,9 @@ public class t {
                     c.a("WifiNetworkUtils", "check hipri failed");
                 }
             }
-            this.f32564f = this.f32560b.requestRouteToHost(5, b(c(str)));
-            c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f32564f);
-            return this.f32564f;
+            this.f32674f = this.f32670b.requestRouteToHost(5, b(c(str)));
+            c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f32674f);
+            return this.f32674f;
         }
         return invokeL.booleanValue;
     }
@@ -274,7 +274,7 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
             try {
-                return (this.f32561c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f32561c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
+                return (this.f32671c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f32671c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
             } catch (Exception unused) {
                 c.a("WifiNetworkUtils", "获取eip失败");
                 return "";

@@ -1,5 +1,6 @@
 package com.baidu.ar.h;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.ReflectionUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +72,7 @@ public class n {
     public static boolean a(String str, ClassLoader classLoader) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, classLoader)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, classLoader)) == null) {
             try {
                 return Class.forName(str, false, classLoader) != null;
             } catch (Exception unused) {

@@ -6,10 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.emotion.model.CDNUrl;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class j implements com.kwad.sdk.core.c<CDNUrl> {
+/* loaded from: classes6.dex */
+public class j implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,31 +30,39 @@ public class j implements com.kwad.sdk.core.c<CDNUrl> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(CDNUrl cDNUrl) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cDNUrl)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "cdn", cDNUrl.cdn);
-            com.kwad.sdk.utils.o.a(jSONObject, "url", cDNUrl.url);
-            com.kwad.sdk.utils.o.a(jSONObject, "ip", cDNUrl.ip);
-            com.kwad.sdk.utils.o.a(jSONObject, "urlPattern", cDNUrl.urlPattern);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adMaterialInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        adMaterialInfo.materialType = jSONObject.optInt("materialType", new Integer("2").intValue());
+        adMaterialInfo.videoVoice = jSONObject.optBoolean("videoVoice", new Boolean("false").booleanValue());
+        adMaterialInfo.materialFeatureList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
+        if (optJSONArray != null) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = new AdInfo.AdMaterialInfo.MaterialFeature();
+                materialFeature.parseJson(optJSONArray.optJSONObject(i2));
+                adMaterialInfo.materialFeatureList.add(materialFeature);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(CDNUrl cDNUrl, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, cDNUrl, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, adMaterialInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "materialType", adMaterialInfo.materialType);
+            com.kwad.sdk.utils.q.a(jSONObject, "videoVoice", adMaterialInfo.videoVoice);
+            com.kwad.sdk.utils.q.a(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
+            return jSONObject;
         }
-        cDNUrl.cdn = jSONObject.optString("cdn");
-        cDNUrl.url = jSONObject.optString("url");
-        cDNUrl.ip = jSONObject.optString("ip");
-        cDNUrl.urlPattern = jSONObject.optString("urlPattern");
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -37,7 +37,7 @@ import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.widget.PayLoadingImageViewNew;
 import com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CardInfoCheckActivity extends HalfScreenBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "CardInfoCheckActivity";
@@ -46,28 +46,28 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.InterfaceC0283a f26395a;
+    public a.InterfaceC0283a f26505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.b f26396b;
+    public a.b f26506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26397c;
+    public int f26507c;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeKeyBoardEditText f26398e;
+    public SafeKeyBoardEditText f26508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayRequest f26399f;
+    public PayRequest f26509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f26400g;
+    public RelativeLayout f26510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SafeScrollView f26401h;
+    public SafeScrollView f26511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SafeKeyBoardUtil f26402i;
+    public SafeKeyBoardUtil f26512i;
     public PayLoadingImageViewNew j;
     public View k;
     public SuccessImageViewNew l;
@@ -86,7 +86,7 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
                 return;
             }
         }
-        this.f26397c = 0;
+        this.f26507c = 0;
     }
 
     private void e() {
@@ -111,11 +111,11 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.f26400g = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "wallet_cashdesk_card_info_check_content"));
+            this.f26510g = (RelativeLayout) findViewById(ResUtils.id(this.mAct, "wallet_cashdesk_card_info_check_content"));
             SafeScrollView safeScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-            this.f26401h = safeScrollView;
+            this.f26511h = safeScrollView;
             safeScrollView.setVisibility(0);
-            this.f26401h.addView(this.f26396b.a());
+            this.f26511h.addView(this.f26506b.a());
             PayLoadingImageViewNew payLoadingImageViewNew = (PayLoadingImageViewNew) findViewById(ResUtils.id(this, "bd_wallet_cashier_loading_view"));
             this.j = payLoadingImageViewNew;
             payLoadingImageViewNew.setVisibility(8);
@@ -123,10 +123,10 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
             View findViewById = findViewById(ResUtils.id(this, "bd_wallet_success_logo"));
             this.k = findViewById;
             findViewById.setVisibility(8);
-            setSafeScrollView(this.f26401h);
+            setSafeScrollView(this.f26511h);
             ((TextView) this.mHalfScreenContainer.findViewById(ResUtils.id(this.mAct, "bd_wallet_bind_card_title"))).setText(ResUtils.getString(getActivity(), "ebpay_title_risk_control"));
             ViewGroup viewGroup = (ViewGroup) this.mHalfScreenContainer.findViewById(ResUtils.id(this.mAct, "wallet_bind_card_subtitle"));
-            CardData.BondCard bondCard = this.f26399f.mBondCard;
+            CardData.BondCard bondCard = this.f26509f.mBondCard;
             if (bondCard == null) {
                 com.baidu.wallet.paysdk.ui.widget.a.a(viewGroup, ResUtils.getString(this.mAct, "ebpay_title_complete_fixmsg"), null, null);
             } else {
@@ -156,7 +156,7 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             b();
             this.m = false;
-            this.f26401h.setVisibility(0);
+            this.f26511h.setVisibility(0);
             super.handleErrorContent();
         }
     }
@@ -167,7 +167,7 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) {
             b();
             this.m = false;
-            this.f26401h.setVisibility(0);
+            this.f26511h.setVisibility(0);
             if (i2 != 263 && i2 != 13 && i2 != 14) {
                 super.handleFailure(i2, i3, str);
             } else if (i3 == 5003) {
@@ -234,42 +234,42 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
             super.onCreate(bundle);
             setIsShowMultiWindowTips(true);
             getActivity().getWindow().setSoftInputMode(2);
-            this.f26399f = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+            this.f26509f = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             Bundle extras = getIntent().getExtras();
             if (extras == null) {
                 finish();
                 return;
             }
-            this.f26397c = extras.getInt(CHECK_INFO_STATE);
-            a.b a2 = com.baidu.wallet.paysdk.ui.a.b.a().a(this.f26397c, getActivity());
-            this.f26396b = a2;
+            this.f26507c = extras.getInt(CHECK_INFO_STATE);
+            a.b a2 = com.baidu.wallet.paysdk.ui.a.b.a().a(this.f26507c, getActivity());
+            this.f26506b = a2;
             if (a2 == null) {
                 finish();
                 return;
             }
-            a.InterfaceC0283a a3 = com.baidu.wallet.paysdk.presenter.a.b.a(this.f26397c, a2);
-            this.f26395a = a3;
+            a.InterfaceC0283a a3 = com.baidu.wallet.paysdk.presenter.a.b.a(this.f26507c, a2);
+            this.f26505a = a3;
             if (a3 == null) {
                 finish();
                 return;
             }
             g();
-            CardData.BondCard bondCard = this.f26399f.mBondCard;
+            CardData.BondCard bondCard = this.f26509f.mBondCard;
             if (bondCard != null) {
-                this.f26396b.a(bondCard.getCardDescShort());
+                this.f26506b.a(bondCard.getCardDescShort());
             }
             if (bundle != null) {
                 this.m = bundle.getBoolean("isloading");
-                this.f26398e.setText((String) bundle.get("saveContent"));
+                this.f26508e.setText((String) bundle.get("saveContent"));
             }
-            SafeKeyBoardEditText b2 = this.f26396b.b();
-            this.f26398e = b2;
+            SafeKeyBoardEditText b2 = this.f26506b.b();
+            this.f26508e = b2;
             b2.setCheckFunc(new SafeKeyBoardEditText.CheckFunc(this) { // from class: com.baidu.wallet.paysdk.ui.CardInfoCheckActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CardInfoCheckActivity f26403a;
+                public final /* synthetic */ CardInfoCheckActivity f26513a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -286,14 +286,14 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
                             return;
                         }
                     }
-                    this.f26403a = this;
+                    this.f26513a = this;
                 }
 
                 @Override // com.baidu.wallet.base.widget.SafeKeyBoardEditText.CheckFunc
                 public boolean check(String str) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) ? this.f26403a.f26395a.b(str) : invokeL.booleanValue;
+                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str)) == null) ? this.f26513a.f26505a.b(str) : invokeL.booleanValue;
                 }
             });
             this.mLeftImg.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.CardInfoCheckActivity.2
@@ -301,7 +301,7 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CardInfoCheckActivity f26404a;
+                public final /* synthetic */ CardInfoCheckActivity f26514a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -318,23 +318,23 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
                             return;
                         }
                     }
-                    this.f26404a = this;
+                    this.f26514a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f26404a.onBackPressed();
+                        this.f26514a.onBackPressed();
                     }
                 }
             });
-            this.f26398e.setConfirmListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.CardInfoCheckActivity.3
+            this.f26508e.setConfirmListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.CardInfoCheckActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ CardInfoCheckActivity f26405a;
+                public final /* synthetic */ CardInfoCheckActivity f26515a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -351,34 +351,34 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
                             return;
                         }
                     }
-                    this.f26405a = this;
+                    this.f26515a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        a.InterfaceC0283a interfaceC0283a = this.f26405a.f26395a;
-                        CardInfoCheckActivity cardInfoCheckActivity = this.f26405a;
-                        if (!interfaceC0283a.a(cardInfoCheckActivity.a((CharSequence) cardInfoCheckActivity.f26398e.getEditableText().toString()))) {
-                            this.f26405a.f26396b.c();
+                        a.InterfaceC0283a interfaceC0283a = this.f26515a.f26505a;
+                        CardInfoCheckActivity cardInfoCheckActivity = this.f26515a;
+                        if (!interfaceC0283a.a(cardInfoCheckActivity.a((CharSequence) cardInfoCheckActivity.f26508e.getEditableText().toString()))) {
+                            this.f26515a.f26506b.c();
                             return;
                         }
-                        a.InterfaceC0283a interfaceC0283a2 = this.f26405a.f26395a;
-                        CardInfoCheckActivity cardInfoCheckActivity2 = this.f26405a;
-                        interfaceC0283a2.c(cardInfoCheckActivity2.a((CharSequence) cardInfoCheckActivity2.f26398e.getEditableText().toString()));
-                        this.f26405a.c();
+                        a.InterfaceC0283a interfaceC0283a2 = this.f26515a.f26505a;
+                        CardInfoCheckActivity cardInfoCheckActivity2 = this.f26515a;
+                        interfaceC0283a2.c(cardInfoCheckActivity2.a((CharSequence) cardInfoCheckActivity2.f26508e.getEditableText().toString()));
+                        this.f26515a.c();
                     }
                 }
             });
-            SafeKeyBoardEditText safeKeyBoardEditText = this.f26398e;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f26400g, this.f26401h, safeKeyBoardEditText, false);
+            SafeKeyBoardEditText safeKeyBoardEditText = this.f26508e;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f26510g, this.f26511h, safeKeyBoardEditText, false);
             SafeKeyBoardUtil safeKeyBoardUtil = new SafeKeyBoardUtil();
-            this.f26402i = safeKeyBoardUtil;
+            this.f26512i = safeKeyBoardUtil;
             safeKeyBoardUtil.setState(SafeKeyBoardUtil.SafeKeyBoardState.CONFRIM_STATE);
-            this.f26401h.setSafeKeyBoardUtil(this.f26402i);
-            this.f26401h.setAlwaysShowSoftKeyBoard(true);
-            this.f26398e.requestFocus();
+            this.f26511h.setSafeKeyBoardUtil(this.f26512i);
+            this.f26511h.setAlwaysShowSoftKeyBoard(true);
+            this.f26508e.requestFocus();
         }
     }
 
@@ -387,8 +387,8 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            this.f26402i.hideSoftKeyBoard();
-            this.f26401h.clear();
+            this.f26512i.hideSoftKeyBoard();
+            this.f26511h.clear();
         }
     }
 
@@ -411,7 +411,7 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
             super.onSaveInstanceState(bundle);
             if (bundle != null) {
                 bundle.putSerializable("isloading", Boolean.valueOf(this.m));
-                bundle.putString("saveContent", this.f26398e.getEditableText().toString());
+                bundle.putString("saveContent", this.f26508e.getEditableText().toString());
             }
         }
     }
@@ -422,20 +422,20 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), payResultContent, Integer.valueOf(i2)}) == null) {
             b();
             this.mActionBar.setVisibility(4);
-            this.f26401h.setVisibility(8);
+            this.f26511h.setVisibility(8);
             this.k.setVisibility(0);
             this.l.startAnimation(new SuccessImageViewNew.a(this, z, payResultContent) { // from class: com.baidu.wallet.paysdk.ui.CardInfoCheckActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f26406a;
+                public final /* synthetic */ boolean f26516a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayResultContent f26407b;
+                public final /* synthetic */ PayResultContent f26517b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ CardInfoCheckActivity f26408c;
+                public final /* synthetic */ CardInfoCheckActivity f26518c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -452,22 +452,22 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
                             return;
                         }
                     }
-                    this.f26408c = this;
-                    this.f26406a = z;
-                    this.f26407b = payResultContent;
+                    this.f26518c = this;
+                    this.f26516a = z;
+                    this.f26517b = payResultContent;
                 }
 
                 @Override // com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f26406a) {
-                            this.f26408c.m = false;
-                            PayController.getInstance().paySucess(this.f26408c, this.f26407b, 1);
+                        if (this.f26516a) {
+                            this.f26518c.m = false;
+                            PayController.getInstance().paySucess(this.f26518c, this.f26517b, 1);
                             return;
                         }
-                        this.f26408c.m = false;
-                        PayController.getInstance().payPaying(this.f26408c, this.f26407b, 1);
+                        this.f26518c.m = false;
+                        PayController.getInstance().payPaying(this.f26518c, this.f26517b, 1);
                     }
                 }
             });
@@ -488,7 +488,7 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             a();
-            PayRequest.PayPrice.PayType payType = this.f26399f.getPayPrice().payType;
+            PayRequest.PayPrice.PayType payType = this.f26509f.getPayPrice().payType;
             if (payType == PayRequest.PayPrice.PayType.BANKCARD) {
                 f();
             } else if (payType == PayRequest.PayPrice.PayType.BALANCE) {
@@ -510,11 +510,11 @@ public class CardInfoCheckActivity extends HalfScreenBaseActivity {
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mActionBar.setVisibility(4);
             this.m = true;
-            this.f26401h.setVisibility(8);
-            this.f26401h.dismissKeyBoard(this.f26398e);
+            this.f26511h.setVisibility(8);
+            this.f26511h.dismissKeyBoard(this.f26508e);
             this.j.setVisibility(0);
             this.j.startAnimation();
         }

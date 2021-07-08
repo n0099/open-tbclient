@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class jb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public jl f43501a;
+    public jl f40515a;
 
     public jb(jl jlVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public abstract class jb {
                 return;
             }
         }
-        this.f43501a = jlVar;
+        this.f40515a = jlVar;
     }
 
     public abstract byte a();

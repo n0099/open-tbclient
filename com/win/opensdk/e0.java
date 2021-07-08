@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e0 implements l0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f42559a;
+    public final /* synthetic */ View f39573a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i0 f42560b;
+    public final /* synthetic */ i0 f39574b;
 
     public e0(i0 i0Var, View view) {
         Interceptable interceptable = $ic;
@@ -32,16 +32,16 @@ public class e0 implements l0 {
                 return;
             }
         }
-        this.f42560b = i0Var;
-        this.f42559a = view;
+        this.f39574b = i0Var;
+        this.f39573a = view;
     }
 
     @Override // com.win.opensdk.l0
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42559a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39573a == null) {
             return;
         }
-        new Handler().postDelayed(new d0(this), this.f42560b.f42581c.getSpet());
+        new Handler().postDelayed(new d0(this), this.f39574b.f39595c.getSpet());
     }
 }

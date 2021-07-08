@@ -55,7 +55,7 @@ public final class FragmentContainerView extends FrameLayout {
     private void addDisappearingFragmentView(@NonNull View view) {
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) {
             if (view.getAnimation() != null || ((arrayList = this.mTransitioningFragmentViews) != null && arrayList.contains(view))) {
                 if (this.mDisappearingFragmentChildren == null) {
                     this.mDisappearingFragmentChildren = new ArrayList<>();

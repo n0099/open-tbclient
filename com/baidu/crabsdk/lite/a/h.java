@@ -4,18 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Locale f4706a;
+    public static Locale f4723a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            f4706a = Locale.getDefault();
+            f4723a = Locale.getDefault();
         }
     }
 
@@ -23,7 +23,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return f4706a.getLanguage() + "-" + f4706a.getCountry();
+            return f4723a.getLanguage() + "-" + f4723a.getCountry();
         }
         return (String) invokeV.objValue;
     }

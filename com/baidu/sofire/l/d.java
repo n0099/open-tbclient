@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class d implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f10437a;
+    public b f10454a;
 
     public d(b bVar) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public final class d implements ServiceConnection {
                 return;
             }
         }
-        this.f10437a = bVar;
+        this.f10454a = bVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.f10437a.f10429a = a.AbstractBinderC0164a.a(iBinder);
+            this.f10454a.f10446a = a.AbstractBinderC0164a.a(iBinder);
         }
     }
 
@@ -47,7 +47,7 @@ public final class d implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f10437a.f10429a = null;
+            this.f10454a.f10446a = null;
         }
     }
 }

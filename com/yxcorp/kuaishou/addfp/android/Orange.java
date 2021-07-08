@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.n.a.a.c.b.b;
-/* loaded from: classes8.dex */
+import d.n.a.a.c.b.c;
+/* loaded from: classes6.dex */
 public class Orange {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f43740a = true;
+    public static boolean f40756a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f43741b;
+    public static volatile Orange f40757b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,21 +49,21 @@ public class Orange {
                 return;
             }
         }
-        g();
+        h();
     }
 
     public static Orange a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43741b == null) {
+            if (f40757b == null) {
                 synchronized (Orange.class) {
-                    if (f43741b == null) {
-                        f43741b = new Orange();
+                    if (f40757b == null) {
+                        f40757b = new Orange();
                     }
                 }
             }
-            return f43741b;
+            return f40757b;
         }
         return (Orange) invokeV.objValue;
     }
@@ -79,7 +79,7 @@ public class Orange {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, bArr, i2)) == null) {
             synchronized (this) {
-                return h() ? "" : getClock(context, bArr, i2);
+                return i() ? "" : getClock(context, bArr, i2);
             }
         }
         return (String) invokeLLI.objValue;
@@ -90,9 +90,9 @@ public class Orange {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return h() ? "" : (String) jniCommand(1114128, null, null, null);
+                return i() ? "" : (String) jniCommand(1114128, null, null, null);
             } catch (Throwable th) {
-                b.c(th);
+                c.c(th);
                 return "";
             }
         }
@@ -104,7 +104,7 @@ public class Orange {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, bArr, i2)) == null) {
             synchronized (this) {
-                if (h()) {
+                if (i()) {
                     return null;
                 }
                 return getMagic(context, bArr, i2);
@@ -118,9 +118,9 @@ public class Orange {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return h() ? "" : (String) jniCommand(1179649, null, null, null);
+                return i() ? "" : (String) jniCommand(1179649, null, null, null);
             } catch (Throwable th) {
-                b.c(th);
+                c.c(th);
                 return "";
             }
         }
@@ -132,33 +132,47 @@ public class Orange {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return h() ? "" : (String) jniCommand(1179653, null, null, null);
+                return i() ? "" : (String) jniCommand(1179653, null, null, null);
             } catch (Throwable th) {
-                b.c(th);
+                c.c(th);
                 return "";
             }
         }
         return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return i() ? "" : (String) jniCommand(1114131, null, null, null);
+            } catch (Throwable th) {
+                c.c(th);
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
                 System.loadLibrary("sgcore");
-                f43740a = false;
-                b.e("so loaded");
+                f40756a = false;
+                c.f("so loaded");
             } catch (Throwable th) {
-                b.e("so load failed");
-                f43740a = true;
-                b.c(th);
+                c.f("so load failed");
+                f40756a = true;
+                c.c(th);
             }
         }
     }
 
-    public final boolean h() {
+    public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f43740a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f40756a : invokeV.booleanValue;
     }
 }

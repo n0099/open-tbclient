@@ -4,37 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f44275a;
+    public int f41291a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44276b;
+    public int f41292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44277c;
+    public long f41293c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44278d;
+    public int f41294d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44279e;
+    public int f41295e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f44280f;
+    public long f41296f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44281g;
+    public int f41297g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f44282h;
+    public int f41298h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f44283i;
+    public long f41299i;
     public int j;
     public long k;
     public int l;
@@ -70,15 +70,15 @@ public class f {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44275a = 0;
-            this.f44276b = 0;
-            this.f44277c = 0L;
-            this.f44278d = 0;
-            this.f44279e = 0;
-            this.f44280f = 0L;
-            this.f44281g = 0;
-            this.f44282h = 0;
-            this.f44283i = 0L;
+            this.f41291a = 0;
+            this.f41292b = 0;
+            this.f41293c = 0L;
+            this.f41294d = 0;
+            this.f41295e = 0;
+            this.f41296f = 0L;
+            this.f41297g = 0;
+            this.f41298h = 0;
+            this.f41299i = 0L;
             this.j = 0;
             this.k = 0L;
             this.l = 0;

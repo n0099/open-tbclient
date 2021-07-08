@@ -14,12 +14,12 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class hi implements iq<hi, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f43256a;
+    public static final iy f40270a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f477a;
@@ -42,7 +42,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
             }
         }
         f477a = new jg("ClientUploadData");
-        f43256a = new iy("", (byte) 15, (short) 1);
+        f40270a = new iy("", (byte) 15, (short) 1);
     }
 
     public hi() {
@@ -122,7 +122,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
         jbVar.m524a();
         while (true) {
             iy m520a = jbVar.m520a();
-            byte b2 = m520a.f43494a;
+            byte b2 = m520a.f40508a;
             if (b2 == 0) {
                 jbVar.f();
                 m372a();
@@ -176,7 +176,7 @@ public class hi implements iq<hi, Object>, Serializable, Cloneable {
             m372a();
             jbVar.a(f477a);
             if (this.f478a != null) {
-                jbVar.a(f43256a);
+                jbVar.a(f40270a);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f478a.size()));
                 for (hj hjVar : this.f478a) {
                     hjVar.b(jbVar);

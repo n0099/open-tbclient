@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.initer.TitanIniter;
 import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 import java.io.File;
 @DisableIntercept
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TitanPaths {
     public static final String TITAN_SANDBOX_PROCESS_NAME_SUFFIX = ":titanSandbox";
 

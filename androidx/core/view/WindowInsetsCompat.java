@@ -408,7 +408,7 @@ public class WindowInsetsCompat {
     public static WindowInsetsCompat toWindowInsetsCompat(@NonNull WindowInsets windowInsets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, windowInsets)) == null) ? new WindowInsetsCompat((WindowInsets) Preconditions.checkNotNull(windowInsets)) : (WindowInsetsCompat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, windowInsets)) == null) ? new WindowInsetsCompat((WindowInsets) Preconditions.checkNotNull(windowInsets)) : (WindowInsetsCompat) invokeL.objValue;
     }
 
     @NonNull

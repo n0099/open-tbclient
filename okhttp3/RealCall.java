@@ -20,7 +20,7 @@ import okhttp3.internal.http.CallServerInterceptor;
 import okhttp3.internal.http.RealInterceptorChain;
 import okhttp3.internal.http.RetryAndFollowUpInterceptor;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class RealCall implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class RealCall implements Call {
     public final Request originalRequest;
     public final RetryAndFollowUpInterceptor retryAndFollowUpInterceptor;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class AsyncCall extends NamedRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

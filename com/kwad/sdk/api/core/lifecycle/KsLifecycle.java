@@ -3,6 +3,7 @@ package com.kwad.sdk.api.core.lifecycle;
 import androidx.annotation.Keep;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.GenericLifecycleObserver;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KsLifecycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +23,7 @@ public class KsLifecycle {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class KsLifeEvent {
         public static final /* synthetic */ KsLifeEvent[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,7 +106,7 @@ public class KsLifecycle {
         public static KsLifeEvent[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (KsLifeEvent[]) $VALUES.clone() : (KsLifeEvent[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (KsLifeEvent[]) $VALUES.clone() : (KsLifeEvent[]) invokeV.objValue;
         }
 
         @Keep
@@ -117,7 +118,7 @@ public class KsLifecycle {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class KsLifeState {
         public static final /* synthetic */ KsLifeState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -196,7 +197,7 @@ public class KsLifecycle {
         public static KsLifeState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (KsLifeState[]) $VALUES.clone() : (KsLifeState[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (KsLifeState[]) $VALUES.clone() : (KsLifeState[]) invokeV.objValue;
         }
 
         public boolean isAtLeast(@NonNull KsLifeState ksLifeState) {

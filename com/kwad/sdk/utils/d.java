@@ -5,13 +5,13 @@ import android.content.Context;
 import android.os.Build;
 import android.view.Window;
 import androidx.annotation.NonNull;
-import com.baidu.mobads.container.util.AdIconUtil;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class d {
             if (z2) {
                 return;
             }
-            activity.findViewById(16908290).setPadding(0, ao.a((Context) activity), 0, 0);
+            activity.findViewById(16908290).setPadding(0, av.a((Context) activity), 0, 0);
         }
     }
 
@@ -40,16 +40,10 @@ public class d {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
     }
 
-    public static boolean a(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? a() && (activity.getWindow().getDecorView().getSystemUiVisibility() & 1280) == 1280 && !ao.a(activity) : invokeL.booleanValue;
-    }
-
     public static boolean a(@NonNull Activity activity, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, activity, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, activity, z)) == null) {
             Class<?> cls = activity.getWindow().getClass();
             try {
                 Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
@@ -71,7 +65,7 @@ public class d {
 
     public static void b(@NonNull Activity activity, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{activity, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{activity, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Window window = activity.getWindow();
             int i3 = Build.VERSION.SDK_INT;
             int i4 = 1280;
@@ -86,10 +80,10 @@ public class d {
                 i4 = 9472;
                 window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 window.addFlags(Integer.MIN_VALUE);
-                if (ac.a()) {
+                if (aj.a()) {
                     a(activity, true);
-                } else if (ac.b()) {
-                    u.a(activity, true);
+                } else if (aj.b()) {
+                    x.a(activity, true);
                 }
             }
             window.getDecorView().setSystemUiVisibility(i4);

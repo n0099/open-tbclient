@@ -2,6 +2,7 @@ package d.d.a.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,30 +18,30 @@ import d.d.a.a.b.d;
 import d.d.a.a.b.i;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f72000d;
+    public static Context f69103d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.d.a.a.b.a f72001a;
+    public d.d.a.a.b.a f69104a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f72002b;
+    public boolean f69105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f72003c;
+    public c f69106c;
 
     /* renamed from: d.d.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1999a {
+    /* loaded from: classes8.dex */
+    public static class C1968a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f72004a;
+        public static a f69107a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,11 +57,11 @@ public final class a {
                     return;
                 }
             }
-            f72004a = new a(null);
+            f69107a = new a(null);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,10 +75,10 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f72000d == null && context != null) {
-                f72000d = context.getApplicationContext();
+            if (f69103d == null && context != null) {
+                f69103d = context.getApplicationContext();
             }
-            return f72000d != null;
+            return f69103d != null;
         }
         return invokeL.booleanValue;
     }
@@ -85,13 +86,13 @@ public final class a {
     public static Context c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f72000d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f69103d : (Context) invokeV.objValue;
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? C1999a.f72004a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C1968a.f69107a : (a) invokeV.objValue;
     }
 
     public static void g(Context context, d.d.a.a.b.a aVar) {
@@ -102,12 +103,12 @@ public final class a {
                 return;
             }
             a e2 = e();
-            e2.f72001a = aVar;
+            e2.f69104a = aVar;
             try {
-                if (e2.f72002b) {
+                if (e2.f69105b) {
                     return;
                 }
-                e2.f72002b = true;
+                e2.f69105b = true;
                 i.a().e();
                 d.h().i("normal_log");
             } catch (Exception e3) {
@@ -265,7 +266,7 @@ public final class a {
     public static void x(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65559, null, cVar) == null) {
-            e().f72003c = cVar;
+            e().f69106c = cVar;
         }
     }
 
@@ -273,7 +274,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d.d.a.a.b.a aVar = this.f72001a;
+            d.d.a.a.b.a aVar = this.f69104a;
             if (aVar != null) {
                 return aVar.isDisabled();
             }
@@ -285,13 +286,13 @@ public final class a {
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72003c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69106c : (c) invokeV.objValue;
     }
 
     public d.d.a.a.b.a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72001a : (d.d.a.a.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69104a : (d.d.a.a.b.a) invokeV.objValue;
     }
 
     public a() {

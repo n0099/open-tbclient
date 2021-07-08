@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class hl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final hl f43275a;
+    public static final hl f40289a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hl[] f494a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hl f43276b;
+    public static final hl f40290b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,10 +39,10 @@ public final class hl {
                 return;
             }
         }
-        f43275a = new hl("MISC_CONFIG", 0, 1);
+        f40289a = new hl("MISC_CONFIG", 0, 1);
         hl hlVar = new hl("PLUGIN_CONFIG", 1, 2);
-        f43276b = hlVar;
-        f494a = new hl[]{f43275a, hlVar};
+        f40290b = hlVar;
+        f494a = new hl[]{f40289a, hlVar};
     }
 
     public hl(String str, int i2, int i3) {
@@ -73,9 +74,9 @@ public final class hl {
                 if (i2 != 2) {
                     return null;
                 }
-                return f43276b;
+                return f40290b;
             }
-            return f43275a;
+            return f40289a;
         }
         return (hl) invokeI.objValue;
     }
@@ -89,7 +90,7 @@ public final class hl {
     public static hl[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (hl[]) f494a.clone() : (hl[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hl[]) f494a.clone() : (hl[]) invokeV.objValue;
     }
 
     public int a() {

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.d;
 import d.a.c.a.f;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
             bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
-            d.a.r0.b1.d dVar = new d.a.r0.b1.d(bitmapDrawable);
+            d.a.o0.b1.d dVar = new d.a.o0.b1.d(bitmapDrawable);
             dVar.b(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             dVar.c(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             SpannableString spannableString = new SpannableString(str);
@@ -104,7 +105,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
     @SuppressLint({"ResourceAsColor"})
     private void initUI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mActivity.setContentView(R.layout.wallet_pay_result_activity);
             this.mRootLayout = (LinearLayoutDetectsSoftKeyboard) this.mActivity.findViewById(R.id.buy_tbean_root_ll);
             NavigationBar navigationBar = (NavigationBar) this.mActivity.findViewById(R.id.pay_result_bar);

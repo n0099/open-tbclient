@@ -17,22 +17,22 @@ import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25834a;
+    public String f25944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25835b;
+    public String f25945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25836c;
+    public String f25946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25837d;
+    public boolean f25947d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UnbindCardBean(Context context) {
@@ -52,14 +52,14 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
                 return;
             }
         }
-        this.f25837d = true;
+        this.f25947d = true;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!TextUtils.isEmpty(this.f25836c)) {
+            if (!TextUtils.isEmpty(this.f25946c)) {
                 super.execBean(null);
             } else {
                 this.mRspCallback.onBeanExecFailure(getBeanId(), -10, "");
@@ -73,19 +73,19 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(this.f25836c)) {
+            if (TextUtils.isEmpty(this.f25946c)) {
                 return arrayList;
             }
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25834a)));
-            if (this.f25837d) {
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f25944a)));
+            if (this.f25947d) {
                 String seed = PasswordController.getSeed();
-                String handlePwd = PasswordController.handlePwd(this.f25836c, seed);
+                String handlePwd = PasswordController.handlePwd(this.f25946c, seed);
                 String encryptProxy = SafePay.getInstance().encryptProxy(seed);
                 arrayList.add(new RestNameValuePair("mobile_pass", handlePwd));
                 arrayList.add(new RestNameValuePair("seed", encryptProxy));
             } else {
-                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25835b)));
-                arrayList.add(new RestNameValuePair("vcode", this.f25836c));
+                arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.f25945b)));
+                arrayList.add(new RestNameValuePair("vcode", this.f25946c));
             }
             return arrayList;
         }
@@ -115,28 +115,28 @@ public class UnbindCardBean extends BaseBean<Object> implements NoProguard {
     public void setCardNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f25834a = str;
+            this.f25944a = str;
         }
     }
 
     public void setPhoneNo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f25835b = str;
+            this.f25945b = str;
         }
     }
 
     public void setUsePass(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f25837d = z;
+            this.f25947d = z;
         }
     }
 
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f25836c = str;
+            this.f25946c = str;
         }
     }
 }

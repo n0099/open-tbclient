@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XMyWebView;
 import com.baidu.mobads.container.service.PluginLoader;
@@ -33,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class VerifyPerDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOMETITLE_VIEW_ID = 132043942;
@@ -89,7 +90,7 @@ public class VerifyPerDialog {
     public static VerifyPerDialog createVerPerDialog(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) ? new VerifyPerDialog(context, 0.9d, str) : (VerifyPerDialog) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? new VerifyPerDialog(context, 0.9d, str) : (VerifyPerDialog) invokeLL.objValue;
     }
 
     private int dp2px(Context context, float f2) {

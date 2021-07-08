@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.e.m;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, mVar, adSlot) == null) {
             BannerExpressVideoView bannerExpressVideoView = new BannerExpressVideoView(context, mVar, adSlot);
-            this.f29764a = bannerExpressVideoView;
-            a(bannerExpressVideoView.getCurView(), this.f29766c);
+            this.f29874a = bannerExpressVideoView;
+            a(bannerExpressVideoView.getCurView(), this.f29876c);
         }
     }
 
@@ -51,7 +51,7 @@ public class c extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f29764a;
+            a aVar = this.f29874a;
             if (aVar != null) {
                 return ((BannerExpressVideoView) aVar).getVideoModel();
             }
@@ -64,7 +64,7 @@ public class c extends b {
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (aVar = this.f29764a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, expressVideoAdListener) == null) || (aVar = this.f29874a) == null) {
             return;
         }
         aVar.setVideoAdListener(expressVideoAdListener);

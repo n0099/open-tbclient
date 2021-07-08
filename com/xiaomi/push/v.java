@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43702a;
+    public Context f40716a;
 
     /* renamed from: a  reason: collision with other field name */
     public File f990a;
@@ -37,7 +37,7 @@ public abstract class v implements Runnable {
                 return;
             }
         }
-        this.f43702a = context;
+        this.f40716a = context;
         this.f990a = file;
     }
 
@@ -63,13 +63,13 @@ public abstract class v implements Runnable {
             try {
                 try {
                     if (this.f990a == null) {
-                        this.f990a = new File(this.f43702a.getFilesDir(), "default_locker");
+                        this.f990a = new File(this.f40716a.getFilesDir(), "default_locker");
                     }
-                    uVar = u.a(this.f43702a, this.f990a);
+                    uVar = u.a(this.f40716a, this.f990a);
                     if (this.f991a != null) {
                         this.f991a.run();
                     }
-                    a(this.f43702a);
+                    a(this.f40716a);
                     if (uVar == null) {
                         return;
                     }

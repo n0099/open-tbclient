@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ReportConfig;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class RevenueConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class RevenueConfig {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static final class RevenueConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

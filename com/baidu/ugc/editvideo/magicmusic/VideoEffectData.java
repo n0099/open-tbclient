@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import d.a.y0.j.b;
-import d.a.y0.t.c;
-import d.a.y0.t.h;
+import d.a.v0.j.b;
+import d.a.v0.t.c;
+import d.a.v0.t.h;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoEffectData implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class VideoEffectData implements Serializable, Cloneable {
     public static boolean hasReverseTimeEffect(VideoEffectData videoEffectData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, videoEffectData)) == null) ? (videoEffectData == null || videoEffectData.getTimeEffect() == null || videoEffectData.getTimeEffect().effectType != EffectType.TIME_REVERSE) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, videoEffectData)) == null) ? (videoEffectData == null || videoEffectData.getTimeEffect() == null || videoEffectData.getTimeEffect().effectType != EffectType.TIME_REVERSE) ? false : true : invokeL.booleanValue;
     }
 
     public static VideoEffectData parse(String str) {

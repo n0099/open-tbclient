@@ -16,7 +16,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b extends com.tencent.open.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class b extends com.tencent.open.a {
     }
 
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0563a c0563a) {
+    public void a(String str, String str2, List<String> list, a.C0524a c0524a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0563a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0524a) == null) {
             f.a("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -48,15 +48,15 @@ public class b extends com.tencent.open.a {
                     e2.printStackTrace();
                 }
             }
-            a.b bVar = this.f41861a.get(str);
+            a.b bVar = this.f38875a.get(str);
             if (bVar != null) {
                 f.b("openSDK_LOG.SecureJsBridge", "-->handler != null");
-                bVar.call(str2, list, c0563a);
+                bVar.call(str2, list, c0524a);
                 return;
             }
             f.b("openSDK_LOG.SecureJsBridge", "-->handler == null");
-            if (c0563a != null) {
-                c0563a.a();
+            if (c0524a != null) {
+                c0524a.a();
             }
         }
     }

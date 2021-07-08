@@ -5,6 +5,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -85,7 +86,7 @@ public class ViewUtils {
 
     public static void makeOptionalFitsSystemWindows(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, view) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
         try {

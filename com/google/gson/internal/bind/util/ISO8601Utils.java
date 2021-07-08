@@ -1,5 +1,6 @@
 package com.google.gson.internal.bind.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -18,7 +19,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ISO8601Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone TIMEZONE_UTC;
@@ -276,7 +277,7 @@ public class ISO8601Utils {
     public static String format(Date date, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, date, z)) == null) ? format(date, z, TIMEZONE_UTC) : (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, date, z)) == null) ? format(date, z, TIMEZONE_UTC) : (String) invokeLZ.objValue;
     }
 
     public static String format(Date date, boolean z, TimeZone timeZone) {

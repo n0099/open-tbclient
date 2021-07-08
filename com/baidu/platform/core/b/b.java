@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9410b = "b";
+    public static final String f9427b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9411c;
+    public String f9428c;
 
     static {
         InterceptResult invokeClinit;
@@ -94,7 +94,7 @@ public class b extends com.baidu.platform.base.d {
                     return false;
                 }
                 geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
-                geoCodeResult.setAddress(this.f9411c);
+                geoCodeResult.setAddress(this.f9428c);
                 geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
                 geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
                 geoCodeResult.setLevel(optJSONObject.optString("level"));
@@ -102,7 +102,7 @@ public class b extends com.baidu.platform.base.d {
                 return true;
             } catch (JSONException e2) {
                 geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                Log.e(f9410b, "Parse GeoCodeResult catch JSONException", e2);
+                Log.e(f9427b, "Parse GeoCodeResult catch JSONException", e2);
                 return true;
             }
         }
@@ -129,7 +129,7 @@ public class b extends com.baidu.platform.base.d {
                     jSONObject = new JSONObject(str);
                     c2 = 0;
                 } catch (JSONException e2) {
-                    Log.e(f9410b, "JSONException caught", e2);
+                    Log.e(f9427b, "JSONException caught", e2);
                 }
                 if (!jSONObject.has("SDK_InnerError")) {
                     if (!a(str, geoCodeResult, false) && !a(str, geoCodeResult)) {
@@ -173,7 +173,7 @@ public class b extends com.baidu.platform.base.d {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f9411c = str;
+            this.f9428c = str;
         }
     }
 }

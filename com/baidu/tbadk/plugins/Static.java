@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.h.j.g.d;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f13147a;
+    public static final String[] f13164a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f13147a;
+            String[] strArr = Static.f13164a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
@@ -129,7 +129,7 @@ public class Static {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 try {
                                     plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                    d.a.r0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.a.r0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
+                                    d.a.o0.r.d0.b.j().v("plugin_patch_hook_failed_count", d.a.o0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
                                     break;
                                 } catch (ClassNotFoundException unused) {
                                 }
@@ -143,7 +143,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class c extends d.a.c.c.f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public class Static {
                 return;
             }
         }
-        f13147a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+        f13164a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
         MessageManager.getInstance().registerListener(new a(2001011));
         a();
         MessageManager.getInstance().registerListener(new b(2016301));

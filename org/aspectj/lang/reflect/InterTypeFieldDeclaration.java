@@ -1,7 +1,7 @@
 package org.aspectj.lang.reflect;
 
 import java.lang.reflect.Type;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface InterTypeFieldDeclaration extends InterTypeDeclaration {
     Type getGenericType();
 

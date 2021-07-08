@@ -39,7 +39,7 @@ import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractHttpManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpManager";
@@ -128,7 +128,7 @@ public abstract class AbstractHttpManager {
 
     private void addStaticInterceptor(OkHttpClient.Builder builder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, builder) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, builder) == null) {
             List<Class<? extends Interceptor>> list = sExternalNetworkInterceptorClass;
             if (list != null) {
                 try {

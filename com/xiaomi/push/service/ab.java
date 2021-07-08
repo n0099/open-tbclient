@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class ab implements av.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f43560a;
+    public final /* synthetic */ XMPushService f40574a;
 
     public ab(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -29,18 +29,18 @@ public final class ab implements av.b.a {
                 return;
             }
         }
-        this.f43560a = xMPushService;
+        this.f40574a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
-            if (cVar2 == av.c.f43604c) {
-                p.a(this.f43560a);
-                p.b(this.f43560a);
-            } else if (cVar2 == av.c.f43602a) {
-                p.a(this.f43560a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+            if (cVar2 == av.c.f40618c) {
+                p.a(this.f40574a);
+                p.b(this.f40574a);
+            } else if (cVar2 == av.c.f40616a) {
+                p.a(this.f40574a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
             }
         }
     }

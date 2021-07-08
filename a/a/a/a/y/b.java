@@ -2,6 +2,7 @@ package a.a.a.a.y;
 
 import android.content.SharedPreferences;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -82,7 +83,7 @@ public class b {
     public static void a(long j, int i2, int i3, a.a.a.a.v.a aVar) {
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -55,7 +56,7 @@ import java.util.regex.Matcher;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -66,7 +67,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public boolean mInvalidDirDeleted;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -98,7 +99,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KEEP_ALIVE_TIME = 60000;
@@ -125,7 +126,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ContentUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final byte GZIP_HEAD_1 = 117;
@@ -317,7 +318,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     RandomAccessFile randomAccessFile4 = null;
                     try {
                         try {
-                            randomAccessFile = new RandomAccessFile(file, r.f7745a);
+                            randomAccessFile = new RandomAccessFile(file, r.f7762a);
                         } catch (Throwable th) {
                             th = th;
                         }
@@ -384,7 +385,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public static void createUBCContentInfo(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull String str, @NonNull File file) {
             JsonWriter jsonWriter;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(65540, null, logObject, list, str, file) == null) {
+            if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logObject, list, str, file) == null) {
                 JsonWriter jsonWriter2 = null;
                 try {
                     try {
@@ -634,7 +635,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CrashPadUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_READ_BDMP = 102400;
@@ -678,7 +679,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public static void createMiniBDMPInfo(@NonNull File file, @NonNull JsonWriter jsonWriter) {
             ByteArrayOutputStream byteArrayOutputStream;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65540, null, file, jsonWriter) == null) || file == null || jsonWriter == null || !file.exists()) {
+            if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, jsonWriter) == null) || file == null || jsonWriter == null || !file.exists()) {
                 return;
             }
             FileInputStream fileInputStream = null;
@@ -743,7 +744,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -800,7 +801,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_GZIP_TMP = ".gz.tmp";
@@ -870,7 +871,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -898,7 +899,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1428,7 +1429,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return (ResponseEntity) invokeL.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";

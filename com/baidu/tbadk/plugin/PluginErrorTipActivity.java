@@ -26,7 +26,7 @@ import d.a.c.e.m.e;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,13 +40,13 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public ShadowLayout shadowLayout;
     public PluginStatus status;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f13133e;
+        public final /* synthetic */ PluginErrorTipActivity f13150e;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     return;
                 }
             }
-            this.f13133e = pluginErrorTipActivity;
+            this.f13150e = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -76,7 +76,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f13133e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f13150e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +20,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -99,7 +100,7 @@ public class Utility {
     public static String getAid(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) ? context == null ? "" : WeiboSsoManager.getInstance().getAid(context, str) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? context == null ? "" : WeiboSsoManager.getInstance().getAid(context, str) : (String) invokeLL.objValue;
     }
 
     public static String getSign(Context context, String str) {

@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface b extends com.bytedance.sdk.openadsdk.downloadnew.core.a {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
     }
 

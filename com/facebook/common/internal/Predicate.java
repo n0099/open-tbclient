@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface Predicate<T> {
     boolean apply(T t);
 }

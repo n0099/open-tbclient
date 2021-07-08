@@ -4,22 +4,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f5139a;
+    public final /* synthetic */ int f5156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f5140b;
+    public final /* synthetic */ int f5157b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f5141c;
+    public final /* synthetic */ String f5158c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ BeanActivity f5142d;
+    public final /* synthetic */ BeanActivity f5159d;
 
     public b(BeanActivity beanActivity, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
@@ -36,19 +36,19 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f5142d = beanActivity;
-        this.f5139a = i2;
-        this.f5140b = i3;
-        this.f5141c = str;
+        this.f5159d = beanActivity;
+        this.f5156a = i2;
+        this.f5157b = i3;
+        this.f5158c = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BeanActivity beanActivity = this.f5142d;
+            BeanActivity beanActivity = this.f5159d;
             if (beanActivity.mAct != null) {
-                beanActivity.handleFailure(this.f5139a, this.f5140b, this.f5141c);
+                beanActivity.handleFailure(this.f5156a, this.f5157b, this.f5158c);
             }
         }
     }

@@ -570,7 +570,7 @@ public abstract class FragmentManager {
 
     private void checkStateLoss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65540, this) == null) && isStateSaved()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && isStateSaved()) {
             throw new IllegalStateException("Can not perform this action after onSaveInstanceState");
         }
     }

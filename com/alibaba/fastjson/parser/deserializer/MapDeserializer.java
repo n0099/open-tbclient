@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.parser.deserializer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONException;
@@ -141,7 +142,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
         String scanSymbolUnQuoted;
         Class<?> checkAutoType;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{defaultJSONParser, map, type, obj, Integer.valueOf(i2)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{defaultJSONParser, map, type, obj, Integer.valueOf(i2)})) != null) {
             return (Map) invokeCommon.objValue;
         }
         JSONLexer jSONLexer = defaultJSONParser.lexer;

@@ -13,7 +13,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RecyclableBufferedInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     public int markpos;
     public int pos;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class InvalidMarkException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4338378848813561757L;

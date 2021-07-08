@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +24,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] FINDER_PATTERNS;
@@ -253,7 +254,7 @@ public final class RSS14Reader extends AbstractRSSReader {
     public static boolean checkChecksum(Pair pair, Pair pair2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, pair, pair2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pair, pair2)) == null) {
             int checksumPortion = (pair.getChecksumPortion() + (pair2.getChecksumPortion() * 16)) % 79;
             int value = (pair.getFinderPattern().getValue() * 9) + pair2.getFinderPattern().getValue();
             if (value > 72) {

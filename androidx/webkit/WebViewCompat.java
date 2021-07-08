@@ -11,6 +11,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.internal.WebMessagePortImpl;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
@@ -106,7 +107,7 @@ public class WebViewCompat {
     public static WebMessagePortCompat[] createWebMessageChannel(@NonNull WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, webView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView)) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("CREATE_WEB_MESSAGE_CHANNEL");
             if (feature.isSupportedByFramework()) {
                 return WebMessagePortImpl.portsToCompat(webView.createWebMessageChannel());

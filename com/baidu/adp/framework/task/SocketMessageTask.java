@@ -17,19 +17,19 @@ public class SocketMessageTask extends MessageTask {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2149a;
+    public boolean f2150a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2150b;
+    public boolean f2151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2151c;
+    public boolean f2152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<? extends SocketResponsedMessage> f2152d;
+    public Class<? extends SocketResponsedMessage> f2153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DupLicateMode f2153e;
+    public DupLicateMode f2154e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes.dex */
@@ -113,28 +113,28 @@ public class SocketMessageTask extends MessageTask {
                 return;
             }
         }
-        this.f2149a = false;
-        this.f2150b = false;
-        this.f2151c = true;
-        this.f2153e = DupLicateMode.NONE;
+        this.f2150a = false;
+        this.f2151b = false;
+        this.f2152c = true;
+        this.f2154e = DupLicateMode.NONE;
     }
 
     public DupLicateMode a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2153e : (DupLicateMode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2154e : (DupLicateMode) invokeV.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2149a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2150a : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2150b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2151b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -147,47 +147,47 @@ public class SocketMessageTask extends MessageTask {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2151c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2152c : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f2151c = z;
+            this.f2152c = z;
         }
     }
 
     public void f(DupLicateMode dupLicateMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dupLicateMode) == null) {
-            this.f2153e = dupLicateMode;
+            this.f2154e = dupLicateMode;
         }
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f2149a = z;
+            this.f2150a = z;
         }
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2152d : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2153d : (Class) invokeV.objValue;
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f2150b = z;
+            this.f2151b = z;
         }
     }
 
     public void setResponsedClass(Class<? extends SocketResponsedMessage> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cls) == null) {
-            this.f2152d = cls;
+            this.f2153d = cls;
         }
     }
 }

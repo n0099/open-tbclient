@@ -27,7 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UBCLooperRegister extends ILooperRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_BLOCK_ACTIVE_UPLOAD = "key_block_active_upload";

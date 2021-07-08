@@ -10,7 +10,7 @@ import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.statistics.impl.SensorsSyncHttpImpl;
 import com.baidu.wallet.statistics.impl.StatConfig;
 import d.d.a.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DxmPayBaseActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

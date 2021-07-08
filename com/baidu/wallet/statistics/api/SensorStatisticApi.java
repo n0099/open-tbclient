@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.d.a.a.b.d;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SensorStatisticApi extends StatisticDecorate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static SensorStatisticApi f27208a;
+        public static SensorStatisticApi f27318a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +38,7 @@ public class SensorStatisticApi extends StatisticDecorate {
                     return;
                 }
             }
-            f27208a = new SensorStatisticApi();
+            f27318a = new SensorStatisticApi();
         }
     }
 
@@ -59,7 +59,7 @@ public class SensorStatisticApi extends StatisticDecorate {
     public static SensorStatisticApi getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f27208a : (SensorStatisticApi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f27318a : (SensorStatisticApi) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.statistics.api.StatisticDecorate, com.baidu.wallet.statistics.api.IStatistic

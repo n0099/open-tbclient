@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.f;
-import d.a.s0.p0.y.d.b;
-/* loaded from: classes5.dex */
+import d.a.p0.p0.y.d.b;
+/* loaded from: classes4.dex */
 public class EmotionChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f15046e;
+    public final HttpMessageListener f15085e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,11 +89,11 @@ public class EmotionChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f15046e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f15085e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f15046e.setTag(getUniqueId());
-        this.f15046e.setSelfListener(true);
-        registerListener(this.f15046e);
+        this.f15085e.setTag(getUniqueId());
+        this.f15085e.setSelfListener(true);
+        registerListener(this.f15085e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

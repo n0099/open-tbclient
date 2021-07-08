@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ContinuousAnimationView f13184e;
+        public final /* synthetic */ ContinuousAnimationView f13201e;
 
         public a(ContinuousAnimationView continuousAnimationView) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
                     return;
                 }
             }
-            this.f13184e = continuousAnimationView;
+            this.f13201e = continuousAnimationView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.f13184e.v();
+                this.f13201e.v();
             }
         }
 
@@ -59,12 +59,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f13184e.w();
-                if (this.f13184e.m) {
-                    this.f13184e.m = false;
+                this.f13201e.w();
+                if (this.f13201e.m) {
+                    this.f13201e.m = false;
                 }
-                this.f13184e.l = false;
-                this.f13184e.setFrame(0);
+                this.f13201e.l = false;
+                this.f13201e.setFrame(0);
             }
         }
 
@@ -72,10 +72,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.f13184e.x();
-                if (this.f13184e.m) {
-                    this.f13184e.cancelAnimation();
-                    this.f13184e.m = false;
+                this.f13201e.x();
+                if (this.f13201e.m) {
+                    this.f13201e.cancelAnimation();
+                    this.f13201e.m = false;
                 }
             }
         }
@@ -84,8 +84,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f13184e.y();
-                this.f13184e.l = true;
+                this.f13201e.y();
+                this.f13201e.l = true;
             }
         }
     }

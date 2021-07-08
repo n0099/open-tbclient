@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Looper;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -175,7 +176,7 @@ public class MultiDexHelper {
     public static List<String> getSourcePaths(Context context) throws PackageManager.NameNotFoundException, IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
             File file = new File(applicationInfo.sourceDir);
             File file2 = new File(applicationInfo.dataDir, SECONDARY_FOLDER_NAME);

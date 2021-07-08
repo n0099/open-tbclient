@@ -2,6 +2,7 @@ package androidx.webkit.internal;
 
 import android.os.Build;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -147,7 +148,7 @@ public class WebViewGlueCommunicator {
     public static WebViewProviderFactory getFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? LAZY_FACTORY_HOLDER.INSTANCE : (WebViewProviderFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? LAZY_FACTORY_HOLDER.INSTANCE : (WebViewProviderFactory) invokeV.objValue;
     }
 
     public static ClassLoader getWebViewClassLoader() {

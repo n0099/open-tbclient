@@ -15,27 +15,27 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class p<E> extends g0<E> implements h1<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient Comparator<? super E> f73782e;
+    public transient Comparator<? super E> f70885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public transient NavigableSet<E> f73783f;
+    public transient NavigableSet<E> f70886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public transient Set<s0.a<E>> f73784g;
+    public transient Set<s0.a<E>> f70887g;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends Multisets.d<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f73785e;
+        public final /* synthetic */ p f70888e;
 
         public a(p pVar) {
             Interceptable interceptable = $ic;
@@ -52,28 +52,28 @@ public abstract class p<E> extends g0<E> implements h1<E> {
                     return;
                 }
             }
-            this.f73785e = pVar;
+            this.f70888e = pVar;
         }
 
         @Override // com.google.common.collect.Multisets.d
         public s0<E> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73785e : (s0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70888e : (s0) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<s0.a<E>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73785e.e() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70888e.e() : (Iterator) invokeV.objValue;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73785e.f().entrySet().size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70888e.f().entrySet().size() : invokeV.intValue;
         }
     }
 
@@ -96,10 +96,10 @@ public abstract class p<E> extends g0<E> implements h1<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Comparator<? super E> comparator = this.f73782e;
+            Comparator<? super E> comparator = this.f70885e;
             if (comparator == null) {
                 Ordering reverse = Ordering.from(f().comparator()).reverse();
-                this.f73782e = reverse;
+                this.f70885e = reverse;
                 return reverse;
             }
             return comparator;
@@ -127,10 +127,10 @@ public abstract class p<E> extends g0<E> implements h1<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Set<s0.a<E>> set = this.f73784g;
+            Set<s0.a<E>> set = this.f70887g;
             if (set == null) {
                 Set<s0.a<E>> d2 = d();
-                this.f73784g = d2;
+                this.f70887g = d2;
                 return d2;
             }
             return set;
@@ -209,10 +209,10 @@ public abstract class p<E> extends g0<E> implements h1<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            NavigableSet<E> navigableSet = this.f73783f;
+            NavigableSet<E> navigableSet = this.f70886f;
             if (navigableSet == null) {
                 i1.b bVar = new i1.b(this);
-                this.f73783f = bVar;
+                this.f70886f = bVar;
                 return bVar;
             }
             return navigableSet;

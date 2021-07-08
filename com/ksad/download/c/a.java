@@ -11,37 +11,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.download.DownloadTask;
-import com.ksad.download.c;
 import com.ksad.download.d;
-import com.kwad.sdk.b.b;
+import com.kwad.sdk.c.c;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
-public class a extends b {
+/* loaded from: classes6.dex */
+public class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f33537a;
+    public d f33647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f33538b;
+    public final Map<String, Integer> f33648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Service f33539c;
+    public Service f33649c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC0397a f33540d;
+    public final HandlerC0397a f33650d;
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HandlerC0397a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f33541a;
+        public final WeakReference<a> f33651a;
 
         public HandlerC0397a(a aVar) {
             Interceptable interceptable = $ic;
@@ -58,18 +57,18 @@ public class a extends b {
                     return;
                 }
             }
-            this.f33541a = new WeakReference<>(aVar);
+            this.f33651a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f33541a.get()) != null && message.what == 1) {
-                if (aVar.f33537a == null || !aVar.f33537a.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f33651a.get()) != null && message.what == 1) {
+                if (aVar.f33647a == null || !aVar.f33647a.d()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
-                    aVar.f33539c.stopSelf();
+                    aVar.f33649c.stopSelf();
                 }
             }
         }
@@ -88,8 +87,8 @@ public class a extends b {
                 return;
             }
         }
-        this.f33538b = new ConcurrentHashMap();
-        this.f33540d = new HandlerC0397a(this);
+        this.f33648b = new ConcurrentHashMap();
+        this.f33650d = new HandlerC0397a(this);
     }
 
     private void a(Intent intent) {
@@ -101,32 +100,32 @@ public class a extends b {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f33538b.get(stringExtra);
+            Integer num = this.f33648b.get(stringExtra);
             if (intExtra == 1) {
-                this.f33538b.put(stringExtra, Integer.valueOf(this.f33537a.a(downloadRequest, (c) null)));
+                this.f33648b.put(stringExtra, Integer.valueOf(this.f33647a.a(downloadRequest, (com.ksad.download.c) null)));
             } else if (intExtra == 2) {
-                this.f33537a.d(num.intValue());
+                this.f33647a.d(num.intValue());
             } else if (intExtra == 3) {
-                this.f33537a.e(num.intValue());
+                this.f33647a.e(num.intValue());
             } else if (intExtra == 4) {
-                this.f33537a.c(num.intValue());
+                this.f33647a.c(num.intValue());
             }
         } catch (Exception unused) {
         }
     }
 
-    @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.c.c, com.kwad.sdk.api.proxy.IServiceProxy
     public void onCreate(Service service) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, service) == null) || service == null) {
             return;
         }
-        this.f33539c = service;
-        this.f33537a = d.a();
-        this.f33540d.sendEmptyMessageDelayed(1, 30000L);
+        this.f33649c = service;
+        this.f33647a = d.a();
+        this.f33650d.sendEmptyMessageDelayed(1, 30000L);
     }
 
-    @Override // com.kwad.sdk.b.b, com.kwad.sdk.api.proxy.IServiceProxy
+    @Override // com.kwad.sdk.c.c, com.kwad.sdk.api.proxy.IServiceProxy
     public int onStartCommand(Service service, Intent intent, int i2, int i3) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;

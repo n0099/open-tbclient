@@ -192,7 +192,7 @@ public class AccessibilityDelegateCompat {
     private boolean isSpanStillValid(ClickableSpan clickableSpan, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, clickableSpan, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, clickableSpan, view)) == null) {
             if (clickableSpan != null) {
                 ClickableSpan[] clickableSpans = AccessibilityNodeInfoCompat.getClickableSpans(view.createAccessibilityNodeInfo().getText());
                 for (int i2 = 0; clickableSpans != null && i2 < clickableSpans.length; i2++) {

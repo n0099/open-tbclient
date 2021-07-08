@@ -1,5 +1,6 @@
 package com.google.common.base;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -21,12 +22,12 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Predicates {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AndPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -96,14 +97,14 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CompositionPredicate<A, B> implements o<A>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final g<A, ? extends B> f32900f;
+        public final g<A, ? extends B> f33010f;
         public final o<B> p;
 
         public /* synthetic */ CompositionPredicate(o oVar, g gVar, a aVar) {
@@ -114,7 +115,7 @@ public final class Predicates {
         public boolean apply(A a2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.p.apply(this.f32900f.apply(a2)) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a2)) == null) ? this.p.apply(this.f33010f.apply(a2)) : invokeL.booleanValue;
         }
 
         @Override // d.f.d.a.o
@@ -124,7 +125,7 @@ public final class Predicates {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
                 if (obj instanceof CompositionPredicate) {
                     CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                    return this.f32900f.equals(compositionPredicate.f32900f) && this.p.equals(compositionPredicate.p);
+                    return this.f33010f.equals(compositionPredicate.f33010f) && this.p.equals(compositionPredicate.p);
                 }
                 return false;
             }
@@ -134,14 +135,14 @@ public final class Predicates {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32900f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33010f.hashCode() ^ this.p.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.p + "(" + this.f32900f + SmallTailInfo.EMOTION_SUFFIX;
+                return this.p + "(" + this.f33010f + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -164,11 +165,11 @@ public final class Predicates {
             n.p(oVar);
             this.p = oVar;
             n.p(gVar);
-            this.f32900f = gVar;
+            this.f33010f = gVar;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ContainsPatternFromStringPredicate extends ContainsPatternPredicate {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -205,7 +206,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ContainsPatternPredicate implements o<CharSequence>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -273,7 +274,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class InPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -346,7 +347,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class InstanceOfPredicate implements o<Object>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -406,7 +407,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class IsEqualToPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -471,7 +472,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NotPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -534,7 +535,7 @@ public final class Predicates {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ObjectPredicate implements o<Object> {
         public static final /* synthetic */ ObjectPredicate[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -751,7 +752,7 @@ public final class Predicates {
         public static ObjectPredicate[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (ObjectPredicate[]) $VALUES.clone() : (ObjectPredicate[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ObjectPredicate[]) $VALUES.clone() : (ObjectPredicate[]) invokeV.objValue;
         }
 
         @Override // d.f.d.a.o
@@ -768,7 +769,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class OrPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -838,7 +839,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SubtypeOfPredicate implements o<Class<?>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -899,7 +900,7 @@ public final class Predicates {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -931,7 +932,7 @@ public final class Predicates {
     public static <A, B> o<A> e(o<B> oVar, g<A, ? extends B> gVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, oVar, gVar)) == null) ? new CompositionPredicate(oVar, gVar, null) : (o) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, oVar, gVar)) == null) ? new CompositionPredicate(oVar, gVar, null) : (o) invokeLL.objValue;
     }
 
     public static <T> o<T> f(T t) {

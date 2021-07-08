@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class bk implements ai {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bk f43634a;
+    public static volatile bk f40648a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -32,13 +32,13 @@ public final class bk implements ai {
     /* renamed from: a  reason: collision with other field name */
     public volatile boolean f938a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f43635a;
+        public long f40649a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f939a;
@@ -59,7 +59,7 @@ public final class bk implements ai {
                 }
             }
             this.f939a = str;
-            this.f43635a = j;
+            this.f40649a = j;
         }
 
         public abstract void a(bk bkVar);
@@ -67,17 +67,17 @@ public final class bk implements ai {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f43634a == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || bk.f40648a == null) {
                 return;
             }
-            Context context = bk.f43634a.f935a;
+            Context context = bk.f40648a.f935a;
             if (com.xiaomi.push.bg.d(context)) {
                 long currentTimeMillis = System.currentTimeMillis();
-                SharedPreferences sharedPreferences = bk.f43634a.f936a;
-                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f939a, 0L) > this.f43635a || com.xiaomi.push.af.a(context)) {
-                    SharedPreferences.Editor edit = bk.f43634a.f936a.edit();
+                SharedPreferences sharedPreferences = bk.f40648a.f936a;
+                if (currentTimeMillis - sharedPreferences.getLong(":ts-" + this.f939a, 0L) > this.f40649a || com.xiaomi.push.af.a(context)) {
+                    SharedPreferences.Editor edit = bk.f40648a.f936a.edit();
                     com.xiaomi.push.r.a(edit.putLong(":ts-" + this.f939a, System.currentTimeMillis()));
-                    a(bk.f43634a);
+                    a(bk.f40648a);
                 }
             }
         }
@@ -108,14 +108,14 @@ public final class bk implements ai {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f43634a == null) {
+            if (f40648a == null) {
                 synchronized (bk.class) {
-                    if (f43634a == null) {
-                        f43634a = new bk(context);
+                    if (f40648a == null) {
+                        f40648a = new bk(context);
                     }
                 }
             }
-            return f43634a;
+            return f40648a;
         }
         return (bk) invokeL.objValue;
     }
@@ -156,7 +156,7 @@ public final class bk implements ai {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            SharedPreferences.Editor edit = f43634a.f936a.edit();
+            SharedPreferences.Editor edit = f40648a.f936a.edit();
             com.xiaomi.push.r.a(edit.putString(str + ":" + str2, str3));
         }
     }

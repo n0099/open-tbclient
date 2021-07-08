@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
@@ -21,21 +22,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-import d.a.e0.a.b;
+import d.a.b0.a.b;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ViewUtility implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ float f10056a;
+        public final /* synthetic */ float f10073a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -52,7 +53,7 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.f10056a = f2;
+            this.f10073a = f2;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -68,7 +69,7 @@ public class ViewUtility implements NoProguard {
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.f10056a);
+                    view.setAlpha(this.f10073a);
                     return false;
                 } else {
                     return false;
@@ -170,7 +171,7 @@ public class ViewUtility implements NoProguard {
     public static void enableStatusBarTint(Activity activity, int i2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65540, null, activity, i2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i2) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         try {

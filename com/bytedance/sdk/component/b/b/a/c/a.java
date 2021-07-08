@@ -15,13 +15,13 @@ import com.bytedance.sdk.component.b.b.z;
 import java.io.IOException;
 import java.util.List;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final m f28122a;
+    public final m f28232a;
 
     public a(m mVar) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class a implements u {
                 return;
             }
         }
-        this.f28122a = mVar;
+        this.f28232a = mVar;
     }
 
     private String a(List<com.bytedance.sdk.component.b.b.l> list) {
@@ -53,7 +53,7 @@ public final class a implements u {
                 }
                 com.bytedance.sdk.component.b.b.l lVar = list.get(i2);
                 sb.append(lVar.a());
-                sb.append(com.alipay.sdk.encrypt.a.f1889h);
+                sb.append(com.alipay.sdk.encrypt.a.f1890h);
                 sb.append(lVar.b());
             }
             return sb.toString();
@@ -94,7 +94,7 @@ public final class a implements u {
                 z = true;
                 f2.a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
             }
-            List<com.bytedance.sdk.component.b.b.l> a4 = this.f28122a.a(a2.a());
+            List<com.bytedance.sdk.component.b.b.l> a4 = this.f28232a.a(a2.a());
             if (!a4.isEmpty()) {
                 f2.a("Cookie", a(a4));
             }
@@ -102,7 +102,7 @@ public final class a implements u {
                 f2.a("User-Agent", com.bytedance.sdk.component.b.b.a.d.a());
             }
             ab a5 = aVar.a(f2.d());
-            e.a(this.f28122a, a2.a(), a5.g());
+            e.a(this.f28232a, a2.a(), a5.g());
             ab.a a6 = a5.i().a(a2);
             if (z && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(a5.a("Content-Encoding")) && e.b(a5)) {
                 com.bytedance.sdk.component.b.a.j jVar = new com.bytedance.sdk.component.b.a.j(a5.h().d());

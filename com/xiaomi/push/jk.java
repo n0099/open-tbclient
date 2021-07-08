@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class jk extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f43513a;
+    public int f40527a;
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43514b;
+    public int f40528b;
 
     public jk() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class jk extends jl {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43513a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40527a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -51,7 +51,7 @@ public final class jk extends jl {
                 i3 = b2;
             }
             if (i3 > 0) {
-                System.arraycopy(this.f818a, this.f43513a, bArr, i2, i3);
+                System.arraycopy(this.f818a, this.f40527a, bArr, i2, i3);
                 a(i3);
             }
             return i3;
@@ -63,7 +63,7 @@ public final class jk extends jl {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f43513a += i2;
+            this.f40527a += i2;
         }
     }
 
@@ -93,7 +93,7 @@ public final class jk extends jl {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43514b - this.f43513a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40528b - this.f40527a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -101,8 +101,8 @@ public final class jk extends jl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             this.f818a = bArr;
-            this.f43513a = i2;
-            this.f43514b = i2 + i3;
+            this.f40527a = i2;
+            this.f40528b = i2 + i3;
         }
     }
 }

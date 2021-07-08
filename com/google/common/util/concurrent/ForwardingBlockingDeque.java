@@ -10,7 +10,7 @@ import d.f.d.c.a0;
 import java.util.Collection;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ForwardingBlockingDeque<E> extends a0<E> implements BlockingDeque<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

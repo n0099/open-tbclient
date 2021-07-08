@@ -14,6 +14,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -84,7 +85,7 @@ public final class AppCompatDrawableManager {
         InterceptResult invokeIL;
         PorterDuffColorFilter porterDuffColorFilter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65540, null, i2, mode)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, mode)) == null) {
             synchronized (AppCompatDrawableManager.class) {
                 porterDuffColorFilter = ResourceManagerInternal.getPorterDuffColorFilter(i2, mode);
             }
@@ -165,7 +166,7 @@ public final class AppCompatDrawableManager {
                         private ColorStateList createColoredButtonColorStateList(@NonNull Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(65540, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorAccent)) : (ColorStateList) invokeL.objValue;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorAccent)) : (ColorStateList) invokeL.objValue;
                         }
 
                         private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {

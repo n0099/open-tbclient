@@ -2,6 +2,7 @@ package a.a.a.a;
 
 import a.a.a.a.k;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -88,7 +89,7 @@ public final class a {
         InterceptResult invokeLL;
         Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
             if (obj != null) {
                 try {
                     Class<?> cls = obj.getClass();

@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int POSITION_HOT_CITY = -1;
@@ -37,7 +38,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
     public boolean mHotCitySelected;
     public OnAddressSelectedListener mOnAddressSelectedListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class AddressSelectorHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +87,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnAddressSelectedListener {
         void onAddressSelected(int i2, AddressBean addressBean);
     }
@@ -201,7 +202,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
 
     private void findHotSelected(AddressBean addressBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, addressBean) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, addressBean) == null) {
             if (this.mHotCitySelected) {
                 for (AddressBean addressBean2 : addressBean.hotlists) {
                     addressBean2.isHotSelected = this.mHotCityId.equals(addressBean2.id);

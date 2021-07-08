@@ -29,11 +29,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.b;
 import d.a.c.e.p.l;
-import d.a.r0.a.c;
-import d.a.r0.a.d;
+import d.a.o0.a.c;
+import d.a.o0.a.d;
+import d.a.p0.h.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoPlayActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_VIDEO_PLAY = "nani_midpage";
@@ -43,6 +44,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public String mFrom;
     public String mFromPage;
     public boolean mIsFromSchema;
+    public a mNEGFeedBackManager;
     public String mNid;
     public String mSourceFrom;
     public long mStartTime;
@@ -148,7 +150,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onActivityResult(i2, i3, intent);
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.S0(i2, i3, intent);
+                videoVerticalPageFragment.T0(i2, i3, intent);
             }
         }
     }
@@ -170,12 +172,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (this.mIsFromSchema) {
                 setIsAddSwipeBackLayout(false);
             }
-            if (TbSingleton.getInstance().isNotchScreen(this) || TbSingleton.getInstance().isCutoutScreen(this)) {
-                setUseStyleImmersiveSticky(false);
-            }
             super.onCreate(bundle);
             this.mStartTime = System.currentTimeMillis();
             setContentView(R.layout.video_play_activity);
+            this.mNEGFeedBackManager = new a(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addGlobalLayoutListener();
@@ -189,6 +189,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
+            a aVar = this.mNEGFeedBackManager;
+            if (aVar != null) {
+                aVar.h();
+            }
             String str = TextUtils.isEmpty(this.mNid) ? "0" : "1";
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
             if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(this.mFrom)) {
@@ -222,10 +226,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (i2 == 4) {
                 VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
                 if (videoVerticalPageFragment != null) {
-                    if (videoVerticalPageFragment.T0()) {
+                    if (videoVerticalPageFragment.U0()) {
                         return false;
                     }
-                    this.mFragment.U0();
+                    this.mFragment.V0();
                 }
                 finish();
                 return false;
@@ -255,6 +259,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(false);
+                this.mFragment.setUserVisibleHint(false);
             }
             d.y().E();
         }
@@ -268,7 +273,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
-                d.y().P(c.Z, this.mFragment.Q0());
+                this.mFragment.setUserVisibleHint(true);
+                d.y().P(c.Z, this.mFragment.R0());
             }
         }
     }

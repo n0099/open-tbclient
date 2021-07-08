@@ -24,7 +24,7 @@ import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class EglBase14 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CURRENT_SDK_VERSION;
@@ -37,7 +37,7 @@ public class EglBase14 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class EglBase14 implements EglBase {
         InterceptResult invokeLLL;
         EGLContext eglCreateContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, eGLDisplay, eGLConfig)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, eGLDisplay, eGLConfig)) == null) {
             if (context == null || context.egl14Context != EGL14.EGL_NO_CONTEXT) {
                 EGLContext eGLContext = context == null ? EGL14.EGL_NO_CONTEXT : context.egl14Context;
                 synchronized (EglBase.lock) {

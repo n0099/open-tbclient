@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.g0.b.g;
-import d.a.s0.j1.b.b;
-import d.a.s0.j1.b.c;
-/* loaded from: classes5.dex */
+import d.a.o0.g0.b.g;
+import d.a.p0.j1.b.b;
+import d.a.p0.j1.b.c;
+/* loaded from: classes4.dex */
 public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

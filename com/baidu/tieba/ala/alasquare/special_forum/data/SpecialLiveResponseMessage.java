@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v.d.f.c.a;
-import d.a.s0.v.d.f.c.h;
-import d.a.s0.v.d.f.c.i;
+import d.a.p0.v.d.f.c.a;
+import d.a.p0.v.d.f.c.h;
+import d.a.p0.v.d.f.c.i;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null) {
                 a aVar = new a();
                 aVar.a(optJSONObject);
-                this.mData.f67749a = aVar;
+                this.mData.f64531a = aVar;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -66,20 +66,20 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
                         arrayList.add(specialLiveTabInfo);
                     }
                 }
-                this.mData.f67750b = arrayList;
+                this.mData.f64532b = arrayList;
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
                 AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
                 alaUserInfoData.parserJson(optJSONObject2);
-                this.mData.f67752d = alaUserInfoData;
+                this.mData.f64534d = alaUserInfoData;
             }
-            this.mData.f67751c = jSONObject.optInt("is_like") == 1;
+            this.mData.f64533c = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
                 i iVar = new i();
                 iVar.a(optJSONObject3);
-                this.mData.f67753e = iVar;
+                this.mData.f64535e = iVar;
             }
         }
     }

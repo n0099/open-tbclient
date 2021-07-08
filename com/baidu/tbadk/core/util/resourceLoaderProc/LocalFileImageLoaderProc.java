@@ -15,9 +15,9 @@ import d.a.c.e.l.b;
 import d.a.c.e.l.e;
 import d.a.c.e.p.l;
 import d.a.c.k.d.a;
-import d.a.r0.a0.c;
-import d.a.r0.b0.g.d;
-/* loaded from: classes4.dex */
+import d.a.o0.a0.c;
+import d.a.o0.b0.g.d;
+/* loaded from: classes3.dex */
 public class LocalFileImageLoaderProc implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class LocalFileImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             ImageOperation g2 = d.g(this.width, this.height);
-            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f1889h + g2.actionParam;
+            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f1890h + g2.actionParam;
         }
         return (String) invokeL.objValue;
     }

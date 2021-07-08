@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRadioButton;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.widget.CompoundButtonCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +22,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialRadioButton extends AppCompatRadioButton {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -72,7 +73,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
     private ColorStateList getMaterialThemeColorsTintList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.materialThemeColorsTintList == null) {
                 int color = MaterialColors.getColor(this, R.attr.colorControlActivated);
                 int color2 = MaterialColors.getColor(this, R.attr.colorOnSurface);

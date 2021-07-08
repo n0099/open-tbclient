@@ -26,7 +26,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.interfaces.SettableDraweeHierarchy;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTUAL_IMAGE_INDEX = 2;
@@ -130,7 +130,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
 
     private void fadeOutBranches() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             fadeOutLayer(1);
             fadeOutLayer(2);
             fadeOutLayer(3);

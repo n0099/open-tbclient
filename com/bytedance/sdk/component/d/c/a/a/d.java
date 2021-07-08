@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f28645a;
+    public static final Charset f28755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f28646b;
+    public static final Charset f28756b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,8 +32,8 @@ public final class d {
                 return;
             }
         }
-        f28645a = Charset.forName("US-ASCII");
-        f28646b = Charset.forName("UTF-8");
+        f28755a = Charset.forName("US-ASCII");
+        f28756b = Charset.forName("UTF-8");
     }
 
     public static void a(File file) throws IOException {

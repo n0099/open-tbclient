@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,24 +21,24 @@ import d.l.a.e.a.l;
 import d.l.a.e.b.g.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f74589a = "c";
+    public static final String f71641a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<d.p> f74590b;
+    public static List<d.p> f71642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.socialbase.appdownloader.view.a f74591c;
+    public static com.ss.android.socialbase.appdownloader.view.a f71643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AlertDialog f74592d;
+    public static AlertDialog f71644d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements DialogInterface.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +74,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,18 +103,18 @@ public class c {
     }
 
     /* renamed from: d.l.a.e.a.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class DialogInterface$OnClickListenerC2070c implements DialogInterface.OnClickListener {
+    /* loaded from: classes8.dex */
+    public static class DialogInterface$OnClickListenerC2038c implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f74593e;
+        public final /* synthetic */ Activity f71645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.p f74594f;
+        public final /* synthetic */ d.p f71646f;
 
-        public DialogInterface$OnClickListenerC2070c(Activity activity, d.p pVar) {
+        public DialogInterface$OnClickListenerC2038c(Activity activity, d.p pVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,17 +129,17 @@ public class c {
                     return;
                 }
             }
-            this.f74593e = activity;
-            this.f74594f = pVar;
+            this.f71645e = activity;
+            this.f71646f = pVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                c.e(this.f74593e, this.f74594f);
+                c.e(this.f71645e, this.f71646f);
                 dialogInterface.cancel();
-                AlertDialog unused = c.f74592d = null;
+                AlertDialog unused = c.f71644d = null;
             }
         }
     }
@@ -156,7 +157,7 @@ public class c {
                 return;
             }
         }
-        f74590b = new ArrayList();
+        f71642b = new ArrayList();
     }
 
     public c() {
@@ -191,9 +192,9 @@ public class c {
                         int a3 = l.a(e.n(), "tt_appdownloader_notification_request_message");
                         int a4 = l.a(e.n(), "tt_appdownloader_notification_request_btn_yes");
                         int a5 = l.a(e.n(), "tt_appdownloader_notification_request_btn_no");
-                        f74590b.add(pVar);
-                        if (f74592d == null || !f74592d.isShowing()) {
-                            f74592d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface$OnClickListenerC2070c(activity, pVar)).setNegativeButton(a5, new b()).setOnKeyListener(new a()).setCancelable(false).show();
+                        f71642b.add(pVar);
+                        if (f71644d == null || !f71644d.isShowing()) {
+                            f71644d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface$OnClickListenerC2038c(activity, pVar)).setNegativeButton(a5, new b()).setOnKeyListener(new a()).setCancelable(false).show();
                         }
                         return;
                     }
@@ -205,14 +206,14 @@ public class c {
 
     public static synchronized void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (c.class) {
                 try {
-                    if (f74592d != null) {
-                        f74592d.cancel();
-                        f74592d = null;
+                    if (f71644d != null) {
+                        f71644d.cancel();
+                        f71644d = null;
                     }
-                    for (d.p pVar : f74590b) {
+                    for (d.p pVar : f71642b) {
                         if (pVar != null) {
                             if (z) {
                                 pVar.a();
@@ -249,14 +250,14 @@ public class c {
                 try {
                     if (!activity.isFinishing()) {
                         FragmentManager fragmentManager = activity.getFragmentManager();
-                        com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f74589a);
-                        f74591c = aVar;
+                        com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f71641a);
+                        f71643c = aVar;
                         if (aVar == null) {
-                            f74591c = new com.ss.android.socialbase.appdownloader.view.a();
-                            fragmentManager.beginTransaction().add(f74591c, f74589a).commitAllowingStateLoss();
+                            f71643c = new com.ss.android.socialbase.appdownloader.view.a();
+                            fragmentManager.beginTransaction().add(f71643c, f71641a).commitAllowingStateLoss();
                             fragmentManager.executePendingTransactions();
                         }
-                        f74591c.a();
+                        f71643c.a();
                         return;
                     }
                 } catch (Throwable th) {

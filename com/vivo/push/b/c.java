@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42058a;
+    public String f39072a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42059b;
+    public String f39073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42060c;
+    public long f39074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42061d;
+    public int f39075d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42062e;
+    public int f39076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42063f;
+    public String f39077f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(int i2, String str, String str2) {
@@ -50,23 +50,23 @@ public class c extends com.vivo.push.y {
                 return;
             }
         }
-        this.f42060c = -1L;
-        this.f42061d = -1;
-        this.f42058a = str;
-        this.f42059b = str2;
+        this.f39074c = -1L;
+        this.f39075d = -1;
+        this.f39072a = str;
+        this.f39073b = str2;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f42062e = i2;
+            this.f39076e = i2;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f42058a = str;
+            this.f39072a = str;
         }
     }
 
@@ -74,14 +74,14 @@ public class c extends com.vivo.push.y {
     public void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            aVar.a(IAdRequestParam.REQ_ID, this.f42058a);
-            aVar.a("package_name", this.f42059b);
+            aVar.a(IAdRequestParam.REQ_ID, this.f39072a);
+            aVar.a("package_name", this.f39073b);
             aVar.a(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 293L);
-            aVar.a("PUSH_APP_STATUS", this.f42061d);
-            if (TextUtils.isEmpty(this.f42063f)) {
+            aVar.a("PUSH_APP_STATUS", this.f39075d);
+            if (TextUtils.isEmpty(this.f39077f)) {
                 return;
             }
-            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f42063f);
+            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f39077f);
         }
     }
 
@@ -89,31 +89,31 @@ public class c extends com.vivo.push.y {
     public void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f42058a = aVar.a(IAdRequestParam.REQ_ID);
-            this.f42059b = aVar.a("package_name");
-            this.f42060c = aVar.b(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 0L);
-            this.f42061d = aVar.b("PUSH_APP_STATUS", 0);
-            this.f42063f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
+            this.f39072a = aVar.a(IAdRequestParam.REQ_ID);
+            this.f39073b = aVar.a("package_name");
+            this.f39074c = aVar.b(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, 0L);
+            this.f39075d = aVar.b("PUSH_APP_STATUS", 0);
+            this.f39077f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
         }
     }
 
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42062e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39076e : invokeV.intValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f42063f = null;
+            this.f39077f = null;
         }
     }
 
     public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42058a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f39072a : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.y

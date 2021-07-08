@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.memory;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.ThreadSafe;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BitmapCounterProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long KB = 1024;
@@ -83,7 +84,7 @@ public class BitmapCounterProvider {
 
     public static void initialize(BitmapCounterConfig bitmapCounterConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, bitmapCounterConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapCounterConfig) == null) {
             if (sBitmapCounter == null) {
                 sMaxBitmapCount = bitmapCounterConfig.getMaxBitmapCount();
                 return;

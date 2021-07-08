@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f46196a;
+    public String f43194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46197b;
+    public String f43195b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46197b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43195b : (String) invokeV.objValue;
     }
 
     public final String b(Context context) {
@@ -58,7 +58,7 @@ public class h {
             stringBuffer.append("_");
             stringBuffer.append("android");
             stringBuffer.append("_");
-            stringBuffer.append(this.f46196a);
+            stringBuffer.append(this.f43194a);
             stringBuffer.append("_");
             stringBuffer.append(densityDpi);
             return stringBuffer.toString();
@@ -88,8 +88,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Context appContext = AppRuntime.getAppContext();
-            this.f46196a = c(appContext);
-            this.f46197b = b(appContext);
+            this.f43194a = c(appContext);
+            this.f43195b = b(appContext);
         }
     }
 }

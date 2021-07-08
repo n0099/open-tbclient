@@ -43,7 +43,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ShareStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PORTRAIT;
@@ -65,12 +65,12 @@ public class ShareStorage {
     public String mAesKey;
     public boolean readSpFromChmodFile;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface CallBack {
         void call(StorageModel storageModel);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class StorageModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public class ShareStorage {
         public static List<StorageModel> fromJSONArray(JSONArray jSONArray) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, jSONArray)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray)) == null) {
                 if (jSONArray != null && jSONArray.length() != 0) {
                     ArrayList arrayList = new ArrayList();
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {

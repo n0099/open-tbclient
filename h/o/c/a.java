@@ -22,66 +22,66 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.schedulers.ScheduledAction;
 import rx.internal.util.RxThreadFactory;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a extends h.g implements h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f75538g;
+    public static final long f72572g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final TimeUnit f75539h;
+    public static final TimeUnit f72573h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f75540i;
-    public static final C2102a j;
+    public static final c f72574i;
+    public static final C2070a j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ThreadFactory f75541e;
+    public final ThreadFactory f72575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<C2102a> f75542f;
+    public final AtomicReference<C2070a> f72576f;
 
     /* renamed from: h.o.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static final class C2102a {
+    /* loaded from: classes8.dex */
+    public static final class C2070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final ThreadFactory f75543a;
+        public final ThreadFactory f72577a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f75544b;
+        public final long f72578b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<c> f75545c;
+        public final ConcurrentLinkedQueue<c> f72579c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final h.u.b f75546d;
+        public final h.u.b f72580d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ScheduledExecutorService f75547e;
+        public final ScheduledExecutorService f72581e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Future<?> f75548f;
+        public final Future<?> f72582f;
 
         /* renamed from: h.o.c.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class ThreadFactoryC2103a implements ThreadFactory {
+        /* loaded from: classes8.dex */
+        public class ThreadFactoryC2071a implements ThreadFactory {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ThreadFactory f75549e;
+            public final /* synthetic */ ThreadFactory f72583e;
 
-            public ThreadFactoryC2103a(C2102a c2102a, ThreadFactory threadFactory) {
+            public ThreadFactoryC2071a(C2070a c2070a, ThreadFactory threadFactory) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c2102a, threadFactory};
+                    Object[] objArr = {c2070a, threadFactory};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -91,7 +91,7 @@ public final class a extends h.g implements h {
                         return;
                     }
                 }
-                this.f75549e = threadFactory;
+                this.f72583e = threadFactory;
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -99,7 +99,7 @@ public final class a extends h.g implements h {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                    Thread newThread = this.f75549e.newThread(runnable);
+                    Thread newThread = this.f72583e.newThread(runnable);
                     newThread.setName(newThread.getName() + " (Evictor)");
                     return newThread;
                 }
@@ -108,20 +108,20 @@ public final class a extends h.g implements h {
         }
 
         /* renamed from: h.o.c.a$a$b */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes8.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C2102a f75550e;
+            public final /* synthetic */ C2070a f72584e;
 
-            public b(C2102a c2102a) {
+            public b(C2070a c2070a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c2102a};
+                    Object[] objArr = {c2070a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -131,19 +131,19 @@ public final class a extends h.g implements h {
                         return;
                     }
                 }
-                this.f75550e = c2102a;
+                this.f72584e = c2070a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f75550e.a();
+                    this.f72584e.a();
                 }
             }
         }
 
-        public C2102a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+        public C2070a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
             ScheduledFuture<?> scheduledFuture;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -159,38 +159,38 @@ public final class a extends h.g implements h {
                     return;
                 }
             }
-            this.f75543a = threadFactory;
-            this.f75544b = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.f75545c = new ConcurrentLinkedQueue<>();
-            this.f75546d = new h.u.b();
+            this.f72577a = threadFactory;
+            this.f72578b = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.f72579c = new ConcurrentLinkedQueue<>();
+            this.f72580d = new h.u.b();
             ScheduledExecutorService scheduledExecutorService = null;
             if (timeUnit != null) {
-                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC2103a(this, threadFactory));
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC2071a(this, threadFactory));
                 g.k(scheduledExecutorService);
                 b bVar = new b(this);
-                long j2 = this.f75544b;
+                long j2 = this.f72578b;
                 scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(bVar, j2, j2, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
-            this.f75547e = scheduledExecutorService;
-            this.f75548f = scheduledFuture;
+            this.f72581e = scheduledExecutorService;
+            this.f72582f = scheduledFuture;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f75545c.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72579c.isEmpty()) {
                 return;
             }
             long c2 = c();
-            Iterator<c> it = this.f75545c.iterator();
+            Iterator<c> it = this.f72579c.iterator();
             while (it.hasNext()) {
                 c next = it.next();
                 if (next.l() > c2) {
                     return;
                 }
-                if (this.f75545c.remove(next)) {
-                    this.f75546d.b(next);
+                if (this.f72579c.remove(next)) {
+                    this.f72580d.b(next);
                 }
             }
         }
@@ -199,17 +199,17 @@ public final class a extends h.g implements h {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f75546d.isUnsubscribed()) {
-                    return a.f75540i;
+                if (this.f72580d.isUnsubscribed()) {
+                    return a.f72574i;
                 }
-                while (!this.f75545c.isEmpty()) {
-                    c poll = this.f75545c.poll();
+                while (!this.f72579c.isEmpty()) {
+                    c poll = this.f72579c.poll();
                     if (poll != null) {
                         return poll;
                     }
                 }
-                c cVar = new c(this.f75543a);
-                this.f75546d.a(cVar);
+                c cVar = new c(this.f72577a);
+                this.f72580d.a(cVar);
                 return cVar;
             }
             return (c) invokeV.objValue;
@@ -224,8 +224,8 @@ public final class a extends h.g implements h {
         public void d(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-                cVar.m(c() + this.f75544b);
-                this.f75545c.offer(cVar);
+                cVar.m(c() + this.f72578b);
+                this.f72579c.offer(cVar);
             }
         }
 
@@ -233,49 +233,49 @@ public final class a extends h.g implements h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    if (this.f75548f != null) {
-                        this.f75548f.cancel(true);
+                    if (this.f72582f != null) {
+                        this.f72582f.cancel(true);
                     }
-                    if (this.f75547e != null) {
-                        this.f75547e.shutdownNow();
+                    if (this.f72581e != null) {
+                        this.f72581e.shutdownNow();
                     }
                 } finally {
-                    this.f75546d.unsubscribe();
+                    this.f72580d.unsubscribe();
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b extends g.a implements h.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.u.b f75551e;
+        public final h.u.b f72585e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final C2102a f75552f;
+        public final C2070a f72586f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c f75553g;
+        public final c f72587g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicBoolean f75554h;
+        public final AtomicBoolean f72588h;
 
         /* renamed from: h.o.c.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class C2104a implements h.n.a {
+        /* loaded from: classes8.dex */
+        public class C2072a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.n.a f75555e;
+            public final /* synthetic */ h.n.a f72589e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f75556f;
+            public final /* synthetic */ b f72590f;
 
-            public C2104a(b bVar, h.n.a aVar) {
+            public C2072a(b bVar, h.n.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -290,26 +290,26 @@ public final class a extends h.g implements h {
                         return;
                     }
                 }
-                this.f75556f = bVar;
-                this.f75555e = aVar;
+                this.f72590f = bVar;
+                this.f72589e = aVar;
             }
 
             @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f75556f.isUnsubscribed()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72590f.isUnsubscribed()) {
                     return;
                 }
-                this.f75555e.call();
+                this.f72589e.call();
             }
         }
 
-        public b(C2102a c2102a) {
+        public b(C2070a c2070a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c2102a};
+                Object[] objArr = {c2070a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -319,10 +319,10 @@ public final class a extends h.g implements h {
                     return;
                 }
             }
-            this.f75551e = new h.u.b();
-            this.f75552f = c2102a;
-            this.f75554h = new AtomicBoolean();
-            this.f75553g = c2102a.b();
+            this.f72585e = new h.u.b();
+            this.f72586f = c2070a;
+            this.f72588h = new AtomicBoolean();
+            this.f72587g = c2070a.b();
         }
 
         @Override // h.g.a
@@ -337,12 +337,12 @@ public final class a extends h.g implements h {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) {
-                if (this.f75551e.isUnsubscribed()) {
+                if (this.f72585e.isUnsubscribed()) {
                     return h.u.e.c();
                 }
-                ScheduledAction h2 = this.f75553g.h(new C2104a(this, aVar), j, timeUnit);
-                this.f75551e.a(h2);
-                h2.addParent(this.f75551e);
+                ScheduledAction h2 = this.f72587g.h(new C2072a(this, aVar), j, timeUnit);
+                this.f72585e.a(h2);
+                h2.addParent(this.f72585e);
                 return h2;
             }
             return (k) invokeCommon.objValue;
@@ -352,7 +352,7 @@ public final class a extends h.g implements h {
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f75552f.d(this.f75553g);
+                this.f72586f.d(this.f72587g);
             }
         }
 
@@ -360,22 +360,22 @@ public final class a extends h.g implements h {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75551e.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72585e.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (this.f75554h.compareAndSet(false, true)) {
-                    this.f75553g.b(this);
+                if (this.f72588h.compareAndSet(false, true)) {
+                    this.f72587g.b(this);
                 }
-                this.f75551e.unsubscribe();
+                this.f72585e.unsubscribe();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class c extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,14 +429,14 @@ public final class a extends h.g implements h {
                 return;
             }
         }
-        f75539h = TimeUnit.SECONDS;
+        f72573h = TimeUnit.SECONDS;
         c cVar = new c(RxThreadFactory.NONE);
-        f75540i = cVar;
+        f72574i = cVar;
         cVar.unsubscribe();
-        C2102a c2102a = new C2102a(null, 0L, null);
-        j = c2102a;
-        c2102a.e();
-        f75538g = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
+        C2070a c2070a = new C2070a(null, 0L, null);
+        j = c2070a;
+        c2070a.e();
+        f72572g = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
     }
 
     public a(ThreadFactory threadFactory) {
@@ -454,8 +454,8 @@ public final class a extends h.g implements h {
                 return;
             }
         }
-        this.f75541e = threadFactory;
-        this.f75542f = new AtomicReference<>(j);
+        this.f72575e = threadFactory;
+        this.f72576f = new AtomicReference<>(j);
         start();
     }
 
@@ -463,23 +463,23 @@ public final class a extends h.g implements h {
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f75542f.get()) : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.f72576f.get()) : (g.a) invokeV.objValue;
     }
 
     @Override // h.o.c.h
     public void shutdown() {
-        C2102a c2102a;
-        C2102a c2102a2;
+        C2070a c2070a;
+        C2070a c2070a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             do {
-                c2102a = this.f75542f.get();
-                c2102a2 = j;
-                if (c2102a == c2102a2) {
+                c2070a = this.f72576f.get();
+                c2070a2 = j;
+                if (c2070a == c2070a2) {
                     return;
                 }
-            } while (!this.f75542f.compareAndSet(c2102a, c2102a2));
-            c2102a.e();
+            } while (!this.f72576f.compareAndSet(c2070a, c2070a2));
+            c2070a.e();
         }
     }
 
@@ -487,11 +487,11 @@ public final class a extends h.g implements h {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            C2102a c2102a = new C2102a(this.f75541e, f75538g, f75539h);
-            if (this.f75542f.compareAndSet(j, c2102a)) {
+            C2070a c2070a = new C2070a(this.f72575e, f72572g, f72573h);
+            if (this.f72576f.compareAndSet(j, c2070a)) {
                 return;
             }
-            c2102a.e();
+            c2070a.e();
         }
     }
 }

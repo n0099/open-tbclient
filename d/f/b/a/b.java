@@ -6,24 +6,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f72600a;
+    public static final int f69703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UUID f72601b;
+    public static final UUID f69704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final UUID f72602c;
+    public static final UUID f69705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final UUID f72603d;
+    public static final UUID f69706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final UUID f72604e;
+    public static final UUID f69707e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,12 +39,12 @@ public final class b {
                 return;
             }
         }
-        f72600a = d.f.b.a.i0.v.f73412a < 23 ? 1020 : 6396;
-        f72601b = new UUID(0L, 0L);
-        f72602c = new UUID(1186680826959645954L, -5988876978535335093L);
+        f69703a = d.f.b.a.i0.v.f70515a < 23 ? 1020 : 6396;
+        f69704b = new UUID(0L, 0L);
+        f69705c = new UUID(1186680826959645954L, -5988876978535335093L);
         new UUID(-2129748144642739255L, 8654423357094679310L);
-        f72603d = new UUID(-1301668207276963122L, -6645017420763422227L);
-        f72604e = new UUID(-7348484286925749626L, -6083546864340672619L);
+        f69706d = new UUID(-1301668207276963122L, -6645017420763422227L);
+        f69707e = new UUID(-7348484286925749626L, -6083546864340672619L);
     }
 
     public static long a(long j) {

@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.c1.b.e;
-import d.a.r0.r.q.b2;
+import d.a.o0.c1.b.e;
+import d.a.o0.r.q.b2;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ABTEST = "abtest";
@@ -76,43 +76,43 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String USER_ID = "user_id";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f12219a;
+        public ArrayList<String> f12236a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12220b;
+        public int f12237b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12221c;
+        public String f12238c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12222d;
+        public String f12239d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12223e;
+        public String f12240e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f12224f;
+        public boolean f12241f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f12225g;
+        public String f12242g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f12226h;
+        public boolean f12243h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f12227i;
+        public ConcurrentHashMap<String, ImageUrlData> f12244i;
         public boolean j;
         public boolean k;
         public boolean l;
@@ -139,9 +139,9 @@ public class ImageViewerConfig extends IntentConfig {
                     return;
                 }
             }
-            this.f12220b = 0;
-            this.f12222d = "";
-            this.f12223e = "";
+            this.f12237b = 0;
+            this.f12239d = "";
+            this.f12240e = "";
             this.l = false;
             this.p = true;
             this.s = true;
@@ -161,7 +161,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f12220b = i2;
+                this.f12237b = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -171,7 +171,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f12224f = z;
+                this.f12241f = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -201,7 +201,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f12226h = z;
+                this.f12243h = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -241,7 +241,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f12225g = str;
+                this.f12242g = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -292,7 +292,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-                this.f12223e = str;
+                this.f12240e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -308,7 +308,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, concurrentHashMap)) == null) {
-                this.f12227i = concurrentHashMap;
+                this.f12244i = concurrentHashMap;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -318,7 +318,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, arrayList)) == null) {
-                this.f12219a = arrayList;
+                this.f12236a = arrayList;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -328,7 +328,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f12222d = str;
+                this.f12239d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -338,7 +338,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-                this.f12221c = str;
+                this.f12238c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -372,27 +372,27 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f12219a != null && bVar.f12219a.size() > 0) {
+        if (bVar.f12236a != null && bVar.f12236a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f12219a);
-            intent.putExtra("index", bVar.f12220b);
+            intent.putStringArrayListExtra("url", bVar.f12236a);
+            intent.putExtra("index", bVar.f12237b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f12224f);
-            intent.putExtra("fname", bVar.f12221c);
-            intent.putExtra("fid", bVar.f12222d);
-            intent.putExtra("tid", bVar.f12223e);
-            intent.putExtra(LAST_ID, bVar.f12225g);
-            intent.putExtra(REVERSE_MODE, bVar.f12226h);
-            intent.putExtra(ASSIST_URLS, bVar.f12227i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f12241f);
+            intent.putExtra("fname", bVar.f12238c);
+            intent.putExtra("fid", bVar.f12239d);
+            intent.putExtra("tid", bVar.f12240e);
+            intent.putExtra(LAST_ID, bVar.f12242g);
+            intent.putExtra(REVERSE_MODE, bVar.f12243h);
+            intent.putExtra(ASSIST_URLS, bVar.f12244i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f12219a.size();
+            int size = bVar.f12236a.size();
             for (int i4 = 0; i4 < size; i4++) {
-                String str = (String) bVar.f12219a.get(i4);
+                String str = (String) bVar.f12236a.get(i4);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.f12227i != null ? (ImageUrlData) bVar.f12227i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f12244i != null ? (ImageUrlData) bVar.f12244i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;

@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.r0.r.d0.b;
+import d.a.o0.r.d0.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PreLoadVideoSwitchManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRE_LOAD_SIZE = 512000;

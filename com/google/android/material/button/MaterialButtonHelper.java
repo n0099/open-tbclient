@@ -33,7 +33,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;
@@ -155,7 +155,7 @@ public class MaterialButtonHelper {
     private MaterialShapeDrawable getSurfaceColorStrokeDrawable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? getMaterialShapeDrawable(true) : (MaterialShapeDrawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? getMaterialShapeDrawable(true) : (MaterialShapeDrawable) invokeV.objValue;
     }
 
     private void updateButtonShape(@NonNull ShapeAppearanceModel shapeAppearanceModel) {

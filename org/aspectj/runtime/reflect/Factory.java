@@ -28,7 +28,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.aspectj.lang.reflect.SourceLocation;
 import org.aspectj.lang.reflect.UnlockSignature;
 import org.aspectj.runtime.reflect.JoinPointImpl;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Factory {
     public static /* synthetic */ Interceptable $ic;
     public static Object[] NO_ARGS;
@@ -130,7 +130,7 @@ public final class Factory {
         Signature constructorSignatureImpl;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, member)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, member)) == null) {
             if (member instanceof Method) {
                 Method method = (Method) member;
                 constructorSignatureImpl = new MethodSignatureImpl(method.getModifiers(), method.getName(), method.getDeclaringClass(), method.getParameterTypes(), new String[method.getParameterTypes().length], method.getExceptionTypes(), method.getReturnType());

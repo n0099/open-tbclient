@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -78,7 +79,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
     public static String error(String str, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, objArr)) == null) ? String.format(Locale.getDefault(), str, objArr) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr)) == null) ? String.format(Locale.getDefault(), str, objArr) : (String) invokeLL.objValue;
     }
 
     public static boolean isHttpRedirect(int i2) {

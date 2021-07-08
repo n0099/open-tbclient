@@ -2,6 +2,7 @@ package com.google.android.material.internal;
 
 import android.os.Build;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ManufacturerUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LGE = "lge";
@@ -52,6 +53,6 @@ public class ManufacturerUtils {
     public static boolean isSamsungDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(SAMSUNG) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.MANUFACTURER.toLowerCase(Locale.ENGLISH).equals(SAMSUNG) : invokeV.booleanValue;
     }
 }

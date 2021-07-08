@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdSystemUtils {
     public static /* synthetic */ Interceptable $ic;
     public static volatile XAdSystemUtils shareInstance;

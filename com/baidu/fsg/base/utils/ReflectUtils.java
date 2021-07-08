@@ -20,24 +20,24 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ReflectUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f5392a;
+    public final Object f5409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f5393b;
+    public final boolean f5410b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class NULL {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReflectUtils f5396a;
+        public final /* synthetic */ ReflectUtils f5413a;
 
         public NULL(ReflectUtils reflectUtils) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public final class ReflectUtils {
                     return;
                 }
             }
-            this.f5396a = reflectUtils;
+            this.f5413a = reflectUtils;
         }
     }
 
@@ -73,8 +73,8 @@ public final class ReflectUtils {
                 return;
             }
         }
-        this.f5392a = cls;
-        this.f5393b = true;
+        this.f5409a = cls;
+        this.f5410b = true;
     }
 
     public static <T extends AccessibleObject> T accessible(T t) {
@@ -200,15 +200,15 @@ public final class ReflectUtils {
     public <P> P as(Class<P> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler(this, this.f5392a instanceof Map) { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler(this, this.f5409a instanceof Map) { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ boolean f5394a;
+            public final /* synthetic */ boolean f5411a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ReflectUtils f5395b;
+            public final /* synthetic */ ReflectUtils f5412b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -225,8 +225,8 @@ public final class ReflectUtils {
                         return;
                     }
                 }
-                this.f5395b = this;
-                this.f5394a = r7;
+                this.f5412b = this;
+                this.f5411a = r7;
             }
 
             @Override // java.lang.reflect.InvocationHandler
@@ -236,10 +236,10 @@ public final class ReflectUtils {
                 if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, obj, method, objArr)) == null) {
                     String name = method.getName();
                     try {
-                        return ReflectUtils.on(this.f5395b.f5392a).call(name, objArr).get();
+                        return ReflectUtils.on(this.f5412b.f5409a).call(name, objArr).get();
                     } catch (RuntimeException e2) {
-                        if (this.f5394a) {
-                            Map map = (Map) this.f5395b.f5392a;
+                        if (this.f5411a) {
+                            Map map = (Map) this.f5412b.f5409a;
                             int length = objArr == null ? 0 : objArr.length;
                             if (length == 0 && name.startsWith("get")) {
                                 return map.get(ReflectUtils.b(name.substring(3)));
@@ -277,7 +277,7 @@ public final class ReflectUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (obj instanceof ReflectUtils) {
-                return this.f5392a.equals(((ReflectUtils) obj).get());
+                return this.f5409a.equals(((ReflectUtils) obj).get());
             }
             return false;
         }
@@ -289,7 +289,7 @@ public final class ReflectUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             try {
-                return on(d(str).get(this.f5392a));
+                return on(d(str).get(this.f5409a));
             } catch (Exception e2) {
                 throw new RuntimeException(e2);
             }
@@ -306,7 +306,7 @@ public final class ReflectUtils {
             Class<?> type = type();
             do {
                 for (Field field : type.getDeclaredFields()) {
-                    if ((!this.f5393b) ^ Modifier.isStatic(field.getModifiers())) {
+                    if ((!this.f5410b) ^ Modifier.isStatic(field.getModifiers())) {
                         String name = field.getName();
                         if (!linkedHashMap.containsKey(name)) {
                             linkedHashMap.put(name, field(name));
@@ -323,13 +323,13 @@ public final class ReflectUtils {
     public <T> T get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (T) this.f5392a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (T) this.f5409a : (T) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f5392a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f5409a.hashCode() : invokeV.intValue;
     }
 
     public ReflectUtils set(String str, Object obj) throws RuntimeException {
@@ -339,7 +339,7 @@ public final class ReflectUtils {
             try {
                 Field d2 = d(str);
                 d2.setAccessible(true);
-                d2.set(this.f5392a, a(obj));
+                d2.set(this.f5409a, a(obj));
                 return this;
             } catch (Exception e2) {
                 throw new RuntimeException(e2);
@@ -351,17 +351,17 @@ public final class ReflectUtils {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f5392a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f5409a.toString() : (String) invokeV.objValue;
     }
 
     public Class<?> type() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f5393b) {
-                return (Class) this.f5392a;
+            if (this.f5410b) {
+                return (Class) this.f5409a;
             }
-            return this.f5392a.getClass();
+            return this.f5409a.getClass();
         }
         return (Class) invokeV.objValue;
     }
@@ -379,12 +379,12 @@ public final class ReflectUtils {
             Class<?>[] a2 = a(objArr);
             try {
                 try {
-                    return a(a(str, a2), this.f5392a, objArr);
+                    return a(a(str, a2), this.f5409a, objArr);
                 } catch (NoSuchMethodException e2) {
                     throw new RuntimeException(e2);
                 }
             } catch (NoSuchMethodException unused) {
-                return a(b(str, a2), this.f5392a, objArr);
+                return a(b(str, a2), this.f5409a, objArr);
             }
         }
         return (ReflectUtils) invokeLL.objValue;
@@ -450,8 +450,8 @@ public final class ReflectUtils {
                 return;
             }
         }
-        this.f5392a = obj;
-        this.f5393b = false;
+        this.f5409a = obj;
+        this.f5410b = false;
     }
 
     private Method b(String str, Class<?>[] clsArr) throws NoSuchMethodException {
@@ -529,7 +529,7 @@ public final class ReflectUtils {
     public static Class<?> a(String str, ClassLoader classLoader) throws RuntimeException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, classLoader)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, classLoader)) == null) {
             try {
                 return Class.forName(str, true, classLoader);
             } catch (Exception e2) {

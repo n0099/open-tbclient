@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.b.b.a.i;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,12 +23,12 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class e implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f28376a;
+    public static final e f28486a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +44,7 @@ public final class e implements HostnameVerifier {
                 return;
             }
         }
-        f28376a = new e();
+        f28486a = new e();
     }
 
     public e() {
@@ -63,7 +64,7 @@ public final class e implements HostnameVerifier {
     private boolean b(String str, X509Certificate x509Certificate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, x509Certificate)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, x509Certificate)) == null) {
             List<String> a2 = a(x509Certificate, 7);
             int size = a2.size();
             for (int i2 = 0; i2 < size; i2++) {

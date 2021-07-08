@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class CSJNativeAdVerticalVideoView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f32586f;
+    public FrameLayout f32696f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdVerticalVideoView(Context context) {
@@ -95,8 +95,8 @@ public final class CSJNativeAdVerticalVideoView extends b {
                 ((ViewGroup) adView.getParent()).removeView(adView);
             }
             if (adView != null) {
-                this.f32586f.removeAllViews();
-                this.f32586f.addView(adView);
+                this.f32696f.removeAllViews();
+                this.f32696f.addView(adView);
             }
         }
     }
@@ -106,7 +106,7 @@ public final class CSJNativeAdVerticalVideoView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32586f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f32696f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 }

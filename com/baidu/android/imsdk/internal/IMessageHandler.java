@@ -182,7 +182,7 @@ public abstract class IMessageHandler {
 
     private void handleMcastMessage(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject) == null) {
             LogUtils.i(TAG, "handleMessage mcast:" + jSONObject.toString());
             if (jSONObject.has("mcast_id")) {
                 jSONObject.getLong("mcast_id");

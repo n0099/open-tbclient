@@ -11,35 +11,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ga extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f43147a;
+    public a f40161a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f423a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f43148a;
+        public static final a f40162a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f43149b;
+        public static final a f40163b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f43150c;
+        public static final a f40164c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f43151d;
+        public static final a f40165d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f43152e;
+        public static final a f40166e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -58,11 +58,11 @@ public class ga extends gc {
                     return;
                 }
             }
-            f43148a = new a("get");
-            f43149b = new a("set");
-            f43150c = new a("result");
-            f43151d = new a("error");
-            f43152e = new a("command");
+            f40162a = new a("get");
+            f40163b = new a("set");
+            f40164c = new a("result");
+            f40165d = new a("error");
+            f40166e = new a("command");
         }
 
         public a(String str) {
@@ -91,20 +91,20 @@ public class ga extends gc {
                     return null;
                 }
                 String lowerCase = str.toLowerCase();
-                if (f43148a.toString().equals(lowerCase)) {
-                    return f43148a;
+                if (f40162a.toString().equals(lowerCase)) {
+                    return f40162a;
                 }
-                if (f43149b.toString().equals(lowerCase)) {
-                    return f43149b;
+                if (f40163b.toString().equals(lowerCase)) {
+                    return f40163b;
                 }
-                if (f43151d.toString().equals(lowerCase)) {
-                    return f43151d;
+                if (f40165d.toString().equals(lowerCase)) {
+                    return f40165d;
                 }
-                if (f43150c.toString().equals(lowerCase)) {
-                    return f43150c;
+                if (f40164c.toString().equals(lowerCase)) {
+                    return f40164c;
                 }
-                if (f43152e.toString().equals(lowerCase)) {
-                    return f43152e;
+                if (f40166e.toString().equals(lowerCase)) {
+                    return f40166e;
                 }
                 return null;
             }
@@ -131,7 +131,7 @@ public class ga extends gc {
                 return;
             }
         }
-        this.f43147a = a.f43148a;
+        this.f40161a = a.f40162a;
         this.f423a = new HashMap();
     }
 
@@ -153,10 +153,10 @@ public class ga extends gc {
                 return;
             }
         }
-        this.f43147a = a.f43148a;
+        this.f40161a = a.f40162a;
         this.f423a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f43147a = a.a(bundle.getString("ext_iq_type"));
+            this.f40161a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
@@ -166,7 +166,7 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle a2 = super.a();
-            a aVar = this.f43147a;
+            a aVar = this.f40161a;
             if (aVar != null) {
                 a2.putString("ext_iq_type", aVar.toString());
             }
@@ -179,7 +179,7 @@ public class ga extends gc {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43147a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40161a : (a) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gc
@@ -214,7 +214,7 @@ public class ga extends gc {
                 sb.append(gn.a(entry.getValue()));
                 sb.append("\" ");
             }
-            if (this.f43147a == null) {
+            if (this.f40161a == null) {
                 str = "type=\"get\">";
             } else {
                 sb.append("type=\"");
@@ -241,9 +241,9 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar == null) {
-                aVar = a.f43148a;
+                aVar = a.f40162a;
             }
-            this.f43147a = aVar;
+            this.f40161a = aVar;
         }
     }
 

@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.x.b.a;
+import d.a.p0.x.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f14325a;
+    public List<a> f14364a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
                 return;
             }
         }
-        this.f14325a = new ArrayList();
+        this.f14364a = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,10 +43,10 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     /* renamed from: d */
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f14325a)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, candidateSearchItemHolder, i2) == null) || candidateSearchItemHolder == null || ListUtils.isEmpty(this.f14364a)) {
             return;
         }
-        candidateSearchItemHolder.g(this.f14325a.get(i2));
+        candidateSearchItemHolder.g(this.f14364a.get(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,14 +62,14 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14325a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14364a.size() : invokeV.intValue;
     }
 
     public void setData(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f14325a.clear();
-            this.f14325a.addAll(list);
+            this.f14364a.clear();
+            this.f14364a.addAll(list);
             notifyDataSetChanged();
         }
     }

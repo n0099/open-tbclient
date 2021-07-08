@@ -1,5 +1,6 @@
 package okhttp3;
 
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.FilePart;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +22,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType ALTERNATIVE;
@@ -39,7 +40,7 @@ public final class MultipartBody extends RequestBody {
     public final MediaType originalType;
     public final List<Part> parts;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +152,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +225,7 @@ public final class MultipartBody extends RequestBody {
         public static Part createFormData(String str, @Nullable String str2, RequestBody requestBody) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, str, str2, requestBody)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, requestBody)) == null) {
                 if (str != null) {
                     StringBuilder sb = new StringBuilder("form-data; name=");
                     MultipartBody.appendQuotedString(sb, str);

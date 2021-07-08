@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +21,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class JsUploadTask implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONN_TIMEOUT = 5000;
@@ -81,7 +82,7 @@ public class JsUploadTask implements INoProGuard {
     public boolean responded;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class JumpType {
         public static final /* synthetic */ JumpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -218,7 +219,7 @@ public class JsUploadTask implements INoProGuard {
 
     public static void addRawLogItem(StringBuilder sb, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
@@ -300,7 +301,7 @@ public class JsUploadTask implements INoProGuard {
                 addRawLogItem(sb2, ETAG.KEY_UPLOAD_NUM, mUpLoadNum);
                 addRawLogItem(sb2, ETAG.KEY_SYS_PROXY, WebSettingsGlobalBlink.getSysProxyEnabled());
                 addRawLogItem(sb2, ETAG.KEY_NET_ERROR, mNetError);
-                addRawLogItem(sb2, "http_code", mHttpcode);
+                addRawLogItem(sb2, ETAG.KEY_HTTP_CODE, mHttpcode);
                 addRawLogItem(sb2, ETAG.KEY_NET_CODE, mNetcode);
                 addRawLogItem(sb2, ETAG.KEY_FIRST_JUMP_TYPE, mFirstJumpType.ordinal());
                 addRawLogItem(sb2, ETAG.KEY_LAST_JUMP_TYPE, mLastJumpType.ordinal());
@@ -360,9 +361,9 @@ public class JsUploadTask implements INoProGuard {
                             CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                             CloudSettings.NetRecordList.remove(0);
                             Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f27327c);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f27325a);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f27326b);
+                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f27437c);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f27435a);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f27436b);
                         }
                         if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                             jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);

@@ -9,7 +9,7 @@ import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class i {
                             case 12:
                             case 14:
                             case 15:
-                                return com.baidu.apollon.statistics.g.f3983b;
+                                return com.baidu.apollon.statistics.g.f3986b;
                             case 13:
                                 return "4G";
                         }

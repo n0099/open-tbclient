@@ -5,15 +5,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public abstract class bd {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43620a = "com.xiaomi.xmsf.push.UNINSTALL";
+    public static String f40634a = "com.xiaomi.xmsf.push.UNINSTALL";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f43621b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
+    public static String f40635b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

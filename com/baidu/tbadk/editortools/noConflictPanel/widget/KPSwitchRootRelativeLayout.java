@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.w.v.c.c;
-/* loaded from: classes4.dex */
+import d.a.o0.w.v.c.c;
+/* loaded from: classes3.dex */
 public class KPSwitchRootRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f13017e;
+    public c f13034e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchRootRelativeLayout(Context context) {
@@ -42,7 +42,7 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13017e = new c(this);
+            this.f13034e = new c(this);
         }
     }
 
@@ -50,7 +50,7 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f13017e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+            this.f13034e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
             super.onMeasure(i2, i3);
         }
     }

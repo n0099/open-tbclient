@@ -20,7 +20,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static String[] EMPTY_STRING_ARRAY;

@@ -3,6 +3,7 @@ package com.baidu.swan.bdprivate.extensions.quicklogin;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
-/* loaded from: classes4.dex */
+import d.a.n0.a.k;
+/* loaded from: classes3.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR;
@@ -26,7 +27,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public String serviceAgreement;
     public boolean supportQuickLogin;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<QuickLoginInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +78,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
         CREATOR = new a();
     }
 
@@ -86,10 +87,10 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(d.a.q0.b.n.g.a aVar) {
+    public static QuickLoginInfo parseQuickLoginInfo(d.a.n0.b.n.g.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
             if (aVar == null) {
                 return null;
             }

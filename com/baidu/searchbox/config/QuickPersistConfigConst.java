@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class QuickPersistConfigConst {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_LOGGER_SYNC_SWITCHER = "crash_upload_sync_switcher";

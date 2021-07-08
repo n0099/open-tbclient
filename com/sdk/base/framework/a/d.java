@@ -2,6 +2,7 @@ package com.sdk.base.framework.a;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f41130c = 60000;
+    public static long f38144c = 60000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f41131d;
+    public static final ConcurrentHashMap<String, Boolean> f38145d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.sdk.base.framework.a.a.c<String, String> f41132a;
+    public final com.sdk.base.framework.a.a.c<String, String> f38146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41133b;
+    public int f38147b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,8 +43,8 @@ public final class d {
             }
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f41131d = concurrentHashMap;
-        concurrentHashMap.put(j.f41154a.toString(), Boolean.TRUE);
+        f38145d = concurrentHashMap;
+        concurrentHashMap.put(j.f38168a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
 
@@ -81,16 +82,16 @@ public final class d {
                 return;
             }
         }
-        this.f41133b = 102400;
-        this.f41133b = 102400;
-        f41130c = 60000L;
-        this.f41132a = new e(this, 102400);
+        this.f38147b = 102400;
+        this.f38147b = 102400;
+        f38144c = 60000L;
+        this.f38146a = new e(this, 102400);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f41130c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f38144c : invokeV.longValue;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -98,8 +99,8 @@ public final class d {
         InterceptResult invokeL;
         Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = f41131d.get(str.toUpperCase())) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (bool = f38145d.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();
@@ -112,7 +113,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                return this.f41132a.a((com.sdk.base.framework.a.a.c<String, String>) str);
+                return this.f38146a.a((com.sdk.base.framework.a.a.c<String, String>) str);
             }
             return null;
         }
@@ -124,6 +125,6 @@ public final class d {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || str == null || str2 == null || j < 1) {
             return;
         }
-        this.f41132a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
+        this.f38146a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

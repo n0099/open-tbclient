@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class z {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f10538a = "";
+    public static String f10555a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,15 +34,15 @@ public final class z {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(f10538a)) {
-                return f10538a;
+            if (!TextUtils.isEmpty(f10555a)) {
+                return f10555a;
             }
             try {
-                f10538a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
+                f10555a = context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
             } catch (Throwable unused) {
                 c.a();
             }
-            return f10538a;
+            return f10555a;
         }
         return (String) invokeL.objValue;
     }

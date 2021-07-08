@@ -21,7 +21,7 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoMuxerData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

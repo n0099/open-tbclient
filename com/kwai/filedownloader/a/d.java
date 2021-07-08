@@ -9,7 +9,7 @@ import com.kwai.filedownloader.f.f;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class d {
                 if (a2 == null) {
                     throw new IllegalAccessException(f.a("receive %d (redirect) but the location is null with response [%s]", Integer.valueOf(e2), bVar.c()));
                 }
-                if (com.kwai.filedownloader.f.d.f39637a) {
+                if (com.kwai.filedownloader.f.d.f36845a) {
                     com.kwai.filedownloader.f.d.c(d.class, "redirect to %s with %d, %s", a2, Integer.valueOf(e2), arrayList);
                 }
                 bVar.f();

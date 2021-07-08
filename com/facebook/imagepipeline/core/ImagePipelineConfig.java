@@ -51,7 +51,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImagePipelineConfig {
     public static /* synthetic */ Interceptable $ic;
     public static DefaultImageRequestConfig sDefaultImageRequestConfig;
@@ -91,7 +91,7 @@ public class ImagePipelineConfig {
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final DiskCacheConfig mSmallImageDiskCacheConfig;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +462,7 @@ public class ImagePipelineConfig {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultImageRequestConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -523,7 +523,7 @@ public class ImagePipelineConfig {
     public static DiskCacheConfig getDefaultMainDiskCacheConfig(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("DiskCacheConfig.getDefaultMainDiskCacheConfig");

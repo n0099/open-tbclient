@@ -2,6 +2,7 @@ package com.bumptech.glide.load;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Option<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheKeyUpdater<Object> EMPTY_UPDATER;
@@ -23,7 +24,7 @@ public final class Option<T> {
     public final String key;
     public volatile byte[] keyBytes;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface CacheKeyUpdater<T> {
         void update(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }
@@ -99,7 +100,7 @@ public final class Option<T> {
     public static <T> CacheKeyUpdater<T> emptyUpdater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (CacheKeyUpdater<T>) EMPTY_UPDATER : (CacheKeyUpdater) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CacheKeyUpdater<T>) EMPTY_UPDATER : (CacheKeyUpdater) invokeV.objValue;
     }
 
     @NonNull

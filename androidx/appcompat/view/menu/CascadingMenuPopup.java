@@ -385,7 +385,7 @@ public final class CascadingMenuPopup extends MenuPopup implements MenuPresenter
     private MenuItem findMenuItemForSubmenu(@NonNull MenuBuilder menuBuilder, @NonNull MenuBuilder menuBuilder2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, menuBuilder, menuBuilder2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, menuBuilder, menuBuilder2)) == null) {
             int size = menuBuilder.size();
             for (int i2 = 0; i2 < size; i2++) {
                 MenuItem item = menuBuilder.getItem(i2);

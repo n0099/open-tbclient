@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ChapterFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ChapterFrame> CREATOR;
@@ -25,7 +25,7 @@ public final class ChapterFrame extends Id3Frame {
     public final int startTimeMs;
     public final Id3Frame[] subFrames;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ChapterFrame> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

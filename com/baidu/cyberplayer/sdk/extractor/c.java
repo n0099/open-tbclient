@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends a.AbstractBinderC0091a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberExtractor f4883a;
+    public CyberExtractor f4900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f4884b;
+    public RemotePlayerService f4901b;
 
     public c(RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public class c extends a.AbstractBinderC0091a {
                 return;
             }
         }
-        this.f4884b = remotePlayerService;
+        this.f4901b = remotePlayerService;
     }
 
     private CyberExtractor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f4883a == null) {
+            if (this.f4900a == null) {
                 synchronized (this) {
-                    if (this.f4883a == null) {
-                        this.f4883a = new CyberExtractor(false);
+                    if (this.f4900a == null) {
+                        this.f4900a = new CyberExtractor(false);
                     }
                 }
             }
-            return this.f4883a;
+            return this.f4900a;
         }
         return (CyberExtractor) invokeV.objValue;
     }
@@ -87,12 +87,12 @@ public class c extends a.AbstractBinderC0091a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             CyberLog.i("RemoteExtractor", "release");
             synchronized (this) {
-                if (this.f4883a != null) {
-                    this.f4883a.release();
-                    this.f4883a = null;
+                if (this.f4900a != null) {
+                    this.f4900a.release();
+                    this.f4900a = null;
                 }
             }
-            this.f4884b = null;
+            this.f4901b = null;
         }
     }
 }

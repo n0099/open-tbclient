@@ -1,5 +1,6 @@
 package com.baidu.ala.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -68,7 +69,7 @@ public class AlaStringHelper {
     public static String getCountDownTime(Long l) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, l)) == null) ? new SimpleDateFormat("HH:mm:ss").format(new Date((l.longValue() * 1000) - 28800000)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, l)) == null) ? new SimpleDateFormat("HH:mm:ss").format(new Date((l.longValue() * 1000) - 28800000)) : (String) invokeL.objValue;
     }
 
     public static String getGiftTimeLimitDesc(long j, long j2) {

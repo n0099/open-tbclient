@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.dislike.b;
 
 import com.bytedance.sdk.openadsdk.FilterWord;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface a {
     void a();
 

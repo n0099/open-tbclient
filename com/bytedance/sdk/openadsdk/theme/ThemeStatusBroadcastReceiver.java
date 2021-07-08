@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f32267a;
+    public a f32377a;
 
     public ThemeStatusBroadcastReceiver() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f32267a = aVar;
+            this.f32377a = aVar;
         }
     }
 
@@ -47,7 +47,7 @@ public class ThemeStatusBroadcastReceiver extends BroadcastReceiver {
                 return;
             }
             int intExtra = intent.getIntExtra("theme_status_change", 0);
-            a aVar = this.f32267a;
+            a aVar = this.f32377a;
             if (aVar == null) {
                 return;
             }

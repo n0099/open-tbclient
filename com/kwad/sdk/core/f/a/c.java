@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.c;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36089a;
+    public Context f34414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f36090b;
+    public final LinkedBlockingQueue<IBinder> f34415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f36091c;
+    public ServiceConnection f34416c;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class c {
                 return;
             }
         }
-        this.f36090b = new LinkedBlockingQueue<>(1);
-        this.f36091c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.c.1
+        this.f34415b = new LinkedBlockingQueue<>(1);
+        this.f34416c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f36092a;
+            public final /* synthetic */ c f34417a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class c {
                         return;
                     }
                 }
-                this.f36092a = this;
+                this.f34417a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -73,8 +73,8 @@ public class c {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        com.kwad.sdk.core.d.a.b("LenovoDeviceIDHelper", "onServiceConnected");
-                        this.f36092a.f36090b.put(iBinder);
+                        com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "onServiceConnected");
+                        this.f34417a.f34415b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -88,7 +88,7 @@ public class c {
                 }
             }
         };
-        this.f36089a = context;
+        this.f34414a = context;
     }
 
     public String a() {
@@ -101,21 +101,21 @@ public class c {
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-                if (this.f36089a.bindService(intent, this.f36091c, 1)) {
+                if (this.f34414a.bindService(intent, this.f34416c, 1)) {
                     try {
-                        str = new c.a(this.f36090b.take()).a();
-                        com.kwad.sdk.core.d.a.b("LenovoDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f36089a;
-                        serviceConnection = this.f36091c;
+                        str = new c.a(this.f34415b.take()).a();
+                        com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "getOAID oaid:" + str);
+                        context = this.f34414a;
+                        serviceConnection = this.f34416c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f36089a;
-                        serviceConnection = this.f36091c;
+                        context = this.f34414a;
+                        serviceConnection = this.f34416c;
                     }
                     context.unbindService(serviceConnection);
                 }
             } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.b("LenovoDeviceIDHelper", "getOAID Lenovo service not found");
+                com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "getOAID Lenovo service not found");
                 com.kwad.sdk.core.d.a.a(e3);
             }
             return str;

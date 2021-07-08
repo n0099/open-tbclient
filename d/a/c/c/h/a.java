@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a extends c<CustomMessage<?>, CustomMessageTask, d.a.c.c.f.b, CustomResponsedMessage<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.c.c.e.b f43952i;
+    public d.a.c.c.e.b f40968i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(MessageManager messageManager) {
@@ -39,30 +39,30 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, d.a.c.c.f.b, Custo
                 return;
             }
         }
-        this.f43952i = null;
-        this.f43952i = new d.a.c.c.e.b(messageManager);
-        this.f43959e = d.a.c.c.j.a.c();
+        this.f40968i = null;
+        this.f40968i = new d.a.c.c.e.b(messageManager);
+        this.f40975e = d.a.c.c.j.a.c();
     }
 
     @Override // d.a.c.c.b
     public LinkedList<CustomMessage<?>> e(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f43952i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f40968i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            this.f43952i.h(i2, bdUniqueId);
+            this.f40968i.h(i2, bdUniqueId);
         }
     }
 
     public LinkedList<CustomMessage<?>> v(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f43952i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f40968i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,20 +71,20 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, d.a.c.c.f.b, Custo
     public CustomMessage<?> l(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, customMessage, customMessageTask)) == null) ? this.f43955a.getController().g(customMessage, customMessageTask) : (CustomMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, customMessage, customMessageTask)) == null) ? this.f40971a.getController().g(customMessage, customMessageTask) : (CustomMessage) invokeLL.objValue;
     }
 
     public void x(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f43952i.j(bdUniqueId);
+            this.f40968i.j(bdUniqueId);
         }
     }
 
     public <T> CustomResponsedMessage<T> y(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, customMessage, customMessageTask, cls)) == null) ? this.f43952i.k(customMessage, customMessageTask, cls) : (CustomResponsedMessage) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, customMessage, customMessageTask, cls)) == null) ? this.f40968i.k(customMessage, customMessageTask, cls) : (CustomResponsedMessage) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, d.a.c.c.f.b, Custo
     public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customMessage, customMessageTask) == null) {
-            this.f43952i.f(customMessage, customMessageTask);
+            this.f40968i.f(customMessage, customMessageTask);
         }
     }
 }

@@ -5,27 +5,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ExoPlaybackException;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public interface g extends q {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void g(int i2, Object obj) throws ExoPlaybackException;
+        void h(int i2, Object obj) throws ExoPlaybackException;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final a f73258a;
+        public final a f70361a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73259b;
+        public final int f70362b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Object f73260c;
+        public final Object f70363c;
 
         public b(a aVar, int i2, Object obj) {
             Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public interface g extends q {
                     return;
                 }
             }
-            this.f73258a = aVar;
-            this.f73259b = i2;
-            this.f73260c = obj;
+            this.f70361a = aVar;
+            this.f70362b = i2;
+            this.f70363c = obj;
         }
     }
 

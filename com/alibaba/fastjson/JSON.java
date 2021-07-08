@@ -1,5 +1,6 @@
 package com.alibaba.fastjson;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexer;
@@ -135,7 +136,7 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
     public static char[] allocateChars(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             char[] cArr = charsLocal.get();
             if (cArr != null) {
                 return cArr.length < i2 ? new char[i2] : cArr;

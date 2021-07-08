@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.network.intercept.CommonParamInterception;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WbSdk {
     public static /* synthetic */ Interceptable $ic;
     public static AuthInfo authInfo;
@@ -72,7 +73,7 @@ public class WbSdk {
 
     public static void install(Context context, AuthInfo authInfo2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, authInfo2) == null) || init) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, authInfo2) == null) || init) {
             return;
         }
         if (authInfo2 != null && !TextUtils.isEmpty(authInfo2.getAppKey()) && !TextUtils.isEmpty(authInfo2.getRedirectUrl())) {

@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -49,18 +50,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f23235a;
+    public static String f23345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f23236b;
+    public static int f23346b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f23237d;
+    public static int f23347d;
     public transient /* synthetic */ FieldHolder $fh;
     public float A;
     public float B;
@@ -86,22 +87,22 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public TextView V;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23238c;
+    public int f23348c;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f23239e;
+    public ImageView f23349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f23240f;
+    public Bitmap f23350f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f23241g;
+    public Bitmap f23351g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f23242h;
+    public Bitmap f23352h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f23243i;
+    public float f23353i;
     public float j;
     public float k;
     public float l;
@@ -133,9 +134,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 return;
             }
         }
-        f23235a = b() + "/ufo/ufo_screen.jpeg";
-        f23236b = SupportMenu.CATEGORY_MASK;
-        f23237d = 0;
+        f23345a = b() + "/ufo/ufo_screen.jpeg";
+        f23346b = SupportMenu.CATEGORY_MASK;
+        f23347d = 0;
     }
 
     public ScreenCapEditActivity() {
@@ -151,7 +152,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 return;
             }
         }
-        this.f23243i = 0.0f;
+        this.f23353i = 0.0f;
         this.j = 0.0f;
         this.k = 0.0f;
         this.l = 0.0f;
@@ -159,7 +160,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         this.q = true;
         this.r = 0;
         this.s = new Path();
-        this.f23238c = 2;
+        this.f23348c = 2;
         this.t = null;
         this.E = false;
         this.H = false;
@@ -173,11 +174,11 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.m = new Canvas(this.f23241g);
-            this.n.setColor(f23236b);
+            this.m = new Canvas(this.f23351g);
+            this.n.setColor(f23346b);
             this.n.setStyle(Paint.Style.STROKE);
             float strokeWidth = this.n.getStrokeWidth();
-            int i2 = f23237d;
+            int i2 = f23347d;
             if (strokeWidth < i2) {
                 this.n.setStrokeWidth(i2);
             }
@@ -219,7 +220,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
 
     private void a(int i2, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             if (i2 == -1) {
                 com.baidu.ufosdk.f.c.b("^v^ --> state : RectBean.OPERATION_NONE");
             } else if (i2 == 0) {
@@ -376,7 +377,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public static /* synthetic */ void a(ScreenCapEditActivity screenCapEditActivity, int i2) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         screenCapEditActivity.J = byteArrayOutputStream;
-        Bitmap bitmap = screenCapEditActivity.f23241g;
+        Bitmap bitmap = screenCapEditActivity.f23351g;
         int i3 = 90;
         if (bitmap != null) {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
@@ -389,7 +390,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             com.baidu.ufosdk.f.c.c("quality is " + i3);
             ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
             screenCapEditActivity.J = byteArrayOutputStream2;
-            screenCapEditActivity.f23241g.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream2);
+            screenCapEditActivity.f23351g.compress(Bitmap.CompressFormat.JPEG, i3, byteArrayOutputStream2);
             length = screenCapEditActivity.J.toByteArray().length;
             com.baidu.ufosdk.f.c.c("streamLength is " + length);
         }
@@ -414,15 +415,15 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, this, z) == null) {
             try {
-                int width = this.f23240f.getWidth();
-                int height = this.f23240f.getHeight();
+                int width = this.f23350f.getWidth();
+                int height = this.f23350f.getHeight();
                 Matrix matrix = new Matrix();
                 matrix.postScale((float) ((this.o * 1.0d) / width), (float) ((this.p * 1.0d) / height));
-                Bitmap copy = Bitmap.createBitmap(this.f23240f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
-                this.f23241g = copy;
-                this.f23239e.setImageBitmap(copy);
+                Bitmap copy = Bitmap.createBitmap(this.f23350f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
+                this.f23351g = copy;
+                this.f23349e.setImageBitmap(copy);
                 a();
-                this.f23239e.invalidate();
+                this.f23349e.invalidate();
                 if (z) {
                     this.t.clear();
                 }
@@ -454,7 +455,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public static /* synthetic */ void i(ScreenCapEditActivity screenCapEditActivity) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         screenCapEditActivity.J = byteArrayOutputStream;
-        Bitmap bitmap = screenCapEditActivity.f23241g;
+        Bitmap bitmap = screenCapEditActivity.f23351g;
         int i2 = 90;
         if (bitmap != null) {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 90, byteArrayOutputStream);
@@ -467,7 +468,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             com.baidu.ufosdk.f.c.c("quality is " + i2);
             ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
             screenCapEditActivity.J = byteArrayOutputStream2;
-            screenCapEditActivity.f23241g.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream2);
+            screenCapEditActivity.f23351g.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream2);
             length = screenCapEditActivity.J.toByteArray().length;
             com.baidu.ufosdk.f.c.c("streamLength is " + length);
         }
@@ -483,11 +484,11 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         String str = b() + "/ufo";
         try {
             File file = new File(str);
-            f23235a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
+            f23345a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
             StringBuilder sb = new StringBuilder("--savePic--");
-            sb.append(f23235a);
+            sb.append(f23345a);
             com.baidu.ufosdk.f.c.b(sb.toString());
-            File file2 = new File(f23235a);
+            File file2 = new File(f23345a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -495,7 +496,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 file2.createNewFile();
             }
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            screenCapEditActivity.f23241g.compress(Bitmap.CompressFormat.JPEG, 90, fileOutputStream);
+            screenCapEditActivity.f23351g.compress(Bitmap.CompressFormat.JPEG, 90, fileOutputStream);
             fileOutputStream.flush();
             fileOutputStream.close();
             Toast.makeText(screenCapEditActivity, s.a("56"), 0).show();
@@ -507,19 +508,13 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
     public static /* synthetic */ ImageView m(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.f23239e;
+        return screenCapEditActivity.f23349e;
     }
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
     public static /* synthetic */ Bitmap n(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.f23241g;
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.ufosdk.screencapedt.g.onClick(android.view.View):void] */
-    public static /* synthetic */ Handler o(ScreenCapEditActivity screenCapEditActivity) {
-        return screenCapEditActivity.N;
+        return screenCapEditActivity.f23351g;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -538,9 +533,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0580  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x05a7  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x061c  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x057f  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x05a6  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x061b  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -562,11 +557,11 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.L = getIntent().getBooleanExtra("from_app", false);
             this.M = getIntent().getIntExtra("extend_feedback_channel", -1);
             if (byteArrayExtra != null && byteArrayExtra.length > 0) {
-                this.f23240f = BitmapFactory.decodeByteArray(byteArrayExtra, 0, byteArrayExtra.length);
+                this.f23350f = BitmapFactory.decodeByteArray(byteArrayExtra, 0, byteArrayExtra.length);
                 this.I = true;
                 str = "ScreenCapEditActivity --> bitmap via shot byte[] & bitmap size is " + (byteArrayExtra.length / 1024) + "kb";
             } else if (stringExtra != null && stringExtra.length() != 0) {
-                this.f23240f = BitmapFactory.decodeFile(stringExtra);
+                this.f23350f = BitmapFactory.decodeFile(stringExtra);
                 this.I = true;
                 str = "ScreenCapEditActivity --> bitmap via shotUrl";
             } else if (b() == null) {
@@ -592,7 +587,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                     return;
                 }
                 try {
-                    this.f23240f = BitmapFactory.decodeFile(b() + "/ufo/ufo_screen.jpeg").copy(Bitmap.Config.RGB_565, true);
+                    this.f23350f = BitmapFactory.decodeFile(b() + "/ufo/ufo_screen.jpeg").copy(Bitmap.Config.RGB_565, true);
                 } catch (OutOfMemoryError e2) {
                     com.baidu.ufosdk.f.c.d("clearCanvas " + e2.getMessage());
                     Toast.makeText(getApplicationContext(), s.a(BaseUtils.METHOD_SENDMESSAGE), 0).show();
@@ -602,7 +597,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 str = "ScreenCapEditActivity --> bitmap via screenshot";
             }
             com.baidu.ufosdk.f.c.c(str);
-            Bitmap bitmap = this.f23240f;
+            Bitmap bitmap = this.f23350f;
             if (bitmap == null) {
                 com.baidu.ufosdk.f.c.d("ScreenCapEditActivity --> [shot != null & bitmap == null]:decode shot to bitmap error!!");
                 Intent intent3 = new Intent();
@@ -615,7 +610,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 return;
             }
             int width = bitmap.getWidth();
-            int height = this.f23240f.getHeight();
+            int height = this.f23350f.getHeight();
             com.baidu.ufosdk.f.c.b("图片尺寸 --> width = " + width + "; height = " + height);
             int i4 = width > height ? 3 : width * 4 > height * 3 ? 1 : width * 2 > height ? 0 : 2;
             RelativeLayout relativeLayout = new RelativeLayout(this);
@@ -738,9 +733,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             FrameLayout frameLayout = new FrameLayout(this);
             frameLayout.setId(R.id.Backward);
             ImageView imageView3 = new ImageView(this);
-            this.f23239e = imageView3;
+            this.f23349e = imageView3;
             imageView3.setId(R.id.BOTTOM_START);
-            this.f23239e.setBackgroundColor(-16777216);
+            this.f23349e.setBackgroundColor(-16777216);
             com.baidu.ufosdk.f.c.a("^^ imgvStyle = " + i4);
             if (i4 == 0) {
                 i2 = -1;
@@ -750,7 +745,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 i3 = 17;
                 i2 = -1;
                 layoutParams.gravity = i3;
-                frameLayout.addView(this.f23239e, layoutParams);
+                frameLayout.addView(this.f23349e, layoutParams);
                 RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(i2, i2);
                 if (i4 != 3) {
                     layoutParams12.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 20.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
@@ -765,12 +760,12 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 this.P.setOnClickListener(new f(this));
                 this.O.setOnClickListener(new g(this));
                 setContentView(this.F);
-                this.f23239e.getViewTreeObserver().addOnGlobalLayoutListener(this);
-                if (this.f23240f != null) {
-                    this.f23239e.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    this.f23239e.setImageBitmap(this.f23240f);
+                this.f23349e.getViewTreeObserver().addOnGlobalLayoutListener(this);
+                if (this.f23350f != null) {
+                    this.f23349e.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    this.f23349e.setImageBitmap(this.f23350f);
                 }
-                this.n.setColor(f23236b);
+                this.n.setColor(f23346b);
                 this.n.setStyle(Paint.Style.STROKE);
                 this.n.setStrokeCap(Paint.Cap.ROUND);
                 this.n.setStrokeJoin(Paint.Join.ROUND);
@@ -781,14 +776,14 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 this.x = m.a(getApplicationContext(), "arrow_move.png");
                 this.y = m.a(getApplicationContext(), "arrow_right_up.png");
                 this.z = m.a(getApplicationContext(), "arrow_up_down.png");
-                f23237d = j.a(getApplicationContext(), this.f23238c);
+                f23347d = j.a(getApplicationContext(), this.f23348c);
             } else {
                 Pair a2 = j.a(this);
                 float f2 = -2.0f;
                 if (a2 != null) {
                     int intValue = ((Integer) a2.first).intValue() - com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f);
                     com.baidu.ufosdk.f.c.a("Measure ImageView width: " + intValue);
-                    f2 = ((float) this.f23240f.getHeight()) * (((float) intValue) / ((float) this.f23240f.getWidth()));
+                    f2 = ((float) this.f23350f.getHeight()) * (((float) intValue) / ((float) this.f23350f.getWidth()));
                     com.baidu.ufosdk.f.c.a("Measure ImageView height: " + f2);
                 }
                 i2 = -1;
@@ -796,7 +791,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             }
             i3 = 17;
             layoutParams.gravity = i3;
-            frameLayout.addView(this.f23239e, layoutParams);
+            frameLayout.addView(this.f23349e, layoutParams);
             RelativeLayout.LayoutParams layoutParams122 = new RelativeLayout.LayoutParams(i2, i2);
             if (i4 != 3) {
             }
@@ -808,10 +803,10 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.P.setOnClickListener(new f(this));
             this.O.setOnClickListener(new g(this));
             setContentView(this.F);
-            this.f23239e.getViewTreeObserver().addOnGlobalLayoutListener(this);
-            if (this.f23240f != null) {
+            this.f23349e.getViewTreeObserver().addOnGlobalLayoutListener(this);
+            if (this.f23350f != null) {
             }
-            this.n.setColor(f23236b);
+            this.n.setColor(f23346b);
             this.n.setStyle(Paint.Style.STROKE);
             this.n.setStrokeCap(Paint.Cap.ROUND);
             this.n.setStrokeJoin(Paint.Join.ROUND);
@@ -822,7 +817,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.x = m.a(getApplicationContext(), "arrow_move.png");
             this.y = m.a(getApplicationContext(), "arrow_right_up.png");
             this.z = m.a(getApplicationContext(), "arrow_up_down.png");
-            f23237d = j.a(getApplicationContext(), this.f23238c);
+            f23347d = j.a(getApplicationContext(), this.f23348c);
         }
     }
 
@@ -835,16 +830,16 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             if (i2 == 0) {
                 try {
                     this.r = i2 + 1;
-                    this.o = this.f23239e.getMeasuredWidth();
-                    this.p = this.f23239e.getMeasuredHeight();
-                    int width = this.f23240f.getWidth();
-                    int height = this.f23240f.getHeight();
+                    this.o = this.f23349e.getMeasuredWidth();
+                    this.p = this.f23349e.getMeasuredHeight();
+                    int width = this.f23350f.getWidth();
+                    int height = this.f23350f.getHeight();
                     Matrix matrix = new Matrix();
                     matrix.postScale((float) ((this.o * 1.0d) / width), (float) ((this.p * 1.0d) / height));
-                    this.f23241g = Bitmap.createBitmap(this.f23240f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
+                    this.f23351g = Bitmap.createBitmap(this.f23350f, 0, 0, width, height, matrix, true).copy(Bitmap.Config.RGB_565, true);
                     a();
-                    this.f23239e.setImageBitmap(this.f23241g);
-                    this.f23239e.setOnTouchListener(this);
+                    this.f23349e.setImageBitmap(this.f23351g);
+                    this.f23349e.setOnTouchListener(this);
                     com.baidu.ufosdk.f.c.a("onGlobalLayout --> onGlobalLayout!!!--in");
                 } catch (Exception e2) {
                     com.baidu.ufosdk.f.c.a("onGlobalLayout error!", e2);
@@ -907,11 +902,11 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             if (action == 0) {
                 this.k = motionEvent.getX();
                 this.l = motionEvent.getY();
-                this.f23243i = motionEvent.getX();
+                this.f23353i = motionEvent.getX();
                 float y = motionEvent.getY();
                 this.j = y;
-                this.s.moveTo(this.f23243i, y);
-                this.f23242h = Bitmap.createBitmap(this.f23241g);
+                this.s.moveTo(this.f23353i, y);
+                this.f23352h = Bitmap.createBitmap(this.f23351g);
                 if (this.t.size() > 0 && this.u.f()) {
                     a aVar = this.u;
                     aVar.a(aVar.a(this.k, this.l, j.a(getApplicationContext(), 7.0f), j.a(getApplicationContext(), 7.0f)));
@@ -962,7 +957,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                             }
                             com.baidu.ufosdk.f.c.b("###selectedRect.getOperateTag(): " + this.u.g());
                         }
-                        this.f23239e.invalidate();
+                        this.f23349e.invalidate();
                     }
                     a(false);
                     for (Map.Entry entry2 : this.t.entrySet()) {
@@ -1010,7 +1005,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                             a(this.m, this.n, f7, f8, x, y2);
                         }
                     }
-                    this.f23239e.invalidate();
+                    this.f23349e.invalidate();
                 } else {
                     this.s.reset();
                 }
@@ -1019,9 +1014,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 float y3 = motionEvent.getY();
                 if (this.m != null && this.n != null) {
                     if (this.q) {
-                        Bitmap createBitmap = Bitmap.createBitmap(this.f23242h);
-                        this.f23241g = createBitmap;
-                        this.f23239e.setImageBitmap(createBitmap);
+                        Bitmap createBitmap = Bitmap.createBitmap(this.f23352h);
+                        this.f23351g = createBitmap;
+                        this.f23349e.setImageBitmap(createBitmap);
                         a();
                         if (this.t.size() > 0) {
                             a(this.u.g(), this.k, this.l, x2, y3);
@@ -1057,13 +1052,13 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                         if (!this.H) {
                             this.E = false;
                         }
-                        this.f23243i = f3;
+                        this.f23353i = f3;
                         this.j = f2;
-                        this.f23239e.invalidate();
+                        this.f23349e.invalidate();
                     } else {
-                        Bitmap createBitmap2 = Bitmap.createBitmap(this.f23242h);
-                        this.f23241g = createBitmap2;
-                        this.f23239e.setImageBitmap(createBitmap2);
+                        Bitmap createBitmap2 = Bitmap.createBitmap(this.f23352h);
+                        this.f23351g = createBitmap2;
+                        this.f23349e.setImageBitmap(createBitmap2);
                         a();
                         this.s.lineTo(x2, y3);
                         this.m.drawPath(this.s, this.n);
@@ -1071,9 +1066,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
                 }
                 f2 = y3;
                 f3 = x2;
-                this.f23243i = f3;
+                this.f23353i = f3;
                 this.j = f2;
-                this.f23239e.invalidate();
+                this.f23349e.invalidate();
             }
             return true;
         }

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.config.AppCommonConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class APKStateManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APK_INFO_TIMEOUT;
@@ -123,7 +124,7 @@ public class APKStateManager {
     private boolean getBoolean(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65540, this, context, str, z)) == null) ? context == null ? z : context.getSharedPreferences(APK_LIST_FILE_NAME, 0).getBoolean(str, z) : invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, context, str, z)) == null) ? context == null ? z : context.getSharedPreferences(APK_LIST_FILE_NAME, 0).getBoolean(str, z) : invokeLLZ.booleanValue;
     }
 
     private long[] getIADEXArray(Context context) {

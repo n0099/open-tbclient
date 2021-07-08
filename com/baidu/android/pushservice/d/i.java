@@ -15,31 +15,31 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3028a;
+    public String f3031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3029b;
+    public String f3032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3030c;
+    public String f3033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3031d;
+    public String f3034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3032e;
+    public String f3035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3033f;
+    public String f3036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3034g;
+    public String f3037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f3035h;
+    public boolean f3038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3036i;
+    public String f3039i;
     public boolean j;
     public boolean k;
 
@@ -56,15 +56,15 @@ public class i {
                 return;
             }
         }
-        this.f3028a = "";
-        this.f3029b = "";
-        this.f3030c = "";
-        this.f3031d = "";
-        this.f3032e = "";
-        this.f3033f = "";
-        this.f3034g = "";
-        this.f3035h = false;
-        this.f3036i = "";
+        this.f3031a = "";
+        this.f3032b = "";
+        this.f3033c = "";
+        this.f3034d = "";
+        this.f3035e = "";
+        this.f3036f = "";
+        this.f3037g = "";
+        this.f3038h = false;
+        this.f3039i = "";
         this.j = true;
     }
 
@@ -83,30 +83,30 @@ public class i {
                 return;
             }
         }
-        this.f3028a = "";
-        this.f3029b = "";
-        this.f3030c = "";
-        this.f3031d = "";
-        this.f3032e = "";
-        this.f3033f = "";
-        this.f3034g = "";
-        this.f3035h = false;
-        this.f3036i = "";
+        this.f3031a = "";
+        this.f3032b = "";
+        this.f3033c = "";
+        this.f3034d = "";
+        this.f3035e = "";
+        this.f3036f = "";
+        this.f3037g = "";
+        this.f3038h = false;
+        this.f3039i = "";
         this.j = true;
         PendingIntent pendingIntent = (PendingIntent) intent.getParcelableExtra("app");
         if (pendingIntent != null) {
-            this.f3031d = pendingIntent.getTargetPackage();
+            this.f3034d = pendingIntent.getTargetPackage();
         }
-        if (TextUtils.isEmpty(this.f3031d)) {
-            this.f3031d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        if (TextUtils.isEmpty(this.f3034d)) {
+            this.f3034d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
         }
-        this.f3030c = intent.getStringExtra("access_token");
-        this.f3034g = intent.getStringExtra("secret_key");
-        this.f3028a = intent.getStringExtra("method");
-        this.f3029b = intent.getStringExtra("method_type");
-        this.f3032e = intent.getStringExtra("appid");
-        this.f3035h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
-        this.f3036i = intent.getStringExtra("push_proxy");
+        this.f3033c = intent.getStringExtra("access_token");
+        this.f3037g = intent.getStringExtra("secret_key");
+        this.f3031a = intent.getStringExtra("method");
+        this.f3032b = intent.getStringExtra("method_type");
+        this.f3035e = intent.getStringExtra("appid");
+        this.f3038h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
+        this.f3039i = intent.getStringExtra("push_proxy");
         this.j = intent.getBooleanExtra("should_notify_user", true);
         this.k = intent.getBooleanExtra("ignore_token", false);
     }
@@ -115,7 +115,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "method=" + this.f3028a + ", accessToken=" + this.f3030c + ", packageName=" + this.f3031d + ", appId=" + this.f3032e + ", userId=" + this.f3033f;
+            return "method=" + this.f3031a + ", accessToken=" + this.f3033c + ", packageName=" + this.f3034d + ", appId=" + this.f3035e + ", userId=" + this.f3036f;
         }
         return (String) invokeV.objValue;
     }

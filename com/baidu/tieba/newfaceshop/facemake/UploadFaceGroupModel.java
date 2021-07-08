@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.c2.g.e;
+import d.a.p0.c2.g.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18881e;
+    public final HttpMessageListener f18921e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UploadFaceGroupModel f18882a;
+        public final /* synthetic */ UploadFaceGroupModel f18922a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UploadFaceGroupModel uploadFaceGroupModel, int i2) {
@@ -59,7 +59,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                     return;
                 }
             }
-            this.f18882a = uploadFaceGroupModel;
+            this.f18922a = uploadFaceGroupModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,16 +91,16 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        this.f18882a.x(lVar, null);
+                        this.f18922a.x(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        this.f18882a.x(lVar, httpResponsedMessage.getErrorString());
+                        this.f18922a.x(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            this.f18882a.x(lVar, httpResponsedMessage.getErrorString());
+                            this.f18922a.x(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
@@ -137,12 +137,12 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f18881e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.f18921e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18881e.setTag(getUniqueId());
-        this.f18881e.setSelfListener(true);
-        registerListener(this.f18881e);
+        this.f18921e.setTag(getUniqueId());
+        this.f18921e.setSelfListener(true);
+        registerListener(this.f18921e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -160,7 +160,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18881e);
+            MessageManager.getInstance().unRegisterListener(this.f18921e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
             return true;
         }

@@ -12,16 +12,16 @@ import java.lang.reflect.Type;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class g implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Message f44039a;
+    public Message f41055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f44040b;
+    public Set<String> f41056b;
 
     public g(Message message) {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class g implements c {
                 return;
             }
         }
-        this.f44039a = message;
+        this.f41055a = message;
         List<Field> b2 = d.a.c.e.b.a.a.b(message.getClass());
-        this.f44040b = new HashSet();
+        this.f41056b = new HashSet();
         if (b2 == null || b2.size() <= 0) {
             return;
         }
         for (Field field : b2) {
             if (field != null) {
-                this.f44040b.add(field.getName());
+                this.f41056b.add(field.getName());
             }
         }
     }
@@ -55,14 +55,14 @@ public class g implements c {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44040b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41056b : (Set) invokeV.objValue;
     }
 
     @Override // d.a.c.e.b.b.a.c.c
     public void b(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            d.a.c.e.b.a.a.h(this.f44039a, str, obj);
+            d.a.c.e.b.a.a.h(this.f41055a, str, obj);
         }
     }
 
@@ -85,6 +85,6 @@ public class g implements c {
     public Object d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? d.a.c.e.b.a.a.d(this.f44039a, str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? d.a.c.e.b.a.a.d(this.f41055a, str) : invokeL.objValue;
     }
 }

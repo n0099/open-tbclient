@@ -1,5 +1,6 @@
 package com.google.gson.internal;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -25,14 +26,14 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class C$Gson$Types {
     public static /* synthetic */ Interceptable $ic;
     public static final Type[] EMPTY_TYPE_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -87,7 +88,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -190,7 +191,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class WildcardTypeImpl implements WildcardType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -342,7 +343,7 @@ public final class C$Gson$Types {
 
     public static void checkNotPrimitive(Type type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, type) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, type) == null) {
             C$Gson$Preconditions.checkArgument(((type instanceof Class) && ((Class) type).isPrimitive()) ? false : true);
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class PlaceId {
     public static final /* synthetic */ PlaceId[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -18,6 +18,7 @@ public final class PlaceId {
     public static final PlaceId PB_COMMENT;
     public static final PlaceId PIC_PAGE;
     public static final PlaceId PIC_PAGE_BANNER;
+    public static final PlaceId PIC_PAGE_INSERT;
     public static final PlaceId VIDEO_LIST;
     public static final PlaceId VIDEO_PASTER;
     public static final PlaceId VIDEO_PB_COMMENT;
@@ -43,13 +44,14 @@ public final class PlaceId {
         PB_BANNER = new PlaceId("PB_BANNER", 2, "1527489263072");
         PB_COMMENT = new PlaceId("PB_COMMENT", 3, "1591063400197");
         PIC_PAGE = new PlaceId("PIC_PAGE", 4, "1449746786091");
-        PIC_PAGE_BANNER = new PlaceId("PIC_PAGE_BANNER", 5, "1615197341657");
-        VIDEO_PB_COMMENT = new PlaceId("VIDEO_PB_COMMENT", 6, "1383");
-        VIDEO_PB_RECOMMEND = new PlaceId("VIDEO_PB_RECOMMEND", 7, "1578383264653");
-        VIDEO_LIST = new PlaceId("VIDEO_LIST", 8, "1517888290046");
-        PlaceId placeId = new PlaceId("VIDEO_PASTER", 9, "1546857125210");
+        PIC_PAGE_INSERT = new PlaceId("PIC_PAGE_INSERT", 5, "1623060974307");
+        PIC_PAGE_BANNER = new PlaceId("PIC_PAGE_BANNER", 6, "1615197341657");
+        VIDEO_PB_COMMENT = new PlaceId("VIDEO_PB_COMMENT", 7, "1383");
+        VIDEO_PB_RECOMMEND = new PlaceId("VIDEO_PB_RECOMMEND", 8, "1578383264653");
+        VIDEO_LIST = new PlaceId("VIDEO_LIST", 9, "1517888290046");
+        PlaceId placeId = new PlaceId("VIDEO_PASTER", 10, "1546857125210");
         VIDEO_PASTER = placeId;
-        $VALUES = new PlaceId[]{HOMEPAGE, FRS, PB_BANNER, PB_COMMENT, PIC_PAGE, PIC_PAGE_BANNER, VIDEO_PB_COMMENT, VIDEO_PB_RECOMMEND, VIDEO_LIST, placeId};
+        $VALUES = new PlaceId[]{HOMEPAGE, FRS, PB_BANNER, PB_COMMENT, PIC_PAGE, PIC_PAGE_INSERT, PIC_PAGE_BANNER, VIDEO_PB_COMMENT, VIDEO_PB_RECOMMEND, VIDEO_LIST, placeId};
     }
 
     public PlaceId(String str, int i2, String str2) {

@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5172a;
+    public static final Charset f5189a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class c extends a<Object> {
                 return;
             }
         }
-        f5172a = Charset.forName("UTF-8");
+        f5189a = Charset.forName("UTF-8");
     }
 
     public c() {
@@ -63,7 +63,7 @@ public class c extends a<Object> {
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f5172a;
+            return f5189a;
         }
         return (Charset) invokeL.objValue;
     }

@@ -1,5 +1,6 @@
 package com.baidu.mobads.sdk.api;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.sdk.internal.RemoteDexLoader;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class MobadsPermissionSettings {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERMISSION_APP_LIST = "permission_app_list";
@@ -82,7 +83,7 @@ public class MobadsPermissionSettings {
 
     public static void setPermissionAppList(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65540, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             mAccessAppListGranted = z;
             postPermissionInfoRemote();
         }

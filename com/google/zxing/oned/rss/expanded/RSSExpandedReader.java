@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss.expanded;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
@@ -34,7 +35,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] EVEN_TOTAL_SUBSET;
@@ -723,7 +724,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
     private List<ExpandedPair> checkRows(List<ExpandedRow> list, int i2) throws NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, this, list, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, list, i2)) == null) {
             while (i2 < this.rows.size()) {
                 ExpandedRow expandedRow = this.rows.get(i2);
                 this.pairs.clear();

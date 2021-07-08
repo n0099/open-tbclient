@@ -19,7 +19,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Download {
     public static /* synthetic */ Interceptable $ic;
     public static final DecimalFormat DFOEMAT;
@@ -56,7 +56,7 @@ public class Download {
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -148,7 +148,7 @@ public class Download {
         public static DownloadState[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (DownloadState[]) $VALUES.clone() : (DownloadState[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (DownloadState[]) $VALUES.clone() : (DownloadState[]) invokeV.objValue;
         }
     }
 
@@ -224,7 +224,7 @@ public class Download {
 
     private void removeControlFlag(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             this.mControlFlag = Long.valueOf((~j) & this.mControlFlag.longValue());
         }
     }

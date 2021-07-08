@@ -1,5 +1,6 @@
 package org.apache.commons.codec.binary4util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BITS;
@@ -94,7 +95,7 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static boolean isEmpty(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) ? bArr == null || bArr.length == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? bArr == null || bArr.length == 0 : invokeL.booleanValue;
     }
 
     public static byte[] toAsciiBytes(byte[] bArr) {

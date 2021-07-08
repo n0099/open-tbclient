@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class cb extends cg.b<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f42904a;
+    public long f39918a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f172a;
@@ -41,7 +41,7 @@ public class cb extends cg.b<Long> {
                 return;
             }
         }
-        this.f42904a = 0L;
+        this.f39918a = 0L;
         this.f172a = str6;
     }
 
@@ -69,7 +69,7 @@ public class cb extends cg.b<Long> {
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f42904a) : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f39918a) : invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.cg.b
@@ -78,6 +78,6 @@ public class cb extends cg.b<Long> {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) || context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f42904a = list.get(0).longValue();
+        this.f39918a = list.get(0).longValue();
     }
 }

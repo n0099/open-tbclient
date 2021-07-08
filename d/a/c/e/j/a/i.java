@@ -18,19 +18,19 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class i extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f44215a;
+    public final String f41231a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HostnameVerifier f44216b;
+    public HostnameVerifier f41232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpsURLConnection f44217c;
+    public HttpsURLConnection f41233c;
 
     public i(HttpsURLConnection httpsURLConnection) {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class i extends SSLSocketFactory {
                 return;
             }
         }
-        this.f44215a = i.class.getSimpleName();
-        this.f44216b = HttpsURLConnection.getDefaultHostnameVerifier();
-        this.f44217c = httpsURLConnection;
+        this.f41231a = i.class.getSimpleName();
+        this.f41232b = HttpsURLConnection.getDefaultHostnameVerifier();
+        this.f41233c = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -107,7 +107,7 @@ public class i extends SSLSocketFactory {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            String requestProperty = this.f44217c.getRequestProperty("Host");
+            String requestProperty = this.f41233c.getRequestProperty("Host");
             if (requestProperty != null) {
                 str = requestProperty;
             }
@@ -124,10 +124,10 @@ public class i extends SSLSocketFactory {
                 try {
                     sSLSocket.getClass().getMethod("setHostname", String.class).invoke(sSLSocket, str);
                 } catch (Exception e2) {
-                    Log.w(this.f44215a, " SNI Setting failed", e2);
+                    Log.w(this.f41231a, " SNI Setting failed", e2);
                 }
             }
-            if (this.f44216b.verify(str, sSLSocket.getSession())) {
+            if (this.f41232b.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Verify hostname(" + str + ") failed.");

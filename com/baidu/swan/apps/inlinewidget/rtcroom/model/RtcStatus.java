@@ -3,6 +3,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.PlayerProps;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class RtcStatus {
     public static final /* synthetic */ RtcStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -72,16 +72,16 @@ public final class RtcStatus {
         REMOTE_USER_KICKOUT = new RtcStatus("REMOTE_USER_KICKOUT", 4, 1004, "REMOTE_USER_KICKOUT");
         REMOTE_STREAM_ADD = new RtcStatus("REMOTE_STREAM_ADD", 5, 2001, "REMOTE_STREAM_ADD");
         REMOTE_STREAM_REMOVE = new RtcStatus("REMOTE_STREAM_REMOVE", 6, 2002, "REMOTE_STREAM_REMOVE");
-        ACTIVITY_IS_NULL = new RtcStatus("ACTIVITY_IS_NULL", 7, 20001, "login fail : execute fail");
-        INIT_RTC_SDK_FAIL = new RtcStatus("INIT_RTC_SDK_FAIL", 8, 20001, "login fail : init rtc sdk fail");
-        SO_DOWNLOAD_FAILED = new RtcStatus("SO_DOWNLOAD_FAILED", 9, 20001, "login fail : so download failed");
-        SO_LOADING_FAILED = new RtcStatus("SO_LOADING_FAILED", 10, 20001, "login fail : so load failed");
-        LOGIN_ERROR = new RtcStatus("LOGIN_ERROR", 11, 20001, "login fail : error");
-        LOGIN_TIMEOUT = new RtcStatus("LOGIN_TIMEOUT", 12, 20001, "login fail : timeout");
-        ROOM_ALREADY_EXIST = new RtcStatus("ROOM_ALREADY_EXIST", 13, PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM, "ROOM_ALREADY_EXIST");
-        DEVICE_IS_NOT_SUPPORTED = new RtcStatus("DEVICE_IS_NOT_SUPPORTED", 14, PlayerProps.FFP_PROP_INT64_VIDEO_DECODER, "DEVICE_IS_NOT_SUPPORTED");
-        ROOM_CONNECTION_LOST = new RtcStatus("ROOM_CONNECTION_LOST", 15, PlayerProps.FFP_PROP_FLOAT_MIN_AVDIFF_REALTIME, "ROOM_CONNECTION_LOST");
-        MEDIA_CONNECTION_LOST = new RtcStatus("MEDIA_CONNECTION_LOST", 16, PlayerProps.FFP_PROP_INT64_CPU, "MEDIA_CONNECTION_LOST");
+        ACTIVITY_IS_NULL = new RtcStatus("ACTIVITY_IS_NULL", 7, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : execute fail");
+        INIT_RTC_SDK_FAIL = new RtcStatus("INIT_RTC_SDK_FAIL", 8, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : init rtc sdk fail");
+        SO_DOWNLOAD_FAILED = new RtcStatus("SO_DOWNLOAD_FAILED", 9, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : so download failed");
+        SO_LOADING_FAILED = new RtcStatus("SO_LOADING_FAILED", 10, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : so load failed");
+        LOGIN_ERROR = new RtcStatus("LOGIN_ERROR", 11, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : error");
+        LOGIN_TIMEOUT = new RtcStatus("LOGIN_TIMEOUT", 12, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT, "login fail : timeout");
+        ROOM_ALREADY_EXIST = new RtcStatus("ROOM_ALREADY_EXIST", 13, 20002, "ROOM_ALREADY_EXIST");
+        DEVICE_IS_NOT_SUPPORTED = new RtcStatus("DEVICE_IS_NOT_SUPPORTED", 14, 20003, "DEVICE_IS_NOT_SUPPORTED");
+        ROOM_CONNECTION_LOST = new RtcStatus("ROOM_CONNECTION_LOST", 15, 30001, "ROOM_CONNECTION_LOST");
+        MEDIA_CONNECTION_LOST = new RtcStatus("MEDIA_CONNECTION_LOST", 16, 30002, "MEDIA_CONNECTION_LOST");
         INIT_CAPTURE_FAIL = new RtcStatus("INIT_CAPTURE_FAIL", 17, 40001, "OPEN_CAMERA_FAIL");
         SET_REMOTE_SURFACE_ERROR = new RtcStatus("SET_REMOTE_SURFACE_ERROR", 18, 40002, "REMOTE_ITEM_ALREADY_PLAYING");
         PUBLISH_FAILED = new RtcStatus("PUBLISH_FAILED", 19, 40003, "PUBLISH_FAIL");

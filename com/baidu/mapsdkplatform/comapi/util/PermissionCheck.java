@@ -18,41 +18,41 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PermissionCheck {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7953a = 200;
+    public static int f7970a = 200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f7954b = 202;
+    public static int f7971b = 202;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f7955c = 252;
+    public static int f7972c = 252;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7956d = "PermissionCheck";
+    public static final String f7973d = "PermissionCheck";
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f7957e = null;
+    public static Context f7974e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f7958f = null;
+    public static String f7975f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Hashtable<String, String> f7959g = null;
+    public static Hashtable<String, String> f7976g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static LBSAuthManager f7960h = null;
+    public static LBSAuthManager f7977h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static LBSAuthManagerListener f7961i = null;
+    public static LBSAuthManagerListener f7978i = null;
     public static c j = null;
     public static int k = 601;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements LBSAuthManagerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public class PermissionCheck {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (str == null) {
-                    Log.e(PermissionCheck.f7956d, "The result is null");
+                    Log.e(PermissionCheck.f7973d, "The result is null");
                     int permissionCheck = PermissionCheck.permissionCheck();
-                    String str2 = PermissionCheck.f7956d;
+                    String str2 = PermissionCheck.f7973d;
                     Log.d(str2, "onAuthResult try permissionCheck result is: " + permissionCheck);
                     return;
                 }
@@ -90,27 +90,27 @@ public class PermissionCheck {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.has("status")) {
-                        bVar.f7962a = jSONObject.optInt("status");
+                        bVar.f7979a = jSONObject.optInt("status");
                     }
                     if (jSONObject.has("appid")) {
-                        bVar.f7964c = jSONObject.optString("appid");
+                        bVar.f7981c = jSONObject.optString("appid");
                     }
                     if (jSONObject.has("uid")) {
-                        bVar.f7963b = jSONObject.optString("uid");
+                        bVar.f7980b = jSONObject.optString("uid");
                     }
                     if (jSONObject.has("message")) {
-                        bVar.f7965d = jSONObject.optString("message");
+                        bVar.f7982d = jSONObject.optString("message");
                     }
                     if (jSONObject.has("token")) {
-                        bVar.f7966e = jSONObject.optString("token");
+                        bVar.f7983e = jSONObject.optString("token");
                     }
                     if (jSONObject.has("ak_permission")) {
-                        bVar.f7967f = jSONObject.optInt("ak_permission");
+                        bVar.f7984f = jSONObject.optInt("ak_permission");
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                int unused = PermissionCheck.k = bVar.f7962a;
+                int unused = PermissionCheck.k = bVar.f7979a;
                 if (PermissionCheck.j != null) {
                     PermissionCheck.j.a(bVar);
                 }
@@ -118,28 +118,28 @@ public class PermissionCheck {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7962a;
+        public int f7979a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7963b;
+        public String f7980b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7964c;
+        public String f7981c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f7965d;
+        public String f7982d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f7966e;
+        public String f7983e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f7967f;
+        public int f7984f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -154,20 +154,20 @@ public class PermissionCheck {
                     return;
                 }
             }
-            this.f7962a = 0;
-            this.f7963b = "-1";
-            this.f7964c = "-1";
-            this.f7965d = "";
+            this.f7979a = 0;
+            this.f7980b = "-1";
+            this.f7981c = "-1";
+            this.f7982d = "";
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f7957e), PermissionCheck.f7958f, Integer.valueOf(this.f7962a), this.f7963b, this.f7964c, this.f7965d) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f7974e), PermissionCheck.f7975f, Integer.valueOf(this.f7979a), this.f7980b, this.f7981c, this.f7982d) : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(b bVar);
     }
@@ -205,8 +205,8 @@ public class PermissionCheck {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             j = null;
-            f7957e = null;
-            f7961i = null;
+            f7974e = null;
+            f7978i = null;
         }
     }
 
@@ -221,49 +221,49 @@ public class PermissionCheck {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            f7957e = context;
+            f7974e = context;
             try {
-                applicationInfo = context.getPackageManager().getApplicationInfo(f7957e.getPackageName(), 128);
+                applicationInfo = context.getPackageManager().getApplicationInfo(f7974e.getPackageName(), 128);
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
                 applicationInfo = null;
             }
             if (applicationInfo != null) {
-                f7958f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
+                f7975f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
             }
-            if (f7959g == null) {
-                f7959g = new Hashtable<>();
+            if (f7976g == null) {
+                f7976g = new Hashtable<>();
             }
-            if (f7960h == null) {
-                f7960h = LBSAuthManager.getInstance(f7957e);
+            if (f7977h == null) {
+                f7977h = LBSAuthManager.getInstance(f7974e);
             }
-            if (f7961i == null) {
-                f7961i = new a(null);
+            if (f7978i == null) {
+                f7978i = new a(null);
             }
             try {
-                str = context.getPackageManager().getPackageInfo(f7957e.getPackageName(), 0).applicationInfo.loadLabel(f7957e.getPackageManager()).toString();
+                str = context.getPackageManager().getPackageInfo(f7974e.getPackageName(), 0).applicationInfo.loadLabel(f7974e.getPackageManager()).toString();
             } catch (Exception e3) {
                 e3.printStackTrace();
                 str = "";
             }
             Bundle b2 = i.b();
             if (b2 != null) {
-                f7959g.put("mb", b2.getString("mb"));
-                f7959g.put(IAdRequestParam.OS, b2.getString(IAdRequestParam.OS));
-                f7959g.put("sv", b2.getString("sv"));
-                f7959g.put("imt", "1");
-                f7959g.put("net", b2.getString("net"));
-                f7959g.put("cpu", b2.getString("cpu"));
-                f7959g.put("glr", b2.getString("glr"));
-                f7959g.put("glv", b2.getString("glv"));
-                f7959g.put("resid", b2.getString("resid"));
-                f7959g.put("appid", "-1");
-                f7959g.put("ver", "1");
-                f7959g.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
-                f7959g.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
-                f7959g.put("pcn", b2.getString("pcn"));
-                f7959g.put("cuid", b2.getString("cuid"));
-                f7959g.put("name", str);
+                f7976g.put("mb", b2.getString("mb"));
+                f7976g.put(IAdRequestParam.OS, b2.getString(IAdRequestParam.OS));
+                f7976g.put("sv", b2.getString("sv"));
+                f7976g.put("imt", "1");
+                f7976g.put("net", b2.getString("net"));
+                f7976g.put("cpu", b2.getString("cpu"));
+                f7976g.put("glr", b2.getString("glr"));
+                f7976g.put("glv", b2.getString("glv"));
+                f7976g.put("resid", b2.getString("resid"));
+                f7976g.put("appid", "-1");
+                f7976g.put("ver", "1");
+                f7976g.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
+                f7976g.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
+                f7976g.put("pcn", b2.getString("pcn"));
+                f7976g.put("cuid", b2.getString("cuid"));
+                f7976g.put("name", str);
             }
         }
     }
@@ -273,16 +273,16 @@ public class PermissionCheck {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             synchronized (PermissionCheck.class) {
-                if (f7960h != null && f7961i != null && f7957e != null) {
-                    int authenticate = f7960h.authenticate(false, "lbs_androidmapsdk", f7959g, f7961i);
+                if (f7977h != null && f7978i != null && f7974e != null) {
+                    int authenticate = f7977h.authenticate(false, "lbs_androidmapsdk", f7976g, f7978i);
                     if (authenticate != 0) {
-                        String str = f7956d;
+                        String str = f7973d;
                         Log.e(str, "permission check result is: " + authenticate);
                     }
                     return authenticate;
                 }
-                String str2 = f7956d;
-                Log.e(str2, "The authManager is: " + f7960h + "; the authCallback is: " + f7961i + "; the mContext is: " + f7957e);
+                String str2 = f7973d;
+                Log.e(str2, "The authManager is: " + f7977h + "; the authCallback is: " + f7978i + "; the mContext is: " + f7974e);
                 return 0;
             }
         }

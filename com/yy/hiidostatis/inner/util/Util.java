@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.inner.util;
 
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -36,7 +37,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadLocal<Map<String, SimpleDateFormat>> dateFormatThreadLocal;
@@ -122,7 +123,7 @@ public class Util {
     public static long cpuSec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? millisToSec(cpuMillis()) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? millisToSec(cpuMillis()) : invokeV.longValue;
     }
 
     public static int daysBetween(long j, long j2) {
@@ -183,7 +184,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f2582b, "getInnerIP ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f2585b, "getInnerIP ex=%s", th);
                 return "";
             }
         }
@@ -217,7 +218,7 @@ public class Util {
                     return str;
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f2582b, "getOutNetIp ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f2585b, "getOutNetIp ex=%s", th);
             }
             return "";
         }
@@ -285,7 +286,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) {
             if (j >= 2147483647L) {
-                L.debug(com.baidu.android.common.util.Util.f2582b, "Failed to convert long %d to int.", Long.valueOf(j));
+                L.debug(com.baidu.android.common.util.Util.f2585b, "Failed to convert long %d to int.", Long.valueOf(j));
             }
             return (int) j;
         }
@@ -323,7 +324,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f2582b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f2585b, th.getMessage(), new Object[0]);
                 return "";
             }
         }
@@ -341,7 +342,7 @@ public class Util {
                     hashMap.put(split[0], split[1]);
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f2582b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f2585b, th.getMessage(), new Object[0]);
             }
             return hashMap;
         }

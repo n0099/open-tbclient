@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.StatisticModel;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,31 +19,31 @@ public class a {
     public String F;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f32144a;
+    public String f32254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32145b;
+    public String f32255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32146c;
+    public String f32256c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32147d;
+    public String f32257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f32148e;
+    public List<StatisticModel.PackageStatisticModel.DownloadFailRecords> f32258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f32149f;
+    public long f32259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32150g;
+    public long f32260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32151h;
+    public boolean f32261h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32152i;
+    public boolean f32262i;
     public boolean j;
     public boolean k;
     public long l;
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
         }
-        this.f32148e = new CopyOnWriteArrayList();
+        this.f32258e = new CopyOnWriteArrayList();
         this.w = new CopyOnWriteArrayList();
     }
 }

@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.f;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36105a;
+    public Context f34430a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f36106b;
+    public final LinkedBlockingQueue<IBinder> f34431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f36107c;
+    public ServiceConnection f34432c;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class j {
                 return;
             }
         }
-        this.f36106b = new LinkedBlockingQueue<>(1);
-        this.f36107c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.j.1
+        this.f34431b = new LinkedBlockingQueue<>(1);
+        this.f34432c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ j f36108a;
+            public final /* synthetic */ j f34433a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class j {
                         return;
                     }
                 }
-                this.f36108a = this;
+                this.f34433a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -73,8 +73,8 @@ public class j {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "onServiceConnected");
-                        this.f36108a.f36106b.put(iBinder);
+                        com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "onServiceConnected");
+                        this.f34433a.f34431b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -88,7 +88,7 @@ public class j {
                 }
             }
         };
-        this.f36105a = context;
+        this.f34430a = context;
     }
 
     public String a() {
@@ -102,24 +102,24 @@ public class j {
                 Intent intent = new Intent();
                 intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent.setAction("com.bun.msa.action.bindto.service");
-                intent.putExtra("com.bun.msa.param.pkgname", this.f36105a.getPackageName());
-                boolean bindService = this.f36105a.bindService(intent, this.f36107c, 1);
-                com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID isBind=" + bindService);
+                intent.putExtra("com.bun.msa.param.pkgname", this.f34430a.getPackageName());
+                boolean bindService = this.f34430a.bindService(intent, this.f34432c, 1);
+                com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID isBind=" + bindService);
                 if (bindService) {
                     try {
-                        str = new f.a(this.f36106b.take()).a();
-                        com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f36105a;
-                        serviceConnection = this.f36107c;
+                        str = new f.a(this.f34431b.take()).a();
+                        com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID oaid:" + str);
+                        context = this.f34430a;
+                        serviceConnection = this.f34432c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f36105a;
-                        serviceConnection = this.f36107c;
+                        context = this.f34430a;
+                        serviceConnection = this.f34432c;
                     }
                     context.unbindService(serviceConnection);
                 }
             } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.b("ZTEDeviceIDHelper", "getOAID hw service not found");
+                com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID hw service not found");
                 com.kwad.sdk.core.d.a.a(e3);
             }
             return str;

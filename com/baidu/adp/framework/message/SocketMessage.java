@@ -64,7 +64,7 @@ public class SocketMessage extends Message<byte[]> {
 
     public static void setGlobalEncodeName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             GLOBAL_ENCODE_NAME = str;
         }
     }

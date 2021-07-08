@@ -16,13 +16,13 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UMHHeadGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f25158a;
+    public LinearLayout f25268a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHHeadGroup(Context context) {
@@ -58,8 +58,8 @@ public class UMHHeadGroup extends BaseItemLayout {
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f25158a = new LinearLayout(getContext());
-            addView(this.f25158a, new ViewGroup.LayoutParams(-1, (DisplayUtils.getDisplayWidth(getContext()) * 185) / 750));
+            this.f25268a = new LinearLayout(getContext());
+            addView(this.f25268a, new ViewGroup.LayoutParams(-1, (DisplayUtils.getDisplayWidth(getContext()) * 185) / 750));
             setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_background"));
         }
     }
@@ -81,7 +81,7 @@ public class UMHHeadGroup extends BaseItemLayout {
         }
         UMHHeadItem uMHHeadItem = new UMHHeadItem(getContext());
         uMHHeadItem.setData(this.mConfigData.list[0], getWalletInterface());
-        this.f25158a.addView(uMHHeadItem, new ViewGroup.LayoutParams(-1, -1));
+        this.f25268a.addView(uMHHeadItem, new ViewGroup.LayoutParams(-1, -1));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

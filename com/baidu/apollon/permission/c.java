@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Binder;
 import android.os.Process;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,13 +17,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3810a = 0;
+    public static final int f3813a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3811b = -1;
+    public static final int f3814b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3812c = -2;
+    public static final int f3815c = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
@@ -70,7 +71,7 @@ public final class c {
     public static int b(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             return a(context, str, Binder.getCallingPid(), Binder.getCallingUid(), Binder.getCallingPid() == Process.myPid() ? context.getPackageName() : null);
         }
         return invokeLL.intValue;

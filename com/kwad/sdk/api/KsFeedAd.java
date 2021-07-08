@@ -7,12 +7,12 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface KsFeedAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface AdInteractionListener {
         @KsAdSdkApi
         @Keep
@@ -35,6 +35,14 @@ public interface KsFeedAd {
     @KsAdSdkApi
     @Keep
     View getFeedView(Context context);
+
+    @KsAdSdkApi
+    @Keep
+    int getInteractionType();
+
+    @KsAdSdkApi
+    @Keep
+    int getMaterialType();
 
     @KsAdSdkApi
     @Keep

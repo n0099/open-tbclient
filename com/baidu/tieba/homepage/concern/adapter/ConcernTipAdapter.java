@@ -18,27 +18,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
 import d.a.c.k.e.a;
-import d.a.s0.e1.c.f.b;
-/* loaded from: classes5.dex */
+import d.a.p0.e1.c.f.b;
+/* loaded from: classes4.dex */
 public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int m;
     public static int n;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ConcernTipViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f16462a;
+        public TextView f16501a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f16463b;
+        public View f16502b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f16464c;
+        public int f16503c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ConcernTipViewHolder(View view) {
@@ -58,19 +58,19 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                     return;
                 }
             }
-            this.f16464c = 3;
-            this.f16462a = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.f16463b = view.findViewById(R.id.concern_tip_top_line);
+            this.f16503c = 3;
+            this.f16501a = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.f16502b = view.findViewById(R.id.concern_tip_top_line);
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f16464c == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f16503c == i2) {
                 return;
             }
             SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f16462a, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f16463b, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.f16501a, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f16502b, R.color.CAM_X0205);
         }
     }
 
@@ -123,15 +123,15 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.f16462a.setText(bVar.f58459f);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16462a.getLayoutParams();
-            if (bVar.f58460g) {
+            concernTipViewHolder.f16501a.setText(bVar.f55204f);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16501a.getLayoutParams();
+            if (bVar.f55205g) {
                 layoutParams.height = n;
-                concernTipViewHolder.f16463b.setVisibility(0);
-            } else if (bVar.f58461h) {
+                concernTipViewHolder.f16502b.setVisibility(0);
+            } else if (bVar.f55206h) {
                 layoutParams.height = m;
             }
-            concernTipViewHolder.f16462a.setLayoutParams(layoutParams);
+            concernTipViewHolder.f16501a.setLayoutParams(layoutParams);
             concernTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
             return concernTipViewHolder.a();
         }

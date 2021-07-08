@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class BottomSheetDialog extends AppCompatDialog {
     public static int getThemeResId(@NonNull Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
             if (i2 == 0) {
                 TypedValue typedValue = new TypedValue();
                 if (context.getTheme().resolveAttribute(R.attr.bottomSheetDialogTheme, typedValue, true)) {

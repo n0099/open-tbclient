@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.g;
 import d.a.c.e.p.l;
-import d.a.r0.r.c;
-/* loaded from: classes4.dex */
+import d.a.o0.r.c;
+/* loaded from: classes3.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class MorePopupWindow extends PopupWindow {
 
     private void init(Activity activity, View view, Drawable drawable, KeyEventDealContainerView.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, this, activity, view, drawable, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, activity, view, drawable, aVar) == null) {
             this.mActivity = activity;
             this.mContentView = view;
             KeyEventDealContainerView keyEventDealContainerView = new KeyEventDealContainerView(activity, this.mContentView, aVar);

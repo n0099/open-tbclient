@@ -2,6 +2,7 @@ package com.baidu.apollon.heartbeat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.restnet.RestRuntimeException;
@@ -32,32 +33,32 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3738a = "a";
+    public static final String f3741a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3739b = "heartbeatcfg.cfg";
+    public static final String f3742b = "heartbeatcfg.cfg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3740c = "stastics bean http request";
+    public static final String f3743c = "stastics bean http request";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3741d = "publish_data";
+    public static final String f3744d = "publish_data";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3742e = "sign";
+    public static final String f3745e = "sign";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3743f = "/odp/wireless/sdk/heartbeat";
+    public static final String f3746f = "/odp/wireless/sdk/heartbeat";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3744h = "utf-8";
+    public static final String f3747h = "utf-8";
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f3745i;
+    public static a f3748i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3746g;
+    public String f3749g;
     public HeartBeatCfgEntity j;
     public Context k;
     public String l;
@@ -91,7 +92,7 @@ public final class a {
                 return;
             }
         }
-        this.f3746g = "https://www.baifubao.com";
+        this.f3749g = "https://www.baifubao.com";
         this.j = null;
         this.k = null;
     }
@@ -102,10 +103,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             synchronized (a.class) {
-                if (f3745i == null) {
-                    f3745i = new a();
+                if (f3748i == null) {
+                    f3748i = new a();
                 }
-                aVar = f3745i;
+                aVar = f3748i;
             }
             return aVar;
         }
@@ -120,8 +121,8 @@ public final class a {
                 try {
                     String e2 = e();
                     if (!TextUtils.isEmpty(e2)) {
-                        String str = f3738a;
-                        LogUtil.i(str, f3738a + " execute success,response:" + e2);
+                        String str = f3741a;
+                        LogUtil.i(str, f3741a + " execute success,response:" + e2);
                         try {
                             String optString = new JSONObject(e2).optString("content");
                             if (!TextUtils.isEmpty(optString)) {
@@ -131,8 +132,8 @@ public final class a {
                             e3.printStackTrace();
                         }
                     } else {
-                        String str2 = f3738a;
-                        LogUtil.w(str2, f3738a + " the response is null.");
+                        String str2 = f3741a;
+                        LogUtil.w(str2, f3741a + " the response is null.");
                     }
                     return;
                 } catch (Exception e4) {
@@ -140,8 +141,8 @@ public final class a {
                     return;
                 }
             }
-            String str3 = f3738a;
-            LogUtil.d(str3, f3738a + " loadCfg current network is't available.");
+            String str3 = f3741a;
+            LogUtil.d(str3, f3741a + " loadCfg current network is't available.");
         }
     }
 
@@ -161,7 +162,7 @@ public final class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f3748a;
+                public final /* synthetic */ a f3751a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -178,7 +179,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.f3748a = this;
+                    this.f3751a = this;
                 }
 
                 @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
@@ -191,7 +192,7 @@ public final class a {
             });
             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
             restTemplate.setRequestInterceptor(arrayList2);
-            return (String) restTemplate.a(this.f3746g + f3743f, arrayList, "utf-8", String.class);
+            return (String) restTemplate.a(this.f3749g + f3746f, arrayList, "utf-8", String.class);
         }
         return (String) invokeV.objValue;
     }
@@ -213,7 +214,7 @@ public final class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f3747a;
+            public final /* synthetic */ a f3750a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -230,27 +231,27 @@ public final class a {
                         return;
                     }
                 }
-                this.f3747a = this;
+                this.f3750a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    a aVar = this.f3747a;
+                    a aVar = this.f3750a;
                     HeartBeatCfgEntity c2 = aVar.c(aVar.k);
                     if (c2 != null) {
-                        long b2 = c.b(this.f3747a.k, c.f3766b, 300L);
+                        long b2 = c.b(this.f3750a.k, c.f3769b, 300L);
                         if (!c2.isValidRequestTime(b2)) {
-                            this.f3747a.a(c2);
+                            this.f3750a.a(c2);
                             return;
                         }
-                        String str = a.f3738a;
-                        LogUtil.i(str, a.f3738a + " onChange lastRequestTime:" + b2 + " execute tryLoadCfg.");
-                        this.f3747a.d();
+                        String str = a.f3741a;
+                        LogUtil.i(str, a.f3741a + " onChange lastRequestTime:" + b2 + " execute tryLoadCfg.");
+                        this.f3750a.d();
                         return;
                     }
-                    this.f3747a.d();
+                    this.f3750a.d();
                 }
             }
         }).start();
@@ -273,7 +274,7 @@ public final class a {
         ?? sb = new StringBuilder();
         sb.append(context.getCacheDir());
         sb.append(File.separator);
-        sb.append(f3739b);
+        sb.append(f3742b);
         File file = new File(sb.toString());
         FileReader fileReader2 = null;
         HeartBeatCfgEntity heartBeatCfgEntity2 = null;
@@ -290,7 +291,7 @@ public final class a {
                         if (!TextUtils.isEmpty(copyToString)) {
                             heartBeatCfgEntity2 = HeartBeatCfgEntity.build(copyToString);
                         } else {
-                            LogUtil.w(f3738a, f3738a + " cache:" + file.getPath() + " content json is empty.");
+                            LogUtil.w(f3741a, f3741a + " cache:" + file.getPath() + " content json is empty.");
                         }
                         heartBeatCfgEntity = heartBeatCfgEntity2;
                         fileReader2 = fileReader;
@@ -312,7 +313,7 @@ public final class a {
                         return null;
                     }
                 } else {
-                    LogUtil.w(f3738a, f3738a + " cache:" + file.getPath() + " isn't exist.");
+                    LogUtil.w(f3741a, f3741a + " cache:" + file.getPath() + " isn't exist.");
                     heartBeatCfgEntity = null;
                 }
                 if (fileReader2 != null) {
@@ -359,7 +360,7 @@ public final class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f3746g = str;
+        this.f3749g = str;
     }
 
     public void b(String str) {
@@ -372,7 +373,7 @@ public final class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3746g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3749g : (String) invokeV.objValue;
     }
 
     public HeartBeatCfgEntity a(Context context) {
@@ -408,7 +409,7 @@ public final class a {
     public void a(HeartBeatCfgEntity heartBeatCfgEntity) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65540, this, heartBeatCfgEntity) != null) {
+        if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, heartBeatCfgEntity) != null) {
             return;
         }
         if (heartBeatCfgEntity != null) {
@@ -417,8 +418,8 @@ public final class a {
                 this.j = heartBeatCfgEntity;
                 heartBeatCfgEntity.storeResponse(this.k);
                 z = true;
-                String str = f3738a;
-                LogUtil.i(str, f3738a + " refreshHeartBeatCfg mResponse.");
+                String str = f3741a;
+                LogUtil.i(str, f3741a + " refreshHeartBeatCfg mResponse.");
                 if (z) {
                     return;
                 }
@@ -426,8 +427,8 @@ public final class a {
                 return;
             }
         } else {
-            String str2 = f3738a;
-            LogUtil.w(str2, f3738a + " refreshHeartBeatCfg resp is null || mResponse = resp.");
+            String str2 = f3741a;
+            LogUtil.w(str2, f3741a + " refreshHeartBeatCfg resp is null || mResponse = resp.");
         }
         z = false;
         if (z) {

@@ -17,7 +17,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class BasicLineParser implements LineParser {
     public static /* synthetic */ Interceptable $ic;
     public static final BasicLineParser DEFAULT = null;
@@ -69,7 +69,7 @@ public class BasicLineParser implements LineParser {
     public static final ProtocolVersion parseProtocolVersion(String str, LineParser lineParser) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, lineParser)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, lineParser)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (ProtocolVersion) invokeLL.objValue;

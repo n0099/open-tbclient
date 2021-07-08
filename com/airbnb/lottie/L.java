@@ -2,6 +2,7 @@ package com.airbnb.lottie;
 
 import androidx.annotation.RestrictTo;
 import androidx.core.os.TraceCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +96,7 @@ public class L {
 
     public static void setTraceEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65540, null, z) == null) || traceEnabled == z) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) || traceEnabled == z) {
             return;
         }
         traceEnabled = z;

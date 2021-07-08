@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.s0.w2.x;
+import d.a.p0.w2.x;
 import tbclient.AdCloseInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +41,13 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public LinearLayout x;
     public AdCloseView y;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f20489e;
+        public final /* synthetic */ AdSimpleCardBaseView f20535e;
 
         public a(AdSimpleCardBaseView adSimpleCardBaseView) {
             Interceptable interceptable = $ic;
@@ -64,28 +64,28 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                     return;
                 }
             }
-            this.f20489e = adSimpleCardBaseView;
+            this.f20535e = adSimpleCardBaseView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20489e.y.performClick();
+                this.f20535e.y.performClick();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20490e;
+        public AdCard f20536e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f20491f;
+        public final /* synthetic */ AdSimpleCardBaseView f20537f;
 
         public b(AdSimpleCardBaseView adSimpleCardBaseView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                     return;
                 }
             }
-            this.f20491f = adSimpleCardBaseView;
-            this.f20490e = adCard;
+            this.f20537f = adSimpleCardBaseView;
+            this.f20536e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
-                int d2 = x.d(this.f20491f.m.getPageActivity(), this.f20490e.getScheme(), this.f20490e.getDownloadId(), this.f20490e.getExtInfo());
-                if (this.f20491f.o != null) {
-                    this.f20491f.o.a(d2, null);
+                int d2 = x.d(this.f20537f.m.getPageActivity(), this.f20536e.getScheme(), this.f20536e.getDownloadId(), this.f20536e.getExtInfo());
+                if (this.f20537f.o != null) {
+                    this.f20537f.o.a(d2, null);
                 }
             }
         }
@@ -121,10 +121,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 if (!j.A()) {
-                    this.f20491f.m.showToast(R.string.neterror);
+                    this.f20537f.m.showToast(R.string.neterror);
                     return;
                 }
-                AdCard adCard = this.f20490e;
+                AdCard adCard = this.f20536e;
                 if (adCard == null) {
                     return;
                 }

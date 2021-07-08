@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -59,7 +60,7 @@ public final class IMManager extends BaseManager implements NoProGuard {
     public static boolean init(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }

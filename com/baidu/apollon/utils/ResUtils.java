@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,31 +20,31 @@ public class ResUtils {
     public static final String ANIM = "anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4096a = "id";
+    public static final String f4099a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f4097b = "string";
+    public static final String f4100b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4098c = "layout";
+    public static final String f4101c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f4099d = "style";
+    public static final String f4102d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f4100e = "drawable";
+    public static final String f4103e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f4101f = "color";
+    public static final String f4104f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f4102g = "array";
+    public static final String f4105g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f4103h = "attr";
+    public static final String f4106h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f4104i = "dimen";
+    public static final String f4107i = "dimen";
     public static final String j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
@@ -261,7 +262,7 @@ public class ResUtils {
     public static int anim(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, str, str2)) == null) ? a(mContext, str, "anim", str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) ? a(mContext, str, "anim", str2) : invokeLLL.intValue;
     }
 
     public static int a(Context context, String str, String str2, String str3) {

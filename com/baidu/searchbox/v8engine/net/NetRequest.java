@@ -1,5 +1,6 @@
 package com.baidu.searchbox.v8engine.net;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.NotProguard;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetRequest extends Observable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetRequest";
@@ -23,12 +24,12 @@ public class NetRequest extends Observable {
     public RedirectInterceptor mRedirectInterceptor;
     public RequestInterceptor mRequestInterceptor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface RedirectInterceptor {
         boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface RequestInterceptor {
         boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam);
     }
@@ -70,7 +71,7 @@ public class NetRequest extends Observable {
 
     private synchronized void receiveRequestResult(NetRequestResult netRequestResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, netRequestResult) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, netRequestResult) == null) {
             synchronized (this) {
                 setChanged();
                 notifyObservers(netRequestResult);

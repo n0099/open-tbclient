@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
-import d.a.r0.g0.b.a;
+import d.a.o0.g0.b.a;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -18,7 +18,7 @@ import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GameInfoData implements Serializable, a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
@@ -221,7 +221,7 @@ public class GameInfoData implements Serializable, a {
     public static GameInfoData fromRecommendGames(RecommendGame recommendGame) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, recommendGame)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, recommendGame)) == null) {
             GameInfoData gameInfoData = new GameInfoData();
             if (recommendGame == null) {
                 return gameInfoData;

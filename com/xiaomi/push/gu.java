@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public /* synthetic */ class gu {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f43217a;
+    public static final /* synthetic */ int[] f40231a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,17 +28,17 @@ public /* synthetic */ class gu {
             }
         }
         int[] iArr = new int[av.c.values().length];
-        f43217a = iArr;
+        f40231a = iArr;
         try {
-            iArr[av.c.f43602a.ordinal()] = 1;
+            iArr[av.c.f40616a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f43217a[av.c.f43603b.ordinal()] = 2;
+            f40231a[av.c.f40617b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f43217a[av.c.f43604c.ordinal()] = 3;
+            f40231a[av.c.f40618c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

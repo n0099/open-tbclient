@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417.encoder;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -20,7 +21,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTE_COMPACTION = 1;
@@ -166,7 +167,7 @@ public final class PDF417HighLevelEncoder {
     public static int determineConsecutiveTextCount(CharSequence charSequence, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, charSequence, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence, i2)) == null) {
             int length = charSequence.length();
             int i3 = i2;
             while (i3 < length) {

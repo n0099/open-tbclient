@@ -1,5 +1,6 @@
 package io.reactivex.internal.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class HashMapSupplier implements Callable<Map<Object, Object>> {
     public static final /* synthetic */ HashMapSupplier[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -71,7 +72,7 @@ public final class HashMapSupplier implements Callable<Map<Object, Object>> {
     public static HashMapSupplier[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (HashMapSupplier[]) $VALUES.clone() : (HashMapSupplier[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (HashMapSupplier[]) $VALUES.clone() : (HashMapSupplier[]) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

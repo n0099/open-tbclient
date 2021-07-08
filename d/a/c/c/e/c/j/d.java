@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.s;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f43936c;
+    public static d f40952c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SecretKey f43937a;
+    public SecretKey f40953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f43938b;
+    public byte[] f40954b;
 
     static {
         InterceptResult invokeClinit;
@@ -54,22 +54,22 @@ public class d {
                 return;
             }
         }
-        this.f43937a = null;
-        this.f43938b = null;
+        this.f40953a = null;
+        this.f40954b = null;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43936c == null) {
+            if (f40952c == null) {
                 synchronized (d.class) {
-                    if (f43936c == null) {
-                        f43936c = new d();
+                    if (f40952c == null) {
+                        f40952c = new d();
                     }
                 }
             }
-            return f43936c;
+            return f40952c;
         }
         return (d) invokeV.objValue;
     }
@@ -77,13 +77,13 @@ public class d {
     public SecretKey b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43937a : (SecretKey) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40953a : (SecretKey) invokeV.objValue;
     }
 
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43938b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40954b : (byte[]) invokeV.objValue;
     }
 
     public void d(byte[] bArr) {
@@ -96,12 +96,12 @@ public class d {
                 for (int i2 = 0; i2 < g2.length(); i2++) {
                     bArr2[i2] = (byte) g2.charAt(i2);
                 }
-                this.f43937a = s.f(g2);
-                this.f43938b = s.d(e2, bArr2);
+                this.f40953a = s.f(g2);
+                this.f40954b = s.d(e2, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
-                this.f43937a = null;
-                this.f43938b = new byte[0];
+                this.f40953a = null;
+                this.f40954b = new byte[0];
             }
         }
     }

@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public /* synthetic */ class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7323a;
+    public static final /* synthetic */ int[] f7340a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,17 +28,17 @@ public /* synthetic */ class d {
             }
         }
         int[] iArr = new int[PoiFilter.IndustryType.values().length];
-        f7323a = iArr;
+        f7340a = iArr;
         try {
             iArr[PoiFilter.IndustryType.HOTEL.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7323a[PoiFilter.IndustryType.CATER.ordinal()] = 2;
+            f7340a[PoiFilter.IndustryType.CATER.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f7323a[PoiFilter.IndustryType.LIFE.ordinal()] = 3;
+            f7340a[PoiFilter.IndustryType.LIFE.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.w;
+import d.a.o0.z0.w;
 import tbclient.GetGiftCommonList.DataReq;
 import tbclient.GetGiftCommonList.GetGiftCommonListReqIdl;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetGiftCommonListRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

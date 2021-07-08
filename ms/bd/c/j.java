@@ -8,30 +8,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import ms.bd.c.b;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class j extends b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f76056a;
+    public static j f73090a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f76057a;
+        public long f73091a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f76058b;
+        public long f73092b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f76059c;
+        public String f73093c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f76060d;
+        public String f73094d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public abstract class j extends b.a {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f76059c = str;
-                this.f76060d = null;
-                this.f76057a = System.currentTimeMillis();
+                this.f73093c = str;
+                this.f73094d = null;
+                this.f73091a = System.currentTimeMillis();
             }
         }
 
@@ -63,10 +63,10 @@ public abstract class j extends b.a {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f76057a;
+            long j = this.f73091a;
             long j2 = currentTimeMillis - j;
-            this.f76058b = j2;
-            c2.d(j2, j, this.f76059c, this.f76060d, str, i2, null);
+            this.f73092b = j2;
+            c2.d(j2, j, this.f73093c, this.f73094d, str, i2, null);
         }
 
         public void c(String str, int i2) {
@@ -76,10 +76,10 @@ public abstract class j extends b.a {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f76057a;
+            long j = this.f73091a;
             long j2 = currentTimeMillis - j;
-            this.f76058b = j2;
-            c2.h(j2, j, this.f76059c, this.f76060d, str, i2, null);
+            this.f73092b = j2;
+            c2.h(j2, j, this.f73093c, this.f73094d, str, i2, null);
         }
     }
 
@@ -103,7 +103,7 @@ public abstract class j extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                jVar = f76056a;
+                jVar = f73090a;
             }
             return jVar;
         }
@@ -114,7 +114,7 @@ public abstract class j extends b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, jVar) == null) {
             synchronized (j.class) {
-                f76056a = jVar;
+                f73090a = jVar;
             }
         }
     }

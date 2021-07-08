@@ -11,37 +11,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8680a;
+    public String f8697a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8681b;
+    public String f8698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONArray f8682c;
+    public JSONArray f8699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8683d;
+    public String f8700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8684e;
+    public String f8701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8685f;
+    public String f8702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8686g;
+    public boolean f8703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f8687h;
+    public long f8704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f8688i;
+    public long f8705i;
     public long j;
     public int k;
     public String l;
@@ -62,16 +62,16 @@ public class aq {
                 return;
             }
         }
-        this.f8680a = str;
-        this.f8681b = str2;
-        this.f8682c = jSONArray;
-        this.f8683d = str3;
-        this.f8684e = str4;
-        this.f8685f = str5;
-        this.f8686g = z;
+        this.f8697a = str;
+        this.f8698b = str2;
+        this.f8699c = jSONArray;
+        this.f8700d = str3;
+        this.f8701e = str4;
+        this.f8702f = str5;
+        this.f8703g = z;
         this.k = i2;
-        this.f8687h = j;
-        this.f8688i = j2;
+        this.f8704h = j;
+        this.f8705i = j2;
         this.j = j3;
         this.l = str6;
         this.m = str7;
@@ -80,43 +80,43 @@ public class aq {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8680a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8697a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8681b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8698b : (String) invokeV.objValue;
     }
 
     public JSONArray c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8682c : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f8699c : (JSONArray) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f8683d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f8700d : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8684e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8701e : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f8685f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f8702f : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f8686g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f8703g : invokeV.booleanValue;
     }
 
     public int h() {
@@ -128,13 +128,13 @@ public class aq {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f8687h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f8704h : invokeV.longValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f8688i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f8705i : invokeV.longValue;
     }
 
     public long k() {
@@ -166,7 +166,7 @@ public class aq {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f8688i = j;
+            this.f8705i = j;
         }
     }
 
@@ -188,22 +188,22 @@ public class aq {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            String a2 = a(this.f8680a, this.f8681b, this.f8682c, this.f8683d, this.f8684e, this.f8685f, this.f8686g);
+            String a2 = a(this.f8697a, this.f8698b, this.f8699c, this.f8700d, this.f8701e, this.f8702f, this.f8703g);
             if (TextUtils.isEmpty(a2)) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("id", this.f8680a);
+                jSONObject.put("id", this.f8697a);
                 jSONObject.put("d", this.l);
                 jSONObject.put("p", str);
                 jSONObject.put("path", str3);
-                jSONObject.put("title", this.f8683d);
-                jSONObject.put("index", this.f8684e);
+                jSONObject.put("title", this.f8700d);
+                jSONObject.put("index", this.f8701e);
                 jSONObject.put("n", str2);
-                jSONObject.put("user", this.f8686g ? 1 : 0);
+                jSONObject.put("user", this.f8703g ? 1 : 0);
                 jSONObject.put("c", this.k);
-                jSONObject.put("t", this.f8687h);
+                jSONObject.put("t", this.f8704h);
                 jSONObject.put("ps", this.m);
                 jSONObject.put("sign", a2);
                 return jSONObject;

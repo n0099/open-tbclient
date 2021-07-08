@@ -1,5 +1,6 @@
 package com.baidu.mobads.container.adrequest;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.sdk.api.IAdInterListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class AdTaskType {
     public static final /* synthetic */ AdTaskType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -86,6 +87,6 @@ public final class AdTaskType {
     public static AdTaskType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (AdTaskType[]) $VALUES.clone() : (AdTaskType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (AdTaskType[]) $VALUES.clone() : (AdTaskType[]) invokeV.objValue;
     }
 }

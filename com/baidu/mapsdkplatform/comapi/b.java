@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f7588a;
+    public final /* synthetic */ a f7605a;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class b extends Handler {
                 return;
             }
         }
-        this.f7588a = aVar;
+        this.f7605a = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            this.f7588a.a(message);
+            this.f7605a.a(message);
         }
     }
 }

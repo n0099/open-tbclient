@@ -14,14 +14,14 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class SingleAmb<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T>[] sources;
     public final Iterable<? extends SingleSource<? extends T>> sourcesIterable;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class AmbSingleObserver<T> extends AtomicBoolean implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1944085461036028108L;

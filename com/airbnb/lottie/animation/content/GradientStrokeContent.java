@@ -10,6 +10,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieDrawable;
 import com.airbnb.lottie.LottieProperty;
 import com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation;
@@ -155,7 +156,7 @@ public class GradientStrokeContent extends BaseStrokeContent {
         float f2;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             long gradientHash = getGradientHash();
             RadialGradient radialGradient = this.radialGradientCache.get(gradientHash);
             if (radialGradient != null) {

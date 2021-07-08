@@ -3,7 +3,7 @@ package com.bytedance.sdk.component.b.a;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface r extends Closeable, Flushable {
     t a();
 

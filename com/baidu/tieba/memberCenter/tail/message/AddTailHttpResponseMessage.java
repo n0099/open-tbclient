@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v1.h.a.b;
-/* loaded from: classes5.dex */
+import d.a.p0.v1.h.a.b;
+/* loaded from: classes4.dex */
 public class AddTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

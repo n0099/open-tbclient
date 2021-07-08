@@ -13,10 +13,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3021a;
+    public String f3024a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3022b;
+    public String f3025b;
 
     public f(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,27 +33,27 @@ public class f {
                 return;
             }
         }
-        this.f3021a = str;
-        this.f3022b = str2;
+        this.f3024a = str;
+        this.f3025b = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3021a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3024a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3022b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3025b : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "BindCache [mApiKey=" + this.f3021a + ", mContent=" + this.f3022b + PreferencesUtil.RIGHT_MOUNT;
+            return "BindCache [mApiKey=" + this.f3024a + ", mContent=" + this.f3025b + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

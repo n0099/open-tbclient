@@ -1,6 +1,7 @@
 package com.airbnb.lottie.parser;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableColorValue;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
@@ -56,7 +57,7 @@ public class AnimatableValueParser {
     public static AnimatableTextFrame parseDocumentData(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, jsonReader, lottieComposition)) == null) ? new AnimatableTextFrame(parse(jsonReader, lottieComposition, DocumentDataParser.INSTANCE)) : (AnimatableTextFrame) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsonReader, lottieComposition)) == null) ? new AnimatableTextFrame(parse(jsonReader, lottieComposition, DocumentDataParser.INSTANCE)) : (AnimatableTextFrame) invokeLL.objValue;
     }
 
     public static AnimatableFloatValue parseFloat(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

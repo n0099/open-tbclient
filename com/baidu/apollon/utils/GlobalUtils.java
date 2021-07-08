@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,10 +28,10 @@ public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f4060a = null;
+    public static LayoutInflater f4063a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f4061b = null;
+    public static WeakReference<Toast> f4064b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,7 +95,7 @@ public final class GlobalUtils {
         InputMethodManager inputMethodManager;
         View currentFocus;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, null, activity) == null) || (inputMethodManager = (InputMethodManager) activity.getSystemService("input_method")) == null || (currentFocus = activity.getCurrentFocus()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity) == null) || (inputMethodManager = (InputMethodManager) activity.getSystemService("input_method")) == null || (currentFocus = activity.getCurrentFocus()) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 2);
@@ -113,10 +114,10 @@ public final class GlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f4062a;
+                public final /* synthetic */ Context f4065a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f4063b;
+                public final /* synthetic */ View f4066b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -133,15 +134,15 @@ public final class GlobalUtils {
                             return;
                         }
                     }
-                    this.f4062a = context;
-                    this.f4063b = view;
+                    this.f4065a = context;
+                    this.f4066b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f4062a.getSystemService("input_method")).showSoftInput(this.f4063b, 0);
+                        ((InputMethodManager) this.f4065a.getSystemService("input_method")).showSoftInput(this.f4066b, 0);
                     }
                 }
             }, 100L);
@@ -176,14 +177,14 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f4061b;
+            WeakReference<Toast> weakReference = f4064b;
             if (weakReference != null && weakReference.get() != null) {
-                f4061b.get().cancel();
+                f4064b.get().cancel();
             }
-            if (f4060a == null) {
-                f4060a = LayoutInflater.from(applicationContext);
+            if (f4063a == null) {
+                f4063a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f4060a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+            View inflate = f4063a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -197,7 +198,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f4061b = new WeakReference<>(toast);
+            f4064b = new WeakReference<>(toast);
             toast.show();
         }
     }

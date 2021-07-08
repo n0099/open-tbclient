@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c<T> extends d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f43865a;
+    public View f40881a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(f<T> fVar, int i2) {
@@ -35,21 +35,21 @@ public class c<T> extends d<T> {
                 return;
             }
         }
-        this.f43865a = null;
+        this.f40881a = null;
         View inflate = LayoutInflater.from(fVar.getContext()).inflate(i2, (ViewGroup) null);
-        this.f43865a = inflate;
+        this.f40881a = inflate;
         inflate.setTag(this);
     }
 
     public View d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f43865a.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f40881a.findViewById(i2) : (View) invokeI.objValue;
     }
 
     public View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43865a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40881a : (View) invokeV.objValue;
     }
 }

@@ -66,11 +66,11 @@ public abstract class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:110:0x00ff A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00d4  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x00fa  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0106 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x0103 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x00f7  */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x00fc A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -147,7 +147,6 @@ public abstract class d {
                                         throw new IOException(e3);
                                     }
                                 }
-                                inputStream.close();
                                 f fVar = new f(httpURLConnection.getResponseCode(), httpURLConnection.getContentType(), byteArrayOutputStream.toString());
                                 httpURLConnection.disconnect();
                                 try {

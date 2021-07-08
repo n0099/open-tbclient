@@ -13,8 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends b {
@@ -66,11 +64,11 @@ public class a extends b {
             if (encoderParams != null && dVar != null) {
                 this.uP = dVar;
                 MediaFormat mediaFormat = new MediaFormat();
-                mediaFormat.setString(IMediaFormat.KEY_MIME, encoderParams.getAudioCodec());
+                mediaFormat.setString("mime", encoderParams.getAudioCodec());
                 mediaFormat.setInteger("aac-profile", 2);
                 mediaFormat.setInteger("sample-rate", encoderParams.getAudioSampleRate());
                 mediaFormat.setInteger("channel-count", encoderParams.getAudioChannel());
-                mediaFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, encoderParams.getAudioBitrate());
+                mediaFormat.setInteger("bitrate", encoderParams.getAudioBitrate());
                 mediaFormat.setInteger("max-input-size", encoderParams.getAudioFrameSize());
                 try {
                     MediaCodec createEncoderByType = MediaCodec.createEncoderByType(encoderParams.getAudioCodec());

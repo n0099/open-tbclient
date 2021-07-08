@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] SNACKBAR_BUTTON_STYLE_ATTR;
@@ -46,7 +46,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public BaseTransientBottomBar.BaseCallback<Snackbar> callback;
     public boolean hasAction;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
@@ -88,7 +88,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +264,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     public static boolean hasSnackbarContentStyleAttrs(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(SNACKBAR_CONTENT_STYLE_ATTRS);
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             int resourceId2 = obtainStyledAttributes.getResourceId(1, -1);

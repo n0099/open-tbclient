@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
@@ -24,7 +25,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Code39Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
@@ -78,7 +79,7 @@ public final class Code39Reader extends OneDReader {
         int i2;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             int length = charSequence.length();
             StringBuilder sb = new StringBuilder(length);
             int i3 = 0;

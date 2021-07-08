@@ -3,6 +3,7 @@ package com.baidu.searchbox.player.ubc;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -25,7 +26,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CoreStatPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
@@ -88,7 +89,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     private void onBufferStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mStartLoadingTime = System.currentTimeMillis();
             this.mLoadingFlow.createFlow();
         }

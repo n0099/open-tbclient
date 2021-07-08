@@ -30,7 +30,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static a o;
@@ -40,19 +40,19 @@ public class a implements Executor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f44064e;
+    public volatile int f41080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f44065f;
+    public volatile int f41081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f44066g;
+    public volatile int f41082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f44067h;
+    public volatile int f41083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SparseIntArray f44068i;
+    public final SparseIntArray f41084i;
     public final LinkedList<d> j;
     public final LinkedList<d> k;
     public final LinkedList<d> l;
@@ -60,15 +60,15 @@ public class a implements Executor {
     public Handler n;
 
     /* renamed from: d.a.c.e.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class ThreadFactoryC0585a implements ThreadFactory {
+    /* loaded from: classes6.dex */
+    public static class ThreadFactoryC0546a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f44069e;
+        public final AtomicInteger f41085e;
 
-        public ThreadFactoryC0585a() {
+        public ThreadFactoryC0546a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class a implements Executor {
                     return;
                 }
             }
-            this.f44069e = new AtomicInteger(1);
+            this.f41085e = new AtomicInteger(1);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -89,7 +89,7 @@ public class a implements Executor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                String str = "BdAsyncTask #" + String.valueOf(this.f44069e.getAndIncrement());
+                String str = "BdAsyncTask #" + String.valueOf(this.f41085e.getAndIncrement());
                 BdLog.i(str);
                 return new Thread(runnable, str);
             }
@@ -97,13 +97,13 @@ public class a implements Executor {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f44070a;
+        public final /* synthetic */ a f41086a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, Looper looper) {
@@ -123,7 +123,7 @@ public class a implements Executor {
                     return;
                 }
             }
-            this.f44070a = aVar;
+            this.f41086a = aVar;
         }
 
         @Override // android.os.Handler
@@ -138,22 +138,22 @@ public class a implements Executor {
                     if (obj2 == null || !(obj2 instanceof d)) {
                         return;
                     }
-                    this.f44070a.y((d) obj2);
+                    this.f41086a.y((d) obj2);
                 } else if (i2 == 2 && (obj = message.obj) != null && (obj instanceof d)) {
-                    this.f44070a.p((d) obj);
+                    this.f41086a.p((d) obj);
                     BdBaseApplication.getInst().isDebugMode();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class c extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f44071f;
+        public final /* synthetic */ a f41087f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, d.a.c.e.c.b bVar) {
@@ -173,7 +173,7 @@ public class a implements Executor {
                     return;
                 }
             }
-            this.f44071f = aVar;
+            this.f41087f = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -197,20 +197,20 @@ public class a implements Executor {
                     l();
                 } finally {
                     if (!k()) {
-                        this.f44071f.n.sendMessageDelayed(this.f44071f.n.obtainMessage(2, this), 1L);
+                        this.f41087f.n.sendMessageDelayed(this.f41087f.n.obtainMessage(2, this), 1L);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static abstract class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.a.c.e.c.b<?> f44072e;
+        public d.a.c.e.c.b<?> f41088e;
 
         public d(d.a.c.e.c.b<?> bVar) {
             Interceptable interceptable = $ic;
@@ -227,9 +227,9 @@ public class a implements Executor {
                     return;
                 }
             }
-            this.f44072e = null;
+            this.f41088e = null;
             if (bVar != null && bVar.b() != null) {
-                this.f44072e = bVar;
+                this.f41088e = bVar;
                 return;
             }
             throw new InvalidParameterException("parameter is null");
@@ -238,13 +238,13 @@ public class a implements Executor {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44072e.b().isTimeout() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41088e.b().isTimeout() : invokeV.booleanValue;
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f44072e.a();
+                this.f41088e.a();
             }
         }
 
@@ -252,8 +252,8 @@ public class a implements Executor {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.f44072e.b().getParallel() != null) {
-                    return this.f44072e.b().getParallel().a();
+                if (this.f41088e.b().getParallel() != null) {
+                    return this.f41088e.b().getParallel().a();
                 }
                 return 1;
             }
@@ -263,15 +263,15 @@ public class a implements Executor {
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44072e.b().getKey() : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41088e.b().getKey() : (String) invokeV.objValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.f44072e.b().getParallel() != null) {
-                    return this.f44072e.b().getParallel().b();
+                if (this.f41088e.b().getParallel() != null) {
+                    return this.f41088e.b().getParallel().b();
                 }
                 return 0;
             }
@@ -282,8 +282,8 @@ public class a implements Executor {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f44072e.b().getParallel() != null) {
-                    return this.f44072e.b().getParallel().c();
+                if (this.f41088e.b().getParallel() != null) {
+                    return this.f41088e.b().getParallel().c();
                 }
                 return BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
             }
@@ -293,38 +293,38 @@ public class a implements Executor {
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44072e.b().getPriority() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41088e.b().getPriority() : invokeV.intValue;
         }
 
         public int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f44072e.b().getTag() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41088e.b().getTag() : invokeV.intValue;
         }
 
         public BdAsyncTask<?, ?, ?> i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44072e.b() : (BdAsyncTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41088e.b() : (BdAsyncTask) invokeV.objValue;
         }
 
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f44072e.isCancelled() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41088e.isCancelled() : invokeV.booleanValue;
         }
 
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f44072e.b().isSelfExecute() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41088e.b().isSelfExecute() : invokeV.booleanValue;
         }
 
         public void l() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
                 try {
-                    this.f44072e.run();
+                    this.f41088e.run();
                 } catch (OutOfMemoryError unused) {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
@@ -334,7 +334,7 @@ public class a implements Executor {
         public void m(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-                this.f44072e.b().setTimeout(z);
+                this.f41088e.b().setTimeout(z);
             }
         }
     }
@@ -352,7 +352,7 @@ public class a implements Executor {
                 return;
             }
         }
-        p = new ThreadFactoryC0585a();
+        p = new ThreadFactoryC0546a();
         q = new SynchronousQueue();
         r = new ThreadPoolExecutor(7, 256, 30L, TimeUnit.SECONDS, q, p, new ThreadPoolExecutor.DiscardPolicy());
     }
@@ -370,11 +370,11 @@ public class a implements Executor {
                 return;
             }
         }
-        this.f44064e = 0;
-        this.f44065f = 0;
-        this.f44066g = 0;
-        this.f44067h = 0;
-        this.f44068i = new SparseIntArray();
+        this.f41080e = 0;
+        this.f41081f = 0;
+        this.f41082g = 0;
+        this.f41083h = 0;
+        this.f41084i = new SparseIntArray();
         this.j = new LinkedList<>();
         this.k = new LinkedList<>();
         this.l = new LinkedList<>();
@@ -389,7 +389,7 @@ public class a implements Executor {
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (o == null) {
                 synchronized (a.class) {
                     if (o == null) {
@@ -447,20 +447,20 @@ public class a implements Executor {
                 this.n.sendMessageDelayed(this.n.obtainMessage(1, dVar), 180000L);
                 int g2 = dVar.g();
                 if (g2 == 1) {
-                    this.f44067h++;
+                    this.f41083h++;
                 } else if (g2 == 2) {
-                    this.f44066g++;
+                    this.f41082g++;
                 } else if (g2 == 3) {
-                    this.f44065f++;
+                    this.f41081f++;
                 } else if (g2 == 4) {
-                    this.f44064e++;
-                    if (this.f44064e >= 7) {
-                        BdLog.e("SuperHight Task too much num = " + this.f44064e);
+                    this.f41080e++;
+                    if (this.f41080e >= 7) {
+                        BdLog.e("SuperHight Task too much num = " + this.f41080e);
                     }
                 }
                 int e2 = dVar.e();
                 if (e2 != 0) {
-                    this.f44068i.put(e2, this.f44068i.get(e2, 0) + 1);
+                    this.f41084i.put(e2, this.f41084i.get(e2, 0) + 1);
                 }
             }
         }
@@ -587,21 +587,21 @@ public class a implements Executor {
                     this.n.removeMessages(1, dVar);
                     int g2 = dVar.g();
                     if (g2 == 1) {
-                        this.f44067h--;
+                        this.f41083h--;
                     } else if (g2 == 2) {
-                        this.f44066g--;
+                        this.f41082g--;
                     } else if (g2 == 3) {
-                        this.f44065f--;
+                        this.f41081f--;
                     } else if (g2 == 4) {
-                        this.f44064e--;
+                        this.f41080e--;
                     }
                     int e2 = dVar.e();
                     if (e2 != 0) {
-                        int i2 = this.f44068i.get(e2) - 1;
+                        int i2 = this.f41084i.get(e2) - 1;
                         if (i2 <= 0) {
-                            this.f44068i.delete(e2);
+                            this.f41084i.delete(e2);
                         } else {
-                            this.f44068i.put(e2, i2);
+                            this.f41084i.put(e2, i2);
                         }
                         if (i2 < 0) {
                             BdLog.e("removeTask error < 0");
@@ -677,16 +677,16 @@ public class a implements Executor {
                                         d(dVar2);
                                         return;
                                     }
-                                } else if (this.f44065f + this.f44066g + this.f44067h >= 7) {
+                                } else if (this.f41081f + this.f41082g + this.f41083h >= 7) {
                                     return;
                                 }
-                            } else if (this.f44065f + this.f44066g + this.f44067h >= 6) {
+                            } else if (this.f41081f + this.f41082g + this.f41083h >= 6) {
                                 return;
                             }
-                        } else if (this.f44065f + this.f44066g + this.f44067h >= 5) {
+                        } else if (this.f41081f + this.f41082g + this.f41083h >= 5) {
                             return;
                         }
-                        if (c(this.f44068i.get(e2), dVar2)) {
+                        if (c(this.f41084i.get(e2), dVar2)) {
                             d(dVar2);
                             return;
                         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SpeedLimitApiHolder {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SpeedLimitApi instance;

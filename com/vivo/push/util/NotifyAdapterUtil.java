@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -30,7 +31,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+import org.webrtc.MediaStreamTrack;
+/* loaded from: classes6.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NOTIFY_MULTITERM_STYLE = 1;
@@ -89,7 +91,7 @@ public class NotifyAdapterUtil {
 
     public static synchronized void initAdapter(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (NotifyAdapterUtil.class) {
                 if (sNotificationManager == null) {
                     sNotificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
@@ -205,7 +207,7 @@ public class NotifyAdapterUtil {
             if (Build.VERSION.SDK_INT >= 16 && TextUtils.isEmpty(insideNotificationItem.getPurePicUrl())) {
                 notification.bigContentView = remoteViews;
             }
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             int ringerMode = audioManager.getRingerMode();
             int vibrateSetting = audioManager.getVibrateSetting(0);
             p.d(TAG, "ringMode=" + ringerMode + " callVibrateSetting=" + vibrateSetting);
@@ -258,7 +260,7 @@ public class NotifyAdapterUtil {
             String content = insideNotificationItem.getContent();
             int intValue = Integer.valueOf(context.getApplicationInfo().icon).intValue();
             boolean isShowTime = insideNotificationItem.isShowTime();
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
             Bitmap bitmap2 = null;
             if (list == null || list.isEmpty()) {

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class l implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f42024a;
+    public int f39038a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public l(byte[] bArr) {
@@ -39,7 +39,7 @@ public final class l implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f42024a;
+            int i2 = this.f39038a;
             return new byte[]{(byte) (i2 & 255), (byte) ((i2 & 65280) >> 8)};
         }
         return (byte[]) invokeV.objValue;
@@ -48,19 +48,19 @@ public final class l implements Cloneable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42024a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39038a : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && (obj instanceof l) && this.f42024a == ((l) obj).b() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? obj != null && (obj instanceof l) && this.f39038a == ((l) obj).b() : invokeL.booleanValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42024a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39038a : invokeV.intValue;
     }
 
     public l(byte[] bArr, int i2) {
@@ -79,8 +79,8 @@ public final class l implements Cloneable {
             }
         }
         int i5 = (bArr[i2 + 1] << 8) & 65280;
-        this.f42024a = i5;
-        this.f42024a = i5 + (bArr[i2] & 255);
+        this.f39038a = i5;
+        this.f39038a = i5 + (bArr[i2] & 255);
     }
 
     public l(int i2) {
@@ -98,6 +98,6 @@ public final class l implements Cloneable {
                 return;
             }
         }
-        this.f42024a = i2;
+        this.f39038a = i2;
     }
 }

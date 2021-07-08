@@ -1,0 +1,166 @@
+package com.kwad.sdk.core.config.item;
+
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class o extends b<a> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f34209a;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements com.kwad.sdk.core.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+
+        /* renamed from: a  reason: collision with root package name */
+        public Map<Integer, String> f34210a;
+        @NonNull
+
+        /* renamed from: b  reason: collision with root package name */
+        public List<String> f34211b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public List<String> f34212c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f34213d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public JSONObject f34214e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f34210a = new HashMap();
+            this.f34211b = new ArrayList();
+            this.f34212c = new ArrayList();
+        }
+
+        @Override // com.kwad.sdk.core.b
+        public void parseJson(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.f34214e = jSONObject;
+            JSONObject optJSONObject = jSONObject.optJSONObject("platformInfo");
+            if (optJSONObject != null) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    this.f34210a.put(Integer.valueOf(next), optJSONObject.optString(next));
+                }
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("keyStacks");
+            if (optJSONArray != null) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    this.f34211b.add(optJSONArray.optString(i2));
+                }
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("keyNames");
+            if (optJSONArray2 != null) {
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    this.f34212c.add(optJSONArray2.optString(i3));
+                }
+            }
+            this.f34213d = jSONObject.optInt("handleType");
+        }
+
+        @Override // com.kwad.sdk.core.b
+        public JSONObject toJson() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34214e : (JSONObject) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o() {
+        super("sdkPackInfo", null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public void a(SharedPreferences.Editor editor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
+            editor.putString("sdkPackInfo", this.f34209a);
+        }
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public void a(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
+            String string = sharedPreferences.getString("sdkPackInfo", null);
+            this.f34209a = string;
+            try {
+                if (TextUtils.isEmpty(string)) {
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject(this.f34209a);
+                a aVar = new a();
+                aVar.parseJson(jSONObject);
+                a((o) aVar);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.core.config.item.b
+    public void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("sdkPackInfo")) == null) {
+            return;
+        }
+        this.f34209a = optJSONObject.toString();
+        a aVar = new a();
+        aVar.parseJson(optJSONObject);
+        a((o) aVar);
+    }
+}

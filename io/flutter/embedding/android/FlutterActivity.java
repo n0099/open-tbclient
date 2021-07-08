@@ -32,7 +32,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterActivity extends Activity implements FlutterActivityAndFragmentDelegate.Host, LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterActivity";
@@ -42,7 +42,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     @NonNull
     public LifecycleRegistry lifecycle;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class CachedEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class NewEngineIntentBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     private View createFlutterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? this.delegate.onCreateView(null, null, null) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.delegate.onCreateView(null, null, null) : (View) invokeV.objValue;
     }
 
     @Nullable

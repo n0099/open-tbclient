@@ -7,6 +7,7 @@ import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.kwad.sdk.api.core.RemoteViewBuilder;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.c.b.f;
 import com.meizu.cloud.pushsdk.c.c.b;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static int a(Context context) {
         if (MzSystemUtils.isMeizu(context)) {
@@ -86,7 +87,7 @@ public class d {
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5, int i2) {
         HashMap hashMap = new HashMap();
-        hashMap.put("taskId", str3);
+        hashMap.put(RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID, str3);
         hashMap.put("deviceId", str2);
         hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("package_name", str);

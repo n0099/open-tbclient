@@ -7,25 +7,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.o.d.j.i;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final float f75618a;
+    public final float f72652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f75619b;
+    public int f72653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f75620c;
+    public int f72654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f75621d;
+    public int f72655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public T[] f75622e;
+    public T[] f72656e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d() {
@@ -61,8 +61,8 @@ public final class d<T> {
         T t2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            T[] tArr = this.f75622e;
-            int i2 = this.f75619b;
+            T[] tArr = this.f72656e;
+            int i2 = this.f72653b;
             int c2 = c(t.hashCode()) & i2;
             T t3 = tArr[c2];
             if (t3 != null) {
@@ -78,9 +78,9 @@ public final class d<T> {
                 return false;
             }
             tArr[c2] = t;
-            int i3 = this.f75620c + 1;
-            this.f75620c = i3;
-            if (i3 >= this.f75621d) {
+            int i3 = this.f72654c + 1;
+            this.f72654c = i3;
+            if (i3 >= this.f72655d) {
                 d();
             }
             return true;
@@ -91,7 +91,7 @@ public final class d<T> {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75620c == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72654c == 0 : invokeV.booleanValue;
     }
 
     public void d() {
@@ -99,12 +99,12 @@ public final class d<T> {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
             return;
         }
-        T[] tArr = this.f75622e;
+        T[] tArr = this.f72656e;
         int length = tArr.length;
         int i2 = length << 1;
         int i3 = i2 - 1;
         T[] tArr2 = (T[]) new Object[i2];
-        int i4 = this.f75620c;
+        int i4 = this.f72654c;
         while (true) {
             int i5 = i4 - 1;
             if (i4 != 0) {
@@ -120,9 +120,9 @@ public final class d<T> {
                 tArr2[c2] = tArr[length];
                 i4 = i5;
             } else {
-                this.f75619b = i3;
-                this.f75621d = (int) (i2 * this.f75618a);
-                this.f75622e = tArr2;
+                this.f72653b = i3;
+                this.f72655d = (int) (i2 * this.f72652a);
+                this.f72656e = tArr2;
                 return;
             }
         }
@@ -133,8 +133,8 @@ public final class d<T> {
         T t2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-            T[] tArr = this.f75622e;
-            int i2 = this.f75619b;
+            T[] tArr = this.f72656e;
+            int i2 = this.f72653b;
             int c2 = c(t.hashCode()) & i2;
             T t3 = tArr[c2];
             if (t3 == null) {
@@ -163,7 +163,7 @@ public final class d<T> {
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), tArr, Integer.valueOf(i3)})) != null) {
             return invokeCommon.booleanValue;
         }
-        this.f75620c--;
+        this.f72654c--;
         while (true) {
             int i5 = i2 + 1;
             while (true) {
@@ -191,15 +191,15 @@ public final class d<T> {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f75620c = 0;
-            this.f75622e = (T[]) new Object[0];
+            this.f72654c = 0;
+            this.f72656e = (T[]) new Object[0];
         }
     }
 
     public T[] h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f75622e : (T[]) ((Object[]) invokeV.objValue);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f72656e : (T[]) ((Object[]) invokeV.objValue);
     }
 
     public d(int i2, float f2) {
@@ -217,10 +217,10 @@ public final class d<T> {
                 return;
             }
         }
-        this.f75618a = f2;
+        this.f72652a = f2;
         int b2 = i.b(i2);
-        this.f75619b = b2 - 1;
-        this.f75621d = (int) (f2 * b2);
-        this.f75622e = (T[]) new Object[b2];
+        this.f72653b = b2 - 1;
+        this.f72655d = (int) (f2 * b2);
+        this.f72656e = (T[]) new Object[b2];
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.mapapi.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
@@ -13,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CoordinateConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7480a;
+    public LatLng f7497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f7481b;
+    public CoordType f7498b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CoordType {
         public static final /* synthetic */ CoordType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -129,7 +130,7 @@ public class CoordinateConverter {
     public static LatLng c(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, latLng)) == null) ? a(latLng, CoordinateType.BD09MC) : (LatLng) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, latLng)) == null) ? a(latLng, CoordinateType.BD09MC) : (LatLng) invokeL.objValue;
     }
 
     public static LatLng d(LatLng latLng) {
@@ -148,26 +149,26 @@ public class CoordinateConverter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7480a == null) {
+            if (this.f7497a == null) {
                 return null;
             }
-            if (this.f7481b == null) {
-                this.f7481b = CoordType.GPS;
+            if (this.f7498b == null) {
+                this.f7498b = CoordType.GPS;
             }
-            int i2 = a.f7482a[this.f7481b.ordinal()];
+            int i2 = a.f7499a[this.f7498b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
                             return null;
                         }
-                        return c(this.f7480a);
+                        return c(this.f7497a);
                     }
-                    return d(this.f7480a);
+                    return d(this.f7497a);
                 }
-                return a(this.f7480a);
+                return a(this.f7497a);
             }
-            return b(this.f7480a);
+            return b(this.f7497a);
         }
         return (LatLng) invokeV.objValue;
     }
@@ -176,7 +177,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f7480a = latLng;
+            this.f7497a = latLng;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;
@@ -186,7 +187,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f7481b = coordType;
+            this.f7498b = coordType;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;

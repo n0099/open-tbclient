@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f28690a;
+    public Throwable f28800a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28691b;
+    public int f28801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28692c;
+    public String f28802c;
 
     public g(int i2, String str, Throwable th) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class g extends a {
                 return;
             }
         }
-        this.f28691b = i2;
-        this.f28692c = str;
-        this.f28690a = th;
+        this.f28801b = i2;
+        this.f28802c = str;
+        this.f28800a = th;
     }
 
     private void b(com.bytedance.sdk.component.d.c.a aVar) {
@@ -48,14 +48,14 @@ public class g extends a {
         if (!(interceptable == null || interceptable.invokeL(65537, this, aVar) == null) || (c2 = aVar.c()) == null) {
             return;
         }
-        c2.a(this.f28691b, this.f28692c, this.f28690a);
+        c2.a(this.f28801b, this.f28802c, this.f28800a);
     }
 
     @Override // com.bytedance.sdk.component.d.d.h
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.util.e.f1966a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.util.e.f1967a : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.d.d.h

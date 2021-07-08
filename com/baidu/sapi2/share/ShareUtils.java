@@ -51,7 +51,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ShareUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
@@ -899,7 +899,7 @@ public final class ShareUtils {
                         intent.putExtra(ShareCallPacking.EXTRA_FROM_APP_TPL, "unknown");
                     }
                     intent.setComponent(componentName);
-                    activity.startActivityForResult(intent, 20001);
+                    activity.startActivityForResult(intent, ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
                     return;
                 }
                 Toast.makeText(activity, "登录失败", 0).show();

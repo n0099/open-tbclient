@@ -2,6 +2,7 @@ package io.flutter.embedding.engine.systemchannels;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PlatformViewsChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformViewsChannel";
@@ -28,7 +29,7 @@ public class PlatformViewsChannel {
     public PlatformViewsHandler handler;
     public final MethodChannel.MethodCallHandler parsingHandler;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class PlatformViewCreationRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +66,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class PlatformViewResizeRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +95,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class PlatformViewTouch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +152,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface PlatformViewsHandler {
         void clearFocus(int i2);
 
@@ -242,7 +243,7 @@ public class PlatformViewsChannel {
 
             private void resize(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(65540, this, methodCall, result) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, methodCall, result) == null) {
                     Map map = (Map) methodCall.arguments();
                     try {
                         this.this$0.handler.resizePlatformView(new PlatformViewResizeRequest(((Integer) map.get("id")).intValue(), ((Double) map.get("width")).doubleValue(), ((Double) map.get("height")).doubleValue()), new Runnable(this, result) { // from class: io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.1.1

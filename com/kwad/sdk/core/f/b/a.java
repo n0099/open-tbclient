@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.kwad.sdk.core.f.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0429a implements a {
+    /* loaded from: classes6.dex */
+    public static final class C0415a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f36109a;
+        public IBinder f34440a;
 
-        public C0429a(IBinder iBinder) {
+        public C0415a(IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public interface a extends IInterface {
                 try {
                     try {
                         obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                        this.f36109a.transact(3, obtain, obtain2, 0);
+                        this.f34440a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -67,7 +67,7 @@ public interface a extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36109a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34440a : (IBinder) invokeV.objValue;
         }
     }
 }

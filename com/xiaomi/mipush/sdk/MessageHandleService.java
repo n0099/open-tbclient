@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,24 +22,24 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class MessageHandleService extends BaseService {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentLinkedQueue<a> f42739a;
+    public static ConcurrentLinkedQueue<a> f39753a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ExecutorService f46a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f42740a;
+        public Intent f39754a;
 
         /* renamed from: a  reason: collision with other field name */
         public PushMessageReceiver f47a;
@@ -59,13 +60,13 @@ public class MessageHandleService extends BaseService {
                 }
             }
             this.f47a = pushMessageReceiver;
-            this.f42740a = intent;
+            this.f39754a = intent;
         }
 
         public Intent a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42740a : (Intent) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39754a : (Intent) invokeV.objValue;
         }
 
         /* renamed from: a  reason: collision with other method in class */
@@ -89,7 +90,7 @@ public class MessageHandleService extends BaseService {
                 return;
             }
         }
-        f42739a = new ConcurrentLinkedQueue<>();
+        f39753a = new ConcurrentLinkedQueue<>();
         f46a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
@@ -118,7 +119,7 @@ public class MessageHandleService extends BaseService {
     public static void a(Context context, a aVar) {
         String[] stringArrayExtra;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, context, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, aVar) == null) || aVar == null) {
             return;
         }
         try {
@@ -161,7 +162,7 @@ public class MessageHandleService extends BaseService {
                     MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) a3;
                     com.xiaomi.channel.commonutils.logger.b.e("begin execute onCommandResult, command=" + miPushCommandMessage.getCommand() + ", resultCode=" + miPushCommandMessage.getResultCode() + ", reason=" + miPushCommandMessage.getReason());
                     m83a.onCommandResult(context, miPushCommandMessage);
-                    if (!TextUtils.equals(miPushCommandMessage.getCommand(), ev.f43062a.f340a)) {
+                    if (!TextUtils.equals(miPushCommandMessage.getCommand(), ev.f40076a.f340a)) {
                         return;
                     }
                     m83a.onReceiveRegisterResult(context, miPushCommandMessage);
@@ -181,7 +182,7 @@ public class MessageHandleService extends BaseService {
                 MiPushCommandMessage miPushCommandMessage2 = (MiPushCommandMessage) a2.getSerializableExtra(PushMessageHelper.KEY_COMMAND);
                 com.xiaomi.channel.commonutils.logger.b.e("(Local) begin execute onCommandResult, command=" + miPushCommandMessage2.getCommand() + ", resultCode=" + miPushCommandMessage2.getResultCode() + ", reason=" + miPushCommandMessage2.getReason());
                 m83a.onCommandResult(context, miPushCommandMessage2);
-                if (!TextUtils.equals(miPushCommandMessage2.getCommand(), ev.f43062a.f340a)) {
+                if (!TextUtils.equals(miPushCommandMessage2.getCommand(), ev.f40076a.f340a)) {
                     return;
                 }
                 m83a.onReceiveRegisterResult(context, miPushCommandMessage2);
@@ -201,7 +202,7 @@ public class MessageHandleService extends BaseService {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, aVar) == null) || aVar == null) {
             return;
         }
-        f42739a.add(aVar);
+        f39753a.add(aVar);
         b(context);
         startService(context);
     }
@@ -218,7 +219,7 @@ public class MessageHandleService extends BaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             try {
-                a(context, f42739a.poll());
+                a(context, f39753a.poll());
             } catch (RuntimeException e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
@@ -240,7 +241,7 @@ public class MessageHandleService extends BaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ConcurrentLinkedQueue<a> concurrentLinkedQueue = f42739a;
+            ConcurrentLinkedQueue<a> concurrentLinkedQueue = f39753a;
             return concurrentLinkedQueue != null && concurrentLinkedQueue.size() > 0;
         }
         return invokeV.booleanValue;

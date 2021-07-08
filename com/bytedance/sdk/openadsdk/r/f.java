@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.l.a.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -36,7 +36,7 @@ public class f {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f32213a;
+                public final /* synthetic */ a f32323a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -53,7 +53,7 @@ public class f {
                             return;
                         }
                     }
-                    this.f32213a = aVar;
+                    this.f32323a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.l.a.b.InterfaceC0354b
@@ -75,11 +75,11 @@ public class f {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, dVar) == null) {
-                        if (dVar.c() && (aVar2 = this.f32213a) != null) {
+                        if (dVar.c() && (aVar2 = this.f32323a) != null) {
                             aVar2.a(dVar);
                             return;
                         }
-                        a aVar3 = this.f32213a;
+                        a aVar3 = this.f32323a;
                         if (aVar3 != null) {
                             aVar3.a();
                         }
@@ -90,7 +90,7 @@ public class f {
                 public void b(b.c cVar) {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, cVar) == null) || (aVar2 = this.f32213a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048580, this, cVar) == null) || (aVar2 = this.f32323a) == null) {
                         return;
                     }
                     aVar2.a();
@@ -100,7 +100,7 @@ public class f {
                 public void b() {
                     a aVar2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || (aVar2 = this.f32213a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048579, this) == null) || (aVar2 = this.f32323a) == null) {
                         return;
                     }
                     aVar2.b();

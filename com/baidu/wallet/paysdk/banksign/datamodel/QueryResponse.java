@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QueryResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class QueryResponse implements IBeanResponse, Serializable {
     public String toast_msg;
     public String webview_title;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Options implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BIND_CARD = "bind_card";

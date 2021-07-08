@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,19 +21,19 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     public ImageProblemView mView;
 
     /* renamed from: com.baidu.tieba.imageProblem.logic.ImageProblemActivity$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class CheckTask extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImageProblemActivity f17983a;
+        public final /* synthetic */ ImageProblemActivity f18023a;
 
         public CheckTask(ImageProblemActivity imageProblemActivity) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
                     return;
                 }
             }
-            this.f17983a = imageProblemActivity;
+            this.f18023a = imageProblemActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,19 +61,19 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 publishProgress(0);
-                this.f17983a.mImageProblemAssistant.networkCheck();
+                this.f18023a.mImageProblemAssistant.networkCheck();
                 publishProgress(1);
-                this.f17983a.mImageProblemAssistant.checkDNSIP();
+                this.f18023a.mImageProblemAssistant.checkDNSIP();
                 publishProgress(2);
-                this.f17983a.mImageProblemAssistant.checkProxyIP();
+                this.f18023a.mImageProblemAssistant.checkProxyIP();
                 publishProgress(3);
-                this.f17983a.mImageProblemAssistant.networkTest();
+                this.f18023a.mImageProblemAssistant.networkTest();
                 publishProgress(4);
-                this.f17983a.mImageProblemAssistant.checkSetting();
+                this.f18023a.mImageProblemAssistant.checkSetting();
                 publishProgress(5);
-                this.f17983a.mImageProblemAssistant.checkLoadImg();
+                this.f18023a.mImageProblemAssistant.checkLoadImg();
                 publishProgress(6);
-                this.f17983a.mImageProblemAssistant.fix();
+                this.f18023a.mImageProblemAssistant.fix();
                 publishProgress(7);
                 return null;
             }
@@ -87,9 +87,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
                 super.onPostExecute(bdStatSwitchData);
-                this.f17983a.mView.getCheckButton().setText(this.f17983a.getResources().getText(R.string.diagnose));
-                this.f17983a.mView.complete();
-                this.f17983a.mTask = null;
+                this.f18023a.mView.getCheckButton().setText(this.f18023a.getResources().getText(R.string.diagnose));
+                this.f18023a.mView.complete();
+                this.f18023a.mTask = null;
             }
         }
 
@@ -101,8 +101,8 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
                 super.onProgressUpdate(numArr);
                 int intValue = numArr[0].intValue();
-                ImageProblemActivity imageProblemActivity = this.f17983a;
-                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f17987d);
+                ImageProblemActivity imageProblemActivity = this.f18023a;
+                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f18027d);
             }
         }
 
@@ -110,7 +110,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f17983a.mView.start();
+                this.f18023a.mView.start();
             }
         }
 

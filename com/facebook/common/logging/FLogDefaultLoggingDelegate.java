@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static /* synthetic */ Interceptable $ic;
     public static final FLogDefaultLoggingDelegate sInstance;
@@ -72,7 +72,7 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static String getStackTraceString(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
             if (th == null) {
                 return "";
             }

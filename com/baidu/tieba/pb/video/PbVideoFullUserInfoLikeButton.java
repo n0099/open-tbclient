@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (this.f12741g) {
+            if (this.f12758g) {
                 SkinManager.setBackgroundResource(this, R.drawable.haslike_grey_bg);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110);
                 return;

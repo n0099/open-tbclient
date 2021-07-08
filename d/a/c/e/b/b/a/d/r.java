@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class r implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<Object> f44057a;
+    public Set<Object> f41073a;
 
     public r(Set<Object> set) {
         Interceptable interceptable = $ic;
@@ -29,13 +29,13 @@ public class r implements h {
                 return;
             }
         }
-        this.f44057a = set;
+        this.f41073a = set;
     }
 
     @Override // d.a.c.e.b.b.a.d.h
     public Object a(d.a.c.e.b.b.a.e.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? d.a.c.e.b.b.a.e.b.e(this.f44057a, cVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? d.a.c.e.b.b.a.e.b.e(this.f41073a, cVar) : invokeL.objValue;
     }
 }

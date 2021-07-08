@@ -22,7 +22,7 @@ import d.l.a.e.b.p.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,37 +54,37 @@ public class i {
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f74624a;
+    public Activity f71676a;
     public int a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f74625b;
+    public Context f71677b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f74626c;
+    public String f71678c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f74627d;
+    public List<String> f71679d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f74628e;
+    public String f71680e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f74629f;
+    public String f71681f;
     public int[] f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f74630g;
+    public String f71682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f74631h;
+    public List<com.ss.android.socialbase.downloader.model.c> f71683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f74632i;
+    public boolean f71684i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -118,27 +118,27 @@ public class i {
                 return;
             }
         }
-        this.f74632i = true;
+        this.f71684i = true;
         this.j = false;
         this.k = true;
         this.l = false;
         this.p = "application/vnd.android.package-archive";
         this.B = 5;
         this.F = true;
-        this.J = f.f41456a;
+        this.J = f.f38470a;
         this.K = 150;
         this.M = true;
         this.X = new ArrayList();
         this.c0 = true;
         this.d0 = true;
-        this.f74625b = context.getApplicationContext();
-        this.f74626c = str;
+        this.f71677b = context.getApplicationContext();
+        this.f71678c = str;
     }
 
     public Activity A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74624a : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71676a : (Activity) invokeV.objValue;
     }
 
     public d.l.a.e.b.f.b A0() {
@@ -266,7 +266,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.f74628e = str;
+            this.f71680e = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -286,7 +286,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, list)) == null) {
-            this.f74631h = list;
+            this.f71683h = list;
             return this;
         }
         return (i) invokeL.objValue;
@@ -322,7 +322,7 @@ public class i {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
-            this.f74632i = z;
+            this.f71684i = z;
             return this;
         }
         return (i) invokeZ.objValue;
@@ -386,7 +386,7 @@ public class i {
     public List<String> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f74627d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f71679d : (List) invokeV.objValue;
     }
 
     public int P0() {
@@ -422,7 +422,7 @@ public class i {
     public Context S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f74625b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f71677b : (Context) invokeV.objValue;
     }
 
     public long S0() {
@@ -451,7 +451,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
-            this.f74629f = str;
+            this.f71681f = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -467,7 +467,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, list)) == null) {
-            this.f74627d = list;
+            this.f71679d = list;
             return this;
         }
         return (i) invokeL.objValue;
@@ -497,7 +497,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, str)) == null) {
-            this.f74630g = str;
+            this.f71682g = str;
             return this;
         }
         return (i) invokeL.objValue;
@@ -522,7 +522,7 @@ public class i {
     public String a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f74626c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.f71678c : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -582,7 +582,7 @@ public class i {
     public String e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f74628e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.f71680e : (String) invokeV.objValue;
     }
 
     public int f() {
@@ -642,7 +642,7 @@ public class i {
     public String i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.f74630g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.f71682g : (String) invokeV.objValue;
     }
 
     public boolean j() {
@@ -702,13 +702,13 @@ public class i {
     public List<com.ss.android.socialbase.downloader.model.c> m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.f74631h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.f71683h : (List) invokeV.objValue;
     }
 
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.f74629f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.f71681f : (String) invokeV.objValue;
     }
 
     public i n0(String str) {
@@ -746,7 +746,7 @@ public class i {
     public boolean p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.f74632i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.f71684i : invokeV.booleanValue;
     }
 
     public d.g q() {

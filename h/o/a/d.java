@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.operators.NotificationLite;
 import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d<T, R> extends h.j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f75399e;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> f72433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f75400f;
+    public final int f72434f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f75401g;
+    public boolean f72435g;
 
     public d(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i2) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class d<T, R> extends h.j<T> {
                 return;
             }
         }
-        this.f75399e = onSubscribeCombineLatest$LatestCoordinator;
-        this.f75400f = i2;
+        this.f72433e = onSubscribeCombineLatest$LatestCoordinator;
+        this.f72434f = i2;
         request(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
@@ -51,33 +51,33 @@ public final class d<T, R> extends h.j<T> {
     @Override // h.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f75401g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f72435g) {
             return;
         }
-        this.f75401g = true;
-        this.f75399e.combine(null, this.f75400f);
+        this.f72435g = true;
+        this.f72433e.combine(null, this.f72434f);
     }
 
     @Override // h.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.f75401g) {
+            if (this.f72435g) {
                 h.r.c.j(th);
                 return;
             }
-            this.f75399e.onError(th);
-            this.f75401g = true;
-            this.f75399e.combine(null, this.f75400f);
+            this.f72433e.onError(th);
+            this.f72435g = true;
+            this.f72433e.combine(null, this.f72434f);
         }
     }
 
     @Override // h.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.f75401g) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.f72435g) {
             return;
         }
-        this.f75399e.combine(NotificationLite.h(t), this.f75400f);
+        this.f72433e.combine(NotificationLite.h(t), this.f72434f);
     }
 }

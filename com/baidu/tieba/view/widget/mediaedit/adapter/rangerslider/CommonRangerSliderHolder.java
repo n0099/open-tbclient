@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f22383a;
+    public ImageView f22442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f22384b;
+    public final View f22443b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CommonRangerSliderHolder(View view) {
@@ -40,8 +40,8 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f22384b = view;
-        this.f22383a = (ImageView) view.findViewById(R.id.video_range_slider_image);
+        this.f22443b = view;
+        this.f22442a = (ImageView) view.findViewById(R.id.video_range_slider_image);
     }
 
     public void a(Bitmap bitmap) {
@@ -49,12 +49,12 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f22383a.setImageBitmap(bitmap);
+        this.f22442a.setImageBitmap(bitmap);
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22384b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22443b : (View) invokeV.objValue;
     }
 }

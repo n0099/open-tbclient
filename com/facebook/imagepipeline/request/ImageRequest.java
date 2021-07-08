@@ -25,7 +25,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ImageRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class ImageRequest {
     public String mTag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class CacheChoice {
         public static final /* synthetic */ CacheChoice[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -118,7 +118,7 @@ public class ImageRequest {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class RequestLevel {
         public static final /* synthetic */ RequestLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -186,7 +186,7 @@ public class ImageRequest {
         public static RequestLevel[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (RequestLevel[]) $VALUES.clone() : (RequestLevel[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RequestLevel[]) $VALUES.clone() : (RequestLevel[]) invokeV.objValue;
         }
 
         public int getValue() {
@@ -474,7 +474,7 @@ public class ImageRequest {
     public static int getSourceUriType(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
             if (uri == null) {
                 return -1;
             }

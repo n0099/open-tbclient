@@ -185,7 +185,7 @@ public class AdapterHelper implements OpReorderer.Callback {
         boolean z;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, updateOp) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, updateOp) == null) {
             int i2 = updateOp.positionStart;
             int i3 = updateOp.itemCount + i2;
             char c3 = 65535;

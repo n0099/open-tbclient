@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GuardProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INDICATOR_DAEMON_ASSISTANT_FILENAME = "indicator_d";
@@ -41,28 +41,28 @@ public class GuardProxy {
     public transient /* synthetic */ FieldHolder $fh;
     public GuardConfigurations mConfigs;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements IGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AlarmManager f18049a;
+        public AlarmManager f18089a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PendingIntent f18050b;
+        public PendingIntent f18090b;
 
         /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class C0211a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18051e;
+            public final /* synthetic */ Context f18091e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GuardConfigurations f18052f;
+            public final /* synthetic */ GuardConfigurations f18092f;
 
             public C0211a(a aVar, Context context, GuardConfigurations guardConfigurations) {
                 Interceptable interceptable = $ic;
@@ -79,15 +79,15 @@ public class GuardProxy {
                         return;
                     }
                 }
-                this.f18051e = context;
-                this.f18052f = guardConfigurations;
+                this.f18091e = context;
+                this.f18092f = guardConfigurations;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    new NativeGuardLow(this.f18051e).doDaemon(this.f18051e.getPackageName(), this.f18052f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18051e.getDir("bin", 0), "daemon").getAbsolutePath());
+                    new NativeGuardLow(this.f18091e).doDaemon(this.f18091e.getPackageName(), this.f18092f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18091e.getDir("bin", 0), "daemon").getAbsolutePath());
                 }
             }
         }
@@ -143,16 +143,16 @@ public class GuardProxy {
         public final void c(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-                if (this.f18049a == null) {
-                    this.f18049a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                if (this.f18089a == null) {
+                    this.f18089a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
                 }
-                if (this.f18050b == null) {
+                if (this.f18090b == null) {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context.getPackageName(), str));
                     intent.setFlags(16);
-                    this.f18050b = PendingIntent.getService(context, 0, intent, 0);
+                    this.f18090b = PendingIntent.getService(context, 0, intent, 0);
                 }
-                this.f18049a.cancel(this.f18050b);
+                this.f18089a.cancel(this.f18090b);
             }
         }
 
@@ -217,7 +217,7 @@ public class GuardProxy {
         public void onDaemonDead() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.f18049a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18050b);
+                this.f18089a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18090b);
                 Process.killProcess(Process.myPid());
             }
         }
@@ -246,27 +246,27 @@ public class GuardProxy {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements IGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public AlarmManager f18053a;
+        public AlarmManager f18093a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PendingIntent f18054b;
+        public PendingIntent f18094b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ GuardProxy f18055c;
+        public final /* synthetic */ GuardProxy f18095c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18056e;
+            public final /* synthetic */ Context f18096e;
 
             public a(b bVar, Context context) {
                 Interceptable interceptable = $ic;
@@ -283,27 +283,27 @@ public class GuardProxy {
                         return;
                     }
                 }
-                this.f18056e = context;
+                this.f18096e = context;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    File dir = this.f18056e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(this.f18056e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+                    File dir = this.f18096e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                    new NativeGuardHigh(this.f18096e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.keepLive.nativekeepalive.GuardProxy$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class C0212b extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18057e;
+            public final /* synthetic */ Context f18097e;
 
             public C0212b(b bVar, Context context) {
                 Interceptable interceptable = $ic;
@@ -320,15 +320,15 @@ public class GuardProxy {
                         return;
                     }
                 }
-                this.f18057e = context;
+                this.f18097e = context;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    File dir = this.f18057e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(this.f18057e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
+                    File dir = this.f18097e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                    new NativeGuardHigh(this.f18097e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
                 }
             }
         }
@@ -348,22 +348,22 @@ public class GuardProxy {
                     return;
                 }
             }
-            this.f18055c = guardProxy;
+            this.f18095c = guardProxy;
         }
 
         public final void a(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-                if (this.f18053a == null) {
-                    this.f18053a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                if (this.f18093a == null) {
+                    this.f18093a = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
                 }
-                if (this.f18054b == null) {
+                if (this.f18094b == null) {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context.getPackageName(), str));
                     intent.setFlags(16);
-                    this.f18054b = PendingIntent.getService(context, 0, intent, 0);
+                    this.f18094b = PendingIntent.getService(context, 0, intent, 0);
                 }
-                this.f18053a.cancel(this.f18054b);
+                this.f18093a.cancel(this.f18094b);
             }
         }
 
@@ -381,7 +381,7 @@ public class GuardProxy {
                 if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                     return;
                 }
-                this.f18055c.mConfigs = guardConfigurations;
+                this.f18095c.mConfigs = guardConfigurations;
                 guardConfigurations.LISTENER.onDaemonAssistantStart(context);
             }
         }
@@ -391,9 +391,9 @@ public class GuardProxy {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                    this.f18053a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18054b);
-                    if (this.f18055c.mConfigs != null && this.f18055c.mConfigs.LISTENER != null) {
-                        this.f18055c.mConfigs.LISTENER.onWatchDaemonDaed();
+                    this.f18093a.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.f18094b);
+                    if (this.f18095c.mConfigs != null && this.f18095c.mConfigs.LISTENER != null) {
+                        this.f18095c.mConfigs.LISTENER.onWatchDaemonDaed();
                     }
                     Process.killProcess(Process.myPid());
                     return;
@@ -406,7 +406,7 @@ public class GuardProxy {
         public boolean onInitialization(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? this.f18055c.initIndicators(context) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? this.f18095c.initIndicators(context) : invokeL.booleanValue;
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
@@ -423,33 +423,33 @@ public class GuardProxy {
                 if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                     return;
                 }
-                this.f18055c.mConfigs = guardConfigurations;
+                this.f18095c.mConfigs = guardConfigurations;
                 guardConfigurations.LISTENER.onPersistentStart(context);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements IGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f18058a;
+        public IBinder f18098a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Parcel f18059b;
+        public Parcel f18099b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ GuardProxy f18060c;
+        public final /* synthetic */ GuardProxy f18100c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18061e;
+            public final /* synthetic */ Context f18101e;
 
             public a(c cVar, Context context) {
                 Interceptable interceptable = $ic;
@@ -466,26 +466,26 @@ public class GuardProxy {
                         return;
                     }
                 }
-                this.f18061e = context;
+                this.f18101e = context;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    File dir = this.f18061e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(this.f18061e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
+                    File dir = this.f18101e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                    new NativeGuardHigh(this.f18101e).doDaemon(new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath());
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class b extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18062e;
+            public final /* synthetic */ Context f18102e;
 
             public b(c cVar, Context context) {
                 Interceptable interceptable = $ic;
@@ -502,15 +502,15 @@ public class GuardProxy {
                         return;
                     }
                 }
-                this.f18062e = context;
+                this.f18102e = context;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    File dir = this.f18062e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
-                    new NativeGuardHigh(this.f18062e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
+                    File dir = this.f18102e.getDir(GuardProxy.INDICATOR_DIR_NAME, 0);
+                    new NativeGuardHigh(this.f18102e).doDaemon(new File(dir, GuardProxy.INDICATOR_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.INDICATOR_PERSISTENT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_DAEMON_ASSISTANT_FILENAME).getAbsolutePath(), new File(dir, GuardProxy.OBSERVER_PERSISTENT_FILENAME).getAbsolutePath());
                 }
             }
         }
@@ -530,7 +530,7 @@ public class GuardProxy {
                     return;
                 }
             }
-            this.f18060c = guardProxy;
+            this.f18100c = guardProxy;
         }
 
         public final void a() {
@@ -541,7 +541,7 @@ public class GuardProxy {
                     Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
                     Field declaredField = invoke.getClass().getDeclaredField("mRemote");
                     declaredField.setAccessible(true);
-                    this.f18058a = (IBinder) declaredField.get(invoke);
+                    this.f18098a = (IBinder) declaredField.get(invoke);
                 } catch (ClassNotFoundException e2) {
                     e2.printStackTrace();
                 } catch (IllegalAccessException e3) {
@@ -565,12 +565,12 @@ public class GuardProxy {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 Parcel obtain = Parcel.obtain();
-                this.f18059b = obtain;
+                this.f18099b = obtain;
                 obtain.writeInterfaceToken("android.app.IActivityManager");
-                this.f18059b.writeStrongBinder(null);
-                intent.writeToParcel(this.f18059b, 0);
-                this.f18059b.writeString(null);
-                this.f18059b.writeInt(0);
+                this.f18099b.writeStrongBinder(null);
+                intent.writeToParcel(this.f18099b, 0);
+                this.f18099b.writeString(null);
+                this.f18099b.writeInt(0);
             }
         }
 
@@ -579,8 +579,8 @@ public class GuardProxy {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 try {
-                    if (this.f18058a != null && this.f18059b != null) {
-                        this.f18058a.transact(34, this.f18059b, null, 0);
+                    if (this.f18098a != null && this.f18099b != null) {
+                        this.f18098a.transact(34, this.f18099b, null, 0);
                         return true;
                     }
                     return false;
@@ -603,7 +603,7 @@ public class GuardProxy {
                 if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                     return;
                 }
-                this.f18060c.mConfigs = guardConfigurations;
+                this.f18100c.mConfigs = guardConfigurations;
                 guardConfigurations.LISTENER.onDaemonAssistantStart(context);
             }
         }
@@ -614,8 +614,8 @@ public class GuardProxy {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
                     if (c()) {
-                        if (this.f18060c.mConfigs != null && this.f18060c.mConfigs.LISTENER != null) {
-                            this.f18060c.mConfigs.LISTENER.onWatchDaemonDaed();
+                        if (this.f18100c.mConfigs != null && this.f18100c.mConfigs.LISTENER != null) {
+                            this.f18100c.mConfigs.LISTENER.onWatchDaemonDaed();
                         }
                         Process.killProcess(Process.myPid());
                         return;
@@ -630,7 +630,7 @@ public class GuardProxy {
         public boolean onInitialization(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f18060c.initIndicators(context) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? this.f18100c.initIndicators(context) : invokeL.booleanValue;
         }
 
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
@@ -644,36 +644,36 @@ public class GuardProxy {
                 if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                     return;
                 }
-                this.f18060c.mConfigs = guardConfigurations;
+                this.f18100c.mConfigs = guardConfigurations;
                 guardConfigurations.LISTENER.onPersistentStart(context);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements IGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f18063a;
+        public IBinder f18103a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Parcel f18064b;
+        public Parcel f18104b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ GuardProxy f18065c;
+        public final /* synthetic */ GuardProxy f18105c;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f18066e;
+            public final /* synthetic */ Context f18106e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ GuardConfigurations f18067f;
+            public final /* synthetic */ GuardConfigurations f18107f;
 
             public a(d dVar, Context context, GuardConfigurations guardConfigurations) {
                 Interceptable interceptable = $ic;
@@ -690,15 +690,15 @@ public class GuardProxy {
                         return;
                     }
                 }
-                this.f18066e = context;
-                this.f18067f = guardConfigurations;
+                this.f18106e = context;
+                this.f18107f = guardConfigurations;
             }
 
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    new NativeGuardLow(this.f18066e).doDaemon(this.f18066e.getPackageName(), this.f18067f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18066e.getDir("bin", 0), "daemon").getAbsolutePath());
+                    new NativeGuardLow(this.f18106e).doDaemon(this.f18106e.getPackageName(), this.f18107f.DAEMON_ASSISTANT_CONFIG.SERVICE_NAME, new File(this.f18106e.getDir("bin", 0), "daemon").getAbsolutePath());
                 }
             }
         }
@@ -718,7 +718,7 @@ public class GuardProxy {
                     return;
                 }
             }
-            this.f18065c = guardProxy;
+            this.f18105c = guardProxy;
         }
 
         public final void a(Context context, String str, File file, String str2) throws IOException, InterruptedException {
@@ -761,7 +761,7 @@ public class GuardProxy {
                     Object invoke = cls.getMethod("getDefault", new Class[0]).invoke(cls, new Object[0]);
                     Field declaredField = invoke.getClass().getDeclaredField("mRemote");
                     declaredField.setAccessible(true);
-                    this.f18063a = (IBinder) declaredField.get(invoke);
+                    this.f18103a = (IBinder) declaredField.get(invoke);
                 } catch (ClassNotFoundException e2) {
                     e2.printStackTrace();
                 } catch (IllegalAccessException e3) {
@@ -785,12 +785,12 @@ public class GuardProxy {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 Parcel obtain = Parcel.obtain();
-                this.f18064b = obtain;
+                this.f18104b = obtain;
                 obtain.writeInterfaceToken("android.app.IActivityManager");
-                this.f18064b.writeStrongBinder(null);
-                intent.writeToParcel(this.f18064b, 0);
-                this.f18064b.writeString(null);
-                this.f18064b.writeInt(0);
+                this.f18104b.writeStrongBinder(null);
+                intent.writeToParcel(this.f18104b, 0);
+                this.f18104b.writeString(null);
+                this.f18104b.writeInt(0);
             }
         }
 
@@ -832,8 +832,8 @@ public class GuardProxy {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 try {
-                    if (this.f18063a != null && this.f18064b != null) {
-                        this.f18063a.transact(34, this.f18064b, null, 0);
+                    if (this.f18103a != null && this.f18104b != null) {
+                        this.f18103a.transact(34, this.f18104b, null, 0);
                         return true;
                     }
                     return false;
@@ -864,8 +864,8 @@ public class GuardProxy {
         public void onDaemonDead() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && g()) {
-                if (this.f18065c.mConfigs != null && this.f18065c.mConfigs.LISTENER != null) {
-                    this.f18065c.mConfigs.LISTENER.onWatchDaemonDaed();
+                if (this.f18105c.mConfigs != null && this.f18105c.mConfigs.LISTENER != null) {
+                    this.f18105c.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
                 Process.killProcess(Process.myPid());
             }
@@ -890,7 +890,7 @@ public class GuardProxy {
                 if (guardConfigurations == null || guardConfigurations.LISTENER == null) {
                     return;
                 }
-                this.f18065c.mConfigs = guardConfigurations;
+                this.f18105c.mConfigs = guardConfigurations;
                 guardConfigurations.LISTENER.onPersistentStart(context);
             }
         }
@@ -912,7 +912,7 @@ public class GuardProxy {
 
     private void createNewFile(File file, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, this, file, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, file, str) == null) {
             File file2 = new File(file, str);
             if (file2.exists()) {
                 return;

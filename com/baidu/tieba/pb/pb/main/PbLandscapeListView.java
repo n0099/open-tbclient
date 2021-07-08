@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,13 +32,13 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean W;
     public boolean a0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f19344e;
+        public final /* synthetic */ PbLandscapeListView f19384e;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f19344e = pbLandscapeListView;
+            this.f19384e = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -69,8 +69,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f19344e.S != null) {
-                        this.f19344e.S.a(dVar.f19345a, dVar.f19346b, dVar.f19347c, dVar.f19349e, dVar.f19348d, dVar.f19350f);
+                    if (this.f19384e.S != null) {
+                        this.f19384e.S.a(dVar.f19385a, dVar.f19386b, dVar.f19387c, dVar.f19389e, dVar.f19388d, dVar.f19390f);
                         return true;
                     }
                     return true;
@@ -81,38 +81,38 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onLayout();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(int i2, int i3, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19345a;
+        public int f19385a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19346b;
+        public int f19386b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f19347c;
+        public float f19387c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f19348d;
+        public float f19388d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f19349e;
+        public float f19389e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f19350f;
+        public float f19390f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -172,12 +172,12 @@ public class PbLandscapeListView extends BdTypeListView {
             Message message = new Message();
             message.what = 0;
             d dVar = new d();
-            dVar.f19345a = i2;
-            dVar.f19346b = i3;
-            dVar.f19347c = f2;
-            dVar.f19348d = f3;
-            dVar.f19349e = f4;
-            dVar.f19350f = f5;
+            dVar.f19385a = i2;
+            dVar.f19386b = i3;
+            dVar.f19387c = f2;
+            dVar.f19388d = f3;
+            dVar.f19389e = f4;
+            dVar.f19390f = f5;
             message.obj = dVar;
             this.U.sendMessageDelayed(message, 60L);
         }

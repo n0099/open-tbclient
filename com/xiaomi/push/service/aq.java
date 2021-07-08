@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,12 +14,12 @@ import com.xiaomi.push.hk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile aq f43582a;
+    public static volatile aq f40596a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -27,7 +28,7 @@ public class aq {
     /* renamed from: a  reason: collision with other field name */
     public HashSet<a> f899a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,14 +100,14 @@ public class aq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f43582a == null) {
+            if (f40596a == null) {
                 synchronized (aq.class) {
-                    if (f43582a == null) {
-                        f43582a = new aq(context);
+                    if (f40596a == null) {
+                        f40596a = new aq(context);
                     }
                 }
             }
-            return f43582a;
+            return f40596a;
         }
         return (aq) invokeL.objValue;
     }
@@ -145,7 +146,7 @@ public class aq {
     private String b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
             return "custom_oc_" + i2;
         }
         return (String) invokeI.objValue;

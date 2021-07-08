@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ErrorParam extends ParamableElem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4313338615427788235L;

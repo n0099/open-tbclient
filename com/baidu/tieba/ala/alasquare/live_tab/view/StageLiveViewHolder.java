@@ -6,18 +6,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.v.d.c.h.c;
-/* loaded from: classes5.dex */
+import d.a.p0.v.d.c.h.c;
+/* loaded from: classes4.dex */
 public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f14004a;
+    public c f14043a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StageLiveViewHolder(c cVar) {
-        super(cVar.l());
+        super(cVar.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,6 +33,6 @@ public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14004a = cVar;
+        this.f14043a = cVar;
     }
 }

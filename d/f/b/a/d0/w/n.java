@@ -19,34 +19,34 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class n implements d.f.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f72938g;
+    public static final Pattern f70041g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f72939h;
+    public static final Pattern f70042h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f72940a;
+    public final String f70043a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f72941b;
+    public final s f70044b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.f.b.a.i0.l f72942c;
+    public final d.f.b.a.i0.l f70045c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d.f.b.a.a0.g f72943d;
+    public d.f.b.a.a0.g f70046d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f72944e;
+    public byte[] f70047e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f72945f;
+    public int f70048f;
 
     static {
         InterceptResult invokeClinit;
@@ -61,8 +61,8 @@ public final class n implements d.f.b.a.a0.e {
                 return;
             }
         }
-        f72938g = Pattern.compile("LOCAL:([^,]+)");
-        f72939h = Pattern.compile("MPEGTS:(\\d+)");
+        f70041g = Pattern.compile("LOCAL:([^,]+)");
+        f70042h = Pattern.compile("MPEGTS:(\\d+)");
     }
 
     public n(String str, s sVar) {
@@ -80,10 +80,10 @@ public final class n implements d.f.b.a.a0.e {
                 return;
             }
         }
-        this.f72940a = str;
-        this.f72941b = sVar;
-        this.f72942c = new d.f.b.a.i0.l();
-        this.f72944e = new byte[1024];
+        this.f70043a = str;
+        this.f70044b = sVar;
+        this.f70045c = new d.f.b.a.i0.l();
+        this.f70047e = new byte[1024];
     }
 
     @Override // d.f.b.a.a0.e
@@ -98,9 +98,9 @@ public final class n implements d.f.b.a.a0.e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            d.f.b.a.a0.m a2 = this.f72943d.a(0, 3);
-            a2.b(Format.createTextSampleFormat((String) null, "text/vtt", (String) null, -1, 0, this.f72940a, (DrmInitData) null, j));
-            this.f72943d.j();
+            d.f.b.a.a0.m a2 = this.f70046d.a(0, 3);
+            a2.b(Format.createTextSampleFormat((String) null, "text/vtt", (String) null, -1, 0, this.f70043a, (DrmInitData) null, j));
+            this.f70046d.j();
             return a2;
         }
         return (d.f.b.a.a0.m) invokeJ.objValue;
@@ -111,7 +111,7 @@ public final class n implements d.f.b.a.a0.e {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
             return;
         }
-        d.f.b.a.i0.l lVar = new d.f.b.a.i0.l(this.f72944e);
+        d.f.b.a.i0.l lVar = new d.f.b.a.i0.l(this.f70047e);
         try {
             d.f.b.a.e0.r.h.d(lVar);
             long j = 0;
@@ -120,9 +120,9 @@ public final class n implements d.f.b.a.a0.e {
                 String k = lVar.k();
                 if (!TextUtils.isEmpty(k)) {
                     if (k.startsWith("X-TIMESTAMP-MAP")) {
-                        Matcher matcher = f72938g.matcher(k);
+                        Matcher matcher = f70041g.matcher(k);
                         if (matcher.find()) {
-                            Matcher matcher2 = f72939h.matcher(k);
+                            Matcher matcher2 = f70042h.matcher(k);
                             if (matcher2.find()) {
                                 j2 = d.f.b.a.e0.r.h.c(matcher.group(1));
                                 j = s.f(Long.parseLong(matcher2.group(1)));
@@ -140,11 +140,11 @@ public final class n implements d.f.b.a.a0.e {
                         return;
                     }
                     long c2 = d.f.b.a.e0.r.h.c(a2.group(1));
-                    long b2 = this.f72941b.b(s.i((j + c2) - j2));
+                    long b2 = this.f70044b.b(s.i((j + c2) - j2));
                     d.f.b.a.a0.m b3 = b(b2 - c2);
-                    this.f72942c.H(this.f72944e, this.f72945f);
-                    b3.a(this.f72942c, this.f72945f);
-                    b3.c(b2, 1, this.f72945f, 0, null);
+                    this.f70045c.H(this.f70047e, this.f70048f);
+                    b3.a(this.f70045c, this.f70048f);
+                    b3.c(b2, 1, this.f70048f, 0, null);
                     return;
                 }
             }
@@ -169,17 +169,17 @@ public final class n implements d.f.b.a.a0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, fVar, kVar)) == null) {
             int length = (int) fVar.getLength();
-            int i2 = this.f72945f;
-            byte[] bArr = this.f72944e;
+            int i2 = this.f70048f;
+            byte[] bArr = this.f70047e;
             if (i2 == bArr.length) {
-                this.f72944e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
+                this.f70047e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
             }
-            byte[] bArr2 = this.f72944e;
-            int i3 = this.f72945f;
+            byte[] bArr2 = this.f70047e;
+            int i3 = this.f70048f;
             int read = fVar.read(bArr2, i3, bArr2.length - i3);
             if (read != -1) {
-                int i4 = this.f72945f + read;
-                this.f72945f = i4;
+                int i4 = this.f70048f + read;
+                this.f70048f = i4;
                 if (length == -1 || i4 != length) {
                     return 0;
                 }
@@ -194,7 +194,7 @@ public final class n implements d.f.b.a.a0.e {
     public void f(d.f.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            this.f72943d = gVar;
+            this.f70046d = gVar;
             gVar.p(new l.a(-9223372036854775807L));
         }
     }

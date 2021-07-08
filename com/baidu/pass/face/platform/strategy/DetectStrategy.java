@@ -1,6 +1,7 @@
 package com.baidu.pass.face.platform.strategy;
 
 import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DetectStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DetectStrategy";
@@ -23,7 +24,7 @@ public class DetectStrategy {
     public float mTotalCropScore;
 
     /* renamed from: com.baidu.pass.face.platform.strategy.DetectStrategy$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum;
         public static /* synthetic */ Interceptable $ic;
@@ -254,7 +255,7 @@ public class DetectStrategy {
     private boolean isDefaultDetectStatus(FaceStatusNewEnum faceStatusNewEnum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, faceStatusNewEnum)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, faceStatusNewEnum)) == null) {
             switch (AnonymousClass1.$SwitchMap$com$baidu$pass$face$platform$FaceStatusNewEnum[faceStatusNewEnum.ordinal()]) {
                 case 1:
                 case 2:

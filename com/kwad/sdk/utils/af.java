@@ -1,36 +1,25 @@
 package com.kwad.sdk.utils;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.CodedInputStream;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.api.loader.Loader;
+/* loaded from: classes6.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Activity activity) {
+    public static void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, activity) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeL(65536, null, intent) == null) || intent == null) {
             return;
         }
-        Window window = activity.getWindow();
-        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-        window.addFlags(Integer.MIN_VALUE);
-        window.getDecorView().setSystemUiVisibility(1024);
-        window.setStatusBarColor(0);
-    }
-
-    public static void a(View view, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, view, i2) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            marginLayoutParams.setMargins(0, i2, 0, 0);
-            view.setLayoutParams(marginLayoutParams);
+        ClassLoader externalClassLoader = Loader.get().getExternalClassLoader();
+        Bundle extras = intent.getExtras();
+        if (externalClassLoader == null || extras == null) {
+            return;
         }
+        extras.setClassLoader(externalClassLoader);
     }
 }

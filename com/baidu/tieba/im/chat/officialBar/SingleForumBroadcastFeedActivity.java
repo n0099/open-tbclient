@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.f0.i;
-import d.a.s0.i1.f.j.g;
+import d.a.o0.f0.i;
+import d.a.p0.i1.f.j.g;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public g.d onDataLoadListener;
     public byte source;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends i<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f17398c;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f17437c;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f17398c = singleForumBroadcastFeedActivity;
+            this.f17437c = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.r0.f0.b
+        @Override // d.a.o0.f0.b
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f17398c.feedView != null) {
-                    this.f17398c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f17437c.feedView != null) {
+                    this.f17437c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -73,13 +73,13 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements g.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f17399a;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f17438a;
 
         public b(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -96,22 +96,22 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f17399a = singleForumBroadcastFeedActivity;
+            this.f17438a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // d.a.s0.i1.f.j.g.d
-        public void a(List<d.a.s0.i1.l.c.b> list) {
+        @Override // d.a.p0.i1.f.j.g.d
+        public void a(List<d.a.p0.i1.l.c.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f17399a.feedView.l(list, null);
+                this.f17438a.feedView.l(list, null);
             }
         }
 
-        @Override // d.a.s0.i1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<d.a.s0.i1.i.a.b.b> longSparseArray) {
+        @Override // d.a.p0.i1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<d.a.p0.i1.i.a.b.b> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.f17399a.feedView.m(longSparseArray);
+                this.f17438a.feedView.m(longSparseArray);
             }
         }
     }

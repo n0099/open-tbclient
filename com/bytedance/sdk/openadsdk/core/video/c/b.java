@@ -22,39 +22,39 @@ import com.bytedance.sdk.openadsdk.core.o;
 import java.io.FileDescriptor;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final MediaPlayer f30505a;
+    public final MediaPlayer f30615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f30506b;
+    public final a f30616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.video.a.a f30507c;
+    public com.bytedance.sdk.component.video.a.a f30617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Surface f30508d;
+    public Surface f30618d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f30509e;
+    public final Object f30619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30510f;
+    public boolean f30620f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f30511a;
+        public final /* synthetic */ b f30621a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final WeakReference<b> f30512b;
+        public final WeakReference<b> f30622b;
 
         public a(b bVar, b bVar2) {
             Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
                     return;
                 }
             }
-            this.f30511a = bVar;
-            this.f30512b = new WeakReference<>(bVar2);
+            this.f30621a = bVar;
+            this.f30622b = new WeakReference<>(bVar2);
         }
 
         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
@@ -80,8 +80,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, mediaPlayer, i2) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        this.f30511a.a(i2);
+                    if (this.f30622b.get() != null) {
+                        this.f30621a.a(i2);
                     }
                 } catch (Throwable th) {
                     j.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onBufferingUpdate error: ", th);
@@ -94,8 +94,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaPlayer) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        this.f30511a.c();
+                    if (this.f30622b.get() != null) {
+                        this.f30621a.c();
                     }
                 } catch (Throwable th) {
                     j.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onCompletion error: ", th);
@@ -109,8 +109,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i2, i3)) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        return this.f30511a.a(i2, i3);
+                    if (this.f30622b.get() != null) {
+                        return this.f30621a.a(i2, i3);
                     }
                     return false;
                 } catch (Throwable th) {
@@ -127,8 +127,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, mediaPlayer, i2, i3)) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        return this.f30511a.b(i2, i3);
+                    if (this.f30622b.get() != null) {
+                        return this.f30621a.b(i2, i3);
                     }
                     return false;
                 } catch (Throwable th) {
@@ -144,8 +144,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayer) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        this.f30511a.b();
+                    if (this.f30622b.get() != null) {
+                        this.f30621a.b();
                     }
                 } catch (Throwable th) {
                     j.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onPrepared error: ", th);
@@ -158,8 +158,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, mediaPlayer) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        this.f30511a.d();
+                    if (this.f30622b.get() != null) {
+                        this.f30621a.d();
                     }
                 } catch (Throwable th) {
                     j.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onSeekComplete error: ", th);
@@ -172,8 +172,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048582, this, mediaPlayer, i2, i3) == null) {
                 try {
-                    if (this.f30512b.get() != null) {
-                        this.f30511a.a(i2, i3, 1, 1);
+                    if (this.f30622b.get() != null) {
+                        this.f30621a.a(i2, i3, 1, 1);
                     }
                 } catch (Throwable th) {
                     j.c("AndroidMediaPlayer", "AndroidMediaPlayerListenerHolder.onVideoSizeChanged error: ", th);
@@ -197,18 +197,18 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             }
         }
         Object obj = new Object();
-        this.f30509e = obj;
+        this.f30619e = obj;
         synchronized (obj) {
             mediaPlayer = new MediaPlayer();
-            this.f30505a = mediaPlayer;
+            this.f30615a = mediaPlayer;
         }
         a(mediaPlayer);
         try {
-            this.f30505a.setAudioStreamType(3);
+            this.f30615a.setAudioStreamType(3);
         } catch (Throwable th) {
             j.c("AndroidMediaPlayer", "setAudioStreamType error: ", th);
         }
-        this.f30506b = new a(this, this);
+        this.f30616b = new a(this, this);
         n();
     }
 
@@ -236,7 +236,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     private void m() {
         com.bytedance.sdk.component.video.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || Build.VERSION.SDK_INT < 23 || (aVar = this.f30507c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || Build.VERSION.SDK_INT < 23 || (aVar = this.f30617c) == null) {
             return;
         }
         try {
@@ -244,29 +244,29 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
         } catch (Throwable th) {
             j.c("AndroidMediaPlayer", "releaseMediaDataSource error: ", th);
         }
-        this.f30507c = null;
+        this.f30617c = null;
     }
 
     private void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f30505a.setOnPreparedListener(this.f30506b);
-            this.f30505a.setOnBufferingUpdateListener(this.f30506b);
-            this.f30505a.setOnCompletionListener(this.f30506b);
-            this.f30505a.setOnSeekCompleteListener(this.f30506b);
-            this.f30505a.setOnVideoSizeChangedListener(this.f30506b);
-            this.f30505a.setOnErrorListener(this.f30506b);
-            this.f30505a.setOnInfoListener(this.f30506b);
+            this.f30615a.setOnPreparedListener(this.f30616b);
+            this.f30615a.setOnBufferingUpdateListener(this.f30616b);
+            this.f30615a.setOnCompletionListener(this.f30616b);
+            this.f30615a.setOnSeekCompleteListener(this.f30616b);
+            this.f30615a.setOnVideoSizeChangedListener(this.f30616b);
+            this.f30615a.setOnErrorListener(this.f30616b);
+            this.f30615a.setOnInfoListener(this.f30616b);
         }
     }
 
     private void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                if (this.f30508d != null) {
-                    this.f30508d.release();
-                    this.f30508d = null;
+                if (this.f30618d != null) {
+                    this.f30618d.release();
+                    this.f30618d = null;
                 }
             } catch (Throwable unused) {
             }
@@ -277,21 +277,21 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void b(boolean z) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f30505a.setLooping(z);
+            this.f30615a.setLooping(z);
         }
     }
 
     public MediaPlayer e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30505a : (MediaPlayer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30615a : (MediaPlayer) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
     public void f() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f30505a.start();
+            this.f30615a.start();
         }
     }
 
@@ -307,7 +307,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void g() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f30505a.stop();
+            this.f30615a.stop();
         }
     }
 
@@ -315,7 +315,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void h() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f30505a.pause();
+            this.f30615a.pause();
         }
     }
 
@@ -325,7 +325,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             try {
-                return this.f30505a.getCurrentPosition();
+                return this.f30615a.getCurrentPosition();
             } catch (Throwable th) {
                 j.c("AndroidMediaPlayer", "getCurrentPosition error: ", th);
                 return 0L;
@@ -340,7 +340,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             try {
-                return this.f30505a.getDuration();
+                return this.f30615a.getDuration();
             } catch (Throwable th) {
                 j.c("AndroidMediaPlayer", "getDuration error: ", th);
                 return 0L;
@@ -353,8 +353,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void k() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f30510f = true;
-            this.f30505a.release();
+            this.f30620f = true;
+            this.f30615a.release();
             o();
             m();
             a();
@@ -367,7 +367,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             try {
-                this.f30505a.reset();
+                this.f30615a.reset();
             } catch (Throwable th) {
                 j.c("AndroidMediaPlayer", "reset error: ", th);
             }
@@ -381,9 +381,9 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void a(SurfaceHolder surfaceHolder) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, surfaceHolder) == null) {
-            synchronized (this.f30509e) {
-                if (!this.f30510f) {
-                    this.f30505a.setDisplay(surfaceHolder);
+            synchronized (this.f30619e) {
+                if (!this.f30620f) {
+                    this.f30615a.setDisplay(surfaceHolder);
                 }
             }
         }
@@ -395,8 +395,8 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, surface) == null) {
             o();
-            this.f30508d = surface;
-            this.f30505a.setSurface(surface);
+            this.f30618d = surface;
+            this.f30615a.setSurface(surface);
         }
     }
 
@@ -407,9 +407,9 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
             Uri parse = Uri.parse(str);
             String scheme = parse.getScheme();
             if (!TextUtils.isEmpty(scheme) && scheme.equalsIgnoreCase("file")) {
-                this.f30505a.setDataSource(parse.getPath());
+                this.f30615a.setDataSource(parse.getPath());
             } else {
-                this.f30505a.setDataSource(str);
+                this.f30615a.setDataSource(str);
             }
         }
     }
@@ -418,7 +418,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void a(FileDescriptor fileDescriptor) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fileDescriptor) == null) {
-            this.f30505a.setDataSource(fileDescriptor);
+            this.f30615a.setDataSource(fileDescriptor);
         }
     }
 
@@ -435,9 +435,9 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
                 aVar.a(bVar.a());
                 aVar.b(bVar.b());
                 aVar.c(bVar.d());
-                this.f30507c = com.bytedance.sdk.component.video.a.a.a(o.a(), aVar);
+                this.f30617c = com.bytedance.sdk.component.video.a.a.a(o.a(), aVar);
                 com.bytedance.sdk.component.video.a.b.a.a(aVar);
-                this.f30505a.setDataSource(this.f30507c);
+                this.f30615a.setDataSource(this.f30617c);
             }
         }
     }
@@ -446,7 +446,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void a(boolean z) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f30505a.setScreenOnWhilePlaying(z);
+            this.f30615a.setScreenOnWhilePlaying(z);
         }
     }
 
@@ -454,7 +454,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void a(long j) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f30505a.seekTo((int) j);
+            this.f30615a.seekTo((int) j);
         }
     }
 
@@ -462,7 +462,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void a(float f2, float f3) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.f30505a.setVolume(f2, f3);
+            this.f30615a.setVolume(f2, f3);
         }
     }
 
@@ -470,7 +470,7 @@ public class b extends com.bytedance.sdk.openadsdk.core.video.c.a {
     public void a(Context context, int i2) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2) == null) {
-            this.f30505a.setWakeMode(context, i2);
+            this.f30615a.setWakeMode(context, i2);
         }
     }
 }

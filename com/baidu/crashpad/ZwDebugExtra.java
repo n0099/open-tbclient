@@ -2,13 +2,14 @@ package com.baidu.crashpad;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ZwDebugExtra {
     public static /* synthetic */ Interceptable $ic;
     public static boolean debugModel;
@@ -50,7 +51,7 @@ public class ZwDebugExtra {
 
     public static synchronized void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (ZwDebugExtra.class) {
                 try {
                     ApplicationInfo applicationInfo = context.getApplicationInfo();

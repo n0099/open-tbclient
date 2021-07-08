@@ -1,6 +1,7 @@
 package androidx.core.util;
 
 import android.util.SparseBooleanArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +52,7 @@ public final class SparseBooleanArrayKt {
     public static final boolean getOrDefault(SparseBooleanArray sparseBooleanArray, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{sparseBooleanArray, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? sparseBooleanArray.get(i2, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseBooleanArray, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? sparseBooleanArray.get(i2, z) : invokeCommon.booleanValue;
     }
 
     public static final boolean getOrElse(SparseBooleanArray sparseBooleanArray, int i2, Function0<Boolean> function0) {

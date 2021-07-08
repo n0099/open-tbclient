@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Type[] f44061a;
+    public Type[] f41077a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Type f44062b;
+    public Type f41078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f44063c;
+    public Class<?> f41079c;
 
     public c(Type type) {
         Interceptable interceptable = $ic;
@@ -37,20 +37,20 @@ public class c {
                 return;
             }
         }
-        this.f44061a = null;
-        this.f44062b = null;
-        this.f44063c = null;
+        this.f41077a = null;
+        this.f41078b = null;
+        this.f41079c = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.f44061a = parameterizedType.getActualTypeArguments();
+            this.f41077a = parameterizedType.getActualTypeArguments();
             Type rawType = parameterizedType.getRawType();
-            this.f44062b = rawType;
-            Type[] typeArr = this.f44061a;
+            this.f41078b = rawType;
+            Type[] typeArr = this.f41077a;
             if (typeArr == null || typeArr.length <= 0) {
                 return;
             }
             try {
-                this.f44063c = (Class) rawType;
+                this.f41079c = (Class) rawType;
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -58,7 +58,7 @@ public class c {
             }
         }
         try {
-            this.f44063c = (Class) type;
+            this.f41079c = (Class) type;
         } catch (Exception e3) {
             e3.printStackTrace();
         }
@@ -67,12 +67,12 @@ public class c {
     public Class<?> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44063c : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41079c : (Class) invokeV.objValue;
     }
 
     public Type[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44061a : (Type[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41077a : (Type[]) invokeV.objValue;
     }
 }

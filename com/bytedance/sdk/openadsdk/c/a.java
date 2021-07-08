@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.c;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,12 +15,12 @@ import com.bytedance.sdk.openadsdk.core.h;
 import com.bytedance.sdk.openadsdk.core.j;
 import com.bytedance.sdk.openadsdk.r.o;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29159a;
+    public static String f29269a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,13 +59,13 @@ public class a {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getApplicationName:", th);
             }
-            if (f29159a != null) {
-                return f29159a;
+            if (f29269a != null) {
+                return f29269a;
             }
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
             if (applicationInfo == null) {
@@ -79,8 +80,8 @@ public class a {
                     }
                 }
             }
-            f29159a = jSONObject.toString();
-            return f29159a;
+            f29269a = jSONObject.toString();
+            return f29269a;
         }
         return (String) invokeL.objValue;
     }

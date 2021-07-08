@@ -3,6 +3,7 @@ package com.google.android.material.datepicker;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DateValidatorPointForward implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DateValidatorPointForward> CREATOR;
@@ -84,7 +85,7 @@ public class DateValidatorPointForward implements CalendarConstraints.DateValida
     public static DateValidatorPointForward now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? from(UtcDates.getTodayCalendar().getTimeInMillis()) : (DateValidatorPointForward) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? from(UtcDates.getTodayCalendar().getTimeInMillis()) : (DateValidatorPointForward) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable

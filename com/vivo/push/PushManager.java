@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PushManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_REQUEST_ID = "1";
@@ -89,7 +89,7 @@ public class PushManager {
 
     private void setLocalTag(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
             checkParam(str);
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);

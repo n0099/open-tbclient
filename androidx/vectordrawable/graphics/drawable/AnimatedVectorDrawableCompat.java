@@ -179,7 +179,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         InterceptResult invokeLI;
         int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65540, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 AnimatedVectorDrawableCompat animatedVectorDrawableCompat = new AnimatedVectorDrawableCompat(context);
                 Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), i2, context.getTheme());

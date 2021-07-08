@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +13,13 @@ import d.f.d.a.n;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SortedLists {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class KeyAbsentBehavior {
         public static final /* synthetic */ KeyAbsentBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,7 +169,7 @@ public final class SortedLists {
         public static KeyAbsentBehavior[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (KeyAbsentBehavior[]) $VALUES.clone() : (KeyAbsentBehavior[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (KeyAbsentBehavior[]) $VALUES.clone() : (KeyAbsentBehavior[]) invokeV.objValue;
         }
 
         public abstract int resultIndex(int i2);
@@ -179,7 +180,7 @@ public final class SortedLists {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class KeyPresentBehavior {
         public static final /* synthetic */ KeyPresentBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -425,7 +426,7 @@ public final class SortedLists {
         public static KeyPresentBehavior[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (KeyPresentBehavior[]) $VALUES.clone() : (KeyPresentBehavior[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (KeyPresentBehavior[]) $VALUES.clone() : (KeyPresentBehavior[]) invokeV.objValue;
         }
 
         public abstract <E> int resultIndex(Comparator<? super E> comparator, E e2, List<? extends E> list, int i2);
@@ -435,7 +436,7 @@ public final class SortedLists {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

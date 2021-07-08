@@ -1,9 +1,6 @@
 package d.a.y.e;
 
-import android.util.Log;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,24 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes9.dex */
+import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.http.HttpStatus;
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f70999a;
-
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f71000b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f71001c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static ArrayList<String> f71002d;
+    public static Map<Integer, Integer> f68496b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f68497a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,14 +36,16 @@ public class a {
                 return;
             }
         }
-        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        if (appInfoService != null) {
-            l(appInfoService.isDebug());
-        }
-        f70999a = a.class.getName();
-        f71000b = false;
-        f71001c = null;
-        f71002d = new ArrayList<>();
+        HashMap hashMap = new HashMap();
+        f68496b = hashMap;
+        hashMap.put(2, 256);
+        f68496b.put(4, 8);
+        f68496b.put(8, 286);
+        f68496b.put(16, Integer.valueOf((int) QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY));
+        f68496b.put(32, 326);
+        f68496b.put(64, Integer.valueOf((int) HttpStatus.SC_UNPROCESSABLE_ENTITY));
+        f68496b.put(128, 326);
+        f68496b.put(256, 20);
     }
 
     public a() {
@@ -63,177 +58,32 @@ public class a {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f68497a = 4;
     }
 
-    public static String a(boolean z, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
-            if (i()) {
-                String str4 = f71001c;
-                if (str4 == null || str3.startsWith(str4)) {
-                    if (!z || j(str)) {
-                        StringBuffer stringBuffer = new StringBuffer(100);
-                        stringBuffer.append(str);
-                        stringBuffer.append(":");
-                        stringBuffer.append(str2);
-                        stringBuffer.append(":");
-                        stringBuffer.append(str3);
-                        return stringBuffer.toString();
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static void b(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) || (a2 = a(true, str, str2, str3)) == null) {
-            return;
-        }
-        Log.d(f70999a, a2);
-    }
-
-    public static int c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, th)) == null) {
-            if (!i() || th == null) {
-                return -1;
-            }
-            Log.e(f70999a, th.getMessage(), th);
-            return k(0, th.getMessage());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? k(0, str) : invokeL.intValue;
-    }
-
-    public static int e(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th)) == null) ? k(0, th.getMessage()) : invokeL.intValue;
-    }
-
-    public static void f(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65543, null, str, str2, str3) == null) || (a2 = a(false, str, str2, str3)) == null) {
-            return;
-        }
-        Log.e(f70999a, a2);
-    }
-
-    public static int g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) ? k(2, str) : invokeL.intValue;
-    }
-
-    public static void h(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, null, str, str2, str3) == null) || (a2 = a(true, str, str2, str3)) == null) {
-            return;
-        }
-        Log.i(f70999a, a2);
-    }
-
-    public static boolean i() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f71000b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68497a : invokeV.intValue;
     }
 
-    public static boolean j(String str) {
-        InterceptResult invokeL;
+    public int b(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            boolean z = false;
-            if (f71002d.size() == 0) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            int i3 = this.f68497a;
+            if (i3 == i2) {
+                return 0;
             }
-            Iterator<String> it = f71002d.iterator();
-            while (it.hasNext()) {
-                if (str.startsWith(it.next())) {
-                    z = true;
-                }
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int k(int i2, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i2, str)) == null) {
-            if (i()) {
-                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-                if (stackTrace.length < 5) {
-                    return -1;
-                }
-                StackTraceElement stackTraceElement = stackTrace[4];
-                String methodName = stackTraceElement.getMethodName();
-                String className = stackTraceElement.getClassName();
-                if (i2 <= 1 || j(className)) {
-                    if (i2 == 0) {
-                        f(className, methodName, str);
-                        return 0;
-                    } else if (i2 == 1) {
-                        n(className, methodName, str);
-                        return 0;
-                    } else if (i2 == 2) {
-                        h(className, methodName, str);
-                        return 0;
-                    } else if (i2 == 3) {
-                        b(className, methodName, str);
-                        return 0;
-                    } else {
-                        m(className, methodName, str);
-                        return 0;
-                    }
-                }
+            if (i2 != (f68496b.get(Integer.valueOf(i3)).intValue() & i2)) {
                 return -1;
             }
-            return -1;
+            this.f68497a = i2;
+            return 1;
         }
-        return invokeIL.intValue;
-    }
-
-    public static void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f71000b = z;
-        }
-    }
-
-    public static void m(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65550, null, str, str2, str3) == null) || (a2 = a(true, str, str2, str3)) == null) {
-            return;
-        }
-        Log.v(f70999a, a2);
-    }
-
-    public static void n(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) || (a2 = a(false, str, str2, str3)) == null) {
-            return;
-        }
-        Log.w(f70999a, a2);
+        return invokeI.intValue;
     }
 }

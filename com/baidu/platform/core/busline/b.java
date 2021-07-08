@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class b extends e {
     private void a(BusLineSearchOption busLineSearchOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, busLineSearchOption) == null) {
-            this.f9391a.a("qt", "bsl");
-            this.f9391a.a("rt_info", "1");
-            this.f9391a.a("ie", "utf-8");
-            this.f9391a.a("oue", "0");
-            this.f9391a.a("c", busLineSearchOption.mCity);
-            this.f9391a.a("uid", busLineSearchOption.mUid);
-            com.baidu.platform.util.a aVar = this.f9391a;
+            this.f9408a.a("qt", "bsl");
+            this.f9408a.a("rt_info", "1");
+            this.f9408a.a("ie", "utf-8");
+            this.f9408a.a("oue", "0");
+            this.f9408a.a("c", busLineSearchOption.mCity);
+            this.f9408a.a("uid", busLineSearchOption.mUid);
+            com.baidu.platform.util.a aVar = this.f9408a;
             aVar.a("t", System.currentTimeMillis() + "");
         }
     }

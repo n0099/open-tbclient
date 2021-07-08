@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.d.i;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final i f28668a;
+    public final i f28778a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.d.c.a.c f28669b;
+    public final com.bytedance.sdk.component.d.c.a.c f28779b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(i iVar) {
@@ -55,8 +55,8 @@ public class d implements i {
                 return;
             }
         }
-        this.f28668a = iVar;
-        this.f28669b = cVar;
+        this.f28778a = iVar;
+        this.f28779b = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,8 +66,8 @@ public class d implements i {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bitmap)) == null) {
-            boolean a2 = this.f28668a.a(str, bitmap);
-            com.bytedance.sdk.component.d.c.a.c cVar = this.f28669b;
+            boolean a2 = this.f28778a.a(str, bitmap);
+            com.bytedance.sdk.component.d.c.a.c cVar = this.f28779b;
             if (cVar != null) {
                 cVar.a(str, Boolean.valueOf(a2));
             }
@@ -83,8 +83,8 @@ public class d implements i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Bitmap a2 = this.f28668a.a(str);
-            com.bytedance.sdk.component.d.c.a.c cVar = this.f28669b;
+            Bitmap a2 = this.f28778a.a(str);
+            com.bytedance.sdk.component.d.c.a.c cVar = this.f28779b;
             if (cVar != null) {
                 cVar.b(str, a2);
             }

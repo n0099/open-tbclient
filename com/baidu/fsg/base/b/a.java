@@ -2,6 +2,7 @@ package com.baidu.fsg.base.b;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -24,36 +25,36 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f5144a = 1000;
+    public static final long f5161a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, a> f5145b = null;
+    public static HashMap<String, a> f5162b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5146c;
+    public static final boolean f5163c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5147d;
+    public static final String f5164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f5148e = Long.MAX_VALUE;
+    public static final long f5165e = Long.MAX_VALUE;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5149f = 5;
+    public static final int f5166f = 5;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5150g = 128;
+    public static final int f5167g = 128;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5151h = 1;
+    public static final int f5168h = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f5152i;
+    public static a f5169i;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, ArrayList<c>> j;
     public final HashMap<Future<?>, Runnable> k;
@@ -65,13 +66,13 @@ public final class a {
     public b q;
 
     /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class C0097a extends ThreadPoolExecutor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f5153a;
+        public final /* synthetic */ a f5170a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public C0097a(a aVar, int i2, int i3, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
@@ -92,44 +93,44 @@ public final class a {
                     return;
                 }
             }
-            this.f5153a = aVar;
+            this.f5170a = aVar;
         }
 
         @Override // java.util.concurrent.ThreadPoolExecutor
         public void afterExecute(Runnable runnable, Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, th) == null) {
-                this.f5153a.k.remove((Future) runnable);
+                this.f5170a.k.remove((Future) runnable);
                 super.afterExecute(runnable, th);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5157a;
+        public String f5174a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f5158b;
+        public Runnable f5175b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f5159c;
+        public long f5176c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f5160d;
+        public long f5177d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f5161e;
+        public boolean f5178e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f5162f;
+        public long f5179f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f5163g;
+        public final /* synthetic */ a f5180g;
 
         public c(a aVar, long j, long j2, boolean z, String str, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -146,13 +147,13 @@ public final class a {
                     return;
                 }
             }
-            this.f5163g = aVar;
-            this.f5160d = j;
-            this.f5162f = System.currentTimeMillis() + j;
-            this.f5159c = j2;
-            this.f5161e = z;
-            this.f5158b = runnable;
-            this.f5157a = str;
+            this.f5180g = aVar;
+            this.f5177d = j;
+            this.f5179f = System.currentTimeMillis() + j;
+            this.f5176c = j2;
+            this.f5178e = z;
+            this.f5175b = runnable;
+            this.f5174a = str;
         }
     }
 
@@ -169,10 +170,10 @@ public final class a {
                 return;
             }
         }
-        f5146c = ApollonConstants.DEBUG;
-        f5147d = a.class.getSimpleName();
-        f5145b = new HashMap<>();
-        f5152i = null;
+        f5163c = ApollonConstants.DEBUG;
+        f5164d = a.class.getSimpleName();
+        f5162b = new HashMap<>();
+        f5169i = null;
     }
 
     public a() {
@@ -202,34 +203,34 @@ public final class a {
     public void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, cVar) == null) {
-            if (cVar.f5159c > 0) {
-                cVar.f5160d = 0L;
+            if (cVar.f5176c > 0) {
+                cVar.f5177d = 0L;
             }
-            if (cVar.f5161e) {
-                this.q.execute(cVar.f5158b);
+            if (cVar.f5178e) {
+                this.q.execute(cVar.f5175b);
                 return;
             }
-            this.k.put(this.p.submit(cVar.f5158b), cVar.f5158b);
-            if (f5146c) {
-                String str = f5147d;
-                Log.d(str, "execute task, " + cVar.f5157a + " execute time is " + System.currentTimeMillis());
+            this.k.put(this.p.submit(cVar.f5175b), cVar.f5175b);
+            if (f5163c) {
+                String str = f5164d;
+                Log.d(str, "execute task, " + cVar.f5174a + " execute time is " + System.currentTimeMillis());
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final LinkedList<Runnable> f5154a;
+        public final LinkedList<Runnable> f5171a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f5155b;
+        public Runnable f5172b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f5156c;
+        public final /* synthetic */ a f5173c;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -246,18 +247,18 @@ public final class a {
                     return;
                 }
             }
-            this.f5156c = aVar;
-            this.f5154a = new LinkedList<>();
+            this.f5173c = aVar;
+            this.f5171a = new LinkedList<>();
         }
 
         public synchronized void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
-                    Runnable poll = this.f5154a.poll();
-                    this.f5155b = poll;
+                    Runnable poll = this.f5171a.poll();
+                    this.f5172b = poll;
                     if (poll != null) {
-                        this.f5156c.p.execute(this.f5155b);
+                        this.f5173c.p.execute(this.f5172b);
                     }
                 }
             }
@@ -268,8 +269,8 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
                 synchronized (this) {
-                    this.f5154a.offer(new e(this, runnable));
-                    if (this.f5155b == null) {
+                    this.f5171a.offer(new e(this, runnable));
+                    if (this.f5172b == null) {
                         a();
                     }
                 }
@@ -284,7 +285,7 @@ public final class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
                 synchronized (this) {
-                    this.f5154a.remove(runnable);
+                    this.f5171a.remove(runnable);
                 }
             }
         }
@@ -325,12 +326,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             synchronized (a.class) {
-                if (f5145b.get(str) == null) {
+                if (f5162b.get(str) == null) {
                     a aVar2 = new a();
-                    f5152i = aVar2;
-                    f5145b.put(str, aVar2);
+                    f5169i = aVar2;
+                    f5162b.put(str, aVar2);
                 }
-                aVar = f5152i;
+                aVar = f5169i;
             }
             return aVar;
         }
@@ -340,8 +341,8 @@ public final class a {
     private void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, cVar) == null) {
-            if (cVar.f5160d > 0) {
-                a(cVar, cVar.f5162f - System.currentTimeMillis());
+            if (cVar.f5177d > 0) {
+                a(cVar, cVar.f5179f - System.currentTimeMillis());
             } else {
                 d(cVar);
             }
@@ -352,19 +353,19 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, str)) == null) {
-            if (cVar == null || cVar.f5158b == null) {
+            if (cVar == null || cVar.f5175b == null) {
                 return false;
             }
             synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
                 if (!a(cVar, c2)) {
-                    if (cVar.f5162f <= System.currentTimeMillis()) {
+                    if (cVar.f5179f <= System.currentTimeMillis()) {
                         c(cVar);
-                    } else if (cVar.f5160d > 0) {
+                    } else if (cVar.f5177d > 0) {
                         c(cVar);
                     }
-                    if (cVar.f5159c > 0) {
-                        cVar.f5162f = System.currentTimeMillis() + cVar.f5160d + cVar.f5159c;
+                    if (cVar.f5176c > 0) {
+                        cVar.f5179f = System.currentTimeMillis() + cVar.f5177d + cVar.f5176c;
                         c2.add(cVar);
                         a(cVar);
                     }
@@ -381,12 +382,12 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, cVar, str)) == null) {
-            if (cVar == null || cVar.f5158b == null) {
+            if (cVar == null || cVar.f5175b == null) {
                 return false;
             }
             synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.f5157a, c2);
+                c a2 = a(cVar.f5174a, c2);
                 if (a2 != null) {
                     b(a2);
                     c2.remove(a2);
@@ -402,12 +403,12 @@ public final class a {
     private void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, cVar) == null) {
-            if (cVar.f5161e) {
-                this.q.a(cVar.f5158b);
+            if (cVar.f5178e) {
+                this.q.a(cVar.f5175b);
                 return;
             }
             for (Future<?> future : this.k.keySet()) {
-                if (this.k.get(future) == cVar.f5158b && future != null && (!future.isCancelled() || !future.isDone())) {
+                if (this.k.get(future) == cVar.f5175b && future != null && (!future.isCancelled() || !future.isDone())) {
                     future.cancel(true);
                 }
             }
@@ -422,9 +423,9 @@ public final class a {
                 Iterator<c> it = c2.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.f5157a.equals(str2)) {
+                    if (next.f5174a.equals(str2)) {
                         b(next);
-                        c2.remove(next.f5157a);
+                        c2.remove(next.f5174a);
                     }
                 }
             }
@@ -438,7 +439,7 @@ public final class a {
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (TextUtils.equals(str, next.f5157a)) {
+                if (TextUtils.equals(str, next.f5174a)) {
                     return next;
                 }
             }
@@ -450,7 +451,7 @@ public final class a {
     private void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, cVar) == null) {
-            long j = cVar.f5162f;
+            long j = cVar.f5179f;
             if (j < this.m) {
                 a(Math.max(j - System.currentTimeMillis(), 1000L));
             }
@@ -460,8 +461,8 @@ public final class a {
     private void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
-            if (f5146c) {
-                String str = f5147d;
+            if (f5163c) {
+                String str = f5164d;
                 Log.d(str, "intervalMillis: " + j);
             }
             Timer timer = this.n;
@@ -477,9 +478,9 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            if (f5146c) {
-                Log.d(f5147d, "scheduleForPeriodTasks run");
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            if (f5163c) {
+                Log.d(f5164d, "scheduleForPeriodTasks run");
             }
             synchronized (this.j) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -489,19 +490,19 @@ public final class a {
                     Iterator<c> it = c(str).iterator();
                     while (it.hasNext()) {
                         c next = it.next();
-                        if (next.f5162f - currentTimeMillis < 1000) {
-                            if (f5146c) {
-                                String str2 = f5147d;
-                                Log.d(str2, "task.mNextRunTime - current = " + (next.f5162f - currentTimeMillis));
+                        if (next.f5179f - currentTimeMillis < 1000) {
+                            if (f5163c) {
+                                String str2 = f5164d;
+                                Log.d(str2, "task.mNextRunTime - current = " + (next.f5179f - currentTimeMillis));
                             }
                             c(next);
-                            if (next.f5159c > 0) {
-                                next.f5162f = next.f5159c + currentTimeMillis;
+                            if (next.f5176c > 0) {
+                                next.f5179f = next.f5176c + currentTimeMillis;
                                 arrayList.add(next);
                             }
                         }
-                        if (next.f5162f < this.m) {
-                            this.m = next.f5162f;
+                        if (next.f5179f < this.m) {
+                            this.m = next.f5179f;
                         }
                     }
                     if (this.m < Long.MAX_VALUE) {
@@ -518,7 +519,7 @@ public final class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, cVar, arrayList)) == null) {
             Iterator<c> it = arrayList.iterator();
             while (it.hasNext()) {
-                if (TextUtils.equals(it.next().f5157a, cVar.f5157a)) {
+                if (TextUtils.equals(it.next().f5174a, cVar.f5174a)) {
                     return true;
                 }
             }

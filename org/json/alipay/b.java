@@ -1,5 +1,6 @@
 package org.json.alipay;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -15,18 +16,18 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f76124a;
+    public static final Object f73158a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f76125b;
+    public Map f73159b;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public class b {
                 return;
             }
         }
-        f76124a = new a((byte) 0);
+        f73158a = new a((byte) 0);
     }
 
     public b() {
@@ -97,7 +98,7 @@ public class b {
                 return;
             }
         }
-        this.f76125b = new HashMap();
+        this.f73159b = new HashMap();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -135,7 +136,7 @@ public class b {
                 return;
             }
         }
-        this.f76125b = map == null ? new HashMap() : map;
+        this.f73159b = map == null ? new HashMap() : map;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -146,13 +147,13 @@ public class b {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 this();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -183,9 +184,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f76125b.put(obj, d2);
+                this.f73159b.put(obj, d2);
             } else {
-                this.f76125b.remove(obj);
+                this.f73159b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -318,7 +319,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object obj = str == null ? null : this.f76125b.get(str);
+            Object obj = str == null ? null : this.f73159b.get(str);
             if (obj != null) {
                 return obj;
             }
@@ -330,13 +331,13 @@ public class b {
     public final Iterator a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f76125b.keySet().iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73159b.keySet().iterator() : (Iterator) invokeV.objValue;
     }
 
     public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f76125b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f73159b.containsKey(str) : invokeL.booleanValue;
     }
 
     public String toString() {
@@ -353,7 +354,7 @@ public class b {
                     Object next = a2.next();
                     stringBuffer.append(c(next.toString()));
                     stringBuffer.append(':');
-                    stringBuffer.append(a(this.f76125b.get(next)));
+                    stringBuffer.append(a(this.f73159b.get(next)));
                 }
                 stringBuffer.append('}');
                 return stringBuffer.toString();

@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.m.b;
-import d.a.r0.m.d;
-import d.a.r0.r.q.b2;
-/* loaded from: classes4.dex */
+import d.a.o0.m.d;
+import d.a.o0.r.q.b2;
+/* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class ClickableHeaderImageView extends HeadImageView {
     public d V0;
     public View.OnClickListener W0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f12384e;
+        public final /* synthetic */ ClickableHeaderImageView f12401e;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -52,26 +52,26 @@ public class ClickableHeaderImageView extends HeadImageView {
                     return;
                 }
             }
-            this.f12384e = clickableHeaderImageView;
+            this.f12401e = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f12384e.V0;
-                if ((dVar == null || !dVar.a(view)) && this.f12384e.S0 != null) {
-                    MetaData t = this.f12384e.T0 ? this.f12384e.S0.p1().t() : this.f12384e.S0.H();
+                d dVar = this.f12401e.V0;
+                if ((dVar == null || !dVar.a(view)) && this.f12401e.S0 != null) {
+                    MetaData t = this.f12401e.T0 ? this.f12401e.S0.p1().t() : this.f12401e.S0.H();
                     if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
                         return;
                     }
                     long f2 = b.f(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f12384e.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f12384e.S0.n1());
-                    createNormalConfig.setSourceNid(this.f12384e.S0.A0());
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f12401e.getContext()).createNormalConfig(f2, f2 == b.f(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
+                    createNormalConfig.setSourceTid(this.f12401e.S0.n1());
+                    createNormalConfig.setSourceNid(this.f12401e.S0.A0());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f12384e.U0 != null) {
-                        this.f12384e.U0.onClick(view);
+                    if (this.f12401e.U0 != null) {
+                        this.f12401e.U0.onClick(view);
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.payservice.H5PayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class PayMethodFactory {
     public static final /* synthetic */ PayMethodFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +29,7 @@ public final class PayMethodFactory {
     public IPayMethod method;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
         public static /* synthetic */ Interceptable $ic;
@@ -159,7 +160,7 @@ public final class PayMethodFactory {
     public static IPayMethod valueOf(PayType payType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, payType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payType)) == null) {
             IPayMethod findProxyPayMethod = PayMethodProxyFactory.instance().findProxyPayMethod(payType);
             if (findProxyPayMethod != null) {
                 RLog.info("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());

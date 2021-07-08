@@ -1,5 +1,6 @@
 package com.alipay.security.mobile.module.a.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2058a;
+    public static String f2059a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public final class c {
                 return;
             }
         }
-        f2058a = new String("idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#");
+        f2059a = new String("idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#");
     }
 
     public static String a() {
@@ -44,8 +45,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String str = new String();
-            for (int i2 = 0; i2 < f2058a.length() - 1; i2 += 4) {
-                str = str + f2058a.charAt(i2);
+            for (int i2 = 0; i2 < f2059a.length() - 1; i2 += 4) {
+                str = str + f2059a.charAt(i2);
             }
             return str;
         }
@@ -96,7 +97,7 @@ public final class c {
     public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             Class<?> cls = Class.forName(new String(a.a("amF2YS5zZWN1cml0eS5TZWN1cmVSYW5kb20=")));
             Object invoke = cls.getMethod("getInstance", String.class, String.class).invoke(null, "SHA1PRNG", "Crypto");

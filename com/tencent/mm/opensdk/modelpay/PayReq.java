@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PayReq extends BaseReq {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTDATA_MAX_LENGTH = 1024;
@@ -27,7 +27,7 @@ public class PayReq extends BaseReq {
     public String signType;
     public String timeStamp;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;

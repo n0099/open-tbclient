@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface NetworkFetcher<FETCH_STATE extends FetchState> {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Callback {
         void onCancellation();
 

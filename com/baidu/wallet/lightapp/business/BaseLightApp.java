@@ -13,7 +13,7 @@ import com.baidu.wallet.api.ILightappInvokerCallback;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseLightApp implements ILightAppListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KeyboardLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13213e;
+    public boolean f13230e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13214f;
+    public boolean f13231f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13215g;
+    public int f13232g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f13216h;
+    public a f13233h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i2);
     }
@@ -49,7 +49,7 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f13213e = false;
+        this.f13230e = false;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -57,30 +57,30 @@ public class KeyboardLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (!this.f13213e) {
-                this.f13213e = true;
-                this.f13215g = i5;
-                a aVar = this.f13216h;
+            if (!this.f13230e) {
+                this.f13230e = true;
+                this.f13232g = i5;
+                a aVar = this.f13233h;
                 if (aVar != null) {
                     aVar.a(-1);
                 }
             } else {
-                int i6 = this.f13215g;
+                int i6 = this.f13232g;
                 if (i6 < i5) {
                     i6 = i5;
                 }
-                this.f13215g = i6;
+                this.f13232g = i6;
             }
-            if (this.f13213e && this.f13215g > i5) {
-                this.f13214f = true;
-                a aVar2 = this.f13216h;
+            if (this.f13230e && this.f13232g > i5) {
+                this.f13231f = true;
+                a aVar2 = this.f13233h;
                 if (aVar2 != null) {
                     aVar2.a(-3);
                 }
             }
-            if (this.f13213e && this.f13214f && this.f13215g == i5) {
-                this.f13214f = false;
-                a aVar3 = this.f13216h;
+            if (this.f13230e && this.f13231f && this.f13232g == i5) {
+                this.f13231f = false;
+                a aVar3 = this.f13233h;
                 if (aVar3 != null) {
                     aVar3.a(-2);
                 }
@@ -91,7 +91,7 @@ public class KeyboardLayout extends RelativeLayout {
     public void setOnkbdStateListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f13216h = aVar;
+            this.f13233h = aVar;
         }
     }
 
@@ -114,7 +114,7 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f13213e = false;
+        this.f13230e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,6 +135,6 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f13213e = false;
+        this.f13230e = false;
     }
 }

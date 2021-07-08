@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.w;
-/* loaded from: classes7.dex */
+import com.kwad.sdk.utils.aa;
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36093a;
+    public Context f34418a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f36093a = context;
+        this.f34418a = context;
     }
 
     private String a(Cursor cursor) {
@@ -65,12 +65,12 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = "";
             try {
-                Cursor query = this.f36093a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
+                Cursor query = this.f34418a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
                 str = a(query);
-                com.kwad.sdk.core.d.a.b("MeizuDeviceIDHelper", "getOAID oaid:" + str);
-                w.a(query);
+                com.kwad.sdk.core.d.a.c("MeizuDeviceIDHelper", "getOAID oaid:" + str);
+                aa.a(query);
             } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.b("MeizuDeviceIDHelper", "getOAID service not found;");
+                com.kwad.sdk.core.d.a.c("MeizuDeviceIDHelper", "getOAID service not found;");
                 com.kwad.sdk.core.d.a.a(e2);
             }
             return str;

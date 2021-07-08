@@ -6,15 +6,15 @@ import androidx.annotation.MainThread;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.multipro.b.a;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface TTNativeExpressAd {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface AdInteractionListener extends ExpressAdInteractionListener {
         void onAdDismiss();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ExpressAdInteractionListener {
         void onAdClicked(View view, int i2);
 
@@ -25,7 +25,7 @@ public interface TTNativeExpressAd {
         void onRenderSuccess(View view, float f2, float f3);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ExpressVideoAdListener {
         void onClickRetry();
 

@@ -38,7 +38,7 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic;
     @StyleRes
@@ -160,7 +160,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     private float calculateTextCenterFromBaseline() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             this.textDrawableHelper.getTextPaint().getFontMetrics(this.fontMetrics);
             Paint.FontMetrics fontMetrics = this.fontMetrics;
             return (fontMetrics.descent + fontMetrics.ascent) / 2.0f;

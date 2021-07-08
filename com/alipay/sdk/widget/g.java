@@ -17,7 +17,7 @@ public abstract class g extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f2027a;
+    public Activity f2028a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Activity activity) {
@@ -37,7 +37,7 @@ public abstract class g extends FrameLayout {
                 return;
             }
         }
-        this.f2027a = activity;
+        this.f2028a = activity;
     }
 
     public abstract void a();
@@ -49,7 +49,7 @@ public abstract class g extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        CookieSyncManager.createInstance(this.f2027a.getApplicationContext()).sync();
+        CookieSyncManager.createInstance(this.f2028a.getApplicationContext()).sync();
         CookieManager.getInstance().setCookie(str, str2);
         CookieSyncManager.getInstance().sync();
     }

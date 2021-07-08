@@ -21,7 +21,7 @@ import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.beans.BaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TraceBean extends BaseBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SALT = "0B4rMozbYb^R2pN04QwGa*JkTxA9EmQ5";
@@ -32,7 +32,7 @@ public class TraceBean extends BaseBean {
     public String mHttpMethod;
     public List<RestNameValuePair> mParams;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class CustomInterceptors implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -2,6 +2,7 @@ package com.baidu.searchbox.pms.init.response;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
@@ -34,7 +35,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ResponseDataProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +157,7 @@ public class ResponseDataProcess {
 
     public static void dispatchFetchError(ErrorInfo errorInfo, RequestParams.Channel channel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, errorInfo, channel) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, errorInfo, channel) == null) {
             dispatchFetchError(errorInfo, Collections.singletonList(channel));
         }
     }

@@ -3,6 +3,7 @@ package com.baidu.android.common.logging;
 import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -76,7 +77,7 @@ public final class Log {
     public static void e(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) && sLogEnabled) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sLogEnabled) {
             if (sLog2File && (logger = sFilelogger) != null) {
                 Level level = Level.SEVERE;
                 logger.log(level, str + ": " + str2);

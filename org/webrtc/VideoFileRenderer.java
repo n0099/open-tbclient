@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class VideoFileRenderer implements VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoFileRenderer";

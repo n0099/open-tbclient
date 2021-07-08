@@ -3,6 +3,7 @@ package com.baidu.mobads.container;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
 import com.baidu.mobads.container.adrequest.XAdContainerContext;
 import com.baidu.mobads.container.components.command.OAdRemoteApkDownloaderObserver;
@@ -44,7 +45,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class XAdRemoteCommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_TIMEOUT = 0;
@@ -221,7 +222,7 @@ public class XAdRemoteCommonUtils {
 
     public static void downloadAppSilence(Context context, String str, IXAdInstanceInfo iXAdInstanceInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65540, null, context, str, iXAdInstanceInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, iXAdInstanceInfo) == null) {
             downloadApp(context, str, iXAdInstanceInfo, null, "silence", false);
         }
     }

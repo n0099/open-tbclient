@@ -79,7 +79,7 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
         WrappedDrawableState wrappedDrawableState;
         Drawable.ConstantState constantState;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, resources) == null) || (wrappedDrawableState = this.mState) == null || (constantState = wrappedDrawableState.mDrawableState) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, resources) == null) || (wrappedDrawableState = this.mState) == null || (constantState = wrappedDrawableState.mDrawableState) == null) {
             return;
         }
         setWrappedDrawable(constantState.newDrawable(resources));

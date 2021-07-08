@@ -1,6 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PassBioDataEncryptor {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9113a = "PassBioDataEncryptor";
+    public static final String f9130a = "PassBioDataEncryptor";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PassBioDataEncryptor() {
@@ -55,7 +56,7 @@ public class PassBioDataEncryptor {
             try {
                 return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
             } catch (Throwable th) {
-                Log.e(f9113a, f9113a, th);
+                Log.e(f9130a, f9130a, th);
                 return "";
             }
         }
@@ -72,7 +73,7 @@ public class PassBioDataEncryptor {
             try {
                 return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
             } catch (Throwable th) {
-                Log.e(f9113a, f9113a, th);
+                Log.e(f9130a, f9130a, th);
                 return "";
             }
         }
@@ -83,7 +84,7 @@ public class PassBioDataEncryptor {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             String str3 = "";
             String a2 = a(16);
             try {
@@ -96,7 +97,7 @@ public class PassBioDataEncryptor {
                 str3 = SecurityUtil.base64Encode(RSA.encrypt(a2));
             } catch (Exception e3) {
                 e = e3;
-                Log.e(f9113a, f9113a, e);
+                Log.e(f9130a, f9130a, e);
                 return TextUtils.join("_", new String[]{str3, str2});
             }
             return TextUtils.join("_", new String[]{str3, str2});

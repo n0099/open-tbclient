@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.activity.BaseActivity;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class RimGlobalUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5410a;
+    public static String f5427a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimGlobalUtils() {
@@ -45,7 +46,7 @@ public final class RimGlobalUtils {
     public static String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f5410a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f5427a : (String) invokeV.objValue;
     }
 
     public static String getZid(Context context) {
@@ -87,7 +88,7 @@ public final class RimGlobalUtils {
         InterceptResult invokeLL;
         InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, context, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view)) == null) {
             if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
                 return false;
             }
@@ -137,7 +138,7 @@ public final class RimGlobalUtils {
     public static void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f5410a = str;
+            f5427a = str;
         }
     }
 
@@ -154,10 +155,10 @@ public final class RimGlobalUtils {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f5411a;
+                public final /* synthetic */ Context f5428a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f5412b;
+                public final /* synthetic */ View f5429b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -174,15 +175,15 @@ public final class RimGlobalUtils {
                             return;
                         }
                     }
-                    this.f5411a = context;
-                    this.f5412b = view;
+                    this.f5428a = context;
+                    this.f5429b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f5411a.getSystemService("input_method")).showSoftInput(this.f5412b, 0);
+                        ((InputMethodManager) this.f5428a.getSystemService("input_method")).showSoftInput(this.f5429b, 0);
                     }
                 }
             }, 100L);
@@ -251,7 +252,7 @@ public final class RimGlobalUtils {
     public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65544, null, baseActivity, i2, str) == null) {
-            f5410a = str;
+            f5427a = str;
             try {
                 baseActivity.getActivity().showDialog(i2);
             } catch (Exception e2) {

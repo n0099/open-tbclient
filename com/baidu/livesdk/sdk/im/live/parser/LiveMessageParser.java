@@ -2,6 +2,7 @@ package com.baidu.livesdk.sdk.im.live.parser;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -21,14 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.filter.FilterValue;
-import com.kwai.video.player.KsMediaMeta;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LiveMessageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -123,7 +123,7 @@ public class LiveMessageParser {
     public static LiveMessageBean parseChatMsg(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, chatMsg)) == null) {
             try {
                 LiveMessageBean parseContentJson = parseContentJson(new JSONObject(chatMsg.getJsonContent()));
                 if (checkMessageValid(parseContentJson)) {
@@ -630,7 +630,7 @@ public class LiveMessageParser {
                     if (jSONObject2 != null) {
                         String optString4 = jSONObject2.optString("url");
                         String optString5 = jSONObject2.optString("duration");
-                        String optString6 = jSONObject2.optString(KsMediaMeta.KSM_KEY_FORMAT);
+                        String optString6 = jSONObject2.optString("format");
                         LiveMessageBean.Voice voice = new LiveMessageBean.Voice();
                         voice.url = optString4;
                         voice.duration = optString5;
@@ -658,7 +658,7 @@ public class LiveMessageParser {
                                 imageInfo.height = jSONObject6.optInt("height");
                             }
                             imageInfo.url = jSONObject6.optString("url");
-                            imageInfo.format = jSONObject6.optString(KsMediaMeta.KSM_KEY_FORMAT);
+                            imageInfo.format = jSONObject6.optString("format");
                             pic.origin = imageInfo;
                             messageBody.pic = pic;
                         } catch (JSONException e7) {
@@ -674,7 +674,7 @@ public class LiveMessageParser {
                                 imageInfo2.height = jSONObject7.optInt("height");
                             }
                             imageInfo2.url = jSONObject7.optString("url");
-                            imageInfo2.format = jSONObject7.optString(KsMediaMeta.KSM_KEY_FORMAT);
+                            imageInfo2.format = jSONObject7.optString("format");
                             pic.thumbnail = imageInfo2;
                             messageBody.pic = pic;
                         } catch (JSONException e8) {

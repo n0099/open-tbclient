@@ -1,19 +1,24 @@
 package com.kwad.sdk.core.g.a;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.utils.q;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class k implements com.kwad.sdk.core.b {
+/* loaded from: classes6.dex */
+public class k extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f36160a;
+    public int f34494a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f34495b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -25,30 +30,31 @@ public class k implements com.kwad.sdk.core.b {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f34494a = -1;
+        this.f34495b = KsAdSDKImpl.get().isPersonalRecommend() ? 1 : 0;
+    }
+
+    @Override // com.kwad.sdk.core.response.a.a
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.afterParseJson(jSONObject);
+            if (jSONObject != null) {
+                this.f34494a = jSONObject.optInt("dataFlowAutoStartSwitch", -1);
             }
         }
     }
 
-    public static k a() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.core.response.a.a
+    public void afterToJson(JSONObject jSONObject) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            k kVar = new k();
-            kVar.f36160a = h.a();
-            return kVar;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (i2 = this.f34494a) < 0) {
+            return;
         }
-        return (k) invokeV.objValue;
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "modeInfo", this.f36160a);
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        q.a(jSONObject, "dataFlowAutoStartSwitch", i2);
     }
 }

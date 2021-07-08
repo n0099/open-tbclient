@@ -20,7 +20,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class ActiveRefreshController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ActiveRefreshController";

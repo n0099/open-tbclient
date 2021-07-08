@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.IKickOutListener;
@@ -87,7 +88,7 @@ public class ChatMsgManager extends BaseManager {
 
     public static void createChatSession(Context context, ChatObject chatObject, String str, int i2, String str2, int i3, String str3, String str4, int i4, int i5, long j, int i6, long j2, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{context, chatObject, str, Integer.valueOf(i2), str2, Integer.valueOf(i3), str3, str4, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j), Integer.valueOf(i6), Long.valueOf(j2), str5, str6, str7}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, chatObject, str, Integer.valueOf(i2), str2, Integer.valueOf(i3), str3, str4, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j), Integer.valueOf(i6), Long.valueOf(j2), str5, str6, str7}) == null) {
             ChatSessionManagerImpl.getInstance(context).createChatSession(chatObject, str, i2, str2, i3, str3, str4, i4, i5, j, i6, j2, str5, str6, str7);
         }
     }

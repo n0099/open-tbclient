@@ -1,11 +1,12 @@
 package d.a.b.a.a.a.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +71,7 @@ public class k {
         InterceptResult invokeLL;
         Constructor<?>[] constructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, objArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, objArr)) == null) {
             Constructor<?> constructor = null;
             for (Constructor<?> constructor2 : cls.getConstructors()) {
                 Class<?>[] parameterTypes = constructor2.getParameterTypes();

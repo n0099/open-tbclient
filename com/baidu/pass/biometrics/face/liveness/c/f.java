@@ -1,5 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.c;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.face.liveness.enums.HeadPose;
 import com.baidu.pass.face.platform.LivenessTypeEnum;
@@ -14,17 +15,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f9226a;
+        public static final /* synthetic */ int[] f9243a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,29 +42,29 @@ public class f {
                 }
             }
             int[] iArr = new int[HeadPose.values().length];
-            f9226a = iArr;
+            f9243a = iArr;
             try {
                 iArr[HeadPose.UP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f9226a[HeadPose.DOWN.ordinal()] = 2;
+                f9243a[HeadPose.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f9226a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
+                f9243a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f9226a[HeadPose.TURN_LEFT.ordinal()] = 4;
+                f9243a[HeadPose.TURN_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f9226a[HeadPose.TURN_RIGHT.ordinal()] = 5;
+                f9243a[HeadPose.TURN_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f9226a[HeadPose.EYES_BLINK.ordinal()] = 6;
+                f9243a[HeadPose.EYES_BLINK.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -189,7 +190,7 @@ public class f {
                 list.clear();
             }
             for (HeadPose headPose : list2) {
-                int i2 = a.f9226a[headPose.ordinal()];
+                int i2 = a.f9243a[headPose.ordinal()];
                 if (i2 == 1) {
                     list.add(LivenessTypeEnum.HeadUp);
                 } else if (i2 == 2) {
@@ -210,7 +211,7 @@ public class f {
     public static boolean a(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list == null || list.isEmpty()) {
                 return false;
             }
@@ -242,7 +243,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headPose)) == null) {
-            int i2 = a.f9226a[headPose.ordinal()];
+            int i2 = a.f9243a[headPose.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

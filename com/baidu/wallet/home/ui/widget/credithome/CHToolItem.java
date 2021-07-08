@@ -16,25 +16,25 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CHToolItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25042a;
+    public NetImageView f25152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25043b;
+    public MaskTextView f25153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f25044c;
+    public NetImageView f25154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f25045d;
+    public MaskTextView f25155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f25046e;
+    public MaskTextView f25156e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHToolItem(Context context) {
@@ -62,8 +62,8 @@ public class CHToolItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean isShowRedDot = isShowRedDot();
-            this.f25044c.setVisibility(isShowRedDot ? 0 : 8);
-            this.f25044c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+            this.f25154c.setVisibility(isShowRedDot ? 0 : 8);
+            this.f25154c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
             return isShowRedDot;
         }
         return invokeV.booleanValue;
@@ -73,11 +73,11 @@ public class CHToolItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_tool_item_view"), this);
-            this.f25042a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_icon"));
-            this.f25043b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_title"));
-            this.f25044c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_star"));
-            this.f25045d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_corner"));
-            this.f25046e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_money"));
+            this.f25152a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_icon"));
+            this.f25153b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_title"));
+            this.f25154c = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_tool_item_star"));
+            this.f25155d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_corner"));
+            this.f25156e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_tool_item_money"));
         }
     }
 
@@ -86,20 +86,20 @@ public class CHToolItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f25042a, getData().getPicAddr());
-        this.f25043b.setMaskText(getData().name);
+        setNetImageViewUrl(this.f25152a, getData().getPicAddr());
+        this.f25153b.setMaskText(getData().name);
         if (!handlePoint() && !TextUtils.isEmpty(getData().desc)) {
-            this.f25045d.setVisibility(0);
-            this.f25045d.setMaskText(getData().desc);
+            this.f25155d.setVisibility(0);
+            this.f25155d.setMaskText(getData().desc);
         } else {
-            this.f25045d.setVisibility(8);
+            this.f25155d.setVisibility(8);
         }
         if (!TextUtils.isEmpty(getData().value1)) {
-            this.f25046e.setVisibility(0);
-            this.f25046e.setMaskText(getData().value1);
+            this.f25156e.setVisibility(0);
+            this.f25156e.setMaskText(getData().value1);
             return;
         }
-        this.f25046e.setVisibility(8);
+        this.f25156e.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

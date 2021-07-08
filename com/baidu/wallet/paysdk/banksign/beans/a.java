@@ -15,7 +15,7 @@ import com.baidu.wallet.paysdk.banksign.datamodel.BindCardResponse;
 import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a extends PayBaseBean<BindCardResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

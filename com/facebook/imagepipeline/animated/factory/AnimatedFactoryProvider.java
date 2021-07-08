@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
 import com.facebook.imagepipeline.core.ExecutorSupplier;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AnimatedFactoryProvider {
     public static /* synthetic */ Interceptable $ic;
     public static AnimatedFactory sImpl;

@@ -1,7 +1,7 @@
 package com.baidu.livesdk.api.im;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IMManager {
     IMConversation build(Context context, String str, String str2, boolean z);
 

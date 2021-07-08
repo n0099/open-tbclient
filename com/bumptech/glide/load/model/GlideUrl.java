@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GlideUrl implements Key {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";
@@ -59,7 +60,7 @@ public class GlideUrl implements Key {
     private byte[] getCacheKeyBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.cacheKeyBytes == null) {
                 this.cacheKeyBytes = getCacheKey().getBytes(Key.CHARSET);
             }

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class v implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ TextureMapView f7181a;
+    public final /* synthetic */ TextureMapView f7198a;
 
     public v(TextureMapView textureMapView) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class v implements View.OnClickListener {
                 return;
             }
         }
-        this.f7181a = textureMapView;
+        this.f7198a = textureMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -40,18 +40,18 @@ public class v implements View.OnClickListener {
         ac acVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            acVar = this.f7181a.f7101b;
-            float f2 = acVar.b().f7691a;
-            acVar2 = this.f7181a.f7101b;
+            acVar = this.f7198a.f7118b;
+            float f2 = acVar.b().f7708a;
+            acVar2 = this.f7198a.f7118b;
             ab E = acVar2.b().E();
-            float f3 = E.f7644a + 1.0f;
-            E.f7644a = f3;
+            float f3 = E.f7661a + 1.0f;
+            E.f7661a = f3;
             if (f3 <= f2) {
                 f2 = f3;
             }
-            E.f7644a = f2;
+            E.f7661a = f2;
             BaiduMap.mapStatusReason |= 16;
-            acVar3 = this.f7181a.f7101b;
+            acVar3 = this.f7198a.f7118b;
             acVar3.b().a(E, 300);
         }
     }

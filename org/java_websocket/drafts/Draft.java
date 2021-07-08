@@ -1,5 +1,6 @@
 package org.java_websocket.drafts;
 
+import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
@@ -30,19 +31,19 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Draft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebSocket.Role f76121a;
+    public WebSocket.Role f73155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f76122b;
+    public Framedata.Opcode f73156b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class CloseHandshakeType {
         public static final /* synthetic */ CloseHandshakeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,7 +105,7 @@ public abstract class Draft {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class HandshakeState {
         public static final /* synthetic */ HandshakeState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -191,8 +192,8 @@ public abstract class Draft {
                 return;
             }
         }
-        this.f76121a = null;
-        this.f76122b = null;
+        this.f73155a = null;
+        this.f73156b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -236,7 +237,7 @@ public abstract class Draft {
         InterceptResult invokeLL;
         d dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, byteBuffer, role)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, role)) == null) {
             String q = q(byteBuffer);
             if (q != null) {
                 String[] split = q.split(" ", 3);
@@ -322,10 +323,10 @@ public abstract class Draft {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f76122b != null) {
+            if (this.f73156b != null) {
                 iVar = new g.b.h.c();
             } else {
-                this.f76122b = opcode;
+                this.f73156b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
                     iVar = new g.b.h.a();
                 } else {
@@ -337,9 +338,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f76122b = null;
+                    this.f73156b = null;
                 } else {
-                    this.f76122b = opcode;
+                    this.f73156b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {
@@ -431,7 +432,7 @@ public abstract class Draft {
     public void t(WebSocket.Role role) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, role) == null) {
-            this.f76121a = role;
+            this.f73155a = role;
         }
     }
 
@@ -446,6 +447,6 @@ public abstract class Draft {
     public f v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.f76121a) : (f) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.f73155a) : (f) invokeL.objValue;
     }
 }

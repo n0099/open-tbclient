@@ -20,24 +20,24 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static UIListenerManager f41782a;
+    public static UIListenerManager f38796a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, ApiTask> f41783b;
+    public Map<String, ApiTask> f38797b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ApiTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIListenerManager f41784a;
+        public final /* synthetic */ UIListenerManager f38798a;
         public IUiListener mListener;
         public int mRequestCode;
 
@@ -56,7 +56,7 @@ public class UIListenerManager {
                     return;
                 }
             }
-            this.f41784a = uIListenerManager;
+            this.f38798a = uIListenerManager;
             this.mRequestCode = i2;
             this.mListener = iUiListener;
         }
@@ -91,9 +91,9 @@ public class UIListenerManager {
             }
         }
         Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
-        this.f41783b = synchronizedMap;
+        this.f38797b = synchronizedMap;
         if (synchronizedMap == null) {
-            this.f41783b = Collections.synchronizedMap(new HashMap());
+            this.f38797b = Collections.synchronizedMap(new HashMap());
         }
     }
 
@@ -117,10 +117,10 @@ public class UIListenerManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f41782a == null) {
-                f41782a = new UIListenerManager();
+            if (f38796a == null) {
+                f38796a = new UIListenerManager();
             }
-            return f41782a;
+            return f38796a;
         }
         return (UIListenerManager) invokeV.objValue;
     }
@@ -134,9 +134,9 @@ public class UIListenerManager {
                 f.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
                 return null;
             }
-            synchronized (this.f41783b) {
-                apiTask = this.f41783b.get(str);
-                this.f41783b.remove(str);
+            synchronized (this.f38797b) {
+                apiTask = this.f38797b.get(str);
+                this.f38797b.remove(str);
             }
             if (apiTask == null) {
                 return null;
@@ -296,8 +296,8 @@ public class UIListenerManager {
                 f.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i2);
                 return null;
             }
-            synchronized (this.f41783b) {
-                put = this.f41783b.put(a2, new ApiTask(this, i2, iUiListener));
+            synchronized (this.f38797b) {
+                put = this.f38797b.put(a2, new ApiTask(this, i2, iUiListener));
             }
             if (put == null) {
                 return null;
@@ -317,8 +317,8 @@ public class UIListenerManager {
                 f.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
                 return null;
             }
-            synchronized (this.f41783b) {
-                put = this.f41783b.put(str, new ApiTask(this, a2, iUiListener));
+            synchronized (this.f38797b) {
+                put = this.f38797b.put(str, new ApiTask(this, a2, iUiListener));
             }
             if (put == null) {
                 return null;

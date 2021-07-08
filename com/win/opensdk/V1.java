@@ -1,5 +1,5 @@
 package com.win.opensdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface V1 {
     void a(String str);
 

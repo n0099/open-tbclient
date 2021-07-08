@@ -15,9 +15,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SdkConfig {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String DEF_NIGHT_THEME_STYLE_FILE_NAME = "ks_adsdk_night_styles.xml";
+    @KsAdSdkApi
+    @Keep
+    public static final int SCREEN_ORIENTATION_LANDSCAPE = 2;
+    @KsAdSdkApi
+    @Keep
+    public static final int SCREEN_ORIENTATION_PORTRAIT = 1;
+    @KsAdSdkApi
+    @Keep
+    public static final int SCREEN_ORIENTATION_UNKNOWN = 0;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     @KsAdSdkApi
@@ -50,10 +60,14 @@ public class SdkConfig {
     @Nullable
     @KsAdSdkApi
     @Keep
+    public String nightThemeStyleAssetsFileName;
+    @Nullable
+    @KsAdSdkApi
+    @Keep
     public boolean showNotification;
 
     /* renamed from: com.kwad.sdk.api.SdkConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +75,7 @@ public class SdkConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,6 +91,7 @@ public class SdkConfig {
         public boolean canReadMacAddress;
         public boolean canReadNearbyWifiList;
         public boolean enableDebug;
+        public String nightThemeStyleAssetsFileName;
         public boolean showNotification;
 
         @KsAdSdkApi
@@ -98,6 +113,7 @@ public class SdkConfig {
             this.canReadMacAddress = true;
             this.canReadNearbyWifiList = true;
             this.canReadICCID = true;
+            this.nightThemeStyleAssetsFileName = SdkConfig.DEF_NIGHT_THEME_STYLE_FILE_NAME;
         }
 
         @KsAdSdkApi
@@ -206,10 +222,22 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        public Builder nightThemeStyleAssetsFileName(@Nullable String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+                this.nightThemeStyleAssetsFileName = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder showNotification(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
                 this.showNotification = z;
                 return this;
             }
@@ -243,6 +271,7 @@ public class SdkConfig {
         this.canReadMacAddress = builder.canReadMacAddress;
         this.canReadNearbyWifiList = builder.canReadNearbyWifiList;
         this.canReadICCID = builder.canReadICCID;
+        this.nightThemeStyleAssetsFileName = builder.nightThemeStyleAssetsFileName;
     }
 
     public /* synthetic */ SdkConfig(Builder builder, AnonymousClass1 anonymousClass1) {
@@ -265,6 +294,7 @@ public class SdkConfig {
                 builder.canReadMacAddress = jSONObject.optBoolean("canReadMacAddress");
                 builder.canReadNearbyWifiList = jSONObject.optBoolean("canReadNearbyWifiList");
                 builder.canReadICCID = jSONObject.optBoolean("canReadICCID");
+                builder.nightThemeStyleAssetsFileName = jSONObject.optString("nightThemeStyleAssetsFileName");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -312,6 +342,7 @@ public class SdkConfig {
                 jSONObject.put("canReadMacAddress", this.canReadMacAddress);
                 jSONObject.put("canReadNearbyWifiList", this.canReadNearbyWifiList);
                 jSONObject.put("canReadICCID", this.canReadICCID);
+                jSONObject.put("nightThemeStyleAssetsFileName", this.nightThemeStyleAssetsFileName);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

@@ -20,52 +20,52 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.f.b.a.i0.v;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WindowManager f73452a;
+    public final WindowManager f70555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f73453b;
+    public final b f70556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f73454c;
+    public final a f70557c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f73455d;
+    public long f70558d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f73456e;
+    public long f70559e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f73457f;
+    public long f70560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f73458g;
+    public long f70561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f73459h;
+    public long f70562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f73460i;
+    public boolean f70563i;
     public long j;
     public long k;
     public long l;
 
     @TargetApi(17)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public final class a implements DisplayManager.DisplayListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final DisplayManager f73461a;
+        public final DisplayManager f70564a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f73462b;
+        public final /* synthetic */ d f70565b;
 
         public a(d dVar, DisplayManager displayManager) {
             Interceptable interceptable = $ic;
@@ -82,21 +82,21 @@ public final class d {
                     return;
                 }
             }
-            this.f73462b = dVar;
-            this.f73461a = displayManager;
+            this.f70565b = dVar;
+            this.f70564a = displayManager;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73461a.registerDisplayListener(this, null);
+                this.f70564a.registerDisplayListener(this, null);
             }
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f73461a.unregisterDisplayListener(this);
+                this.f70564a.unregisterDisplayListener(this);
             }
         }
 
@@ -111,7 +111,7 @@ public final class d {
         public void onDisplayChanged(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && i2 == 0) {
-                this.f73462b.h();
+                this.f70565b.h();
             }
         }
 
@@ -123,26 +123,26 @@ public final class d {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements Choreographer.FrameCallback, Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public static final b j;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile long f73463e;
+        public volatile long f70566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f73464f;
+        public final Handler f70567f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final HandlerThread f73465g;
+        public final HandlerThread f70568g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Choreographer f73466h;
+        public Choreographer f70569h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f73467i;
+        public int f70570i;
 
         static {
             InterceptResult invokeClinit;
@@ -173,12 +173,12 @@ public final class d {
                     return;
                 }
             }
-            this.f73463e = -9223372036854775807L;
+            this.f70566e = -9223372036854775807L;
             HandlerThread handlerThread = new HandlerThread("ChoreographerOwner:Handler");
-            this.f73465g = handlerThread;
+            this.f70568g = handlerThread;
             handlerThread.start();
-            Handler handler = new Handler(this.f73465g.getLooper(), this);
-            this.f73464f = handler;
+            Handler handler = new Handler(this.f70568g.getLooper(), this);
+            this.f70567f = handler;
             handler.sendEmptyMessage(0);
         }
 
@@ -191,17 +191,17 @@ public final class d {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73464f.sendEmptyMessage(1);
+                this.f70567f.sendEmptyMessage(1);
             }
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int i2 = this.f73467i + 1;
-                this.f73467i = i2;
+                int i2 = this.f70570i + 1;
+                this.f70570i = i2;
                 if (i2 == 1) {
-                    this.f73466h.postFrameCallback(this);
+                    this.f70569h.postFrameCallback(this);
                 }
             }
         }
@@ -209,7 +209,7 @@ public final class d {
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f73466h = Choreographer.getInstance();
+                this.f70569h = Choreographer.getInstance();
             }
         }
 
@@ -217,26 +217,26 @@ public final class d {
         public void doFrame(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.f73463e = j2;
-                this.f73466h.postFrameCallbackDelayed(this, 500L);
+                this.f70566e = j2;
+                this.f70569h.postFrameCallbackDelayed(this, 500L);
             }
         }
 
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f73464f.sendEmptyMessage(2);
+                this.f70567f.sendEmptyMessage(2);
             }
         }
 
         public final void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                int i2 = this.f73467i - 1;
-                this.f73467i = i2;
+                int i2 = this.f70570i - 1;
+                this.f70570i = i2;
                 if (i2 == 0) {
-                    this.f73466h.removeFrameCallback(this);
-                    this.f73463e = -9223372036854775807L;
+                    this.f70569h.removeFrameCallback(this);
+                    this.f70566e = -9223372036854775807L;
                 }
             }
         }
@@ -280,16 +280,16 @@ public final class d {
             }
         }
         WindowManager windowManager = context == null ? null : (WindowManager) context.getSystemService("window");
-        this.f73452a = windowManager;
+        this.f70555a = windowManager;
         if (windowManager != null) {
-            this.f73454c = v.f73412a >= 17 ? g(context) : null;
-            this.f73453b = b.d();
+            this.f70557c = v.f70515a >= 17 ? g(context) : null;
+            this.f70556b = b.d();
         } else {
-            this.f73454c = null;
-            this.f73453b = null;
+            this.f70557c = null;
+            this.f70556b = null;
         }
-        this.f73455d = -9223372036854775807L;
-        this.f73456e = -9223372036854775807L;
+        this.f70558d = -9223372036854775807L;
+        this.f70559e = -9223372036854775807L;
     }
 
     public static long c(long j, long j2, long j3) {
@@ -321,44 +321,44 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             long j5 = 1000 * j;
-            if (this.f73460i) {
-                if (j != this.f73457f) {
+            if (this.f70563i) {
+                if (j != this.f70560f) {
                     this.l++;
-                    this.f73458g = this.f73459h;
+                    this.f70561g = this.f70562h;
                 }
                 long j6 = this.l;
                 if (j6 >= 6) {
-                    j4 = this.f73458g + ((j5 - this.k) / j6);
+                    j4 = this.f70561g + ((j5 - this.k) / j6);
                     if (f(j4, j2)) {
-                        this.f73460i = false;
+                        this.f70563i = false;
                     } else {
                         j3 = (this.j + j4) - this.k;
-                        if (!this.f73460i) {
+                        if (!this.f70563i) {
                             this.k = j5;
                             this.j = j2;
                             this.l = 0L;
-                            this.f73460i = true;
+                            this.f70563i = true;
                         }
-                        this.f73457f = j;
-                        this.f73459h = j4;
-                        bVar = this.f73453b;
-                        if (bVar != null || this.f73455d == -9223372036854775807L) {
+                        this.f70560f = j;
+                        this.f70562h = j4;
+                        bVar = this.f70556b;
+                        if (bVar != null || this.f70558d == -9223372036854775807L) {
                             return j3;
                         }
-                        long j7 = bVar.f73463e;
-                        return j7 == -9223372036854775807L ? j3 : c(j3, j7, this.f73455d) - this.f73456e;
+                        long j7 = bVar.f70566e;
+                        return j7 == -9223372036854775807L ? j3 : c(j3, j7, this.f70558d) - this.f70559e;
                     }
                 } else if (f(j5, j2)) {
-                    this.f73460i = false;
+                    this.f70563i = false;
                 }
             }
             j3 = j2;
             j4 = j5;
-            if (!this.f73460i) {
+            if (!this.f70563i) {
             }
-            this.f73457f = j;
-            this.f73459h = j4;
-            bVar = this.f73453b;
+            this.f70560f = j;
+            this.f70562h = j4;
+            bVar = this.f70556b;
             if (bVar != null) {
             }
             return j3;
@@ -368,23 +368,23 @@ public final class d {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f73452a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f70555a == null) {
             return;
         }
-        a aVar = this.f73454c;
+        a aVar = this.f70557c;
         if (aVar != null) {
             aVar.b();
         }
-        this.f73453b.e();
+        this.f70556b.e();
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f73460i = false;
-            if (this.f73452a != null) {
-                this.f73453b.a();
-                a aVar = this.f73454c;
+            this.f70563i = false;
+            if (this.f70555a != null) {
+                this.f70556b.a();
+                a aVar = this.f70557c;
                 if (aVar != null) {
                     aVar.a();
                 }
@@ -416,11 +416,11 @@ public final class d {
     public final void h() {
         Display defaultDisplay;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (defaultDisplay = this.f73452a.getDefaultDisplay()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (defaultDisplay = this.f70555a.getDefaultDisplay()) == null) {
             return;
         }
         long refreshRate = (long) (1.0E9d / defaultDisplay.getRefreshRate());
-        this.f73455d = refreshRate;
-        this.f73456e = (refreshRate * 80) / 100;
+        this.f70558d = refreshRate;
+        this.f70559e = (refreshRate * 80) / 100;
     }
 }

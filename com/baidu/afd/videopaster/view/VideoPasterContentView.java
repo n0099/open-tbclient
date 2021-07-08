@@ -17,28 +17,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.z0.j;
-import d.a.s0.n2.f;
-import d.a.s0.n2.n;
+import d.a.o0.z0.j;
+import d.a.p0.n2.f;
+import d.a.p0.n2.n;
 /* loaded from: classes.dex */
 public class VideoPasterContentView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoPasterOverlayView f2533e;
+    public VideoPasterOverlayView f2536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f2534f;
+    public TbImageView f2537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f2535g;
+    public TbImageView f2538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbCyberVideoView f2536h;
+    public TbCyberVideoView f2539h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d.a.s0.n2.f f2537i;
+    public d.a.p0.n2.f f2540i;
     public i j;
     public boolean k;
     public j l;
@@ -59,129 +59,9 @@ public class VideoPasterContentView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoPasterContentView f2538e;
-
-        public a(VideoPasterContentView videoPasterContentView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoPasterContentView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f2538e = videoPasterContentView;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-        public void onPrepared() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f2538e.f2536h == null) {
-                return;
-            }
-            if (!TextUtils.equals(this.f2538e.r, "NEWINDEX")) {
-                this.f2538e.f2536h.setVolume(1.0f, 1.0f);
-            } else if (TbSingleton.getInstance().isVideoCardMute()) {
-                this.f2538e.f2536h.setVolume(0.0f, 0.0f);
-            } else {
-                this.f2538e.f2536h.setVolume(1.0f, 1.0f);
-            }
-            VideoPasterContentView videoPasterContentView = this.f2538e;
-            videoPasterContentView.u = videoPasterContentView.f2536h.getDuration();
-            if (this.f2538e.f2533e != null) {
-                this.f2538e.f2533e.o(this.f2538e.f2536h.getVideoWidth(), this.f2538e.f2536h.getVideoHeight(), this.f2538e.r);
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class b implements CyberPlayerManager.OnCompletionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoPasterContentView f2539e;
-
-        public b(VideoPasterContentView videoPasterContentView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoPasterContentView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f2539e = videoPasterContentView;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2539e.u();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class c implements CyberPlayerManager.OnErrorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoPasterContentView f2540e;
-
-        public c(VideoPasterContentView videoPasterContentView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {videoPasterContentView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f2540e = videoPasterContentView;
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-        public boolean onError(int i2, int i3, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                this.f2540e.u();
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class d implements TbCyberVideoView.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ VideoPasterContentView f2541e;
 
-        public d(VideoPasterContentView videoPasterContentView) {
+        public a(VideoPasterContentView videoPasterContentView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,26 +79,36 @@ public class VideoPasterContentView extends FrameLayout {
             this.f2541e = videoPasterContentView;
         }
 
-        @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.g
-        public void onSurfaceDestroyed() {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+        public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2541e.m = false;
-                this.f2541e.n = 100;
-                d.a.c.e.m.e.a().removeCallbacks(this.f2541e.v);
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f2541e.f2539h == null) {
+                return;
+            }
+            if (!TextUtils.equals(this.f2541e.r, "NEWINDEX")) {
+                this.f2541e.f2539h.setVolume(1.0f, 1.0f);
+            } else if (TbSingleton.getInstance().isVideoCardMute()) {
+                this.f2541e.f2539h.setVolume(0.0f, 0.0f);
+            } else {
+                this.f2541e.f2539h.setVolume(1.0f, 1.0f);
+            }
+            VideoPasterContentView videoPasterContentView = this.f2541e;
+            videoPasterContentView.u = videoPasterContentView.f2539h.getDuration();
+            if (this.f2541e.f2536e != null) {
+                this.f2541e.f2536e.o(this.f2541e.f2539h.getVideoWidth(), this.f2541e.f2539h.getVideoHeight(), this.f2541e.r);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class e implements f.b {
+    public class b implements CyberPlayerManager.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPasterContentView f2542a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoPasterContentView f2542e;
 
-        public e(VideoPasterContentView videoPasterContentView) {
+        public b(VideoPasterContentView videoPasterContentView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -233,26 +123,27 @@ public class VideoPasterContentView extends FrameLayout {
                     return;
                 }
             }
-            this.f2542a = videoPasterContentView;
+            this.f2542e = videoPasterContentView;
         }
 
-        @Override // d.a.s0.n2.f.b
-        public void a() {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+        public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f2542e.u();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class f extends d.a.c.e.l.c<d.a.c.k.d.a> {
+    public class c implements CyberPlayerManager.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPasterContentView f2543a;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoPasterContentView f2543e;
 
-        public f(VideoPasterContentView videoPasterContentView) {
+        public c(VideoPasterContentView videoPasterContentView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,32 +158,30 @@ public class VideoPasterContentView extends FrameLayout {
                     return;
                 }
             }
-            this.f2543a = videoPasterContentView;
+            this.f2543e = videoPasterContentView;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+        public boolean onError(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((f) aVar, str, i2);
-                if (aVar == null || aVar.p() == null || this.f2543a.f2533e == null) {
-                    return;
-                }
-                this.f2543a.f2533e.o(aVar.r(), aVar.m(), this.f2543a.r);
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
+                this.f2543e.u();
+                return false;
             }
+            return invokeIIL.booleanValue;
         }
     }
 
     /* loaded from: classes.dex */
-    public class g implements Runnable {
+    public class d implements TbCyberVideoView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
         public final /* synthetic */ VideoPasterContentView f2544e;
 
-        public g(VideoPasterContentView videoPasterContentView) {
+        public d(VideoPasterContentView videoPasterContentView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -310,35 +199,26 @@ public class VideoPasterContentView extends FrameLayout {
             this.f2544e = videoPasterContentView;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.h
+        public void onSurfaceDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f2544e.m = false;
+                this.f2544e.n = 100;
                 d.a.c.e.m.e.a().removeCallbacks(this.f2544e.v);
-                if (this.f2544e.m) {
-                    return;
-                }
-                boolean z = this.f2544e.f2536h.getCurrentPositionSync() == 0 && this.f2544e.n == 100;
-                if (this.f2544e.f2536h.getCurrentPositionSync() > this.f2544e.n) {
-                    this.f2544e.o();
-                } else if (z) {
-                    d.a.c.e.m.e.a().postDelayed(this.f2544e.v, 20L);
-                } else {
-                    this.f2544e.o();
-                }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class h implements j.b {
+    public class e implements f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
         public final /* synthetic */ VideoPasterContentView f2545a;
 
-        public h(VideoPasterContentView videoPasterContentView) {
+        public e(VideoPasterContentView videoPasterContentView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -356,26 +236,146 @@ public class VideoPasterContentView extends FrameLayout {
             this.f2545a = videoPasterContentView;
         }
 
-        @Override // d.a.r0.z0.j.b
+        @Override // d.a.p0.n2.f.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class f extends d.a.c.e.l.c<d.a.c.k.d.a> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ VideoPasterContentView f2546a;
+
+        public f(VideoPasterContentView videoPasterContentView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoPasterContentView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2546a = videoPasterContentView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.k.d.a aVar, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
+                super.onLoaded((f) aVar, str, i2);
+                if (aVar == null || aVar.p() == null || this.f2546a.f2536e == null) {
+                    return;
+                }
+                this.f2546a.f2536e.o(aVar.r(), aVar.m(), this.f2546a.r);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ VideoPasterContentView f2547e;
+
+        public g(VideoPasterContentView videoPasterContentView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoPasterContentView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2547e = videoPasterContentView;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d.a.c.e.m.e.a().removeCallbacks(this.f2547e.v);
+                if (this.f2547e.m) {
+                    return;
+                }
+                boolean z = this.f2547e.f2539h.getCurrentPositionSync() == 0 && this.f2547e.n == 100;
+                if (this.f2547e.f2539h.getCurrentPositionSync() > this.f2547e.n) {
+                    this.f2547e.o();
+                } else if (z) {
+                    d.a.c.e.m.e.a().postDelayed(this.f2547e.v, 20L);
+                } else {
+                    this.f2547e.o();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class h implements j.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ VideoPasterContentView f2548a;
+
+        public h(VideoPasterContentView videoPasterContentView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoPasterContentView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f2548a = videoPasterContentView;
+        }
+
+        @Override // d.a.o0.z0.j.b
         public void a(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.f2545a.q = (int) (j2 / 1000);
-                if (this.f2545a.f2533e != null) {
-                    this.f2545a.f2533e.setCountDownNum((int) this.f2545a.q);
+                this.f2548a.q = (int) (j2 / 1000);
+                if (this.f2548a.f2536e != null) {
+                    this.f2548a.f2536e.setCountDownNum((int) this.f2548a.q);
                 }
-                if (this.f2545a.q == 0) {
-                    this.f2545a.u();
-                    this.f2545a.l.s();
+                if (this.f2548a.q == 0) {
+                    this.f2548a.u();
+                    this.f2548a.l.s();
                 }
             }
         }
 
-        @Override // d.a.r0.z0.j.b
+        @Override // d.a.o0.z0.j.b
         public void b(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.f2545a.u();
+                this.f2548a.u();
             }
         }
     }
@@ -428,10 +428,10 @@ public class VideoPasterContentView extends FrameLayout {
                 jVar.p();
             }
         } else if (this.p.a() == 1) {
-            this.f2535g.setVisibility(0);
-            this.f2536h.setVideoPath(this.p.l);
-            this.f2536h.start();
-            d.a.s0.n2.f fVar = this.f2537i;
+            this.f2538g.setVisibility(0);
+            this.f2539h.setVideoPath(this.p.l);
+            this.f2539h.start();
+            d.a.p0.n2.f fVar = this.f2540i;
             if (fVar != null) {
                 fVar.m();
             }
@@ -453,7 +453,7 @@ public class VideoPasterContentView extends FrameLayout {
             d.a.c.e.m.e.a().removeCallbacks(this.v);
             d.a.c.e.m.e.a().postDelayed(this.v, 20L);
         }
-        VideoPasterOverlayView videoPasterOverlayView = this.f2533e;
+        VideoPasterOverlayView videoPasterOverlayView = this.f2536e;
         if (videoPasterOverlayView != null) {
             videoPasterOverlayView.l();
         }
@@ -464,7 +464,7 @@ public class VideoPasterContentView extends FrameLayout {
         d.a.d.m.e.a aVar;
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.p) == null || aVar.a() != 1 || (tbImageView = this.f2535g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.p) == null || aVar.a() != 1 || (tbImageView = this.f2538g) == null) {
             return;
         }
         tbImageView.setVisibility(0);
@@ -498,9 +498,9 @@ public class VideoPasterContentView extends FrameLayout {
                 jVar.o();
             }
         } else if (this.p.a() == 1) {
-            this.f2535g.setVisibility(0);
-            this.f2536h.stopPlayback();
-            d.a.s0.n2.f fVar = this.f2537i;
+            this.f2538g.setVisibility(0);
+            this.f2539h.stopPlayback();
+            d.a.p0.n2.f fVar = this.f2540i;
             if (fVar != null) {
                 fVar.n();
             }
@@ -510,7 +510,7 @@ public class VideoPasterContentView extends FrameLayout {
             }
             d.a.c.e.m.e.a().removeCallbacks(this.v);
         }
-        VideoPasterOverlayView videoPasterOverlayView = this.f2533e;
+        VideoPasterOverlayView videoPasterOverlayView = this.f2536e;
         if (videoPasterOverlayView != null) {
             videoPasterOverlayView.m();
         }
@@ -524,35 +524,35 @@ public class VideoPasterContentView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) || (aVar = this.p) == null || !aVar.d() || this.p.c()) {
             return;
         }
-        this.f2533e.n(this.p, z, z2);
+        this.f2536e.n(this.p, z, z2);
         if (this.k) {
             return;
         }
         if (this.p.a() == 0) {
-            this.f2533e.setCountDownNum(this.p.j);
+            this.f2536e.setCountDownNum(this.p.j);
             C(this.p.j);
         } else if (this.p.a() == 1) {
-            this.f2533e.setCountDownNum(this.p.j);
+            this.f2536e.setCountDownNum(this.p.j);
             C(this.p.j);
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         this.r = str;
         if (this.p.a() == 0) {
             removeAllViews();
-            addView(this.f2534f);
-            addView(this.f2533e.getRootView(), layoutParams);
-            this.f2534f.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            addView(this.f2537f);
+            addView(this.f2536e.getRootView(), layoutParams);
+            this.f2537f.setScaleType(ImageView.ScaleType.FIT_CENTER);
             d.a.c.e.l.d.h().m(this.p.k, 10, new f(this), null);
-            this.f2534f.M(this.p.k, 10, false);
+            this.f2537f.M(this.p.k, 10, false);
         } else if (this.p.a() == 1) {
             y();
             removeAllViews();
-            addView(this.f2536h.getView());
-            addView(this.f2535g);
-            addView(this.f2533e.getRootView(), layoutParams);
-            this.f2535g.M(this.p.m, 10, false);
-            this.f2536h.setVideoPath(this.p.l);
-            this.f2536h.start();
+            addView(this.f2539h.getView());
+            addView(this.f2538g);
+            addView(this.f2536e.getRootView(), layoutParams);
+            this.f2538g.M(this.p.m, 10, false);
+            this.f2539h.setVideoPath(this.p.l);
+            this.f2539h.start();
             d.a.c.e.m.e.a().removeCallbacks(this.v);
             d.a.c.e.m.e.a().postDelayed(this.v, 20L);
         }
@@ -592,7 +592,7 @@ public class VideoPasterContentView extends FrameLayout {
             return;
         }
         this.m = true;
-        this.f2535g.setVisibility(8);
+        this.f2538g.setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -610,22 +610,22 @@ public class VideoPasterContentView extends FrameLayout {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f2533e = new VideoPasterOverlayView(getContext());
-            this.f2534f = new TbImageView(getContext());
-            this.f2535g = new TbImageView(getContext());
+            this.f2536e = new VideoPasterOverlayView(getContext());
+            this.f2537f = new TbImageView(getContext());
+            this.f2538g = new TbImageView(getContext());
             TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(getContext());
-            this.f2536h = tbCyberVideoView;
+            this.f2539h = tbCyberVideoView;
             tbCyberVideoView.setStageType(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR);
             setBackgroundResource(R.color.black_alpha100);
-            this.f2536h.setContinuePlayEnable(true);
-            this.f2536h.setOnPreparedListener(new a(this));
-            this.f2536h.setOnCompletionListener(new b(this));
-            this.f2536h.setOnErrorListener(new c(this));
-            this.f2536h.setOnSurfaceDestroyedListener(new d(this));
-            d.a.s0.n2.f fVar = new d.a.s0.n2.f();
-            this.f2537i = fVar;
-            fVar.l(this.f2536h);
-            this.f2537i.i(new e(this));
+            this.f2539h.setContinuePlayEnable(true);
+            this.f2539h.setOnPreparedListener(new a(this));
+            this.f2539h.setOnCompletionListener(new b(this));
+            this.f2539h.setOnErrorListener(new c(this));
+            this.f2539h.setOnSurfaceDestroyedListener(new d(this));
+            d.a.p0.n2.f fVar = new d.a.p0.n2.f();
+            this.f2540i = fVar;
+            fVar.l(this.f2539h);
+            this.f2540i.i(new e(this));
             setBackgroundColor(-16777216);
         }
     }
@@ -665,7 +665,7 @@ public class VideoPasterContentView extends FrameLayout {
     public void setOverlayViewCallback(VideoPasterOverlayView.b bVar) {
         VideoPasterOverlayView videoPasterOverlayView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) || (videoPasterOverlayView = this.f2533e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) || (videoPasterOverlayView = this.f2536e) == null) {
             return;
         }
         videoPasterOverlayView.setOverlayViewCallback(bVar);
@@ -675,7 +675,7 @@ public class VideoPasterContentView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            TbCyberVideoView tbCyberVideoView = this.f2536h;
+            TbCyberVideoView tbCyberVideoView = this.f2539h;
             return tbCyberVideoView != null && tbCyberVideoView.isPlaying();
         }
         return invokeV.booleanValue;
@@ -703,7 +703,7 @@ public class VideoPasterContentView extends FrameLayout {
     public void v() {
         VideoPasterOverlayView videoPasterOverlayView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (videoPasterOverlayView = this.f2533e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (videoPasterOverlayView = this.f2536e) == null) {
             return;
         }
         videoPasterOverlayView.g();
@@ -712,13 +712,13 @@ public class VideoPasterContentView extends FrameLayout {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            VideoPasterOverlayView videoPasterOverlayView = this.f2533e;
+            VideoPasterOverlayView videoPasterOverlayView = this.f2536e;
             if (videoPasterOverlayView != null) {
                 videoPasterOverlayView.h();
             }
             d.a.d.m.e.a aVar = this.p;
             if (aVar != null && aVar.d() && !this.p.c() && this.k && this.p.a() == 1) {
-                this.f2535g.setVisibility(0);
+                this.f2538g.setVisibility(0);
                 int c2 = n.d().c(this.p.l);
                 this.o = c2;
                 this.n = (c2 <= 100 || this.u <= c2) ? 100 : 100;
@@ -733,7 +733,7 @@ public class VideoPasterContentView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             y();
             D();
-            this.f2533e.i();
+            this.f2536e.i();
             this.k = false;
             this.p = null;
             this.q = 0L;
@@ -748,7 +748,7 @@ public class VideoPasterContentView extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (aVar = this.p) != null && aVar.a() == 1) {
             n.d().e(this.p.l);
-            TbCyberVideoView tbCyberVideoView = this.f2536h;
+            TbCyberVideoView tbCyberVideoView = this.f2539h;
             if (tbCyberVideoView != null) {
                 tbCyberVideoView.seekTo(0);
             }
@@ -758,7 +758,7 @@ public class VideoPasterContentView extends FrameLayout {
     public void z(int i2) {
         VideoPasterOverlayView videoPasterOverlayView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i2) == null) || (videoPasterOverlayView = this.f2533e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048598, this, i2) == null) || (videoPasterOverlayView = this.f2536e) == null) {
             return;
         }
         videoPasterOverlayView.k(i2);

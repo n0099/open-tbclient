@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
@@ -533,7 +534,7 @@ public final class SerializeWriter extends Writer {
                         int i11 = ((bArr[i2] & 255) << 10) | (i10 == 2 ? (bArr[i3] & 255) << 2 : 0);
                         write(cArr[i11 >> 12]);
                         write(cArr[(i11 >>> 6) & 63]);
-                        write(i10 == 2 ? cArr[i11 & 63] : a.f1889h);
+                        write(i10 == 2 ? cArr[i11 & 63] : a.f1890h);
                         write(61);
                     }
                     write(c2);
@@ -568,8 +569,8 @@ public final class SerializeWriter extends Writer {
                 char[] cArr3 = this.buf;
                 cArr3[i5 - 5] = cArr[i23 >> 12];
                 cArr3[i5 - 4] = cArr[(i23 >>> 6) & 63];
-                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f1889h;
-                this.buf[i5 - 2] = a.f1889h;
+                cArr3[i5 - 3] = i22 == 2 ? cArr[i23 & 63] : a.f1890h;
+                this.buf[i5 - 2] = a.f1890h;
             }
             this.buf[i5 - 1] = c2;
         }
@@ -1953,12 +1954,12 @@ public final class SerializeWriter extends Writer {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {writer, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65540, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65540, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }

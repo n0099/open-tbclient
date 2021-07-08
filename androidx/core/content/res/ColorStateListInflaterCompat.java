@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
 import androidx.core.R;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -117,7 +118,7 @@ public final class ColorStateListInflaterCompat {
         InterceptResult invokeLLLL;
         int depth;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, resources, xmlPullParser, attributeSet, theme)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, xmlPullParser, attributeSet, theme)) == null) {
             int i2 = 1;
             int depth2 = xmlPullParser.getDepth() + 1;
             int[][] iArr = new int[20];

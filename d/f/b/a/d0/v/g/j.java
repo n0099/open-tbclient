@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f72894a;
+    public final String[] f69997a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f72895b;
+    public final int[] f69998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String[] f72896c;
+    public final String[] f69999c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f72897d;
+    public final int f70000d;
 
     public j(String[] strArr, int[] iArr, String[] strArr2, int i2) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public final class j {
                 return;
             }
         }
-        this.f72894a = strArr;
-        this.f72895b = iArr;
-        this.f72896c = strArr2;
-        this.f72897d = i2;
+        this.f69997a = strArr;
+        this.f69998b = iArr;
+        this.f69999c = strArr2;
+        this.f70000d = i2;
     }
 
     public static j b(String str) {
@@ -135,22 +135,22 @@ public final class j {
         StringBuilder sb = new StringBuilder();
         int i4 = 0;
         while (true) {
-            int i5 = this.f72897d;
+            int i5 = this.f70000d;
             if (i4 < i5) {
-                sb.append(this.f72894a[i4]);
-                int[] iArr = this.f72895b;
+                sb.append(this.f69997a[i4]);
+                int[] iArr = this.f69998b;
                 if (iArr[i4] == 1) {
                     sb.append(str);
                 } else if (iArr[i4] == 2) {
-                    sb.append(String.format(Locale.US, this.f72896c[i4], Integer.valueOf(i2)));
+                    sb.append(String.format(Locale.US, this.f69999c[i4], Integer.valueOf(i2)));
                 } else if (iArr[i4] == 3) {
-                    sb.append(String.format(Locale.US, this.f72896c[i4], Integer.valueOf(i3)));
+                    sb.append(String.format(Locale.US, this.f69999c[i4], Integer.valueOf(i3)));
                 } else if (iArr[i4] == 4) {
-                    sb.append(String.format(Locale.US, this.f72896c[i4], Long.valueOf(j)));
+                    sb.append(String.format(Locale.US, this.f69999c[i4], Long.valueOf(j)));
                 }
                 i4++;
             } else {
-                sb.append(this.f72894a[i5]);
+                sb.append(this.f69997a[i5]);
                 return sb.toString();
             }
         }

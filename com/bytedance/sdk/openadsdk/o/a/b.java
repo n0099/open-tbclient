@@ -11,13 +11,13 @@ import com.bytedance.sdk.component.e.g;
 import com.bytedance.sdk.openadsdk.o.e;
 import com.bytedance.sdk.openadsdk.o.g.d;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f31525a;
+    public final File f31635a;
 
     public void a() {
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class b extends a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f31526a;
+                public final /* synthetic */ b f31636a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -47,14 +47,14 @@ public class b extends a {
                             return;
                         }
                     }
-                    this.f31526a = this;
+                    this.f31636a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f31526a.b();
+                        this.f31636a.b();
                     }
                 }
             });
@@ -69,7 +69,7 @@ public class b extends a {
             if (a2 != null) {
                 com.bytedance.sdk.openadsdk.o.b.c.a(a2).a(1);
             }
-            for (File file : this.f31525a.listFiles()) {
+            for (File file : this.f31635a.listFiles()) {
                 try {
                     file.delete();
                 } catch (Throwable unused) {
@@ -95,6 +95,6 @@ public class b extends a {
     public File e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? new File(this.f31525a, str) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? new File(this.f31635a, str) : (File) invokeL.objValue;
     }
 }

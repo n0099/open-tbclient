@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.g0.b.g;
-import d.a.r0.g0.b.h;
-/* loaded from: classes4.dex */
+import d.a.o0.g0.b.g;
+import d.a.o0.g0.b.h;
+/* loaded from: classes3.dex */
 public abstract class NetAutoModel<T extends g, D extends h, ActivityType> extends NetModel<T, D, ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

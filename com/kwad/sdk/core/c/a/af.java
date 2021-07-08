@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler;
+import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class af implements com.kwad.sdk.core.c<WebCardVideoPositionHandler.VideoPosition> {
+/* loaded from: classes6.dex */
+public class af implements com.kwad.sdk.core.d<PhotoInfo.CoverInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,31 +28,37 @@ public class af implements com.kwad.sdk.core.c<WebCardVideoPositionHandler.Video
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(WebCardVideoPositionHandler.VideoPosition videoPosition) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(PhotoInfo.CoverInfo coverInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoPosition)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "leftMarginRation", videoPosition.leftMarginRation);
-            com.kwad.sdk.utils.o.a(jSONObject, "topMarginRation", videoPosition.topMarginRation);
-            com.kwad.sdk.utils.o.a(jSONObject, "widthRation", videoPosition.widthRation);
-            com.kwad.sdk.utils.o.a(jSONObject, "heightWidthRation", videoPosition.heightWidthRation);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coverInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        coverInfo.coverUrl = jSONObject.optString("coverUrl");
+        coverInfo.width = jSONObject.optInt("width");
+        coverInfo.height = jSONObject.optInt("height");
+        coverInfo.webpCoverUrl = jSONObject.optString("webpCoverUrl");
+        coverInfo.blurCoverUrl = jSONObject.optString("blurCoverUrl");
+        coverInfo.blurBackgroundUrl = jSONObject.optString("blurBackgroundUrl");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(WebCardVideoPositionHandler.VideoPosition videoPosition, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(PhotoInfo.CoverInfo coverInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, videoPosition, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, coverInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "coverUrl", coverInfo.coverUrl);
+            com.kwad.sdk.utils.q.a(jSONObject, "width", coverInfo.width);
+            com.kwad.sdk.utils.q.a(jSONObject, "height", coverInfo.height);
+            com.kwad.sdk.utils.q.a(jSONObject, "webpCoverUrl", coverInfo.webpCoverUrl);
+            com.kwad.sdk.utils.q.a(jSONObject, "blurCoverUrl", coverInfo.blurCoverUrl);
+            com.kwad.sdk.utils.q.a(jSONObject, "blurBackgroundUrl", coverInfo.blurBackgroundUrl);
+            return jSONObject;
         }
-        videoPosition.leftMarginRation = jSONObject.optDouble("leftMarginRation");
-        videoPosition.topMarginRation = jSONObject.optDouble("topMarginRation");
-        videoPosition.widthRation = jSONObject.optDouble("widthRation");
-        videoPosition.heightWidthRation = jSONObject.optDouble("heightWidthRation");
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.sofire.utility;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.jni.Asc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -8,12 +9,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Asc f10484a;
+    public static Asc f10501a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +30,7 @@ public final class g {
                 return;
             }
         }
-        f10484a = new Asc();
+        f10501a = new Asc();
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
@@ -43,11 +44,11 @@ public final class g {
                     c.a();
                 }
                 if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f10484a != null) {
+                    if (f10501a != null) {
                         if (z) {
-                            acn = f10484a.ac(bArr2, bArr);
+                            acn = f10501a.ac(bArr2, bArr);
                         } else {
-                            acn = f10484a.acn(bArr2, bArr);
+                            acn = f10501a.acn(bArr2, bArr);
                         }
                         if (acn != null && acn.length > 0) {
                             return acn;
@@ -65,14 +66,14 @@ public final class g {
         InterceptResult invokeLL;
         byte[] ar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
             if (bArr2 != null) {
                 try {
                 } catch (Throwable unused) {
                     c.a();
                 }
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f10484a != null && (ar = f10484a.ar(bArr, bArr2)) != null && ar.length > 0) {
+                    if (f10501a != null && (ar = f10501a.ar(bArr, bArr2)) != null && ar.length > 0) {
                         return ar;
                     }
                     return new byte[0];
@@ -94,7 +95,7 @@ public final class g {
                     c.a();
                 }
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f10484a != null && (dr = f10484a.dr(bArr, bArr2)) != null && dr.length > 0) {
+                    if (f10501a != null && (dr = f10501a.dr(bArr, bArr2)) != null && dr.length > 0) {
                         return dr;
                     }
                     return new byte[0];
@@ -116,7 +117,7 @@ public final class g {
                     c.a();
                 }
                 if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f10484a != null && (dc = f10484a.dc(bArr2, bArr)) != null && dc.length > 0) {
+                    if (f10501a != null && (dc = f10501a.dc(bArr2, bArr)) != null && dc.length > 0) {
                         return dc;
                     }
                     return new byte[0];
@@ -133,8 +134,8 @@ public final class g {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, file, file2, bArr)) == null) {
             if (bArr != null) {
                 try {
-                    if (bArr.length > 0 && file != null && file2 != null && f10484a != null) {
-                        return f10484a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
+                    if (bArr.length > 0 && file != null && file2 != null && f10501a != null) {
+                        return f10501a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
                     }
                 } catch (Throwable unused) {
                     c.a();

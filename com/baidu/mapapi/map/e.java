@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e implements ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f7148a;
+    public final /* synthetic */ BaiduMap f7165a;
 
     public e(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e implements ai {
                 return;
             }
         }
-        this.f7148a = baiduMap;
+        this.f7165a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.ai
@@ -45,22 +45,22 @@ public class e implements ai {
         TileOverlay tileOverlay2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), context})) == null) {
-            lock = this.f7148a.J;
+            lock = this.f7165a.J;
             lock.lock();
             try {
-                tileOverlay = this.f7148a.G;
+                tileOverlay = this.f7165a.G;
                 if (tileOverlay != null) {
-                    tileOverlay2 = this.f7148a.G;
+                    tileOverlay2 = this.f7165a.G;
                     Tile a2 = tileOverlay2.a(i2, i3, i4);
                     if (a2 != null) {
                         return a2.toBundle();
                     }
                 }
-                lock3 = this.f7148a.J;
+                lock3 = this.f7165a.J;
                 lock3.unlock();
                 return null;
             } finally {
-                lock2 = this.f7148a.J;
+                lock2 = this.f7165a.J;
                 lock2.unlock();
             }
         }

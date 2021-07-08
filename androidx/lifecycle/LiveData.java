@@ -292,7 +292,7 @@ public abstract class LiveData<T> {
 
     private void considerNotify(LiveData<T>.ObserverWrapper observerWrapper) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, this, observerWrapper) == null) && observerWrapper.mActive) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, observerWrapper) == null) && observerWrapper.mActive) {
             if (!observerWrapper.shouldBeActive()) {
                 observerWrapper.activeStateChanged(false);
                 return;

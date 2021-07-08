@@ -1,5 +1,6 @@
 package com.google.zxing.pdf417.detector;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BARCODE_MIN_HEIGHT = 10;
@@ -305,7 +306,7 @@ public final class Detector {
         int x;
         float y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65540, null, z, bitMatrix)) == null) {
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, bitMatrix)) == null) {
             ArrayList arrayList = new ArrayList();
             int i2 = 0;
             loop0: while (true) {

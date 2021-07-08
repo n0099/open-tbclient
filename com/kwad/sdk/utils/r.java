@@ -1,36 +1,101 @@
 package com.kwad.sdk.utils;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.R;
+/* loaded from: classes6.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Handler f36590a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f36591b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static <T> List<List<T>> a(List<T> list, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, list, i2)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (list == null) {
-                return arrayList;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835198, "Lcom/kwad/sdk/utils/r;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (i2 <= 0) {
-                i2 = list.size();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1510835198, "Lcom/kwad/sdk/utils/r;");
+                return;
             }
-            int i3 = 0;
-            while (i3 < list.size()) {
-                int i4 = i3 + i2;
-                arrayList.add(list.subList(i3, i4 > list.size() ? list.size() : i4));
-                i3 = i4;
-            }
-            return arrayList;
         }
-        return (List) invokeLI.objValue;
+        f36590a = new Handler(Looper.getMainLooper());
+        f36591b = false;
+    }
+
+    public static void a(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            a(context, str, R.layout.ksad_content_alliance_toast_2);
+        }
+    }
+
+    public static void a(Context context, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i2) == null) {
+            a(context, str, i2, 800L);
+        }
+    }
+
+    public static void a(Context context, String str, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || f36591b) {
+            return;
+        }
+        f36591b = true;
+        View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
+        ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
+        Toast toast = new Toast(context.getApplicationContext());
+        toast.setGravity(17, 0, 0);
+        toast.setDuration(0);
+        toast.setView(inflate);
+        toast.show();
+        f36590a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.r.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    boolean unused = r.f36591b = false;
+                }
+            }
+        }, j);
     }
 }

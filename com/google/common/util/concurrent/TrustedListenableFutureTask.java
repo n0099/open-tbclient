@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +13,13 @@ import d.f.d.a.n;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RunnableFuture;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TrustedListenableFutureTask<V> extends FluentFuture.TrustedFuture<V> implements RunnableFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile InterruptibleTask<?> task;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class TrustedFutureInterruptibleAsyncTask extends InterruptibleTask<ListenableFuture<V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +90,7 @@ public class TrustedListenableFutureTask<V> extends FluentFuture.TrustedFuture<V
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class TrustedFutureInterruptibleTask extends InterruptibleTask<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +217,7 @@ public class TrustedListenableFutureTask<V> extends FluentFuture.TrustedFuture<V
     public static <V> TrustedListenableFutureTask<V> create(Callable<V> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, callable)) == null) ? new TrustedListenableFutureTask<>(callable) : (TrustedListenableFutureTask) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, callable)) == null) ? new TrustedListenableFutureTask<>(callable) : (TrustedListenableFutureTask) invokeL.objValue;
     }
 
     public TrustedListenableFutureTask(AsyncCallable<V> asyncCallable) {

@@ -7,33 +7,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class d<T> implements h.e<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.e<? super T> f75674e;
+    public final h.e<? super T> f72708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f75675f;
+    public boolean f72709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f75676g;
+    public volatile boolean f72710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f75677h;
+    public a f72711h;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f75678a;
+        public Object[] f72712a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f75679b;
+        public int f72713b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,19 +52,19 @@ public class d<T> implements h.e<T> {
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i2 = this.f75679b;
-                Object[] objArr = this.f75678a;
+                int i2 = this.f72713b;
+                Object[] objArr = this.f72712a;
                 if (objArr == null) {
                     objArr = new Object[16];
-                    this.f75678a = objArr;
+                    this.f72712a = objArr;
                 } else if (i2 == objArr.length) {
                     Object[] objArr2 = new Object[(i2 >> 2) + i2];
                     System.arraycopy(objArr, 0, objArr2, 0, i2);
-                    this.f75678a = objArr2;
+                    this.f72712a = objArr2;
                     objArr = objArr2;
                 }
                 objArr[i2] = obj;
-                this.f75679b = i2 + 1;
+                this.f72713b = i2 + 1;
             }
         }
     }
@@ -84,31 +84,31 @@ public class d<T> implements h.e<T> {
                 return;
             }
         }
-        this.f75674e = eVar;
+        this.f72708e = eVar;
     }
 
     @Override // h.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f75676g) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f72710g) {
             return;
         }
         synchronized (this) {
-            if (this.f75676g) {
+            if (this.f72710g) {
                 return;
             }
-            this.f75676g = true;
-            if (this.f75675f) {
-                a aVar = this.f75677h;
+            this.f72710g = true;
+            if (this.f72709f) {
+                a aVar = this.f72711h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f75677h = aVar;
+                    this.f72711h = aVar;
                 }
                 aVar.a(NotificationLite.b());
                 return;
             }
-            this.f75675f = true;
-            this.f75674e.onCompleted();
+            this.f72709f = true;
+            this.f72708e.onCompleted();
         }
     }
 
@@ -117,25 +117,25 @@ public class d<T> implements h.e<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             h.m.a.e(th);
-            if (this.f75676g) {
+            if (this.f72710g) {
                 return;
             }
             synchronized (this) {
-                if (this.f75676g) {
+                if (this.f72710g) {
                     return;
                 }
-                this.f75676g = true;
-                if (this.f75675f) {
-                    a aVar = this.f75677h;
+                this.f72710g = true;
+                if (this.f72709f) {
+                    a aVar = this.f72711h;
                     if (aVar == null) {
                         aVar = new a();
-                        this.f75677h = aVar;
+                        this.f72711h = aVar;
                     }
                     aVar.a(NotificationLite.c(th));
                     return;
                 }
-                this.f75675f = true;
-                this.f75674e.onError(th);
+                this.f72709f = true;
+                this.f72708e.onError(th);
             }
         }
     }
@@ -150,54 +150,54 @@ public class d<T> implements h.e<T> {
     public void onNext(T t) {
         Object[] objArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f75676g) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f72710g) {
             return;
         }
         synchronized (this) {
-            if (this.f75676g) {
+            if (this.f72710g) {
                 return;
             }
-            if (this.f75675f) {
-                a aVar = this.f75677h;
+            if (this.f72709f) {
+                a aVar = this.f72711h;
                 if (aVar == null) {
                     aVar = new a();
-                    this.f75677h = aVar;
+                    this.f72711h = aVar;
                 }
                 aVar.a(NotificationLite.h(t));
                 return;
             }
-            this.f75675f = true;
+            this.f72709f = true;
             try {
-                this.f75674e.onNext(t);
+                this.f72708e.onNext(t);
                 while (true) {
                     synchronized (this) {
-                        a aVar2 = this.f75677h;
+                        a aVar2 = this.f72711h;
                         if (aVar2 == null) {
-                            this.f75675f = false;
+                            this.f72709f = false;
                             return;
                         }
-                        this.f75677h = null;
-                        for (Object obj : aVar2.f75678a) {
+                        this.f72711h = null;
+                        for (Object obj : aVar2.f72712a) {
                             if (obj == null) {
                                 break;
                             }
                             try {
-                                if (NotificationLite.a(this.f75674e, obj)) {
-                                    this.f75676g = true;
+                                if (NotificationLite.a(this.f72708e, obj)) {
+                                    this.f72710g = true;
                                     return;
                                 }
                             } catch (Throwable th) {
-                                this.f75676g = true;
+                                this.f72710g = true;
                                 h.m.a.e(th);
-                                this.f75674e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                this.f72708e.onError(OnErrorThrowable.addValueAsLastCause(th, t));
                                 return;
                             }
                         }
                     }
                 }
             } catch (Throwable th2) {
-                this.f75676g = true;
-                h.m.a.g(th2, this.f75674e, t);
+                this.f72710g = true;
+                h.m.a.g(th2, this.f72708e, t);
             }
         }
     }

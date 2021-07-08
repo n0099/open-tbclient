@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.representation;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -173,7 +174,7 @@ public final class Matrix {
     public static float length(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (float) Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (float) Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4)) : invokeCommon.floatValue;
     }
 
     public static void multiplyMM(float[] fArr, int i2, float[] fArr2, int i3, float[] fArr3, int i4) {

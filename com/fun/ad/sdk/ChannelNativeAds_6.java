@@ -1,5 +1,6 @@
 package com.fun.ad.sdk;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.kwad.sdk.api.KsNativeAd;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.win.opensdk.PBNative;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ChannelNativeAds_6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +21,7 @@ public class ChannelNativeAds_6 {
     public final KsNativeAd ksNative;
     public GdtADStatusChangeListener mListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface GdtADStatusChangeListener {
         void onADStatusChanged(NativeUnifiedADData nativeUnifiedADData);
     }
@@ -67,7 +68,7 @@ public class ChannelNativeAds_6 {
     public static ChannelNativeAds_6 create(PBNative pBNative) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, pBNative)) == null) ? new ChannelNativeAds_6(null, null, pBNative, null) : (ChannelNativeAds_6) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pBNative)) == null) ? new ChannelNativeAds_6(null, null, pBNative, null) : (ChannelNativeAds_6) invokeL.objValue;
     }
 
     public GdtADStatusChangeListener getGdtADStatusChangeListener() {

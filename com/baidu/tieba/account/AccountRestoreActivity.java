@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,30 +23,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.h3.l0.b;
-import d.a.s0.h3.l0.c;
+import d.a.p0.h3.l0.b;
+import d.a.p0.h3.l0.c;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.s0.h3.l0.a jsBridge;
+    public d.a.p0.h3.l0.a jsBridge;
     public c jsCallback;
     public b jsPromptInterface;
     public NavigationBar mNavigationBar;
     public String mPageType;
     public BaseWebView mWebView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AccountRestoreActivity f13685a;
+        public final /* synthetic */ AccountRestoreActivity f13702a;
 
         public a(AccountRestoreActivity accountRestoreActivity) {
             Interceptable interceptable = $ic;
@@ -62,16 +63,16 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                     return;
                 }
             }
-            this.f13685a = accountRestoreActivity;
+            this.f13702a = accountRestoreActivity;
         }
 
-        @Override // d.a.s0.h3.l0.c
+        @Override // d.a.p0.h3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                if (this.f13685a.jsBridge != null) {
-                    return this.f13685a.jsBridge.b(this.f13685a.mWebView, str, jsPromptResult);
+                if (this.f13702a.jsBridge != null) {
+                    return this.f13702a.jsBridge.b(this.f13702a.mWebView, str, jsPromptResult);
                 }
                 return false;
             }
@@ -115,7 +116,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 this.this$0 = this;
             }
 
-            @Override // d.a.s0.h3.l0.b
+            @Override // d.a.p0.h3.l0.b
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -136,7 +137,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     /* JADX INFO: Access modifiers changed from: private */
     public void exitPage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             if (PageType.PERSON_INFO.toString().equals(this.mPageType)) {
                 TbadkCoreApplication.setRefreshFlag(true);
             } else if (PageType.FRS.toString().equals(this.mPageType)) {
@@ -161,7 +162,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.account_restore_activity);
-            d.a.s0.h3.l0.a aVar = new d.a.s0.h3.l0.a();
+            d.a.p0.h3.l0.a aVar = new d.a.p0.h3.l0.a();
             this.jsBridge = aVar;
             aVar.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");

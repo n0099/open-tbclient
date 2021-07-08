@@ -1,6 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapapi.common.BaiduMapSDKException;
@@ -19,15 +20,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7713a;
+    public static int f7730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7714b;
+    public static Context f7731b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +44,7 @@ public class i {
                 return;
             }
         }
-        f7714b = BMapManager.getContext();
+        f7731b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -58,16 +59,16 @@ public class i {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (f7713a == 0) {
-                if (f7714b == null) {
+            if (f7730a == 0) {
+                if (f7731b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
                 VMsg.init();
-                AppEngine.InitEngine(f7714b);
+                AppEngine.InitEngine(f7731b);
                 AppEngine.StartSocketProc();
-                NetworkUtil.updateNetworkProxy(f7714b);
+                NetworkUtil.updateNetworkProxy(f7731b);
             }
-            f7713a++;
+            f7730a++;
         }
     }
 
@@ -139,9 +140,9 @@ public class i {
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
-            int i2 = f7713a - 1;
-            f7713a = i2;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            int i2 = f7730a - 1;
+            f7730a = i2;
             if (i2 == 0) {
                 AppEngine.UnInitEngine();
                 VMsg.destroy();

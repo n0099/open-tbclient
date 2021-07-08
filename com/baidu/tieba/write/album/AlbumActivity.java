@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a4.k.e;
-/* loaded from: classes5.dex */
+import d.a.p0.a4.k.e;
+/* loaded from: classes4.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
-                this.albumView.M(intent);
+                this.albumView.L(intent);
             }
         }
     }
@@ -148,7 +148,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             }
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.B();
+                eVar.A();
             }
         }
     }
@@ -159,7 +159,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                this.albumView.A();
+                this.albumView.z();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -173,7 +173,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.F();
+                eVar.B();
             }
             super.onPause();
         }
@@ -186,7 +186,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onResume();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.H();
+                eVar.G();
             }
         }
     }
@@ -198,7 +198,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onSaveInstanceState(bundle);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.I(bundle);
+                eVar.H(bundle);
             }
         }
     }
@@ -210,7 +210,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.J();
+                eVar.I();
             }
         }
     }
@@ -222,7 +222,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.K();
+                eVar.J();
             }
         }
     }

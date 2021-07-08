@@ -191,7 +191,7 @@ public abstract class Part {
     public static long getLengthOfParts(Part[] partArr, byte[] bArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, partArr, bArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, partArr, bArr)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLL.longValue;

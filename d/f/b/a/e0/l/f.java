@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class f implements d.f.b.a.e0.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d.f.b.a.e0.b> f73076e;
+    public final List<d.f.b.a.e0.b> f70179e;
 
     public f(List<d.f.b.a.e0.b> list) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class f implements d.f.b.a.e0.e {
                 return;
             }
         }
-        this.f73076e = list;
+        this.f70179e = list;
     }
 
     @Override // d.f.b.a.e0.e
@@ -66,6 +66,6 @@ public final class f implements d.f.b.a.e0.e {
     public List<d.f.b.a.e0.b> d(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j >= 0 ? this.f73076e : Collections.emptyList() : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j >= 0 ? this.f70179e : Collections.emptyList() : (List) invokeJ.objValue;
     }
 }

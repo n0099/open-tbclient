@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f72019b;
+    public static Handler f69122b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f72020a;
+    public boolean f69123a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class i {
                 int i2 = message.what;
                 if (10001 == i2) {
                     j jVar = (j) message.obj;
-                    f.a().c(d.d.a.a.a.c(), jVar.f72027f);
+                    f.a().c(d.d.a.a.a.c(), jVar.f69130f);
                     h.a().c(jVar);
                 } else if (10002 != i2) {
                     if (10003 == i2) {
@@ -72,12 +72,12 @@ public class i {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static i f72021a;
+        public static i f69124a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -93,7 +93,7 @@ public class i {
                     return;
                 }
             }
-            f72021a = new i(null);
+            f69124a = new i(null);
         }
     }
 
@@ -104,13 +104,13 @@ public class i {
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f72021a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69124a : (i) invokeV.objValue;
     }
 
     public void b(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            f72019b.obtainMessage(10002, i2, -1, str).sendToTarget();
+            f69122b.obtainMessage(10002, i2, -1, str).sendToTarget();
         }
     }
 
@@ -134,18 +134,18 @@ public class i {
             return;
         }
         e();
-        f72019b.obtainMessage(10001, j.a(str, j, str2, k.a(), e.a(), collection, map, str3)).sendToTarget();
+        f69122b.obtainMessage(10001, j.a(str, j, str2, k.a(), e.a(), collection, map, str3)).sendToTarget();
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f72020a) {
+            if (this.f69123a) {
                 return false;
             }
-            this.f72020a = true;
-            f72019b.sendEmptyMessage(10003);
+            this.f69123a = true;
+            f69122b.sendEmptyMessage(10003);
             d.h().a();
             d.d.a.a.a.e().f().loadStrategy();
             return true;
@@ -166,7 +166,7 @@ public class i {
                 return;
             }
         }
-        this.f72020a = false;
-        f72019b = new a(this, g.a().b().getLooper());
+        this.f69123a = false;
+        f69122b = new a(this, g.a().b().getLooper());
     }
 }

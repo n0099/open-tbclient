@@ -13,36 +13,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Q0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a */
-    public static String f42442a = "https://pp.xdplt.com/";
+    public static String f39456a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f42443b;
+    public static final String f39457b;
 
     /* renamed from: c */
-    public static final String f42444c;
+    public static final String f39458c;
 
     /* renamed from: d */
-    public static String f42445d;
+    public static String f39459d;
 
     /* renamed from: e */
-    public static String f42446e;
+    public static String f39460e;
 
     /* renamed from: f */
-    public static String f42447f;
+    public static String f39461f;
 
     /* renamed from: g */
-    public static String f42448g;
+    public static String f39462g;
 
     /* renamed from: h */
-    public static String f42449h;
+    public static String f39463h;
 
     /* renamed from: i */
-    public static String f42450i;
+    public static String f39464i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,21 +58,21 @@ public class Q0 {
                 return;
             }
         }
-        f42443b = f42442a + "behavior?";
-        f42444c = f42442a + "report?";
-        f42445d = "https://cd.xdplt.com/";
-        f42446e = "jy/da?";
-        f42447f = "?";
-        f42448g = "jy/da?";
-        f42449h = "jy/da?";
-        f42450i = "jy/da?";
+        f39457b = f39456a + "behavior?";
+        f39458c = f39456a + "report?";
+        f39459d = "https://cd.xdplt.com/";
+        f39460e = "jy/da?";
+        f39461f = "?";
+        f39462g = "jy/da?";
+        f39463h = "jy/da?";
+        f39464i = "jy/da?";
     }
 
     public static /* synthetic */ void a(P0 p0) {
         String str;
         if (p0 != null) {
-            str = p0.f42418c;
-            if (TextUtils.isEmpty(str) || p0.f42416a == null || TextUtils.isEmpty(p0.f42417b)) {
+            str = p0.f39432c;
+            if (TextUtils.isEmpty(str) || p0.f39430a == null || TextUtils.isEmpty(p0.f39431b)) {
                 return;
             }
             u1.a(new O0(p0));
@@ -84,8 +84,8 @@ public class Q0 {
             try {
                 if (jSONObject.length() != 0) {
                     w wVar = new w();
-                    wVar.f42681c = jSONObject.optString("traceid", "");
-                    wVar.f42680b = jSONObject.optString("pid", "");
+                    wVar.f39695c = jSONObject.optString("traceid", "");
+                    wVar.f39694b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -94,7 +94,7 @@ public class Q0 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(wVar.f42681c);
+                                info.setTraceid(wVar.f39695c);
                                 info.setPid(wVar.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -150,7 +150,7 @@ public class Q0 {
                             }
                         }
                     }
-                    wVar.f42679a = arrayList;
+                    wVar.f39693a = arrayList;
                     return wVar;
                 }
             } catch (Exception unused) {
@@ -160,13 +160,13 @@ public class Q0 {
     }
 
     public static /* synthetic */ void a(P0 p0, HashMap hashMap) {
-        if (p0.f42417b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
-            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f42416a)));
-            float a2 = s1.a(p0.f42416a, "splash_width", 0.0f);
+        if (p0.f39431b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+            hashMap.put("lo_timeout", String.valueOf(s1.d(p0.f39430a)));
+            float a2 = s1.a(p0.f39430a, "splash_width", 0.0f);
             if (a2 > 0.0f) {
                 hashMap.put("sp_w", String.valueOf(a2));
             }
-            float a3 = s1.a(p0.f42416a, "splash_height", 0.0f);
+            float a3 = s1.a(p0.f39430a, "splash_height", 0.0f);
             if (a3 > 0.0f) {
                 hashMap.put("sp_h", String.valueOf(a3));
             }

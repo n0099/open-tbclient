@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseTask<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BaseTask";
@@ -26,7 +26,7 @@ public abstract class BaseTask<T> implements Runnable {
     public Future<T> mTask;
     public long mTaskAddTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class BaseTaskResult<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public abstract class BaseTask<T> implements Runnable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class InternalHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -26,7 +26,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -161,7 +161,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
 
     public static void doUBCForSpecifiedJsinterface(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65540, null, str, str2) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         ArrayList arrayList = new ArrayList(SchemeUsageStatisticsListener.getStatisticJsinterfaceList());

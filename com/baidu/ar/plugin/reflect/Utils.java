@@ -1,5 +1,6 @@
 package com.baidu.ar.plugin.reflect;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -67,7 +68,7 @@ public class Utils {
     public static boolean isSameLength(Object[] objArr, Object[] objArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, objArr, objArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr, objArr2)) == null) {
             if (objArr != null || objArr2 == null || objArr2.length <= 0) {
                 if (objArr2 != null || objArr == null || objArr.length <= 0) {
                     return objArr == null || objArr2 == null || objArr.length == objArr2.length;

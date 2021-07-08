@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.android.app.IAlixPay;
 import com.alipay.android.app.IRemoteServiceCallback;
 import com.alipay.sdk.data.a;
@@ -23,32 +24,32 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1966a = "failed";
+    public static final String f1967a = "failed";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1967b = "scheme_failed";
+    public static final String f1968b = "scheme_failed";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f1968c;
+    public Activity f1969c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IAlixPay f1969d;
+    public IAlixPay f1970d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f1970e;
+    public final Object f1971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1971f;
+    public boolean f1972f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f1972g;
+    public a f1973g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ServiceConnection f1973h;
+    public ServiceConnection f1974h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1974i;
+    public String f1975i;
     public IRemoteServiceCallback j;
 
     /* loaded from: classes.dex */
@@ -73,12 +74,12 @@ public class e {
                 return;
             }
         }
-        this.f1970e = IAlixPay.class;
-        this.f1973h = new f(this);
-        this.f1974i = null;
+        this.f1971e = IAlixPay.class;
+        this.f1974h = new f(this);
+        this.f1975i = null;
         this.j = new h(this);
-        this.f1968c = activity;
-        this.f1972g = aVar;
+        this.f1969c = activity;
+        this.f1973g = aVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x0059 A[Catch: all -> 0x0062, TryCatch #0 {all -> 0x0062, blocks: (B:5:0x0007, B:9:0x001b, B:12:0x0025, B:14:0x002b, B:17:0x0032, B:20:0x003b, B:22:0x003f, B:25:0x004c, B:27:0x0055, B:29:0x0059, B:30:0x005d, B:26:0x0051, B:8:0x0019), top: B:41:0x0007 }] */
@@ -94,23 +95,23 @@ public class e {
             try {
                 List<a.C0016a> f2 = com.alipay.sdk.data.a.g().f();
                 if (!com.alipay.sdk.data.a.g().q || f2 == null) {
-                    f2 = com.alipay.sdk.app.i.f1803a;
+                    f2 = com.alipay.sdk.app.i.f1804a;
                 }
-                a2 = n.a(this.f1968c, f2);
+                a2 = n.a(this.f1969c, f2);
             } catch (Throwable th) {
                 com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.F, th);
             }
-            if (a2 == null || a2.a() || a2.b() || n.a(a2.f2000a)) {
-                return f1966a;
+            if (a2 == null || a2.a() || a2.b() || n.a(a2.f2001a)) {
+                return f1967a;
             }
-            if (a2.f2000a != null && !n.f1994a.equals(a2.f2000a.packageName)) {
-                str2 = a2.f2000a.packageName;
-                r1 = a2.f2000a != null ? a2.f2000a.versionCode : 0;
+            if (a2.f2001a != null && !n.f1995a.equals(a2.f2001a.packageName)) {
+                str2 = a2.f2001a.packageName;
+                r1 = a2.f2001a != null ? a2.f2001a.versionCode : 0;
                 a(a2);
                 return a(str, str2, r1);
             }
             str2 = n.a();
-            if (a2.f2000a != null) {
+            if (a2.f2001a != null) {
             }
             a(a2);
             return a(str, str2, r1);
@@ -121,14 +122,14 @@ public class e {
     private void a(n.a aVar) throws InterruptedException {
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) == null) || aVar == null || (packageInfo = aVar.f2000a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) == null) || aVar == null || (packageInfo = aVar.f2001a) == null) {
             return;
         }
         String str = packageInfo.packageName;
         Intent intent = new Intent();
         intent.setClassName(str, "com.alipay.android.app.TransProcessPayActivity");
         try {
-            this.f1968c.startActivity(intent);
+            this.f1969c.startActivity(intent);
         } catch (Throwable th) {
             com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.J, th);
         }
@@ -175,7 +176,7 @@ public class e {
             if (r7 == 0) goto L1eb
             if (r0 <= r9) goto L1eb
             if (r6 == 0) goto L1eb
-            android.app.Activity r0 = r1.f1968c
+            android.app.Activity r0 = r1.f1969c
             java.lang.String r5 = "scheme_failed"
             if (r0 == 0) goto L1eb
             boolean r0 = a(r3, r0)
@@ -191,7 +192,7 @@ public class e {
             com.alipay.sdk.app.statistic.a.a(r12, r8, r7)
             com.alipay.sdk.util.g r8 = new com.alipay.sdk.util.g
             r8.<init>(r1, r6)
-            java.util.concurrent.ConcurrentHashMap<java.lang.String, com.alipay.sdk.app.AlipayResultActivity$a> r9 = com.alipay.sdk.app.AlipayResultActivity.f1749a
+            java.util.concurrent.ConcurrentHashMap<java.lang.String, com.alipay.sdk.app.AlipayResultActivity$a> r9 = com.alipay.sdk.app.AlipayResultActivity.f1750a
             r9.put(r7, r8)
             java.lang.String r9 = "&"
             r10 = -1
@@ -282,7 +283,7 @@ public class e {
             java.lang.String r4 = "external_info"
             r2.put(r4, r0)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             java.lang.String r0 = "pkgName"
-            android.app.Activity r4 = r1.f1968c     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
+            android.app.Activity r4 = r1.f1969c     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             java.lang.String r4 = r4.getPackageName()     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             r2.put(r0, r4)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             java.lang.String r0 = "session"
@@ -306,14 +307,14 @@ public class e {
             r2.addFlags(r3)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             android.net.Uri r0 = android.net.Uri.parse(r0)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             r2.setData(r0)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
-            android.app.Activity r0 = r1.f1968c     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
+            android.app.Activity r0 = r1.f1969c     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             r0.startActivity(r2)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             com.alipay.sdk.data.a r0 = com.alipay.sdk.data.a.g()     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
-            android.app.Activity r2 = r1.f1968c     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
+            android.app.Activity r2 = r1.f1969c     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             android.content.Context r2 = r2.getApplicationContext()     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             r0.a(r2)     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             r6.await()     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
-            java.lang.String r2 = r1.f1974i     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
+            java.lang.String r2 = r1.f1975i     // Catch: java.lang.Throwable -> L109 java.lang.InterruptedException -> L1ce
             java.lang.String r3 = "unknown"
             java.util.Map r0 = com.alipay.sdk.util.l.a(r2)     // Catch: java.lang.Throwable -> L1a5
             java.lang.String r4 = "resultStatus"
@@ -359,9 +360,9 @@ public class e {
         L1d6:
             java.lang.String r2 = "BSPWaiting"
             com.alipay.sdk.app.statistic.a.a(r12, r2, r0)
-            com.alipay.sdk.app.k r0 = com.alipay.sdk.app.k.f1815g
+            com.alipay.sdk.app.k r0 = com.alipay.sdk.app.k.f1816g
             int r0 = r0.a()
-            com.alipay.sdk.app.k r2 = com.alipay.sdk.app.k.f1815g
+            com.alipay.sdk.app.k r2 = com.alipay.sdk.app.k.f1816g
             java.lang.String r2 = r2.b()
             java.lang.String r5 = com.alipay.sdk.app.j.a(r0, r2, r11)
         L1eb:
@@ -404,7 +405,7 @@ public class e {
      */
     /* JADX WARN: Code restructure failed: missing block: B:53:0x00f3, code lost:
         r9.setRequestedOrientation(0);
-        r7.f1971f = false;
+        r7.f1972f = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:67:0x012f, code lost:
         if (r9 != null) goto L51;
@@ -419,17 +420,17 @@ public class e {
         String c2;
         Activity activity2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2)) == null) {
             Intent intent = new Intent();
             intent.setPackage(str2);
             intent.setAction(n.a(str2));
-            String a2 = n.a(this.f1968c, str2);
+            String a2 = n.a(this.f1969c, str2);
             try {
-                if (this.f1968c.getApplicationContext().bindService(intent, this.f1973h, 1)) {
-                    synchronized (this.f1970e) {
-                        if (this.f1969d == null) {
+                if (this.f1969c.getApplicationContext().bindService(intent, this.f1974h, 1)) {
+                    synchronized (this.f1971e) {
+                        if (this.f1970d == null) {
                             try {
-                                this.f1970e.wait(com.alipay.sdk.data.a.g().a());
+                                this.f1971e.wait(com.alipay.sdk.data.a.g().a());
                             } catch (InterruptedException e2) {
                                 com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.D, e2);
                             }
@@ -441,80 +442,80 @@ public class e {
                             com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.A, th);
                             c2 = com.alipay.sdk.app.j.c();
                             try {
-                                this.f1969d.unregisterCallback(this.j);
+                                this.f1970d.unregisterCallback(this.j);
                             } catch (Throwable th2) {
                                 c.a(th2);
                             }
                             try {
-                                this.f1968c.getApplicationContext().unbindService(this.f1973h);
+                                this.f1969c.getApplicationContext().unbindService(this.f1974h);
                             } catch (Throwable th3) {
                                 c.a(th3);
                             }
-                            this.f1972g = null;
+                            this.f1973g = null;
                             this.j = null;
-                            this.f1973h = null;
-                            this.f1969d = null;
-                            if (this.f1971f) {
-                                activity2 = this.f1968c;
+                            this.f1974h = null;
+                            this.f1970d = null;
+                            if (this.f1972f) {
+                                activity2 = this.f1969c;
                             }
                         } finally {
                             try {
-                                this.f1969d.unregisterCallback(this.j);
+                                this.f1970d.unregisterCallback(this.j);
                             } catch (Throwable th4) {
                                 c.a(th4);
                             }
                             try {
-                                this.f1968c.getApplicationContext().unbindService(this.f1973h);
+                                this.f1969c.getApplicationContext().unbindService(this.f1974h);
                             } catch (Throwable th5) {
                                 c.a(th5);
                             }
-                            this.f1972g = null;
+                            this.f1973g = null;
                             this.j = null;
-                            this.f1973h = null;
-                            this.f1969d = null;
-                            if (this.f1971f && (activity = this.f1968c) != null) {
+                            this.f1974h = null;
+                            this.f1970d = null;
+                            if (this.f1972f && (activity = this.f1969c) != null) {
                                 activity.setRequestedOrientation(0);
-                                this.f1971f = false;
+                                this.f1972f = false;
                             }
                         }
                     }
-                    if (this.f1969d == null) {
-                        String a3 = n.a(this.f1968c, str2);
+                    if (this.f1970d == null) {
+                        String a3 = n.a(this.f1969c, str2);
                         com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.x, a2 + "|" + a3);
-                        return f1966a;
+                        return f1967a;
                     }
-                    if (this.f1972g != null) {
-                        this.f1972g.a();
+                    if (this.f1973g != null) {
+                        this.f1973g.a();
                     }
-                    if (this.f1968c.getRequestedOrientation() == 0) {
-                        this.f1968c.setRequestedOrientation(1);
-                        this.f1971f = true;
+                    if (this.f1969c.getRequestedOrientation() == 0) {
+                        this.f1969c.setRequestedOrientation(1);
+                        this.f1972f = true;
                     }
-                    this.f1969d.registerCallback(this.j);
-                    c2 = this.f1969d.Pay(str);
+                    this.f1970d.registerCallback(this.j);
+                    c2 = this.f1970d.Pay(str);
                     try {
-                        this.f1969d.unregisterCallback(this.j);
+                        this.f1970d.unregisterCallback(this.j);
                     } catch (Throwable th6) {
                         c.a(th6);
                     }
                     try {
-                        this.f1968c.getApplicationContext().unbindService(this.f1973h);
+                        this.f1969c.getApplicationContext().unbindService(this.f1974h);
                     } catch (Throwable th7) {
                         c.a(th7);
                     }
-                    this.f1972g = null;
+                    this.f1973g = null;
                     this.j = null;
-                    this.f1973h = null;
-                    this.f1969d = null;
-                    if (this.f1971f) {
-                        activity2 = this.f1968c;
+                    this.f1974h = null;
+                    this.f1970d = null;
+                    if (this.f1972f) {
+                        activity2 = this.f1969c;
                     }
                     return c2;
                 }
                 throw new Throwable("bindService fail");
             } catch (Throwable th8) {
                 com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.C, th8);
-                return f1966a;
+                return f1967a;
             }
         }
         return (String) invokeLL.objValue;
@@ -523,7 +524,7 @@ public class e {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1968c = null;
+            this.f1969c = null;
         }
     }
 }

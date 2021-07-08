@@ -24,6 +24,7 @@ import androidx.annotation.AnimatorRes;
 import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
@@ -149,7 +150,7 @@ public class AnimatorInflaterCompat {
 
     public static void distributeKeyframes(Keyframe[] keyframeArr, float f2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{keyframeArr, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{keyframeArr, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             float f3 = f2 / ((i3 - i2) + 2);
             while (i2 <= i3) {
                 keyframeArr[i2].setFraction(keyframeArr[i2 - 1].getFraction() + f3);

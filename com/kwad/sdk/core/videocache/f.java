@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -25,60 +24,59 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f36679a;
+    public final Object f35027a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f36680b;
+    public final ExecutorService f35028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, g> f36681c;
+    public final Map<String, g> f35029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ServerSocket f36682d;
+    public final ServerSocket f35030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f36683e;
+    public final int f35031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Thread f36684f;
+    public final Thread f35032f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.c f36685g;
+    public final com.kwad.sdk.core.videocache.c f35033g;
 
     /* renamed from: com.kwad.sdk.core.videocache.f$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public File f36686a;
+        public File f35034a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.a.c f36687b;
+        public com.kwad.sdk.core.videocache.a.c f35035b;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.a.a f36688c;
+        public com.kwad.sdk.core.videocache.a.a f35036c;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.d.b f36689d;
+        public com.kwad.sdk.core.videocache.d.b f35037d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.b.b f36690e;
+        public com.kwad.sdk.core.videocache.b.b f35038e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -95,24 +93,24 @@ public class f {
                     return;
                 }
             }
-            this.f36689d = com.kwad.sdk.core.videocache.d.c.a(context);
-            this.f36686a = o.a(context);
-            this.f36688c = new com.kwad.sdk.core.videocache.a.g(KsMediaMeta.AV_CH_STEREO_LEFT);
-            this.f36687b = new com.kwad.sdk.core.videocache.a.f();
-            this.f36690e = new com.kwad.sdk.core.videocache.b.a();
+            this.f35037d = com.kwad.sdk.core.videocache.d.c.a(context);
+            this.f35034a = o.a(context);
+            this.f35036c = new com.kwad.sdk.core.videocache.a.g(536870912L);
+            this.f35035b = new com.kwad.sdk.core.videocache.a.f();
+            this.f35038e = new com.kwad.sdk.core.videocache.b.a();
         }
 
         private com.kwad.sdk.core.videocache.c b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new com.kwad.sdk.core.videocache.c(this.f36686a, this.f36687b, this.f36688c, this.f36689d, this.f36690e) : (com.kwad.sdk.core.videocache.c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? new com.kwad.sdk.core.videocache.c(this.f35034a, this.f35035b, this.f35036c, this.f35037d, this.f35038e) : (com.kwad.sdk.core.videocache.c) invokeV.objValue;
         }
 
         public a a(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                this.f36688c = new com.kwad.sdk.core.videocache.a.g(j);
+                this.f35036c = new com.kwad.sdk.core.videocache.a.g(j);
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -125,16 +123,16 @@ public class f {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f36691a;
+        public final /* synthetic */ f f35039a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Socket f36692b;
+        public final Socket f35040b;
 
         public b(f fVar, Socket socket) {
             Interceptable interceptable = $ic;
@@ -151,29 +149,29 @@ public class f {
                     return;
                 }
             }
-            this.f36691a = fVar;
-            this.f36692b = socket;
+            this.f35039a = fVar;
+            this.f35040b = socket;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36691a.a(this.f36692b);
+                this.f35039a.a(this.f35040b);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f36693a;
+        public final /* synthetic */ f f35041a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final CountDownLatch f36694b;
+        public final CountDownLatch f35042b;
 
         public c(f fVar, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
@@ -190,8 +188,8 @@ public class f {
                     return;
                 }
             }
-            this.f36693a = fVar;
-            this.f36694b = countDownLatch;
+            this.f35041a = fVar;
+            this.f35042b = countDownLatch;
         }
 
         @Override // java.lang.Runnable
@@ -199,8 +197,8 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f36694b.countDown();
-                    this.f36693a.a();
+                    this.f35042b.countDown();
+                    this.f35041a.a();
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.a(th);
                 }
@@ -223,23 +221,23 @@ public class f {
                 return;
             }
         }
-        this.f36679a = new Object();
-        this.f36680b = Executors.newFixedThreadPool(8);
-        this.f36681c = new ConcurrentHashMap();
-        this.f36685g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
+        this.f35027a = new Object();
+        this.f35028b = com.kwad.sdk.core.i.b.l();
+        this.f35029c = new ConcurrentHashMap();
+        this.f35033g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
         try {
             ServerSocket serverSocket = new ServerSocket(0, 8, InetAddress.getByName("127.0.0.1"));
-            this.f36682d = serverSocket;
+            this.f35030d = serverSocket;
             int localPort = serverSocket.getLocalPort();
-            this.f36683e = localPort;
+            this.f35031e = localPort;
             i.a("127.0.0.1", localPort);
             CountDownLatch countDownLatch = new CountDownLatch(1);
             Thread thread = new Thread(new c(this, countDownLatch));
-            this.f36684f = thread;
+            this.f35032f = thread;
             thread.start();
             countDownLatch.await();
         } catch (IOException | InterruptedException e2) {
-            this.f36680b.shutdown();
+            this.f35028b.shutdown();
             throw new IllegalStateException("Error starting local proxy server", e2);
         }
     }
@@ -254,9 +252,9 @@ public class f {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
-                    Socket accept = this.f36682d.accept();
+                    Socket accept = this.f35030d.accept();
                     com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Accept new socket " + accept);
-                    this.f36680b.submit(new b(this, accept));
+                    this.f35028b.submit(new b(this, accept));
                 } catch (IOException e2) {
                     a(new ProxyCacheException("Error during waiting connection", e2));
                     return;
@@ -269,9 +267,9 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, file) == null) {
             try {
-                this.f36685g.f36666c.a(file);
+                this.f35033g.f35014c.a(file);
             } catch (IOException unused) {
-                com.kwad.sdk.core.d.a.d("HttpProxyCacheServer", "Error touching file " + file);
+                com.kwad.sdk.core.d.a.e("HttpProxyCacheServer", "Error touching file " + file);
             }
         }
     }
@@ -279,8 +277,8 @@ public class f {
     private void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, th) == null) {
-            com.kwad.sdk.core.d.a.d("HttpProxyCacheServer", "HttpProxyCacheServer error");
-            com.kwad.sdk.core.d.a.a(th);
+            com.kwad.sdk.core.d.a.e("HttpProxyCacheServer", "HttpProxyCacheServer error");
+            com.kwad.sdk.core.d.a.b(th);
         }
     }
 
@@ -305,7 +303,7 @@ public class f {
                 try {
                     d a2 = d.a(socket.getInputStream());
                     com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Request to cache proxy:" + a2);
-                    f(l.c(a2.f36672a)).a(a2, socket);
+                    f(l.c(a2.f35020a)).a(a2, socket);
                     b(socket);
                     sb = new StringBuilder();
                 } catch (ProxyCacheException e2) {
@@ -344,9 +342,9 @@ public class f {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            synchronized (this.f36679a) {
+            synchronized (this.f35027a) {
                 i2 = 0;
-                for (g gVar : this.f36681c.values()) {
+                for (g gVar : this.f35029c.values()) {
                     i2 += gVar.b();
                 }
             }
@@ -389,7 +387,7 @@ public class f {
                 }
                 socket.shutdownOutput();
             } catch (IOException unused) {
-                com.kwad.sdk.core.d.a.c("HttpProxyCacheServer", "Failed to close socket on proxy side: {}. It seems client have already closed connection.");
+                com.kwad.sdk.core.d.a.d("HttpProxyCacheServer", "Failed to close socket on proxy side: {}. It seems client have already closed connection.");
             }
         }
     }
@@ -397,7 +395,7 @@ public class f {
     private String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? String.format(Locale.US, "http://%s:%d/%s", "127.0.0.1", Integer.valueOf(this.f36683e), l.b(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? String.format(Locale.US, "http://%s:%d/%s", "127.0.0.1", Integer.valueOf(this.f35031e), l.b(str)) : (String) invokeL.objValue;
     }
 
     private void e(Socket socket) {
@@ -419,11 +417,11 @@ public class f {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
-            synchronized (this.f36679a) {
-                gVar = this.f36681c.get(str);
+            synchronized (this.f35027a) {
+                gVar = this.f35029c.get(str);
                 if (gVar == null) {
-                    gVar = new g(str, this.f36685g);
-                    this.f36681c.put(str, gVar);
+                    gVar = new g(str, this.f35033g);
+                    this.f35029c.put(str, gVar);
                 }
             }
             return gVar;
@@ -456,37 +454,33 @@ public class f {
         HttpURLConnection httpURLConnection;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
-            if (b(str)) {
-                return true;
-            }
-            long j = 0;
-            BufferedInputStream bufferedInputStream2 = null;
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) != null) {
+            return invokeLI.booleanValue;
+        }
+        if (b(str)) {
+            return true;
+        }
+        long j = 0;
+        BufferedInputStream bufferedInputStream2 = null;
+        try {
+            httpURLConnection = (HttpURLConnection) new URL(e(str)).openConnection();
             try {
-                httpURLConnection = (HttpURLConnection) new URL(e(str)).openConnection();
                 try {
-                    try {
-                        httpURLConnection.setRequestProperty("Accept-Language", "zh-CN");
-                        httpURLConnection.setConnectTimeout(10000);
-                        httpURLConnection.setReadTimeout(120000);
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.setDoInput(true);
-                        httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                        httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                        httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
-                        bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th) {
-                    th = th;
+                    com.kwad.sdk.core.network.l.a(httpURLConnection);
+                    httpURLConnection.setRequestProperty("Accept-Language", "zh-CN");
+                    httpURLConnection.setConnectTimeout(10000);
+                    httpURLConnection.setReadTimeout(120000);
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                    httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
+                    bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+                } catch (Exception e2) {
+                    e = e2;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                httpURLConnection = null;
-            } catch (Throwable th2) {
-                th = th2;
-                httpURLConnection = null;
+            } catch (Throwable th) {
+                th = th;
             }
             try {
                 byte[] bArr = new byte[1024];
@@ -507,10 +501,10 @@ public class f {
                     return true;
                 }
                 return true;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 bufferedInputStream2 = bufferedInputStream;
-                com.kwad.sdk.core.d.a.a(e);
+                com.kwad.sdk.core.d.a.b(e);
                 com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "downloadUrlToStream file crash", e);
                 if (bufferedInputStream2 != null) {
                     try {
@@ -522,8 +516,8 @@ public class f {
                     httpURLConnection.disconnect();
                 }
                 return false;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th2) {
+                th = th2;
                 bufferedInputStream2 = bufferedInputStream;
                 if (bufferedInputStream2 != null) {
                     try {
@@ -536,8 +530,13 @@ public class f {
                 }
                 throw th;
             }
+        } catch (Exception e4) {
+            e = e4;
+            httpURLConnection = null;
+        } catch (Throwable th3) {
+            th = th3;
+            httpURLConnection = null;
         }
-        return invokeLI.booleanValue;
     }
 
     public boolean b(String str) {
@@ -554,10 +553,10 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            g gVar = this.f36681c.get(str);
+            g gVar = this.f35029c.get(str);
             if (gVar != null) {
                 gVar.a();
-                this.f36681c.remove(str);
+                this.f35029c.remove(str);
                 return true;
             }
             return false;
@@ -569,8 +568,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            com.kwad.sdk.core.videocache.c cVar = this.f36685g;
-            return new File(cVar.f36664a, cVar.f36665b.a(str));
+            com.kwad.sdk.core.videocache.c cVar = this.f35033g;
+            return new File(cVar.f35012a, cVar.f35013b.a(str));
         }
         return (File) invokeL.objValue;
     }

@@ -17,7 +17,7 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -139,7 +139,7 @@ public class JsonWriter implements Closeable, Flushable {
     private JsonWriter close(int i2, int i3, String str) throws IOException {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65540, this, i2, i3, str)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, str)) == null) {
             int peek = peek();
             if (peek != i3 && peek != i2) {
                 throw new IllegalStateException("Nesting problem.");

@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f41906a;
+    public a f38920a;
     @SuppressLint({"NewApi"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebChromeClient f41907b;
+    public final WebChromeClient f38921b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, int i2) {
@@ -45,12 +45,12 @@ public abstract class b extends Dialog {
                 return;
             }
         }
-        this.f41907b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
+        this.f38921b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b f41908a;
+            public final /* synthetic */ b f38922a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,7 +67,7 @@ public abstract class b extends Dialog {
                         return;
                     }
                 }
-                this.f41908a = this;
+                this.f38922a = this;
             }
 
             @Override // android.webkit.WebChromeClient
@@ -80,7 +80,7 @@ public abstract class b extends Dialog {
                     }
                     f.c("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + consoleMessage.message() + " -- From  111 line " + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
                     if (Build.VERSION.SDK_INT > 7) {
-                        this.f41908a.a(consoleMessage == null ? "" : consoleMessage.message());
+                        this.f38922a.a(consoleMessage == null ? "" : consoleMessage.message());
                         return true;
                     }
                     return true;
@@ -94,7 +94,7 @@ public abstract class b extends Dialog {
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i5, str2) == null) {
                     f.c("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + str + " -- From 222 line " + i5 + " of " + str2);
                     if (Build.VERSION.SDK_INT == 7) {
-                        this.f41908a.a(str);
+                        this.f38922a.a(str);
                     }
                 }
             }
@@ -108,7 +108,7 @@ public abstract class b extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f41906a = new a();
+            this.f38920a = new a();
         }
     }
 }

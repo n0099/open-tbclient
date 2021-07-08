@@ -17,32 +17,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.IdCardDetectionH5Activity;
 import com.baidu.wallet.base.iddetect.IdentityCardDetectionActivity;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class IdCardDetectionController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IIdCardDetectionListener mIdCardResultListener;
 
     /* renamed from: com.baidu.wallet.base.controllers.IdCardDetectionController$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface IIdCardDetectionListener extends NoProguard {
         void onDetectFailed(int i2, String str);
 
         void onDetectOK(Bundle bundle);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IdCardDetectionController f23899a;
+        public static final IdCardDetectionController f24009a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class IdCardDetectionController {
                     return;
                 }
             }
-            f23899a = new IdCardDetectionController(null);
+            f24009a = new IdCardDetectionController(null);
         }
     }
 
@@ -69,7 +69,7 @@ public class IdCardDetectionController {
     public static final IdCardDetectionController getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f23899a : (IdCardDetectionController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24009a : (IdCardDetectionController) invokeV.objValue;
     }
 
     public void IdCardDeteFailed(int i2, String str) {

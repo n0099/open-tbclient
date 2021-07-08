@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.s0.x.b.d;
-import d.a.s0.x.b.e;
-import d.a.s0.x.b.f;
+import d.a.p0.x.b.d;
+import d.a.p0.x.b.e;
+import d.a.p0.x.b.f;
 import java.util.ArrayList;
 import tbclient.ElectionInfo.Basic;
 import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
 import tbclient.ManagerElection;
 import tbclient.Myrecord;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

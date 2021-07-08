@@ -11,13 +11,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public final class bo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f43639a;
+    public final /* synthetic */ Context f40653a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ hj f942a;
@@ -37,7 +37,7 @@ public final class bo implements Runnable {
                 return;
             }
         }
-        this.f43639a = context;
+        this.f40653a = context;
         this.f942a = hjVar;
     }
 
@@ -72,7 +72,7 @@ public final class bo implements Runnable {
                 return;
             }
         }
-        synchronized (bn.f43638a) {
+        synchronized (bn.f40652a) {
             FileLock fileLock = null;
             r1 = null;
             FileLock fileLock2 = null;
@@ -80,12 +80,12 @@ public final class bo implements Runnable {
             try {
                 try {
                     try {
-                        File file = new File(this.f43639a.getFilesDir(), "tiny_data.lock");
+                        File file = new File(this.f40653a.getFilesDir(), "tiny_data.lock");
                         com.xiaomi.push.y.m643a(file);
                         randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();
-                            bn.c(this.f43639a, this.f942a);
+                            bn.c(this.f40653a, this.f942a);
                             fileLock = fileLock2;
                             r3 = randomAccessFile;
                             if (fileLock2 != null) {

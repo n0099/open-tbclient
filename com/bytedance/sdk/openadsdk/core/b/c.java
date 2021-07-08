@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.j.g;
 import com.bytedance.sdk.openadsdk.core.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int B = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f29740a;
+    public static float f29850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f29741b;
+    public static float f29851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f29742c;
+    public static float f29852c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f29743d;
+    public static float f29853d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f29744e;
+    public static long f29854e;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public SparseArray<a> C;
@@ -45,22 +45,22 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public int y;
     public int z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29745a;
+        public int f29855a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f29746b;
+        public double f29856b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f29747c;
+        public double f29857c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f29748d;
+        public long f29858d;
 
         public a(int i2, double d2, double d3, long j) {
             Interceptable interceptable = $ic;
@@ -77,11 +77,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                     return;
                 }
             }
-            this.f29745a = -1;
-            this.f29745a = i2;
-            this.f29746b = d2;
-            this.f29747c = d3;
-            this.f29748d = j;
+            this.f29855a = -1;
+            this.f29855a = i2;
+            this.f29856b = d2;
+            this.f29857c = d3;
+            this.f29858d = j;
         }
     }
 
@@ -101,11 +101,11 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(o.a()) != null) {
             B = ViewConfiguration.get(o.a()).getScaledTouchSlop();
         }
-        f29740a = 0.0f;
-        f29741b = 0.0f;
-        f29742c = 0.0f;
-        f29743d = 0.0f;
-        f29744e = 0L;
+        f29850a = 0.0f;
+        f29851b = 0.0f;
+        f29852c = 0.0f;
+        f29853d = 0.0f;
+        f29854e = 0L;
     }
 
     public c() {
@@ -148,7 +148,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 this.y = motionEvent.getToolType(0);
                 this.z = motionEvent.getDeviceId();
                 this.A = motionEvent.getSource();
-                f29744e = System.currentTimeMillis();
+                f29854e = System.currentTimeMillis();
                 i2 = 0;
             } else if (actionMasked == 1) {
                 this.u = (int) motionEvent.getRawX();
@@ -158,14 +158,14 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             } else if (actionMasked != 2) {
                 i2 = actionMasked != 3 ? -1 : 4;
             } else {
-                f29742c += Math.abs(motionEvent.getX() - f29740a);
-                f29743d += Math.abs(motionEvent.getY() - f29741b);
-                f29740a = motionEvent.getX();
-                f29741b = motionEvent.getY();
-                if (System.currentTimeMillis() - f29744e > 200) {
-                    float f2 = f29742c;
+                f29852c += Math.abs(motionEvent.getX() - f29850a);
+                f29853d += Math.abs(motionEvent.getY() - f29851b);
+                f29850a = motionEvent.getX();
+                f29851b = motionEvent.getY();
+                if (System.currentTimeMillis() - f29854e > 200) {
+                    float f2 = f29852c;
                     int i3 = B;
-                    if (f2 > i3 || f29743d > i3) {
+                    if (f2 > i3 || f29853d > i3) {
                         i2 = 1;
                     }
                 }

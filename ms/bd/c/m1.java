@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class m1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f76067a;
+    public static volatile boolean f73101a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, e0> f76068b;
+    public static Map<String, e0> f73102b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(String str);
 
@@ -46,7 +46,7 @@ public class m1 {
                 return;
             }
         }
-        f76068b = new ConcurrentHashMap();
+        f73102b = new ConcurrentHashMap();
     }
 
     public m1() {
@@ -69,12 +69,12 @@ public class m1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (m1.class) {
                 if (str != null) {
-                    if (f76067a) {
+                    if (f73101a) {
                         Object a2 = b.a(67108866, str);
                         if (a2 == null) {
                             return null;
                         }
-                        e0 e0Var = f76068b.get(str);
+                        e0 e0Var = f73102b.get(str);
                         if (e0Var == null) {
                             return null;
                         }
@@ -140,28 +140,28 @@ public class m1 {
     public static synchronized boolean c(Context context, e0 e0Var, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, context, e0Var, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, e0Var, str)) == null) {
             synchronized (m1.class) {
                 if (context != null) {
                     if (e0Var != null) {
-                        String str2 = e0Var.f76047a;
-                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f76053g : e0Var.f76047a;
+                        String str2 = e0Var.f73081a;
+                        String str3 = (str2 == null || str2.length() <= 0) ? e0Var.f73087g : e0Var.f73081a;
                         if (str3 == null || str3.length() <= 0) {
                             throw new NullPointerException("appID must be set");
                         }
-                        if (!f76067a) {
+                        if (!f73101a) {
                             synchronized (m1.class) {
-                                if (!f76067a) {
+                                if (!f73101a) {
                                     b(context, str);
-                                    f76067a = true;
+                                    f73101a = true;
                                 }
                             }
                         }
-                        if (f76068b.containsKey(str3)) {
+                        if (f73102b.containsKey(str3)) {
                             return false;
                         }
                         if (((Boolean) b.a(67108865, e0Var.a())).booleanValue()) {
-                            f76068b.put(str3, e0Var);
+                            f73102b.put(str3, e0Var);
                             return true;
                         }
                         return false;

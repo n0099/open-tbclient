@@ -2,9 +2,11 @@ package com.baidu.rtc;
 
 import android.content.Context;
 import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.RTCAudioSamples;
 import com.baidu.rtc.RtcParameterSettings;
+import com.baidu.rtc.config.Constraints;
 import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,13 +17,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaiduRtcRoom {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<BaiduRtcRoomImp> mInstanceList;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface BaiduRtcRoomDelegate {
         public static final int RTC_ROOM_EVENTS_DISBAND_ROOM = 112;
         public static final int RTC_ROOM_EVENTS_LIVE_INTRERRUPT = 118;
@@ -81,14 +83,14 @@ public abstract class BaiduRtcRoom {
         void onStreamInfoUpdate(String[] strArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface BaiduRtcRoomVideoObserver {
         void getInputBuffer(int i2, int i3, RtcVideoFormat rtcVideoFormat);
 
         void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class RoomInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +116,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcLiveTransferMode {
         public static final /* synthetic */ RtcLiveTransferMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -173,7 +175,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class RtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +202,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class RtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +226,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class RtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +250,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcSoundMode {
         public static final /* synthetic */ RtcSoundMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -308,7 +310,7 @@ public abstract class BaiduRtcRoom {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcVideoFormat {
         public static final /* synthetic */ RtcVideoFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -367,7 +369,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class UserList {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,7 +456,7 @@ public abstract class BaiduRtcRoom {
     public static BaiduRtcRoom initWithAppID(Context context, String str, String str2, String str3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{context, str, str2, str3, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, str3, Boolean.valueOf(z)})) == null) {
             synchronized (BaiduRtcRoom.class) {
                 if (context != null) {
                     BaiduRtcRoomImp baiduRtcRoomImp = new BaiduRtcRoomImp(context, str, str2, str3, z);
@@ -484,7 +486,7 @@ public abstract class BaiduRtcRoom {
     public static String version() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? BaiduRtcRoomImp.version() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Constraints.version() : (String) invokeV.objValue;
     }
 
     public abstract void addExternalRenderer(long j, RTCVideoExternalRender rTCVideoExternalRender);

@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,34 +15,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.j;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Context> f30808a;
+    public WeakReference<Context> f30918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30809b;
+    public boolean f30919b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f30810c;
+    public boolean f30920c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30811d;
+    public boolean f30921d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30812e;
+    public boolean f30922e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30813f;
+    public boolean f30923f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f30814g;
+    public boolean f30924g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30815h;
+    public boolean f30925h;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -58,14 +59,14 @@ public class a {
                 return;
             }
         }
-        this.f30809b = true;
-        this.f30810c = true;
-        this.f30811d = true;
-        this.f30812e = true;
-        this.f30813f = true;
-        this.f30814g = true;
-        this.f30815h = true;
-        this.f30808a = new WeakReference<>(context);
+        this.f30919b = true;
+        this.f30920c = true;
+        this.f30921d = true;
+        this.f30922e = true;
+        this.f30923f = true;
+        this.f30924g = true;
+        this.f30925h = true;
+        this.f30918a = new WeakReference<>(context);
     }
 
     public static a a(Context context) {
@@ -78,7 +79,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.f30810c = z;
+            this.f30920c = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -86,7 +87,7 @@ public class a {
 
     private void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, webView) == null) {
             try {
                 webView.removeJavascriptInterface("searchBoxJavaBridge_");
                 webView.removeJavascriptInterface("accessibility");
@@ -101,7 +102,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f30815h = z;
+            this.f30925h = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -111,7 +112,7 @@ public class a {
     @SuppressLint({"SetJavaScriptEnabled"})
     public void a(WebView webView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) || webView == null || this.f30808a.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) || webView == null || this.f30918a.get() == null) {
             return;
         }
         b(webView);
@@ -126,7 +127,7 @@ public class a {
             e2.printStackTrace();
         }
         try {
-            if (this.f30810c) {
+            if (this.f30920c) {
                 settings.setSupportZoom(true);
                 settings.setBuiltInZoomControls(true);
             } else {
@@ -136,18 +137,18 @@ public class a {
             th.printStackTrace();
         }
         settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(this.f30811d);
-        settings.setDomStorageEnabled(this.f30812e);
+        settings.setUseWideViewPort(this.f30921d);
+        settings.setDomStorageEnabled(this.f30922e);
         settings.setAllowFileAccess(false);
-        settings.setBlockNetworkImage(true ^ this.f30814g);
+        settings.setBlockNetworkImage(true ^ this.f30924g);
         settings.setDisplayZoomControls(false);
         if (Build.VERSION.SDK_INT < 28) {
-            this.f30815h = false;
+            this.f30925h = false;
         }
         try {
-            if (Build.VERSION.SDK_INT >= 11 && !this.f30815h) {
+            if (Build.VERSION.SDK_INT >= 11 && !this.f30925h) {
                 webView.setLayerType(0, null);
-            } else if (Build.VERSION.SDK_INT >= 16 && this.f30815h) {
+            } else if (Build.VERSION.SDK_INT >= 16 && this.f30925h) {
                 webView.setLayerType(2, null);
             }
         } catch (Throwable th2) {

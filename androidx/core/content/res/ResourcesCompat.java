@@ -24,6 +24,7 @@ import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.graphics.TypefaceCompat;
 import androidx.core.util.Preconditions;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -338,7 +339,7 @@ public final class ResourcesCompat {
     public static Drawable getDrawableForDensity(@NonNull Resources resources, @DrawableRes int i2, int i3, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{resources, Integer.valueOf(i2), Integer.valueOf(i3), theme})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resources, Integer.valueOf(i2), Integer.valueOf(i3), theme})) == null) {
             int i4 = Build.VERSION.SDK_INT;
             if (i4 >= 21) {
                 return resources.getDrawableForDensity(i2, i3, theme);

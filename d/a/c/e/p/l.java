@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -33,39 +34,39 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f44441a;
+    public static boolean f41457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f44442b;
+    public static float f41458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f44443c;
+    public static int f41459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f44444d;
+    public static int f41460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Toast f44445e;
+    public static Toast f41461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f44446f;
+    public static c f41462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f44447g;
+    public static String f41463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Handler f44448h;
+    public static Handler f41464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f44449i;
+    public static Runnable f41465i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,32 +88,32 @@ public class l {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || l.f44445e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || l.f41461e == null) {
                 return;
             }
-            l.f44445e.cancel();
+            l.f41461e.cancel();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f44450e;
+        public final /* synthetic */ View f41466e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44451f;
+        public final /* synthetic */ int f41467f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f44452g;
+        public final /* synthetic */ int f41468g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f44453h;
+        public final /* synthetic */ int f41469h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f44454i;
+        public final /* synthetic */ int f41470i;
         public final /* synthetic */ View j;
 
         public b(View view, int i2, int i3, int i4, int i5, View view2) {
@@ -130,11 +131,11 @@ public class l {
                     return;
                 }
             }
-            this.f44450e = view;
-            this.f44451f = i2;
-            this.f44452g = i3;
-            this.f44453h = i4;
-            this.f44454i = i5;
+            this.f41466e = view;
+            this.f41467f = i2;
+            this.f41468g = i3;
+            this.f41469h = i4;
+            this.f41470i = i5;
             this.j = view2;
         }
 
@@ -143,17 +144,17 @@ public class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f44450e.getHitRect(rect);
-                rect.right += this.f44451f;
-                rect.left -= this.f44452g;
-                rect.bottom += this.f44453h;
-                rect.top -= this.f44454i;
-                this.j.setTouchDelegate(new TouchDelegate(rect, this.f44450e));
+                this.f41466e.getHitRect(rect);
+                rect.right += this.f41467f;
+                rect.left -= this.f41468g;
+                rect.bottom += this.f41469h;
+                rect.top -= this.f41470i;
+                this.j.setTouchDelegate(new TouchDelegate(rect, this.f41466e));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a();
 
@@ -175,8 +176,8 @@ public class l {
                 return;
             }
         }
-        f44448h = new Handler(Looper.getMainLooper());
-        f44449i = new a();
+        f41464h = new Handler(Looper.getMainLooper());
+        f41465i = new a();
     }
 
     public static boolean A() {
@@ -212,7 +213,7 @@ public class l {
     public static boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? j.z() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? j.z() : invokeV.booleanValue;
     }
 
     public static Rect E(Paint paint, String str) {
@@ -247,7 +248,7 @@ public class l {
     public static void H(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, cVar) == null) {
-            f44446f = cVar;
+            f41462f = cVar;
         }
     }
 
@@ -295,19 +296,19 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLLI(65550, null, context, str, i2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
             return;
         }
-        f44448h.removeCallbacks(f44449i);
-        if (f44445e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f44446f;
+        f41464h.removeCallbacks(f41465i);
+        if (f41461e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f41462f;
             if (cVar != null) {
                 cVar.a();
             }
-            if (!str.equals(f44447g)) {
-                c cVar2 = f44446f;
+            if (!str.equals(f41463g)) {
+                c cVar2 = f41462f;
                 if (cVar2 != null && cVar2.c() != null) {
-                    f44446f.b(str);
-                    f44445e.setView(f44446f.c());
+                    f41462f.b(str);
+                    f41461e.setView(f41462f.c());
                 } else {
-                    f44445e.setText(str);
+                    f41461e.setText(str);
                 }
             }
             int e2 = e(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -315,49 +316,49 @@ public class l {
                 e2 = 0;
             }
             if (i2 == 3500) {
-                f44445e.setDuration(1);
+                f41461e.setDuration(1);
             } else {
-                f44445e.setDuration(0);
+                f41461e.setDuration(0);
             }
-            f44445e.setGravity(17, 0, e2);
+            f41461e.setGravity(17, 0, e2);
         } else {
-            Toast toast = f44445e;
+            Toast toast = f41461e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f44446f;
+            c cVar3 = f41462f;
             if (cVar3 != null) {
                 cVar3.a();
             }
-            c cVar4 = f44446f;
+            c cVar4 = f41462f;
             if (cVar4 != null && cVar4.c() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f44445e = toast2;
+                f41461e = toast2;
                 u.a(toast2);
                 if (i2 == 3500) {
-                    f44445e.setDuration(1);
+                    f41461e.setDuration(1);
                 } else {
-                    f44445e.setDuration(0);
+                    f41461e.setDuration(0);
                 }
-                f44446f.b(str);
-                f44445e.setView(f44446f.c());
+                f41462f.b(str);
+                f41461e.setView(f41462f.c());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
-                    f44445e = makeText;
+                    f41461e = makeText;
                     u.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                    f44445e = makeText2;
+                    f41461e = makeText2;
                     u.a(makeText2);
                 }
-                f44445e.setText(str);
+                f41461e.setText(str);
             }
-            f44445e.setGravity(17, 0, e(BdBaseApplication.getInst().getApp(), 100.0f));
+            f41461e.setGravity(17, 0, e(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        f44447g = str;
-        f44448h.postDelayed(f44449i, i2);
-        f44445e.show();
+        f41463g = str;
+        f41464h.postDelayed(f41465i, i2);
+        f41461e.show();
     }
 
     public static double a(double d2, double d3, double d4, double d5) {
@@ -407,10 +408,10 @@ public class l {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65555, null, context, f2)) == null) {
-            if (!f44441a) {
+            if (!f41457a) {
                 y(context);
             }
-            return (int) ((f2 * f44442b) + 0.5f);
+            return (int) ((f2 * f41458b) + 0.5f);
         }
         return invokeLF.intValue;
     }
@@ -442,10 +443,10 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
-            if (!f44441a) {
+            if (!f41457a) {
                 y(context);
             }
-            return f44442b;
+            return f41458b;
         }
         return invokeL.floatValue;
     }
@@ -454,10 +455,10 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (!f44441a) {
+            if (!f41457a) {
                 y(context);
             }
-            return f44444d;
+            return f41460d;
         }
         return invokeL.intValue;
     }
@@ -466,10 +467,10 @@ public class l {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65560, null, context, z)) == null) {
-            if (!f44441a || z) {
+            if (!f41457a || z) {
                 y(context);
             }
-            return f44444d;
+            return f41460d;
         }
         return invokeLZ.intValue;
     }
@@ -478,10 +479,10 @@ public class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (!f44441a) {
+            if (!f41457a) {
                 y(context);
             }
-            return f44443c;
+            return f41459c;
         }
         return invokeL.intValue;
     }
@@ -728,7 +729,7 @@ public class l {
     public static c u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? f44446f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? f41462f : (c) invokeV.objValue;
     }
 
     public static String v() {
@@ -794,14 +795,14 @@ public class l {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
-                f44443c = displayMetrics.widthPixels;
-                f44444d = displayMetrics.heightPixels;
+                f41459c = displayMetrics.widthPixels;
+                f41460d = displayMetrics.heightPixels;
             } else {
-                f44443c = displayMetrics.heightPixels;
-                f44444d = displayMetrics.widthPixels;
+                f41459c = displayMetrics.heightPixels;
+                f41460d = displayMetrics.widthPixels;
             }
-            f44442b = displayMetrics.density;
-            f44441a = true;
+            f41458b = displayMetrics.density;
+            f41457a = true;
         }
     }
 
@@ -814,7 +815,7 @@ public class l {
             }
             try {
                 String str = new String(bArr, 0, 16, "UTF-8");
-                if (str.indexOf(com.baidu.wallet.base.audio.b.f23840e) == 0) {
+                if (str.indexOf(com.baidu.wallet.base.audio.b.f23950e) == 0) {
                     return 8 == str.indexOf("WEBPVP8 ");
                 }
                 return false;

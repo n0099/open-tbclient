@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialElevationScale extends MaterialVisibility<ScaleProvider> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_SCALE = 0.85f;

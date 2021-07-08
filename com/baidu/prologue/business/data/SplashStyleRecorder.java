@@ -3,6 +3,7 @@ package com.baidu.prologue.business.data;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompatJellybean;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
-import d.a.h0.a.c.j;
+import d.a.e0.a.c.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SplashStyleRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class SplashElements {
         public static final /* synthetic */ SplashElements[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -85,7 +86,7 @@ public class SplashStyleRecorder {
         public static SplashElements[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (SplashElements[]) $VALUES.clone() : (SplashElements[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (SplashElements[]) $VALUES.clone() : (SplashElements[]) invokeV.objValue;
         }
 
         public String getName() {

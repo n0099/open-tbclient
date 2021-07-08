@@ -19,16 +19,16 @@ import com.baidu.wallet.utils.JsonUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends PayBaseBean<CardAddResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25873a;
+    public String f25983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BindFastRequest f25874b;
+    public BindFastRequest f25984b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -48,14 +48,14 @@ public class d extends PayBaseBean<CardAddResponse> {
                 return;
             }
         }
-        this.f25873a = null;
-        this.f25874b = null;
+        this.f25983a = null;
+        this.f25984b = null;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f25873a = str;
+            this.f25983a = str;
         }
     }
 
@@ -73,11 +73,11 @@ public class d extends PayBaseBean<CardAddResponse> {
         List<RestNameValuePair> json2KeyValuePairs;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f25874b != null) {
-                if (TextUtils.isEmpty(this.f25873a)) {
+            if (this.f25984b != null) {
+                if (TextUtils.isEmpty(this.f25983a)) {
                     json2KeyValuePairs = new ArrayList<>();
                 } else {
-                    json2KeyValuePairs = JsonUtil.json2KeyValuePairs(this.f25873a);
+                    json2KeyValuePairs = JsonUtil.json2KeyValuePairs(this.f25983a);
                     if (json2KeyValuePairs == null) {
                         json2KeyValuePairs = new ArrayList<>();
                     }
@@ -118,7 +118,7 @@ public class d extends PayBaseBean<CardAddResponse> {
     public void handleSession(BeanResponseBase.Session session) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, session) == null) {
-            BindFastRequest bindFastRequest = this.f25874b;
+            BindFastRequest bindFastRequest = this.f25984b;
             if (bindFastRequest != null) {
                 bindFastRequest.saveSession(session);
             } else {
@@ -130,13 +130,13 @@ public class d extends PayBaseBean<CardAddResponse> {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bindFastRequest) == null) {
-            this.f25874b = bindFastRequest;
+            this.f25984b = bindFastRequest;
         }
     }
 
     public BindFastRequest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25874b : (BindFastRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25984b : (BindFastRequest) invokeV.objValue;
     }
 }

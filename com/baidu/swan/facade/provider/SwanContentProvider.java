@@ -9,6 +9,7 @@ import android.os.Binder;
 import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -20,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.k;
-import d.a.q0.e.n.a.a;
-import d.a.q0.e.n.b.c;
+import d.a.n0.a.k;
+import d.a.n0.e.n.a.a;
+import d.a.n0.e.n.b.c;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -50,7 +51,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -88,7 +89,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a2 = c.a(callingPackage);
-            Set<String> a3 = d.a.q0.d.g.c.e().a();
+            Set<String> a3 = d.a.n0.d.g.c.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);
@@ -107,7 +108,7 @@ public class SwanContentProvider extends ContentProvider {
     private boolean checkWritePermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, this)) == null) ? checkPermission() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? checkPermission() : invokeV.booleanValue;
     }
 
     private a getProcessor(int i2) {

@@ -20,7 +20,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GenericDraweeHierarchyBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ScalingUtils.ScaleType DEFAULT_ACTUAL_IMAGE_SCALE_TYPE;
@@ -120,7 +120,7 @@ public class GenericDraweeHierarchyBuilder {
     private void validate() {
         List<Drawable> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || (list = this.mOverlays) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (list = this.mOverlays) == null) {
             return;
         }
         for (Drawable drawable : list) {

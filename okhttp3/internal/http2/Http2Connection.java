@@ -38,7 +38,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Http2Connection implements Closeable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,7 +66,7 @@ public final class Http2Connection implements Closeable {
     public final Http2Writer writer;
     public final ScheduledExecutorService writerExecutor;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Listener {
         public static /* synthetic */ Interceptable $ic;
         public static final Listener REFUSE_INCOMING_STREAMS;
@@ -136,7 +136,7 @@ public final class Http2Connection implements Closeable {
         public abstract void onStream(Http2Stream http2Stream) throws IOException;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class PingRunnable extends NamedRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1381,7 +1381,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

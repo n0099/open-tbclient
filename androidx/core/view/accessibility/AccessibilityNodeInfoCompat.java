@@ -347,14 +347,14 @@ public class AccessibilityNodeInfoCompat {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
-                interceptable.invokeUnInit(65540, newInitContext);
+                interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(objArr2[0], ((Integer) objArr2[1]).intValue(), (CharSequence) objArr2[2], (AccessibilityViewCommand) objArr2[3], (Class) objArr2[4]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65540, newInitContext);
+                    interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }
@@ -543,7 +543,7 @@ public class AccessibilityNodeInfoCompat {
 
     private void clearExtrasSpans() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65540, this) == null) || Build.VERSION.SDK_INT < 19) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || Build.VERSION.SDK_INT < 19) {
             return;
         }
         this.mInfo.getExtras().remove(SPANS_START_KEY);

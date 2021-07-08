@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class en extends Notification.Builder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f43051a;
+    public Context f40065a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public en(Context context) {
@@ -42,7 +42,7 @@ public class en extends Notification.Builder {
                 return;
             }
         }
-        this.f43051a = context;
+        this.f40065a = context;
     }
 
     public int a(Resources resources, String str, String str2, String str3) {
@@ -60,7 +60,7 @@ public class en extends Notification.Builder {
     public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43051a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40065a : (Context) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

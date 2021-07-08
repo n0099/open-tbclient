@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
@@ -25,16 +26,16 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f30831a;
+    public static volatile d f30941a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f30832b;
+    public AtomicBoolean f30942b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,7 +50,7 @@ public class d {
                 return;
             }
         }
-        this.f30832b = new AtomicBoolean(false);
+        this.f30942b = new AtomicBoolean(false);
     }
 
     private JSONObject c(String str) {
@@ -91,14 +92,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30831a == null) {
+            if (f30941a == null) {
                 synchronized (d.class) {
-                    if (f30831a == null) {
-                        f30831a = new d();
+                    if (f30941a == null) {
+                        f30941a = new d();
                     }
                 }
             }
-            return f30831a;
+            return f30941a;
         }
         return (d) invokeV.objValue;
     }
@@ -132,7 +133,7 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f30832b.set(false);
+            this.f30942b.set(false);
             return;
         }
         j.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + F + ", 目前存储的模版的个数 " + b2.size());
@@ -188,11 +189,11 @@ public class d {
                 j.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
                 return;
             }
-            String str2 = iVar.f30205a;
-            String str3 = iVar.f30207c;
-            String str4 = iVar.f30206b;
-            String str5 = iVar.f30208d;
-            String str6 = iVar.f30209e;
+            String str2 = iVar.f30315a;
+            String str3 = iVar.f30317c;
+            String str4 = iVar.f30316b;
+            String str5 = iVar.f30318d;
+            String str6 = iVar.f30319e;
             if (TextUtils.isEmpty(str)) {
                 str = h.d().h();
             }
@@ -205,25 +206,25 @@ public class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f30833a;
+                    public final /* synthetic */ String f30943a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f30834b;
+                    public final /* synthetic */ String f30944b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f30835c;
+                    public final /* synthetic */ String f30945c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f30836d;
+                    public final /* synthetic */ String f30946d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f30837e;
+                    public final /* synthetic */ String f30947e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ String f30838f;
+                    public final /* synthetic */ String f30948f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ d f30839g;
+                    public final /* synthetic */ d f30949g;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -243,20 +244,20 @@ public class d {
                                 return;
                             }
                         }
-                        this.f30839g = this;
-                        this.f30833a = str2;
-                        this.f30834b = str3;
-                        this.f30835c = str4;
-                        this.f30836d = str5;
-                        this.f30837e = str6;
-                        this.f30838f = str7;
+                        this.f30949g = this;
+                        this.f30943a = str2;
+                        this.f30944b = str3;
+                        this.f30945c = str4;
+                        this.f30946d = str5;
+                        this.f30947e = str6;
+                        this.f30948f = str7;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f30839g.a(this.f30833a, this.f30834b, this.f30835c, this.f30836d, this.f30837e, this.f30838f);
+                            this.f30949g.a(this.f30943a, this.f30944b, this.f30945c, this.f30946d, this.f30947e, this.f30948f);
                         }
                     }
                 }, 10);
@@ -275,7 +276,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(String str, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65540, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             synchronized (this) {
                 if (a(str) != null) {
                     if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str3)) {

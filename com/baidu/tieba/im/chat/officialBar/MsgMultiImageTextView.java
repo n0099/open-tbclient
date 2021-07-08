@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.i1.f.e;
-import d.a.s0.i1.l.c.a;
+import d.a.p0.i1.f.e;
+import d.a.p0.i1.l.c.a;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MsgMultiImageTextView extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,26 +39,26 @@ public class MsgMultiImageTextView extends e {
                 return;
             }
         }
-        F();
+        B();
     }
 
-    public final void F() {
+    public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f61501h = (TextView) d(R.id.tex_msgitem_time);
+            this.f58266h = (TextView) d(R.id.tex_msgitem_time);
             this.t = (MultiContentView) d(R.id.msg_content);
         }
     }
 
-    public void G(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
+    public void F(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, chatMessage, view) == null) || chatMessage == null) {
             return;
         }
-        x(chatMessage);
-        List<a.C1512a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.t.setPosition(this.f61499f);
-        this.t.setOnItemViewLongClickListener(this.f61496c);
+        w(chatMessage);
+        List<a.C1468a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.t.setPosition(this.f58264f);
+        this.t.setOnItemViewLongClickListener(this.f58261c);
         this.t.setNeedNightMode(true);
         this.t.setType(1);
         this.t.setData(tbPageContext, b2, view);

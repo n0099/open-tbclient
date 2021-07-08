@@ -1,21 +1,19 @@
 package com.kwad.sdk.core.scene;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.ag;
-import com.kwad.sdk.utils.o;
+import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class URLPackage implements b, Serializable {
+/* loaded from: classes6.dex */
+public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_TREND_ID = "trendId";
@@ -25,7 +23,6 @@ public class URLPackage implements b, Serializable {
     public String identity;
     public transient JSONObject mJsonObjectParams;
     public int page;
-    public String params;
 
     public URLPackage() {
         Interceptable interceptable = $ic;
@@ -60,48 +57,45 @@ public class URLPackage implements b, Serializable {
         this.identity = str;
     }
 
-    public void parseJson(@Nullable JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.response.a.a
+    public void afterParseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.page = jSONObject.optInt("page");
-        this.identity = jSONObject.optString("identity");
-        String optString = jSONObject.optString("params");
-        this.params = optString;
-        try {
-            if (ag.a(optString)) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.afterParseJson(jSONObject);
+            if (jSONObject == null) {
                 return;
             }
-            this.mJsonObjectParams = new JSONObject(this.params);
-        } catch (JSONException unused) {
+            String optString = jSONObject.optString("params");
+            if (TextUtils.isEmpty(optString)) {
+                return;
+            }
+            try {
+                this.mJsonObjectParams = new JSONObject(optString);
+            } catch (JSONException e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.core.response.a.a
+    public void afterToJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.afterToJson(jSONObject);
+            JSONObject jSONObject2 = this.mJsonObjectParams;
+            if (jSONObject2 != null) {
+                q.a(jSONObject, "params", jSONObject2.toString());
+            }
         }
     }
 
     public void putParams(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
             if (this.mJsonObjectParams == null) {
                 this.mJsonObjectParams = new JSONObject();
             }
-            o.a(this.mJsonObjectParams, str, j);
+            q.a(this.mJsonObjectParams, str, j);
         }
-    }
-
-    @Override // com.kwad.sdk.core.b
-    public JSONObject toJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "page", this.page);
-            o.a(jSONObject, "identity", this.identity);
-            JSONObject jSONObject2 = this.mJsonObjectParams;
-            if (jSONObject2 != null) {
-                o.a(jSONObject, "params", jSONObject2.toString());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

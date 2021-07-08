@@ -67,7 +67,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class HiidoSDKOld implements HiidoApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -111,7 +111,7 @@ public class HiidoSDKOld implements HiidoApi {
     public volatile boolean userAgreed;
 
     /* renamed from: com.yy.hiidostatis.api.HiidoSDKOld$41  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class AnonymousClass41 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,12 +213,12 @@ public class HiidoSDKOld implements HiidoApi {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class QuitTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

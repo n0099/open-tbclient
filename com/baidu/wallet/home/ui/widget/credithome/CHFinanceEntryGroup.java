@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -19,7 +20,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.credithome.CHFinanceEntryItem;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CHFinanceEntryGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float BOTTOM_PANEL_HEIGHT_DP = 28.0f;
@@ -53,7 +54,7 @@ public class CHFinanceEntryGroup extends BaseItemLayout {
 
     private void a(LinearLayout linearLayout, HomeCfgResponse.DataItem dataItem, HomeCfgResponse.DataItem dataItem2, HomeCfgResponse.DataItem dataItem3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65540, this, linearLayout, dataItem, dataItem2, dataItem3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linearLayout, dataItem, dataItem2, dataItem3) == null) {
             LinearLayout a2 = a(linearLayout, 93.0f);
             a(a2, dataItem, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);
             a(a2, dataItem2, CHFinanceEntryItem.EntryType.ENTRY_TYPE_NORMAL);

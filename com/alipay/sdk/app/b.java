@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,19 +22,19 @@ public class b extends WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f1786a;
+    public Activity f1787a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1787b;
+    public boolean f1788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f1788c;
+    public Handler f1789c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f1789d;
+    public com.alipay.sdk.widget.a f1790d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1790e;
+    public boolean f1791e;
 
     /* loaded from: classes.dex */
     public static final class a implements Runnable {
@@ -41,7 +42,7 @@ public class b extends WebViewClient {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<b> f1791a;
+        public final WeakReference<b> f1792a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +59,14 @@ public class b extends WebViewClient {
                     return;
                 }
             }
-            this.f1791a = new WeakReference<>(bVar);
+            this.f1792a = new WeakReference<>(bVar);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f1791a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f1792a.get()) == null) {
                 return;
             }
             bVar.d();
@@ -87,52 +88,52 @@ public class b extends WebViewClient {
                 return;
             }
         }
-        this.f1786a = activity;
-        this.f1788c = new Handler(this.f1786a.getMainLooper());
+        this.f1787a = activity;
+        this.f1789c = new Handler(this.f1787a.getMainLooper());
     }
 
     private void c() {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (activity = this.f1786a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (activity = this.f1787a) == null) {
             return;
         }
-        if (this.f1789d == null) {
-            com.alipay.sdk.widget.a aVar = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2013a);
-            this.f1789d = aVar;
+        if (this.f1790d == null) {
+            com.alipay.sdk.widget.a aVar = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2014a);
+            this.f1790d = aVar;
             aVar.a(true);
         }
-        this.f1789d.b();
+        this.f1790d.b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
-            com.alipay.sdk.widget.a aVar = this.f1789d;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            com.alipay.sdk.widget.a aVar = this.f1790d;
             if (aVar != null) {
                 aVar.c();
             }
-            this.f1789d = null;
+            this.f1790d = null;
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1790e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1791e : invokeV.booleanValue;
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-            Activity activity = this.f1786a;
-            if (this.f1788c == null || activity == null || activity.isFinishing()) {
+            Activity activity = this.f1787a;
+            if (this.f1789c == null || activity == null || activity.isFinishing()) {
                 return;
             }
             d();
-            this.f1788c.removeCallbacksAndMessages(null);
+            this.f1789c.removeCallbacksAndMessages(null);
         }
     }
 
@@ -140,10 +141,10 @@ public class b extends WebViewClient {
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
-            Activity activity = this.f1786a;
-            if (this.f1788c != null && activity != null && !activity.isFinishing()) {
+            Activity activity = this.f1787a;
+            if (this.f1789c != null && activity != null && !activity.isFinishing()) {
                 c();
-                this.f1788c.postDelayed(new a(this), 30000L);
+                this.f1789c.postDelayed(new a(this), 30000L);
             }
             super.onPageStarted(webView, str, bitmap);
         }
@@ -153,7 +154,7 @@ public class b extends WebViewClient {
     public void onReceivedError(WebView webView, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i2, str, str2) == null) {
-            this.f1790e = true;
+            this.f1791e = true;
             super.onReceivedError(webView, i2, str, str2);
         }
     }
@@ -162,13 +163,13 @@ public class b extends WebViewClient {
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, webView, sslErrorHandler, sslError) == null) || (activity = this.f1786a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, webView, sslErrorHandler, sslError) == null) || (activity = this.f1787a) == null) {
             return;
         }
         com.alipay.sdk.app.statistic.a.a("net", com.alipay.sdk.app.statistic.c.r, "1" + sslError);
-        if (this.f1787b) {
+        if (this.f1788b) {
             sslErrorHandler.proceed();
-            this.f1787b = false;
+            this.f1788b = false;
             return;
         }
         activity.runOnUiThread(new c(this, activity, sslErrorHandler));
@@ -178,14 +179,14 @@ public class b extends WebViewClient {
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) ? n.a(webView, str, this.f1786a) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) ? n.a(webView, str, this.f1787a) : invokeLL.booleanValue;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1788c = null;
-            this.f1786a = null;
+            this.f1789c = null;
+            this.f1787a = null;
         }
     }
 }

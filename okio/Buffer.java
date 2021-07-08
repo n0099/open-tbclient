@@ -32,7 +32,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] DIGITS;
@@ -42,7 +42,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     public Segment head;
     public long size;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class UnsafeCursor implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2237,7 +2237,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     private boolean rangeEquals(Segment segment, int i2, ByteString byteString, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, this, new Object[]{segment, Integer.valueOf(i2), byteString, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{segment, Integer.valueOf(i2), byteString, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             int i5 = segment.limit;
             byte[] bArr = segment.data;
             while (i3 < i4) {

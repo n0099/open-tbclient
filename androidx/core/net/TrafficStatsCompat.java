@@ -4,6 +4,7 @@ import android.net.TrafficStats;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -108,7 +109,7 @@ public final class TrafficStatsCompat {
     @Deprecated
     public static void incrementOperationCount(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65540, null, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3) == null) {
             TrafficStats.incrementOperationCount(i2, i3);
         }
     }

@@ -35,12 +35,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.j0;
-import d.a.r0.r.q.k0;
-import d.a.r0.r.s.a;
-import d.a.s0.y0.b.f;
+import d.a.o0.r.q.j0;
+import d.a.o0.r.q.k0;
+import d.a.o0.r.s.a;
+import d.a.p0.y0.b.f;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public boolean mHasShowAnim;
     public GiftTabView.o mLoadCategoryListCallback;
     public GiftTabView.n mLoadDefaultListCallback;
-    public d.a.s0.y0.b.f mModelController;
+    public d.a.p0.y0.b.f mModelController;
     public String mReferPage;
     public f.e mRefreshCallback;
     public SendGiftModel mSendGiftModel;
@@ -67,22 +67,22 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public long postId;
     public int sendCount;
     public j0 sendGift;
-    public d.a.s0.y0.d.a sendOrder;
+    public d.a.p0.y0.d.a sendOrder;
     public boolean shouldRefreshFreechance;
     public long threadId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16306e;
+        public final /* synthetic */ d.a.o0.r.s.a f16345e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16307f;
+        public final /* synthetic */ GiftTabActivity f16346f;
 
-        public a(GiftTabActivity giftTabActivity, d.a.r0.r.s.a aVar) {
+        public a(GiftTabActivity giftTabActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,31 +97,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16307f = giftTabActivity;
-            this.f16306e = aVar;
+            this.f16346f = giftTabActivity;
+            this.f16345e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16306e.dismiss();
+                this.f16345e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16308e;
+        public final /* synthetic */ d.a.o0.r.s.a f16347e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16309f;
+        public final /* synthetic */ GiftTabActivity f16348f;
 
-        public b(GiftTabActivity giftTabActivity, d.a.r0.r.s.a aVar) {
+        public b(GiftTabActivity giftTabActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,31 +136,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16309f = giftTabActivity;
-            this.f16308e = aVar;
+            this.f16348f = giftTabActivity;
+            this.f16347e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16308e.dismiss();
+                this.f16347e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16310e;
+        public final /* synthetic */ d.a.o0.r.s.a f16349e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16311f;
+        public final /* synthetic */ GiftTabActivity f16350f;
 
-        public c(GiftTabActivity giftTabActivity, d.a.r0.r.s.a aVar) {
+        public c(GiftTabActivity giftTabActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,32 +175,32 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16311f = giftTabActivity;
-            this.f16310e = aVar;
+            this.f16350f = giftTabActivity;
+            this.f16349e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16310e.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f16311f.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
+                this.f16349e.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f16350f.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16312e;
+        public final /* synthetic */ d.a.o0.r.s.a f16351e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16313f;
+        public final /* synthetic */ GiftTabActivity f16352f;
 
-        public d(GiftTabActivity giftTabActivity, d.a.r0.r.s.a aVar) {
+        public d(GiftTabActivity giftTabActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,31 +215,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16313f = giftTabActivity;
-            this.f16312e = aVar;
+            this.f16352f = giftTabActivity;
+            this.f16351e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16312e.dismiss();
+                this.f16351e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class e implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.r0.r.s.a f16314e;
+        public final /* synthetic */ d.a.o0.r.s.a f16353e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16315f;
+        public final /* synthetic */ GiftTabActivity f16354f;
 
-        public e(GiftTabActivity giftTabActivity, d.a.r0.r.s.a aVar) {
+        public e(GiftTabActivity giftTabActivity, d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -254,31 +254,31 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16315f = giftTabActivity;
-            this.f16314e = aVar;
+            this.f16354f = giftTabActivity;
+            this.f16353e = aVar;
         }
 
-        @Override // d.a.r0.r.s.a.e
-        public void onClick(d.a.r0.r.s.a aVar) {
+        @Override // d.a.o0.r.s.a.e
+        public void onClick(d.a.o0.r.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f16314e.dismiss();
-                if (StringUtils.isNull(this.f16315f.addFreeUrl)) {
+                this.f16353e.dismiss();
+                if (StringUtils.isNull(this.f16354f.addFreeUrl)) {
                     return;
                 }
-                this.f16315f.shouldRefreshFreechance = true;
-                UrlManager.getInstance().dealOneLink(this.f16315f.getPageContext(), new String[]{this.f16315f.addFreeUrl});
+                this.f16354f.shouldRefreshFreechance = true;
+                UrlManager.getInstance().dealOneLink(this.f16354f.getPageContext(), new String[]{this.f16354f.addFreeUrl});
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16316e;
+        public final /* synthetic */ GiftTabActivity f16355e;
 
         public f(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16316e = giftTabActivity;
+            this.f16355e = giftTabActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -304,49 +304,49 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            d.a.c.e.p.l.x(this.f16316e.getActivity(), this.f16316e.mView.k);
-            if (view == this.f16316e.mView.q) {
-                if (this.f16316e.mSendGiftModel == null || this.f16316e.mView.B() <= 0 || this.f16316e.mView.C() == null) {
+            d.a.c.e.p.l.x(this.f16355e.getActivity(), this.f16355e.mView.k);
+            if (view == this.f16355e.mView.q) {
+                if (this.f16355e.mSendGiftModel == null || this.f16355e.mView.B() <= 0 || this.f16355e.mView.C() == null) {
                     return;
                 }
                 if (!d.a.c.e.p.l.D()) {
-                    this.f16316e.showToast(R.string.neterror);
+                    this.f16355e.showToast(R.string.neterror);
                 } else if (!TbadkCoreApplication.isLogin()) {
-                    TbadkCoreApplication.getInst().login(this.f16316e.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f16316e.getPageContext().getPageActivity())));
+                    TbadkCoreApplication.getInst().login(this.f16355e.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f16355e.getPageContext().getPageActivity())));
                 } else {
-                    GiftTabActivity giftTabActivity = this.f16316e;
-                    if (giftTabActivity.resetSendButtonState(giftTabActivity.mView.C(), this.f16316e.mView.B())) {
-                        this.f16316e.mView.R();
-                        GiftTabActivity giftTabActivity2 = this.f16316e;
+                    GiftTabActivity giftTabActivity = this.f16355e;
+                    if (giftTabActivity.resetSendButtonState(giftTabActivity.mView.C(), this.f16355e.mView.B())) {
+                        this.f16355e.mView.R();
+                        GiftTabActivity giftTabActivity2 = this.f16355e;
                         giftTabActivity2.sendGift = giftTabActivity2.mView.C();
-                        GiftTabActivity giftTabActivity3 = this.f16316e;
+                        GiftTabActivity giftTabActivity3 = this.f16355e;
                         giftTabActivity3.sendCount = giftTabActivity3.mView.B();
-                        this.f16316e.sendGift.l = this.f16316e.sendCount;
-                        this.f16316e.sendGift.m = this.f16316e.threadId;
-                        this.f16316e.sendGift.n = this.f16316e.postId;
-                        this.f16316e.sendGift.p = this.f16316e.mToUserId;
-                        this.f16316e.sendGift.o = this.f16316e.mToUserName;
-                        j0 j0Var = this.f16316e.sendGift;
-                        GiftTabActivity giftTabActivity4 = this.f16316e;
+                        this.f16355e.sendGift.l = this.f16355e.sendCount;
+                        this.f16355e.sendGift.m = this.f16355e.threadId;
+                        this.f16355e.sendGift.n = this.f16355e.postId;
+                        this.f16355e.sendGift.p = this.f16355e.mToUserId;
+                        this.f16355e.sendGift.o = this.f16355e.mToUserName;
+                        j0 j0Var = this.f16355e.sendGift;
+                        GiftTabActivity giftTabActivity4 = this.f16355e;
                         j0Var.r = giftTabActivity4.accountType;
-                        giftTabActivity4.mSendGiftModel.x(this.f16316e.mView.C(), this.f16316e.mView.B(), this.f16316e.mFrom, this.f16316e.mToUserId, this.f16316e.mToUserName, this.f16316e.threadId, this.f16316e.postId);
+                        giftTabActivity4.mSendGiftModel.x(this.f16355e.mView.C(), this.f16355e.mView.B(), this.f16355e.mFrom, this.f16355e.mToUserId, this.f16355e.mToUserName, this.f16355e.threadId, this.f16355e.postId);
                     }
                 }
-            } else if (view != this.f16316e.mView.s || StringUtils.isNull(this.f16316e.addFreeUrl)) {
+            } else if (view != this.f16355e.mView.s || StringUtils.isNull(this.f16355e.addFreeUrl)) {
             } else {
-                this.f16316e.shouldRefreshFreechance = true;
-                UrlManager.getInstance().dealOneLink(this.f16316e.getPageContext(), new String[]{this.f16316e.addFreeUrl});
+                this.f16355e.shouldRefreshFreechance = true;
+                UrlManager.getInstance().dealOneLink(this.f16355e.getPageContext(), new String[]{this.f16355e.addFreeUrl});
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class g implements GiftTabView.o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16317a;
+        public final /* synthetic */ GiftTabActivity f16356a;
 
         public g(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -363,26 +363,26 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16317a = giftTabActivity;
+            this.f16356a = giftTabActivity;
         }
 
         @Override // com.baidu.tieba.gift.giftTab.GiftTabView.o
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f16317a.mModelController.p(i2);
-                this.f16317a.mView.R();
+                this.f16356a.mModelController.p(i2);
+                this.f16356a.mView.R();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class h implements GiftTabView.n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16318a;
+        public final /* synthetic */ GiftTabActivity f16357a;
 
         public h(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -399,26 +399,26 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16318a = giftTabActivity;
+            this.f16357a = giftTabActivity;
         }
 
         @Override // com.baidu.tieba.gift.giftTab.GiftTabView.n
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16318a.mModelController.o(this.f16318a.mFrom, this.f16318a.mToUserId);
-                this.f16318a.mView.R();
+                this.f16357a.mModelController.o(this.f16357a.mFrom, this.f16357a.mToUserId);
+                this.f16357a.mView.R();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class i implements f.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16319a;
+        public final /* synthetic */ GiftTabActivity f16358a;
 
         public i(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -435,27 +435,27 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16319a = giftTabActivity;
+            this.f16358a = giftTabActivity;
         }
 
-        @Override // d.a.s0.y0.b.f.d
+        @Override // d.a.p0.y0.b.f.d
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f16319a.freeChance = i2;
-                this.f16319a.mView.N(i2);
-                this.f16319a.shouldRefreshFreechance = false;
+                this.f16358a.freeChance = i2;
+                this.f16358a.mView.N(i2);
+                this.f16358a.shouldRefreshFreechance = false;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class j implements f.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16320a;
+        public final /* synthetic */ GiftTabActivity f16359a;
 
         public j(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -472,34 +472,34 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16320a = giftTabActivity;
+            this.f16359a = giftTabActivity;
         }
 
-        @Override // d.a.s0.y0.b.f.e
-        public void a(int i2, String str, boolean z, String str2, int i3, k0 k0Var, ArrayList<d.a.s0.y0.b.c> arrayList, ArrayList<d.a.s0.y0.b.a> arrayList2, ArrayList<d.a.s0.y0.b.e> arrayList3) {
+        @Override // d.a.p0.y0.b.f.e
+        public void a(int i2, String str, boolean z, String str2, int i3, k0 k0Var, ArrayList<d.a.p0.y0.b.c> arrayList, ArrayList<d.a.p0.y0.b.a> arrayList2, ArrayList<d.a.p0.y0.b.e> arrayList3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z), str2, Integer.valueOf(i3), k0Var, arrayList, arrayList2, arrayList3}) == null) {
                 if (i2 != 0 && !StringUtils.isNull(str)) {
-                    this.f16320a.showToast(str);
+                    this.f16359a.showToast(str);
                 }
-                this.f16320a.addFreeUrl = str2;
-                if (this.f16320a.mView != null) {
-                    this.f16320a.mView.M = i3;
-                    this.f16320a.mView.N = k0Var;
-                    this.f16320a.mView.Q(z, arrayList, arrayList2, arrayList3);
-                    this.f16320a.mView.M(str2);
+                this.f16359a.addFreeUrl = str2;
+                if (this.f16359a.mView != null) {
+                    this.f16359a.mView.M = i3;
+                    this.f16359a.mView.N = k0Var;
+                    this.f16359a.mView.Q(z, arrayList, arrayList2, arrayList3);
+                    this.f16359a.mView.M(str2);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class k implements SendGiftModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16321a;
+        public final /* synthetic */ GiftTabActivity f16360a;
 
         public k(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -516,26 +516,26 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16321a = giftTabActivity;
+            this.f16360a = giftTabActivity;
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void a(int i2, String str, d.a.s0.y0.d.a aVar) {
+        public void a(int i2, String str, d.a.p0.y0.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
-                this.f16321a.mView.G();
+                this.f16360a.mView.G();
                 if (i2 != 0) {
                     if (StringUtils.isNull(str)) {
-                        this.f16321a.showToast(R.string.neterror);
+                        this.f16360a.showToast(R.string.neterror);
                     } else {
-                        this.f16321a.showToast(str);
+                        this.f16360a.showToast(str);
                     }
                 } else if (aVar == null) {
                 } else {
-                    this.f16321a.sendOrder = aVar;
+                    this.f16360a.sendOrder = aVar;
                     PaymentConfirmRequestData a2 = aVar.a();
                     a2.setTerminal(PaymentConfirmRequestData.TERMINAL_ANDROID);
-                    this.f16321a.sendMessage(new CustomMessage(2002001, new PaymentConfirmActivityConfig(this.f16321a.getPageContext().getPageActivity(), a2, this.f16321a.mReferPage, this.f16321a.mClickZone)));
+                    this.f16360a.sendMessage(new CustomMessage(2002001, new PaymentConfirmActivityConfig(this.f16360a.getPageContext().getPageActivity(), a2, this.f16360a.mReferPage, this.f16360a.mClickZone)));
                 }
             }
         }
@@ -544,8 +544,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f16321a.mView.G();
-                this.f16321a.showToast(R.string.gift_send_data_illegal);
+                this.f16360a.mView.G();
+                this.f16360a.showToast(R.string.gift_send_data_illegal);
             }
         }
 
@@ -553,28 +553,28 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public void c(int i2, String str, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-                this.f16321a.mView.G();
+                this.f16360a.mView.G();
                 if (i2 != 0) {
-                    new d.a.r0.r.f0.c().b(this.f16321a.getResources().getString(R.string.send_gift_fail));
+                    new d.a.o0.r.f0.c().b(this.f16360a.getResources().getString(R.string.send_gift_fail));
                     return;
                 }
-                new d.a.r0.r.f0.c().c(this.f16321a.getResources().getString(R.string.send_gift_succeed));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.f16321a.sendGift));
+                new d.a.o0.r.f0.c().c(this.f16360a.getResources().getString(R.string.send_gift_succeed));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.f16360a.sendGift));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
-                this.f16321a.setResult(-1, intent);
-                this.f16321a.finish();
+                this.f16360a.setResult(-1, intent);
+                this.f16360a.finish();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class l extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16322a;
+        public final /* synthetic */ GiftTabActivity f16361a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public l(GiftTabActivity giftTabActivity, int i2) {
@@ -594,7 +594,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16322a = giftTabActivity;
+            this.f16361a = giftTabActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -603,25 +603,25 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.f16322a.sendOrder != null && str.equalsIgnoreCase(this.f16322a.sendOrder.b())) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.f16322a.sendGift));
+                if (this.f16361a.sendOrder != null && str.equalsIgnoreCase(this.f16361a.sendOrder.b())) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.f16361a.sendGift));
                 }
-                new d.a.r0.r.f0.c().c(this.f16322a.getResources().getString(R.string.send_gift_succeed));
+                new d.a.o0.r.f0.c().c(this.f16361a.getResources().getString(R.string.send_gift_succeed));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
-                this.f16322a.setResult(-1, intent);
-                this.f16322a.finish();
+                this.f16361a.setResult(-1, intent);
+                this.f16361a.finish();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class m implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16323a;
+        public final /* synthetic */ GiftTabActivity f16362a;
 
         public m(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -638,17 +638,17 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16323a = giftTabActivity;
+            this.f16362a = giftTabActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f16323a.mView.f16329i.setVisibility(0);
-                this.f16323a.mModelController.o(this.f16323a.mFrom, this.f16323a.mToUserId);
-                this.f16323a.mModelController.n(this.f16323a.mFrom);
-                this.f16323a.mView.R();
+                this.f16362a.mView.f16368i.setVisibility(0);
+                this.f16362a.mModelController.o(this.f16362a.mFrom, this.f16362a.mToUserId);
+                this.f16362a.mModelController.n(this.f16362a.mFrom);
+                this.f16362a.mView.R();
             }
         }
 
@@ -667,13 +667,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class n implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f16324a;
+        public final /* synthetic */ GiftTabActivity f16363a;
 
         public n(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -690,15 +690,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16324a = giftTabActivity;
+            this.f16363a = giftTabActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f16324a.setResult(-1);
-                this.f16324a.finish();
+                this.f16363a.setResult(-1);
+                this.f16363a.finish();
             }
         }
 
@@ -744,16 +744,16 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     private void hideAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            this.mView.f16328h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            this.mView.f16367h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
             alphaAnimation.setDuration(300L);
             alphaAnimation.setFillAfter(true);
-            this.mView.f16328h.startAnimation(alphaAnimation);
+            this.mView.f16367h.startAnimation(alphaAnimation);
             Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new n(this));
-            this.mView.f16329i.startAnimation(loadAnimation);
+            this.mView.f16368i.startAnimation(loadAnimation);
         }
     }
 
@@ -765,20 +765,20 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (j0Var == null || i2 <= 0) {
                 return false;
             }
-            int i3 = j0Var.f55986f;
+            int i3 = j0Var.f52701f;
             if (i3 == 1) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis < j0Var.f55988h) {
-                    new d.a.r0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_not_start));
+                if (currentTimeMillis < j0Var.f52703h) {
+                    new d.a.o0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_not_start));
                     return false;
-                } else if (currentTimeMillis > j0Var.f55989i) {
-                    new d.a.r0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_has_over));
+                } else if (currentTimeMillis > j0Var.f52704i) {
+                    new d.a.o0.r.f0.c().b(getResources().getString(R.string.gift_limit_time_has_over));
                     return false;
                 }
             } else if (i3 != 2) {
                 if (i3 != 4) {
                     if (i3 == 5 && this.freeChance < i2) {
-                        d.a.r0.r.s.a aVar = new d.a.r0.r.s.a(getActivity());
+                        d.a.o0.r.s.a aVar = new d.a.o0.r.s.a(getActivity());
                         aVar.setMessageShowCenter(true);
                         if (this.freeChance <= 0) {
                             aVar.setTitle(R.string.have_no_free_chance);
@@ -795,7 +795,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
                     return true;
                 } else {
-                    d.a.r0.r.s.a aVar2 = new d.a.r0.r.s.a(getActivity());
+                    d.a.o0.r.s.a aVar2 = new d.a.o0.r.s.a(getActivity());
                     aVar2.setButtonTextColor(R.color.CAM_X0305);
                     aVar2.setTitle(R.string.open_vip_can_send_gift);
                     aVar2.setNegativeButton(R.string.cancel, new b(this, aVar2));
@@ -805,7 +805,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     return false;
                 }
             } else if (j0Var.k < i2) {
-                d.a.r0.r.s.a aVar3 = new d.a.r0.r.s.a(getActivity());
+                d.a.o0.r.s.a aVar3 = new d.a.o0.r.s.a(getActivity());
                 aVar3.setMessageShowCenter(true);
                 aVar3.setTitle(R.string.gift_limit_number_not_enough);
                 aVar3.setMessage(String.format(getPageContext().getString(R.string.limit_number_gift_has_left), Integer.valueOf(j0Var.k)));
@@ -822,15 +822,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     private void showAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            this.mView.f16328h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            this.mView.f16367h.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
             alphaAnimation.setDuration(300L);
-            this.mView.f16328h.startAnimation(alphaAnimation);
+            this.mView.f16367h.startAnimation(alphaAnimation);
             Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new m(this));
-            this.mView.f16329i.startAnimation(loadAnimation);
+            this.mView.f16368i.startAnimation(loadAnimation);
             this.mHasShowAnim = true;
         }
     }
@@ -904,7 +904,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             textView.setText(String.format(string, objArr));
             this.mView.O(this.mLoadCategoryListCallback);
             this.mView.P(this.mLoadDefaultListCallback);
-            d.a.s0.y0.b.f fVar = new d.a.s0.y0.b.f(getPageContext());
+            d.a.p0.y0.b.f fVar = new d.a.p0.y0.b.f(getPageContext());
             this.mModelController = fVar;
             fVar.s(this.mRefreshCallback);
             this.mModelController.r(this.mFreeCountCallback);
@@ -956,7 +956,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        d.a.s0.y0.b.f fVar;
+        d.a.p0.y0.b.f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();

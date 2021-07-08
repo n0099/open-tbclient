@@ -1,5 +1,6 @@
 package cn.com.chinatelecom.gateway.lib.a;
 
+import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,13 +17,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1520a = "a";
+    public static final String f1521a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f1521b;
+    public static byte[] f1522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f1522c;
+    public static byte[] f1523c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +39,8 @@ public class a {
                 return;
             }
         }
-        f1521b = "0000000000000000".getBytes();
-        f1522c = "vrf5g7h0tededwx3".getBytes();
+        f1522b = "0000000000000000".getBytes();
+        f1523c = "vrf5g7h0tededwx3".getBytes();
     }
 
     public a() {
@@ -61,14 +62,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f1521b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f1522b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 byte[] bytes = str.getBytes("utf-8");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return e.a(cipher.doFinal(bytes));
             } catch (Throwable th) {
-                CtAuth.warn(f1520a, "encryptAesNew error", th);
+                CtAuth.warn(f1521a, "encryptAesNew error", th);
                 return null;
             }
         }
@@ -93,13 +94,13 @@ public class a {
                         bArr[i2] = 0;
                     }
                 }
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f1522c);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f1523c);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
-                CtAuth.warn(f1520a, "encrypt4Ux error", th);
+                CtAuth.warn(f1521a, "encrypt4Ux error", th);
                 return null;
             }
         }
@@ -109,9 +110,9 @@ public class a {
     public static String c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f1521b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f1522b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);
@@ -119,10 +120,10 @@ public class a {
                 if (doFinal != null) {
                     return new String(doFinal);
                 }
-                CtAuth.info(f1520a, "Aes decrypt result is empty");
+                CtAuth.info(f1521a, "Aes decrypt result is empty");
                 return "";
             } catch (Throwable th) {
-                CtAuth.warn(f1520a, "decryptAesNew error", th);
+                CtAuth.warn(f1521a, "decryptAesNew error", th);
                 return "";
             }
         }

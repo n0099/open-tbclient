@@ -4,27 +4,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.math.BigInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static byte[] f8298a;
+    public static byte[] f8315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f8299b;
+    public static byte[] f8316b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = f8298a;
+            byte[] bArr = f8315a;
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(a.f8293a).modPow(new BigInteger(a.f8294b), new BigInteger(a.f8297e)).toByteArray();
-            f8298a = byteArray;
+            byte[] byteArray = new BigInteger(a.f8310a).modPow(new BigInteger(a.f8311b), new BigInteger(a.f8314e)).toByteArray();
+            f8315a = byteArray;
             return byteArray;
         }
         return (byte[]) invokeV.objValue;
@@ -34,12 +34,12 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = f8299b;
+            byte[] bArr = f8316b;
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(a.f8295c).modPow(new BigInteger(a.f8296d), new BigInteger(a.f8297e)).toByteArray();
-            f8299b = byteArray;
+            byte[] byteArray = new BigInteger(a.f8312c).modPow(new BigInteger(a.f8313d), new BigInteger(a.f8314e)).toByteArray();
+            f8316b = byteArray;
             return byteArray;
         }
         return (byte[]) invokeV.objValue;

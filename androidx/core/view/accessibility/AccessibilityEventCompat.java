@@ -3,6 +3,7 @@ package androidx.core.view.accessibility;
 import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -91,7 +92,7 @@ public final class AccessibilityEventCompat {
     public static int getContentChangeTypes(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, accessibilityEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, accessibilityEvent)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 return accessibilityEvent.getContentChangeTypes();
             }

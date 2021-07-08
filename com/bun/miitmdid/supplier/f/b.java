@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b implements InnerIdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27523a;
+    public Context f27633a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class b implements InnerIdSupplier {
                 return;
             }
         }
-        this.f27523a = context;
+        this.f27633a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -45,10 +45,10 @@ public class b implements InnerIdSupplier {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SupplierListener f27524a;
+                public final /* synthetic */ SupplierListener f27634a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f27525b;
+                public final /* synthetic */ b f27635b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,8 +65,8 @@ public class b implements InnerIdSupplier {
                             return;
                         }
                     }
-                    this.f27525b = this;
-                    this.f27524a = supplierListener;
+                    this.f27635b = this;
+                    this.f27634a = supplierListener;
                 }
 
                 @Override // java.lang.Runnable
@@ -74,8 +74,8 @@ public class b implements InnerIdSupplier {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (this.f27524a != null) {
-                                this.f27524a.OnSupport(this.f27525b.isSupported(), this.f27525b);
+                            if (this.f27634a != null) {
+                                this.f27634a.OnSupport(this.f27635b.isSupported(), this.f27635b);
                             }
                         } catch (Exception e2) {
                             com.bun.miitmdid.utils.a.a("buniasuplier", "exception", e2);
@@ -102,7 +102,7 @@ public class b implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return a.a(this.f27523a, sysParamters.g());
+                return a.a(this.f27633a, sysParamters.g());
             } catch (Exception unused) {
                 return "";
             }
@@ -116,7 +116,7 @@ public class b implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return a.b(this.f27523a);
+                return a.b(this.f27633a);
             } catch (Exception unused) {
                 return "";
             }
@@ -137,7 +137,7 @@ public class b implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                return a.b(this.f27523a, sysParamters.g());
+                return a.b(this.f27633a, sysParamters.g());
             } catch (Exception unused) {
                 return "";
             }
@@ -151,7 +151,7 @@ public class b implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                return a.a(this.f27523a);
+                return a.a(this.f27633a);
             } catch (Exception unused) {
                 return false;
             }

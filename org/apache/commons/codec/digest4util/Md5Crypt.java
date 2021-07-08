@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Md5Crypt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APR1_PREFIX = "$apr1$";
@@ -56,7 +57,7 @@ public class Md5Crypt {
     public static String apr1Crypt(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
             if (str != null && !str.startsWith(APR1_PREFIX)) {
                 str = APR1_PREFIX + str;
             }

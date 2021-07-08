@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
@@ -27,15 +28,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f44767a;
+    public static final boolean f41783a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements b<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public class d {
                             byteArrayOutputStream.write(bArr, 0, read);
                         }
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
-                        if (d.f44767a) {
+                        if (d.f41783a) {
                             Log.d(TitanDownloadService.TAG, jSONObject.toString());
                         }
                         return jSONObject;
@@ -90,7 +91,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b<T> {
         T a(int i2, String str, InputStream inputStream) throws IOException;
 
@@ -110,7 +111,7 @@ public class d {
                 return;
             }
         }
-        f44767a = d.a.c.j.a.f44765a;
+        f41783a = d.a.c.j.a.f41781a;
     }
 
     public static String b(Context context) {
@@ -172,7 +173,7 @@ public class d {
         HttpURLConnection httpURLConnection3;
         T t;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65540, null, new Object[]{context, str, str2, bArr, map, bVar}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, bArr, map, bVar}) != null) {
             return;
         }
         OutputStream outputStream3 = null;
@@ -192,7 +193,7 @@ public class d {
                 if (!TextUtils.equals(str2, "POST")) {
                     outputStream2 = null;
                 } else if (bArr == null) {
-                    if (f44767a) {
+                    if (f41783a) {
                         Log.d(TitanDownloadService.TAG, "post requestSync body is null");
                     }
                     if (bVar != null) {

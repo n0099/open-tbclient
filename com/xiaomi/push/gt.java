@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class gt extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ gs f43216a;
+    public final /* synthetic */ gs f40230a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gt(gs gsVar, int i2) {
@@ -33,7 +33,7 @@ public class gt extends XMPushService.i {
                 return;
             }
         }
-        this.f43216a = gsVar;
+        this.f40230a = gsVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -47,7 +47,7 @@ public class gt extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43216a.c();
+            this.f40230a.c();
         }
     }
 }

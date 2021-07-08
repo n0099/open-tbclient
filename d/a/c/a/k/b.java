@@ -22,19 +22,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.k.a;
 import java.sql.SQLException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SQLiteDatabase f43872a;
+    public SQLiteDatabase f40888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0582a f43873b;
+    public a.InterfaceC0543a f40889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f43874c;
+    public a f40890c;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -51,18 +51,18 @@ public class b {
                 return;
             }
         }
-        this.f43872a = null;
-        this.f43873b = null;
-        this.f43874c = aVar;
+        this.f40888a = null;
+        this.f40889b = null;
+        this.f40890c = aVar;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.f43872a != null) {
-                    this.f43872a.close();
-                    this.f43872a = null;
+                if (this.f40888a != null) {
+                    this.f40888a.close();
+                    this.f40888a = null;
                 }
             } catch (Exception e2) {
                 BdLog.e("closeDatabase：" + e2.getMessage());
@@ -78,10 +78,10 @@ public class b {
             synchronized (b.class) {
                 a();
                 try {
-                    dropDatabase = this.f43874c.dropDatabase(BdBaseApplication.getInst().getContext());
+                    dropDatabase = this.f40890c.dropDatabase(BdBaseApplication.getInst().getContext());
                 } catch (Exception e2) {
                     BdLog.e("deleteDatabase：" + e2.getMessage());
-                    this.f43872a = null;
+                    this.f40888a = null;
                     return false;
                 }
             }
@@ -94,10 +94,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             synchronized (b.class) {
-                if (this.f43872a == null || !this.f43872a.isOpen()) {
+                if (this.f40888a == null || !this.f40888a.isOpen()) {
                     try {
-                        this.f43874c.setOnCreateCallback(this.f43873b);
-                        this.f43872a = this.f43874c.getWritableDatabase();
+                        this.f40890c.setOnCreateCallback(this.f40889b);
+                        this.f40888a = this.f40890c.getWritableDatabase();
                     } catch (RuntimeException e2) {
                         if (z) {
                             i(e2, "ensureDatabaseReady");
@@ -159,7 +159,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             c(z);
-            return this.f43872a;
+            return this.f40888a;
         }
         return (SQLiteDatabase) invokeZ.objValue;
     }
@@ -187,22 +187,22 @@ public class b {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i2 = -14;
-                this.f43872a = null;
+                this.f40888a = null;
             } else if (th instanceof SQLiteAbortException) {
                 i2 = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i2 = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i2 = -15;
-                this.f43872a = null;
+                this.f40888a = null;
             } else if (th instanceof SQLiteFullException) {
                 i2 = -16;
-                this.f43872a = null;
+                this.f40888a = null;
             } else if (th instanceof SQLiteDoneException) {
                 i2 = -19;
-                this.f43872a = null;
+                this.f40888a = null;
             } else if (!(th instanceof SQLiteMisuseException)) {
-                this.f43872a = null;
+                this.f40888a = null;
             }
             h(str, i2, th.getMessage(), new Object[0]);
         }
@@ -221,10 +221,10 @@ public class b {
         return (Cursor) invokeLL.objValue;
     }
 
-    public void k(a.InterfaceC0582a interfaceC0582a) {
+    public void k(a.InterfaceC0543a interfaceC0543a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0582a) == null) {
-            this.f43873b = interfaceC0582a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0543a) == null) {
+            this.f40889b = interfaceC0543a;
         }
     }
 }

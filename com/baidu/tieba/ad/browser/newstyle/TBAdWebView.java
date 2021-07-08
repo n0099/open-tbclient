@@ -14,9 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a;
-import d.a.s0.q.d.e;
-/* loaded from: classes5.dex */
+import d.a.p0.a;
+/* loaded from: classes3.dex */
 public class TBAdWebView extends BaseAdWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,14 +44,13 @@ public class TBAdWebView extends BaseAdWebView {
     public void b(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, downloadCacheKey, z) == null) {
-            if (!a.h().r() && !PermissionUtil.checkWriteExternalStorage(getContext())) {
-                PermissionUtil.requestWriteExternalStorage((Activity) getContext(), 0);
+            if (!a.h().s() && !PermissionUtil.checkWriteExternalStorage(this.f13785f)) {
+                PermissionUtil.requestWriteExternalStorage((Activity) this.f13785f, 0);
                 return;
             }
-            e.c().l(downloadCacheKey, null);
             BaseAdWebView.d dVar = this.j;
             if (dVar != null) {
-                dVar.onDownloadStart();
+                dVar.onDownloadStart(downloadCacheKey);
             }
         }
     }

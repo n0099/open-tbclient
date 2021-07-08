@@ -64,7 +64,7 @@ import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
 import org.webrtc.voiceengine.WebRtcAudioManager;
 import org.webrtc.voiceengine.WebRtcAudioUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PeerConnectionClient implements DataChannel.Observer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_AUTO_GAIN_CONTROL_CONSTRAINT = "googAutoGainControl";
@@ -140,7 +140,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public int videoWidth;
     public int videokbps;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class PCObserver implements PeerConnection.Observer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -485,7 +485,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface PeerConnectionEvents {
         void onIceCandidate(IceCandidate iceCandidate, BigInteger bigInteger);
 
@@ -518,7 +518,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class PeerConnectionParameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -607,7 +607,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class SDPObserver implements SdpObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -784,7 +784,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class StatsEventsType {
         public static final /* synthetic */ StatsEventsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -844,6 +844,41 @@ public class PeerConnectionClient implements DataChannel.Observer {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (StatsEventsType[]) $VALUES.clone() : (StatsEventsType[]) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class VideoDecoderObserver implements MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public PeerConnectionEvents events;
+
+        public VideoDecoderObserver(PeerConnectionEvents peerConnectionEvents) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {peerConnectionEvents};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.events = peerConnectionEvents;
+        }
+
+        @Override // org.webrtc.MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver
+        public void onSEIRecv(ByteBuffer byteBuffer) {
+            PeerConnectionEvents peerConnectionEvents;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) || (peerConnectionEvents = this.events) == null) {
+                return;
+            }
+            peerConnectionEvents.onSEIRecv(byteBuffer);
         }
     }
 
@@ -1174,38 +1209,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             PeerConnectionFactory.initialize(PeerConnectionFactory.InitializationOptions.builder(context).setFieldTrials(str4).createInitializationOptions());
             AudioDeviceModule createJavaAudioDevice = createJavaAudioDevice();
             this.adm = (JavaAudioDeviceModule) createJavaAudioDevice;
-            MediaCodecVideoDecoder.setVideoDecoderObserver(new MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver(this) { // from class: com.baidu.rtc.PeerConnectionClient.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ PeerConnectionClient this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // org.webrtc.MediaCodecVideoDecoder.MediaCodecVideoDecoderObserver
-                public void onSEIRecv(ByteBuffer byteBuffer) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, byteBuffer) == null) || this.this$0.events == null) {
-                        return;
-                    }
-                    this.this$0.events.onSEIRecv(byteBuffer);
-                }
-            });
+            MediaCodecVideoDecoder.setVideoDecoderObserver(new VideoDecoderObserver(this.events));
             this.factory = PeerConnectionFactory.builder().setAudioDeviceModule(createJavaAudioDevice).setVideoDecoderFactory(MediaCodecVideoDecoder.createFactory()).setVideoEncoderFactory(MediaCodecVideoEncoder.createFactory()).createPeerConnectionFactory();
             Log.d(TAG, "Peer connection factory created.");
             createJavaAudioDevice.release();
@@ -1300,7 +1304,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     /* JADX INFO: Access modifiers changed from: private */
     public void getStats(BigInteger bigInteger, StatsEventsType statsEventsType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65585, this, bigInteger, statsEventsType) == null) || this.peerConnectionMap.get(bigInteger).peerConnection.getStats(new StatsObserver(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
+        if (!(interceptable == null || interceptable.invokeLL(65585, this, bigInteger, statsEventsType) == null) || this.peerConnectionMap.get(bigInteger).peerConnection.getStats(new StatsObserver(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PeerConnectionClient this$0;
@@ -1372,7 +1376,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, str) { // from class: com.baidu.rtc.PeerConnectionClient.20
+                this.executor.execute(new Runnable(this, str) { // from class: com.baidu.rtc.PeerConnectionClient.19
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -1430,7 +1434,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, i2, i3, i4) { // from class: com.baidu.rtc.PeerConnectionClient.22
+                this.executor.execute(new Runnable(this, i2, i3, i4) { // from class: com.baidu.rtc.PeerConnectionClient.21
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -1519,7 +1523,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bigInteger) == null) || (scheduledExecutorService = this.executor) == null || scheduledExecutorService.isShutdown()) {
             return;
         }
-        this.executor.execute(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.8
+        this.executor.execute(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PeerConnectionClient this$0;
@@ -1573,7 +1577,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AudioDeviceModule createAudioDeviceModule = JavaAudioDeviceModule.builder(this.context).setSamplesReadyCallback(this.innersamplesReadyCallback).setRemoteSamplesReadyCallback(this.mRemoteSamplesReadyCallback).setExternalAudioRecord(this.mExternalAudioRecord).setUseHardwareAcousticEchoCanceler(!this.peerConnectionParameters.disableBuiltInAEC).setUseHardwareNoiseSuppressor(!this.peerConnectionParameters.disableBuiltInNS).setAudioRecordErrorCallback(new JavaAudioDeviceModule.AudioRecordErrorCallback(this) { // from class: com.baidu.rtc.PeerConnectionClient.5
+            AudioDeviceModule createAudioDeviceModule = JavaAudioDeviceModule.builder(this.context).setSamplesReadyCallback(this.innersamplesReadyCallback).setRemoteSamplesReadyCallback(this.mRemoteSamplesReadyCallback).setExternalAudioRecord(this.mExternalAudioRecord).setUseHardwareAcousticEchoCanceler(!this.peerConnectionParameters.disableBuiltInAEC).setUseHardwareNoiseSuppressor(!this.peerConnectionParameters.disableBuiltInNS).setAudioRecordErrorCallback(new JavaAudioDeviceModule.AudioRecordErrorCallback(this) { // from class: com.baidu.rtc.PeerConnectionClient.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PeerConnectionClient this$0;
@@ -1622,7 +1626,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                         Log.e(PeerConnectionClient.TAG, "onWebRtcAudioRecordStartError: " + audioRecordStartErrorCode + ". " + str);
                     }
                 }
-            }).setAudioTrackErrorCallback(new JavaAudioDeviceModule.AudioTrackErrorCallback(this) { // from class: com.baidu.rtc.PeerConnectionClient.6
+            }).setAudioTrackErrorCallback(new JavaAudioDeviceModule.AudioTrackErrorCallback(this) { // from class: com.baidu.rtc.PeerConnectionClient.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PeerConnectionClient this$0;
@@ -1686,7 +1690,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.13
+                this.executor.execute(new Runnable(this, bigInteger) { // from class: com.baidu.rtc.PeerConnectionClient.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -1873,7 +1877,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     if (timerTask2 != null) {
                         timerTask2.cancel();
                     }
-                    TimerTask timerTask3 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.10
+                    TimerTask timerTask3 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ PeerConnectionClient this$0;
@@ -1906,10 +1910,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
                             if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.executor.isShutdown()) {
                                 return;
                             }
-                            this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.10.1
+                            this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.9.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ AnonymousClass10 this$1;
+                                public final /* synthetic */ AnonymousClass9 this$1;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -1933,8 +1937,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        AnonymousClass10 anonymousClass10 = this.this$1;
-                                        anonymousClass10.this$0.getStats(anonymousClass10.val$handleId, anonymousClass10.val$eventsType);
+                                        AnonymousClass9 anonymousClass9 = this.this$1;
+                                        anonymousClass9.this$0.getStats(anonymousClass9.val$handleId, anonymousClass9.val$eventsType);
                                     }
                                 }
                             });
@@ -1960,7 +1964,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 timerTask2 = timerTask;
                 if (timerTask2 != null) {
                 }
-                TimerTask timerTask32 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.10
+                TimerTask timerTask32 = new TimerTask(this, bigInteger, statsEventsType) { // from class: com.baidu.rtc.PeerConnectionClient.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -1993,10 +1997,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.executor.isShutdown()) {
                             return;
                         }
-                        this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.10.1
+                        this.this$0.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.9.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ AnonymousClass10 this$1;
+                            public final /* synthetic */ AnonymousClass9 this$1;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -2020,8 +2024,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    AnonymousClass10 anonymousClass10 = this.this$1;
-                                    anonymousClass10.this$0.getStats(anonymousClass10.val$handleId, anonymousClass10.val$eventsType);
+                                    AnonymousClass9 anonymousClass9 = this.this$1;
+                                    anonymousClass9.this$0.getStats(anonymousClass9.val$handleId, anonymousClass9.val$eventsType);
                                 }
                             }
                         });
@@ -2117,7 +2121,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.11
+                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2173,7 +2177,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, bigInteger, z) { // from class: com.baidu.rtc.PeerConnectionClient.19
+                this.executor.execute(new Runnable(this, bigInteger, z) { // from class: com.baidu.rtc.PeerConnectionClient.18
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2234,7 +2238,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.25
+                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.24
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2336,7 +2340,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             } else if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, remoteSamplesReadyCallback) { // from class: com.baidu.rtc.PeerConnectionClient.7
+                this.executor.execute(new Runnable(this, remoteSamplesReadyCallback) { // from class: com.baidu.rtc.PeerConnectionClient.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2380,7 +2384,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.14
+                this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2437,7 +2441,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.23
+                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.22
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2481,7 +2485,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, sLIReportInterface) { // from class: com.baidu.rtc.PeerConnectionClient.24
+                this.executor.execute(new Runnable(this, sLIReportInterface) { // from class: com.baidu.rtc.PeerConnectionClient.23
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2527,7 +2531,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.12
+                this.executor.execute(new Runnable(this, z) { // from class: com.baidu.rtc.PeerConnectionClient.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2591,7 +2595,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.17
+                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.16
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2634,7 +2638,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.18
+                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.17
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2677,7 +2681,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.16
+                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.15
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2724,7 +2728,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.15
+                this.executor.execute(new Runnable(this, bigInteger, sessionDescription) { // from class: com.baidu.rtc.PeerConnectionClient.14
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;
@@ -2777,7 +2781,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
             if (this.executor.isShutdown()) {
                 Log.w(TAG, "executor is already shutdown");
             } else {
-                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.21
+                this.executor.execute(new Runnable(this) { // from class: com.baidu.rtc.PeerConnectionClient.20
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PeerConnectionClient this$0;

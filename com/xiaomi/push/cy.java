@@ -2,11 +2,12 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +36,7 @@ public class cy {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iqVar, hfVar)) == null) {
-            switch (cz.f42944a[hfVar.ordinal()]) {
+            switch (cz.f39958a[hfVar.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
@@ -118,7 +119,7 @@ public class cy {
     public static void a(String str, Context context, ib ibVar, int i2) {
         hf a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65540, null, str, context, ibVar, i2) == null) || context == null || ibVar == null || (a2 = ibVar.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, ibVar, i2) == null) || context == null || ibVar == null || (a2 = ibVar.a()) == null) {
             return;
         }
         int a3 = a(a2);

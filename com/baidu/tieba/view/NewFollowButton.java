@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.e;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.s0.h3.f0;
-/* loaded from: classes5.dex */
+import d.a.p0.h3.f0;
+/* loaded from: classes4.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean E;
     public int F;
     public boolean G;
-    public d.a.r0.r.f0.m.b H;
-    public d.a.r0.r.f0.m.b I;
+    public d.a.o0.r.f0.n.b H;
+    public d.a.o0.r.f0.n.b I;
     public LikeModel J;
     public f0 K;
     public b L;
@@ -51,16 +51,16 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public f0.a y;
     public boolean z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f22077a;
+        public final /* synthetic */ boolean f22134a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f22078b;
+        public final /* synthetic */ NewFollowButton f22135b;
 
         public a(NewFollowButton newFollowButton, boolean z) {
             Interceptable interceptable = $ic;
@@ -77,15 +77,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f22078b = newFollowButton;
-            this.f22077a = z;
+            this.f22135b = newFollowButton;
+            this.f22134a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f22078b.B(this.f22077a);
+                this.f22135b.B(this.f22134a);
             }
         }
 
@@ -104,13 +104,13 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends e implements f0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFollowButton f22079a;
+        public final /* synthetic */ NewFollowButton f22136a;
 
         public b(NewFollowButton newFollowButton) {
             Interceptable interceptable = $ic;
@@ -127,30 +127,30 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     return;
                 }
             }
-            this.f22079a = newFollowButton;
+            this.f22136a = newFollowButton;
         }
 
-        @Override // d.a.s0.h3.f0.a
+        @Override // d.a.p0.h3.f0.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-                if (this.f22079a.y != null) {
-                    this.f22079a.y.a(str, j);
+                if (this.f22136a.y != null) {
+                    this.f22136a.y.a(str, j);
                 }
-                this.f22079a.M = false;
+                this.f22136a.M = false;
             }
         }
 
-        @Override // d.a.s0.h3.f0.a
+        @Override // d.a.p0.h3.f0.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                NewFollowButton newFollowButton = this.f22079a;
+                NewFollowButton newFollowButton = this.f22136a;
                 newFollowButton.F(false, newFollowButton.E);
-                if (this.f22079a.y != null) {
-                    this.f22079a.y.b(str, j);
+                if (this.f22136a.y != null) {
+                    this.f22136a.y.b(str, j);
                 }
-                this.f22079a.M = false;
+                this.f22136a.M = false;
             }
         }
 
@@ -158,21 +158,21 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                if (this.f22079a.J.getErrorCode() == 22) {
-                    l.M(this.f22079a.u.getPageActivity(), this.f22079a.u.getString(R.string.had_liked_forum));
-                    this.f22079a.M = false;
+                if (this.f22136a.J.getErrorCode() == 22) {
+                    l.M(this.f22136a.u.getPageActivity(), this.f22136a.u.getString(R.string.had_liked_forum));
+                    this.f22136a.M = false;
                 } else if (obj == null) {
-                    this.f22079a.M = false;
-                } else if (this.f22079a.J.getErrorCode() != 0) {
-                    l.M(this.f22079a.u.getPageActivity(), this.f22079a.J.getErrorString());
-                    this.f22079a.M = false;
+                    this.f22136a.M = false;
+                } else if (this.f22136a.J.getErrorCode() != 0) {
+                    l.M(this.f22136a.u.getPageActivity(), this.f22136a.J.getErrorString());
+                    this.f22136a.M = false;
                 } else {
-                    NewFollowButton newFollowButton = this.f22079a;
+                    NewFollowButton newFollowButton = this.f22136a;
                     newFollowButton.F(true, newFollowButton.E);
-                    if (this.f22079a.x != null) {
-                        this.f22079a.x.c(obj);
+                    if (this.f22136a.x != null) {
+                        this.f22136a.x.c(obj);
                     }
-                    this.f22079a.M = false;
+                    this.f22136a.M = false;
                 }
             }
         }
@@ -232,7 +232,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.w;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.I == null) {
-                        d.a.r0.r.f0.m.b bVar = new d.a.r0.r.f0.m.b();
+                        d.a.o0.r.f0.n.b bVar = new d.a.o0.r.f0.n.b();
                         this.I = bVar;
                         bVar.r(R.color.CAM_X0109);
                         this.I.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -247,7 +247,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.v;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.H == null) {
-                        d.a.r0.r.f0.m.b bVar2 = new d.a.r0.r.f0.m.b();
+                        d.a.o0.r.f0.n.b bVar2 = new d.a.o0.r.f0.n.b();
                         this.H = bVar2;
                         bVar2.q(R.color.CAM_X0302);
                         if (this.C) {

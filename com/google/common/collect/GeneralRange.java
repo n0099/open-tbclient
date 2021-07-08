@@ -12,7 +12,7 @@ import d.f.d.a.k;
 import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GeneralRange<T> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public final class GeneralRange<T> implements Serializable {
     public static <T> GeneralRange<T> range(Comparator<? super T> comparator, T t, BoundType boundType, T t2, BoundType boundType2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65540, null, comparator, t, boundType, t2, boundType2)) == null) ? new GeneralRange<>(comparator, true, t, boundType, true, t2, boundType2) : (GeneralRange) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, comparator, t, boundType, t2, boundType2)) == null) ? new GeneralRange<>(comparator, true, t, boundType, true, t2, boundType2) : (GeneralRange) invokeLLLLL.objValue;
     }
 
     public static <T> GeneralRange<T> upTo(Comparator<? super T> comparator, T t, BoundType boundType) {

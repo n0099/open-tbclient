@@ -1,5 +1,5 @@
 package com.baidu.mobads.cid.cesium.c.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface i {
     int a(int i2);
 

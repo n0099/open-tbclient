@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f42726a;
+    public final /* synthetic */ a f39740a;
 
     public d(a aVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d extends ai.a {
                 return;
             }
         }
-        this.f42726a = aVar;
+        this.f39740a = aVar;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -48,9 +48,9 @@ public class d extends ai.a {
         ExecutorService executorService;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a2 = this.f42726a.a();
+            a2 = this.f39740a.a();
             if (a2 > 0) {
-                executorService = this.f42726a.f37a;
+                executorService = this.f39740a.f37a;
                 executorService.execute(new e(this));
             }
         }

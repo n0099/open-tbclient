@@ -14,7 +14,7 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueSubscription;
 import org.reactivestreams.Subscriber;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class EmptySubscription implements QueueSubscription<Object> {
     public static final /* synthetic */ EmptySubscription[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -77,7 +77,7 @@ public final class EmptySubscription implements QueueSubscription<Object> {
     public static EmptySubscription valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (EmptySubscription) Enum.valueOf(EmptySubscription.class, str) : (EmptySubscription) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (EmptySubscription) Enum.valueOf(EmptySubscription.class, str) : (EmptySubscription) invokeL.objValue;
     }
 
     public static EmptySubscription[] values() {

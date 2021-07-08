@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.a4.j.a;
-import d.a.s0.a4.j.b;
-/* loaded from: classes5.dex */
+import d.a.p0.a4.j.a;
+import d.a.p0.a4.j.b;
+/* loaded from: classes4.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";
@@ -107,7 +107,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (writeData != null && this.mAccessState != null) {
                 NewWriteModel newWriteModel = new NewWriteModel(this);
                 this.mWriteModel = newWriteModel;
-                newWriteModel.j0(this.mWriteData);
+                newWriteModel.setWriteData(this.mWriteData);
                 if (this.mWriteData.getWriteImagesInfo() != null) {
                     this.mWriteModel.d0(this.mWriteData.getWriteImagesInfo().size() > 0);
                 }

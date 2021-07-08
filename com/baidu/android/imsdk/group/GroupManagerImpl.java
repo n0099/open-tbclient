@@ -138,7 +138,7 @@ public class GroupManagerImpl {
         InterceptResult invokeL;
         GroupManagerImpl groupManagerImpl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (GroupManagerImpl.class) {
                 if (mInstance == null) {
                     mContext = context.getApplicationContext();

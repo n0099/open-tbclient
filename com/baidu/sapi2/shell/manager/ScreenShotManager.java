@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.provider.MediaStore;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ScreenShotManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] KEYWORDS;
@@ -33,7 +34,7 @@ public class ScreenShotManager {
     public MediaContentObserver mInternalObserver;
     public IScreenShotListener mScreenShotListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class MediaContentObserver extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +153,7 @@ public class ScreenShotManager {
     private void handleMediaRowData(String str, long j) {
         IScreenShotListener iScreenShotListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65540, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j) == null) {
             long j2 = 0;
             while (!isScreenShot(str) && j2 <= 500) {
                 j2 += 100;

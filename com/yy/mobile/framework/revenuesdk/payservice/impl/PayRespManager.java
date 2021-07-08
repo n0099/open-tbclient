@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
 
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +38,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class PayRespManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl-RespM";
@@ -130,7 +131,7 @@ public class PayRespManager {
 
     private void onBannerConfig(IResponse iResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, iResponse) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, iResponse) == null) {
             IRequest request = iResponse.getRequest();
             BannerConfigResult bannerConfigResult = (BannerConfigResult) getResponseData(BannerConfigResult.class, iResponse);
             if (request != null) {

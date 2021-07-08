@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class fz implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f43141a;
+    public String f40155a;
 
     /* renamed from: a  reason: collision with other field name */
     public List<fz> f418a;
@@ -28,13 +28,13 @@ public class fz implements gd {
     public String[] f419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43142b;
+    public String f40156b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43143c;
+    public String f40157c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class fz implements gd {
         this.f419a = null;
         this.f420b = null;
         this.f418a = null;
-        this.f43141a = str;
-        this.f43142b = str2;
+        this.f40155a = str;
+        this.f40156b = str2;
         this.f419a = strArr;
         this.f420b = strArr2;
     }
@@ -78,11 +78,11 @@ public class fz implements gd {
         this.f419a = null;
         this.f420b = null;
         this.f418a = null;
-        this.f43141a = str;
-        this.f43142b = str2;
+        this.f40155a = str;
+        this.f40156b = str2;
         this.f419a = strArr;
         this.f420b = strArr2;
-        this.f43143c = str3;
+        this.f40157c = str3;
         this.f418a = list;
     }
 
@@ -128,7 +128,7 @@ public class fz implements gd {
     public static Parcelable[] a(fz[] fzVarArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, fzVarArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fzVarArr)) == null) {
             if (fzVarArr == null) {
                 return null;
             }
@@ -146,9 +146,9 @@ public class fz implements gd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putString("ext_ele_name", this.f43141a);
-            bundle.putString("ext_ns", this.f43142b);
-            bundle.putString("ext_text", this.f43143c);
+            bundle.putString("ext_ele_name", this.f40155a);
+            bundle.putString("ext_ns", this.f40156b);
+            bundle.putString("ext_text", this.f40157c);
             Bundle bundle2 = new Bundle();
             String[] strArr = this.f419a;
             if (strArr != null && strArr.length > 0) {
@@ -183,7 +183,7 @@ public class fz implements gd {
     public String m334a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43141a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40155a : (String) invokeV.objValue;
     }
 
     public String a(String str) {
@@ -231,20 +231,20 @@ public class fz implements gd {
             if (!TextUtils.isEmpty(str)) {
                 str = gn.a(str);
             }
-            this.f43143c = str;
+            this.f40157c = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43142b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40156b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f43143c) ? gn.b(this.f43143c) : this.f43143c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f40157c) ? gn.b(this.f40157c) : this.f40157c : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gd
@@ -254,12 +254,12 @@ public class fz implements gd {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("<");
-            sb.append(this.f43141a);
-            if (!TextUtils.isEmpty(this.f43142b)) {
+            sb.append(this.f40155a);
+            if (!TextUtils.isEmpty(this.f40156b)) {
                 sb.append(" ");
                 sb.append("xmlns=");
                 sb.append("\"");
-                sb.append(this.f43142b);
+                sb.append(this.f40156b);
                 sb.append("\"");
             }
             String[] strArr = this.f419a;
@@ -274,7 +274,7 @@ public class fz implements gd {
                     }
                 }
             }
-            if (TextUtils.isEmpty(this.f43143c)) {
+            if (TextUtils.isEmpty(this.f40157c)) {
                 List<fz> list = this.f418a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
@@ -286,10 +286,10 @@ public class fz implements gd {
                 }
             } else {
                 sb.append(">");
-                sb.append(this.f43143c);
+                sb.append(this.f40157c);
             }
             sb.append("</");
-            sb.append(this.f43141a);
+            sb.append(this.f40155a);
             sb.append(">");
             return sb.toString();
         }

@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MistView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MASK_COLOR_DEFAULT_TRANSPARENT;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f24197a = 100;
+    public static final long f24307a = 100;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Paint f24198b;
+    public final Paint f24308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24199c;
+    public int f24309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Rect f24200d;
+    public final Rect f24310d;
 
     static {
         InterceptResult invokeClinit;
@@ -68,15 +68,15 @@ public class MistView extends FrameLayout {
                 return;
             }
         }
-        this.f24200d = new Rect();
-        this.f24198b = new Paint();
-        this.f24199c = MASK_COLOR_DEFAULT_TRANSPARENT;
+        this.f24310d = new Rect();
+        this.f24308b = new Paint();
+        this.f24309c = MASK_COLOR_DEFAULT_TRANSPARENT;
     }
 
     public Rect getFocusFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24200d : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24310d : (Rect) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -86,18 +86,18 @@ public class MistView extends FrameLayout {
             super.onDraw(canvas);
             int width = canvas.getWidth();
             int height = canvas.getHeight();
-            this.f24198b.setColor(this.f24199c);
-            if (this.f24200d.width() == 0) {
+            this.f24308b.setColor(this.f24309c);
+            if (this.f24310d.width() == 0) {
                 return;
             }
             float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, this.f24200d.top, this.f24198b);
-            Rect rect = this.f24200d;
-            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom, this.f24198b);
-            Rect rect2 = this.f24200d;
-            canvas.drawRect(rect2.right, rect2.top, f2, rect2.bottom, this.f24198b);
-            canvas.drawRect(0.0f, this.f24200d.bottom, f2, height, this.f24198b);
-            Rect rect3 = this.f24200d;
+            canvas.drawRect(0.0f, 0.0f, f2, this.f24310d.top, this.f24308b);
+            Rect rect = this.f24310d;
+            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom, this.f24308b);
+            Rect rect2 = this.f24310d;
+            canvas.drawRect(rect2.right, rect2.top, f2, rect2.bottom, this.f24308b);
+            canvas.drawRect(0.0f, this.f24310d.bottom, f2, height, this.f24308b);
+            Rect rect3 = this.f24310d;
             postInvalidateDelayed(100L, rect3.left, rect3.top, rect3.right, rect3.bottom);
         }
     }
@@ -105,7 +105,7 @@ public class MistView extends FrameLayout {
     public void setMistColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f24199c = i2;
+            this.f24309c = i2;
             postInvalidate();
         }
     }

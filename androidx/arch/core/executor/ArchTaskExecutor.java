@@ -3,6 +3,7 @@ package androidx.arch.core.executor;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -141,7 +142,7 @@ public class ArchTaskExecutor extends TaskExecutor {
     public static Executor getMainThreadExecutor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? sMainThreadExecutor : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sMainThreadExecutor : (Executor) invokeV.objValue;
     }
 
     @Override // androidx.arch.core.executor.TaskExecutor

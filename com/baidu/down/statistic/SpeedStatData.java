@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.taskmanager.DownConfig;
 import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SpeedStatData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SpeedStatData";
@@ -156,7 +157,7 @@ public class SpeedStatData {
     public static ConfigSpeedStat innerParseSpeedConfig(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             ConfigSpeedStat configSpeedStat = new ConfigSpeedStat();
             try {
                 if (!TextUtils.isEmpty(str)) {

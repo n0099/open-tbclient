@@ -15,28 +15,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.s0.h2.p.c;
+import d.a.p0.h2.p.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FallingView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f19830e;
+    public List<c> f19870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19831f;
+    public int f19871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19832g;
+    public int f19872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19833h;
+    public boolean f19873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Runnable f19834i;
+    public Runnable f19874i;
     public Handler j;
     public Paint k;
 
@@ -58,8 +58,8 @@ public class FallingView extends View {
                 return;
             }
         }
-        this.f19833h = false;
-        this.f19834i = new Runnable() { // from class: d.a.s0.h2.p.b
+        this.f19873h = false;
+        this.f19874i = new Runnable() { // from class: d.a.p0.h2.p.b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -78,16 +78,16 @@ public class FallingView extends View {
     public void a(c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, cVar, i2) == null) {
-            if (this.f19831f == 0) {
-                this.f19831f = l.k(getContext());
+            if (this.f19871f == 0) {
+                this.f19871f = l.k(getContext());
             }
-            if (this.f19832g == 0) {
-                this.f19832g = l.i(getContext());
+            if (this.f19872g == 0) {
+                this.f19872g = l.i(getContext());
             }
             for (int i3 = 0; i3 < i2; i3++) {
-                c cVar2 = new c(cVar.f61125i, this.f19831f, this.f19832g);
-                cVar2.f61121e = (-i3) * 180;
-                this.f19830e.add(cVar2);
+                c cVar2 = new c(cVar.f57881i, this.f19871f, this.f19872g);
+                cVar2.f57877e = (-i3) * 180;
+                this.f19870e.add(cVar2);
             }
         }
     }
@@ -95,7 +95,7 @@ public class FallingView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19830e = new ArrayList();
+            this.f19870e = new ArrayList();
             Paint paint = new Paint();
             this.k = paint;
             paint.setDither(true);
@@ -106,7 +106,7 @@ public class FallingView extends View {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19833h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19873h : invokeV.booleanValue;
     }
 
     public /* synthetic */ void d() {
@@ -127,7 +127,7 @@ public class FallingView extends View {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f19833h = true;
+            this.f19873h = true;
             invalidate();
         }
     }
@@ -135,11 +135,11 @@ public class FallingView extends View {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f19833h = false;
+            this.f19873h = false;
             if (getHandler() != null) {
-                getHandler().removeCallbacks(this.f19834i);
+                getHandler().removeCallbacks(this.f19874i);
             }
-            this.f19830e.clear();
+            this.f19870e.clear();
         }
     }
 
@@ -149,11 +149,11 @@ public class FallingView extends View {
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             super.onDraw(canvas);
-            if (this.f19830e.size() > 0) {
-                for (int i2 = 0; i2 < this.f19830e.size(); i2++) {
-                    this.f19830e.get(i2).b(canvas, this.k);
+            if (this.f19870e.size() > 0) {
+                for (int i2 = 0; i2 < this.f19870e.size(); i2++) {
+                    this.f19870e.get(i2).b(canvas, this.k);
                 }
-                this.j.postDelayed(this.f19834i, (currentTimeMillis + 5) - System.currentTimeMillis());
+                this.j.postDelayed(this.f19874i, (currentTimeMillis + 5) - System.currentTimeMillis());
             }
         }
     }
@@ -166,8 +166,8 @@ public class FallingView extends View {
             int e2 = e(1000, i3);
             int e3 = e(600, i2);
             setMeasuredDimension(e3, e2);
-            this.f19831f = e3;
-            this.f19832g = e2;
+            this.f19871f = e3;
+            this.f19872g = e2;
         }
     }
 
@@ -190,8 +190,8 @@ public class FallingView extends View {
                 return;
             }
         }
-        this.f19833h = false;
-        this.f19834i = new Runnable() { // from class: d.a.s0.h2.p.b
+        this.f19873h = false;
+        this.f19874i = new Runnable() { // from class: d.a.p0.h2.p.b
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -17,21 +17,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.l.a.a.a.c.k;
 import d.l.a.a.a.d.d;
 import d.l.a.a.a.f.c;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class a implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d.l.a.a.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class DialogInterface$OnClickListenerC2042a implements DialogInterface.OnClickListener {
+    /* loaded from: classes8.dex */
+    public static class DialogInterface$OnClickListenerC2010a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.a.a.f.c f74017e;
+        public final /* synthetic */ d.l.a.a.a.f.c f71069e;
 
-        public DialogInterface$OnClickListenerC2042a(d.l.a.a.a.f.c cVar) {
+        public DialogInterface$OnClickListenerC2010a(d.l.a.a.a.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,27 +46,27 @@ public class a implements k {
                     return;
                 }
             }
-            this.f74017e = cVar;
+            this.f71069e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            c.InterfaceC2044c interfaceC2044c;
+            c.InterfaceC2012c interfaceC2012c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC2044c = this.f74017e.f74053h) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC2012c = this.f71069e.f71105h) == null) {
                 return;
             }
-            interfaceC2044c.a(dialogInterface);
+            interfaceC2012c.b(dialogInterface);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.a.a.f.c f74018e;
+        public final /* synthetic */ d.l.a.a.a.f.c f71070e;
 
         public b(d.l.a.a.a.f.c cVar) {
             Interceptable interceptable = $ic;
@@ -83,27 +83,27 @@ public class a implements k {
                     return;
                 }
             }
-            this.f74018e = cVar;
+            this.f71070e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
-            c.InterfaceC2044c interfaceC2044c;
+            c.InterfaceC2012c interfaceC2012c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC2044c = this.f74018e.f74053h) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) || (interfaceC2012c = this.f71070e.f71105h) == null) {
                 return;
             }
-            interfaceC2044c.b(dialogInterface);
+            interfaceC2012c.a(dialogInterface);
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class c implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.l.a.a.a.f.c f74019e;
+        public final /* synthetic */ d.l.a.a.a.f.c f71071e;
 
         public c(d.l.a.a.a.f.c cVar) {
             Interceptable interceptable = $ic;
@@ -120,17 +120,17 @@ public class a implements k {
                     return;
                 }
             }
-            this.f74019e = cVar;
+            this.f71071e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            c.InterfaceC2044c interfaceC2044c;
+            c.InterfaceC2012c interfaceC2012c;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (interfaceC2044c = this.f74019e.f74053h) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (interfaceC2012c = this.f71071e.f71105h) == null) {
                 return;
             }
-            interfaceC2044c.c(dialogInterface);
+            interfaceC2012c.c(dialogInterface);
         }
     }
 
@@ -170,10 +170,10 @@ public class a implements k {
             if (cVar == null) {
                 return null;
             }
-            AlertDialog show = new AlertDialog.Builder(cVar.f74046a).setTitle(cVar.f74047b).setMessage(cVar.f74048c).setPositiveButton(cVar.f74049d, new b(cVar)).setNegativeButton(cVar.f74050e, new DialogInterface$OnClickListenerC2042a(cVar)).show();
-            show.setCanceledOnTouchOutside(cVar.f74051f);
+            AlertDialog show = new AlertDialog.Builder(cVar.f71098a).setTitle(cVar.f71099b).setMessage(cVar.f71100c).setPositiveButton(cVar.f71101d, new b(cVar)).setNegativeButton(cVar.f71102e, new DialogInterface$OnClickListenerC2010a(cVar)).show();
+            show.setCanceledOnTouchOutside(cVar.f71103f);
             show.setOnCancelListener(new c(cVar));
-            Drawable drawable = cVar.f74052g;
+            Drawable drawable = cVar.f71104g;
             if (drawable != null) {
                 show.setIcon(drawable);
             }

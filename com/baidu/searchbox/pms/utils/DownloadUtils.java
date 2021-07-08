@@ -1,6 +1,7 @@
 package com.baidu.searchbox.pms.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.apache.commons.codec.digest4util.MD5Utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DownloadUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PMS_DIR = "pms";
@@ -98,7 +99,7 @@ public class DownloadUtils {
         InterceptResult invokeL;
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 file = new File(str);
             }

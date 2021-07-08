@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -30,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BDEmotionPanelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_TYPE_LAYOUT = -657931;
@@ -45,12 +46,12 @@ public class BDEmotionPanelManager {
     public boolean isNightMode;
     public String mLastStackInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnEmotionClickListener {
         void onEmotionClick(EmotionType emotionType, int i2, String str, String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnVerticalEmotionListener {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;
@@ -124,7 +125,7 @@ public class BDEmotionPanelManager {
     private FragmentManager getFragmentManager(FragmentActivity fragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, fragmentActivity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragmentActivity)) == null) {
             List<Fragment> fragments = fragmentActivity.getSupportFragmentManager().getFragments();
             for (Fragment fragment : fragments) {
                 if (fragment.getView() != null && fragment.getView().findViewById(R.id.vp_emotion_type) != null) {

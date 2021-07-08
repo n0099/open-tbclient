@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -91,7 +91,7 @@ public final class FileUtils {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, file, file2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2)) == null) {
             long j = 0;
             if (file == null || file2 == null || !file.exists()) {
                 return 0L;
@@ -256,7 +256,7 @@ public final class FileUtils {
             if (j < 1048576) {
                 valueOf = Float.valueOf(((float) j) / 1024.0f);
                 str = "KB";
-            } else if (j < KsMediaMeta.AV_CH_STEREO_RIGHT) {
+            } else if (j < 1073741824) {
                 valueOf = Float.valueOf(((float) j) / 1048576.0f);
                 str = "MB";
             } else {

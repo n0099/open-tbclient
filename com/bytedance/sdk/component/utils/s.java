@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, s> f28804a;
+    public static Map<String, s> f28914a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f28805b;
+    public SharedPreferences f28915b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class s {
                 return;
             }
         }
-        f28804a = new HashMap();
+        f28914a = new HashMap();
     }
 
     public s(String str, Context context) {
@@ -59,7 +59,7 @@ public class s {
             }
         }
         if (context != null) {
-            this.f28805b = context.getApplicationContext().getSharedPreferences(str, 0);
+            this.f28915b = context.getApplicationContext().getSharedPreferences(str, 0);
         }
     }
 
@@ -70,10 +70,10 @@ public class s {
             if (TextUtils.isEmpty(str)) {
                 str = "tt_ad_sdk_sp";
             }
-            s sVar = f28804a.get(str);
+            s sVar = f28914a.get(str);
             if (sVar == null) {
                 s sVar2 = new s(str, context);
-                f28804a.put(str, sVar2);
+                f28914a.put(str, sVar2);
                 return sVar2;
             }
             return sVar;
@@ -86,7 +86,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
             try {
-                return this.f28805b.getString(str, str2);
+                return this.f28915b.getString(str, str2);
             } catch (Throwable unused) {
                 return str2;
             }
@@ -99,7 +99,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
             try {
-                return this.f28805b.getInt(str, i2);
+                return this.f28915b.getInt(str, i2);
             } catch (Throwable unused) {
                 return i2;
             }
@@ -112,7 +112,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
             try {
-                return this.f28805b.getLong(str, j);
+                return this.f28915b.getLong(str, j);
             } catch (Throwable unused) {
                 return j;
             }
@@ -125,7 +125,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, str, f2)) == null) {
             try {
-                return this.f28805b.getFloat(str, f2);
+                return this.f28915b.getFloat(str, f2);
             } catch (Throwable unused) {
                 return f2;
             }
@@ -137,7 +137,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             try {
-                this.f28805b.edit().putString(str, str2).apply();
+                this.f28915b.edit().putString(str, str2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -148,7 +148,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
             try {
-                return this.f28805b.getBoolean(str, z);
+                return this.f28915b.getBoolean(str, z);
             } catch (Throwable unused) {
                 return z;
             }
@@ -174,7 +174,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, set)) == null) {
             try {
-                return this.f28805b.getStringSet(str, set);
+                return this.f28915b.getStringSet(str, set);
             } catch (Throwable unused) {
                 return set;
             }
@@ -186,7 +186,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
             try {
-                this.f28805b.edit().putInt(str, i2).apply();
+                this.f28915b.edit().putInt(str, i2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -196,7 +196,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             try {
-                this.f28805b.edit().remove(str).apply();
+                this.f28915b.edit().remove(str).apply();
             } catch (Throwable unused) {
             }
         }
@@ -206,7 +206,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
             try {
-                this.f28805b.edit().putLong(str, j).apply();
+                this.f28915b.edit().putLong(str, j).apply();
             } catch (Throwable unused) {
             }
         }
@@ -216,7 +216,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f2) == null) {
             try {
-                this.f28805b.edit().putFloat(str, f2).apply();
+                this.f28915b.edit().putFloat(str, f2).apply();
             } catch (Throwable unused) {
             }
         }
@@ -226,7 +226,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) {
             try {
-                this.f28805b.edit().putBoolean(str, z).apply();
+                this.f28915b.edit().putBoolean(str, z).apply();
             } catch (Throwable unused) {
             }
         }
@@ -236,7 +236,7 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, set) == null) {
             try {
-                this.f28805b.edit().putStringSet(str, set).apply();
+                this.f28915b.edit().putStringSet(str, set).apply();
             } catch (Throwable unused) {
             }
         }

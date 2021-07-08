@@ -1,5 +1,6 @@
 package com.google.common.util.concurrent;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +13,14 @@ import d.f.d.a.n;
 import d.f.d.a.p;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class RateLimiter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Object mutexDoNotUseDirectly;
     public final SleepingStopwatch stopwatch;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class SleepingStopwatch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +249,7 @@ public abstract class RateLimiter {
     public static RateLimiter create(double d2, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{Double.valueOf(d2), Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d2), Long.valueOf(j), timeUnit})) == null) {
             n.h(j >= 0, "warmupPeriod must not be negative: %s", j);
             return create(d2, j, timeUnit, 3.0d, SleepingStopwatch.createFromSystemTimer());
         }

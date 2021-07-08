@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.message.module.sessionreport;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class SessionReportImpl implements SessionReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +26,7 @@ public class SessionReportImpl implements SessionReport {
     public Packer packer;
     public Map<String, Session> sessions;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class Session {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public class SessionReportImpl implements SessionReport {
         private void send(String str, SessionReport.StatisContentAble statisContentAble) {
             List<StatisContent> statisContent;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(65540, this, str, statisContentAble) == null) || (statisContent = statisContentAble.toStatisContent(this.act, str)) == null || statisContent.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, statisContentAble) == null) || (statisContent = statisContentAble.toStatisContent(this.act, str)) == null || statisContent.isEmpty()) {
                 return;
             }
             for (StatisContent statisContent2 : statisContent) {

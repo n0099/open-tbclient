@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.app.statistic.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.Config;
@@ -23,7 +24,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ElasticConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ARTERY_CONFIG_BACKGROUND_CORE_POOL_SIZE = 0;
@@ -145,7 +146,7 @@ public final class ElasticConfig {
     public static boolean elasticExecutorDisabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? disableElasticExecutor.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? disableElasticExecutor.get() : invokeV.booleanValue;
     }
 
     public static Object getElasticConfigMutex() {
@@ -284,7 +285,7 @@ public final class ElasticConfig {
             if (optJSONObject3 != null) {
                 QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(Config.TRACE_VISIT_FIRST, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT = optJSONObject3.optDouble(TypeAdapters.AnonymousClass27.SECOND, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT);
-                double optDouble = optJSONObject3.optDouble(c.f1826e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
+                double optDouble = optJSONObject3.optDouble(c.f1827e, QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT);
                 QUEUE_CONFIG_THIRD_PRIORITY_TASK_WEIGHT = optDouble;
                 ELASTIC_QUEUE_BLOCK_WEIGHT = new double[]{QUEUE_CONFIG_IMMEDIATE_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_FIRST_PRIORITY_TASK_WEIGHT, QUEUE_CONFIG_SECOND_PRIORITY_TASK_WEIGHT, optDouble};
             }

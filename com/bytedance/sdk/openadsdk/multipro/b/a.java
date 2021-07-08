@@ -7,34 +7,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31491a;
+    public boolean f31601a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31492b;
+    public boolean f31602b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31493c;
+    public boolean f31603c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31494d;
+    public boolean f31604d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f31495e;
+    public long f31605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31496f;
+    public long f31606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f31497g;
+    public long f31607g;
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface InterfaceC0355a {
         a e();
 
@@ -59,7 +59,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.f31494d = z;
+            this.f31604d = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -69,7 +69,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f31491a = z;
+            this.f31601a = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -79,7 +79,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f31492b = z;
+            this.f31602b = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -89,7 +89,7 @@ public class a {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.f31493c = z;
+            this.f31603c = z;
             return this;
         }
         return (a) invokeZ.objValue;
@@ -99,7 +99,7 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            this.f31495e = j;
+            this.f31605e = j;
             return this;
         }
         return (a) invokeJ.objValue;
@@ -109,7 +109,7 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            this.f31496f = j;
+            this.f31606f = j;
             return this;
         }
         return (a) invokeJ.objValue;
@@ -119,7 +119,7 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            this.f31497g = j;
+            this.f31607g = j;
             return this;
         }
         return (a) invokeJ.objValue;
@@ -131,13 +131,13 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("isCompleted", this.f31491a);
-                jSONObject.put("isFromVideoDetailPage", this.f31492b);
-                jSONObject.put("isFromDetailPage", this.f31493c);
-                jSONObject.put("duration", this.f31495e);
-                jSONObject.put("totalPlayDuration", this.f31496f);
-                jSONObject.put("currentPlayPosition", this.f31497g);
-                jSONObject.put("isAutoPlay", this.f31494d);
+                jSONObject.put("isCompleted", this.f31601a);
+                jSONObject.put("isFromVideoDetailPage", this.f31602b);
+                jSONObject.put("isFromDetailPage", this.f31603c);
+                jSONObject.put("duration", this.f31605e);
+                jSONObject.put("totalPlayDuration", this.f31606f);
+                jSONObject.put("currentPlayPosition", this.f31607g);
+                jSONObject.put("isAutoPlay", this.f31604d);
             } catch (Exception unused) {
             }
             return jSONObject;

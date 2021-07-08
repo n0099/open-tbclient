@@ -1,5 +1,6 @@
 package com.facebook.common.util;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Hex {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -120,7 +121,7 @@ public class Hex {
         InterceptResult invokeLZ;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65540, null, bArr, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, z)) == null) {
             char[] cArr = new char[bArr.length * 2];
             int i3 = 0;
             for (int i4 = 0; i4 < bArr.length && ((i2 = bArr[i4] & 255) != 0 || !z); i4++) {

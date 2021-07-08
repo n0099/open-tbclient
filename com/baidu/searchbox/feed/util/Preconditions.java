@@ -2,13 +2,14 @@ package com.baidu.searchbox.feed.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public final class Preconditions {
 
     public static void checkStateFalse(boolean z, @Nullable Object obj, @NonNull Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65540, null, new Object[]{Boolean.valueOf(z), obj, th}) == null) && z) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), obj, th}) == null) && z) {
             throw new IllegalStateException(th);
         }
     }

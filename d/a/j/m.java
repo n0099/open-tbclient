@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class m extends d.a.j.a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class m extends d.a.j.a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout j;
-    public d.a.r0.r.q.a k;
+    public d.a.o0.r.q.a k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f45775e;
+        public final /* synthetic */ m f42667e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public class m extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45775e = mVar;
+            this.f42667e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45775e.d() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42667e.d() == null) {
                 return;
             }
-            this.f45775e.d().a(view, this.f45775e.k);
+            this.f42667e.d().a(view, this.f42667e.k);
         }
     }
 
@@ -96,7 +96,7 @@ public class m extends d.a.j.a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: p */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (cardForumHeadLayout = this.j) == null || aVar == null) {

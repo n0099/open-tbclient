@@ -14,19 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import d.a.o0.r.f0.h;
+/* loaded from: classes3.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AgreeView.d p0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements AgreeView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout f12533a;
+        public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout f12550a;
 
         public a(ThreadCardBottomOpSegmentWeightLayout threadCardBottomOpSegmentWeightLayout) {
             Interceptable interceptable = $ic;
@@ -43,14 +44,14 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                     return;
                 }
             }
-            this.f12533a = threadCardBottomOpSegmentWeightLayout;
+            this.f12550a = threadCardBottomOpSegmentWeightLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.f12533a.Q(z);
+                this.f12550a.Q(z);
             }
         }
     }
@@ -80,21 +81,23 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12537h.setVisibilityListener(this.p0);
-            this.f12537h.j(true);
+            super.I();
+            this.f12554h.setVisibilityListener(this.p0);
+            this.f12554h.j(true);
+            h.b(this);
         }
     }
 
     public final void Q(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && R()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12554h.getLayoutParams();
             float f2 = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f2;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f12537h.setLayoutParams(layoutParams);
+            this.f12554h.setLayoutParams(layoutParams);
         }
     }
 
@@ -102,8 +105,8 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean q = this.f12537h.q();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12537h.getLayoutParams();
+            boolean q = this.f12554h.q();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12554h.getLayoutParams();
             return (layoutParams.weight == (q ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -121,7 +124,8 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             super.p(view);
-            this.f12537h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+            this.f12554h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+            this.f12554h.s(true);
         }
     }
 

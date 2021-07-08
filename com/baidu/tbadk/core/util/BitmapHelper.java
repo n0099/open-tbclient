@@ -15,6 +15,7 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -38,7 +39,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BitmapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_2_BITMAP_MUL = 10;
@@ -130,7 +131,7 @@ public class BitmapHelper {
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, rect)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, rect)) == null) {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = false;
@@ -1347,7 +1348,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7745a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7762a);
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

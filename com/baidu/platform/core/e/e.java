@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,8 +98,8 @@ public class e extends com.baidu.platform.base.e {
             aVar.a(IAdRequestParam.SN, str5);
             aVar.a("en", str6);
             String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
-            this.f9391a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
-            this.f9391a.a("from", "android_map_sdk");
+            this.f9408a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+            this.f9408a.a("from", "android_map_sdk");
         }
     }
 

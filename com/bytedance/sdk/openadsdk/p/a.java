@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.p;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -17,15 +18,15 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.o;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f31707a = "SettingRitRepertoryImpl";
+    public static String f31817a = "SettingRitRepertoryImpl";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f31708b;
+    public static boolean f31818b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,13 +47,13 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f31708b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f31818b : invokeV.booleanValue;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f31708b = true;
+            f31818b = true;
         }
     }
 
@@ -64,8 +65,8 @@ public class a {
 
     public static void a(JSONObject jSONObject, String str) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65540, null, jSONObject, str) == null) && a()) {
-            j.b(f31707a, "queryConfig start");
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, str) == null) && a()) {
+            j.b(f31817a, "queryConfig start");
             Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "setting_rit", null, "rit=?", new String[]{str}, null, null, null);
             if (a2 == null || a2.getCount() <= 0) {
                 if (a2 != null) {
@@ -98,7 +99,7 @@ public class a {
     public static void b(int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(65544, null, i2, str) == null) && a()) {
-            String str2 = f31707a;
+            String str2 = f31817a;
             j.b(str2, "insertOrUpdateGlobalInfo -- key:" + i2 + "; value:" + str);
             if (TextUtils.isEmpty(str)) {
                 str = StringUtil.NULL_STRING;
@@ -127,7 +128,7 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, jSONObject) == null) && a()) {
             if (!TextUtils.isEmpty(str) && jSONObject != null) {
-                j.b(f31707a, "insertOrUpdate start");
+                j.b(f31817a, "insertOrUpdate start");
                 Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "setting_rit", null, "rit=?", new String[]{str}, null, null, null);
                 boolean z = a2 != null && a2.getCount() > 0;
                 if (a2 != null) {
@@ -148,7 +149,7 @@ public class a {
                     return;
                 }
             }
-            String str2 = f31707a;
+            String str2 = f31817a;
             j.b(str2, "insert -- key:" + str + "; value:" + jSONObject);
         }
     }
@@ -158,7 +159,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(65538, null, adSlot) == null) && a()) {
             String codeId = adSlot.getCodeId();
             if (a(codeId)) {
-                j.b(f31707a, "updateSlot start");
+                j.b(f31817a, "updateSlot start");
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("img_width", adSlot.getImgAcceptedWidth());

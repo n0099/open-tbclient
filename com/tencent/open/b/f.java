@@ -23,15 +23,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f41917a;
+    public static final String[] f38931a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f41918b;
+    public static f f38932b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class f extends SQLiteOpenHelper {
                 return;
             }
         }
-        f41917a = new String[]{"key"};
+        f38931a = new String[]{"key"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,10 +77,10 @@ public class f extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f41918b == null) {
-                    f41918b = new f(com.tencent.open.utils.e.a());
+                if (f38932b == null) {
+                    f38932b = new f(com.tencent.open.utils.e.a());
                 }
-                fVar = f41918b;
+                fVar = f38932b;
             }
             return fVar;
         }

@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.message.sender;
 
 import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class AppInfoManager implements AppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +68,7 @@ public class AppInfoManager implements AppInfo {
     public String getDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, this, context)) == null) ? String.format(Locale.CHINA, "%s/hiido", context.getFilesDir().getAbsolutePath()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) ? String.format(Locale.CHINA, "%s/hiido", context.getFilesDir().getAbsolutePath()) : (String) invokeL.objValue;
     }
 
     private FilenameFilter getFileFilter() {

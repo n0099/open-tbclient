@@ -1,6 +1,7 @@
 package com.baidu.ar.headseg;
 
 import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arrender.l;
 import com.baidu.ar.c;
@@ -168,7 +169,7 @@ public class HeadSegAR extends c {
     private void b(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65540, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
             return;
         }
         long handleType = algoHandleController.getHandleType(j);

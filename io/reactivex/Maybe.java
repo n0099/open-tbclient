@@ -114,7 +114,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Maybe<T> implements MaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -1634,7 +1634,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
     public static <T> Flowable<T> concat(MaybeSource<? extends T> maybeSource, MaybeSource<? extends T> maybeSource2, MaybeSource<? extends T> maybeSource3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65540, null, maybeSource, maybeSource2, maybeSource3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, maybeSource, maybeSource2, maybeSource3)) == null) {
             ObjectHelper.requireNonNull(maybeSource, "source1 is null");
             ObjectHelper.requireNonNull(maybeSource2, "source2 is null");
             ObjectHelper.requireNonNull(maybeSource3, "source3 is null");

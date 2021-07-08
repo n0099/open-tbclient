@@ -1,5 +1,6 @@
 package h.o.a;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.util.UtilityFunctions;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +108,7 @@ public final class a {
     public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, h.j<? super T> jVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{atomicLong, Long.valueOf(j), queue, jVar})) == null) ? f(atomicLong, j, queue, jVar, UtilityFunctions.b()) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, jVar})) == null) ? f(atomicLong, j, queue, jVar, UtilityFunctions.b()) : invokeCommon.booleanValue;
     }
 
     public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, h.j<? super R> jVar, h.n.f<? super T, ? extends R> fVar) {

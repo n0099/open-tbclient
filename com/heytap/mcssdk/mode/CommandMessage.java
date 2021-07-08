@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CommandMessage extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_KEY = "appKey";
@@ -137,7 +137,7 @@ public class CommandMessage extends Message {
         InterceptResult invokeLLLL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, null, str, str2, str3, str4)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4)) == null) {
             ArrayList arrayList2 = null;
             if (TextUtils.isEmpty(str)) {
                 return null;

@@ -1,5 +1,6 @@
 package com.baidu.mobads.container.bridge;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CommandType {
     public static final /* synthetic */ CommandType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -505,7 +506,7 @@ public class CommandType {
     public static CommandType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) ? (CommandType) Enum.valueOf(CommandType.class, str) : (CommandType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (CommandType) Enum.valueOf(CommandType.class, str) : (CommandType) invokeL.objValue;
     }
 
     public static CommandType[] values() {

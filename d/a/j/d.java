@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class d extends d.a.j.a<d.a.r0.r.q.a> {
+/* loaded from: classes7.dex */
+public class d extends d.a.j.a<d.a.o0.r.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout j;
     public int k;
-    public d.a.r0.r.q.a l;
+    public d.a.o0.r.q.a l;
     public b m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f45746e;
+        public final /* synthetic */ d f42638e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -44,26 +44,26 @@ public class d extends d.a.j.a<d.a.r0.r.q.a> {
                     return;
                 }
             }
-            this.f45746e = dVar;
+            this.f42638e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f45746e.m != null) {
-                    this.f45746e.m.a(this.f45746e.l, view);
+                if (this.f42638e.m != null) {
+                    this.f42638e.m.a(this.f42638e.l, view);
                 }
-                if (this.f45746e.d() != null) {
-                    this.f45746e.d().a(view, this.f45746e.l);
+                if (this.f42638e.d() != null) {
+                    this.f42638e.d().a(view, this.f42638e.l);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a(d.a.r0.r.q.a aVar, View view);
+        void a(d.a.o0.r.q.a aVar, View view);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -129,7 +129,7 @@ public class d extends d.a.j.a<d.a.r0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.j.p
     /* renamed from: q */
-    public void a(d.a.r0.r.q.a aVar) {
+    public void a(d.a.o0.r.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.l = aVar;

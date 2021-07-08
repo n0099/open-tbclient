@@ -1,5 +1,6 @@
 package com.airbnb.lottie.utils;
 
+import androidx.core.view.InputDeviceCompat;
 import com.airbnb.lottie.LottieLogger;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -54,7 +55,7 @@ public class Logger {
 
     public static void error(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, th) == null) {
             INSTANCE.error(str, th);
         }
     }

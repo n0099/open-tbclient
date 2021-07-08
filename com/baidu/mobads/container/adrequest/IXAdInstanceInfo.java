@@ -1,5 +1,6 @@
 package com.baidu.mobads.container.adrequest;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,11 +13,11 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IXAdInstanceInfo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CreativeType {
         public static final /* synthetic */ CreativeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -101,7 +102,7 @@ public interface IXAdInstanceInfo {
         public static CreativeType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (CreativeType[]) $VALUES.clone() : (CreativeType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CreativeType[]) $VALUES.clone() : (CreativeType[]) invokeV.objValue;
         }
 
         public String getValue() {

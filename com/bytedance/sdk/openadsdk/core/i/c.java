@@ -13,16 +13,16 @@ import com.bytedance.sdk.openadsdk.core.j;
 import com.bytedance.sdk.openadsdk.core.o;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.b.b.a.a f30150a;
+    public d.b.b.b.a.a f30260a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30151b;
+    public volatile boolean f30261b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f30151b = c();
+        this.f30261b = c();
     }
 
     private boolean c() {
@@ -54,8 +54,8 @@ public class c extends a {
                 aVar2.c(1);
                 d.b.b.b.a.b.b(a2, aVar2.e());
                 e();
-                if (this.f30150a != null) {
-                    this.f30150a.d(a3);
+                if (this.f30260a != null) {
+                    this.f30260a.d(a3);
                 }
                 return true;
             } catch (Throwable th) {
@@ -72,10 +72,10 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             synchronized (this) {
-                if (!this.f30151b) {
-                    this.f30151b = c();
+                if (!this.f30261b) {
+                    this.f30261b = c();
                 }
-                z = this.f30151b;
+                z = this.f30261b;
             }
             return z;
         }
@@ -84,8 +84,8 @@ public class c extends a {
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f30150a == null) {
-            this.f30150a = d.b.b.b.a.b.a("1371");
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.f30260a == null) {
+            this.f30260a = d.b.b.b.a.b.a("1371");
         }
     }
 
@@ -94,7 +94,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && d()) {
             e();
-            d.b.b.b.a.a aVar = this.f30150a;
+            d.b.b.b.a.a aVar = this.f30260a;
             if (aVar != null) {
                 aVar.d(str);
             }
@@ -106,7 +106,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && d()) {
             e();
-            d.b.b.b.a.a aVar = this.f30150a;
+            d.b.b.b.a.a aVar = this.f30260a;
             if (aVar != null) {
                 aVar.a(str);
             }
@@ -122,7 +122,7 @@ public class c extends a {
                 return new HashMap();
             }
             e();
-            d.b.b.b.a.a aVar = this.f30150a;
+            d.b.b.b.a.a aVar = this.f30260a;
             if (aVar != null) {
                 return aVar.c(str, bArr);
             }
@@ -138,7 +138,7 @@ public class c extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (d()) {
                 e();
-                d.b.b.b.a.a aVar = this.f30150a;
+                d.b.b.b.a.a aVar = this.f30260a;
                 return aVar != null ? aVar.b() : "";
             }
             return "";

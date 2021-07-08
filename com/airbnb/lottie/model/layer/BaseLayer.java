@@ -216,7 +216,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
 
     private void applyIntersectMask(Canvas canvas, Matrix matrix, Mask mask, BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation, BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65540, this, canvas, matrix, mask, baseKeyframeAnimation, baseKeyframeAnimation2) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas, matrix, mask, baseKeyframeAnimation, baseKeyframeAnimation2) == null) {
             Utils.saveLayerCompat(canvas, this.rect, this.dstInPaint);
             this.path.set(baseKeyframeAnimation.getValue());
             this.path.transform(matrix);

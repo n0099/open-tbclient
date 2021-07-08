@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TrafficFaceModel implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7879913133068333699L;
@@ -24,7 +24,7 @@ public class TrafficFaceModel implements NoProguard, Serializable {
     public String modelId;
     public String originalPrice;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ExtInfoMap implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1615331933156718269L;

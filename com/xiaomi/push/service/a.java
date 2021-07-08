@@ -13,12 +13,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f43553a;
+    public static volatile a f40567a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -31,22 +31,22 @@ public class a {
     public final String f869a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f43554b;
+    public final Object f40568b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f870b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f43555c;
+    public final String f40569c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f43556d;
+    public final String f40570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f43557e;
+    public volatile String f40571e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f43558f;
+    public volatile String f40572f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -64,11 +64,11 @@ public class a {
             }
         }
         this.f868a = new Object();
-        this.f43554b = new Object();
+        this.f40568b = new Object();
         this.f869a = "mipush_region";
         this.f870b = "mipush_country_code";
-        this.f43555c = "mipush_region.lock";
-        this.f43556d = "mipush_country_code.lock";
+        this.f40569c = "mipush_region.lock";
+        this.f40570d = "mipush_country_code.lock";
         this.f867a = context;
     }
 
@@ -76,14 +76,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f43553a == null) {
+            if (f40567a == null) {
                 synchronized (a.class) {
-                    if (f43553a == null) {
-                        f43553a = new a(context);
+                    if (f40567a == null) {
+                        f40567a = new a(context);
                     }
                 }
             }
-            return f43553a;
+            return f40567a;
         }
         return (a) invokeL.objValue;
     }
@@ -268,41 +268,41 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f43557e)) {
-                this.f43557e = a(this.f867a, "mipush_region", "mipush_region.lock", this.f868a);
+            if (TextUtils.isEmpty(this.f40571e)) {
+                this.f40571e = a(this.f867a, "mipush_region", "mipush_region.lock", this.f868a);
             }
-            return this.f43557e;
+            return this.f40571e;
         }
         return (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f43557e)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f40571e)) {
             return;
         }
-        this.f43557e = str;
-        a(this.f867a, this.f43557e, "mipush_region", "mipush_region.lock", this.f868a);
+        this.f40571e = str;
+        a(this.f867a, this.f40571e, "mipush_region", "mipush_region.lock", this.f868a);
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f43558f)) {
-                this.f43558f = a(this.f867a, "mipush_country_code", "mipush_country_code.lock", this.f43554b);
+            if (TextUtils.isEmpty(this.f40572f)) {
+                this.f40572f = a(this.f867a, "mipush_country_code", "mipush_country_code.lock", this.f40568b);
             }
-            return this.f43558f;
+            return this.f40572f;
         }
         return (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f43558f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f40572f)) {
             return;
         }
-        this.f43558f = str;
-        a(this.f867a, this.f43558f, "mipush_country_code", "mipush_country_code.lock", this.f43554b);
+        this.f40572f = str;
+        a(this.f867a, this.f40572f, "mipush_country_code", "mipush_country_code.lock", this.f40568b);
     }
 }

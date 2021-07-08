@@ -22,7 +22,7 @@ import io.flutter.view.TextureRegistry;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicLong;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FlutterRenderer implements TextureRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterRenderer";
@@ -37,7 +37,7 @@ public class FlutterRenderer implements TextureRegistry {
     @Nullable
     public Surface surface;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class FlutterRenderer implements TextureRegistry {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class ViewportMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class FlutterRenderer implements TextureRegistry {
     /* JADX INFO: Access modifiers changed from: private */
     public void markTextureFrameAvailable(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65540, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             this.flutterJNI.markTextureFrameAvailable(j);
         }
     }

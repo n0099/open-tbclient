@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.video.player.misc.KsMediaFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RtcParameterSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +52,7 @@ public class RtcParameterSettings {
     public RtcAudioBitrateMode audioBitrateMode;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcAudioBitrateMode {
         public static final /* synthetic */ RtcAudioBitrateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +112,7 @@ public class RtcParameterSettings {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcAudioChannel {
         public static final /* synthetic */ RtcAudioChannel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -173,7 +172,7 @@ public class RtcParameterSettings {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcParamSettingType {
         public static final /* synthetic */ RtcParamSettingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -261,7 +260,7 @@ public class RtcParameterSettings {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcVideoBitrateMode {
         public static final /* synthetic */ RtcVideoBitrateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -323,7 +322,7 @@ public class RtcParameterSettings {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RtcVideoRenderMode {
         public static final /* synthetic */ RtcVideoRenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -398,7 +397,7 @@ public class RtcParameterSettings {
         this.HasVideo = true;
         this.HasAudio = true;
         this.HasData = false;
-        this.VideoCodec = KsMediaFormat.CODEC_NAME_H264;
+        this.VideoCodec = "h264";
         this.AudioCodec = "opus";
         this.AudioFrequency = MediaEncodeParams.AUDIO_SAMPLE_RATE;
         this.AudioChannel = 1;

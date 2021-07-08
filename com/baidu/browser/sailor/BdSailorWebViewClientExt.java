@@ -280,7 +280,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f4333e;
+        public final /* synthetic */ BdSailorWebView f4338e;
 
         public a(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -297,14 +297,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
                     return;
                 }
             }
-            this.f4333e = bdSailorWebView;
+            this.f4338e = bdSailorWebView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f4333e.showEmbeddedTitleBar(false);
+                this.f4338e.showEmbeddedTitleBar(false);
             }
         }
     }

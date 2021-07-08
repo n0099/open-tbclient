@@ -1,5 +1,6 @@
 package rx.exceptions;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
@@ -17,7 +18,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class CompositeException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3026362227162912146L;
@@ -26,7 +27,7 @@ public final class CompositeException extends RuntimeException {
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
@@ -55,7 +56,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,13 +80,13 @@ public final class CompositeException extends RuntimeException {
         public abstract void b(Object obj);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f76139a;
+        public final PrintStream f73173a;
 
         public b(PrintStream printStream) {
             Interceptable interceptable = $ic;
@@ -102,32 +103,32 @@ public final class CompositeException extends RuntimeException {
                     return;
                 }
             }
-            this.f76139a = printStream;
+            this.f73173a = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76139a : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73173a : invokeV.objValue;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f76139a.println(obj);
+                this.f73173a.println(obj);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f76140a;
+        public final PrintWriter f73174a;
 
         public c(PrintWriter printWriter) {
             Interceptable interceptable = $ic;
@@ -144,21 +145,21 @@ public final class CompositeException extends RuntimeException {
                     return;
                 }
             }
-            this.f76140a = printWriter;
+            this.f73174a = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76140a : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73174a : invokeV.objValue;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f76140a.println(obj);
+                this.f73174a.println(obj);
             }
         }
     }
@@ -221,7 +222,7 @@ public final class CompositeException extends RuntimeException {
     private List<Throwable> getListOfCauses(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, th)) == null) {
             ArrayList arrayList = new ArrayList();
             Throwable cause = th.getCause();
             if (cause != null && cause != th) {

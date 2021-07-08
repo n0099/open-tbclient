@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -95,7 +96,7 @@ public class CmdRouter {
     public static void loadInfo() throws PackageManager.NameNotFoundException, InterruptedException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Set<String> loadCmdClasses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             TiebaCmdClassesArray tiebaCmdClassesArray = new TiebaCmdClassesArray();
             try {
                 Class<?> cls = Class.forName("com.baidu.adp.framework.cmdRouter.TiebaCmdArray");

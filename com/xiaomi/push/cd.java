@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.push.cg;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class cd extends cg.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f42906a;
+    public String f39920a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cd(String str, ContentValues contentValues, String str2) {
@@ -37,8 +37,8 @@ public class cd extends cg.e {
                 return;
             }
         }
-        this.f42906a = "MessageInsertJob";
-        this.f42906a = str2;
+        this.f39920a = "MessageInsertJob";
+        this.f39920a = str2;
     }
 
     public static cd a(Context context, String str, hj hjVar) {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
@@ -24,24 +25,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_CALL_INTERNAL_TIME = 300;
     public static final String TAG = "SapiLivenessRecog";
 
     /* renamed from: a  reason: collision with root package name */
-    public static SapiLivenessRecogManager f5674a;
+    public static SapiLivenessRecogManager f5691a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LivenessRecogCallback f5675b;
+    public LivenessRecogCallback f5692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f5676c;
+    public long f5693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f5677d;
+    public long f5694d;
 
     public SapiLivenessRecogManager() {
         Interceptable interceptable = $ic;
@@ -120,7 +121,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-            this.f5675b = livenessRecogCallback;
+            this.f5692b = livenessRecogCallback;
             if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
                 if (livenessRecogDTO.showGuidePage) {
                     Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
@@ -133,7 +134,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 context.startActivity(intent2);
                 return;
             }
-            this.f5677d = System.currentTimeMillis();
+            this.f5694d = System.currentTimeMillis();
             Intent intent3 = new Intent(context, LivenessLoadingActivity.class);
             intent3.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent3);
@@ -142,7 +143,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             a(context);
         }
     }
@@ -150,7 +151,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     private void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
-            this.f5676c = System.currentTimeMillis();
+            this.f5693c = System.currentTimeMillis();
         }
     }
 
@@ -160,10 +161,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (SapiLivenessRecogManager.class) {
-                if (f5674a == null) {
-                    f5674a = new SapiLivenessRecogManager();
+                if (f5691a == null) {
+                    f5691a = new SapiLivenessRecogManager();
                 }
-                sapiLivenessRecogManager = f5674a;
+                sapiLivenessRecogManager = f5691a;
             }
             return sapiLivenessRecogManager;
         }
@@ -180,7 +181,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public void cleanLivenessRecogCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f5675b = null;
+            this.f5692b = null;
         }
     }
 
@@ -215,7 +216,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public LivenessRecogCallback getLivenessRecogCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5675b : (LivenessRecogCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5692b : (LivenessRecogCallback) invokeV.objValue;
     }
 
     private void b(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
@@ -271,7 +272,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-            this.f5675b = livenessRecogCallback;
+            this.f5692b = livenessRecogCallback;
             Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             context.startActivity(intent);
@@ -286,10 +287,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f5678a;
+                public final /* synthetic */ Context f5695a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SapiLivenessRecogManager f5679b;
+                public final /* synthetic */ SapiLivenessRecogManager f5696b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -306,8 +307,8 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                             return;
                         }
                     }
-                    this.f5679b = this;
-                    this.f5678a = context;
+                    this.f5696b = this;
+                    this.f5695a = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -316,16 +317,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Intent intent = new Intent();
                         intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
-                        this.f5678a.sendBroadcast(intent);
+                        this.f5695a.sendBroadcast(intent);
                     }
                 }
-            }, System.currentTimeMillis() - this.f5677d >= 1000 ? 0L : 1000L);
+            }, System.currentTimeMillis() - this.f5694d >= 1000 ? 0L : 1000L);
         }
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? System.currentTimeMillis() - this.f5676c < 300 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? System.currentTimeMillis() - this.f5693c < 300 : invokeV.booleanValue;
     }
 }

@@ -1,46 +1,16 @@
 package d.a.a0;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class a {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int alert_force_update_negative_msg = 2131690121;
+    public static final int alert_force_update_positive_msg = 2131690122;
+    public static final int alert_msg_force_update = 2131690123;
+    public static final int alert_title_force_update = 2131690125;
+    public static final int app_name = 2131690142;
+    public static final int predownload_net_error_msg = 2131693361;
+    public static final int predownload_no_available_msg = 2131693362;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f43760a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43761b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f43762c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f43763d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f43764e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f43765f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f43766g;
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 }

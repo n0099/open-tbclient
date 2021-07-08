@@ -215,7 +215,7 @@ import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class Flowable<T> implements Publisher<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final int BUFFER_SIZE;
@@ -287,7 +287,7 @@ public abstract class Flowable<T> implements Publisher<T> {
     public static int bufferSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? BUFFER_SIZE : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? BUFFER_SIZE : invokeV.intValue;
     }
 
     @SchedulerSupport("none")

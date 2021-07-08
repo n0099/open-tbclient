@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableTable;
 import d.f.d.a.n;
 import d.f.d.c.k1;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SingletonImmutableTable<R, C, V> extends ImmutableTable<R, C, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

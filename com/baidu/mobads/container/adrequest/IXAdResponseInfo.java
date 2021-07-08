@@ -1,7 +1,7 @@
 package com.baidu.mobads.container.adrequest;
 
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IXAdResponseInfo {
     ArrayList<IXAdInstanceInfo> getAdInstanceList();
 

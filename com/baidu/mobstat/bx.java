@@ -2,6 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public final class bx {
         InterceptResult invokeLL;
         StackTraceElement[] stackTrace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 String methodName = stackTraceElement.getMethodName();
                 if (!TextUtils.isEmpty(methodName) && cls != null && methodName.equals(str)) {

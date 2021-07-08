@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RatioFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f37438a;
+    public float f35588a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RatioFrameLayout(@NonNull Context context) {
@@ -81,23 +81,23 @@ public class RatioFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f37438a = 0.0f;
+        this.f35588a = 0.0f;
     }
 
     public float getRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37438a : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35588a : invokeV.floatValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            if (this.f37438a != 0.0f) {
+            if (this.f35588a != 0.0f) {
                 int size = View.MeasureSpec.getSize(i2);
                 com.kwad.sdk.core.d.a.a("RatioFrameLayout", "widthSize:" + size);
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.f37438a), 1073741824);
+                i3 = View.MeasureSpec.makeMeasureSpec((int) (((float) size) * this.f35588a), 1073741824);
             }
             super.onMeasure(i2, i3);
         }
@@ -106,7 +106,7 @@ public class RatioFrameLayout extends FrameLayout {
     public void setRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f37438a = f2;
+            this.f35588a = f2;
         }
     }
 }

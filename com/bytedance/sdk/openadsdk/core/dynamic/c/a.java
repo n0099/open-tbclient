@@ -29,44 +29,44 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f29861e;
+    public static String f29971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Set<String> f29862f;
+    public static final Set<String> f29972f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29863a;
+    public Context f29973a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSWebView f29864b;
+    public SSWebView f29974b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29865c;
+    public String f29975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f29866d;
+    public c f29976d;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.dynamic.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class C0338a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f29867a;
+        public final /* synthetic */ a f29977a;
 
         public C0338a(a aVar) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class a {
                     return;
                 }
             }
-            this.f29867a = aVar;
+            this.f29977a = aVar;
         }
 
         @JavascriptInterface
         public void calculateResult(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f29867a.c(str);
+                this.f29977a.c(str);
             }
         }
 
@@ -105,7 +105,7 @@ public class a {
                 JSONObject jSONObject = new JSONObject();
                 j.f("DynamicBaseWidget", "getDomSizeFromNative String brickType==" + str2);
                 j.f("DynamicBaseWidget", "getDomSizeFromNative String str==" + str);
-                if (!str.startsWith("<svg") && !a.f29862f.contains(str2)) {
+                if (!str.startsWith("<svg") && !a.f29972f.contains(str2)) {
                     if ("logo".equals(str2)) {
                         jSONObject.put("width", "union".equals(str) ? 10.0d : 20.0d);
                         jSONObject.put("height", 10.0d);
@@ -153,8 +153,8 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("width", q.c(o.a(), q.c(this.f29867a.f29863a)));
-                    jSONObject.put("height", q.c(o.a(), q.d(this.f29867a.f29863a)));
+                    jSONObject.put("width", q.c(o.a(), q.c(this.f29977a.f29973a)));
+                    jSONObject.put("height", q.c(o.a(), q.d(this.f29977a.f29973a)));
                     jSONObject.put(IAdRequestParam.OS, "Android");
                 } catch (Exception unused) {
                 }
@@ -191,7 +191,7 @@ public class a {
                 return;
             }
         }
-        f29862f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
+        f29972f = Collections.unmodifiableSet(new HashSet(Arrays.asList("dislike", IntentConfig.CLOSE, "close-fill")));
     }
 
     public a(@NonNull Context context) {
@@ -209,13 +209,13 @@ public class a {
                 return;
             }
         }
-        this.f29863a = context;
-        SSWebView sSWebView = new SSWebView(this.f29863a);
-        this.f29864b = sSWebView;
+        this.f29973a = context;
+        SSWebView sSWebView = new SSWebView(this.f29973a);
+        this.f29974b = sSWebView;
         if (Build.VERSION.SDK_INT >= 17) {
             sSWebView.addJavascriptInterface(new C0338a(this, null), "JS_DYNAMIC_LAYOUT_OBJ");
         }
-        this.f29864b.loadUrl("about:blank");
+        this.f29974b.loadUrl("about:blank");
         b();
     }
 
@@ -226,14 +226,14 @@ public class a {
             if (TextUtils.isEmpty(d2)) {
                 return;
             }
-            i.a(this.f29864b, d2);
+            i.a(this.f29974b, d2);
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            i.a(this.f29864b, "javascript:var res = getLayoutInfo(" + this.f29865c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
+            i.a(this.f29974b, "javascript:var res = getLayoutInfo(" + this.f29975c + ");window.JS_DYNAMIC_LAYOUT_OBJ.calculateResult(JSON.stringify(res));");
         }
     }
 
@@ -241,10 +241,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (TextUtils.isEmpty(f29861e)) {
+            if (TextUtils.isEmpty(f29971e)) {
                 return null;
             }
-            return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + q.c(o.a(), q.c(o.a())) + ",height:" + q.c(o.a(), q.d(o.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f29861e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
+            return "javascript:" + ("var global = Function('return this')();global.jsCoreGlobal = {width:" + q.c(o.a(), q.c(o.a())) + ",height:" + q.c(o.a(), q.d(o.a())) + ",os:'Android'};global.systemFontSizeRatioNative = 1.2;") + ("(function () {var JS_TTDYNAMIC_URL = '" + f29971e + "';var xhrObj = new XMLHttpRequest();xhrObj.open('GET', JS_TTDYNAMIC_URL, false);xhrObj.send('');var se = document.createElement('script');se.type = 'text/javascript';se.text = xhrObj.responseText;document.getElementsByTagName('head')[0].appendChild(se);})();");
         }
         return (String) invokeV.objValue;
     }
@@ -252,9 +252,9 @@ public class a {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            aa.a(this.f29863a, this.f29864b);
-            aa.a(this.f29864b);
-            this.f29864b = null;
+            aa.a(this.f29973a, this.f29974b);
+            aa.a(this.f29974b);
+            this.f29974b = null;
         }
     }
 
@@ -268,7 +268,7 @@ public class a {
             } catch (Exception unused) {
                 fVar = null;
             }
-            c cVar = this.f29866d;
+            c cVar = this.f29976d;
             if (cVar != null) {
                 cVar.a(fVar);
             }
@@ -279,7 +279,7 @@ public class a {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f29861e = str;
+            f29971e = str;
         }
     }
 
@@ -287,8 +287,8 @@ public class a {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f29865c = str;
-            if (TextUtils.isEmpty(f29861e) && (cVar = this.f29866d) != null) {
+            this.f29975c = str;
+            if (TextUtils.isEmpty(f29971e) && (cVar = this.f29976d) != null) {
                 cVar.a(null);
                 e();
             }
@@ -299,7 +299,7 @@ public class a {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f29866d = cVar;
+            this.f29976d = cVar;
         }
     }
 }

@@ -39,11 +39,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.l;
-import d.a.r0.r.f0.o.a;
-import d.a.r0.r.f0.q.b;
+import d.a.o0.r.f0.p.a;
+import d.a.o0.r.f0.r.b;
 import java.util.List;
 import tbclient.Item;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ItemCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int A;
@@ -57,19 +57,19 @@ public class ItemCardView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f12421e;
+    public TbImageView f12438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12422f;
+    public TextView f12439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RankStarView f12423g;
+    public RankStarView f12440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12424h;
+    public TextView f12441h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12425i;
+    public TextView f12442i;
     public TextView j;
     public TextView k;
     public ImageView l;
@@ -128,7 +128,7 @@ public class ItemCardView extends RelativeLayout {
 
     private void setBtnRight(Item item) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65540, this, item) == null) || item == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, item) == null) || item == null) {
             return;
         }
         a aVar = new a(item, this.s);
@@ -167,22 +167,22 @@ public class ItemCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.item_card_view_layout, (ViewGroup) this, true);
-            this.f12421e = (TbImageView) findViewById(R.id.item_image);
-            this.f12422f = (TextView) findViewById(R.id.item_title);
-            this.f12423g = (RankStarView) findViewById(R.id.item_star);
-            this.f12424h = (TextView) findViewById(R.id.item_score);
-            this.f12425i = (TextView) findViewById(R.id.tieba_score_tag);
+            this.f12438e = (TbImageView) findViewById(R.id.item_image);
+            this.f12439f = (TextView) findViewById(R.id.item_title);
+            this.f12440g = (RankStarView) findViewById(R.id.item_star);
+            this.f12441h = (TextView) findViewById(R.id.item_score);
+            this.f12442i = (TextView) findViewById(R.id.tieba_score_tag);
             this.j = (TextView) findViewById(R.id.item_des);
             this.k = (TextView) findViewById(R.id.item_tag);
             this.l = (ImageView) findViewById(R.id.bt_del);
             this.m = (ImageView) findViewById(R.id.img_right);
             this.n = (TBSpecificationBtn) findViewById(R.id.order_or_download);
-            this.f12421e.setDrawCorner(true);
-            this.f12421e.setConrers(15);
-            this.f12421e.setRadiusById(R.string.J_X04);
-            this.f12421e.setPlaceHolder(1);
-            this.f12421e.setDrawBorder(true);
-            this.f12423g.setStarSpacing(l.g(context, R.dimen.tbds10));
+            this.f12438e.setDrawCorner(true);
+            this.f12438e.setConrers(15);
+            this.f12438e.setRadiusById(R.string.J_X04);
+            this.f12438e.setPlaceHolder(1);
+            this.f12438e.setDrawBorder(true);
+            this.f12440g.setStarSpacing(l.g(context, R.dimen.tbds10));
             b();
         }
     }
@@ -191,17 +191,17 @@ public class ItemCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, this.q);
-            SkinManager.setViewTextColor(this.f12422f, R.color.CAM_X0107, 1);
-            SkinManager.setViewTextColor(this.f12424h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f12425i, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f12439f, R.color.CAM_X0107, 1);
+            SkinManager.setViewTextColor(this.f12441h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f12442i, R.color.CAM_X0109, 1);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             WebPManager.setPureDrawable(this.m, R.drawable.icon_pb_right_n, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-            this.f12421e.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.f12421e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f12423g.f();
-            this.f12423g.invalidate();
-            this.f12421e.setPlaceHolder(1);
+            this.f12438e.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.f12438e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f12440g.f();
+            this.f12440g.invalidate();
+            this.f12438e.setPlaceHolder(1);
             this.n.k();
         }
     }
@@ -216,11 +216,11 @@ public class ItemCardView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.r == 1) {
-            this.f12422f.setTextSize(0, l.g(getContext(), R.dimen.T_X07));
+            this.f12439f.setTextSize(0, l.g(getContext(), R.dimen.T_X07));
             this.j.setTextSize(0, l.g(getContext(), R.dimen.tbds31));
             this.k.setTextSize(0, l.g(getContext(), R.dimen.T_X09));
-            ((LinearLayout.LayoutParams) this.f12423g.getLayoutParams()).height = l.g(getContext(), R.dimen.tbds32);
-            this.f12423g.setStarSpacing(l.g(getContext(), R.dimen.tbds3));
+            ((LinearLayout.LayoutParams) this.f12440g.getLayoutParams()).height = l.g(getContext(), R.dimen.tbds32);
+            this.f12440g.setStarSpacing(l.g(getContext(), R.dimen.tbds3));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.topMargin = l.g(getContext(), R.dimen.tbds5);
             this.k.setLayoutParams(layoutParams);
@@ -247,7 +247,7 @@ public class ItemCardView extends RelativeLayout {
     public TbImageView getItemImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12421e : (TbImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12438e : (TbImageView) invokeV.objValue;
     }
 
     public int getPosition() {
@@ -259,7 +259,7 @@ public class ItemCardView extends RelativeLayout {
     public RankStarView getStarView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12423g : (RankStarView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12440g : (RankStarView) invokeV.objValue;
     }
 
     public TextView getTagView() {
@@ -271,7 +271,7 @@ public class ItemCardView extends RelativeLayout {
     public TextView getTitleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f12422f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f12439f : (TextView) invokeV.objValue;
     }
 
     public void setBackGroundColor(int i2) {
@@ -288,26 +288,26 @@ public class ItemCardView extends RelativeLayout {
             if (!TextUtils.isEmpty(this.t + tbRichTextEvaluateItemInfo.getTitle())) {
                 SpannableString spannableString = new SpannableString(tbRichTextEvaluateItemInfo.getTitle());
                 UtilHelper.setSpan(spannableString, tbRichTextEvaluateItemInfo.getTitle(), this.t, new ForegroundColorSpan(getResources().getColor(R.color.CAM_X0301)));
-                this.f12422f.setText(spannableString);
+                this.f12439f.setText(spannableString);
             } else {
-                this.f12422f.setText(tbRichTextEvaluateItemInfo.getTitle());
+                this.f12439f.setText(tbRichTextEvaluateItemInfo.getTitle());
             }
-            this.f12421e.M(tbRichTextEvaluateItemInfo.getIconUrl(), i2, false);
+            this.f12438e.M(tbRichTextEvaluateItemInfo.getIconUrl(), i2, false);
             if (tbRichTextEvaluateItemInfo.getStar() >= 0 && tbRichTextEvaluateItemInfo.getStar() <= 5) {
-                this.f12423g.setStarCount(tbRichTextEvaluateItemInfo.getStar());
+                this.f12440g.setStarCount(tbRichTextEvaluateItemInfo.getStar());
             } else {
-                this.f12423g.setStarCount(0.0f);
+                this.f12440g.setStarCount(0.0f);
             }
             if (tbRichTextEvaluateItemInfo.getScore() > 0.0d && tbRichTextEvaluateItemInfo.getScore() <= 10.0d) {
-                this.f12424h.setText(tbRichTextEvaluateItemInfo.getScore() + "");
-                this.f12425i.setText(R.string.tieba_score);
+                this.f12441h.setText(tbRichTextEvaluateItemInfo.getScore() + "");
+                this.f12442i.setText(R.string.tieba_score);
             } else {
-                this.f12424h.setText(R.string.no_evaluate_now);
-                this.f12425i.setText(R.string.no_tieba_score);
+                this.f12441h.setText(R.string.no_evaluate_now);
+                this.f12442i.setText(R.string.no_tieba_score);
             }
             setTag(tbRichTextEvaluateItemInfo.getTags());
             setBtnRight(tbRichTextEvaluateItemInfo.getItem());
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12421e.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12438e.getLayoutParams();
             if (this.r == 1) {
                 if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
                     layoutParams.width = u;
@@ -333,7 +333,7 @@ public class ItemCardView extends RelativeLayout {
             }
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             layoutParams2.height = layoutParams.height + l.g(getContext(), R.dimen.tbds42);
-            this.f12421e.setLayoutParams(layoutParams);
+            this.f12438e.setLayoutParams(layoutParams);
             setLayoutParams(layoutParams2);
         }
     }
@@ -440,23 +440,23 @@ public class ItemCardView extends RelativeLayout {
             if (!TextUtils.isEmpty(item.item_name + this.t)) {
                 UtilHelper.setSpan(new SpannableString(item.item_name), item.item_name, this.t, new ForegroundColorSpan(Color.parseColor("#0AC3BC")));
             }
-            this.f12422f.setText(item.item_name);
-            this.f12421e.M(item.icon_url, i2, false);
+            this.f12439f.setText(item.item_name);
+            this.f12438e.M(item.icon_url, i2, false);
             if (item.star.intValue() >= 0 && item.star.intValue() <= 5) {
-                this.f12423g.setStarCount(item.star.intValue());
+                this.f12440g.setStarCount(item.star.intValue());
             } else {
-                this.f12423g.setStarCount(0.0f);
+                this.f12440g.setStarCount(0.0f);
             }
             if (item.score.doubleValue() > 0.0d && item.score.doubleValue() <= 10.0d) {
-                this.f12424h.setText(item.score + "");
-                this.f12425i.setText(R.string.tieba_score);
+                this.f12441h.setText(item.score + "");
+                this.f12442i.setText(R.string.tieba_score);
             } else {
-                this.f12424h.setText(R.string.no_evaluate_now);
-                this.f12424h.setText(R.string.no_tieba_score);
+                this.f12441h.setText(R.string.no_evaluate_now);
+                this.f12441h.setText(R.string.no_tieba_score);
             }
             setTag(item.tags);
             setBtnRight(item);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12421e.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12438e.getLayoutParams();
             if (this.r == 1) {
                 if (item.icon_size.doubleValue() == 1.0d) {
                     layoutParams.width = u;
@@ -498,7 +498,7 @@ public class ItemCardView extends RelativeLayout {
             }
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             layoutParams2.height = layoutParams.height + l.g(getContext(), R.dimen.tbds42);
-            this.f12421e.setLayoutParams(layoutParams);
+            this.f12438e.setLayoutParams(layoutParams);
             setLayoutParams(layoutParams2);
         }
     }

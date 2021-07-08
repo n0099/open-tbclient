@@ -1,5 +1,6 @@
 package com.bytedance.sdk.component.adnet.d;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iVar)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Map<String, String> map = iVar.f27906c;
+            Map<String, String> map = iVar.f28016c;
             String str = map.get("Date");
             long a2 = str != null ? a(str) : 0L;
             String str2 = map.get("Cache-Control");
@@ -89,15 +90,15 @@ public class c {
                 }
             }
             a.C0316a c0316a = new a.C0316a();
-            c0316a.f27956a = iVar.f27904a;
-            c0316a.f27957b = iVar.f27905b;
-            c0316a.f27958c = str5;
-            c0316a.f27962g = j4;
-            c0316a.f27961f = j3;
-            c0316a.f27959d = a2;
-            c0316a.f27960e = a4;
-            c0316a.f27963h = map;
-            c0316a.f27964i = iVar.f27907d;
+            c0316a.f28066a = iVar.f28014a;
+            c0316a.f28067b = iVar.f28015b;
+            c0316a.f28068c = str5;
+            c0316a.f28072g = j4;
+            c0316a.f28071f = j3;
+            c0316a.f28069d = a2;
+            c0316a.f28070e = a4;
+            c0316a.f28073h = map;
+            c0316a.f28074i = iVar.f28017d;
             return c0316a;
         }
         return (a.C0316a) invokeL.objValue;
@@ -126,7 +127,7 @@ public class c {
     public static SimpleDateFormat a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             return simpleDateFormat;

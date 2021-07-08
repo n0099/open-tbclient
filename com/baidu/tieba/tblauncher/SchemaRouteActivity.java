@@ -39,25 +39,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.a.b;
-import d.a.r0.a.d;
-import d.a.r0.a.g;
-import d.a.r0.a.x;
-import d.a.s0.h3.h0.m;
+import d.a.o0.a.d;
+import d.a.o0.a.g;
+import d.a.o0.a.x;
+import d.a.p0.h3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SchemaRouteActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final g.b mOnSchemeParsedCallback;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SchemaRouteActivity f21313a;
+        public final /* synthetic */ SchemaRouteActivity f21359a;
 
         public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
@@ -74,17 +74,17 @@ public class SchemaRouteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f21313a = schemaRouteActivity;
+            this.f21359a = schemaRouteActivity;
         }
 
-        @Override // d.a.r0.a.g.b
+        @Override // d.a.o0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.w) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f21313a.getActivity(), null, (String) hashMap.get(g.w), true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f21359a.getActivity(), null, (String) hashMap.get(g.w), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 tbWebViewActivityConfig.setUri((Uri) hashMap.get(g.K));
-                this.f21313a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+                this.f21359a.sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
         }
     }
@@ -179,7 +179,7 @@ public class SchemaRouteActivity extends BaseActivity {
             d.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f54633b + g.k)) {
+                if (dataString.contains(g.f51335b + g.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(g.F);
                     String queryParameter2 = parse.getQueryParameter(g.G);
@@ -191,7 +191,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 }
             }
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(g.f54633b + g.l)) {
+                if (dataString.contains(g.f51335b + g.l)) {
                     String queryParameter3 = Uri.parse(dataString).getQueryParameter(g.H);
                     if (queryParameter3 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});

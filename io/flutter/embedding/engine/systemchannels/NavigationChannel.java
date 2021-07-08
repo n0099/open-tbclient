@@ -11,7 +11,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.JSONMethodCodec;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class NavigationChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NavigationChannel";

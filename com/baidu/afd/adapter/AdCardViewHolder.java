@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.l.e;
+import d.a.p0.n1.o.l.e;
 /* loaded from: classes.dex */
 public class AdCardViewHolder<T extends e> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f2532a;
+    public T f2535a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardViewHolder(T t) {
@@ -34,12 +34,12 @@ public class AdCardViewHolder<T extends e> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f2532a = t;
+        this.f2535a = t;
     }
 
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2532a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2535a : (T) invokeV.objValue;
     }
 }

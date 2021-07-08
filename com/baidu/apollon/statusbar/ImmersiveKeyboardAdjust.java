@@ -4,6 +4,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +36,7 @@ public class ImmersiveKeyboardAdjust {
     public int computeUsableHeight(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view)) == null) {
             if (view == null) {
                 return 0;
             }
@@ -57,10 +58,10 @@ public class ImmersiveKeyboardAdjust {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f3992a;
+                public final /* synthetic */ View f3995a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ImmersiveKeyboardAdjust f3993b;
+                public final /* synthetic */ ImmersiveKeyboardAdjust f3996b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -77,8 +78,8 @@ public class ImmersiveKeyboardAdjust {
                             return;
                         }
                     }
-                    this.f3993b = this;
-                    this.f3992a = view;
+                    this.f3996b = this;
+                    this.f3995a = view;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -86,12 +87,12 @@ public class ImmersiveKeyboardAdjust {
                     int computeUsableHeight;
                     View view2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f3993b.computeUsableHeight(this.f3992a)) == this.f3993b.usableHeightPrevious || (view2 = this.f3992a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f3996b.computeUsableHeight(this.f3995a)) == this.f3996b.usableHeightPrevious || (view2 = this.f3995a) == null) {
                         return;
                     }
                     view2.getLayoutParams().height = computeUsableHeight;
-                    this.f3992a.requestLayout();
-                    this.f3993b.usableHeightPrevious = computeUsableHeight;
+                    this.f3995a.requestLayout();
+                    this.f3996b.usableHeightPrevious = computeUsableHeight;
                 }
             };
         }

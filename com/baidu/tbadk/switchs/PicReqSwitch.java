@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.f.a;
-import d.a.r0.r.d0.b;
-/* loaded from: classes4.dex */
+import d.a.o0.r.d0.b;
+/* loaded from: classes3.dex */
 public class PicReqSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PIC_REQ_SWITCH_KEY = "pic_req_switch_key";

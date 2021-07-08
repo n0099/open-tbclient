@@ -2,6 +2,7 @@ package com.baidu.fsg.base.utils;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,12 +23,12 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.apache.commons.base.CharEncoding;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f5378a;
+    public static char[] f5395a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +44,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f5378a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f5395a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -290,7 +291,7 @@ public final class Md5Utils {
     public static MessageDigest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 return MessageDigest.getInstance("MD5");
             } catch (NoSuchAlgorithmException e2) {
@@ -317,8 +318,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f5378a[i3]);
-                stringBuffer.append(f5378a[i4]);
+                stringBuffer.append(f5395a[i3]);
+                stringBuffer.append(f5395a[i4]);
             }
             return stringBuffer.toString();
         }

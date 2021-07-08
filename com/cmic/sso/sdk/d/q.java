@@ -1,6 +1,7 @@
 package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,12 +15,12 @@ import com.cmic.sso.sdk.d.k;
 import java.net.URL;
 import org.apache.http.HttpVersion;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f32557a;
+    public static volatile boolean f32667a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -431,11 +432,11 @@ public class q {
     public static void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            if (f32557a) {
+            if (f32667a) {
                 c.a("UmcConfigUtil", "正在获取配置中...");
                 return;
             }
-            f32557a = true;
+            f32667a = true;
             com.cmic.sso.sdk.b.c.a.a().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.d.q.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -465,7 +466,7 @@ public class q {
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        boolean unused = q.f32557a = false;
+                        boolean unused = q.f32667a = false;
                     }
                 }
             });
@@ -474,7 +475,7 @@ public class q {
 
     public static void a(JSONObject jSONObject, String str, String str2, k.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65540, null, jSONObject, str, str2, aVar) == null) && jSONObject.has(str)) {
+        if ((interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, str, str2, aVar) == null) && jSONObject.has(str)) {
             aVar.a(str, jSONObject.optString(str, str2));
         }
     }

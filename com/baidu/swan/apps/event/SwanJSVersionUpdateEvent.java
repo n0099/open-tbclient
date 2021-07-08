@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a.c1.a;
-import d.a.q0.a.k;
-import d.a.q0.a.m2.b;
+import d.a.n0.a.c1.a;
+import d.a.n0.a.k;
+import d.a.n0.a.m2.b;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -38,7 +38,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = k.f49133a;
+        DEBUG = k.f45831a;
     }
 
     public SwanJSVersionUpdateEvent() {

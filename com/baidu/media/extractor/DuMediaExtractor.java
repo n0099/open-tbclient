@@ -19,20 +19,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DuMediaExtractor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Keep
     public long mNativeDuMediaExtractor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<DuMediaExtractor> f8093a;
+        public final WeakReference<DuMediaExtractor> f8110a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
@@ -52,14 +52,14 @@ public class DuMediaExtractor {
                     return;
                 }
             }
-            this.f8093a = new WeakReference<>(duMediaExtractor);
+            this.f8110a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                DuMediaExtractor duMediaExtractor = this.f8093a.get();
+                DuMediaExtractor duMediaExtractor = this.f8110a.get();
                 if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                     CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
                 } else {

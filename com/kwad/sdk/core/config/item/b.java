@@ -1,34 +1,41 @@
 package com.kwad.sdk.core.config.item;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsAdSDK;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class b extends a<Integer> {
+/* loaded from: classes6.dex */
+public abstract class b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b() {
-        super("batchReportCacheType", 2);
+    /* renamed from: a  reason: collision with root package name */
+    public T f34198a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f34199b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public T f34200c;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public b(String str, T t) {
+        this(str, t, t);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], objArr2[1], objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,55 +43,56 @@ public class b extends a<Integer> {
         }
     }
 
-    public static int a(@Nullable Context context) {
-        InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
+    public b(String str, T t, T t2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            com.kwad.sdk.core.d.a.a("BatchReportCacheTypeConfigItem", "loadBatchReportCacheType");
-            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
-                return 2;
-            }
-            return sharedPreferences.getInt("batchReportCacheType", 2);
-        }
-        return invokeL.intValue;
-    }
-
-    public static void a(@Nullable Context context, int i2) {
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, context, i2) == null) {
-            com.kwad.sdk.core.d.a.a("BatchReportCacheTypeConfigItem", "saveBatchReportCacheType");
-            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_rep", 0)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, t, t2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putInt("batchReportCacheType", i2);
-            edit.apply();
+        }
+        this.f34199b = str;
+        this.f34200c = t;
+        this.f34198a = t2;
+        com.kwad.sdk.core.config.b.a(this);
+    }
+
+    @Nullable
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34200c : (T) invokeV.objValue;
+    }
+
+    public abstract void a(SharedPreferences.Editor editor);
+
+    public abstract void a(SharedPreferences sharedPreferences);
+
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.f34200c = t;
         }
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
-    public void a(@NonNull SharedPreferences.Editor editor) {
+    public abstract void a(JSONObject jSONObject);
+
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            a(KsAdSDK.getContext(), b().intValue());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34199b : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.sdk.core.config.item.a
-    public void a(@NonNull SharedPreferences sharedPreferences) {
+    public T c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            a((b) Integer.valueOf(a(KsAdSDK.getContext())));
-        }
-    }
-
-    @Override // com.kwad.sdk.core.config.item.a
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            a((b) (jSONObject != null ? Integer.valueOf(jSONObject.optInt(a(), c().intValue())) : c()));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34198a : (T) invokeV.objValue;
     }
 }

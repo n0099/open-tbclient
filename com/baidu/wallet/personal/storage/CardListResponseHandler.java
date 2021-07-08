@@ -9,7 +9,7 @@ import com.baidu.wallet.core.beans.BeanManager;
 import com.baidu.wallet.core.beans.ResponsePrecallback;
 import com.baidu.wallet.paysdk.datamodel.CardListResponse;
 import com.baidu.wallet.personal.ui.BankCardListActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CardListResponseHandler extends ResponsePrecallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

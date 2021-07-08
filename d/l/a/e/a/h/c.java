@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import d.l.a.e.a.d;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f74613e;
+        public final /* synthetic */ Context f71665e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f74614f;
+        public final /* synthetic */ DownloadInfo f71666f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f74615g;
+        public final /* synthetic */ int f71667g;
 
         public a(Context context, DownloadInfo downloadInfo, int i2) {
             Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class c {
                     return;
                 }
             }
-            this.f74613e = context;
-            this.f74614f = downloadInfo;
-            this.f74615g = i2;
+            this.f71665e = context;
+            this.f71666f = downloadInfo;
+            this.f71667g = i2;
         }
 
         @Override // java.lang.Runnable
@@ -54,21 +54,21 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.f u = d.l.a.e.a.e.G().u();
-                d.l.a.e.b.f.d i2 = d.l.a.e.b.g.a.H(this.f74613e).i(this.f74614f.getId());
+                d.l.a.e.b.f.d i2 = d.l.a.e.b.g.a.H(this.f71665e).i(this.f71666f.getId());
                 if (u == null && i2 == null) {
                     return;
                 }
-                File file = new File(this.f74614f.getSavePath(), this.f74614f.getName());
+                File file = new File(this.f71666f.getSavePath(), this.f71666f.getName());
                 if (file.exists()) {
                     try {
-                        PackageInfo i3 = d.l.a.e.a.d.i(this.f74614f, file);
+                        PackageInfo i3 = d.l.a.e.a.d.i(this.f71666f, file);
                         if (i3 != null) {
-                            String packageName = (this.f74615g == 1 || TextUtils.isEmpty(this.f74614f.getPackageName())) ? i3.packageName : this.f74614f.getPackageName();
+                            String packageName = (this.f71667g == 1 || TextUtils.isEmpty(this.f71666f.getPackageName())) ? i3.packageName : this.f71666f.getPackageName();
                             if (u != null) {
-                                u.b(this.f74614f.getId(), 1, packageName, -3, this.f74614f.getDownloadTime());
+                                u.b(this.f71666f.getId(), 1, packageName, -3, this.f71666f.getDownloadTime());
                             }
                             if (i2 != null) {
-                                i2.a(1, this.f74614f, packageName, "");
+                                i2.a(1, this.f71666f, packageName, "");
                             }
                         }
                     } catch (Exception e2) {

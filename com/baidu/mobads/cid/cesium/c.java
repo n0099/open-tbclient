@@ -11,6 +11,7 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,16 +27,16 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.c.d.d f8259a;
+    public com.baidu.mobads.cid.cesium.c.d.d f8276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f8260b;
+    public List<b> f8277b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -83,7 +84,7 @@ public class c {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f8259a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
+            this.f8276a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
         }
     }
 
@@ -110,7 +111,7 @@ public class c {
     public static byte[] a(byte[] bArr, com.baidu.mobads.cid.cesium.c.d.d dVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, dVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, dVar)) == null) {
             com.baidu.mobads.cid.cesium.c.d.a a2 = com.baidu.mobads.cid.cesium.c.d.a.a();
             a2.a(2, dVar);
             return a2.a(bArr);
@@ -151,10 +152,10 @@ public class c {
                                     byte[] a2 = com.baidu.mobads.cid.cesium.d.a.a(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(a2));
                                     b bVar = new b();
-                                    bVar.f8193b = jSONObject.getInt("priority");
-                                    bVar.f8192a = resolveInfo.activityInfo.applicationInfo;
+                                    bVar.f8210b = jSONObject.getInt("priority");
+                                    bVar.f8209a = resolveInfo.activityInfo.applicationInfo;
                                     if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        bVar.f8195d = true;
+                                        bVar.f8212d = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -167,9 +168,9 @@ public class c {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (a(strArr, a(packageInfo.signatures))) {
-                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8259a);
+                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8276a);
                                                 if (a3 != null && Arrays.equals(a3, com.baidu.mobads.cid.cesium.d.c.a(a2))) {
-                                                    bVar.f8194c = true;
+                                                    bVar.f8211c = true;
                                                 }
                                             }
                                         }
@@ -187,7 +188,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f8261a;
+                public final /* synthetic */ c f8278a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -204,7 +205,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f8261a = this;
+                    this.f8278a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -214,15 +215,15 @@ public class c {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, bVar2, bVar3)) == null) {
-                        int i3 = bVar3.f8193b - bVar2.f8193b;
+                        int i3 = bVar3.f8210b - bVar2.f8210b;
                         if (i3 == 0) {
-                            if (bVar2.f8195d && bVar3.f8195d) {
+                            if (bVar2.f8212d && bVar3.f8212d) {
                                 return 0;
                             }
-                            if (bVar2.f8195d) {
+                            if (bVar2.f8212d) {
                                 return -1;
                             }
-                            if (bVar3.f8195d) {
+                            if (bVar3.f8212d) {
                                 return 1;
                             }
                         }
@@ -247,7 +248,7 @@ public class c {
                 }
                 return false;
             }
-            boolean z = a2.get(0).f8194c;
+            boolean z = a2.get(0).f8211c;
             if (!z) {
                 for (int i3 = 0; i3 < 3; i3++) {
                     Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
@@ -262,13 +263,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<b> list = this.f8260b;
+            List<b> list = this.f8277b;
             if (list != null) {
                 return list;
             }
             a(context);
             List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f8260b = a2;
+            this.f8277b = a2;
             return a2;
         }
         return (List) invokeL.objValue;

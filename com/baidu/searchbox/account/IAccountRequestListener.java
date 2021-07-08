@@ -2,7 +2,7 @@ package com.baidu.searchbox.account;
 
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.account.data.BoxAccount;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface IAccountRequestListener extends NoProGuard {
     void onFailed(BoxAccount.ErrorBean errorBean);
 

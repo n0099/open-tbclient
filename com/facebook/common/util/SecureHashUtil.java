@@ -1,6 +1,7 @@
 package com.facebook.common.util;
 
 import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SecureHashUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
@@ -70,7 +71,7 @@ public class SecureHashUtil {
     public static String makeHash(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance(str);
                 messageDigest.update(bArr, 0, bArr.length);

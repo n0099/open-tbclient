@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.report.b;
+import com.kwad.sdk.core.response.model.AggregatePageEntranceInfo;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class r implements com.kwad.sdk.core.c<b.a> {
+/* loaded from: classes6.dex */
+public class r implements com.kwad.sdk.core.d<AggregatePageEntranceInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +28,35 @@ public class r implements com.kwad.sdk.core.c<b.a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public JSONObject a(b.a aVar) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.core.d
+    public void a(AggregatePageEntranceInfo aggregatePageEntranceInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f36507a);
-            com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.f36508b);
-            return jSONObject;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aggregatePageEntranceInfo, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeL.objValue;
+        aggregatePageEntranceInfo.aggregatePageEntranceButton = jSONObject.optString("aggregatePageEntranceButton", new String("更多推荐"));
+        aggregatePageEntranceInfo.aggregatePageDesc = jSONObject.optString("aggregatePageDesc", new String("点击查看更多相关推荐"));
+        aggregatePageEntranceInfo.aggregatePageEntranceDynamicNs = jSONObject.optInt("aggregatePageEntranceDynamicNs", new Integer("3").intValue());
+        aggregatePageEntranceInfo.aggregatePageH5Url = jSONObject.optString("aggregatePageH5Url");
+        aggregatePageEntranceInfo.aggregatePageBottomImageUrl = jSONObject.optString("aggregatePageBottomImageUrl");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.kwad.sdk.core.c
-    public void a(b.a aVar, JSONObject jSONObject) {
+    @Override // com.kwad.sdk.core.d
+    public JSONObject b(AggregatePageEntranceInfo aggregatePageEntranceInfo, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aggregatePageEntranceInfo, jSONObject)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            com.kwad.sdk.utils.q.a(jSONObject, "aggregatePageEntranceButton", aggregatePageEntranceInfo.aggregatePageEntranceButton);
+            com.kwad.sdk.utils.q.a(jSONObject, "aggregatePageDesc", aggregatePageEntranceInfo.aggregatePageDesc);
+            com.kwad.sdk.utils.q.a(jSONObject, "aggregatePageEntranceDynamicNs", aggregatePageEntranceInfo.aggregatePageEntranceDynamicNs);
+            com.kwad.sdk.utils.q.a(jSONObject, "aggregatePageH5Url", aggregatePageEntranceInfo.aggregatePageH5Url);
+            com.kwad.sdk.utils.q.a(jSONObject, "aggregatePageBottomImageUrl", aggregatePageEntranceInfo.aggregatePageBottomImageUrl);
+            return jSONObject;
         }
-        aVar.f36507a = jSONObject.optInt("code");
-        aVar.f36508b = jSONObject.optString("msg");
+        return (JSONObject) invokeLL.objValue;
     }
 }

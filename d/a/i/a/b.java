@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f45675b;
+    public static b f42522b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public h f45676a;
+    public h f42523a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -44,10 +44,10 @@ public class b extends ContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f45675b == null) {
-                    f45675b = new b();
+                if (f42522b == null) {
+                    f42522b = new b();
                 }
-                bVar = f45675b;
+                bVar = f42522b;
             }
             return bVar;
         }
@@ -69,10 +69,10 @@ public class b extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f45676a == null) {
-                this.f45676a = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+            if (this.f42523a == null) {
+                this.f42523a = new h(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
             }
-            return this.f45676a;
+            return this.f42523a;
         }
         return (h) invokeV.objValue;
     }

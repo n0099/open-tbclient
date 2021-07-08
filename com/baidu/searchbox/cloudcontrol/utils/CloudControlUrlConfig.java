@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.utils;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CloudControlUrlConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_RUN_TYPE = "runtype";
@@ -80,7 +81,7 @@ public class CloudControlUrlConfig {
 
     public static void setOemTypeId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65540, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             mOEMTypeId = str;
         }
     }

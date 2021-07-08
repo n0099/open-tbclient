@@ -1,5 +1,6 @@
 package io.reactivex.disposables;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Future;
 import org.reactivestreams.Subscription;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class Disposables {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public final class Disposables {
     public static Disposable fromFuture(@NonNull Future<?> future) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, future)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, future)) == null) {
             ObjectHelper.requireNonNull(future, "future is null");
             return fromFuture(future, true);
         }

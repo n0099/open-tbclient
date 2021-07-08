@@ -8,7 +8,7 @@ import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.datamodel.Compliance;
 import com.baidu.wallet.paysdk.datamodel.FeedbackInfo;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PayResultContent implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NOT_ENTER_PAYRESULT_PAGE = "0";
@@ -46,7 +46,7 @@ public class PayResultContent implements Serializable {
     public String total_amount;
     public String trans_no;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class CrossMarket implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

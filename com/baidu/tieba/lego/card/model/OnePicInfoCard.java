@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.n1.o.j.b;
+import d.a.p0.n1.o.j.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = d.a.s0.n1.o.k.b.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = d.a.s0.n1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = d.a.p0.n1.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = d.a.p0.n1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
@@ -53,10 +53,10 @@ public class OnePicInfoCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f63806c = optJSONObject.optInt("type");
-                bVar.f63804a = optJSONObject.optString("url");
-                bVar.f63805b = optJSONObject.optString("urlNight");
-                bVar.f63807d = optJSONObject.optString("content", "");
+                bVar.f60572c = optJSONObject.optInt("type");
+                bVar.f60570a = optJSONObject.optString("url");
+                bVar.f60571b = optJSONObject.optString("urlNight");
+                bVar.f60573d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

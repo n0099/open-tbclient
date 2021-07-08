@@ -10,7 +10,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ac implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public abstract class ac implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             v a2 = a();
-            return a2 != null ? a2.a(com.bytedance.sdk.component.b.b.a.c.f28115e) : com.bytedance.sdk.component.b.b.a.c.f28115e;
+            return a2 != null ? a2.a(com.bytedance.sdk.component.b.b.a.c.f28225e) : com.bytedance.sdk.component.b.b.a.c.f28225e;
         }
         return (Charset) invokeV.objValue;
     }
@@ -113,13 +113,13 @@ public abstract class ac implements Closeable {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ v f28399a;
+                    public final /* synthetic */ v f28509a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ long f28400b;
+                    public final /* synthetic */ long f28510b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.component.b.a.e f28401c;
+                    public final /* synthetic */ com.bytedance.sdk.component.b.a.e f28511c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -136,30 +136,30 @@ public abstract class ac implements Closeable {
                                 return;
                             }
                         }
-                        this.f28399a = vVar;
-                        this.f28400b = j;
-                        this.f28401c = eVar;
+                        this.f28509a = vVar;
+                        this.f28510b = j;
+                        this.f28511c = eVar;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.ac
                     public v a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28399a : (v) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28509a : (v) invokeV.objValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.ac
                     public long b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28400b : invokeV.longValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28510b : invokeV.longValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.ac
                     public com.bytedance.sdk.component.b.a.e d() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28401c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28511c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
                     }
                 };
             }

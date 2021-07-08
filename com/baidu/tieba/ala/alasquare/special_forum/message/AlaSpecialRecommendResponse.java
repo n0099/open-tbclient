@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-import d.a.s0.v.d.f.c.b;
-import d.a.s0.v.d.f.c.c;
+import d.a.o0.r.q.b2;
+import d.a.p0.v.d.f.c.b;
+import d.a.p0.v.d.f.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
                 c cVar = this.mSpecialActivityListData;
-                if (cVar != null && cVar.f67737e == null) {
-                    cVar.f67737e = new ArrayList();
+                if (cVar != null && cVar.f64519e == null) {
+                    cVar.f64519e = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
@@ -78,7 +78,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                         if (optJSONObject3 != null) {
                             b bVar = new b();
                             bVar.c(optJSONObject3);
-                            this.mSpecialActivityListData.f67737e.add(bVar);
+                            this.mSpecialActivityListData.f64519e.add(bVar);
                         }
                     }
                 }

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bo;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f42731a;
+    public final /* synthetic */ a f39745a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ bo f41a;
@@ -31,7 +31,7 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f42731a = aVar;
+        this.f39745a = aVar;
         this.f41a = boVar;
     }
 

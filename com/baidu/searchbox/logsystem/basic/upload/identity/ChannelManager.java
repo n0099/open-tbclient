@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -19,7 +20,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ChannelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -91,7 +92,7 @@ public class ChannelManager {
 
     private void initChanel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             String readChannelFromCache = readChannelFromCache();
             this.mChannel = readChannelFromCache;
             if (!TextUtils.isEmpty(readChannelFromCache) || TextUtils.isEmpty(this.mLastChannel)) {

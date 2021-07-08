@@ -26,26 +26,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.s0.u3.b;
-import d.a.s0.u3.f;
-/* loaded from: classes4.dex */
+import d.a.p0.u3.e;
+/* loaded from: classes3.dex */
 public class CaptureStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0188a implements f {
+        /* loaded from: classes3.dex */
+        public class C0188a implements e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f13618a;
+            public final /* synthetic */ CustomResponsedMessage f13635a;
 
             public C0188a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -62,18 +61,18 @@ public class CaptureStatic {
                         return;
                     }
                 }
-                this.f13618a = customResponsedMessage;
+                this.f13635a = customResponsedMessage;
             }
 
-            @Override // d.a.s0.u3.f
+            @Override // d.a.p0.u3.e
             public void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f13618a.getData() instanceof IntentConfig)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f13618a.getData()));
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f13635a.getData() instanceof IntentConfig)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f13635a.getData()));
                 }
             }
 
-            @Override // d.a.s0.u3.f
+            @Override // d.a.p0.u3.e
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -106,7 +105,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                b.c(TbadkCoreApplication.getInst().getContext(), new C0188a(this, customResponsedMessage));
+                d.a.p0.u3.a.b(TbadkCoreApplication.getInst(), new C0188a(this, customResponsedMessage));
             }
         }
     }

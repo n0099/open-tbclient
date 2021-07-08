@@ -33,7 +33,7 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class GifFrameLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class GifFrameLoader {
     public Transformation<Bitmap> transformation;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class DelayTarget extends SimpleTarget<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,12 +105,12 @@ public class GifFrameLoader {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface FrameCallback {
         void onFrameReady();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class FrameLoaderCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CLEAR = 2;
@@ -157,7 +157,7 @@ public class GifFrameLoader {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }
@@ -198,7 +198,7 @@ public class GifFrameLoader {
     public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, requestManager, i2, i3)) == null) ? requestManager.asBitmap().apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i2, i3)) : (RequestBuilder) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, requestManager, i2, i3)) == null) ? requestManager.asBitmap().apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i2, i3)) : (RequestBuilder) invokeLII.objValue;
     }
 
     private void loadNextFrame() {

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class StaticPicUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APO_CLICK = "iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAANqADAAQAAAABAAAANgAAAADzQy6kAAACYElEQVRoBe2asU7DMBCGW0CdmLp14QX6EqgDUpeOSN15hj4G7VA23gMJCfoCrH0BeASYKtHyXxTUsxOHS+LGZ+GTTvjs8/n/7BBKk14vWdoB/TtwOBzG8CV8C/+Ei01KJy5YTNyh6w2+gJ+L1kPiAL6Gf8MbmWghJDUqXpy0QVc1HBII6gXeyjoGI60LvuYZD/L2PX5OSvq1d906BYKafqfsy+8DfXP4yDmxowFoWMH38DLbOWUgm24U3Ahq6JzQ4QB0VEFlmp1yMEp3P25zZ3KHAxBUBlU4OackFLBv6VovP4IiWMOqwGSJzgp+ByDGdVIrWskQi8C5ujjRWcHfwF9QtJJYrzjRn/7SShKo6MCkUFGB1YGKBqwuVBRgTaDUgzWFUg3WBkotWFsolWA+oNSB+YIiMLFhUcPEE4WJKF752U9Ypn6aQYWgfgX3jGBQJOlUYEGhTgUWHOoUYCqgfIOpgfIJpgrKFxigZnD7i5bsOwpaI4hBkGFNRaDIhhUKC0UQTEzWbAqW1yK48FC+wfJ6szab02Zun0+mY+JxH8bjmNoXMYm1tVYdRNnTFnt+lHECi+3Y0omlE1OyA//mUvziG46/E8Ef/HE9vF2izdBun9g7n4z2tRVrCm1ttvajVuyC2ofrR5XZh/UhtNKDf25LnmO0kaX9dYgRNNKrGTYUvcIxNmDsAAn0qlFstrY5Cp/eQTRA0hN8YicrjV+ha4p/RIwXWM5ssXnCFP0P8L09rigmbaSxAEUaCydGnb+G06Pr9g5+A7+CX8JDGt3S6e73DH/EIWxDiklrpx0Q7MAPd4IvZxpORRUAAAAASUVORK5CYII=";

@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpClient f43953i;
+    public HttpClient f40969i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(MessageManager messageManager) {
@@ -39,23 +39,23 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
                 return;
             }
         }
-        this.f43953i = null;
-        this.f43953i = new HttpClient(messageManager);
-        this.f43959e = d.a.c.c.j.b.d();
+        this.f40969i = null;
+        this.f40969i = new HttpClient(messageManager);
+        this.f40975e = d.a.c.c.j.b.d();
     }
 
     @Override // d.a.c.c.b
     public LinkedList<HttpMessage> e(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f43953i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f40969i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            this.f43953i.h(i2, bdUniqueId);
+            this.f40969i.h(i2, bdUniqueId);
         }
     }
 
@@ -71,7 +71,7 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
     public LinkedList<HttpMessage> v(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f43953i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f40969i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     public HttpMessage w(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
@@ -83,7 +83,7 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
     public void x(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f43953i.k(bdUniqueId);
+            this.f40969i.k(bdUniqueId);
         }
     }
 
@@ -94,9 +94,9 @@ public class b extends c<HttpMessage, HttpMessageTask, d.a.c.c.f.d, HttpResponse
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, httpMessage, httpMessageTask) == null) {
             if (httpMessageTask.getConnectTimeOut() == null) {
-                httpMessageTask.setConnectTimeOut(((d.a.c.c.j.b) this.f43959e).c());
+                httpMessageTask.setConnectTimeOut(((d.a.c.c.j.b) this.f40975e).c());
             }
-            this.f43953i.f(httpMessage, httpMessageTask);
+            this.f40969i.f(httpMessage, httpMessageTask);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.util.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,13 +34,13 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1893a = "msp";
+    public static final String f1894a = "msp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1894b = "application/octet-stream;binary/octet-stream";
+    public static final String f1895b = "application/octet-stream;binary/octet-stream";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CookieManager f1895c;
+    public static final CookieManager f1896c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
@@ -49,13 +50,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f1896a;
+        public final String f1897a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f1897b;
+        public final byte[] f1898b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, String> f1898c;
+        public final Map<String, String> f1899c;
 
         public C0017a(String str, Map<String, String> map, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -72,15 +73,15 @@ public final class a {
                     return;
                 }
             }
-            this.f1896a = str;
-            this.f1897b = bArr;
-            this.f1898c = map;
+            this.f1897a = str;
+            this.f1898b = bArr;
+            this.f1899c = map;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1896a, this.f1897b, this.f1898c) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s requestBody=%s headers=%s>", this.f1897a, this.f1898b, this.f1899c) : (String) invokeV.objValue;
         }
     }
 
@@ -90,13 +91,13 @@ public final class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, List<String>> f1899a;
+        public final Map<String, List<String>> f1900a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f1900b;
+        public final String f1901b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f1901c;
+        public final byte[] f1902c;
 
         public b(Map<String, List<String>> map, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -113,9 +114,9 @@ public final class a {
                     return;
                 }
             }
-            this.f1899a = map;
-            this.f1900b = str;
-            this.f1901c = bArr;
+            this.f1900a = map;
+            this.f1901b = str;
+            this.f1902c = bArr;
         }
     }
 
@@ -132,7 +133,7 @@ public final class a {
                 return;
             }
         }
-        f1895c = new CookieManager();
+        f1896c = new CookieManager();
     }
 
     public a() {
@@ -170,10 +171,10 @@ public final class a {
                 return null;
             }
             try {
-                c.c(f1893a, "config : " + c0017a);
-                url = new URL(c0017a.f1896a);
+                c.c(f1894a, "config : " + c0017a);
+                url = new URL(c0017a.f1897a);
                 Proxy a2 = a(context);
-                c.c(f1893a, "proxy: " + a2);
+                c.c(f1894a, "proxy: " + a2);
                 if (a2 != null) {
                     httpURLConnection2 = (HttpURLConnection) url.openConnection(a2);
                 } else {
@@ -184,24 +185,24 @@ public final class a {
                     if (httpURLConnection2 instanceof HttpsURLConnection) {
                         HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection2;
                     }
-                    if (f1895c.getCookieStore().getCookies().size() > 0) {
-                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1895c.getCookieStore().getCookies()));
+                    if (f1896c.getCookieStore().getCookies().size() > 0) {
+                        httpURLConnection2.setRequestProperty("Cookie", TextUtils.join(";", f1896c.getCookieStore().getCookies()));
                     }
                     httpURLConnection2.setConnectTimeout(20000);
                     httpURLConnection2.setReadTimeout(30000);
                     httpURLConnection2.setInstanceFollowRedirects(true);
-                    httpURLConnection2.setRequestProperty("User-Agent", f1893a);
-                    if (c0017a.f1897b != null && c0017a.f1897b.length > 0) {
+                    httpURLConnection2.setRequestProperty("User-Agent", f1894a);
+                    if (c0017a.f1898b != null && c0017a.f1898b.length > 0) {
                         httpURLConnection2.setRequestMethod("POST");
-                        httpURLConnection2.setRequestProperty("Content-Type", f1894b);
+                        httpURLConnection2.setRequestProperty("Content-Type", f1895b);
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                         httpURLConnection2.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
                     } else {
                         httpURLConnection2.setRequestMethod("GET");
                     }
-                    if (c0017a.f1898c != null) {
-                        for (Map.Entry<String, String> entry : c0017a.f1898c.entrySet()) {
+                    if (c0017a.f1899c != null) {
+                        for (Map.Entry<String, String> entry : c0017a.f1899c.entrySet()) {
                             if (entry.getKey() != null) {
                                 httpURLConnection2.setRequestProperty(entry.getKey(), entry.getValue());
                             }
@@ -214,7 +215,7 @@ public final class a {
                     if ("POST".equals(httpURLConnection2.getRequestMethod())) {
                         bufferedOutputStream2 = new BufferedOutputStream(httpURLConnection2.getOutputStream());
                         try {
-                            bufferedOutputStream2.write(c0017a.f1897b);
+                            bufferedOutputStream2.write(c0017a.f1898b);
                             bufferedOutputStream2.flush();
                         } catch (Throwable th) {
                             th = th;
@@ -271,7 +272,7 @@ public final class a {
                     for (String str : list) {
                         List<HttpCookie> parse = HttpCookie.parse(str);
                         if (parse != null && !parse.isEmpty()) {
-                            f1895c.getCookieStore().add(url.toURI(), parse.get(0));
+                            f1896c.getCookieStore().add(url.toURI(), parse.get(0));
                         }
                     }
                 }
@@ -368,7 +369,7 @@ public final class a {
     public static byte[] a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65540, null, inputStream)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream)) != null) {
             return (byte[]) invokeL.objValue;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

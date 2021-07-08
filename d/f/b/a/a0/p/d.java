@@ -10,28 +10,28 @@ import d.f.b.a.a0.j;
 import d.f.b.a.a0.p.b;
 import d.f.b.a.i0.l;
 import d.f.b.a.i0.v;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class d implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f72198a;
+    public final long f69301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f72199b;
+    public final long f69302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f72200c;
+    public final long f69303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long[] f72201d;
+    public final long[] f69304d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f72202e;
+    public final long f69305e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f72203f;
+    public final int f69306f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(long j, long j2, long j3) {
@@ -59,9 +59,9 @@ public final class d implements b.a {
         int B;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jVar, lVar, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int i2 = jVar.f72123g;
-            int i3 = jVar.f72120d;
-            long j3 = j + jVar.f72119c;
+            int i2 = jVar.f69226g;
+            int i3 = jVar.f69223d;
+            long j3 = j + jVar.f69222c;
             int i4 = lVar.i();
             if ((i4 & 1) != 1 || (B = lVar.B()) == 0) {
                 return null;
@@ -76,7 +76,7 @@ public final class d implements b.a {
             for (int i5 = 0; i5 < 99; i5++) {
                 jArr[i5] = lVar.x();
             }
-            return new d(j3, F, j2, jArr, B2, jVar.f72119c);
+            return new d(j3, F, j2, jArr, B2, jVar.f69222c);
         }
         return (d) invokeCommon.objValue;
     }
@@ -85,7 +85,7 @@ public final class d implements b.a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72201d != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69304d != null : invokeV.booleanValue;
     }
 
     @Override // d.f.b.a.a0.l
@@ -94,21 +94,21 @@ public final class d implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             if (!b()) {
-                return this.f72198a;
+                return this.f69301a;
             }
-            float f2 = (((float) j) * 100.0f) / ((float) this.f72199b);
+            float f2 = (((float) j) * 100.0f) / ((float) this.f69302b);
             if (f2 <= 0.0f) {
                 r0 = 0.0f;
             } else if (f2 < 100.0f) {
                 int i2 = (int) f2;
-                float f3 = i2 != 0 ? (float) this.f72201d[i2 - 1] : 0.0f;
-                r0 = (((i2 < 99 ? (float) this.f72201d[i2] : 256.0f) - f3) * (f2 - i2)) + f3;
+                float f3 = i2 != 0 ? (float) this.f69304d[i2 - 1] : 0.0f;
+                r0 = (((i2 < 99 ? (float) this.f69304d[i2] : 256.0f) - f3) * (f2 - i2)) + f3;
             }
-            long round = Math.round(r0 * 0.00390625d * this.f72202e);
-            long j2 = this.f72198a;
+            long round = Math.round(r0 * 0.00390625d * this.f69305e);
+            long j2 = this.f69301a;
             long j3 = round + j2;
-            long j4 = this.f72200c;
-            return Math.min(j3, j4 != -1 ? j4 - 1 : ((j2 - this.f72203f) + this.f72202e) - 1);
+            long j4 = this.f69303c;
+            return Math.min(j3, j4 != -1 ? j4 - 1 : ((j2 - this.f69306f) + this.f69305e) - 1);
         }
         return invokeJ.longValue;
     }
@@ -116,7 +116,7 @@ public final class d implements b.a {
     public final long d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (this.f72199b * i2) / 100 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? (this.f69302b * i2) / 100 : invokeI.longValue;
     }
 
     @Override // d.f.b.a.a0.p.b.a
@@ -125,13 +125,13 @@ public final class d implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             if (b()) {
-                long j2 = this.f72198a;
+                long j2 = this.f69301a;
                 if (j >= j2) {
-                    double d2 = ((j - j2) * 256.0d) / this.f72202e;
-                    int e2 = v.e(this.f72201d, (long) d2, true, false) + 1;
+                    double d2 = ((j - j2) * 256.0d) / this.f69305e;
+                    int e2 = v.e(this.f69304d, (long) d2, true, false) + 1;
                     long d3 = d(e2);
-                    long j3 = e2 == 0 ? 0L : this.f72201d[e2 - 1];
-                    long j4 = e2 == 99 ? 256L : this.f72201d[e2];
+                    long j3 = e2 == 0 ? 0L : this.f69304d[e2 - 1];
+                    long j4 = e2 == 99 ? 256L : this.f69304d[e2];
                     return d3 + (j4 != j3 ? (long) (((d(e2 + 1) - d3) * (d2 - j3)) / (j4 - j3)) : 0L);
                 }
             }
@@ -144,7 +144,7 @@ public final class d implements b.a {
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72199b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69302b : invokeV.longValue;
     }
 
     public d(long j, long j2, long j3, long[] jArr, long j4, int i2) {
@@ -162,11 +162,11 @@ public final class d implements b.a {
                 return;
             }
         }
-        this.f72198a = j;
-        this.f72199b = j2;
-        this.f72200c = j3;
-        this.f72201d = jArr;
-        this.f72202e = j4;
-        this.f72203f = i2;
+        this.f69301a = j;
+        this.f69302b = j2;
+        this.f69303c = j3;
+        this.f69304d = jArr;
+        this.f69305e = j4;
+        this.f69306f = i2;
     }
 }

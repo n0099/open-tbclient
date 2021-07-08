@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CalendarParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DATE_TIME;
@@ -122,7 +122,7 @@ public final class CalendarParsedResult extends ParsedResult {
         InterceptResult invokeZL;
         DateFormat dateTimeInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65540, null, z, date)) == null) {
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, date)) == null) {
             if (date == null) {
                 return null;
             }

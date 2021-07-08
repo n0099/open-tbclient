@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.r0.r.q.b2;
-import d.a.s0.n1.l;
-import d.a.s0.n1.m.c;
-import d.a.s0.n1.m.e;
-import d.a.s0.n1.o.d;
-import d.a.s0.n1.r.b;
-/* loaded from: classes5.dex */
+import d.a.o0.r.q.b2;
+import d.a.p0.n1.l;
+import d.a.p0.n1.m.c;
+import d.a.p0.n1.m.e;
+import d.a.p0.n1.o.d;
+import d.a.p0.n1.r.b;
+/* loaded from: classes4.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,19 +70,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        b.f63933a.set(new l());
+        b.f60699a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
-        d.a.s0.n1.o.b.h().g(d.f());
+        d.a.p0.n1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        d.a.s0.n1.m.b.a().b(new e());
-        d.a.s0.n1.m.a.a().b(new c());
-        d.a.s0.n1.m.a.a().b(new d.a.s0.n1.m.d());
-        d.a.r0.c.c.f55129a.set(d.a.s0.n1.m.b.a());
-        d.a.r0.c.b.f55127a.set(d.a.s0.n1.m.a.a());
+        d.a.p0.n1.m.b.a().b(new e());
+        d.a.p0.n1.m.a.a().b(new c());
+        d.a.p0.n1.m.a.a().b(new d.a.p0.n1.m.d());
+        d.a.o0.c.c.f51834a.set(d.a.p0.n1.m.b.a());
+        d.a.o0.c.b.f51832a.set(d.a.p0.n1.m.a.a());
         b2.C3.set(true);
     }
 

@@ -1,6 +1,7 @@
 package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.widget.j;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,16 +17,16 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f32570a;
+    public ConcurrentHashMap<String, Long> f32680a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -88,12 +89,12 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f32571a;
+        public static StatService f32681a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,11 +110,11 @@ public class StatService {
                     return;
                 }
             }
-            f32571a = new StatService(null);
+            f32681a = new StatService(null);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,19 +127,19 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f32571a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f32681a : (StatService) invokeV.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a().f32570a.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f32680a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
     public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65540, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         i.a().c(str, null, str2, str3, System.currentTimeMillis());
@@ -175,12 +176,12 @@ public class StatService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            Long l = a().f32570a.get(str);
+            Long l = a().f32680a.get(str);
             if (l == null) {
                 return -1L;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f32570a.remove(str);
+            a().f32680a.remove(str);
             return valueOf.longValue();
         }
         return invokeL.longValue;
@@ -220,6 +221,6 @@ public class StatService {
                 return;
             }
         }
-        this.f32570a = new ConcurrentHashMap<>();
+        this.f32680a = new ConcurrentHashMap<>();
     }
 }

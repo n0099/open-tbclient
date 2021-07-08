@@ -12,7 +12,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class LiveGroupInfo extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Long DEFAULT_AUTHORID;
@@ -111,7 +111,7 @@ public final class LiveGroupInfo extends Message {
     @ProtoField(tag = 12, type = Message.Datatype.STRING)
     public final String streamId;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<LiveGroupInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public final class LiveGroupInfo extends Message {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

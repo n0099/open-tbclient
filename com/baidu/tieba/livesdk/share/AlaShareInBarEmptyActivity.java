@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-import d.a.s0.q1.d;
-import d.a.s0.q1.g;
+import d.a.p0.q1.d;
+import d.a.p0.q1.g;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     public ArrayList<TransmitForumData> mTransmitForumDataList;
     public String mYyAnchorBdUid;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f18324e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f18364e;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -53,25 +53,25 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f18324e = alaShareInBarEmptyActivity;
+            this.f18364e = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f18324e.mPostModel.cancelLoadData();
+                this.f18364e.mPostModel.cancelLoadData();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements AlaShareInBarModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f18325a;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f18365a;
 
         public b(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -88,25 +88,25 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f18325a = alaShareInBarEmptyActivity;
+            this.f18365a = alaShareInBarEmptyActivity;
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, d.a.s0.q1.l.b.a aVar) {
+        public void a(int i2, String str, d.a.p0.q1.l.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
-                this.f18325a.closeLoadingDialog();
+                this.f18365a.closeLoadingDialog();
                 int i3 = 1;
                 if (i2 == 0 && aVar != null) {
-                    BdToast.h(this.f18325a.getPageContext().getPageActivity(), this.f18325a.getPageContext().getPageActivity().getString(g.share_alert_success), d.icon_pure_toast_succeed40_svg, 3000, true).q();
+                    BdToast.h(this.f18365a.getPageContext().getPageActivity(), this.f18365a.getPageContext().getPageActivity().getString(g.share_alert_success), d.icon_pure_toast_succeed40_svg, 3000, true).q();
                 } else {
-                    this.f18325a.showToast(str);
+                    this.f18365a.showToast(str);
                     i3 = 2;
                 }
                 Intent intent = new Intent();
                 intent.putExtra("extra_share_status", i3);
-                this.f18325a.setResult(-1, intent);
-                this.f18325a.finish();
+                this.f18365a.setResult(-1, intent);
+                this.f18365a.finish();
             }
         }
     }

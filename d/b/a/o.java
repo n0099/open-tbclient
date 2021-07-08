@@ -12,19 +12,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.embedapplog.AppLog;
 import com.bytedance.embedapplog.IAppParam;
-import com.kwai.video.player.KsMediaMeta;
 import java.util.HashMap;
 import kotlin.text.Typography;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f71713a;
+    public static final String[] f68816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f71714b;
+    public static final String[] f68817b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +39,8 @@ public class o {
                 return;
             }
         }
-        f71713a = new String[]{"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", AsInstallService.SCHEME_PACKAGE_ADDED, "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
-        f71714b = new String[]{"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", CommonUrlParamManager.PARAM_IID, "app_name", "version_name", HttpConstants.DEVICE_TYPE, "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
+        f68816a = new String[]{"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", AsInstallService.SCHEME_PACKAGE_ADDED, "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
+        f68817b = new String[]{"ab_version", "device_brand", "language", "os_api", "resolution", "google_aid", "build_serial", "carrier", CommonUrlParamManager.PARAM_IID, "app_name", "version_name", HttpConstants.DEVICE_TYPE, "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
     }
 
     public static String a(Context context, JSONObject jSONObject, String str, boolean z, IAppParam iAppParam) {
@@ -52,16 +51,16 @@ public class o {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
-            HashMap hashMap = new HashMap(f71713a.length + 10);
+            HashMap hashMap = new HashMap(f68816a.length + 10);
             int i2 = 0;
             while (true) {
-                String[] strArr = f71713a;
+                String[] strArr = f68816a;
                 if (i2 >= strArr.length) {
                     break;
                 }
                 String optString = jSONObject.optString(strArr[i2], null);
                 if (!TextUtils.isEmpty(optString)) {
-                    hashMap.put(f71714b[i2], optString);
+                    hashMap.put(f68817b[i2], optString);
                 }
                 i2++;
             }
@@ -149,7 +148,7 @@ public class o {
             String str = AppLog.getEncryptAndCompress() ? "?tt_data=a" : "?";
             for (int i2 = 0; i2 < sendUris.length; i2++) {
                 strArr[i2] = a(context, jSONObject, sendUris[i2] + str, true, AppLog.getIAppParam());
-                strArr[i2] = n.d(strArr[i2], n.f71706d);
+                strArr[i2] = n.d(strArr[i2], n.f68809d);
             }
             return strArr;
         }

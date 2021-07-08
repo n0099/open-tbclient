@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PwdPayActivity;
 import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PwdPayPresenterForAuthsign extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

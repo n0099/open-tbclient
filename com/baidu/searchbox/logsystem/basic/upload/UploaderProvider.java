@@ -1,5 +1,6 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UploaderProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final BaseContentUploader DEFAULT_CONTENT_UPLOADER;
@@ -67,7 +68,7 @@ public class UploaderProvider {
     public static BaseAttachFileUploader getDefaultAttachUploader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? DEFAULT_FILE_UPLOADER : (BaseAttachFileUploader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? DEFAULT_FILE_UPLOADER : (BaseAttachFileUploader) invokeV.objValue;
     }
 
     public static BaseContentUploader getDefaultContentUploader() {

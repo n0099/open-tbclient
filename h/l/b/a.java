@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.g;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicReference<a> f75386b;
+    public static final AtomicReference<a> f72420b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final g f75387a;
+    public final g f72421a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public final class a {
                 return;
             }
         }
-        f75386b = new AtomicReference<>();
+        f72420b = new AtomicReference<>();
     }
 
     public a() {
@@ -52,9 +52,9 @@ public final class a {
         }
         g b2 = h.l.a.a.a().b().b();
         if (b2 != null) {
-            this.f75387a = b2;
+            this.f72421a = b2;
         } else {
-            this.f75387a = new b(Looper.getMainLooper());
+            this.f72421a = new b(Looper.getMainLooper());
         }
     }
 
@@ -64,12 +64,12 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             do {
-                a aVar2 = f75386b.get();
+                a aVar2 = f72420b.get();
                 if (aVar2 != null) {
                     return aVar2;
                 }
                 aVar = new a();
-            } while (!f75386b.compareAndSet(null, aVar));
+            } while (!f72420b.compareAndSet(null, aVar));
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -78,6 +78,6 @@ public final class a {
     public static g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().f75387a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().f72421a : (g) invokeV.objValue;
     }
 }

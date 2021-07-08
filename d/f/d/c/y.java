@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Iterators;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public abstract class y<E> extends h0 implements Collection<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

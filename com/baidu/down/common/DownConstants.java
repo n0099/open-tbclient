@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface DownConstants {
     public static final int DF_BUFFER_SIZE = 16384;
     public static final int DF_MAX_BYTEARRAY_SIZE = 100;

@@ -14,7 +14,7 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<j> f1607a;
+    public static List<j> f1608a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,14 +31,14 @@ public final class f {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f1607a = arrayList;
+        f1608a = arrayList;
         arrayList.add(new l());
-        f1607a.add(new d());
-        f1607a.add(new c());
-        f1607a.add(new h());
-        f1607a.add(new b());
-        f1607a.add(new a());
-        f1607a.add(new g());
+        f1608a.add(new d());
+        f1608a.add(new c());
+        f1608a.add(new h());
+        f1608a.add(new b());
+        f1608a.add(new a());
+        f1608a.add(new g());
     }
 
     public static String a(Object obj) {
@@ -71,7 +71,7 @@ public final class f {
             if (obj == null) {
                 return null;
             }
-            for (j jVar : f1607a) {
+            for (j jVar : f1608a) {
                 if (jVar.a(obj.getClass()) && (a2 = jVar.a(obj)) != null) {
                     return a2;
                 }

@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, d> f10284a;
+    public static Map<String, d> f10301a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class c {
                 return;
             }
         }
-        f10284a = new HashMap();
+        f10301a = new HashMap();
     }
 
     public static void a(Context context, int i2, File file, File file2) {
@@ -43,12 +43,12 @@ public final class c {
                 if (!com.baidu.sofire.utility.c.a(file2)) {
                     com.baidu.sofire.utility.c.a(file, file2);
                 }
-                if (f10284a.containsKey(file.getAbsolutePath())) {
+                if (f10301a.containsKey(file.getAbsolutePath())) {
                     return;
                 }
                 d dVar = new d(context, i2, file.getAbsolutePath(), file2.getAbsolutePath());
                 dVar.startWatching();
-                f10284a.put(file.getAbsolutePath(), dVar);
+                f10301a.put(file.getAbsolutePath(), dVar);
             }
         } catch (Throwable unused) {
             com.baidu.sofire.utility.c.a();
@@ -61,10 +61,10 @@ public final class c {
             return;
         }
         try {
-            d dVar = f10284a.get(file.getAbsolutePath());
+            d dVar = f10301a.get(file.getAbsolutePath());
             if (dVar != null) {
                 dVar.stopWatching();
-                f10284a.remove(file.getAbsolutePath());
+                f10301a.remove(file.getAbsolutePath());
                 dVar.a();
             }
         } catch (Throwable unused) {

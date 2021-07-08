@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -98,7 +99,7 @@ public class LinearSnapHelper extends SnapHelper {
     private View findCenterView(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65540, this, layoutManager, orientationHelper)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, layoutManager, orientationHelper)) == null) {
             int childCount = layoutManager.getChildCount();
             View view = null;
             if (childCount == 0) {

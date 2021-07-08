@@ -1,5 +1,5 @@
 package com.baidu.wallet.personal.datamodel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface MyTransCenterBeanConst {
     public static final int ORDERTYPE_BALANCE_RECHARGE = 4;
     public static final int ORDERTYPE_BUY_FINANCE = 6;

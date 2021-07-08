@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class cv implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f23414a;
+    public final /* synthetic */ cg f23524a;
 
     public cv(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class cv implements View.OnClickListener {
                 return;
             }
         }
-        this.f23414a = cgVar;
+        this.f23524a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,8 +38,8 @@ public final class cv implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             try {
-                FeedbackInputActivity.f23290a = com.baidu.ufosdk.f.i.a(((ImageView) view).getDrawable());
-                this.f23414a.f23393a.startActivity(new Intent(this.f23414a.f23393a, FeedbackImageViewFlipperActivity.class));
+                FeedbackInputActivity.f23400a = com.baidu.ufosdk.f.i.a(((ImageView) view).getDrawable());
+                this.f23524a.f23503a.startActivity(new Intent(this.f23524a.f23503a, FeedbackImageViewFlipperActivity.class));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AudioVolume {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23830a = "AudioVolume";
+    public static final String f23940a = "AudioVolume";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23831b;
+    public int f23941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23832c;
+    public int f23942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f23833d;
+    public long f23943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f23834e;
+    public double f23944e;
 
     static {
         InterceptResult invokeClinit;
@@ -60,19 +60,19 @@ public class AudioVolume {
                 return;
             }
         }
-        this.f23832c = 8000;
+        this.f23942c = 8000;
         a(i2);
     }
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
-            this.f23831b = 0;
-            this.f23833d = 0;
+            this.f23941b = 0;
+            this.f23943d = 0;
             if (512 < i2) {
-                this.f23832c = i2;
+                this.f23942c = i2;
             } else {
-                this.f23832c = 8000;
+                this.f23942c = 8000;
             }
         }
     }
@@ -87,43 +87,43 @@ public class AudioVolume {
             if (z) {
                 position >>= 1;
                 limit >>= 1;
-                i2 = this.f23832c >> 1;
-                i3 = this.f23831b;
+                i2 = this.f23942c >> 1;
+                i3 = this.f23941b;
             } else {
-                i2 = this.f23832c;
-                i3 = this.f23831b;
+                i2 = this.f23942c;
+                i3 = this.f23941b;
             }
             int i4 = i2 - i3;
             int i5 = limit - position;
             if (i4 >= i5) {
                 while (position < limit) {
-                    this.f23833d = (long) (this.f23833d + Math.pow(z ? byteBuffer.getShort(position) : byteBuffer.get(position), 2.0d));
+                    this.f23943d = (long) (this.f23943d + Math.pow(z ? byteBuffer.getShort(position) : byteBuffer.get(position), 2.0d));
                     position++;
                 }
-                this.f23831b += i5;
+                this.f23941b += i5;
                 return;
             }
             int i6 = i4 + position;
             while (position < i6) {
                 short s = z ? byteBuffer.getShort(position) : byteBuffer.get(position);
-                LogUtil.d(f23830a, "value: " + ((int) s));
-                this.f23833d = (long) (((double) this.f23833d) + Math.pow((double) s, 2.0d));
+                LogUtil.d(f23940a, "value: " + ((int) s));
+                this.f23943d = (long) (((double) this.f23943d) + Math.pow((double) s, 2.0d));
                 position++;
             }
-            this.f23834e = Math.log10((int) (this.f23833d / this.f23832c)) * 10.0d;
-            LogUtil.i(f23830a, "calAccumulatedVolume: " + this.f23834e + "|" + i6 + "|" + this.f23833d);
-            this.f23833d = 0L;
-            this.f23831b = 0;
+            this.f23944e = Math.log10((int) (this.f23943d / this.f23942c)) * 10.0d;
+            LogUtil.i(f23940a, "calAccumulatedVolume: " + this.f23944e + "|" + i6 + "|" + this.f23943d);
+            this.f23943d = 0L;
+            this.f23941b = 0;
             for (int i7 = i6; i7 < limit; i7++) {
-                this.f23833d = (long) (this.f23833d + Math.pow(z ? byteBuffer.getShort(i7) : byteBuffer.get(i7), 2.0d));
+                this.f23943d = (long) (this.f23943d + Math.pow(z ? byteBuffer.getShort(i7) : byteBuffer.get(i7), 2.0d));
             }
-            this.f23831b += limit - i6;
+            this.f23941b += limit - i6;
         }
     }
 
     public double getVolume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23834e : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23944e : invokeV.doubleValue;
     }
 }

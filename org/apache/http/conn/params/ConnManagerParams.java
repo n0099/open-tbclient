@@ -1,5 +1,6 @@
 package org.apache.http.conn.params;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class ConnManagerParams implements ConnManagerPNames {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_TOTAL_CONNECTIONS = 20;
@@ -59,7 +60,7 @@ public final class ConnManagerParams implements ConnManagerPNames {
 
     public static void setMaxConnectionsPerRoute(HttpParams httpParams, ConnPerRoute connPerRoute) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, httpParams, connPerRoute) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, httpParams, connPerRoute) == null) {
             throw new RuntimeException("Stub!");
         }
     }

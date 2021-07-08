@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 @TargetApi(16)
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final class c implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final MediaCrypto f73667a;
+    public final MediaCrypto f70770a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f73668b;
+    public final boolean f70771b;
 
     public MediaCrypto a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73667a : (MediaCrypto) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70770a : (MediaCrypto) invokeV.objValue;
     }
 
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !this.f73668b && this.f73667a.requiresSecureDecoderComponent(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !this.f70771b && this.f70770a.requiresSecureDecoderComponent(str) : invokeL.booleanValue;
     }
 }

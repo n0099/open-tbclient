@@ -13,31 +13,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String[] f26916a;
+    public String[] f27026a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26917b;
+    public int f27027b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f26918c;
+    public a f27028c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f26919d;
+    public b f27029d;
     public int[] mFrom;
     public int[] mTo;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         CharSequence a(Cursor cursor);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         boolean a(View view, Cursor cursor, int i2);
     }
@@ -62,9 +62,9 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
                 return;
             }
         }
-        this.f26917b = -1;
+        this.f27027b = -1;
         this.mTo = iArr;
-        this.f26916a = strArr;
+        this.f27026a = strArr;
         a(cursor, strArr);
     }
 
@@ -90,7 +90,7 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view, context, cursor) == null) {
-            b bVar = this.f26919d;
+            b bVar = this.f27029d;
             int[] iArr = this.mTo;
             int length = iArr.length;
             int[] iArr2 = this.mFrom;
@@ -120,7 +120,7 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     public void changeCursorAndColumns(Cursor cursor, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, strArr, iArr) == null) {
-            this.f26916a = strArr;
+            this.f27026a = strArr;
             this.mTo = iArr;
             a(cursor, strArr);
             super.changeCursor(cursor);
@@ -132,11 +132,11 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            a aVar = this.f26918c;
+            a aVar = this.f27028c;
             if (aVar != null) {
                 return aVar.a(cursor);
             }
-            int i2 = this.f26917b;
+            int i2 = this.f27027b;
             if (i2 > -1) {
                 return cursor.getString(i2);
             }
@@ -148,39 +148,39 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
     public a getCursorToStringConverter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26918c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27028c : (a) invokeV.objValue;
     }
 
     public int getStringConversionColumn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26917b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27027b : invokeV.intValue;
     }
 
     public b getViewBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26919d : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27029d : (b) invokeV.objValue;
     }
 
     public void setCursorToStringConverter(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f26918c = aVar;
+            this.f27028c = aVar;
         }
     }
 
     public void setStringConversionColumn(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f26917b = i2;
+            this.f27027b = i2;
         }
     }
 
     public void setViewBinder(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f26919d = bVar;
+            this.f27029d = bVar;
         }
     }
 
@@ -207,7 +207,7 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, cursor)) == null) {
-            a(cursor, this.f26916a);
+            a(cursor, this.f27026a);
             return super.swapCursor(cursor);
         }
         return (Cursor) invokeL.objValue;
@@ -232,9 +232,9 @@ public class SimpleDragSortCursorAdapter extends ResourceDragSortCursorAdapter {
                 return;
             }
         }
-        this.f26917b = -1;
+        this.f27027b = -1;
         this.mTo = iArr;
-        this.f26916a = strArr;
+        this.f27026a = strArr;
         a(cursor, strArr);
     }
 }

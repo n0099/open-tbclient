@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.util.SparseIntArray;
 import androidx.collection.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -25,7 +26,7 @@ import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HeatMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Gradient DEFAULT_GRADIENT;
@@ -33,33 +34,33 @@ public class HeatMap {
     public static final int DEFAULT_RADIUS = 12;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6931b = "HeatMap";
+    public static final String f6948b = "HeatMap";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseIntArray f6932c;
+    public static final SparseIntArray f6949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f6933d;
+    public static final int[] f6950d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final float[] f6934e;
+    public static final float[] f6951e;
     public static int r;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaiduMap f6935a;
+    public BaiduMap f6952a;
 
     /* renamed from: f  reason: collision with root package name */
-    public o<WeightedLatLng> f6936f;
+    public o<WeightedLatLng> f6953f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Collection<WeightedLatLng> f6937g;
+    public Collection<WeightedLatLng> f6954g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6938h;
+    public int f6955h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Gradient f6939i;
+    public Gradient f6956i;
     public double j;
     public h k;
     public int[] l;
@@ -69,22 +70,22 @@ public class HeatMap {
     public ExecutorService p;
     public HashSet<String> q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Collection<WeightedLatLng> f6940a;
+        public Collection<WeightedLatLng> f6957a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6941b;
+        public int f6958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Gradient f6942c;
+        public Gradient f6959c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f6943d;
+        public double f6960d;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -99,16 +100,16 @@ public class HeatMap {
                     return;
                 }
             }
-            this.f6941b = 12;
-            this.f6942c = HeatMap.DEFAULT_GRADIENT;
-            this.f6943d = 0.6d;
+            this.f6958b = 12;
+            this.f6959c = HeatMap.DEFAULT_GRADIENT;
+            this.f6960d = 0.6d;
         }
 
         public HeatMap build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f6940a != null) {
+                if (this.f6957a != null) {
                     return new HeatMap(this, null);
                 }
                 throw new IllegalStateException("BDMapSDKException: No input data: you must use either .data or .weightedData before building");
@@ -136,7 +137,7 @@ public class HeatMap {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gradient)) == null) {
                 if (gradient != null) {
-                    this.f6942c = gradient;
+                    this.f6959c = gradient;
                     return this;
                 }
                 throw new IllegalArgumentException("BDMapSDKException: gradient can not be null");
@@ -148,7 +149,7 @@ public class HeatMap {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)})) == null) {
-                this.f6943d = d2;
+                this.f6960d = d2;
                 if (d2 < 0.0d || d2 > 1.0d) {
                     throw new IllegalArgumentException("BDMapSDKException: Opacity must be in range [0, 1]");
                 }
@@ -161,7 +162,7 @@ public class HeatMap {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f6941b = i2;
+                this.f6958b = i2;
                 if (i2 < 10 || i2 > 50) {
                     throw new IllegalArgumentException("BDMapSDKException: Radius not within bounds.");
                 }
@@ -192,7 +193,7 @@ public class HeatMap {
                     arrayList.add(weightedLatLng);
                 }
                 collection.removeAll(arrayList);
-                this.f6940a = collection;
+                this.f6957a = collection;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -213,29 +214,29 @@ public class HeatMap {
             }
         }
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f6932c = sparseIntArray;
+        f6949c = sparseIntArray;
         sparseIntArray.put(3, 8388608);
-        f6932c.put(4, 4194304);
-        f6932c.put(5, 2097152);
-        f6932c.put(6, 1048576);
-        f6932c.put(7, 524288);
-        f6932c.put(8, 262144);
-        f6932c.put(9, 131072);
-        f6932c.put(10, 65536);
-        f6932c.put(11, 32768);
-        f6932c.put(12, 16384);
-        f6932c.put(13, 8192);
-        f6932c.put(14, 4096);
-        f6932c.put(15, 2048);
-        f6932c.put(16, 1024);
-        f6932c.put(17, 512);
-        f6932c.put(18, 256);
-        f6932c.put(19, 128);
-        f6932c.put(20, 64);
+        f6949c.put(4, 4194304);
+        f6949c.put(5, 2097152);
+        f6949c.put(6, 1048576);
+        f6949c.put(7, 524288);
+        f6949c.put(8, 262144);
+        f6949c.put(9, 131072);
+        f6949c.put(10, 65536);
+        f6949c.put(11, 32768);
+        f6949c.put(12, 16384);
+        f6949c.put(13, 8192);
+        f6949c.put(14, 4096);
+        f6949c.put(15, 2048);
+        f6949c.put(16, 1024);
+        f6949c.put(17, 512);
+        f6949c.put(18, 256);
+        f6949c.put(19, 128);
+        f6949c.put(20, 64);
         int[] iArr = {Color.rgb(0, 0, 200), Color.rgb(0, 225, 0), Color.rgb(255, 0, 0)};
-        f6933d = iArr;
+        f6950d = iArr;
         float[] fArr = {0.08f, 0.4f, 1.0f};
-        f6934e = fArr;
+        f6951e = fArr;
         DEFAULT_GRADIENT = new Gradient(iArr, fArr);
         r = 0;
     }
@@ -258,14 +259,14 @@ public class HeatMap {
         this.o = new HashMap<>();
         this.p = Executors.newFixedThreadPool(1);
         this.q = new HashSet<>();
-        this.f6937g = builder.f6940a;
-        this.f6938h = builder.f6941b;
-        this.f6939i = builder.f6942c;
-        this.j = builder.f6943d;
-        int i4 = this.f6938h;
+        this.f6954g = builder.f6957a;
+        this.f6955h = builder.f6958b;
+        this.f6956i = builder.f6959c;
+        this.j = builder.f6960d;
+        int i4 = this.f6955h;
         this.m = a(i4, i4 / 3.0d);
-        a(this.f6939i);
-        b(this.f6937g);
+        a(this.f6956i);
+        b(this.f6954g);
     }
 
     public /* synthetic */ HeatMap(Builder builder, j jVar) {
@@ -276,11 +277,11 @@ public class HeatMap {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, collection, hVar, i2, i3)) == null) {
-            double d2 = hVar.f7151a;
-            double d3 = hVar.f7153c;
-            double d4 = hVar.f7152b;
+            double d2 = hVar.f7168a;
+            double d3 = hVar.f7170c;
+            double d4 = hVar.f7169b;
             double d5 = d3 - d2;
-            double d6 = hVar.f7154d - d4;
+            double d6 = hVar.f7171d - d4;
             if (d5 <= d6) {
                 d5 = d6;
             }
@@ -318,7 +319,7 @@ public class HeatMap {
     public static Bitmap a(double[][] dArr, int[] iArr, double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65540, null, new Object[]{dArr, iArr, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{dArr, iArr, Double.valueOf(d2)})) == null) {
             int i2 = iArr[iArr.length - 1];
             double length = (iArr.length - 1) / d2;
             int length2 = dArr.length;
@@ -358,7 +359,7 @@ public class HeatMap {
     private void a(Gradient gradient) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, gradient) == null) {
-            this.f6939i = gradient;
+            this.f6956i = gradient;
             this.l = gradient.a(this.j);
         }
     }
@@ -396,7 +397,7 @@ public class HeatMap {
                 if (i4 >= 11) {
                     break;
                 }
-                dArr[i4] = a(this.f6937g, this.k, i2, (int) (Math.pow(2.0d, i4 - 3) * 1280.0d));
+                dArr[i4] = a(this.f6954g, this.k, i2, (int) (Math.pow(2.0d, i4 - 3) * 1280.0d));
                 if (i4 == 5) {
                     for (int i5 = 0; i5 < i4; i5++) {
                         dArr[i5] = dArr[i4];
@@ -496,8 +497,8 @@ public class HeatMap {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65550, this, i2, i3, i4) == null) {
-            double d2 = f6932c.get(i4);
-            double d3 = (this.f6938h * d2) / 256.0d;
+            double d2 = f6949c.get(i4);
+            double d3 = (this.f6955h * d2) / 256.0d;
             double d4 = ((2.0d * d3) + d2) / ((i5 * 2) + 256);
             if (i2 < 0 || i3 < 0) {
                 return;
@@ -508,22 +509,22 @@ public class HeatMap {
             double d8 = ((i3 + 1) * d2) + d3;
             h hVar = new h(d5, d6, d7, d8);
             h hVar2 = this.k;
-            if (hVar.a(new h(hVar2.f7151a - d3, hVar2.f7153c + d3, hVar2.f7152b - d3, hVar2.f7154d + d3))) {
-                Collection<WeightedLatLng> a2 = this.f6936f.a(hVar);
+            if (hVar.a(new h(hVar2.f7168a - d3, hVar2.f7170c + d3, hVar2.f7169b - d3, hVar2.f7171d + d3))) {
+                Collection<WeightedLatLng> a2 = this.f6953f.a(hVar);
                 if (a2.isEmpty()) {
                     return;
                 }
-                int i6 = this.f6938h;
+                int i6 = this.f6955h;
                 double[][] dArr = (double[][]) Array.newInstance(double.class, (i6 * 2) + 256, (i6 * 2) + 256);
                 for (WeightedLatLng weightedLatLng : a2) {
                     Point a3 = weightedLatLng.a();
                     int i7 = (int) ((a3.x - d5) / d4);
                     int i8 = (int) ((d8 - a3.y) / d4);
-                    int i9 = this.f6938h;
+                    int i9 = this.f6955h;
                     if (i7 >= (i9 * 2) + 256) {
                         i7 = ((i9 * 2) + 256) - 1;
                     }
-                    int i10 = this.f6938h;
+                    int i10 = this.f6955h;
                     if (i8 >= (i10 * 2) + 256) {
                         i8 = ((i10 * 2) + 256) - 1;
                     }
@@ -538,7 +539,7 @@ public class HeatMap {
                 if (this.o.size() > r) {
                     a();
                 }
-                BaiduMap baiduMap = this.f6935a;
+                BaiduMap baiduMap = this.f6952a;
                 if (baiduMap != null) {
                     baiduMap.a();
                 }
@@ -558,17 +559,17 @@ public class HeatMap {
     private void b(Collection<WeightedLatLng> collection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, collection) == null) {
-            this.f6937g = collection;
+            this.f6954g = collection;
             if (collection.isEmpty()) {
                 throw new IllegalArgumentException("BDMapSDKException: No input points.");
             }
-            h d2 = d(this.f6937g);
+            h d2 = d(this.f6954g);
             this.k = d2;
-            this.f6936f = new o<>(d2);
-            for (WeightedLatLng weightedLatLng : this.f6937g) {
-                this.f6936f.a((o<WeightedLatLng>) weightedLatLng);
+            this.f6953f = new o<>(d2);
+            for (WeightedLatLng weightedLatLng : this.f6954g) {
+                this.f6953f.a((o<WeightedLatLng>) weightedLatLng);
             }
-            this.n = a(this.f6938h);
+            this.n = a(this.f6955h);
         }
     }
 
@@ -654,9 +655,9 @@ public class HeatMap {
             if (a(str)) {
                 return null;
             }
-            BaiduMap baiduMap = this.f6935a;
+            BaiduMap baiduMap = this.f6952a;
             if (baiduMap != null && r == 0) {
-                WinRound winRound = baiduMap.getMapStatus().f6967a.j;
+                WinRound winRound = baiduMap.getMapStatus().f6984a.j;
                 r = (((winRound.right - winRound.left) / 256) + 2) * (((winRound.bottom - winRound.top) / 256) + 2) * 4;
             }
             if (this.o.size() > r) {
@@ -704,7 +705,7 @@ public class HeatMap {
     public void removeHeatMap() {
         BaiduMap baiduMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baiduMap = this.f6935a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (baiduMap = this.f6952a) == null) {
             return;
         }
         baiduMap.a(this);

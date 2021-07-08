@@ -21,27 +21,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
-import d.a.r0.r.u.c;
-import d.a.s0.w0.b;
-/* loaded from: classes5.dex */
+import d.a.o0.r.u.c;
+import d.a.p0.w0.b;
+/* loaded from: classes4.dex */
 public class FunAdSmallPicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f16265e;
+    public TbImageView f16304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16266f;
+    public ImageView f16305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f16267g;
+    public ImageView f16306g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16268h;
+    public TextView f16307h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16269i;
+    public TextView f16308i;
     public TextView j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -85,26 +85,26 @@ public class FunAdSmallPicView extends LinearLayout {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fun_ad_small_pic, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f16265e = (TbImageView) inflate.findViewById(R.id.ad_small_image);
-            this.f16269i = (TextView) inflate.findViewById(R.id.ad_small_desc);
+            this.f16304e = (TbImageView) inflate.findViewById(R.id.ad_small_image);
+            this.f16308i = (TextView) inflate.findViewById(R.id.ad_small_desc);
             this.j = (TextView) inflate.findViewById(R.id.ad_small_source);
-            this.f16268h = (TextView) inflate.findViewById(R.id.ad_small_title);
-            this.f16266f = (ImageView) inflate.findViewById(R.id.ad_small_labelIcon);
-            this.f16267g = (ImageView) inflate.findViewById(R.id.ad_small_dislike);
-            this.f16265e.setRadiusById(R.string.J_X05);
-            this.f16265e.setConrers(15);
-            a(this.f16265e);
+            this.f16307h = (TextView) inflate.findViewById(R.id.ad_small_title);
+            this.f16305f = (ImageView) inflate.findViewById(R.id.ad_small_labelIcon);
+            this.f16306g = (ImageView) inflate.findViewById(R.id.ad_small_dislike);
+            this.f16304e.setRadiusById(R.string.J_X05);
+            this.f16304e.setConrers(15);
+            a(this.f16304e);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WebPManager.setPureDrawable(this.f16267g, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            c.d(this.f16269i).t(R.color.CAM_X0105);
-            c.d(this.f16268h).t(R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.f16306g, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
+            c.d(this.f16308i).t(R.color.CAM_X0105);
+            c.d(this.f16307h).t(R.color.CAM_X0109);
             c.d(this.j).t(R.color.CAM_X0109);
-            this.f16265e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f16304e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
 
@@ -113,19 +113,19 @@ public class FunAdSmallPicView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, funNativeAd, str) == null) || funNativeAd == null) {
             return;
         }
-        this.f16268h.setText(funNativeAd.getTitle());
-        this.f16269i.setText(funNativeAd.getDescription());
-        b.n(this.f16266f, funNativeAd);
-        if (!StringHelper.equals(str, this.f16265e.getUrl())) {
-            this.f16265e.I();
+        this.f16307h.setText(funNativeAd.getTitle());
+        this.f16308i.setText(funNativeAd.getDescription());
+        b.n(this.f16305f, funNativeAd);
+        if (!StringHelper.equals(str, this.f16304e.getUrl())) {
+            this.f16304e.I();
         }
-        this.f16265e.M(str, 10, false);
+        this.f16304e.M(str, 10, false);
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f16267g.setOnClickListener(onClickListener);
+            this.f16306g.setOnClickListener(onClickListener);
         }
     }
 

@@ -1,6 +1,7 @@
 package androidx.webkit.internal;
 
 import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -177,7 +178,7 @@ public final class WebViewFeatureInternal {
     public static String[] getWebViewApkFeaturesForTesting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? LAZY_HOLDER.WEBVIEW_APK_FEATURES : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? LAZY_HOLDER.WEBVIEW_APK_FEATURES : (String[]) invokeV.objValue;
     }
 
     public static WebViewFeatureInternal valueOf(String str) {

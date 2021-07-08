@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PoiSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.c.a f7320a;
+    public com.baidu.platform.core.c.a f7337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7321b;
+    public boolean f7338b;
 
     public PoiSearch() {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class PoiSearch extends l {
                 return;
             }
         }
-        this.f7321b = false;
-        this.f7320a = new com.baidu.platform.core.c.f();
+        this.f7338b = false;
+        this.f7337a = new com.baidu.platform.core.c.f();
     }
 
     public static PoiSearch newInstance() {
@@ -48,11 +48,11 @@ public class PoiSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f7321b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f7338b) {
             return;
         }
-        this.f7321b = true;
-        this.f7320a.a();
+        this.f7338b = true;
+        this.f7337a.a();
         BMapManager.destroy();
     }
 
@@ -60,7 +60,7 @@ public class PoiSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, poiBoundSearchOption)) == null) {
-            com.baidu.platform.core.c.a aVar = this.f7320a;
+            com.baidu.platform.core.c.a aVar = this.f7337a;
             if (aVar != null) {
                 if (poiBoundSearchOption == null || poiBoundSearchOption.mBound == null || poiBoundSearchOption.mKeyword == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or bound or keyworld can not be null");
@@ -76,7 +76,7 @@ public class PoiSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poiCitySearchOption)) == null) {
-            com.baidu.platform.core.c.a aVar = this.f7320a;
+            com.baidu.platform.core.c.a aVar = this.f7337a;
             if (aVar != null) {
                 if (poiCitySearchOption == null || poiCitySearchOption.mCity == null || poiCitySearchOption.mKeyword == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or city or keyworld can not be null");
@@ -92,7 +92,7 @@ public class PoiSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, poiNearbySearchOption)) == null) {
-            com.baidu.platform.core.c.a aVar = this.f7320a;
+            com.baidu.platform.core.c.a aVar = this.f7337a;
             if (aVar != null) {
                 if (poiNearbySearchOption == null || poiNearbySearchOption.mLocation == null || poiNearbySearchOption.mKeyword == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or location or keyworld can not be null");
@@ -111,11 +111,11 @@ public class PoiSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, poiDetailSearchOption)) == null) {
-            if (this.f7320a != null) {
+            if (this.f7337a != null) {
                 if (poiDetailSearchOption == null || poiDetailSearchOption.getUid() == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or uid can not be null");
                 }
-                return this.f7320a.a(poiDetailSearchOption);
+                return this.f7337a.a(poiDetailSearchOption);
             }
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }
@@ -126,7 +126,7 @@ public class PoiSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, poiIndoorOption)) == null) {
-            com.baidu.platform.core.c.a aVar = this.f7320a;
+            com.baidu.platform.core.c.a aVar = this.f7337a;
             if (aVar != null) {
                 if (poiIndoorOption == null || poiIndoorOption.bid == null || poiIndoorOption.wd == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or indoor bid or keyword can not be null");
@@ -141,7 +141,7 @@ public class PoiSearch extends l {
     public void setOnGetPoiSearchResultListener(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onGetPoiSearchResultListener) == null) {
-            com.baidu.platform.core.c.a aVar = this.f7320a;
+            com.baidu.platform.core.c.a aVar = this.f7337a;
             if (aVar == null) {
                 throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
             }

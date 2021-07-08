@@ -14,7 +14,7 @@ public final class f implements ConnectionKeepAliveStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f1638a;
+    public final /* synthetic */ d f1639a;
 
     public f(d dVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class f implements ConnectionKeepAliveStrategy {
                 return;
             }
         }
-        this.f1638a = dVar;
+        this.f1639a = dVar;
     }
 
     @Override // org.apache.http.conn.ConnectionKeepAliveStrategy

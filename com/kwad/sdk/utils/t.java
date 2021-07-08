@@ -1,111 +1,207 @@
 package com.kwad.sdk.utils;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-/* loaded from: classes7.dex */
-public class t {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
+import java.util.Observable;
+/* loaded from: classes6.dex */
+public class t extends Observable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f39411a;
+    public static volatile t f36592a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835136, "Lcom/kwad/sdk/utils/t;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835136, "Lcom/kwad/sdk/utils/t;");
-                return;
+    /* renamed from: b  reason: collision with root package name */
+    public WeakReference<Activity> f36593b;
+
+    public t() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        f39411a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
-    @NonNull
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static t a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a(str.getBytes()) : (String) invokeL.objValue;
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                StringBuilder sb = new StringBuilder();
-                int length = digest.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    int i3 = digest[i2];
-                    if (i3 < 0) {
-                        i3 += 256;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f36592a == null) {
+                synchronized (t.class) {
+                    if (f36592a == null) {
+                        f36592a = new t();
                     }
-                    if (i3 < 16) {
-                        sb.append("0");
+                }
+            }
+            return f36592a;
+        }
+        return (t) invokeV.objValue;
+    }
+
+    public void a(Context context) {
+        Context applicationContext;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (applicationContext = context.getApplicationContext()) == null) {
+            return;
+        }
+        Application application = null;
+        com.kwad.sdk.core.d.a.a("LifecycleHolder", "init appContext: " + applicationContext);
+        if (!(applicationContext instanceof Application)) {
+            Field[] declaredFields = applicationContext.getClass().getDeclaredFields();
+            int length = declaredFields.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    break;
+                }
+                Field field = declaredFields[i2];
+                field.setAccessible(true);
+                try {
+                    obj = field.get(applicationContext);
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.d.a.b(th);
+                }
+                if (obj instanceof Application) {
+                    application = (Application) obj;
+                    break;
+                } else {
+                    continue;
+                    i2++;
+                }
+            }
+        } else {
+            application = (Application) applicationContext;
+        }
+        com.kwad.sdk.core.d.a.a("LifecycleHolder", "init application: " + application);
+        if (application != null) {
+            application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks(this) { // from class: com.kwad.sdk.utils.t.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ t f36594a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
                     }
-                    sb.append(Integer.toHexString(i3));
+                    this.f36594a = this;
                 }
-                return sb.toString();
-            } catch (Exception unused) {
-                return "";
-            }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityDestroyed(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityPaused(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f36594a.f36593b == null || this.f36594a.f36593b.get() == null || !((Activity) this.f36594a.f36593b.get()).equals(activity)) {
+                        return;
+                    }
+                    this.f36594a.f36593b = null;
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityResumed(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
+                        if (!this.f36594a.b()) {
+                            this.f36594a.d();
+                        }
+                        this.f36594a.f36593b = new WeakReference(activity);
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStarted(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStopped(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
+                    }
+                }
+            });
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String a(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) {
-            if (bArr != null) {
-                if (i2 < 0 || i2 + i3 > bArr.length) {
-                    throw new IndexOutOfBoundsException();
-                }
-                int i4 = i3 * 2;
-                char[] cArr = new char[i4];
-                int i5 = 0;
-                for (int i6 = 0; i6 < i3; i6++) {
-                    int i7 = bArr[i6 + i2] & 255;
-                    int i8 = i5 + 1;
-                    char[] cArr2 = f39411a;
-                    cArr[i5] = cArr2[i7 >> 4];
-                    i5 = i8 + 1;
-                    cArr[i8] = cArr2[i7 & 15];
-                }
-                return new String(cArr, 0, i4);
-            }
-            throw new NullPointerException("bytes is null");
-        }
-        return (String) invokeLII.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() != null : invokeV.booleanValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Nullable
+    public Activity c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-                messageDigest.update(str.getBytes());
-                byte[] digest = messageDigest.digest();
-                return a(digest, 0, digest.length);
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            WeakReference<Activity> weakReference = this.f36593b;
+            if (weakReference == null) {
+                return null;
             }
+            return weakReference.get();
         }
-        return (String) invokeL.objValue;
+        return (Activity) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            com.kwad.sdk.core.d.a.a("LifecycleHolder", "onAppBackToForeground");
+            setChanged();
+            notifyObservers("ACTION_APP_BACK_TO_FOREGROUND");
+        }
     }
 }

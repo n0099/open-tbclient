@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -71,7 +72,7 @@ public class Explode extends Visibility {
     public static float calculateMaxDistance(View view, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65540, null, view, i2, i3)) == null) ? calculateDistance(Math.max(i2, view.getWidth() - i2), Math.max(i3, view.getHeight() - i3)) : invokeLII.floatValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view, i2, i3)) == null) ? calculateDistance(Math.max(i2, view.getWidth() - i2), Math.max(i3, view.getHeight() - i3)) : invokeLII.floatValue;
     }
 
     private void calculateOut(View view, Rect rect, int[] iArr) {

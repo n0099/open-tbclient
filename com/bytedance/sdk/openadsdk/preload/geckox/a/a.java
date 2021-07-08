@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.a;
 import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.os.SystemClock;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,31 +24,31 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class C0363a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32007a;
+        public String f32117a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f32008b;
+        public String f32118b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f32009c;
+        public int f32119c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f32010d;
+        public long f32120d;
 
         /* renamed from: e  reason: collision with root package name */
-        public File f32011e;
+        public File f32121e;
 
         public C0363a(String str, String str2, int i2, long j, File file) {
             Interceptable interceptable = $ic;
@@ -64,11 +65,11 @@ public class a {
                     return;
                 }
             }
-            this.f32007a = str;
-            this.f32008b = str2;
-            this.f32009c = i2;
-            this.f32010d = j;
-            this.f32011e = file;
+            this.f32117a = str;
+            this.f32118b = str2;
+            this.f32119c = i2;
+            this.f32120d = j;
+            this.f32121e = file;
         }
     }
 
@@ -78,17 +79,17 @@ public class a {
             return;
         }
         for (C0363a c0363a : list) {
-            File file = c0363a.f32011e;
+            File file = c0363a.f32121e;
             long uptimeMillis = SystemClock.uptimeMillis();
             boolean a2 = d.a(file);
             long uptimeMillis2 = SystemClock.uptimeMillis();
             if (a2) {
                 if (aVar != null) {
-                    aVar.b(c0363a.f32008b);
+                    aVar.b(c0363a.f32118b);
                 }
-                b.a(context).a(c0363a.f32007a, c0363a.f32008b, c0363a.f32009c, 200, c0363a.f32010d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0363a.f32117a, c0363a.f32118b, c0363a.f32119c, 200, c0363a.f32120d, 0, null, uptimeMillis2 - uptimeMillis, 1);
             } else {
-                b.a(context).a(c0363a.f32007a, c0363a.f32008b, c0363a.f32009c, 201, c0363a.f32010d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                b.a(context).a(c0363a.f32117a, c0363a.f32118b, c0363a.f32119c, 201, c0363a.f32120d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
             }
         }
     }
@@ -112,13 +113,13 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f32004a;
+            public final /* synthetic */ Context f32114a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ List f32005b;
+            public final /* synthetic */ List f32115b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32006c;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32116c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -135,9 +136,9 @@ public class a {
                         return;
                     }
                 }
-                this.f32004a = context;
-                this.f32005b = list;
-                this.f32006c = aVar;
+                this.f32114a = context;
+                this.f32115b = list;
+                this.f32116c = aVar;
             }
 
             @Override // java.lang.Runnable
@@ -145,7 +146,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        a.b(this.f32004a, this.f32005b, this.f32006c);
+                        a.b(this.f32114a, this.f32115b, this.f32116c);
                     } catch (Exception e3) {
                         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("clean-channel", "", e3);
                     }
@@ -180,17 +181,17 @@ public class a {
                 Map.Entry<String, ComponentModel.b> next = it6.next();
                 String key = next.getKey();
                 File file6 = new File(file, key);
-                if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f32134a) != null && !list.isEmpty()) {
-                    List<ComponentModel.a> list3 = value.f32134a;
+                if (file6.isDirectory() && (value = next.getValue()) != null && (list = value.f32244a) != null && !list.isEmpty()) {
+                    List<ComponentModel.a> list3 = value.f32244a;
                     HashSet hashSet = new HashSet();
                     Iterator<ComponentModel.a> it7 = list3.iterator();
                     while (it7.hasNext()) {
                         ComponentModel.a next2 = it7.next();
-                        String str3 = next2.f32131a;
+                        String str3 = next2.f32241a;
                         if (!hashSet.contains(str3)) {
                             hashSet.add(str3);
-                            int i2 = next2.f32132b;
-                            List<Long> list4 = next2.f32133c;
+                            int i2 = next2.f32242b;
+                            List<Long> list4 = next2.f32243c;
                             File file7 = new File(file6, str3);
                             String str4 = "";
                             String str5 = "--pending-delete";
@@ -281,10 +282,10 @@ public class a {
 
     public static void a(com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65540, null, bVar) == null) && bVar.c()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar) == null) && bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f32143common = common2;
+            statisticModel.f32253common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (statisticModel.packages.isEmpty()) {
                 return;
@@ -307,13 +308,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, bVar, str, str2) == null) {
             com.bytedance.sdk.openadsdk.preload.geckox.i.c a2 = bVar.h().a(str, str2);
-            if (a2.f32119c == 200) {
-                if (new JSONObject(a2.f32118b).getInt("status") != 0) {
+            if (a2.f32229c == 200) {
+                if (new JSONObject(a2.f32228b).getInt("status") != 0) {
                     throw new RuntimeException("upload failed");
                 }
                 return;
             }
-            throw new NetworkErrorException("net work get failed, code: " + a2.f32119c + ", url:" + str);
+            throw new NetworkErrorException("net work get failed, code: " + a2.f32229c + ", url:" + str);
         }
     }
 }

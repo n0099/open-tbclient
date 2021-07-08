@@ -1,467 +1,150 @@
 package d.a.b0.a;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.util.io.PathUtils;
-import com.baidu.cyberplayer.sdk.CyberLog;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.SDKVersion;
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.media.duplayer.LibsInfoDef;
-import com.baidu.media.duplayer.Utils;
-import com.baidu.media.duplayer.d;
-import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
-import com.baidu.media.ext.CyberMediaExtLoader;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.GlobalConstants;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Map;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
-/* loaded from: classes8.dex */
-public class c {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile int f43805a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f43806b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43807c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f43808d;
+/* loaded from: classes6.dex */
+public final class c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_content_inset_material = 2131165244;
+    public static final int abc_action_bar_content_inset_with_nav = 2131165245;
+    public static final int abc_action_bar_default_height_material = 2131165246;
+    public static final int abc_action_bar_default_padding_end_material = 2131165247;
+    public static final int abc_action_bar_default_padding_start_material = 2131165248;
+    public static final int abc_action_bar_elevation_material = 2131165249;
+    public static final int abc_action_bar_icon_vertical_padding_material = 2131165250;
+    public static final int abc_action_bar_overflow_padding_end_material = 2131165251;
+    public static final int abc_action_bar_overflow_padding_start_material = 2131165252;
+    public static final int abc_action_bar_stacked_max_height = 2131165253;
+    public static final int abc_action_bar_stacked_tab_max_width = 2131165254;
+    public static final int abc_action_bar_subtitle_bottom_margin_material = 2131165255;
+    public static final int abc_action_bar_subtitle_top_margin_material = 2131165256;
+    public static final int abc_action_button_min_height_material = 2131165257;
+    public static final int abc_action_button_min_width_material = 2131165258;
+    public static final int abc_action_button_min_width_overflow_material = 2131165259;
+    public static final int abc_alert_dialog_button_bar_height = 2131165260;
+    public static final int abc_alert_dialog_button_dimen = 2131165261;
+    public static final int abc_button_inset_horizontal_material = 2131165262;
+    public static final int abc_button_inset_vertical_material = 2131165263;
+    public static final int abc_button_padding_horizontal_material = 2131165264;
+    public static final int abc_button_padding_vertical_material = 2131165265;
+    public static final int abc_cascading_menus_min_smallest_width = 2131165266;
+    public static final int abc_config_prefDialogWidth = 2131165267;
+    public static final int abc_control_corner_material = 2131165268;
+    public static final int abc_control_inset_material = 2131165269;
+    public static final int abc_control_padding_material = 2131165270;
+    public static final int abc_dialog_corner_radius_material = 2131165271;
+    public static final int abc_dialog_fixed_height_major = 2131165272;
+    public static final int abc_dialog_fixed_height_minor = 2131165273;
+    public static final int abc_dialog_fixed_width_major = 2131165274;
+    public static final int abc_dialog_fixed_width_minor = 2131165275;
+    public static final int abc_dialog_list_padding_bottom_no_buttons = 2131165276;
+    public static final int abc_dialog_list_padding_top_no_title = 2131165277;
+    public static final int abc_dialog_min_width_major = 2131165278;
+    public static final int abc_dialog_min_width_minor = 2131165279;
+    public static final int abc_dialog_padding_material = 2131165280;
+    public static final int abc_dialog_padding_top_material = 2131165281;
+    public static final int abc_dialog_title_divider_material = 2131165282;
+    public static final int abc_disabled_alpha_material_dark = 2131165283;
+    public static final int abc_disabled_alpha_material_light = 2131165284;
+    public static final int abc_dropdownitem_icon_width = 2131165285;
+    public static final int abc_dropdownitem_text_padding_left = 2131165286;
+    public static final int abc_dropdownitem_text_padding_right = 2131165287;
+    public static final int abc_edit_text_inset_bottom_material = 2131165288;
+    public static final int abc_edit_text_inset_horizontal_material = 2131165289;
+    public static final int abc_edit_text_inset_top_material = 2131165290;
+    public static final int abc_floating_window_z = 2131165291;
+    public static final int abc_list_item_height_large_material = 2131165292;
+    public static final int abc_list_item_height_material = 2131165293;
+    public static final int abc_list_item_height_small_material = 2131165294;
+    public static final int abc_list_item_padding_horizontal_material = 2131165295;
+    public static final int abc_panel_menu_list_width = 2131165296;
+    public static final int abc_progress_bar_height_material = 2131165297;
+    public static final int abc_search_view_preferred_height = 2131165298;
+    public static final int abc_search_view_preferred_width = 2131165299;
+    public static final int abc_seekbar_track_background_height_material = 2131165300;
+    public static final int abc_seekbar_track_progress_height_material = 2131165301;
+    public static final int abc_select_dialog_padding_start_material = 2131165302;
+    public static final int abc_switch_padding = 2131165303;
+    public static final int abc_text_size_body_1_material = 2131165304;
+    public static final int abc_text_size_body_2_material = 2131165305;
+    public static final int abc_text_size_button_material = 2131165306;
+    public static final int abc_text_size_caption_material = 2131165307;
+    public static final int abc_text_size_display_1_material = 2131165308;
+    public static final int abc_text_size_display_2_material = 2131165309;
+    public static final int abc_text_size_display_3_material = 2131165310;
+    public static final int abc_text_size_display_4_material = 2131165311;
+    public static final int abc_text_size_headline_material = 2131165312;
+    public static final int abc_text_size_large_material = 2131165313;
+    public static final int abc_text_size_medium_material = 2131165314;
+    public static final int abc_text_size_menu_header_material = 2131165315;
+    public static final int abc_text_size_menu_material = 2131165316;
+    public static final int abc_text_size_small_material = 2131165317;
+    public static final int abc_text_size_subhead_material = 2131165318;
+    public static final int abc_text_size_subtitle_material_toolbar = 2131165319;
+    public static final int abc_text_size_title_material = 2131165320;
+    public static final int abc_text_size_title_material_toolbar = 2131165321;
+    public static final int compat_button_inset_horizontal_material = 2131165622;
+    public static final int compat_button_inset_vertical_material = 2131165623;
+    public static final int compat_button_padding_horizontal_material = 2131165624;
+    public static final int compat_button_padding_vertical_material = 2131165625;
+    public static final int compat_control_corner_material = 2131165626;
+    public static final int compat_notification_large_icon_max_height = 2131165627;
+    public static final int compat_notification_large_icon_max_width = 2131165628;
+    public static final int disabled_alpha_material_dark = 2131165707;
+    public static final int disabled_alpha_material_light = 2131165708;
+    public static final int highlight_alpha_material_colored = 2131166049;
+    public static final int highlight_alpha_material_dark = 2131166050;
+    public static final int highlight_alpha_material_light = 2131166051;
+    public static final int hint_alpha_material_dark = 2131166052;
+    public static final int hint_alpha_material_light = 2131166053;
+    public static final int hint_pressed_alpha_material_dark = 2131166054;
+    public static final int hint_pressed_alpha_material_light = 2131166055;
+    public static final int notification_action_icon_size = 2131166348;
+    public static final int notification_action_text_size = 2131166349;
+    public static final int notification_big_circle_margin = 2131166351;
+    public static final int notification_content_margin_start = 2131166352;
+    public static final int notification_large_icon_height = 2131166353;
+    public static final int notification_large_icon_width = 2131166354;
+    public static final int notification_main_column_padding_top = 2131166355;
+    public static final int notification_media_narrow_margin = 2131166356;
+    public static final int notification_right_icon_size = 2131166357;
+    public static final int notification_right_side_padding_top = 2131166358;
+    public static final int notification_small_icon_background_padding = 2131166359;
+    public static final int notification_small_icon_size_as_large = 2131166360;
+    public static final int notification_subtext_size = 2131166361;
+    public static final int notification_top_pad = 2131166362;
+    public static final int notification_top_pad_large_text = 2131166363;
+    public static final int pass_bio_standard_margin = 2131166365;
+    public static final int pass_bio_standard_padding = 2131166382;
+    public static final int pass_liveness_face_loading_progress_size = 2131166383;
+    public static final int pass_liveness_face_round_height = 2131166384;
+    public static final int pass_liveness_face_round_width = 2131166385;
+    public static final int sapi_sdk_activity_horizontal_margin = 2131166597;
+    public static final int sapi_sdk_activity_vertical_margin = 2131166598;
+    public static final int sapi_sdk_finger_print_btn_left_margin = 2131166616;
+    public static final int sapi_sdk_finger_print_btn_margin = 2131166617;
+    public static final int sapi_sdk_finger_print_btn_right_margin = 2131166618;
+    public static final int sapi_sdk_half_padding = 2131166619;
+    public static final int sapi_sdk_sms_check_code_height = 2131166620;
+    public static final int sapi_sdk_standard_margin = 2131166621;
+    public static final int sapi_sdk_standard_padding = 2131166622;
+    public static final int sapi_sdk_text_size = 2131166624;
+    public static final int sapi_sdk_title_bottom_back_height = 2131166625;
+    public static final int sapi_sdk_title_division_line_height = 2131166626;
+    public static final int sapi_sdk_title_left_btn_text_size = 2131166627;
+    public static final int sapi_sdk_title_padding_left = 2131166628;
+    public static final int sapi_sdk_title_padding_right = 2131166630;
+    public static final int sapi_sdk_title_right_btn_text_size = 2131166631;
+    public static final int sapi_sdk_title_text_size = 2131166633;
+    public static final int sapi_sdk_webview_radius = 2131166634;
+    public static final int sapi_sdk_youth_style_webview_radius = 2131166635;
+    public static final int tooltip_corner_radius = 2131167403;
+    public static final int tooltip_horizontal_padding = 2131167404;
+    public static final int tooltip_margin = 2131167405;
+    public static final int tooltip_precise_anchor_extra_offset = 2131167406;
+    public static final int tooltip_precise_anchor_threshold = 2131167407;
+    public static final int tooltip_vertical_padding = 2131167408;
+    public static final int tooltip_y_offset_non_touch = 2131167409;
+    public static final int tooltip_y_offset_touch = 2131167410;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.d();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(547516066, "Ld/a/b0/a/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(547516066, "Ld/a/b0/a/c;");
-        }
-    }
-
-    public static void a(int i2, Map<String, String> map) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i2, map) == null) {
-            int j = e.b().j(i2);
-            if ((f43805a & j) == j) {
-                return;
-            }
-            do {
-                i3 = (f43805a ^ j) & j;
-                if (i3 <= 0) {
-                    break;
-                }
-            } while (l(1 << Integer.numberOfTrailingZeros(i3), map));
-            e.b().s();
-        }
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            f43807c = str;
-            f43808d = Utils.t(context);
-            e.b().f(context, str);
-        }
-    }
-
-    public static void c(Context context, Map<String, String> map) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, map) == null) {
-            CyberLog.d("CyberLibsLoader", "initCyberPlayer");
-            IjkMediaPlayer.e();
-            IjkMediaPlayer.f();
-            String str3 = map != null ? map.get("cache-path") : null;
-            CyberTaskExcutor.getInstance().execute(new a());
-            if (str3 == null) {
-                str = Utils.b(context) + File.separator + PathUtils.DIRCTORY_BAIDU + File.separator + "flyflow" + File.separator + Utils.f8069c + File.separator + context.getPackageName() + File.separator;
-            } else {
-                str = str3 + File.separator + Utils.f8069c + File.separator;
-            }
-            if (f43808d) {
-                str = str + "remote" + File.separator;
-            }
-            Utils.f(str);
-            int i2 = 5;
-            if (map != null && (str2 = map.get(CyberPlayerManager.INSTALL_OPT_PIPELINE_NUM)) != null) {
-                try {
-                    i2 = Integer.parseInt(str2);
-                } catch (Exception unused) {
-                }
-            }
-            Utils.c(i2);
-            Utils.q();
-            m();
-            n();
-        }
-    }
-
-    public static boolean d(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65540, null, i2)) == null) {
-            int j = e.b().j(i2);
-            return (f43805a & j) == j;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean e(int i2, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, str)) == null) {
-            if (f43808d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SR, true)) {
-                if (i2 != 512) {
-                    System.load(str);
-                } else {
-                    String str2 = f43807c + File.separator + "model_video-sr_1.2";
-                    String str3 = str2 + File.separator + "params.mlm";
-                    if (!new File(str2 + File.separator + "model.mlm").exists() || !new File(str3).exists()) {
-                        throw new FileNotFoundException("model_video-sr_1.2.zip");
-                    }
-                    CyberLog.d("CyberLibsLoader", "initVideoSR");
-                    Utils.g(str, str2);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            if (f43808d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_BSO, false)) {
-                Utils.m(str);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? e.b().o() : (String[]) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f43806b : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0049  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean i(int i2, Map<String, String> map) {
-        InterceptResult invokeIL;
-        String str;
-        int i3;
-        StringBuilder sb;
-        String error;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i2, map)) == null) {
-            if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_CRASHPAD, true)) {
-                String str3 = null;
-                String str4 = "-1";
-                if (map != null) {
-                    String str5 = map.get(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE);
-                    if (!TextUtils.isEmpty(str5)) {
-                        try {
-                            i3 = Integer.parseInt(str5);
-                        } catch (Exception unused) {
-                        }
-                        str = map.get("abtest_sid");
-                        str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
-                        if (!TextUtils.isEmpty(str2)) {
-                            str4 = str2;
-                        }
-                    }
-                    i3 = 3;
-                    str = map.get("abtest_sid");
-                    str2 = map.get(CyberPlayerManager.INSTALL_OPT_PROCESS_TYPE);
-                    if (!TextUtils.isEmpty(str2)) {
-                    }
-                } else {
-                    str = null;
-                    i3 = 3;
-                }
-                if (f43808d) {
-                    if ((i3 & 2) != 2) {
-                        return false;
-                    }
-                } else if ((i3 & 1) != 1) {
-                    return false;
-                }
-                if (b.e()) {
-                    if (i2 == 1) {
-                        return true;
-                    }
-                    try {
-                        try {
-                            File file = new File(e.b().a(1).j());
-                            File file2 = new File(e.b().a(2).j());
-                            String parent = file.getParent();
-                            String parent2 = file2.getParent();
-                            try {
-                                str3 = CyberPlayerManager.getApplicationContext().getExternalFilesDir("").getAbsolutePath();
-                            } catch (Exception unused2) {
-                            }
-                            if (f43808d) {
-                                str4 = "4";
-                            }
-                            if (!file2.canExecute()) {
-                                file2.setExecutable(true);
-                                CyberLog.d("CyberLibsLoader", "set " + file2.getAbsolutePath() + " executable");
-                            }
-                            String[] strArr = {SDKVersion.VERSION, "neon", CyberPlayerManager.getClientID(), "unKnown", "0", "0", str4, "true", str3, GlobalConstants.DEFAULT_VERSION, parent, parent2, ""};
-                            b.d(true);
-                            b.a(CyberPlayerManager.getApplicationContext(), strArr);
-                            b.b("{searchbox_sid=" + str + "}");
-                            return true;
-                        } catch (Exception e2) {
-                            sb = new StringBuilder();
-                            sb.append("initCrashPad Exception:");
-                            error = e2.toString();
-                            sb.append(error);
-                            CyberLog.e("CyberLibsLoader", sb.toString());
-                            return false;
-                        }
-                    } catch (Error e3) {
-                        sb = new StringBuilder();
-                        sb.append("initCrashPad Error:");
-                        error = e3.toString();
-                        sb.append(error);
-                        CyberLog.e("CyberLibsLoader", sb.toString());
-                        return false;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f43808d && CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DMO, false)) {
-                Utils.o(str);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f43807c : (String) invokeV.objValue;
-    }
-
-    public static boolean l(int i2, Map<String, String> map) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i2, map)) == null) {
-            com.baidu.media.duplayer.d a2 = e.b().a(i2);
-            boolean z = false;
-            if (a2 == null) {
-                CyberLog.e("CyberLibsLoader", "Unable to find (" + i2 + ") LibInfo");
-                return false;
-            }
-            String a3 = a2.a();
-            String d2 = a2.d();
-            String j = a2.j();
-            File file = new File(j);
-            if (a2.l() == d.a.f8083a) {
-                if (!"apk_internal_jar".equals(j)) {
-                    if (file.exists()) {
-                        if (e.b().C(i2)) {
-                            z = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
-                        }
-                    } else if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_RTC, false)) {
-                        throw new FileNotFoundException(e.b().q(i2));
-                    } else {
-                        CyberLog.e("CyberLibsLoader", "not exist: " + a3);
-                    }
-                }
-                z = true;
-            } else {
-                if (a2.l() == d.a.f8084b) {
-                    if (!file.exists() && !a2.p()) {
-                        if (i2 == 8) {
-                            i2 = 16;
-                        }
-                        throw new FileNotFoundException(e.b().q(i2));
-                    } else if (e.b().u(i2)) {
-                        System.load(j);
-                        if (i2 == 16) {
-                            c(CyberPlayerManager.getApplicationContext(), map);
-                        }
-                    } else if (e.b().w(i2)) {
-                        IjkMediaPlayer.nativeSetEnableFFmpegExtend(j);
-                    } else if (e.b().y(i2)) {
-                        f43806b = j;
-                    } else if (e.b().E(i2)) {
-                        z = i(i2, map);
-                    } else if (e.b().A(i2)) {
-                        z = e(i2, j);
-                    } else if (e.b().F(i2)) {
-                        z = i2 == 4096 ? f(j) : true;
-                        if (i2 == 8192) {
-                            z = j(j);
-                        }
-                    }
-                }
-                z = true;
-            }
-            f43805a = i2 | f43805a;
-            if (z) {
-                CyberLog.d("CyberLibsLoader", "isMediaProcess:" + f43808d + " abi:" + e.b().p() + " lib:" + a3 + " ver:" + d2 + " path:" + j + " load success");
-            }
-            return true;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0081 A[Catch: Exception -> 0x0086, TRY_LEAVE, TryCatch #0 {Exception -> 0x0086, blocks: (B:7:0x0012, B:9:0x0065, B:11:0x0069, B:19:0x0081, B:13:0x006f, B:15:0x007a), top: B:25:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65549, null) != null) {
-            return;
-        }
-        boolean z = true;
-        if (!CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MONITOR, true)) {
-            return;
-        }
-        try {
-            String str = f43807c + File.separator + "config";
-            String str2 = str + File.separator + LibsInfoDef.CYBER_CODEC_MONITOR_NAME + "_" + CyberCfgManager.getInstance().getCfgValue("monitor_version", LibsInfoDef.CYBER_CODEC_MONITOR_VERSION) + ".json";
-            File file = new File(str);
-            if (file.exists()) {
-                if (!new File(str2).exists() && !f43808d) {
-                    z = false;
-                }
-                if (z) {
-                }
-            } else {
-                if (f43808d) {
-                    file.mkdirs();
-                    if (z) {
-                        Utils.h(str2, f43808d);
-                        return;
-                    }
-                    return;
-                }
-                z = false;
-                if (z) {
-                }
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0077 A[Catch: Exception -> 0x0080, TRY_LEAVE, TryCatch #0 {Exception -> 0x0080, blocks: (B:7:0x0012, B:9:0x005b, B:11:0x005f, B:19:0x0077, B:13:0x0065, B:15:0x0070), top: B:25:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(65550, null) != null) {
-            return;
-        }
-        boolean z = true;
-        if (!CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAY_SCORE_MONITOR, true)) {
-            return;
-        }
-        try {
-            String str = f43807c + File.separator + "config";
-            String str2 = str + File.separator + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_NAME + "_" + LibsInfoDef.CYBER_PLAY_SCORE_STORAGE_VERSION + ".json";
-            File file = new File(str);
-            if (file.exists()) {
-                if (!new File(str2).exists() && !f43808d) {
-                    z = false;
-                }
-                if (z) {
-                }
-            } else {
-                if (f43808d) {
-                    file.mkdirs();
-                    if (z) {
-                        DuplayerQualityMonitorManager.getInstance().init(str2, f43808d);
-                        return;
-                    }
-                    return;
-                }
-                z = false;
-                if (z) {
-                }
-            }
-        } catch (Exception unused) {
-        }
-    }
 }

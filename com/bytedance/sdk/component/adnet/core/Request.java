@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class Request<T> implements Comparable<Request<T>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int METHOD_DELETE = 3;
@@ -45,31 +45,31 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @GuardedBy("mLock")
 
     /* renamed from: a  reason: collision with root package name */
-    public m.a<T> f27836a;
+    public m.a<T> f27946a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f27837b;
+    public Handler f27947b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final o.a f27838c;
+    public final o.a f27948c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f27839d;
+    public final int f27949d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27840e;
+    public String f27950e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27841f;
+    public String f27951f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f27842g;
+    public final int f27952g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f27843h;
+    public final Object f27953h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Integer f27844i;
+    public Integer f27954i;
     public l j;
     public boolean k;
     @GuardedBy("mLock")
@@ -88,7 +88,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     @GuardedBy("mLock")
     public a w;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Request<?> request);
 
@@ -96,24 +96,24 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f27848a;
+        public static final b f27958a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f27849b;
+        public static final b f27959b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f27850c;
+        public static final b f27960c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f27851d;
+        public static final b f27961d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f27852e;
+        public static final /* synthetic */ b[] f27962e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -129,12 +129,12 @@ public abstract class Request<T> implements Comparable<Request<T>> {
                     return;
                 }
             }
-            f27848a = new b("LOW", 0);
-            f27849b = new b("NORMAL", 1);
-            f27850c = new b("HIGH", 2);
+            f27958a = new b("LOW", 0);
+            f27959b = new b("NORMAL", 1);
+            f27960c = new b("HIGH", 2);
             b bVar = new b("IMMEDIATE", 3);
-            f27851d = bVar;
-            f27852e = new b[]{f27848a, f27849b, f27850c, bVar};
+            f27961d = bVar;
+            f27962e = new b[]{f27958a, f27959b, f27960c, bVar};
         }
 
         public b(String str, int i2) {
@@ -165,7 +165,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f27852e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f27962e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -196,7 +196,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         String host;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65540, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 if (TextUtils.isEmpty(str) || (parse = Uri.parse(str)) == null || (host = parse.getHost()) == null) {
                     return 0;
@@ -242,8 +242,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
 
     public void addMarker(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && o.a.f27931a) {
-            this.f27838c.a(str, Thread.currentThread().getId());
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && o.a.f28041a) {
+            this.f27948c.a(str, Thread.currentThread().getId());
         }
     }
 
@@ -268,9 +268,9 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 this.l = true;
-                this.f27836a = null;
+                this.f27946a = null;
             }
         }
     }
@@ -290,8 +290,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         m.a<T> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, mVar) == null) {
-            synchronized (this.f27843h) {
-                aVar = this.f27836a;
+            synchronized (this.f27953h) {
+                aVar = this.f27946a;
             }
             if (aVar != null) {
                 aVar.b(mVar);
@@ -303,7 +303,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 aVar = this.w;
             }
             if (aVar != null) {
@@ -318,8 +318,8 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         m.a<T> aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            synchronized (this.f27843h) {
-                aVar = this.f27836a;
+            synchronized (this.f27953h) {
+                aVar = this.f27946a;
             }
             return aVar;
         }
@@ -389,7 +389,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public int getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f27839d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f27949d : invokeV.intValue;
     }
 
     public long getNetDuration() {
@@ -415,7 +415,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public b getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? b.f27849b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? b.f27959b : (b) invokeV.objValue;
     }
 
     public final l getRequestQueue() {
@@ -434,7 +434,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            Integer num = this.f27844i;
+            Integer num = this.f27954i;
             if (num != null) {
                 return num.intValue();
             }
@@ -464,19 +464,19 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public int getTrafficStatsTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f27842g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f27952g : invokeV.intValue;
     }
 
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f27840e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f27950e : (String) invokeV.objValue;
     }
 
     public String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f27841f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f27951f : (String) invokeV.objValue;
     }
 
     public boolean hasHadResponseDelivered() {
@@ -484,7 +484,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 z = this.m;
             }
             return z;
@@ -497,7 +497,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 z = this.l;
             }
             return z;
@@ -514,7 +514,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void markDelivered() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 this.m = true;
             }
         }
@@ -588,7 +588,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
-            this.f27844i = Integer.valueOf(i2);
+            this.f27954i = Integer.valueOf(i2);
             return this;
         }
         return (Request) invokeI.objValue;
@@ -640,7 +640,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, str) == null) {
-            this.f27840e = str;
+            this.f27950e = str;
         }
     }
 
@@ -650,7 +650,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
-            this.f27841f = str;
+            this.f27951f = str;
             return this;
         }
         return (Request) invokeL.objValue;
@@ -681,7 +681,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
             sb.append(" ");
             sb.append(getPriority());
             sb.append(" ");
-            sb.append(this.f27844i);
+            sb.append(this.f27954i);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -702,9 +702,9 @@ public abstract class Request<T> implements Comparable<Request<T>> {
                 return;
             }
         }
-        this.f27838c = o.a.f27931a ? new o.a() : null;
-        this.f27841f = "VADNetAgent/0";
-        this.f27843h = new Object();
+        this.f27948c = o.a.f28041a ? new o.a() : null;
+        this.f27951f = "VADNetAgent/0";
+        this.f27953h = new Object();
         this.k = true;
         this.l = false;
         this.m = false;
@@ -713,12 +713,12 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         this.r = 0L;
         this.s = 0L;
         this.t = true;
-        this.f27837b = new Handler(Looper.getMainLooper());
-        this.f27839d = i2;
-        this.f27840e = str;
-        this.f27836a = aVar;
+        this.f27947b = new Handler(Looper.getMainLooper());
+        this.f27949d = i2;
+        this.f27950e = str;
+        this.f27946a = aVar;
         setRetryPolicy(new e());
-        this.f27842g = b(str);
+        this.f27952g = b(str);
     }
 
     public void a(String str) {
@@ -728,21 +728,21 @@ public abstract class Request<T> implements Comparable<Request<T>> {
             if (lVar != null) {
                 lVar.c(this);
             }
-            if (o.a.f27931a) {
+            if (o.a.f28041a) {
                 long id = Thread.currentThread().getId();
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    this.f27837b.post(new Runnable(this, str, id) { // from class: com.bytedance.sdk.component.adnet.core.Request.1
+                    this.f27947b.post(new Runnable(this, str, id) { // from class: com.bytedance.sdk.component.adnet.core.Request.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ String f27845a;
+                        public final /* synthetic */ String f27955a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ long f27846b;
+                        public final /* synthetic */ long f27956b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Request f27847c;
+                        public final /* synthetic */ Request f27957c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -759,24 +759,24 @@ public abstract class Request<T> implements Comparable<Request<T>> {
                                     return;
                                 }
                             }
-                            this.f27847c = this;
-                            this.f27845a = str;
-                            this.f27846b = id;
+                            this.f27957c = this;
+                            this.f27955a = str;
+                            this.f27956b = id;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f27847c.f27838c.a(this.f27845a, this.f27846b);
-                                this.f27847c.f27838c.a(this.f27847c.toString());
+                                this.f27957c.f27948c.a(this.f27955a, this.f27956b);
+                                this.f27957c.f27948c.a(this.f27957c.toString());
                             }
                         }
                     });
                     return;
                 }
-                this.f27838c.a(str, id);
-                this.f27838c.a(toString());
+                this.f27948c.a(str, id);
+                this.f27948c.a(toString());
             }
         }
     }
@@ -787,7 +787,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, request)) == null) {
             b priority = getPriority();
             b priority2 = request.getPriority();
-            return priority == priority2 ? this.f27844i.intValue() - request.f27844i.intValue() : priority2.ordinal() - priority.ordinal();
+            return priority == priority2 ? this.f27954i.intValue() - request.f27954i.intValue() : priority2.ordinal() - priority.ordinal();
         }
         return invokeL.intValue;
     }
@@ -803,7 +803,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, mVar) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 aVar = this.w;
             }
             if (aVar != null) {
@@ -837,7 +837,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     if (entry.getKey() != null && entry.getValue() != null) {
                         sb.append(URLEncoder.encode(entry.getKey(), str));
-                        sb.append(com.alipay.sdk.encrypt.a.f1889h);
+                        sb.append(com.alipay.sdk.encrypt.a.f1890h);
                         sb.append(URLEncoder.encode(entry.getValue(), str));
                         sb.append(Typography.amp);
                     } else {
@@ -855,7 +855,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            synchronized (this.f27843h) {
+            synchronized (this.f27953h) {
                 this.w = aVar;
             }
         }

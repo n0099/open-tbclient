@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.imageloader.utils;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_FORMAT = "%1$s\n%2$s";
@@ -64,7 +65,7 @@ public final class L {
 
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65540, null, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr) == null) {
             log(6, null, str, objArr);
         }
     }

@@ -259,7 +259,7 @@ public class AppCompatTextViewAutoSizeHelper {
 
     private void clearAutoSizeConfiguration() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mAutoSizeTextType = 0;
             this.mAutoSizeMinTextSizeInPx = -1.0f;
             this.mAutoSizeMaxTextSizeInPx = -1.0f;

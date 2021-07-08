@@ -13,13 +13,13 @@ import com.baidu.wallet.paysdk.datamodel.VerifyCodeResponseForNoPwd;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ai extends PayBaseBean<VerifyCodeResponseForNoPwd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.datamodel.e f25861a;
+    public com.baidu.wallet.paysdk.datamodel.e f25971a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(Context context) {
@@ -39,7 +39,7 @@ public class ai extends PayBaseBean<VerifyCodeResponseForNoPwd> {
                 return;
             }
         }
-        this.f25861a = (com.baidu.wallet.paysdk.datamodel.e) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE_FOR_NO_PWD);
+        this.f25971a = (com.baidu.wallet.paysdk.datamodel.e) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_VERIFY_CODE_FOR_NO_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean

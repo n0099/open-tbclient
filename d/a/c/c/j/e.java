@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import d.a.c.e.p.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f43978a;
+    public int[] f40994a;
 
     public e(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public class e {
                 return;
             }
         }
-        this.f43978a = null;
-        this.f43978a = r0;
+        this.f40994a = null;
+        this.f40994a = r0;
         int[] iArr = {i2, i3, i4};
     }
 
@@ -39,7 +39,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.f43978a;
+            int[] iArr = this.f40994a;
             if (iArr == null || iArr.length != 1) {
                 return 0;
             }
@@ -52,7 +52,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.f43978a;
+            int[] iArr = this.f40994a;
             if (iArr == null || iArr.length != 3) {
                 return 0;
             }
@@ -60,13 +60,13 @@ public class e {
             if (I != 1) {
                 if (I != 2) {
                     if (I != 3) {
-                        return this.f43978a[2];
+                        return this.f40994a[2];
                     }
-                    return this.f43978a[1];
+                    return this.f40994a[1];
                 }
-                return this.f43978a[0];
+                return this.f40994a[0];
             }
-            return this.f43978a[2];
+            return this.f40994a[2];
         }
         return invokeV.intValue;
     }

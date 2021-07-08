@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -118,7 +119,7 @@ public final class SoLoader implements NoProGuard {
         FileChannel fileChannel;
         FileChannel fileChannel2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65540, this, context, zipFile, str, str2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, zipFile, str, str2)) == null) {
             if (zipFile == null) {
                 return false;
             }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CouponList implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3899635839202556799L;
@@ -15,7 +15,7 @@ public class CouponList implements NoProguard, Serializable {
     public String expire_message;
     public String label;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Coupon implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CRAD_TYPE_BFB = 1;
@@ -57,13 +57,13 @@ public class CouponList implements NoProguard, Serializable {
         public String use_limit;
         public String use_limit_v2;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static class AppSceneService implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: android  reason: collision with root package name */
-            public int f26979android;
+            public int f27089android;
             public String url;
 
             public AppSceneService() {

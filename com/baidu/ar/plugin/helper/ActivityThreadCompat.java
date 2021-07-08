@@ -3,6 +3,7 @@ package com.baidu.ar.plugin.helper;
 import android.app.Instrumentation;
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.plugin.reflect.MethodUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -64,7 +65,7 @@ public class ActivityThreadCompat {
         InterceptResult invokeV;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (ActivityThreadCompat.class) {
                 if (sActivityThread == null) {
                     Object invokeStaticMethod = MethodUtils.invokeStaticMethod(activityThreadClass(), "currentActivityThread", new Object[0]);

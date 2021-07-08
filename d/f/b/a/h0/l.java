@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public class l implements HttpDataSource {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern q;
@@ -39,31 +39,31 @@ public class l implements HttpDataSource {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f73320a;
+    public final boolean f70423a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f73321b;
+    public final int f70424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f73322c;
+    public final int f70425c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f73323d;
+    public final String f70426d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.f.b.a.i0.n<String> f73324e;
+    public final d.f.b.a.i0.n<String> f70427e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpDataSource.b f73325f;
+    public final HttpDataSource.b f70428f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpDataSource.b f73326g;
+    public final HttpDataSource.b f70429g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final p<? super l> f73327h;
+    public final p<? super l> f70430h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f73328i;
+    public g f70431i;
     public HttpURLConnection j;
     public InputStream k;
     public boolean l;
@@ -105,14 +105,14 @@ public class l implements HttpDataSource {
             }
         }
         d.f.b.a.i0.a.d(str);
-        this.f73323d = str;
-        this.f73324e = nVar;
-        this.f73327h = pVar;
-        this.f73326g = new HttpDataSource.b();
-        this.f73321b = i2;
-        this.f73322c = i3;
-        this.f73320a = z;
-        this.f73325f = bVar;
+        this.f70426d = str;
+        this.f70427e = nVar;
+        this.f70430h = pVar;
+        this.f70429g = new HttpDataSource.b();
+        this.f70424b = i2;
+        this.f70425c = i3;
+        this.f70423a = z;
+        this.f70428f = bVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x003e  */
@@ -183,8 +183,8 @@ public class l implements HttpDataSource {
 
     public static void h(HttpURLConnection httpURLConnection, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65540, null, httpURLConnection, j) == null) {
-            int i2 = v.f73412a;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, httpURLConnection, j) == null) {
+            int i2 = v.f70515a;
             if (i2 == 19 || i2 == 20) {
                 try {
                     InputStream inputStream = httpURLConnection.getInputStream();
@@ -212,7 +212,7 @@ public class l implements HttpDataSource {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            this.f73328i = gVar;
+            this.f70431i = gVar;
             long j = 0;
             this.p = 0L;
             this.o = 0L;
@@ -223,20 +223,20 @@ public class l implements HttpDataSource {
                     int responseCode = f2.getResponseCode();
                     if (responseCode >= 200 && responseCode <= 299) {
                         String contentType = this.j.getContentType();
-                        d.f.b.a.i0.n<String> nVar = this.f73324e;
+                        d.f.b.a.i0.n<String> nVar = this.f70427e;
                         if (nVar != null && !nVar.a(contentType)) {
                             c();
                             throw new HttpDataSource.InvalidContentTypeException(contentType, gVar);
                         }
                         if (responseCode == 200) {
-                            long j2 = gVar.f73283d;
+                            long j2 = gVar.f70386d;
                             if (j2 != 0) {
                                 j = j2;
                             }
                         }
                         this.m = j;
                         if (!gVar.a(1)) {
-                            long j3 = gVar.f73284e;
+                            long j3 = gVar.f70387e;
                             if (j3 != -1) {
                                 this.n = j3;
                             } else {
@@ -244,12 +244,12 @@ public class l implements HttpDataSource {
                                 this.n = d2 != -1 ? d2 - this.m : -1L;
                             }
                         } else {
-                            this.n = gVar.f73284e;
+                            this.n = gVar.f70387e;
                         }
                         try {
                             this.k = this.j.getInputStream();
                             this.l = true;
-                            p<? super l> pVar = this.f73327h;
+                            p<? super l> pVar = this.f70430h;
                             if (pVar != null) {
                                 pVar.d(this, gVar);
                             }
@@ -268,10 +268,10 @@ public class l implements HttpDataSource {
                     throw invalidResponseCodeException;
                 } catch (IOException e3) {
                     c();
-                    throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + gVar.f73280a.toString(), e3, gVar, 1);
+                    throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + gVar.f70383a.toString(), e3, gVar, 1);
                 }
             } catch (IOException e4) {
-                throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + gVar.f73280a.toString(), e4, gVar, 1);
+                throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + gVar.f70383a.toString(), e4, gVar, 1);
             }
         }
         return invokeL.longValue;
@@ -311,7 +311,7 @@ public class l implements HttpDataSource {
                     try {
                         this.k.close();
                     } catch (IOException e2) {
-                        throw new HttpDataSource.HttpDataSourceException(e2, this.f73328i, 3);
+                        throw new HttpDataSource.HttpDataSourceException(e2, this.f70431i, 3);
                     }
                 }
             } finally {
@@ -319,7 +319,7 @@ public class l implements HttpDataSource {
                 c();
                 if (this.l) {
                     this.l = false;
-                    p<? super l> pVar = this.f73327h;
+                    p<? super l> pVar = this.f70430h;
                     if (pVar != null) {
                         pVar.b(this);
                     }
@@ -333,12 +333,12 @@ public class l implements HttpDataSource {
         HttpURLConnection g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
-            URL url = new URL(gVar.f73280a.toString());
-            byte[] bArr = gVar.f73281b;
-            long j = gVar.f73283d;
-            long j2 = gVar.f73284e;
+            URL url = new URL(gVar.f70383a.toString());
+            byte[] bArr = gVar.f70384b;
+            long j = gVar.f70386d;
+            long j2 = gVar.f70387e;
             boolean a2 = gVar.a(1);
-            if (this.f73320a) {
+            if (this.f70423a) {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2 + 1;
@@ -370,15 +370,15 @@ public class l implements HttpDataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{url, bArr, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.setConnectTimeout(this.f73321b);
-            httpURLConnection.setReadTimeout(this.f73322c);
-            HttpDataSource.b bVar = this.f73325f;
+            httpURLConnection.setConnectTimeout(this.f70424b);
+            httpURLConnection.setReadTimeout(this.f70425c);
+            HttpDataSource.b bVar = this.f70428f;
             if (bVar != null) {
                 for (Map.Entry<String, String> entry : bVar.a().entrySet()) {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
             }
-            for (Map.Entry<String, String> entry2 : this.f73326g.a().entrySet()) {
+            for (Map.Entry<String, String> entry2 : this.f70429g.a().entrySet()) {
                 httpURLConnection.setRequestProperty(entry2.getKey(), entry2.getValue());
             }
             if (j != 0 || j2 != -1) {
@@ -388,7 +388,7 @@ public class l implements HttpDataSource {
                 }
                 httpURLConnection.setRequestProperty("Range", str);
             }
-            httpURLConnection.setRequestProperty("User-Agent", this.f73323d);
+            httpURLConnection.setRequestProperty("User-Agent", this.f70426d);
             if (!z) {
                 httpURLConnection.setRequestProperty("Accept-Encoding", "identity");
             }
@@ -450,7 +450,7 @@ public class l implements HttpDataSource {
                 throw new EOFException();
             }
             this.p += read;
-            p<? super l> pVar = this.f73327h;
+            p<? super l> pVar = this.f70430h;
             if (pVar != null) {
                 pVar.a(this, read);
             }
@@ -478,7 +478,7 @@ public class l implements HttpDataSource {
                 }
                 if (read != -1) {
                     this.o += read;
-                    p<? super l> pVar = this.f73327h;
+                    p<? super l> pVar = this.f70430h;
                     if (pVar != null) {
                         pVar.a(this, read);
                     }
@@ -501,7 +501,7 @@ public class l implements HttpDataSource {
                 j();
                 return i(bArr, i2, i3);
             } catch (IOException e2) {
-                throw new HttpDataSource.HttpDataSourceException(e2, this.f73328i, 2);
+                throw new HttpDataSource.HttpDataSourceException(e2, this.f70431i, 2);
             }
         }
         return invokeLII.intValue;

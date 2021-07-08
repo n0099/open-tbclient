@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +19,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,19 +38,19 @@ public class o {
         }
         if ((context instanceof Activity) && intent != null) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f43042a;
+            ecVar = ec.f40056a;
         } else if (!(context instanceof Service) || intent == null) {
             if (uri == null || TextUtils.isEmpty(uri.toString())) {
                 return;
             }
-            ea.a(context.getApplicationContext()).a(ec.f43045d, context, (Intent) null, uri.toString());
+            ea.a(context.getApplicationContext()).a(ec.f40059d, context, (Intent) null, uri.toString());
             return;
         } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f43044c;
+            ecVar = ec.f40058c;
         } else {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f43043b;
+            ecVar = ec.f40057b;
         }
         a2.a(ecVar, context, intent, (String) null);
     }
@@ -110,7 +111,7 @@ public class o {
 
     public static void a(Context context, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65540, null, context, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2, str2) == null) {
             ie ieVar = new ie();
             ieVar.b(str);
             ieVar.a(new HashMap());

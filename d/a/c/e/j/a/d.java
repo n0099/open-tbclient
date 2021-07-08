@@ -5,37 +5,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f44186a;
+    public long f41202a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f44187b;
+    public long f41203b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f44188c;
+    public long f41204c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f44189d;
+    public long f41205d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44190e;
+    public int f41206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f44191f;
+    public long f41207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f44192g;
+    public long f41208g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f44193h;
+    public String f41209h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44194i;
+    public int f41210i;
     public int j;
     public String k;
     public String l;
@@ -66,15 +66,15 @@ public class d {
                 return;
             }
         }
-        this.f44186a = -1L;
-        this.f44187b = -1L;
-        this.f44188c = -1L;
-        this.f44189d = -1L;
-        this.f44190e = 0;
-        this.f44191f = -1L;
-        this.f44192g = -1L;
-        this.f44193h = "";
-        this.f44194i = -1;
+        this.f41202a = -1L;
+        this.f41203b = -1L;
+        this.f41204c = -1L;
+        this.f41205d = -1L;
+        this.f41206e = 0;
+        this.f41207f = -1L;
+        this.f41208g = -1L;
+        this.f41209h = "";
+        this.f41210i = -1;
         this.j = 0;
         this.k = null;
         this.l = null;

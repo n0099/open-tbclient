@@ -22,15 +22,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Tables {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f33340a;
+    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f33450a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ImmutableCell<R, C, V> extends b<R, C, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -81,7 +81,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnmodifiableRowSortedMap<R, C, V> extends UnmodifiableTable<R, C, V> implements c1<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -132,7 +132,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class UnmodifiableTable<R, C, V> extends m0<R, C, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -260,7 +260,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements g<Map<Object, Object>, Map<Object, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -289,7 +289,7 @@ public final class Tables {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class b<R, C, V> implements k1.a<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +353,7 @@ public final class Tables {
                 return;
             }
         }
-        f33340a = new a();
+        f33450a = new a();
     }
 
     public static boolean b(k1<?, ?, ?> k1Var, Object obj) {
@@ -380,6 +380,6 @@ public final class Tables {
     public static <K, V> g<Map<K, V>, Map<K, V>> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65540, null)) == null) ? (g<Map<K, V>, Map<K, V>>) f33340a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (g<Map<K, V>, Map<K, V>>) f33450a : (g) invokeV.objValue;
     }
 }

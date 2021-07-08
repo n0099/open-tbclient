@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import io.flutter.embedding.android.SplashScreen;
 /* compiled from: SplashScreen.java */
-/* loaded from: classes10.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

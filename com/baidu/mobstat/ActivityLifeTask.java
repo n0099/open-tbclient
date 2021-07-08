@@ -12,24 +12,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ActivityLifeTask {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8352a;
+    public static boolean f8369a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8353b;
+    public static ActivityLifeObserver.IActivityLifeCallback f8370b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8354c;
+    public static ActivityLifeObserver.IActivityLifeCallback f8371c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8355d;
+    public static ActivityLifeObserver.IActivityLifeCallback f8372d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f8356e;
+    public static ActivityLifeObserver.IActivityLifeCallback f8373e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,10 +65,10 @@ public class ActivityLifeTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
-                f8353b = new AutoTrack.MyActivityLifeCallback(1);
-                f8355d = new af.a();
-                f8354c = new av.a();
-                f8356e = new AutoTrack.MyActivityLifeCallback(2);
+                f8370b = new AutoTrack.MyActivityLifeCallback(1);
+                f8372d = new af.a();
+                f8371c = new av.a();
+                f8373e = new AutoTrack.MyActivityLifeCallback(2);
             }
         }
     }
@@ -77,17 +77,17 @@ public class ActivityLifeTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
-                if (f8352a) {
+                if (f8369a) {
                     return;
                 }
                 a(context);
                 ActivityLifeObserver.instance().clearObservers();
-                ActivityLifeObserver.instance().addObserver(f8353b);
-                ActivityLifeObserver.instance().addObserver(f8355d);
-                ActivityLifeObserver.instance().addObserver(f8354c);
-                ActivityLifeObserver.instance().addObserver(f8356e);
+                ActivityLifeObserver.instance().addObserver(f8370b);
+                ActivityLifeObserver.instance().addObserver(f8372d);
+                ActivityLifeObserver.instance().addObserver(f8371c);
+                ActivityLifeObserver.instance().addObserver(f8373e);
                 ActivityLifeObserver.instance().registerActivityLifeCallback(context);
-                f8352a = true;
+                f8369a = true;
             }
         }
     }

@@ -2,6 +2,7 @@ package com.facebook.drawee.components;
 
 import android.os.Handler;
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DeferredReleaser {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -25,7 +26,7 @@ public class DeferredReleaser {
     public final Handler mUiHandler;
     public final Runnable releaseRunnable;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface Releasable {
         void release();
     }
@@ -99,7 +100,7 @@ public class DeferredReleaser {
 
     public static void ensureOnUiThread() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65540, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             Preconditions.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
         }
     }

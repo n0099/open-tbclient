@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class de implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LoggerInterface f42957a;
+    public LoggerInterface f39971a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoggerInterface f42958b;
+    public LoggerInterface f39972b;
 
     public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class de implements LoggerInterface {
                 return;
             }
         }
-        this.f42957a = null;
-        this.f42958b = null;
-        this.f42957a = loggerInterface;
-        this.f42958b = loggerInterface2;
+        this.f39971a = null;
+        this.f39972b = null;
+        this.f39971a = loggerInterface;
+        this.f39972b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            LoggerInterface loggerInterface = this.f42957a;
+            LoggerInterface loggerInterface = this.f39971a;
             if (loggerInterface != null) {
                 loggerInterface.log(str);
             }
-            LoggerInterface loggerInterface2 = this.f42958b;
+            LoggerInterface loggerInterface2 = this.f39972b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str);
             }
@@ -57,11 +57,11 @@ public class de implements LoggerInterface {
     public void log(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
-            LoggerInterface loggerInterface = this.f42957a;
+            LoggerInterface loggerInterface = this.f39971a;
             if (loggerInterface != null) {
                 loggerInterface.log(str, th);
             }
-            LoggerInterface loggerInterface2 = this.f42958b;
+            LoggerInterface loggerInterface2 = this.f39972b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str, th);
             }

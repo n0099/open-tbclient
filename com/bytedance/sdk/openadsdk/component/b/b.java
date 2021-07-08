@@ -16,7 +16,7 @@ import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeDrawVideoTsView;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.r.o;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b extends c implements TTDrawFeedAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,16 +94,16 @@ public class b extends c implements TTDrawFeedAd {
         NativeDrawVideoTsView nativeDrawVideoTsView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f30079h != null && this.f30080i != null) {
+            if (this.f30189h != null && this.f30190i != null) {
                 if (h()) {
                     try {
-                        nativeDrawVideoTsView = new NativeDrawVideoTsView(this.f30080i, this.f30079h);
+                        nativeDrawVideoTsView = new NativeDrawVideoTsView(this.f30190i, this.f30189h);
                         nativeDrawVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a(this) { // from class: com.bytedance.sdk.openadsdk.component.b.b.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f29221a;
+                            public final /* synthetic */ b f29331a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -120,25 +120,25 @@ public class b extends c implements TTDrawFeedAd {
                                         return;
                                     }
                                 }
-                                this.f29221a = this;
+                                this.f29331a = this;
                             }
 
                             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
                             public void a(boolean z, long j, long j2, long j3, boolean z2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2)}) == null) {
-                                    com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) this.f29221a).f29222a;
-                                    aVar.f31491a = z;
-                                    aVar.f31495e = j;
-                                    aVar.f31496f = j2;
-                                    aVar.f31497g = j3;
-                                    aVar.f31494d = z2;
+                                    com.bytedance.sdk.openadsdk.multipro.b.a aVar = ((c) this.f29331a).f29332a;
+                                    aVar.f31601a = z;
+                                    aVar.f31605e = j;
+                                    aVar.f31606f = j2;
+                                    aVar.f31607g = j3;
+                                    aVar.f31604d = z2;
                                 }
                             }
                         });
                         nativeDrawVideoTsView.setVideoAdLoadListener(this);
                         nativeDrawVideoTsView.setVideoAdInteractionListener(this);
-                        int d2 = o.d(this.f30079h.ao());
+                        int d2 = o.d(this.f30189h.ao());
                         nativeDrawVideoTsView.setIsAutoPlay(a(d2));
                         nativeDrawVideoTsView.setIsQuiet(com.bytedance.sdk.openadsdk.core.o.h().b(d2));
                         nativeDrawVideoTsView.setCanInterruptVideoPlay(this.n);
@@ -235,15 +235,15 @@ public class b extends c implements TTDrawFeedAd {
             if (3 == d2) {
                 return false;
             }
-            if (1 != d2 || !com.bytedance.sdk.component.utils.m.d(this.f30080i)) {
+            if (1 != d2 || !com.bytedance.sdk.component.utils.m.d(this.f30190i)) {
                 if (2 == d2) {
-                    if (!com.bytedance.sdk.component.utils.m.e(this.f30080i) && !com.bytedance.sdk.component.utils.m.d(this.f30080i) && !com.bytedance.sdk.component.utils.m.f(this.f30080i)) {
+                    if (!com.bytedance.sdk.component.utils.m.e(this.f30190i) && !com.bytedance.sdk.component.utils.m.d(this.f30190i) && !com.bytedance.sdk.component.utils.m.f(this.f30190i)) {
                         return false;
                     }
                 } else if (5 != d2) {
                     return false;
                 } else {
-                    if (!com.bytedance.sdk.component.utils.m.d(this.f30080i) && !com.bytedance.sdk.component.utils.m.f(this.f30080i)) {
+                    if (!com.bytedance.sdk.component.utils.m.d(this.f30190i) && !com.bytedance.sdk.component.utils.m.f(this.f30190i)) {
                         return false;
                     }
                 }
