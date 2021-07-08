@@ -18,10 +18,7 @@ import com.baidu.android.lbspay.LBSPayInner;
 import com.baidu.android.lbspay.network.INetwork;
 import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
-import com.baidu.fsg.base.router.LocalRouter;
-import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
 import com.baidu.tieba.wallet.pay.PayActivityStatic;
@@ -33,14 +30,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduWallet;
-import com.baidu.wallet.lightapp.base.LightAppWrapper;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipayProxyCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
-import d.a.o0.d.a;
 import d.a.o0.l0.d;
 import d.a.o0.l0.e;
 import d.a.o0.l0.f;
@@ -48,7 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.athena.revenue.payui.YYPayUIKit;
 /* loaded from: classes4.dex */
 public class WalletPluginImpl implements IWalletPlugin {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,7 +80,7 @@ public class WalletPluginImpl implements IWalletPlugin {
             return;
         }
         PayActivityStatic.initBaiduWallet();
-        BaiduLBSPay.getInstance().doCallFrontCashierPay(activity, null, new LBSPayBack(this, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.7
+        BaiduLBSPay.getInstance().doCallFrontCashierPay(activity, null, new LBSPayBack(this, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WalletPluginImpl this$0;
@@ -146,7 +134,7 @@ public class WalletPluginImpl implements IWalletPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
             PayActivityStatic.initBaiduWallet();
-            BaiduWallet.getInstance().doPay(context, str, new PayCallBack(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.4
+            BaiduWallet.getInstance().doPay(context, str, new PayCallBack(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WalletPluginImpl this$0;
@@ -198,7 +186,7 @@ public class WalletPluginImpl implements IWalletPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, bdUniqueId) == null) {
             PayActivityStatic.initBaiduWallet();
-            BaiduWallet.getInstance().doPay(context, str, new PayCallBack(this, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.5
+            BaiduWallet.getInstance().doPay(context, str, new PayCallBack(this, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WalletPluginImpl this$0;
@@ -252,7 +240,7 @@ public class WalletPluginImpl implements IWalletPlugin {
     public void doBindCard(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, map) == null) {
-            LBSPayInner.getInstance().doBindCard(context, new BindBack(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.9
+            LBSPayInner.getInstance().doBindCard(context, new BindBack(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WalletPluginImpl this$0;
@@ -300,7 +288,7 @@ public class WalletPluginImpl implements IWalletPlugin {
     public ITiebaPay doTiebaPay(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) ? new ITiebaPay(this, activity) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.8
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) ? new ITiebaPay(this, activity) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WalletPluginImpl this$0;
@@ -355,10 +343,10 @@ public class WalletPluginImpl implements IWalletPlugin {
             public void pay(String str, HashMap<String, String> hashMap, ITiebaPayCallback iTiebaPayCallback) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, iTiebaPayCallback) == null) {
-                    LBSPayBack lBSPayBack = new LBSPayBack(this, iTiebaPayCallback) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.8.1
+                    LBSPayBack lBSPayBack = new LBSPayBack(this, iTiebaPayCallback) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.5.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ AnonymousClass8 this$1;
+                        public final /* synthetic */ AnonymousClass5 this$1;
                         public final /* synthetic */ ITiebaPayCallback val$callback;
 
                         {
@@ -437,167 +425,6 @@ public class WalletPluginImpl implements IWalletPlugin {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ResUtils.setApplicationContext(TbadkCoreApplication.getInst());
-            ResUtils.setResourcePackageName("com.baidu.tieba.pluginWallet");
-            com.baidu.apollon.utils.ResUtils.setApplicationContext(TbadkCoreApplication.getInst());
-            com.baidu.apollon.utils.ResUtils.setResourcePackageName("com.baidu.tieba");
-            YYPayUIKit.setAlipaySdkProxy(new IAlipaySdkServiceProxy(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WalletPluginImpl this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy
-                public void sendPay(long j, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
-                        try {
-                            a aVar = new a();
-                            aVar.f51881a = activity;
-                            aVar.f51882b = str;
-                            aVar.f51883c = false;
-                            iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
-                        } catch (Exception e2) {
-                            iAlipayProxyCallback.onFail(e2.getMessage());
-                        }
-                    }
-                }
-            });
-            YYPayUIKit.setWechatSdkProxy(new IWechatSdkServiceProxy(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WalletPluginImpl this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
-                public void onWxPayResult(int i2, String str) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    }
-                }
-
-                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
-                public void sendPay(long j, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), activity, str, iWechatProxyCallback}) == null) {
-                        PayActivityStatic.registerYYPayUIKitProxy(str, iWechatProxyCallback);
-                    }
-                }
-            });
-            YYPayUIKit.setDxmPaySdkProxy(new IDxmSdkServiceProxy(this) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ WalletPluginImpl this$0;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                }
-
-                @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy
-                public void sendPay(long j, Activity activity, String str, IDxmProxyCallback iDxmProxyCallback) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iDxmProxyCallback}) == null) {
-                        PayActivityStatic.initBaiduWallet();
-                        BaiduWallet.getInstance().doPay(TbadkCoreApplication.getInst(), str, new PayCallBack(this, iDxmProxyCallback) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.3.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ AnonymousClass3 this$1;
-                            public final /* synthetic */ IDxmProxyCallback val$iDxmProxyCallback;
-
-                            {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, iDxmProxyCallback};
-                                    interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable3.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$1 = this;
-                                this.val$iDxmProxyCallback = iDxmProxyCallback;
-                            }
-
-                            @Override // com.baidu.android.pay.PayCallBack
-                            public boolean isHideLoadingDialog() {
-                                InterceptResult invokeV;
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
-                                    return false;
-                                }
-                                return invokeV.booleanValue;
-                            }
-
-                            @Override // com.baidu.android.pay.PayCallBack
-                            public void onPayResult(int i2, String str2) {
-                                Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                                    this.val$iDxmProxyCallback.onSuccess(i2, str2);
-                                }
-                            }
-                        });
-                    }
-                }
-            });
-            LightAppWrapper.getInstance().initLightApp(new LightAppListenerImpl());
-            try {
-                LocalRouter.init(TbadkCoreApplication.getInst());
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
         }
     }
 
@@ -632,7 +459,7 @@ public class WalletPluginImpl implements IWalletPlugin {
     public void doAliPay(Activity activity, String str, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, bdUniqueId) == null) {
-            new BdAsyncTask<String, Integer, Map<String, String>>(this, activity, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.6
+            new BdAsyncTask<String, Integer, Map<String, String>>(this, activity, bdUniqueId) { // from class: com.baidu.tieba.wallet.WalletPluginImpl.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WalletPluginImpl this$0;
